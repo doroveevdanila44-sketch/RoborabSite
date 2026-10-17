@@ -20,7 +20,7 @@
 {{ASSET_VARS}}
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;background:var(--fg)}
 body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.5 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--seo);outline-offset:3px}
@@ -477,7 +477,7 @@ textarea{min-height:96px;resize:vertical}
       if (sw > 0) p.style.fontSize = (100 * w / sw) + 'px';
     });
     var word = document.querySelector('.word'), sofa = document.querySelector('.sofa'), banner = document.querySelector('.banner'), top = fits[0], bot = fits[1];
-    [word, sofa, banner, bot].forEach(function(e){ e.style.marginTop = ''; });
+    [word, sofa, banner, bot].forEach(function(e){ e.style.marginTop = ''; e.style.marginBottom = ''; });
     document.querySelectorAll('.hero .ht .ml').forEach(function(l){ l.style.marginTop = ''; l.style.fontSize = ''; });
     var dn0 = document.querySelector('.down'); if (dn0) { dn0.style.top = ''; dn0.style.bottom = ''; }
     top.style.lineHeight = '';
@@ -517,7 +517,7 @@ textarea{min-height:96px;resize:vertical}
         wh = word.getBoundingClientRect().height; sh = sofa.getBoundingClientRect().height; Bn = bot.getBoundingClientRect().height;
         var abn = inkAsc(bot, 'б'), acn = inkAsc(bot, 'В'), dln = abn > acn ? abn - acn : 0;
         var ptn = 0.0161 * wh, pbn = 0.0099 * wh, psn = 0.012 * sh;
-        var Tn = Math.min(28, Math.max(14, 0.022 * window.innerHeight)), Bt = 4;
+        var Tn = Math.min(28, Math.max(14, 0.022 * window.innerHeight)), Bt = -15;
         var nG = tl.length + 2, af = Math.max(8, (window.innerHeight - Tn - Bt - capSum - wh - Bn - sh + ptn + pbn - dln + psn) / nG);
         /* зазоры текста вдвое меньше и подтянуты к верху; горилла на диване остаётся внизу, место уходит между «В БИЗНЕС» и ней */
         var an = af / 2, extraS = nG * (af - an);
@@ -527,8 +527,9 @@ textarea{min-height:96px;resize:vertical}
         sofa.style.marginTop = Math.max(0, an - psn + extraS) + 'px';
         root.style.setProperty('--rg', '0px');
         root.style.setProperty('--G', Tn + 'px');
-        root.style.setProperty('--Gb', Bt + 'px');
-        root.style.setProperty('--Gref', Bt + 'px');
+        root.style.setProperty('--Gb', '0px');
+        root.style.setProperty('--Gref', '4px');
+        sofa.style.marginBottom = Bt + 'px';
         /* стрелка на телефоне стоит посередине промежутка между «В БИЗНЕС» и гориллой */
         var dn = document.querySelector('.down'), hero = document.querySelector('.hero');
         if (dn && hero) {
