@@ -79,6 +79,7 @@ a{color:inherit}
 .down{position:absolute;left:50%;translate:-50% 0;bottom:clamp(12px,calc(var(--Gref,var(--G)) * .3),40px);height:34px;display:flex;align-items:center;gap:8px;color:#a3a9af;text-decoration:none;white-space:nowrap;animation:bob 1.8s ease-in-out infinite}
 .down span{font:600 11px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:#7b838a}
 @media(max-height:760px) and (min-width:761px){.down{display:none}}
+@media(max-width:760px),(orientation:portrait) and (max-width:1100px){.down{display:none}}
 .down{transition:opacity .35s ease}
 .down:not(.gone){opacity:1}
 .down.gone{animation:none;opacity:0;pointer-events:none}
@@ -89,7 +90,7 @@ a{color:inherit}
 .hero .ht span{display:inline-block;white-space:nowrap}
 .hero .ht{position:relative;z-index:1}
 .hero .ht2{line-height:.95;white-space:normal}
-@media(max-width:760px){
+@media(max-width:760px),(orientation:portrait) and (max-width:1100px){
   .hero .ht{font-size:8cqw;line-height:.95;white-space:normal}
   .hero .ht .d{display:contents}
   .hero .ht .ml{display:block;width:max-content;white-space:nowrap;letter-spacing:-.03em}
@@ -104,8 +105,8 @@ a{color:inherit}
 .banner{--gap:var(--m);--colw:calc((100cqw - var(--gap)) / 2);display:grid;grid-template-columns:var(--colw) var(--colw);column-gap:var(--gap);row-gap:var(--gap);align-items:end}
 .word{grid-column:1;grid-row:1;width:100%;aspect-ratio:1010 / 559;background:var(--img-roborab) center / 100% 100% no-repeat}
 .sofa{grid-column:2;grid-row:1;width:100%;aspect-ratio:1652 / 830;background:var(--img-sofa) center / 100% 100% no-repeat}
-@supports (text-box:trim-both cap alphabetic){.tb .hero .ht{text-box:trim-both cap alphabetic}@media(max-width:760px){.tb .hero .ht{text-box:none}.tb .hero .ht .ml{text-box:trim-both cap alphabetic}}}
-@media(max-width:760px){
+@supports (text-box:trim-both cap alphabetic){.tb .hero .ht{text-box:trim-both cap alphabetic}@media(max-width:760px),(orientation:portrait) and (max-width:1100px){.tb .hero .ht{text-box:none}.tb .hero .ht .ml{text-box:trim-both cap alphabetic}}}
+@media(max-width:760px),(orientation:portrait) and (max-width:1100px){
   .banner{display:contents;transform:none}
   .word{grid-column:1;grid-row:2}
   .sofa{grid-column:1;grid-row:4}
@@ -489,8 +490,9 @@ textarea{min-height:96px;resize:vertical}
     var c = getComputedStyle(el); ctx.font = c.fontWeight + ' 100px ' + c.fontFamily;
     return ctx.measureText(text.toUpperCase()).actualBoundingBoxAscent * parseFloat(c.fontSize) / 100;
   }
-  function fitAll(){
-    var narrow = window.matchMedia('(max-width: 760px)').matches;
+  function fitAll(again){
+    var heroEl = document.querySelector('.hero'); if (heroEl && !again) { heroEl.style.paddingLeft = ''; heroEl.style.paddingRight = ''; }
+    var narrow = window.matchMedia('(max-width:760px),(orientation:portrait) and (max-width:1100px)').matches;
     var tb = !!(window.CSS && CSS.supports && CSS.supports('text-box', 'trim-both cap alphabetic'));
     root.classList.toggle('tb', tb);
     fits.forEach(function(p){
@@ -541,8 +543,17 @@ textarea{min-height:96px;resize:vertical}
         wh = word.getBoundingClientRect().height; sh = sofa.getBoundingClientRect().height; Bn = bot.getBoundingClientRect().height;
         var abn = inkAsc(bot, 'б'), acn = inkAsc(bot, 'В'), dln = abn > acn ? abn - acn : 0;
         var ptn = 0.0161 * wh, pbn = 0.0099 * wh, psn = 0.012 * sh;
-        var Tn = Math.min(28, Math.max(14, 0.022 * window.innerHeight)), Bt = -15;
-        var nG = tl.length + 2, af = Math.max(8, (window.innerHeight - Tn - Bt - capSum - wh - Bn - sh + ptn + pbn - dln + psn) / nG);
+        var Tn = Math.min(28, Math.max(14, 0.022 * window.innerHeight)), Bt = window.innerWidth <= 760 ? -15 : 4;
+        var nG = tl.length + 2, fixedH = capSum + wh + Bn + sh - ptn - pbn + dln - psn;
+        var rawAf = (window.innerHeight - Tn - Bt - fixedH) / nG, tgtAf = 0.03 * window.innerHeight;
+        if (!again && rawAf < tgtAf && fixedH > 0) {
+          /* планшет: на широком экране блок не влезает по высоте, сужаем его по центру */
+          var kk = Math.max(0.3, (window.innerHeight - Tn - Bt - nG * tgtAf) / fixedH), cw = top.clientWidth, side = cw * (1 - kk) / 2;
+          var hs = getComputedStyle(heroEl), pl = parseFloat(hs.paddingLeft) || 0, pr = parseFloat(hs.paddingRight) || 0;
+          heroEl.style.paddingLeft = (pl + side) + 'px'; heroEl.style.paddingRight = (pr + side) + 'px';
+          return fitAll(true);
+        }
+        var af = Math.max(8, rawAf);
         /* зазоры текста вдвое меньше и подтянуты к верху; горилла на диване остаётся внизу, место уходит между «В БИЗНЕС» и ней */
         var an = af / 2, extraS = nG * (af - an);
         tl.forEach(function(l, i){ if (i) l.style.marginTop = an + 'px'; });
@@ -591,8 +602,8 @@ textarea{min-height:96px;resize:vertical}
       root.style.removeProperty('--Gb');
     }
   }
-  fitAll(); window.addEventListener('resize', fitAll); window.addEventListener('load', fitAll);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitAll);
+  fitAll(); window.addEventListener('resize', function(){ fitAll(); }); window.addEventListener('load', function(){ fitAll(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ fitAll(); });
 })();
 
 (function(){var d=document.querySelector('.down');if(!d)return;
