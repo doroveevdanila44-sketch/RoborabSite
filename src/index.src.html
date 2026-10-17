@@ -58,7 +58,7 @@ a{color:inherit}
 .hero{position:relative;container-type:inline-size;display:grid;grid-template-columns:minmax(0,1fr);row-gap:var(--rg,24px);padding-top:var(--G);padding-bottom:var(--Gb,var(--G))}
 .down{position:absolute;left:50%;translate:-50% 0;bottom:clamp(12px,calc(var(--Gref,var(--G)) * .3),40px);height:34px;display:flex;align-items:center;gap:8px;color:#a3a9af;text-decoration:none;white-space:nowrap;animation:bob 1.8s ease-in-out infinite}
 .down span{font:600 11px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:#7b838a}
-@media(max-height:760px){.down{display:none}}
+@media(max-height:760px),(max-width:760px){.down{display:none}}
 .down{transition:opacity .35s ease}
 .down:not(.gone){opacity:1}
 .down.gone{animation:none;opacity:0;pointer-events:none}
@@ -516,7 +516,7 @@ textarea{min-height:96px;resize:vertical}
         wh = word.getBoundingClientRect().height; sh = sofa.getBoundingClientRect().height; Bn = bot.getBoundingClientRect().height;
         var abn = inkAsc(bot, 'б'), acn = inkAsc(bot, 'В'), dln = abn > acn ? abn - acn : 0;
         var ptn = 0.0161 * wh, pbn = 0.0099 * wh, psn = 0.012 * sh;
-        var Tn = Math.min(28, Math.max(14, 0.022 * window.innerHeight)), Bt = Math.max(56, Tn);
+        var Tn = Math.min(28, Math.max(14, 0.022 * window.innerHeight)), Bt = 12;
         var nG = tl.length + 2, af = Math.max(8, (window.innerHeight - Tn - Bt - capSum - wh - Bn - sh + ptn + pbn - dln + psn) / nG);
         /* зазоры текста вдвое меньше и подтянуты к верху; горилла на диване остаётся внизу, место уходит между «В БИЗНЕС» и ней */
         var an = af / 2, extraS = nG * (af - an);
