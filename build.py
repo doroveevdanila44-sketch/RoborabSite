@@ -8,7 +8,9 @@ src = (root / 'src' / 'index.src.html').read_text()
 src = src.replace('{{ASSET_VARS}}', vars_)
 src = src.replace('{{VIDEO_CALL}}', b64('call.mp4', 'video/mp4')).replace('{{VIDEO_AVATARS}}', b64('avatars.mp4', 'video/mp4'))
 out = root / 'dist'; out.mkdir(exist_ok=True)
-(out / 'index.html').write_text(src)
+# полноценный документ: без doctype и viewport телефон открывает десктопную раскладку
+HEAD = '<!doctype html>\n<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
+(out / 'index.html').write_text(HEAD + src + '\n</html>\n')
 print(len(src) / 1e6, 'MB')
 
 import base64
