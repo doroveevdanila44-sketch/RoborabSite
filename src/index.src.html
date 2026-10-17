@@ -169,13 +169,11 @@ a{color:inherit}
 
 /* ---------- каталог: одно сплошное белое пространство. Картинка разрезана по плашке, низ уехал вниз, в разрезе вся информация. Без теней, без наслоения ---------- */
 .product{background:#fff;padding:0;margin-top:var(--S)}
-.product .half.bot{-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 84%,rgba(0,0,0,.45) 93%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 84%,rgba(0,0,0,.45) 93%,transparent 100%)}
-.cut{display:flex;flex-direction:column;width:100%;max-width:1920px;margin-inline:auto}
-.half{position:relative;container-type:inline-size;--u:calc(100cqw / var(--cw));overflow:hidden;background:#fff}
-.half.top{aspect-ratio:calc(var(--cw) / (var(--ct) - var(--cy)))}
-.half.bot{aspect-ratio:calc(var(--cw) / (var(--cy) + var(--ch) - var(--cb)))}
-.half.bot .pic{top:calc(var(--cb) / var(--cw) * -100cqw)}
-.panel{position:relative;z-index:2;container-type:inline-size;background:#fff;padding:clamp(18px,2.4vw,40px) var(--m)}
+.card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(8px,3vw,56px);width:100%;max-width:1760px;margin-inline:auto;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
+.mascot{width:100%;max-width:760px;aspect-ratio:1;justify-self:center;background:var(--mimg) center/contain no-repeat;-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 90%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 90%,transparent 100%)}
+#tax .mascot,#booking .mascot{order:2}
+@media(max-width:860px){.card{grid-template-columns:minmax(0,1fr);gap:0}.mascot{max-width:520px;order:0!important}}
+.panel{position:relative;z-index:2;container-type:inline-size;background:#fff;padding:clamp(8px,2vw,32px) 0}
 .panel .in{width:100%}
 .panel .row{display:grid;grid-template-columns:1fr auto;gap:12px 24px;align-items:end}
 .meta{font:600 12px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
@@ -186,21 +184,11 @@ a{color:inherit}
 .panel .btn{background:var(--acc)}
 @container (max-width:620px){.panel .row{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.panel .btn{width:100%}}
 
-/* параметры кропа и разреза: px исходной картинки. ct/cb: верх и низ разреза. Десктоп: картинки целиком, без обрезки */
-#tax{--acc:var(--tax);--img:var(--img-tax-wide);--W:1672;--H:941;--cx:0;--cy:29;--cw:1672;--ch:912;--ct:505;--cb:580}
-#catalog{--acc:var(--fit);--img:var(--img-fit-wide);--W:1672;--H:941;--cx:0;--cy:6;--cw:1672;--ch:918;--ct:412;--cb:467}
-#booking{--acc:var(--booking);--img:var(--img-booking);--W:1672;--H:941;--cx:0;--cy:19;--cw:1672;--ch:922;--ct:536;--cb:627}
-#build{--acc:var(--build);--img:var(--img-build);--W:1672;--H:941;--cx:0;--cy:0;--cw:1672;--ch:905;--ct:476;--cb:526}
-#seo{--acc:var(--seo);--img:var(--img-seo);--W:1672;--H:941;--cx:0;--cy:7;--cw:1672;--ch:921;--ct:414;--cb:463}
-/* телефон: приближение, чтобы маскот читался; низ приближённых картинок уходит в растушёвку */
-@media(max-width:760px){
-  #tax{--img:var(--img-m-tax);--W:941;--H:1672;--cx:0;--cy:50;--cw:941;--ch:1622;--ct:826;--cb:988}
-  #catalog{--img:var(--img-m-fit);--W:941;--H:1672;--cx:0;--cy:128;--cw:941;--ch:1450;--ct:697;--cb:772}
-  #booking{--img:var(--img-m-booking);--W:940;--H:1672;--cx:0;--cy:100;--cw:940;--ch:1572;--ct:856;--cb:1012}
-  #build{--img:var(--img-m-build);--W:941;--H:1672;--cx:0;--cy:132;--cw:941;--ch:1440;--ct:738;--cb:798}
-  #seo{--img:var(--img-m-seo);--W:941;--H:1672;--cx:0;--cy:110;--cw:941;--ch:1480;--ct:700;--cb:771}
-  .product .half.bot{-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 88%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 88%,transparent 100%)}
-}
+#catalog{--acc:var(--fit);--mimg:var(--img-c-fit)}
+#tax{--acc:var(--tax);--mimg:var(--img-c-tax)}
+#build{--acc:var(--build);--mimg:var(--img-c-build)}
+#booking{--acc:var(--booking);--mimg:var(--img-c-booking)}
+#seo{--acc:var(--seo);--mimg:var(--img-c-seo)}
 /* телефоны */
 #call{--simg:var(--img-phone-human);--W:1672;--H:941;--cx:0;--cy:74;--cw:1672;--ch:804;--over:28;--sx:673;--sy:87;--sw:350;--sh:747;--sr:44}
 #avatars{--simg:var(--img-phone-pink);--W:1672;--H:941;--cx:0;--cy:68;--cw:1672;--ch:859;--over:145;--sx:674;--sy:80;--sw:324;--sh:691;--sr:44}
@@ -288,73 +276,58 @@ textarea{min-height:96px;resize:vertical}
 
 
   <section class="product" id="catalog">
-    <div class="cut" role="group" aria-label="Маскот фитнес-CRM">
-      <div class="half top" aria-hidden="true"><div class="pic"></div></div>
+    <div class="card"><div class="mascot" role="img" aria-label="Маскот фитнес-CRM"></div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Фитнес-CRM</h3><p class="tag">Клиенты, абонементы и ИИ-агент</p></div>
           <a class="btn" href="#contact">Обсудить внедрение</a>
         </div>
         <ul class="feats"><li>Клиенты, абонементы и расписание клуба</li><li>Заявки и продажи в воронке</li><li>ИИ-агент общается с клиентами клуба</li></ul>
-      </div></div>
-      <div class="half bot" aria-hidden="true"><div class="pic"></div></div>
-    </div>
+      </div></div></div>
   </section>
 
   <section class="product fade" id="tax">
-    <div class="cut" role="group" aria-label="Маскот налогового агента">
-      <div class="half top" aria-hidden="true"><div class="pic"></div></div>
+    <div class="card"><div class="mascot" role="img" aria-label="Маскот налогового агента"></div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Налоговый агент</h3><p class="tag">Прогноз налогов и платежей</p></div>
           <a class="btn" href="#contact">Обсудить внедрение</a>
         </div>
         <ul class="feats"><li>Прогноз налоговой нагрузки на период</li><li>Сроки и суммы платежей в одном месте</li><li>Агент отвечает на вопросы по вашим данным</li></ul>
-      </div></div>
-      <div class="half bot" aria-hidden="true"><div class="pic"></div></div>
-    </div>
+      </div></div></div>
   </section>
 
   <section class="product" id="build">
-    <div class="cut" role="group" aria-label="Маскот строительного учёта">
-      <div class="half top" aria-hidden="true"><div class="pic"></div></div>
+    <div class="card"><div class="mascot" role="img" aria-label="Маскот строительного учёта"></div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Строй-учёт</h3><p class="tag">Объекты, материалы и затраты</p></div>
           <a class="btn" href="#contact">Обсудить внедрение</a>
         </div>
         <ul class="feats"><li>Объекты, материалы и работы в одной базе</li><li>Учёт затрат по каждому объекту</li><li>Сводка для руководителя по всем объектам</li></ul>
-      </div></div>
-      <div class="half bot" aria-hidden="true"><div class="pic"></div></div>
-    </div>
+      </div></div></div>
   </section>
 
   <section class="product fade" id="booking">
-    <div class="cut" role="group" aria-label="Маскот букинг-CRM">
-      <div class="half top" aria-hidden="true"><div class="pic"></div></div>
+    <div class="card"><div class="mascot" role="img" aria-label="Маскот букинг-CRM"></div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Букинг-CRM</h3><p class="tag">Все заявки отеля в одном окне</p></div>
           <a class="btn" href="#contact">Обсудить внедрение</a>
         </div>
         <ul class="feats"><li>Все заявки на бронирование в одном списке</li><li>Статус и история по каждой заявке</li><li>Владелец отеля следит за заявками сам</li></ul>
-      </div></div>
-      <div class="half bot" aria-hidden="true"><div class="pic"></div></div>
-    </div>
+      </div></div></div>
   </section>
 
   <section class="product" id="seo">
-    <div class="cut" role="group" aria-label="Маскот SEO и GEO">
-      <div class="half top" aria-hidden="true"><div class="pic"></div></div>
+    <div class="card"><div class="mascot" role="img" aria-label="Маскот SEO и GEO"></div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>SEO / GEO</h3><p class="tag">Настройка, аналитика, админ-панели</p></div>
           <a class="btn" href="#contact">Обсудить внедрение</a>
         </div>
         <ul class="feats"><li>Настройка SEO и GEO: видимость сайта в поиске и в ответах ИИ</li><li>Аналитика по запросам и упоминаниям</li><li>Админ-панели для управления настройками</li></ul>
-      </div></div>
-      <div class="half bot" aria-hidden="true"><div class="pic"></div></div>
-    </div>
+      </div></div></div>
   </section>
 
   <!-- ТРИ ФОРМАТА ОБЩЕНИЯ -->
