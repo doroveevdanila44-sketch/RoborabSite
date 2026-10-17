@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>РОБОРАБ AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--fg:#101417;--mute:#5b646c;--line:#e3e7ea;--soft:#f3f5f6;--side:#f7f8f9;--acc:#d62f60;--sw:280px;color-scheme:light}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font:400 16px/1.5 'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:var(--fg);background:#fff;display:flex;overflow:hidden}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;padding:0}
+svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+/* sidebar */
+aside{width:var(--sw);background:var(--side);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:12px;gap:4px;flex:none;height:100%;overflow:hidden;z-index:30}
+.brand{display:flex;align-items:center;gap:10px;padding:8px 8px 14px}
+.ico{width:34px;height:34px;border-radius:24%;background:url(data:image/webp;base64,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) center/cover;box-shadow:0 0 0 1px rgba(0,0,0,.09);flex:none}
+.brand b{font-weight:800;letter-spacing:-.02em;font-size:18px}
+.nav{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:12px;font-weight:500;font-size:15px;width:100%;text-align:left;color:var(--fg)}
+.nav:hover{background:#eceff1}
+.nav.new{background:var(--fg);color:#fff;font-weight:600;margin-bottom:6px}
+.nav.new:hover{background:#262d33}
+.sec{font:600 11px/1 'Inter',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding:16px 10px 6px}
+.list{overflow:auto;display:flex;flex-direction:column;gap:2px;flex:1;min-height:0}
+.list .nav{font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.list .nav.on{background:#e8ebed;font-weight:500}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:10px}
+.me{display:flex;align-items:center;gap:10px;padding:10px;border-top:1px solid var(--line);margin:6px -12px -12px;padding:12px 18px;cursor:pointer}
+.me:hover{background:#eceff1}
+.av{width:34px;height:34px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px;flex:none}
+.me small{display:block;color:var(--mute);font-size:12px;line-height:1.2}
+.me b{display:block;font-size:14px;line-height:1.2}
+/* main */
+main{flex:1;min-width:0;display:flex;flex-direction:column;height:100%;position:relative}
+.top{display:flex;align-items:center;gap:10px;padding:10px 16px;min-height:56px}
+.top .burger{display:none;width:40px;height:40px;border-radius:10px;place-items:center}
+.top .burger:hover,.top .ib:hover{background:var(--soft)}
+.model{display:flex;align-items:center;gap:6px;font-weight:700;font-size:17px;letter-spacing:-.02em;padding:6px 10px;border-radius:10px}
+.model:hover{background:var(--soft)}
+.model svg{width:16px;height:16px}
+.top .sp{flex:1}
+.ib{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;color:var(--mute)}
+.top a.back{font-weight:600;font-size:14px;color:var(--mute);text-decoration:none;padding:8px 12px;border-radius:999px}
+.top a.back:hover{background:var(--soft);color:var(--fg)}
+#log{flex:1;overflow:auto;padding:12px 16px 24px}
+.col{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.m{display:flex;gap:12px;align-items:flex-start}
+.m .ico{width:30px;height:30px;margin-top:2px}
+.m .t{white-space:pre-wrap;padding-top:3px}
+.m.u{justify-content:flex-end}
+.m.u .t{background:var(--soft);padding:10px 16px;border-radius:20px;max-width:80%}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 0 42px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:500}
+.chip:hover{background:var(--soft)}
+.composer{padding:0 16px max(14px,env(safe-area-inset-bottom,0px))}
+.box{max-width:760px;margin:0 auto;border:1px solid var(--line);border-radius:26px;padding:8px 8px 8px 8px;display:flex;align-items:flex-end;gap:6px;background:#fff;box-shadow:0 2px 12px -4px rgba(0,0,0,.12)}
+.box:focus-within{border-color:#c4cad0}
+.box textarea{flex:1;border:0;outline:0;resize:none;font:inherit;padding:10px 6px;max-height:160px;min-height:44px;background:none}
+.box .ib{border-radius:50%}
+.send{width:40px;height:40px;border-radius:50%;background:var(--fg);color:#fff;display:grid;place-items:center;flex:none}
+.send:disabled{opacity:.3;cursor:default}
+.fine{text-align:center;color:var(--mute);font-size:12px;padding:8px 16px 0}
+.scrim{display:none}
+@media(max-width:820px){
+  aside{position:fixed;left:0;top:0;transform:translateX(-100%);transition:transform .25s ease;box-shadow:0 0 40px rgba(0,0,0,.2);width:min(86vw,300px)}
+  body.open aside{transform:none}
+  body.open .scrim{display:block;position:fixed;inset:0;background:rgba(10,12,14,.4);z-index:20}
+  .top .burger{display:grid}
+  .top a.back{display:none}
+}
+</style></head><body>
+<aside id="side" aria-label="Меню">
+  <div class="brand"><span class="ico"></span><b>РОБОРАБ AI</b></div>
+  <button class="nav new" type="button"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Новый чат</button>
+  <button class="nav" type="button"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>Поиск по чатам</button>
+  <button class="nav" type="button"><svg viewBox="0 0 24 24"><path d="M4 7a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></svg>Проекты</button>
+  <button class="nav" type="button"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>Мои инструменты</button>
+  <div class="sec">Проекты</div>
+  <button class="nav" type="button"><span class="dot" style="background:#5f7d1f"></span>Фитнес-CRM</button>
+  <button class="nav" type="button"><span class="dot" style="background:#0f7f8d"></span>Налоговый агент</button>
+  <button class="nav" type="button"><span class="dot" style="background:#d4540a"></span>Строй-учёт</button>
+  <div class="sec">Чаты</div>
+  <div class="list">
+    <button class="nav on" type="button">Первый разговор</button>
+    <button class="nav" type="button">Учёт материалов на объектах</button>
+    <button class="nav" type="button">Налоги и платежи ИП</button>
+    <button class="nav" type="button">Заявки отеля в одном окне</button>
+    <button class="nav" type="button">SEO и видимость в ответах ИИ</button>
+  </div>
+  <div class="me" role="button" tabindex="0"><span class="av" id="av">Г</span><div><b id="who">Гость</b><small>Личный кабинет</small></div></div>
+</aside>
+<div class="scrim" id="scrim"></div>
+<main>
+  <div class="top">
+    <button class="burger ib" id="burger" type="button" aria-label="Меню"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <button class="model" type="button">РОБОРАБ AI <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+    <span class="sp"></span>
+    <button class="ib" type="button" aria-label="Поделиться"><svg viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg></button>
+    <a class="back" href="./">На сайт</a>
+  </div>
+  <div id="log" aria-live="polite"><div class="col" id="col"></div></div>
+  <div class="composer">
+    <form class="box" id="f" autocomplete="off">
+      <button class="ib" type="button" aria-label="Прикрепить файл"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+      <textarea id="t" rows="1" placeholder="Напишите сообщение РОБОРАБ AI" aria-label="Сообщение"></textarea>
+      <button class="ib" type="button" aria-label="Голос"><svg viewBox="0 0 24 24"><rect x="9" y="3.5" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0M12 18v2.5"/></svg></button>
+      <button class="send" id="s" type="submit" aria-label="Отправить"><svg viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+    </form>
+    <div class="fine">Демо-версия: кнопки меню пока заглушки, диалог не сохраняется.</div>
+  </div>
+</main>
+<script>
+(function(){
+  var q=new URLSearchParams(location.search), name=(q.get('name')||'').trim(), prod=(q.get('product')||'').trim();
+  var who=document.getElementById('who'), av=document.getElementById('av');
+  if(name){who.textContent=name;av.textContent=name.charAt(0).toUpperCase()}
+  var hello='Здравствуйте'+(name?', '+name:'')+'! Я агент РОБОРАБ AI.';
+  hello+=(prod&&prod!=='Пока не знаю')?' Вы интересуетесь продуктом «'+prod+'». Задам несколько вопросов, чтобы понять вашу задачу.':' Задам несколько вопросов, чтобы понять, что вам нужно.';
+  var qs=[hello+'\n\nЧем занимается ваша компания?','Какую задачу или процесс вы хотите автоматизировать?','Сколько человек будут пользоваться инструментом?','Спасибо, этого достаточно для первого понимания. Когда чат будет подключён, здесь продолжится диалог.'];
+  var i=0,col=document.getElementById('col'),log=document.getElementById('log'),t=document.getElementById('t'),s=document.getElementById('s');
+  function add(c,x){var d=document.createElement('div');d.className='m '+c;if(c==='a'){var ic=document.createElement('span');ic.className='ico';d.appendChild(ic)}var b=document.createElement('div');b.className='t';b.textContent=x;d.appendChild(b);col.appendChild(d);log.scrollTop=log.scrollHeight}
+  function next(){if(i<qs.length)add('a',qs[i++]);if(i>=qs.length){t.disabled=s.disabled=true}}
+  function send(){var v=t.value.trim();if(!v||t.disabled)return;add('u',v);t.value='';t.style.height='';setTimeout(next,500)}
+  document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();send()});
+  t.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}});
+  t.addEventListener('input',function(){t.style.height='auto';t.style.height=Math.min(160,t.scrollHeight)+'px'});
+  function tog(o){document.body.classList.toggle('open',o)}
+  document.getElementById('burger').addEventListener('click',function(){tog(true)});
+  document.getElementById('scrim').addEventListener('click',function(){tog(false)});
+  next();
+})();
+</script></body></html>
