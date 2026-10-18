@@ -119,7 +119,9 @@ a{color:inherit}
 .paths h2{margin:0;text-align:center;text-transform:uppercase;font:800 clamp(34px,6vw,96px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
 .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,72px);margin-top:clamp(28px,4vw,64px)}
 .path{padding-top:0;min-width:0}
-.path .big{font:800 clamp(140px,26vw,460px)/.82 var(--f-display);letter-spacing:-.05em;margin-left:-.04em}
+.path .big{height:clamp(120px,19vw,340px);background:var(--nimg) left center/contain no-repeat}
+.path .big.n1{aspect-ratio:369/640;--nimg:var(--img-n1)}
+.path .big.n2{aspect-ratio:497/640;--nimg:var(--img-n2)}
 .path h3{margin:clamp(14px,2vw,32px) 0 0;font:800 clamp(22px,2.6vw,44px)/1.1 var(--f-display);letter-spacing:-.03em;text-wrap:balance;max-width:20ch}
 .path .sub{margin:clamp(12px,1.4vw,20px) 0 0;font-size:clamp(17px,1.5vw,24px);line-height:1.35;font-weight:500;color:var(--mute);max-width:30ch}
 .path .btn{margin-top:clamp(18px,2vw,30px)}
@@ -179,34 +181,31 @@ a{color:inherit}
 .panel .btn{background:var(--acc);color:var(--accfg,#fff)}
 @container (max-width:620px){.panel .row{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.panel .btn{width:100%}}
 
-/* ---------- каталог на десктопе: шеренга из пяти, наведение раскрывает одного ---------- */
-.cap{display:none}
+/* ---------- каталог на десктопе: шеренга из пяти; при наведении сверху плавно раскрывается большая карточка, шеренга уезжает вниз ---------- */
+.minis{display:none}
 @media(min-width:861px){
-.deck{display:flex;max-width:1760px;margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));height:var(--dh,600px);gap:0}
-.deck .product{margin:0;flex:1 1 0;min-width:0;position:relative;overflow:hidden;cursor:pointer;transition:flex-grow .55s cubic-bezier(.22,.7,.2,1);outline:none}
-.deck.has-open .product{flex-grow:.22}
-.deck.has-open .product.open{flex-grow:6}
-.deck .card{height:100%;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;max-width:none}
-.deck .mascot{order:0!important;transform:none!important;width:min(100%,230px);max-width:none;flex:0 0 auto;mix-blend-mode:multiply;transition:width .55s cubic-bezier(.22,.7,.2,1)}
-.deck .cap{display:block;text-align:center;font:800 clamp(17px,1.5vw,24px)/1.1 var(--f-display);letter-spacing:-.03em;white-space:nowrap;transition:opacity .25s ease;color:var(--fg)}
-.deck .product:hover .cap{color:var(--acc)}
-.deck #seo .cap,.deck #booking .cap,.deck #tax .cap,.deck #fit .cap,.deck #build .cap{color:var(--fg)}
-.deck .product:not(.open):hover .mascot{transform:translateY(-6px)!important}
-.deck .mascot{transition:width .55s cubic-bezier(.22,.7,.2,1),transform .3s ease}
-.deck .panel{display:none}
-.deck.has-open .product:not(.open) .cap{opacity:0}
-.deck .product.open{cursor:default}
-.deck .product.open .card{flex-direction:row;justify-content:flex-start;gap:clamp(16px,2.4vw,40px)}
-.deck .product.open .mascot{flex:0 0 clamp(200px,26vw,440px);width:clamp(200px,26vw,440px)}
-.deck .product.open .cap{display:none}
-.deck .product.open .panel{display:block;flex:1 1 0;min-width:0;animation:deckin .5s .3s both}
-@keyframes deckin{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
-.deck .mascot{-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%)}
-.deck .panel .btn{width:auto!important;justify-self:start}
+.deck{max-width:1760px;margin:clamp(28px,3.4vw,64px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
+.stage{display:grid;grid-template-rows:0fr;transition:grid-template-rows 1.15s cubic-bezier(.4,.05,.15,1)}
+.deck.has-open .stage{grid-template-rows:1fr}
+.stage-in{min-height:0;overflow:hidden}
+.deck .product{display:none;margin:0}
+.deck .product.open{display:block;animation:deckin 1s ease both}
+@keyframes deckin{from{opacity:0}to{opacity:1}}
+.minis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.mini{appearance:none;background:none;border:0;padding:0;margin:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;font:inherit;color:var(--fg);outline:none;-webkit-tap-highlight-color:transparent}
+.mini .mi{display:block;width:min(100%,230px);aspect-ratio:1;background:var(--mimg) center/contain no-repeat;mix-blend-mode:multiply;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);mask-composite:intersect;transition:transform .9s cubic-bezier(.3,.1,.2,1),opacity .9s ease}
+.mini b{font:800 clamp(17px,1.5vw,24px)/1.1 var(--f-display);letter-spacing:-.03em;transition:opacity .9s ease}
+.mini:hover .mi,.mini:focus-visible .mi{transform:translateY(-6px)}
+.deck.has-open .mini:not(.on) .mi{opacity:.5}
+.deck.has-open .mini:not(.on) b{opacity:.6}
+.deck.has-open .mini:not(.on):hover .mi,.deck.has-open .mini:not(.on):hover b{opacity:1}
+.deck .mascot{transform:none!important}
+.deck+.how{margin-top:clamp(48px,5.5vw,100px)}
 .deck .shots{max-width:min(100%,420px)}
-.deck .panel{padding:0}
+.deck .panel .btn{width:auto!important;justify-self:start}
 }
-@media(prefers-reduced-motion:reduce){.deck .product,.deck .mascot{transition:none!important}.deck .panel{animation:none!important}}
+@media(max-width:860px){.deck .product:first-child{margin-top:calc(var(--S) * .4)}}
+@media(prefers-reduced-motion:reduce){.stage,.mini .mi{transition:none!important}.deck .product.open{animation:none!important}}
 
 #fit{--acc:#a2eb41;--accfg:#101417;--mimg:var(--img-c-fit)}
 #tax{--acc:#38d0e0;--accfg:#101417;--mimg:var(--img-c-tax)}
@@ -290,7 +289,7 @@ textarea{min-height:96px;resize:vertical}
     <h2 id="paths-h">У вас есть два варианта</h2>
     <div class="pgrid">
       <article class="path">
-        <div class="big" aria-hidden="true">1</div>
+        <div class="big n1" aria-hidden="true"></div>
         <h3>Скачать приложение «РОБОРАБ AI» и поговорить с нашей гориллой</h3>
         <p class="sub">Все нейросети дают инструкции. РОБОРАБ даёт инструмент.</p>
         <div class="app" id="app">
@@ -308,7 +307,7 @@ textarea{min-height:96px;resize:vertical}
         </dialog>
       </article>
       <article class="path">
-        <div class="big" aria-hidden="true">2</div>
+        <div class="big n2" aria-hidden="true"></div>
         <h3>Выбрать готовое решение в каталоге ниже</h3>
         <a class="btn" href="#catalog">Выбрать решение <span aria-hidden="true">↓</span></a>
       </article>
@@ -317,9 +316,9 @@ textarea{min-height:96px;resize:vertical}
 
 
   <div class="deck" id="catalog">
+  <div class="stage"><div class="stage-in">
   <section class="product" id="fit">
     <div class="card"><div class="mascot" role="img" aria-label="Маскот фитнес-CRM"></div>
-      <div class="cap" aria-hidden="true">Фитнес-CRM</div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Фитнес-CRM</h3><p class="tag">Клиенты, абонементы, расписание и выплаты тренерам</p></div>
@@ -332,7 +331,6 @@ textarea{min-height:96px;resize:vertical}
 
   <section class="product fade" id="tax">
     <div class="card"><div class="mascot" role="img" aria-label="Маскот налогового агента"></div>
-      <div class="cap" aria-hidden="true">Налоговый агент</div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Налоговый агент</h3><p class="tag">Налоги группы компаний: факт из 1С, прогноз и сценарии</p></div>
@@ -345,7 +343,6 @@ textarea{min-height:96px;resize:vertical}
 
   <section class="product" id="build">
     <div class="card"><div class="mascot" role="img" aria-label="Маскот строительного учёта"></div>
-      <div class="cap" aria-hidden="true">Строй-учёт</div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Строй-учёт</h3><p class="tag">Объекты, материалы и затраты</p></div>
@@ -357,7 +354,6 @@ textarea{min-height:96px;resize:vertical}
 
   <section class="product fade" id="booking">
     <div class="card"><div class="mascot" role="img" aria-label="Маскот букинг-CRM"></div>
-      <div class="cap" aria-hidden="true">Букинг-CRM</div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Букинг-CRM</h3><p class="tag">Все заявки отеля в одном окне</p></div>
@@ -369,7 +365,6 @@ textarea{min-height:96px;resize:vertical}
 
   <section class="product" id="seo">
     <div class="card"><div class="mascot" role="img" aria-label="Маскот SEO и GEO"></div>
-      <div class="cap" aria-hidden="true">SEO / GEO</div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>SEO / GEO</h3><p class="tag">Настройка, аналитика, админ-панели</p></div>
@@ -378,6 +373,8 @@ textarea{min-height:96px;resize:vertical}
         <ul class="feats"><li>Настройка SEO и GEO: видимость сайта в поиске и в ответах ИИ</li><li>Аналитика по запросам и упоминаниям</li><li>Админ-панели для управления настройками</li></ul>
       </div></div></div>
   </section>
+  </div></div>
+  <div class="minis" role="group" aria-label="Решения"><button type="button" class="mini" data-t="fit" style="--mimg:var(--img-c-fit)" aria-controls="fit"><span class="mi" aria-hidden="true"></span><b>Фитнес-CRM</b></button><button type="button" class="mini" data-t="tax" style="--mimg:var(--img-c-tax)" aria-controls="tax"><span class="mi" aria-hidden="true"></span><b>Налоговый агент</b></button><button type="button" class="mini" data-t="build" style="--mimg:var(--img-c-build)" aria-controls="build"><span class="mi" aria-hidden="true"></span><b>Строй-учёт</b></button><button type="button" class="mini" data-t="booking" style="--mimg:var(--img-c-booking)" aria-controls="booking"><span class="mi" aria-hidden="true"></span><b>Букинг-CRM</b></button><button type="button" class="mini" data-t="seo" style="--mimg:var(--img-c-seo)" aria-controls="seo"><span class="mi" aria-hidden="true"></span><b>SEO / GEO</b></button></div>
   </div>
 
   <!-- КАК ЭТО РАБОТАЕТ -->
@@ -604,15 +601,16 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 
 (function(){
 var deck=document.querySelector('.deck');if(!deck)return;
-var items=[].slice.call(deck.querySelectorAll('.product')),cur=null,lock=0,px=-1,py=-1,wide=matchMedia('(min-width:861px)');
-function open(it){if(!wide.matches)it=null;if(it===cur)return;cur=it;items.forEach(function(i){i.classList.toggle('open',i===it)});deck.classList.toggle('has-open',!!it);lock=Date.now()+560;setTimeout(recheck,580)}
-function recheck(){if(!cur||px<0)return;var el=document.elementFromPoint(px,py),p=el&&el.closest&&el.closest('.deck .product');if(p&&p!==cur&&matchMedia('(hover:hover)').matches)open(p)}
-items.forEach(function(it){it.setAttribute('tabindex','0');
-it.addEventListener('mouseenter',function(){if(Date.now()<lock)return;open(it)});
-it.addEventListener('focusin',function(){open(it)});
-it.addEventListener('click',function(){open(it)})});
-deck.addEventListener('mousemove',function(e){px=e.clientX;py=e.clientY});
-deck.addEventListener('mouseleave',function(){px=-1;open(null)});
-if(wide.addEventListener)wide.addEventListener('change',function(){open(null)});
+var wide=matchMedia('(min-width:861px)'),minis=[].slice.call(deck.querySelectorAll('.mini')),cur=null,tin=null,tout=null,sc=0;
+function show(id){var on=!!id;if(id)[].slice.call(deck.querySelectorAll('.product')).forEach(function(s){s.classList.toggle('open',s.id===id)});minis.forEach(function(m){m.classList.toggle('on',on&&m.dataset.t===id);m.setAttribute('aria-expanded',on&&m.dataset.t===id?'true':'false')});deck.classList.toggle('has-open',on);cur=on?id:null}
+minis.forEach(function(m){var id=m.dataset.t;
+m.addEventListener('mouseenter',function(){if(!wide.matches||!matchMedia('(hover:hover)').matches)return;clearTimeout(tout);clearTimeout(tin);tin=setTimeout(function(){if(cur!==id)show(id)},180)});
+m.addEventListener('mouseleave',function(){clearTimeout(tin)});
+m.addEventListener('click',function(){if(!wide.matches)return;show(cur===id?null:id)});
+m.addEventListener('focus',function(){if(wide.matches&&cur!==id)show(id)})});
+deck.addEventListener('mouseenter',function(){clearTimeout(tout)});
+deck.addEventListener('mouseleave',function(){clearTimeout(tin);clearTimeout(tout);tout=setTimeout(function(){if(Date.now()-sc<500)return;show(null)},700)});
+addEventListener('scroll',function(){sc=Date.now()},{passive:true});
+if(wide.addEventListener)wide.addEventListener('change',function(){show(null)});
 })();
 </script>
