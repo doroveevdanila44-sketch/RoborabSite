@@ -203,11 +203,9 @@ a{color:inherit}
 .panel .btn{background:var(--acc);color:var(--accfg,#fff)}
 @container (max-width:620px){.panel .row{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.panel .btn{width:100%}}
 
-/* ---------- каталог на десктопе: шеренга из пяти; при наведении сверху плавно раскрывается большая карточка, шеренга уезжает вниз ---------- */
-.minis{display:none}
-@media(min-width:861px){
-.deck{max-width:1760px;margin:clamp(28px,3.4vw,64px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
-.stage{display:grid;grid-template-rows:0fr;transition:grid-template-rows 1.15s cubic-bezier(.4,.05,.15,1)}
+/* ---------- каталог: шеренга мини-маскотов; по наведению/касанию сверху плавно раскрывается карточка, шеренга уезжает вниз ---------- */
+.deck{max-width:1760px;margin:clamp(20px,3.4vw,64px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
+.stage{display:grid;grid-template-rows:0fr;transition:grid-template-rows 1.15s cubic-bezier(.4,.05,.15,1);scroll-margin-top:12px}
 .deck.has-open .stage{grid-template-rows:1fr}
 .stage-in{min-height:0;overflow:hidden}
 .deck .product{display:none;margin:0}
@@ -217,16 +215,21 @@ a{color:inherit}
 .mini{appearance:none;background:none;border:0;padding:0;margin:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;font:inherit;color:var(--fg);outline:none;-webkit-tap-highlight-color:transparent}
 .mini .mi{display:block;width:min(100%,230px);aspect-ratio:1;background:var(--mimg) center/contain no-repeat;mix-blend-mode:multiply;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);mask-composite:intersect;transition:transform .9s cubic-bezier(.3,.1,.2,1),opacity .9s ease}
 .mini b{font:800 clamp(17px,1.5vw,24px)/1.1 var(--f-display);letter-spacing:-.03em;transition:opacity .9s ease}
-.mini:hover .mi,.mini:focus-visible .mi{transform:translateY(-6px)}
 .deck.has-open .mini:not(.on) .mi{opacity:.5}
 .deck.has-open .mini:not(.on) b{opacity:.6}
-.deck.has-open .mini:not(.on):hover .mi,.deck.has-open .mini:not(.on):hover b{opacity:1}
+@media(hover:hover){.mini:hover .mi,.mini:focus-visible .mi{transform:translateY(-6px)}.deck.has-open .mini:not(.on):hover .mi,.deck.has-open .mini:not(.on):hover b{opacity:1}}
 .deck .mascot{transform:none!important}
 .deck+.how{margin-top:clamp(48px,5.5vw,100px)}
+@media(min-width:861px){
 .deck .shots{max-width:min(100%,420px)}
 .deck .panel .btn{width:auto!important;justify-self:start}
 }
-@media(max-width:860px){.deck .product:first-child{margin-top:calc(var(--S) * .4)}}
+@media(max-width:860px){
+.minis{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 0}
+.mini .mi{width:min(100%,200px)}
+.mini b{font-size:clamp(16px,4.6vw,22px)}
+.mini:last-child{grid-column:1/-1}
+}
 @media(prefers-reduced-motion:reduce){.stage,.mini .mi{transition:none!important}.deck .product.open{animation:none!important}}
 
 #fit{--acc:#a2eb41;--accfg:#101417;--mimg:var(--img-c-fit)}
@@ -623,17 +626,16 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 
 (function(){
 var deck=document.querySelector('.deck');if(!deck)return;
-var wide=matchMedia('(min-width:861px)'),minis=[].slice.call(deck.querySelectorAll('.mini')),cur=null,tin=null,tout=null,sc=0;
-function show(id){var on=!!id;if(id)[].slice.call(deck.querySelectorAll('.product')).forEach(function(s){s.classList.toggle('open',s.id===id)});minis.forEach(function(m){m.classList.toggle('on',on&&m.dataset.t===id);m.setAttribute('aria-expanded',on&&m.dataset.t===id?'true':'false')});deck.classList.toggle('has-open',on);cur=on?id:null}
+var stage=deck.querySelector('.stage'),minis=[].slice.call(deck.querySelectorAll('.mini')),cur=null,tin=null,tout=null,sc=0,hov=matchMedia('(hover:hover) and (min-width:861px)');
+function show(id,jump){var on=!!id;if(id)[].slice.call(deck.querySelectorAll('.product')).forEach(function(s){s.classList.toggle('open',s.id===id)});minis.forEach(function(m){var a=on&&m.dataset.t===id;m.classList.toggle('on',a);m.setAttribute('aria-expanded',a?'true':'false')});deck.classList.toggle('has-open',on);cur=on?id:null;
+if(on&&jump){var r=stage.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.35)stage.scrollIntoView({behavior:'smooth',block:'start'})}}
 minis.forEach(function(m){var id=m.dataset.t;
-m.addEventListener('mouseenter',function(){if(!wide.matches||!matchMedia('(hover:hover)').matches)return;clearTimeout(tout);clearTimeout(tin);tin=setTimeout(function(){if(cur!==id)show(id)},180)});
+m.addEventListener('mouseenter',function(){if(!hov.matches)return;clearTimeout(tout);clearTimeout(tin);tin=setTimeout(function(){if(cur!==id)show(id)},180)});
 m.addEventListener('mouseleave',function(){clearTimeout(tin)});
-m.addEventListener('click',function(){if(!wide.matches)return;show(cur===id?null:id)});
-m.addEventListener('focus',function(){if(wide.matches&&cur!==id)show(id)})});
+m.addEventListener('click',function(){show(cur===id?null:id,true)})});
 deck.addEventListener('mouseenter',function(){clearTimeout(tout)});
-deck.addEventListener('mouseleave',function(){clearTimeout(tin);clearTimeout(tout);tout=setTimeout(function(){if(Date.now()-sc<500)return;show(null)},700)});
+deck.addEventListener('mouseleave',function(){if(!hov.matches)return;clearTimeout(tin);clearTimeout(tout);tout=setTimeout(function(){if(Date.now()-sc<500)return;show(null)},700)});
 addEventListener('scroll',function(){sc=Date.now()},{passive:true});
-if(wide.addEventListener)wide.addEventListener('change',function(){show(null)});
 })();
 </script>
 
