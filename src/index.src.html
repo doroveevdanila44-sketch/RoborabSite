@@ -200,6 +200,15 @@ a{color:inherit}
 ::view-transition-group(*){animation-duration:.95s;animation-timing-function:cubic-bezier(.4,.05,.15,1)}
 ::view-transition-old(*),::view-transition-new(*){animation-duration:.95s}
 @media(min-width:861px){
+.deck{--rowh:clamp(600px,calc(100svh - 24px),1000px);margin-top:clamp(8px,1.5vw,24px);gap:0}
+.deck .product{min-height:var(--rowh);display:flex;align-items:center;justify-content:center}
+.deck .product .card{width:100%}
+.deck .product.gone{display:none}
+.deck .mini{height:100%;justify-content:center;gap:clamp(6px,1vw,16px)}
+.deck .mini .mi{width:min(100%,calc(var(--rowh)*.7))}
+.deck .mini b{font-size:clamp(26px,2.6vw,48px)}
+#seo{grid-column:1/-1}
+#seo .card{display:grid}#seo .mini,#seo .cl{display:none!important}
 .deck .shots{max-width:min(100%,420px)}
 .deck .panel .btn{width:auto!important;justify-self:start}
 }
@@ -609,15 +618,17 @@ var deck=document.querySelector('.deck');if(!deck)return;
 var px=-1,py=-1;
 var items=[].slice.call(deck.querySelectorAll('.product')),cur=null,tin=null,tout=null,sc=0,wide=matchMedia('(min-width:861px)'),hov=matchMedia('(hover:hover) and (min-width:861px)'),red=matchMedia('(prefers-reduced-motion:reduce)');
 items.forEach(function(s){var c=document.createElement('button');c.type='button';c.className='cl';c.setAttribute('aria-label','Закрыть');c.textContent='×';c.addEventListener('click',function(e){e.stopPropagation();show(null)});s.appendChild(c)});
-function layout(){var ord=items.slice(),k=ord.findIndex(function(s){return s.classList.contains('open')});
+function layout(){
+if(wide.matches){items.forEach(function(s){s.style.order='';s.classList.remove('span','gone')});var k=items.findIndex(function(s){return s.classList.contains('open')});if(k>-1&&k<4){items[k].classList.add('span');items[k^1].classList.add('gone')}return}
+var ord=items.slice(),k=ord.findIndex(function(s){return s.classList.contains('open')});
 if(k>0&&k%2===1){var o=ord.splice(k,1)[0];ord.splice(k-1,0,o)}
-ord.forEach(function(s,i){s.style.order=i;s.classList.remove('span')});
+ord.forEach(function(s,i){s.style.order=i;s.classList.remove('span','gone')});
 var row=[];ord.forEach(function(s){if(s.classList.contains('open')){if(row.length===1)row[0].classList.add('span');row=[];s.classList.add('span')}else{row.push(s);if(row.length===2)row=[]}});if(row.length===1)row[0].classList.add('span')}
 function apply(id){items.forEach(function(s){var o=s.id===id;s.classList.toggle('open',o);var m=s.querySelector('.mini');if(m)m.setAttribute('aria-expanded',o?'true':'false')});deck.classList.toggle('has-open',!!id);layout()}
 var sx=-999,sy=-999;
 function show(id,jump){if(id===cur)return;cur=id;sx=px;sy=py;
 var run=function(){apply(id)};
-if(wide.matches&&!red.matches){flip(run,id);if(jump&&id)bring(id)}
+if(wide.matches){run();if(jump&&id)bring(id)}
 else if(document.startViewTransition&&!red.matches){var vt=document.startViewTransition(run);if(jump&&id)vt.finished.then(function(){bring(id)})}else{run();if(jump&&id)bring(id)}}
 function flip(run,id){var prev=items.filter(function(s){return s.classList.contains('open')})[0];
 var b=items.map(function(s){var r=s.getBoundingClientRect();return [r.left,r.top]});run();
@@ -630,7 +641,7 @@ m.addEventListener('mouseenter',function(){if(!hov.matches)return;if(Math.hypot(
 m.addEventListener('mouseleave',function(){clearTimeout(tin)});
 m.addEventListener('click',function(){show(id,true)})});
 deck.addEventListener('mouseenter',function(){clearTimeout(tout)});
-function inside(){return items.some(function(s){var r=s.getBoundingClientRect();return r.width&&px>=r.left-12&&px<=r.right+12&&py>=r.top-12&&py<=r.bottom+12})}
+function inside(){if(wide.matches){var o=document.getElementById(cur);if(!o)return false;var r=o.getBoundingClientRect();return px>=r.left-12&&px<=r.right+12&&py>=r.top-12&&py<=r.bottom+12}return items.some(function(s){var r=s.getBoundingClientRect();return r.width&&px>=r.left-12&&px<=r.right+12&&py>=r.top-12&&py<=r.bottom+12})}
 function watch(){if(!hov.matches||!cur)return;if(inside()){clearTimeout(tout);tout=null}else if(!tout)tout=setTimeout(function(){tout=null;if(Date.now()-sc<500||inside())return;show(null)},700)}
 addEventListener('mousemove',function(e){px=e.clientX;py=e.clientY;watch()},{passive:true});
 deck.addEventListener('mouseenter',function(){clearTimeout(tout);tout=null});
