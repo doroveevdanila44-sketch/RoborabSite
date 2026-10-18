@@ -171,20 +171,23 @@ a{color:inherit}
 @media(max-width:860px){.pgrid{grid-template-columns:1fr}}
 
 /* ---------- три формата общения с агентом ---------- */
-.modes{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
-.modes h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance;max-width:16ch}
-.modes .lead{margin:14px 0 0;color:var(--mute);font-size:clamp(16px,1.4vw,22px);max-width:50ch}
-.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3.4vw,64px);margin-top:clamp(28px,4vw,56px)}
-.mode{border-top:3px solid var(--fg);padding-top:16px;min-width:0}
-.mode svg{width:34px;height:34px;fill:none;stroke:var(--fg);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;display:block}
-.mode h3{margin:14px 0 0;font:800 clamp(24px,2.6vw,40px)/1.05 var(--f-display);letter-spacing:-.03em}
-.mode p{margin:12px 0 0;font-size:clamp(16px,1.25vw,19px);line-height:1.5;max-width:40ch}
-.mode p.mute{color:var(--mute)}
-.meter{display:flex;align-items:center;gap:10px;margin-top:20px;font:600 12px/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-.meter i{display:flex;gap:4px}
-.meter i b{width:26px;height:6px;border-radius:99px;background:var(--line)}
-.meter i b.on{background:var(--seo)}
-@media(max-width:860px){.mgrid{grid-template-columns:1fr}}
+.how{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
+.how h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
+.steps{list-style:none;margin:clamp(28px,4vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
+.steps li{position:relative;display:grid;gap:18px;align-content:start}
+.steps .ic{width:56px;height:56px;border-radius:14px;background:var(--fg);display:grid;place-items:center}
+.steps .ic svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.steps li.last .ic{background:var(--seo)}
+.steps li:not(.last)::after{content:'';position:absolute;top:28px;left:68px;right:calc(-1 * clamp(20px,3vw,48px) + 12px);border-top:2px dashed #c9d0d5}
+.steps .sn{display:block;font:700 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.steps li.last .sn{color:var(--seo)}
+.steps h3{margin:10px 0 0;font:800 clamp(20px,1.9vw,30px)/1.1 var(--f-display);letter-spacing:-.03em}
+.steps p{margin:10px 0 0;color:var(--mute);font-size:clamp(15px,1.2vw,18px);line-height:1.45;max-width:30ch}
+@media(max-width:860px){
+  .steps{grid-template-columns:1fr;gap:28px}
+  .steps li{grid-template-columns:56px 1fr;gap:16px}
+  .steps li:not(.last)::after{top:64px;bottom:-24px;left:27px;right:auto;border-top:0;border-left:2px dashed #c9d0d5}
+}
 
 /* ---------- каталог: одно сплошное белое пространство. Картинка разрезана по плашке, низ уехал вниз, в разрезе вся информация. Без теней, без наслоения ---------- */
 .product{background:#fff;padding:0;margin-top:var(--S)}
@@ -247,6 +250,9 @@ a{color:inherit}
 .contact{margin-top:var(--S);background:var(--fg);color:#fff;padding-block:clamp(40px,6vw,88px)}
 .contact .wrap{padding-left:max(var(--m),env(safe-area-inset-left,0px));padding-right:max(var(--m),env(safe-area-inset-right,0px))}
 .contact h2{margin:0;font:800 clamp(28px,4vw,56px)/1.05 var(--f-display);letter-spacing:-.04em;max-width:14ch}
+.fmts{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;margin-bottom:clamp(24px,3vw,40px);font:500 15px/1 var(--f-body);color:#b9c1c8}
+.fmts b{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:#fff}
+.fmts svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:start}
 .contact p{color:#b9c1c8;max-width:40ch;margin:18px 0 0}
 form{display:grid;gap:14px}
@@ -369,33 +375,15 @@ textarea{min-height:96px;resize:vertical}
       </div></div></div>
   </section>
 
-  <!-- ТРИ ФОРМАТА ОБЩЕНИЯ -->
-  <section class="modes" id="modes" aria-labelledby="modes-h">
-    <h2 id="modes-h">Говорите с агентом так, как удобно</h2>
-    <p class="lead">Чем живее формат, тем лучше вы понимаете друг друга и тем точнее результат.</p>
-    <div class="mgrid">
-      <article class="mode">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>
-        <h3>Чат</h3>
-        <p>Пишите, когда неудобно говорить вслух: в метро, в дороге, на встрече.</p>
-        <p class="mute">Текст каждый читает по-своему, поэтому уточнений бывает больше.</p>
-        <div class="meter"><i><b class="on"></b><b></b><b></b></i>Понимание</div>
-      </article>
-      <article class="mode">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5 9 3l1.5 4-2 1.5a11 11 0 0 0 6 6L16 12.5l4 1.5-.5 2.5a2 2 0 0 1-2 1.5A14.5 14.5 0 0 1 5 5.5a2 2 0 0 1 1.5-2z"/></svg>
-        <h3>Звонок</h3>
-        <p>Живая речь в обе стороны. Интонация и уточнения на ходу.</p>
-        <p class="mute">Понятнее, чем в чате: вопросы снимаются сразу, а не в переписке.</p>
-        <div class="meter"><i><b class="on"></b><b class="on"></b><b></b></i>Понимание</div>
-      </article>
-      <article class="mode">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6.5" width="12.5" height="11" rx="2.5"/><path d="m15.5 11 5-3v8l-5-3z"/></svg>
-        <h3>Вз</h3>
-        <p>Видеозвонок с аватаром. Интересно, интерактивно и весело.</p>
-        <p class="mute">Работать с агентом приятнее: вы понимаете друг друга почти как с живым человеком, и задача решается лучше.</p>
-        <div class="meter"><i><b class="on"></b><b class="on"></b><b class="on"></b></i>Понимание</div>
-      </article>
-    </div>
+  <!-- КАК ЭТО РАБОТАЕТ -->
+  <section class="how" id="how" aria-labelledby="how-h">
+    <h2 id="how-h">Как это работает</h2>
+    <ol class="steps">
+      <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></span><div><span class="sn">Шаг 1</span><h3>Вы описываете задачу</h3><p>ИИ-агенту: текстом, голосом или в видеозвонке.</p></div></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h8l4 4v14H7zM15 3v4h4M10 12h6M10 16h6"/></svg></span><div><span class="sn">Шаг 2</span><h3>Агент собирает суть</h3><p>Формирует резюме вашего запроса.</p></div></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9M15 4v6M9 14v6"/></svg></span><div><span class="sn">Шаг 3</span><h3>Специалист настраивает</h3><p>Технический специалист кастомизирует готовое решение под вас.</p></div></li>
+      <li class="last"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="m10 12 2 2 3.5-4"/></svg></span><div><span class="sn">На следующий день</span><h3>Инструмент у вас</h3><p>Готовое решение уже в приложении.</p></div></li>
+    </ol>
   </section>
 
   <!-- ПОСЛЕ КАТАЛОГА: видеозвонок -->
@@ -438,6 +426,7 @@ textarea{min-height:96px;resize:vertical}
   </section>
 
   <section class="contact" id="contact">
+    <div class="wrap fmts" aria-label="Форматы общения с агентом"><span>Говорите с агентом, как удобно:</span><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Чат</b><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5 9 3l1.5 4-2 1.5a11 11 0 0 0 6 6L16 12.5l4 1.5-.5 2.5a2 2 0 0 1-2 1.5A14.5 14.5 0 0 1 5 5.5a2 2 0 0 1 1.5-2z"/></svg>Звонок</b><b><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6.5" width="12.5" height="11" rx="2.5"/><path d="m15.5 11 5-3v8l-5-3z"/></svg>Видеозвонок</b></div>
     <div class="wrap grid">
       <div>
         <h2>Расскажите о задаче</h2>
