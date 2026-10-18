@@ -264,7 +264,13 @@ a{color:inherit}
 .chips{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .chips li{padding:8px 12px;border-radius:10px;background:rgba(255,255,255,.75);font:600 14px/1 var(--f-body)}
 .wt .btn{margin-top:auto;background:var(--acc);color:var(--accfg)}
-.wt .chips+.btn{margin-top:24px}
+.wt p.inc{margin:20px 0 0;font-weight:600}
+.wt .inc2{margin-top:10px}
+.wbuy{margin-top:auto;padding-top:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.wbuy .btn{margin-top:0}
+.price{display:flex;align-items:baseline;gap:8px}
+.price b{font:800 clamp(28px,2.6vw,40px)/1 var(--f-display);letter-spacing:-.03em}
+.price span{font:600 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:#c4155f}
 @media(max-width:860px){.wgrid{grid-template-columns:1fr}.wm{aspect-ratio:1/.7}}
 
 /* ---------- контакт ---------- */
@@ -426,10 +432,12 @@ textarea{min-height:96px;resize:vertical}
         <div class="wm" role="img" aria-label="Маскот-ментор"></div>
         <div class="wt">
           <span class="wk">Бизнеса пока нет, но есть амбиции</span>
-          <h3>Бизнес-ментор</h3>
-          <p>AI-собеседник, который помогает выстроить бизнес-мышление и проработать идею с нуля. Опирается на классическую управленческую и философскую базу, адаптированную под практику предпринимателя.</p>
+          <h3>ИИ-собеседник, который учит думать как предприниматель</h3>
+          <p>Режим бизнес-ментора помогает выстроить бизнес-мышление и проработать идею с нуля. Опора на классическую управленческую и философскую базу, адаптированную под практику предпринимателя.</p>
           <ul class="chips"><li>Стоики</li><li>Шопенгауэр</li><li>Филип Котлер</li></ul>
-          <a class="btn" href="chat.html?product=%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D1%80&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D1%80%C2%BB">Узнать детали</a>
+          <p class="inc">В подписку также входят:</p>
+          <ul class="chips inc2"><li>Коммерческие предложения</li><li>Бизнес-планы для инвесторов</li><li>Бизнес-планы для госгрантов</li></ul>
+          <div class="wbuy"><div class="price"><b>1 500 ₽</b><span>подписка</span></div><a class="btn" href="chat.html?product=%D0%9F%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D0%BA%D0%B0%20%D1%81%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D1%80%D0%BE%D0%BC&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D0%BE%D0%B4%D0%BF%D0%B8%D1%81%D0%BA%D0%B5%20%D1%81%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D1%80%D0%BE%D0%BC">Узнать детали</a></div>
         </div>
       </article>
     </div>
@@ -485,7 +493,7 @@ textarea{min-height:96px;resize:vertical}
         <span class="leadico" aria-hidden="true"></span>
         <label for="f-name">Имя<input id="f-name" name="name" type="text" autocomplete="name"></label>
         <label for="f-prod">Продукт, который вас заинтересовал
-          <select id="f-prod" name="product"><option>Фитнес-CRM</option><option>Налоговый агент</option><option>Строй-учёт</option><option>Букинг-CRM</option><option>SEO / GEO</option><option>Бизнес-ментор</option><option>Пока не знаю</option></select>
+          <select id="f-prod" name="product"><option>Фитнес-CRM</option><option>Налоговый агент</option><option>Строй-учёт</option><option>Букинг-CRM</option><option>SEO / GEO</option><option>Подписка с бизнес-ментором</option><option>Пока не знаю</option></select>
         </label>
         <button class="btn" type="submit">Отправить в чат РОБОРАБ AI <span aria-hidden="true">→</span></button>
       </form>
