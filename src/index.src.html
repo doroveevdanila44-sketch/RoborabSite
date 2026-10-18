@@ -27,9 +27,6 @@ a{color:inherit}
 .wrap{width:100%;max-width:1760px;margin-inline:auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
 
 /* ---------- общие картинки с кропом ---------- */
-.stage{position:relative;container-type:inline-size;--u:calc(100cqw / var(--cw));aspect-ratio:calc(var(--cw) / var(--ch));width:100%;overflow:hidden;isolation:isolate;background:#fff}
-.pic{position:absolute;z-index:1;width:calc(var(--W) / var(--cw) * 100cqw);aspect-ratio:calc(var(--W) / var(--H));left:calc(var(--cx) / var(--cw) * -100cqw);top:calc(var(--cy) / var(--cw) * -100cqw);background:var(--img) center / 100% 100% no-repeat}
-.pic.mul{mix-blend-mode:multiply;--img:var(--simg)}
 
 /* ---------- шапка ---------- */
 .hdr{height:var(--hh);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-block:0}
@@ -93,30 +90,7 @@ a{color:inherit}
 }
 
 /* ---------- сцены с телефоном ---------- */
-.scene{padding:0;margin-top:var(--S)}
-.scene .box{margin-bottom:calc(-1 * var(--over) / var(--cw) * 100%)}
-.scene .box{position:relative;max-width:1920px;margin-left:0;margin-right:auto}
-.screen{position:absolute;z-index:0;left:calc((var(--sx) - var(--cx)) * var(--u));top:calc((var(--sy) - var(--cy)) * var(--u));width:calc(var(--sw) * var(--u));height:calc(var(--sh) * var(--u));border-radius:calc(var(--sr) * var(--u));overflow:hidden;background:#15181b}
-.screen video{width:100%;height:100%;object-fit:cover;display:block}
-.pill{position:absolute;top:calc(var(--u) * 64);left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:calc(var(--u) * 8);padding:calc(var(--u) * 7) calc(var(--u) * 16);border-radius:99px;background:rgba(10,12,14,.55);color:#fff;font:600 calc(var(--u) * 16)/1 var(--f-body);white-space:nowrap}
-.pill b{width:calc(var(--u) * 9);height:calc(var(--u) * 9);border-radius:50%;background:#35d07f}
-.pill .t{font-weight:500;font-variant-numeric:tabular-nums}
-.ctrls{position:absolute;left:0;right:0;bottom:calc(var(--u) * 34);display:flex;justify-content:center;gap:calc(var(--u) * 16)}
-.ctrls i{width:calc(var(--u) * 46);height:calc(var(--u) * 46);border-radius:50%;background:rgba(10,12,14,.55);display:grid;place-items:center}
-.ctrls i.end{background:#e5484d}
-.ctrls svg{width:50%;height:50%;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.dots{position:absolute;left:0;right:0;bottom:calc(var(--u) * 40);display:flex;justify-content:center;gap:calc(var(--u) * 9)}
-.dots i{width:calc(var(--u) * 11);height:calc(var(--u) * 11);border-radius:99px;background:rgba(255,255,255,.55);transition:width .25s,background .25s}
-.dots i.on{width:calc(var(--u) * 30);background:#fff}
 
-.copy h2{margin:0;font:800 clamp(26px,3.4vw,46px)/1.08 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
-.copy p{margin:16px 0 0;color:var(--mute);font-size:clamp(16px,1.25vw,19px);max-width:34ch}
-@media(min-width:861px){
-  #call .copy,#avatars .copy{position:absolute;left:71%;top:50%;transform:translateY(-50%);width:27%}
-  #call .copy h2,#avatars .copy h2{font-size:clamp(20px,2.05vw,34px)}
-  #call .copy p,#avatars .copy p{font-size:clamp(14px,1.05vw,17px)}
-}
-@media(max-width:860px){.copy{margin-top:22px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-bottom:24px}}
 
 /* ---------- переходный блок: два пути внедрения ---------- */
 .paths{margin:max(0px,calc(var(--S) - var(--Gref,var(--G)))) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
@@ -210,22 +184,6 @@ a{color:inherit}
 #build{--acc:#fcc118;--accfg:#101417;--mimg:var(--img-c-build)}
 #booking{--acc:#393939;--accfg:#fff;--mimg:var(--img-c-booking)}
 #seo{--acc:#fa3c8a;--accfg:#fff;--mimg:var(--img-c-seo)}
-/* телефоны */
-#call{--simg:var(--img-phone-human);--W:1672;--H:941;--cx:0;--cy:74;--cw:1672;--ch:804;--over:28;--sx:673;--sy:87;--sw:350;--sh:747;--sr:44}
-#avatars{--simg:var(--img-phone-pink);--W:1672;--H:941;--cx:0;--cy:68;--cw:1672;--ch:859;--over:145;--sx:674;--sy:80;--sw:324;--sh:691;--sr:44}
-@media(max-width:860px){
-  #call{--cx:520;--cw:620}
-  #avatars{--cx:532;--cw:620}
-}
-@media(min-width:761px){#avatars .pic{transform:scaleX(-1)}}
-@media(min-width:861px){#avatars .copy{left:max(var(--m),env(safe-area-inset-left,0px))}}
-/* телефон: портретные картинки, экран замерен по белой области */
-@media(max-width:760px){
-  #call{--simg:var(--img-m-phone-human);--W:941;--H:1672;--cx:40;--cy:160;--cw:860;--ch:1420;--over:0;--sx:198;--sy:193;--sw:529;--sh:1199;--sr:50}
-  #avatars{--simg:var(--img-m-phone-pink);--W:941;--H:1672;--cx:0;--cy:190;--cw:941;--ch:1482;--over:0;--sx:272;--sy:229;--sw:438;--sh:1015;--sr:46}
-  .pill{transform:translateX(-50%) scale(1.5);transform-origin:50% 0}
-  #avatars .stage{-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 86%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0,#000 86%,transparent 100%)}
-}
 
 .who{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
 .who h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
@@ -277,7 +235,7 @@ input:focus,select:focus,textarea:focus{outline:3px solid var(--seo);outline-off
 textarea{min-height:96px;resize:vertical}
 .note{font-size:14px;color:#b9c1c8;min-height:1.4em;margin:0}
 @media(max-width:820px){.contact .grid{grid-template-columns:1fr}}
-@media (prefers-reduced-motion:reduce){.down{animation:none}.btn{transition:none}.btn:hover{transform:none}html{scroll-behavior:auto}.dots i{transition:none}}
+@media (prefers-reduced-motion:reduce){.down{animation:none}.btn{transition:none}.btn:hover{transform:none}html{scroll-behavior:auto}}
 </style>
 
 
@@ -424,45 +382,6 @@ textarea{min-height:96px;resize:vertical}
     </div>
   </section>
 
-  <!-- ПОСЛЕ КАТАЛОГА: видеозвонок -->
-  <section class="scene" id="call" aria-label="Видеозвонок с ИИ">
-    <div class="box">
-      <div class="stage" role="img" aria-label="Человек держит телефон, на экране видеозвонок с гориллой">
-        <div class="screen">
-          <video data-role="call" muted loop playsinline preload="auto" src="{{VIDEO_CALL}}"></video>
-          <div class="pill"><b></b><span class="t" id="ctimer">00:12</span></div>
-          <div class="ctrls">
-            <i><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></i>
-            <i><svg viewBox="0 0 24 24"><rect x="3" y="7" width="12" height="10" rx="2"/><path d="m15 11 6-3v8l-6-3z"/></svg></i>
-            <i class="end"><svg viewBox="0 0 24 24"><path d="M3 14c5-4 13-4 18 0l-2 3-4-1v-2a9 9 0 0 0-6 0v2l-4 1z"/></svg></i>
-          </div>
-        </div>
-        <div class="pic mul"></div>
-      </div>
-      <div class="copy">
-        <h2>Решай свои проблемы с тем, кого ты знаешь</h2>
-        <p>Видеозвонок с ИИ-собеседником. Разговор идёт голосом, как с живым человеком.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ПОСЛЕ ЗВОНКА: смена аватаров -->
-  <section class="scene" id="avatars" aria-label="Смена аватара">
-    <div class="box">
-      <div class="stage" role="img" aria-label="Рука в шерсти держит телефон, на экране сменяются аватары">
-        <div class="screen">
-          <video data-role="avatars" muted loop playsinline preload="auto" src="{{VIDEO_AVATARS}}"></video>
-                    <div class="dots" id="adots"><i class="on"></i><i></i><i></i><i></i></div>
-        </div>
-        <div class="pic mul"></div>
-      </div>
-      <div class="copy">
-        <h2>Не хочешь говорить с гориллой? Смени аватар</h2>
-        <p>Собеседника можно выбрать и менять в любой момент.</p>
-      </div>
-    </div>
-  </section>
-
   <section class="contact" id="contact">
     <div class="wrap fmts" aria-label="Форматы общения с агентом"><span>Говорите с агентом, как удобно:</span><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Чат</b><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5 9 3l1.5 4-2 1.5a11 11 0 0 0 6 6L16 12.5l4 1.5-.5 2.5a2 2 0 0 1-2 1.5A14.5 14.5 0 0 1 5 5.5a2 2 0 0 1 1.5-2z"/></svg>Звонок</b><b><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6.5" width="12.5" height="11" rx="2.5"/><path d="m15.5 11 5-3v8l-5-3z"/></svg>Видеозвонок</b></div>
     <div class="wrap grid">
@@ -486,22 +405,6 @@ textarea{min-height:96px;resize:vertical}
 <dialog class="lb" id="lb" aria-label="Экраны приложения"><div class="st" id="lbst"></div><button class="x" type="button" aria-label="Закрыть">×</button><button class="pv" type="button" aria-label="Предыдущий экран">‹</button><button class="nx" type="button" aria-label="Следующий экран">›</button><div class="cn" id="lbcn"></div></dialog>
 <script>
 (function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var vids = document.querySelectorAll('video');
-  if ('IntersectionObserver' in window && !reduce) {
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){ var p = e.target.play && e.target.play(); if(!e.isIntersecting){ e.target.pause(); } else if(p&&p.catch){ p.catch(function(){}); } });
-    }, {threshold:0.25});
-    vids.forEach(function(v){ io.observe(v); });
-  }
-  var t = 12, el = document.getElementById('ctimer');
-  setInterval(function(){ t++; if(el){ el.textContent = String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0'); } }, 1000);
-  var av = document.querySelector('video[data-role="avatars"]'), dots = document.querySelectorAll('#adots i');
-  var cuts = [0,1.15,1.8,3.33];
-  if (av) av.addEventListener('timeupdate', function(){
-    var i = 0; for (var k=0;k<cuts.length;k++) if (av.currentTime >= cuts[k]) i = k;
-    dots.forEach(function(d,j){ d.classList.toggle('on', j===i); });
-  });
   /* первый экран: строки растягиваются на всю ширину, а свободная высота делится на 4 равных промежутка --G (она же расстояние между блоками на всей странице) */
   var fits = document.querySelectorAll('.ht[data-fit]'), root = document.documentElement;
   var ctx = null; try { ctx = document.createElement('canvas').getContext('2d'); } catch(e){}
