@@ -130,18 +130,18 @@ a{color:inherit}
 .how h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
 .steps{list-style:none;margin:clamp(28px,4vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
 .steps li{position:relative;display:grid;gap:18px;align-content:start}
-.steps .ic{width:56px;height:56px;border-radius:14px;background:var(--fg);display:grid;place-items:center}
-.steps .ic svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.steps li.last .ic{background:var(--seo)}
-.steps li:not(.last)::after{content:'';position:absolute;top:28px;left:68px;right:calc(-1 * clamp(20px,3vw,48px) + 12px);border-top:2px dashed #c9d0d5}
+.steps .ic{width:120px;height:120px;margin:-12px 0 -12px -12px;background:center/contain no-repeat;mix-blend-mode:multiply}
+.steps li:nth-child(1) .ic{background-image:var(--img-h1)}.steps li:nth-child(2) .ic{background-image:var(--img-h2)}.steps li:nth-child(3) .ic{background-image:var(--img-h3)}.steps li:nth-child(4) .ic{background-image:var(--img-h4)}
+.steps li:not(.last)::after{content:'';position:absolute;top:48px;left:116px;right:calc(-1 * clamp(20px,3vw,48px) + 12px);border-top:2px dashed #c9d0d5}
 .steps .sn{display:block;font:700 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
 .steps li.last .sn{color:var(--seo)}
 .steps h3{margin:10px 0 0;font:800 clamp(20px,1.9vw,30px)/1.1 var(--f-display);letter-spacing:-.03em}
 .steps p{margin:10px 0 0;color:var(--mute);font-size:clamp(15px,1.2vw,18px);line-height:1.45;max-width:30ch}
 @media(max-width:860px){
   .steps{grid-template-columns:1fr;gap:28px}
-  .steps li{grid-template-columns:56px 1fr;gap:16px}
-  .steps li:not(.last)::after{top:64px;bottom:-24px;left:27px;right:auto;border-top:0;border-left:2px dashed #c9d0d5}
+  .steps li{grid-template-columns:96px 1fr;gap:16px}
+  .steps .ic{width:96px;height:96px;margin:0}
+  .steps li:not(.last)::after{top:100px;bottom:-24px;left:47px;right:auto;border-top:0;border-left:2px dashed #c9d0d5}
 }
 
 /* ---------- каталог: одно сплошное белое пространство. Картинка разрезана по плашке, низ уехал вниз, в разрезе вся информация. Без теней, без наслоения ---------- */
@@ -348,10 +348,10 @@ textarea{min-height:96px;resize:vertical}
   <section class="how" id="how" aria-labelledby="how-h">
     <h2 id="how-h">Как это работает</h2>
     <ol class="steps">
-      <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></span><div><span class="sn">Шаг 1</span><h3>Вы описываете задачу</h3><p>ИИ-агенту: текстом, голосом или в видеозвонке.</p></div></li>
-      <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h8l4 4v14H7zM15 3v4h4M10 12h6M10 16h6"/></svg></span><div><span class="sn">Шаг 2</span><h3>Агент собирает суть</h3><p>Формирует резюме вашего запроса.</p></div></li>
-      <li><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9M15 4v6M9 14v6"/></svg></span><div><span class="sn">Шаг 3</span><h3>Специалист настраивает</h3><p>Технический специалист кастомизирует готовое решение под вас.</p></div></li>
-      <li class="last"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="m10 12 2 2 3.5-4"/></svg></span><div><span class="sn">На следующий день</span><h3>Инструмент у вас</h3><p>Готовое решение уже в приложении.</p></div></li>
+      <li><span class="ic"></span><div><span class="sn">Шаг 1</span><h3>Вы описываете задачу</h3><p>ИИ-агенту: текстом, голосом или в видеозвонке.</p></div></li>
+      <li><span class="ic"></span><div><span class="sn">Шаг 2</span><h3>Агент собирает суть</h3><p>Формирует резюме вашего запроса.</p></div></li>
+      <li><span class="ic"></span><div><span class="sn">Шаг 3</span><h3>Специалист настраивает</h3><p>Технический специалист кастомизирует готовое решение под вас.</p></div></li>
+      <li class="last"><span class="ic"></span><div><span class="sn">На следующий день</span><h3>Инструмент у вас</h3><p>Готовое решение уже в приложении.</p></div></li>
     </ol>
   </section>
 
