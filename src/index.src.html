@@ -130,6 +130,15 @@ a{color:inherit}
 .princ li::before{content:'';position:absolute;left:0;top:.5em;width:10px;height:10px;border-radius:3px;background:var(--fg)}
 .path .btn{margin-top:clamp(18px,2vw,30px)}
 @media(max-width:860px){.pgrid{grid-template-columns:1fr}}
+@media(min-width:861px){
+.pgrid{grid-template-columns:1fr}
+.path:first-child{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(28px,4vw,72px);align-items:start}
+.path:first-child .bigrow,.path:first-child h3,.path:first-child .sub{grid-column:1}
+.path:first-child .pdesc{grid-column:2;grid-row:1/span 3;align-self:end}
+.path:first-child .pdesc .lead{margin-top:0}
+.pgrid .path+.path{margin-top:clamp(28px,4vw,64px)}
+}
+
 
 /* ---------- манифест ---------- */
 .manifest{margin:max(0px,calc(var(--S) - var(--Gref,var(--G)))) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
@@ -291,12 +300,15 @@ textarea{min-height:96px;resize:vertical}
           <div class="big" aria-hidden="true">1</div>
           <div class="app" id="app">
             <button class="appicon" type="button" aria-haspopup="dialog" aria-controls="stores" aria-label="РОБОРАБ AI: выбрать устройство"></button>
+            <span class="appnote">Доступно на всех устройствах<small>Нажми, чтобы войти</small></span>
           </div>
         </div>
         <h3>Скачать приложение «РОБОРАБ AI» и поговорить с нашей гориллой</h3>
         <p class="sub">Все нейросети дают инструкции. РОБОРАБ даёт инструмент.</p>
-        <p class="lead">ИИ обучен не просто на трудах классиков управленческой мысли и коммерции, но на них же, пропущенных через критический анализ и очищенных от личных эмоциональных интерпретаций авторов. Клиент получает выжимку проверенной сути, а не пересказ чужих убеждений или пафоса.</p>
-        <ul class="princ"><li>Критический анализ источников</li><li>Без личных эмоциональных интерпретаций авторов</li><li>Проверенная суть вместо чужих убеждений и пафоса</li></ul>
+        <div class="pdesc">
+    <p class="lead">ИИ обучен не просто на трудах классиков управленческой мысли и коммерции, но на них же, пропущенных через критический анализ и очищенных от личных эмоциональных интерпретаций авторов. Клиент получает выжимку проверенной сути, а не пересказ чужих убеждений или пафоса.</p>
+          <ul class="princ"><li>Критический анализ источников</li><li>Без личных эмоциональных интерпретаций авторов</li><li>Проверенная суть вместо чужих убеждений и пафоса</li></ul>
+        </div>
         <dialog class="dl" id="stores" tabindex="-1" aria-labelledby="dl-h">
           <button class="dl-x" type="button" aria-label="Закрыть">×</button>
           <span class="dl-ico" aria-hidden="true"></span>
