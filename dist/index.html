@@ -156,7 +156,11 @@ a{color:inherit}
 .princ li{position:relative;padding-left:22px;font:600 clamp(15px,1.1vw,17px)/1.35 var(--f-display);color:var(--fg)}
 .princ li::before{content:'';position:absolute;left:0;top:.5em;width:10px;height:10px;border-radius:3px;background:var(--fg)}
 .path .btn{margin-top:clamp(18px,2vw,30px)}
-@media(max-width:860px){.pgrid{grid-template-columns:1fr}}
+@media(max-width:860px){.pgrid{grid-template-columns:1fr}
+.path:first-child{display:flex;flex-direction:column}
+.path:first-child .bigrow{display:contents}
+.path:first-child .big{order:1}.path:first-child h3{order:2}.path:first-child .pdesc{order:3}
+.path:first-child .app{order:4;align-self:flex-start;margin-top:clamp(18px,5vw,26px)}}
 @media(min-width:861px){
 .pgrid{grid-template-columns:1fr}
 .path:first-child{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(28px,4vw,72px);align-items:start}
