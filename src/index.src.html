@@ -180,14 +180,13 @@ a{color:inherit}
 @container (max-width:620px){.panel .row{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.panel .btn{width:100%}}
 
 /* ---------- каталог: сетка мини-маскотов по два; выбранный раскрывается на своём месте, остальные разъезжаются ---------- */
-.deck{width:100%;max-width:1760px;margin:clamp(20px,3.4vw,64px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));display:grid;grid-template-columns:repeat(2,minmax(0,340px));justify-content:center;gap:6px 0}
-.deck.has-open{grid-template-columns:repeat(2,minmax(0,1fr))}
+.deck{width:100%;max-width:1760px;margin:clamp(20px,3.4vw,64px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 0}
 .deck .product{margin:0;position:relative;min-width:0}
 .deck .product.span{grid-column:1/-1}
 .deck .product .card{display:none}
-.deck .product.open .card{display:grid;animation:deckin .6s ease both}
+.deck .product.open .card{display:grid;animation:deckin .7s .15s cubic-bezier(.22,.61,.36,1) both}
 .deck .product.open .mini{display:none}
-@keyframes deckin{from{opacity:0}to{opacity:1}}
+@keyframes deckin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .mini{appearance:none;background:none;border:0;padding:0;margin:0;width:100%;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;font:inherit;color:var(--fg);outline:none;-webkit-tap-highlight-color:transparent}
 .mini .mi{display:block;width:min(100%,230px);aspect-ratio:1;background:var(--mimg) center/contain no-repeat;mix-blend-mode:multiply;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);mask-composite:intersect;transition:transform .5s ease}
 .mini b{font:800 clamp(17px,1.5vw,24px)/1.1 var(--f-display);letter-spacing:-.03em}
@@ -225,7 +224,7 @@ a{color:inherit}
 .wcard:hover,.wcard:focus-within{border-color:var(--bc);box-shadow:0 0 0 4px color-mix(in srgb,var(--bc) 22%,transparent),0 18px 40px -24px var(--bc)}
 .w0{--bc:#38d0e0;--wl:#0a98aa;--chip:#e6f8fb;--acc:#38d0e0;--accfg:#101417}
 .w1{--bc:#101417;--wl:#5b646c;--chip:#eef0f2;--acc:var(--fg);--accfg:#fff}
-.w2{--bc:#fa3c8a;--wl:#c4155f;--chip:#fde8f1;--acc:#fa3c8a;--accfg:#fff}
+.w2{--bc:#a2eb41;--wl:#3d7a0a;--chip:#eef9da;--acc:#a2eb41;--accfg:#101417}
 .wm{width:100%;aspect-ratio:1/.8;margin:12px 0 6px;background:var(--wi) center/contain no-repeat;mix-blend-mode:multiply}
 .w0 .wm{--wi:var(--img-p1)}
 .w1 .wm{--wi:var(--img-p3)}
@@ -608,7 +607,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 (function(){
 var deck=document.querySelector('.deck');if(!deck)return;
 var px=-1,py=-1;
-var items=[].slice.call(deck.querySelectorAll('.product')),cur=null,tin=null,tout=null,sc=0,hov=matchMedia('(hover:hover) and (min-width:861px)'),red=matchMedia('(prefers-reduced-motion:reduce)');
+var items=[].slice.call(deck.querySelectorAll('.product')),cur=null,tin=null,tout=null,sc=0,wide=matchMedia('(min-width:861px)'),hov=matchMedia('(hover:hover) and (min-width:861px)'),red=matchMedia('(prefers-reduced-motion:reduce)');
 items.forEach(function(s){var c=document.createElement('button');c.type='button';c.className='cl';c.setAttribute('aria-label','Закрыть');c.textContent='×';c.addEventListener('click',function(e){e.stopPropagation();show(null)});s.appendChild(c)});
 function layout(){var ord=items.slice(),k=ord.findIndex(function(s){return s.classList.contains('open')});
 if(k>0&&k%2===1){var o=ord.splice(k,1)[0];ord.splice(k-1,0,o)}
@@ -618,7 +617,13 @@ function apply(id){items.forEach(function(s){var o=s.id===id;s.classList.toggle(
 var sx=-999,sy=-999;
 function show(id,jump){if(id===cur)return;cur=id;sx=px;sy=py;
 var run=function(){apply(id)};
-if(document.startViewTransition&&!red.matches){var vt=document.startViewTransition(run);if(jump&&id)vt.finished.then(function(){bring(id)})}else{run();if(jump&&id)bring(id)}}
+if(wide.matches&&!red.matches){flip(run,id);if(jump&&id)bring(id)}
+else if(document.startViewTransition&&!red.matches){var vt=document.startViewTransition(run);if(jump&&id)vt.finished.then(function(){bring(id)})}else{run();if(jump&&id)bring(id)}}
+function flip(run,id){var prev=items.filter(function(s){return s.classList.contains('open')})[0];
+var b=items.map(function(s){var r=s.getBoundingClientRect();return [r.left,r.top]});run();
+items.forEach(function(s,i){if(s.classList.contains('open')||!s.animate)return;var r=s.getBoundingClientRect(),dx=b[i][0]-r.left,dy=b[i][1]-r.top;
+if(Math.abs(dx)+Math.abs(dy)>1)s.animate([{transform:'translate('+dx+'px,'+dy+'px)'},{transform:'none'}],{duration:850,easing:'cubic-bezier(.25,.6,.25,1)'});
+if(s===prev&&s.animate)s.animate([{opacity:0},{opacity:1}],{duration:600,easing:'ease'})})}
 function bring(id){var el=document.getElementById(id),r=el.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.4)el.scrollIntoView({behavior:'smooth',block:'start'})}
 items.forEach(function(s){var id=s.id,m=s.querySelector('.mini');
 m.addEventListener('mouseenter',function(){if(!hov.matches)return;if(Math.hypot(px-sx,py-sy)<10)return;clearTimeout(tout);clearTimeout(tin);tin=setTimeout(function(){show(id)},180)});
