@@ -130,18 +130,18 @@ a{color:inherit}
 .how h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
 .steps{list-style:none;margin:clamp(28px,4vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
 .steps li{position:relative;display:grid;gap:18px;align-content:start}
-.steps .ic{width:120px;height:120px;margin:-12px 0 -12px -12px;background:center/contain no-repeat;mix-blend-mode:multiply}
+.steps .ic{width:150px;height:150px;background:left center/contain no-repeat}
 .steps li:nth-child(1) .ic{background-image:var(--img-h1)}.steps li:nth-child(2) .ic{background-image:var(--img-h2)}.steps li:nth-child(3) .ic{background-image:var(--img-h3)}.steps li:nth-child(4) .ic{background-image:var(--img-h4)}
-.steps li:not(.last)::after{content:'';position:absolute;top:48px;left:116px;right:calc(-1 * clamp(20px,3vw,48px) + 12px);border-top:2px dashed #c9d0d5}
+.steps li:not(.last)::after{content:'';position:absolute;top:75px;left:166px;right:calc(-1 * clamp(20px,3vw,48px) + 12px);border-top:2px dashed #c9d0d5}
 .steps .sn{display:block;font:700 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
 .steps li.last .sn{color:var(--seo)}
 .steps h3{margin:10px 0 0;font:800 clamp(20px,1.9vw,30px)/1.1 var(--f-display);letter-spacing:-.03em}
 .steps p{margin:10px 0 0;color:var(--mute);font-size:clamp(15px,1.2vw,18px);line-height:1.45;max-width:30ch}
 @media(max-width:860px){
   .steps{grid-template-columns:1fr;gap:28px}
-  .steps li{grid-template-columns:96px 1fr;gap:16px}
-  .steps .ic{width:96px;height:96px;margin:0}
-  .steps li:not(.last)::after{top:100px;bottom:-24px;left:47px;right:auto;border-top:0;border-left:2px dashed #c9d0d5}
+  .steps li{grid-template-columns:104px 1fr;gap:16px}
+  .steps .ic{width:104px;height:104px}
+  .steps li:not(.last)::after{top:116px;bottom:-24px;left:51px;right:auto;border-top:0;border-left:2px dashed #c9d0d5}
 }
 
 /* ---------- каталог: одно сплошное белое пространство. Картинка разрезана по плашке, низ уехал вниз, в разрезе вся информация. Без теней, без наслоения ---------- */
