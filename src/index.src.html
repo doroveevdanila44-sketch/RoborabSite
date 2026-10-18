@@ -182,6 +182,9 @@ a{color:inherit}
 .tag{margin:8px 0 0;color:var(--mute);font-weight:500;font-size:clamp(15px,1.8cqw,20px)}
 .feats{list-style:none;margin:clamp(14px,2vw,26px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2.4cqw,32px)}
 .feats li{font-size:clamp(13.5px,1.5cqw,17px);line-height:1.38;font-weight:500;min-width:0}
+.shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(6px,1.2vw,14px);margin-top:clamp(14px,2vw,24px);max-width:520px}
+.shots i{display:block;aspect-ratio:480/932;border-radius:12px;background:var(--s) center/cover no-repeat;box-shadow:0 0 0 1px rgba(16,20,23,.1),0 10px 24px -14px rgba(16,20,23,.35)}
+.feats.f4{grid-template-columns:repeat(2,1fr)}
 .panel .btn{background:var(--acc);color:var(--accfg,#fff)}
 @container (max-width:620px){.panel .row{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.panel .btn{width:100%}}
 
@@ -280,10 +283,11 @@ textarea{min-height:96px;resize:vertical}
     <div class="card"><div class="mascot" role="img" aria-label="Маскот фитнес-CRM"></div>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>Фитнес-CRM</h3><p class="tag">Клиенты, абонементы и ИИ-агент</p></div>
+          <div><h3>Фитнес-CRM</h3><p class="tag">Клиенты, абонементы, расписание и выплаты тренерам</p></div>
           <a class="btn" href="#contact">Обсудить внедрение</a>
         </div>
-        <ul class="feats"><li>Клиенты, абонементы и расписание клуба</li><li>Заявки и продажи в воронке</li><li>ИИ-агент общается с клиентами клуба</li></ul>
+        <div class="shots" role="group" aria-label="Экраны приложения"><i style="--s:var(--img-s1)"></i><i style="--s:var(--img-s2)"></i><i style="--s:var(--img-s3)"></i></div>
+        <ul class="feats f4"><li>Поиск клиента по фамилии или телефону, сводка по абонементам: безлимит, дневной, пробные, разовые</li><li>Расписание клуба: занятия и свободные окна, фильтр по тренеру</li><li>Карточка тренера: цена тренировки, выплата и заработок за месяц</li><li>ИИ-агент общается с клиентами клуба</li></ul>
       </div></div></div>
   </section>
 
