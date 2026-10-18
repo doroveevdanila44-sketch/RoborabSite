@@ -126,6 +126,7 @@ main{flex:1;min-width:0;display:flex;flex-direction:column;height:100%;position:
   function tog(o){document.body.classList.toggle('open',o)}
   document.getElementById('burger').addEventListener('click',function(){tog(true)});
   document.getElementById('scrim').addEventListener('click',function(){tog(false)});
-  next();
+  var msg=(q.get('msg')||'').trim();
+  if(msg){add('u',msg);setTimeout(next,700)}else next();
 })();
 </script></body></html>

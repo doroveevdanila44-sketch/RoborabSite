@@ -183,7 +183,21 @@ a{color:inherit}
 .feats{list-style:none;margin:clamp(14px,2vw,26px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2.4cqw,32px)}
 .feats li{font-size:clamp(13.5px,1.5cqw,17px);line-height:1.38;font-weight:500;min-width:0}
 .shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(6px,1.2vw,14px);margin-top:clamp(14px,2vw,24px);max-width:520px}
-.shots i{display:block;aspect-ratio:480/932;border-radius:12px;background:var(--s) center/cover no-repeat;box-shadow:0 0 0 1px rgba(16,20,23,.1),0 10px 24px -14px rgba(16,20,23,.35)}
+.shots .shot{display:block;padding:0;border:0;cursor:zoom-in;aspect-ratio:760/1476;border-radius:12px;background:var(--s) center/cover no-repeat;box-shadow:0 0 0 1px rgba(16,20,23,.1),0 10px 24px -14px rgba(16,20,23,.35);transition:transform .2s ease;-webkit-tap-highlight-color:transparent}
+.shots .shot:hover{transform:translateY(-3px)}
+.shots .shot:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.lb{border:0;padding:0;background:transparent;width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;margin:0;overflow:hidden;color:#fff}
+.lb::backdrop{background:rgba(10,12,14,.82);backdrop-filter:blur(6px)}
+.lb .st{position:absolute;left:50%;top:50%;translate:-50% -50%;height:min(88dvh,1000px);aspect-ratio:760/1476;max-width:92vw;border-radius:18px;background:center/contain no-repeat #fff;box-shadow:0 30px 80px -20px rgba(0,0,0,.6);touch-action:pan-y}
+.lb button{position:absolute;border:0;color:#fff;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);width:48px;height:48px;border-radius:14px;font:500 26px/1 var(--f-body);cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none}
+.lb button:hover{background:rgba(255,255,255,.28)}
+.lb .x{top:max(16px,env(safe-area-inset-top));right:16px}
+.lb .pv,.lb .nx{top:50%;translate:0 -50%}
+.lb .pv{left:max(12px,calc(50% - min(44dvh,500px)*.52 - 76px))}
+.lb .nx{right:max(12px,calc(50% - min(44dvh,500px)*.52 - 76px))}
+.lb .cn{position:absolute;left:0;right:0;bottom:max(10px,env(safe-area-inset-bottom));text-align:center;font:600 13px/1 var(--f-body);letter-spacing:.1em;opacity:.8}
+@media(max-width:760px){.lb .pv,.lb .nx{top:auto;bottom:max(14px,env(safe-area-inset-bottom));translate:none;width:44px;height:44px}.lb .pv{left:calc(50% - 60px)}.lb .nx{right:calc(50% - 60px)}.lb .cn{display:none}.lb .st{height:min(78dvh,900px);top:calc(50% - 30px)}}
+
 .feats.f4{grid-template-columns:repeat(2,1fr)}
 .panel .btn{background:var(--acc);color:var(--accfg,#fff)}
 @container (max-width:620px){.panel .row{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.panel .btn{width:100%}}
@@ -284,10 +298,10 @@ textarea{min-height:96px;resize:vertical}
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Фитнес-CRM</h3><p class="tag">Клиенты, абонементы, расписание и выплаты тренерам</p></div>
-          <a class="btn" href="#contact">Обсудить внедрение</a>
+          <a class="btn" href="chat.html?product=%D0%A4%D0%B8%D1%82%D0%BD%D0%B5%D1%81-CRM&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%A4%D0%B8%D1%82%D0%BD%D0%B5%D1%81-CRM%C2%BB">Узнать детали</a>
         </div>
-        <div class="shots" role="group" aria-label="Экраны приложения"><i style="--s:var(--img-s1)"></i><i style="--s:var(--img-s2)"></i><i style="--s:var(--img-s3)"></i></div>
-        <ul class="feats f4"><li>Поиск клиента по фамилии или телефону, сводка по абонементам: безлимит, дневной, пробные, разовые</li><li>Расписание клуба: занятия и свободные окна, фильтр по тренеру</li><li>Карточка тренера: цена тренировки, выплата и заработок за месяц</li><li>ИИ-агент общается с клиентами клуба</li></ul>
+        <div class="shots" role="group" aria-label="Экраны приложения"><button type="button" class="shot" style="--s:var(--img-s1)" aria-label="Открыть экран 1"></button><button type="button" class="shot" style="--s:var(--img-s2)" aria-label="Открыть экран 2"></button><button type="button" class="shot" style="--s:var(--img-s3)" aria-label="Открыть экран 3"></button></div>
+        <ul class="feats f4"><li>Весь клуб как на ладони: безлимит, пробные и разовые на одном экране</li><li>Любого клиента найдёшь за секунду: хватит фамилии или телефона</li><li>Свободные окна тренеров видишь сразу, без звонков и таблиц</li><li>Выплаты тренерам считаются сами, а ИИ-агент отвечает клиентам за тебя</li></ul>
       </div></div></div>
   </section>
 
@@ -296,10 +310,10 @@ textarea{min-height:96px;resize:vertical}
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Налоговый агент</h3><p class="tag">Налоги группы компаний: факт из 1С, прогноз и сценарии</p></div>
-          <a class="btn" href="#contact">Обсудить внедрение</a>
+          <a class="btn" href="chat.html?product=%D0%9D%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B0%D0%B3%D0%B5%D0%BD%D1%82&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%9D%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%C2%BB">Узнать детали</a>
         </div>
-        <div class="shots" role="group" aria-label="Экраны приложения"><i style="--s:var(--img-t1)"></i><i style="--s:var(--img-t2)"></i><i style="--s:var(--img-t3)"></i></div>
-        <ul class="feats f4"><li>Дашборд группы: выручка с начала года, НДС, прогноз НДС и налога на прибыль за год</li><li>Выручка по месяцам и юрлицам: факт и прогноз с учётом сезонности</li><li>Предупреждения о срочных платежах, УСН и ОСН по каждому юрлицу</li><li>Агент считает сценарии «что если»: налоги сейчас и по сценарию, расчёт и выгрузка в Excel</li></ul>
+        <div class="shots" role="group" aria-label="Экраны приложения"><button type="button" class="shot" style="--s:var(--img-t1)" aria-label="Открыть экран 1"></button><button type="button" class="shot" style="--s:var(--img-t2)" aria-label="Открыть экран 2"></button><button type="button" class="shot" style="--s:var(--img-t3)" aria-label="Открыть экран 3"></button></div>
+        <ul class="feats f4"><li>Вся группа компаний на одном экране</li><li>Срочные платежи видишь заранее: ни один срок не пройдёт мимо</li><li>Нагрузку по всем юрлицам сравнишь в одно касание</li><li>Агент на связи 24/7: спроси «что если» и получи расчёт</li></ul>
       </div></div></div>
   </section>
 
@@ -308,7 +322,7 @@ textarea{min-height:96px;resize:vertical}
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Строй-учёт</h3><p class="tag">Объекты, материалы и затраты</p></div>
-          <a class="btn" href="#contact">Обсудить внедрение</a>
+          <a class="btn" href="chat.html?product=%D0%A1%D1%82%D1%80%D0%BE%D0%B9-%D1%83%D1%87%D1%91%D1%82&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%A1%D1%82%D1%80%D0%BE%D0%B9-%D1%83%D1%87%D1%91%D1%82%C2%BB">Узнать детали</a>
         </div>
         <ul class="feats"><li>Объекты, материалы и работы в одной базе</li><li>Учёт затрат по каждому объекту</li><li>Сводка для руководителя по всем объектам</li></ul>
       </div></div></div>
@@ -319,7 +333,7 @@ textarea{min-height:96px;resize:vertical}
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Букинг-CRM</h3><p class="tag">Все заявки отеля в одном окне</p></div>
-          <a class="btn" href="#contact">Обсудить внедрение</a>
+          <a class="btn" href="chat.html?product=%D0%91%D1%83%D0%BA%D0%B8%D0%BD%D0%B3-CRM&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%91%D1%83%D0%BA%D0%B8%D0%BD%D0%B3-CRM%C2%BB">Узнать детали</a>
         </div>
         <ul class="feats"><li>Все заявки на бронирование в одном списке</li><li>Статус и история по каждой заявке</li><li>Владелец отеля следит за заявками сам</li></ul>
       </div></div></div>
@@ -330,7 +344,7 @@ textarea{min-height:96px;resize:vertical}
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>SEO / GEO</h3><p class="tag">Настройка, аналитика, админ-панели</p></div>
-          <a class="btn" href="#contact">Обсудить внедрение</a>
+          <a class="btn" href="chat.html?product=SEO%20%2F%20GEO&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%ABSEO%20%2F%20GEO%C2%BB">Узнать детали</a>
         </div>
         <ul class="feats"><li>Настройка SEO и GEO: видимость сайта в поиске и в ответах ИИ</li><li>Аналитика по запросам и упоминаниям</li><li>Админ-панели для управления настройками</li></ul>
       </div></div></div>
@@ -423,6 +437,7 @@ textarea{min-height:96px;resize:vertical}
 </main>
 
 
+<dialog class="lb" id="lb" aria-label="Экраны приложения"><div class="st" id="lbst"></div><button class="x" type="button" aria-label="Закрыть">×</button><button class="pv" type="button" aria-label="Предыдущий экран">‹</button><button class="nx" type="button" aria-label="Следующий экран">›</button><div class="cn" id="lbcn"></div></dialog>
 <script>
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -574,5 +589,19 @@ b.addEventListener('click',function(){if(d.showModal)d.showModal();else d.setAtt
 d.addEventListener('click',function(e){
   if(e.target.closest('.dl-x')||e.target===d){d.close();return}
   var a=e.target.closest('a[data-empty]');if(a)e.preventDefault()});
+})();
+
+(function(){var d=document.getElementById('lb');if(!d)return;var st=document.getElementById('lbst'),cn=document.getElementById('lbcn'),list=[],i=0;
+function show(){st.style.backgroundImage=getComputedStyle(list[i]).backgroundImage;cn.textContent=(i+1)+' / '+list.length}
+function go(n){i=(i+n+list.length)%list.length;show()}
+document.querySelectorAll('.shots').forEach(function(g){g.querySelectorAll('.shot').forEach(function(b,n){b.addEventListener('click',function(){list=[].slice.call(g.querySelectorAll('.shot'));i=n;show();if(d.showModal)d.showModal();else d.setAttribute('open','')})})});
+d.querySelector('.x').addEventListener('click',function(){d.close()});
+d.querySelector('.pv').addEventListener('click',function(){go(-1)});
+d.querySelector('.nx').addEventListener('click',function(){go(1)});
+d.addEventListener('click',function(e){if(e.target===d)d.close()});
+d.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')go(-1);if(e.key==='ArrowRight')go(1)});
+var x0=null;st.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+st.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(dx<0?1:-1);x0=null});
+st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.clientX>r.left+r.width/2?1:-1)});
 })();
 </script>
