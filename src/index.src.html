@@ -130,7 +130,7 @@ a{color:inherit}
 .how h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
 .steps{list-style:none;margin:clamp(28px,4vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
 .steps li{position:relative;display:grid;gap:18px;align-content:start}
-.steps .ic{width:150px;height:150px;background:left center/contain no-repeat}
+.steps .ic{width:150px;height:150px;background:left center/contain no-repeat;mix-blend-mode:multiply}
 .steps li:nth-child(1) .ic{background-image:var(--img-h1)}.steps li:nth-child(2) .ic{background-image:var(--img-h2)}.steps li:nth-child(3) .ic{background-image:var(--img-h3)}.steps li:nth-child(4) .ic{background-image:var(--img-h4)}
 .steps li:not(.last)::after{content:'';position:absolute;top:75px;left:166px;right:calc(-1 * clamp(20px,3vw,48px) + 12px);border-top:2px dashed #c9d0d5}
 .steps .sn{display:block;font:700 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
@@ -179,24 +179,27 @@ a{color:inherit}
 .panel .btn{background:var(--acc);color:var(--accfg,#fff)}
 @container (max-width:620px){.panel .row{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.panel .btn{width:100%}}
 
-/* ---------- каталог: шеренга мини-маскотов; по наведению/касанию сверху плавно раскрывается карточка, шеренга уезжает вниз ---------- */
-.deck{max-width:1760px;margin:clamp(20px,3.4vw,64px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
-.stage{display:grid;grid-template-rows:0fr;transition:grid-template-rows 1.15s cubic-bezier(.4,.05,.15,1);scroll-margin-top:12px}
-.deck.has-open .stage{grid-template-rows:1fr}
-.stage-in{min-height:0;overflow:hidden}
-.deck .product{display:none;margin:0}
-.deck .product.open{display:block;animation:deckin 1s ease both}
+/* ---------- каталог: сетка мини-маскотов по два; выбранный раскрывается на своём месте, остальные разъезжаются ---------- */
+.deck{width:100%;max-width:1760px;margin:clamp(20px,3.4vw,64px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));display:grid;grid-template-columns:repeat(2,minmax(0,340px));justify-content:center;gap:6px 0}
+.deck.has-open{grid-template-columns:repeat(2,minmax(0,1fr))}
+.deck .product{margin:0;position:relative;min-width:0}
+.deck .product.span{grid-column:1/-1}
+.deck .product .card{display:none}
+.deck .product.open .card{display:grid;animation:deckin .6s ease both}
+.deck .product.open .mini{display:none}
 @keyframes deckin{from{opacity:0}to{opacity:1}}
-.minis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 0;max-width:680px;margin-inline:auto}
-.mini:last-child{grid-column:1/-1}
-.mini{appearance:none;background:none;border:0;padding:0;margin:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;font:inherit;color:var(--fg);outline:none;-webkit-tap-highlight-color:transparent}
-.mini .mi{display:block;width:min(100%,230px);aspect-ratio:1;background:var(--mimg) center/contain no-repeat;mix-blend-mode:multiply;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);mask-composite:intersect;transition:transform .9s cubic-bezier(.3,.1,.2,1),opacity .9s ease}
-.mini b{font:800 clamp(17px,1.5vw,24px)/1.1 var(--f-display);letter-spacing:-.03em;transition:opacity .9s ease}
-.deck.has-open .mini:not(.on) .mi{opacity:.5}
-.deck.has-open .mini:not(.on) b{opacity:.6}
-@media(hover:hover){.mini:hover .mi,.mini:focus-visible .mi{transform:translateY(-6px)}.deck.has-open .mini:not(.on):hover .mi,.deck.has-open .mini:not(.on):hover b{opacity:1}}
+.mini{appearance:none;background:none;border:0;padding:0;margin:0;width:100%;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;font:inherit;color:var(--fg);outline:none;-webkit-tap-highlight-color:transparent}
+.mini .mi{display:block;width:min(100%,230px);aspect-ratio:1;background:var(--mimg) center/contain no-repeat;mix-blend-mode:multiply;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);mask-composite:intersect;transition:transform .5s ease}
+.mini b{font:800 clamp(17px,1.5vw,24px)/1.1 var(--f-display);letter-spacing:-.03em}
+@media(hover:hover){.mini:hover .mi,.mini:focus-visible .mi{transform:translateY(-6px)}}
 .deck .mascot{transform:none!important}
+.cl{position:absolute;top:8px;right:max(var(--m),8px);z-index:5;width:40px;height:40px;border:0;border-radius:50%;background:#eef0f2;color:var(--fg);font:500 24px/1 var(--f-body);cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none;display:none}
+.deck .product.open .cl{display:block}
+.cl:hover{background:#e0e3e6}
 .deck+.how{margin-top:clamp(48px,5.5vw,100px)}
+#fit{view-transition-name:vt-fit}#tax{view-transition-name:vt-tax}#build{view-transition-name:vt-build}#booking{view-transition-name:vt-booking}#seo{view-transition-name:vt-seo}
+::view-transition-group(*){animation-duration:.95s;animation-timing-function:cubic-bezier(.4,.05,.15,1)}
+::view-transition-old(*),::view-transition-new(*){animation-duration:.95s}
 @media(min-width:861px){
 .deck .shots{max-width:min(100%,420px)}
 .deck .panel .btn{width:auto!important;justify-self:start}
@@ -204,8 +207,9 @@ a{color:inherit}
 @media(max-width:860px){
 .mini .mi{width:min(100%,200px)}
 .mini b{font-size:clamp(16px,4.6vw,22px)}
+.deck{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-@media(prefers-reduced-motion:reduce){.stage,.mini .mi{transition:none!important}.deck .product.open{animation:none!important}}
+@media(prefers-reduced-motion:reduce){.mini .mi{transition:none!important}.deck .product.open .card{animation:none!important}}
 
 #fit{--acc:#a2eb41;--accfg:#101417;--mimg:var(--img-c-fit)}
 #tax{--acc:#38d0e0;--accfg:#101417;--mimg:var(--img-c-tax)}
@@ -316,8 +320,8 @@ textarea{min-height:96px;resize:vertical}
 
 
   <div class="deck" id="catalog">
-  <div class="stage"><div class="stage-in">
   <section class="product" id="fit">
+    <button type="button" class="mini" style="--mimg:var(--img-c-fit)" aria-expanded="false"><span class="mi" aria-hidden="true"></span><b>Фитнес-CRM</b></button>
     <div class="card"><div class="mascot" role="img" aria-label="Маскот фитнес-CRM"></div>
       <div class="panel"><div class="in">
         <div class="row">
@@ -330,6 +334,7 @@ textarea{min-height:96px;resize:vertical}
   </section>
 
   <section class="product fade" id="tax">
+    <button type="button" class="mini" style="--mimg:var(--img-c-tax)" aria-expanded="false"><span class="mi" aria-hidden="true"></span><b>Налоговый агент</b></button>
     <div class="card"><div class="mascot" role="img" aria-label="Маскот налогового агента"></div>
       <div class="panel"><div class="in">
         <div class="row">
@@ -342,6 +347,7 @@ textarea{min-height:96px;resize:vertical}
   </section>
 
   <section class="product" id="build">
+    <button type="button" class="mini" style="--mimg:var(--img-c-build)" aria-expanded="false"><span class="mi" aria-hidden="true"></span><b>Строй-учёт</b></button>
     <div class="card"><div class="mascot" role="img" aria-label="Маскот строительного учёта"></div>
       <div class="panel"><div class="in">
         <div class="row">
@@ -353,6 +359,7 @@ textarea{min-height:96px;resize:vertical}
   </section>
 
   <section class="product fade" id="booking">
+    <button type="button" class="mini" style="--mimg:var(--img-c-booking)" aria-expanded="false"><span class="mi" aria-hidden="true"></span><b>Букинг-CRM</b></button>
     <div class="card"><div class="mascot" role="img" aria-label="Маскот букинг-CRM"></div>
       <div class="panel"><div class="in">
         <div class="row">
@@ -364,6 +371,7 @@ textarea{min-height:96px;resize:vertical}
   </section>
 
   <section class="product" id="seo">
+    <button type="button" class="mini" style="--mimg:var(--img-c-seo)" aria-expanded="false"><span class="mi" aria-hidden="true"></span><b>SEO / GEO</b></button>
     <div class="card"><div class="mascot" role="img" aria-label="Маскот SEO и GEO"></div>
       <div class="panel"><div class="in">
         <div class="row">
@@ -373,8 +381,6 @@ textarea{min-height:96px;resize:vertical}
         <ul class="feats"><li>Настройка SEO и GEO: видимость сайта в поиске и в ответах ИИ</li><li>Аналитика по запросам и упоминаниям</li><li>Админ-панели для управления настройками</li></ul>
       </div></div></div>
   </section>
-  </div></div>
-  <div class="minis" role="group" aria-label="Решения"><button type="button" class="mini" data-t="fit" style="--mimg:var(--img-c-fit)" aria-controls="fit"><span class="mi" aria-hidden="true"></span><b>Фитнес-CRM</b></button><button type="button" class="mini" data-t="tax" style="--mimg:var(--img-c-tax)" aria-controls="tax"><span class="mi" aria-hidden="true"></span><b>Налоговый агент</b></button><button type="button" class="mini" data-t="build" style="--mimg:var(--img-c-build)" aria-controls="build"><span class="mi" aria-hidden="true"></span><b>Строй-учёт</b></button><button type="button" class="mini" data-t="booking" style="--mimg:var(--img-c-booking)" aria-controls="booking"><span class="mi" aria-hidden="true"></span><b>Букинг-CRM</b></button><button type="button" class="mini" data-t="seo" style="--mimg:var(--img-c-seo)" aria-controls="seo"><span class="mi" aria-hidden="true"></span><b>SEO / GEO</b></button></div>
   </div>
 
   <!-- КАК ЭТО РАБОТАЕТ -->
@@ -601,15 +607,30 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 
 (function(){
 var deck=document.querySelector('.deck');if(!deck)return;
-var stage=deck.querySelector('.stage'),minis=[].slice.call(deck.querySelectorAll('.mini')),cur=null,tin=null,tout=null,sc=0,hov=matchMedia('(hover:hover) and (min-width:861px)');
-function show(id,jump){var on=!!id;if(id)[].slice.call(deck.querySelectorAll('.product')).forEach(function(s){s.classList.toggle('open',s.id===id)});minis.forEach(function(m){var a=on&&m.dataset.t===id;m.classList.toggle('on',a);m.setAttribute('aria-expanded',a?'true':'false')});deck.classList.toggle('has-open',on);cur=on?id:null;
-if(on&&jump){var r=stage.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.35)stage.scrollIntoView({behavior:'smooth',block:'start'})}}
-minis.forEach(function(m){var id=m.dataset.t;
-m.addEventListener('mouseenter',function(){if(!hov.matches)return;clearTimeout(tout);clearTimeout(tin);tin=setTimeout(function(){if(cur!==id)show(id)},180)});
+var px=-1,py=-1;
+var items=[].slice.call(deck.querySelectorAll('.product')),cur=null,tin=null,tout=null,sc=0,hov=matchMedia('(hover:hover) and (min-width:861px)'),red=matchMedia('(prefers-reduced-motion:reduce)');
+items.forEach(function(s){var c=document.createElement('button');c.type='button';c.className='cl';c.setAttribute('aria-label','Закрыть');c.textContent='×';c.addEventListener('click',function(e){e.stopPropagation();show(null)});s.appendChild(c)});
+function layout(){var ord=items.slice(),k=ord.findIndex(function(s){return s.classList.contains('open')});
+if(k>0&&k%2===1){var o=ord.splice(k,1)[0];ord.splice(k-1,0,o)}
+ord.forEach(function(s,i){s.style.order=i;s.classList.remove('span')});
+var row=[];ord.forEach(function(s){if(s.classList.contains('open')){if(row.length===1)row[0].classList.add('span');row=[];s.classList.add('span')}else{row.push(s);if(row.length===2)row=[]}});if(row.length===1)row[0].classList.add('span')}
+function apply(id){items.forEach(function(s){var o=s.id===id;s.classList.toggle('open',o);var m=s.querySelector('.mini');if(m)m.setAttribute('aria-expanded',o?'true':'false')});deck.classList.toggle('has-open',!!id);layout()}
+var sx=-999,sy=-999;
+function show(id,jump){if(id===cur)return;cur=id;sx=px;sy=py;
+var run=function(){apply(id)};
+if(document.startViewTransition&&!red.matches){var vt=document.startViewTransition(run);if(jump&&id)vt.finished.then(function(){bring(id)})}else{run();if(jump&&id)bring(id)}}
+function bring(id){var el=document.getElementById(id),r=el.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.4)el.scrollIntoView({behavior:'smooth',block:'start'})}
+items.forEach(function(s){var id=s.id,m=s.querySelector('.mini');
+m.addEventListener('mouseenter',function(){if(!hov.matches)return;if(Math.hypot(px-sx,py-sy)<10)return;clearTimeout(tout);clearTimeout(tin);tin=setTimeout(function(){show(id)},180)});
 m.addEventListener('mouseleave',function(){clearTimeout(tin)});
-m.addEventListener('click',function(){show(cur===id?null:id,true)})});
+m.addEventListener('click',function(){show(id,true)})});
 deck.addEventListener('mouseenter',function(){clearTimeout(tout)});
-deck.addEventListener('mouseleave',function(){if(!hov.matches)return;clearTimeout(tin);clearTimeout(tout);tout=setTimeout(function(){if(Date.now()-sc<500)return;show(null)},700)});
+function inside(){return items.some(function(s){var r=s.getBoundingClientRect();return r.width&&px>=r.left-12&&px<=r.right+12&&py>=r.top-12&&py<=r.bottom+12})}
+function watch(){if(!hov.matches||!cur)return;if(inside()){clearTimeout(tout);tout=null}else if(!tout)tout=setTimeout(function(){tout=null;if(Date.now()-sc<500||inside())return;show(null)},700)}
+addEventListener('mousemove',function(e){px=e.clientX;py=e.clientY;watch()},{passive:true});
+deck.addEventListener('mouseenter',function(){clearTimeout(tout);tout=null});
+deck.addEventListener('mouseleave',function(){clearTimeout(tin);watch()});
 addEventListener('scroll',function(){sc=Date.now()},{passive:true});
+layout();
 })();
 </script>
