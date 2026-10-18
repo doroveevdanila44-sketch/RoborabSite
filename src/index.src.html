@@ -179,7 +179,36 @@ a{color:inherit}
 .panel .btn{background:var(--acc);color:var(--accfg,#fff)}
 @container (max-width:620px){.panel .row{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.panel .btn{width:100%}}
 
-#catalog{--acc:#a2eb41;--accfg:#101417;--mimg:var(--img-c-fit)}
+/* ---------- каталог на десктопе: шеренга из пяти, наведение раскрывает одного ---------- */
+.cap{display:none}
+@media(min-width:861px){
+.deck{display:flex;max-width:1760px;margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));height:var(--dh,600px);gap:0}
+.deck .product{margin:0;flex:1 1 0;min-width:0;position:relative;overflow:hidden;cursor:pointer;transition:flex-grow .55s cubic-bezier(.22,.7,.2,1);outline:none}
+.deck.has-open .product{flex-grow:.22}
+.deck.has-open .product.open{flex-grow:6}
+.deck .card{height:100%;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;max-width:none}
+.deck .mascot{order:0!important;transform:none!important;width:min(100%,230px);max-width:none;flex:0 0 auto;mix-blend-mode:multiply;transition:width .55s cubic-bezier(.22,.7,.2,1)}
+.deck .cap{display:block;text-align:center;font:800 clamp(17px,1.5vw,24px)/1.1 var(--f-display);letter-spacing:-.03em;white-space:nowrap;transition:opacity .25s ease;color:var(--fg)}
+.deck .product:hover .cap{color:var(--acc)}
+.deck #seo .cap,.deck #booking .cap,.deck #tax .cap,.deck #fit .cap,.deck #build .cap{color:var(--fg)}
+.deck .product:not(.open):hover .mascot{transform:translateY(-6px)!important}
+.deck .mascot{transition:width .55s cubic-bezier(.22,.7,.2,1),transform .3s ease}
+.deck .panel{display:none}
+.deck.has-open .product:not(.open) .cap{opacity:0}
+.deck .product.open{cursor:default}
+.deck .product.open .card{flex-direction:row;justify-content:flex-start;gap:clamp(16px,2.4vw,40px)}
+.deck .product.open .mascot{flex:0 0 clamp(200px,26vw,440px);width:clamp(200px,26vw,440px)}
+.deck .product.open .cap{display:none}
+.deck .product.open .panel{display:block;flex:1 1 0;min-width:0;animation:deckin .5s .3s both}
+@keyframes deckin{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.deck .mascot{-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 9%,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%)}
+.deck .panel .btn{width:auto!important;justify-self:start}
+.deck .shots{max-width:min(100%,420px)}
+.deck .panel{padding:0}
+}
+@media(prefers-reduced-motion:reduce){.deck .product,.deck .mascot{transition:none!important}.deck .panel{animation:none!important}}
+
+#fit{--acc:#a2eb41;--accfg:#101417;--mimg:var(--img-c-fit)}
 #tax{--acc:#38d0e0;--accfg:#101417;--mimg:var(--img-c-tax)}
 #build{--acc:#fcc118;--accfg:#101417;--mimg:var(--img-c-build)}
 #booking{--acc:#393939;--accfg:#fff;--mimg:var(--img-c-booking)}
@@ -287,8 +316,10 @@ textarea{min-height:96px;resize:vertical}
   </section>
 
 
-  <section class="product" id="catalog">
+  <div class="deck" id="catalog">
+  <section class="product" id="fit">
     <div class="card"><div class="mascot" role="img" aria-label="Маскот фитнес-CRM"></div>
+      <div class="cap" aria-hidden="true">Фитнес-CRM</div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Фитнес-CRM</h3><p class="tag">Клиенты, абонементы, расписание и выплаты тренерам</p></div>
@@ -301,6 +332,7 @@ textarea{min-height:96px;resize:vertical}
 
   <section class="product fade" id="tax">
     <div class="card"><div class="mascot" role="img" aria-label="Маскот налогового агента"></div>
+      <div class="cap" aria-hidden="true">Налоговый агент</div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Налоговый агент</h3><p class="tag">Налоги группы компаний: факт из 1С, прогноз и сценарии</p></div>
@@ -313,6 +345,7 @@ textarea{min-height:96px;resize:vertical}
 
   <section class="product" id="build">
     <div class="card"><div class="mascot" role="img" aria-label="Маскот строительного учёта"></div>
+      <div class="cap" aria-hidden="true">Строй-учёт</div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Строй-учёт</h3><p class="tag">Объекты, материалы и затраты</p></div>
@@ -324,6 +357,7 @@ textarea{min-height:96px;resize:vertical}
 
   <section class="product fade" id="booking">
     <div class="card"><div class="mascot" role="img" aria-label="Маскот букинг-CRM"></div>
+      <div class="cap" aria-hidden="true">Букинг-CRM</div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>Букинг-CRM</h3><p class="tag">Все заявки отеля в одном окне</p></div>
@@ -335,6 +369,7 @@ textarea{min-height:96px;resize:vertical}
 
   <section class="product" id="seo">
     <div class="card"><div class="mascot" role="img" aria-label="Маскот SEO и GEO"></div>
+      <div class="cap" aria-hidden="true">SEO / GEO</div>
       <div class="panel"><div class="in">
         <div class="row">
           <div><h3>SEO / GEO</h3><p class="tag">Настройка, аналитика, админ-панели</p></div>
@@ -343,6 +378,7 @@ textarea{min-height:96px;resize:vertical}
         <ul class="feats"><li>Настройка SEO и GEO: видимость сайта в поиске и в ответах ИИ</li><li>Аналитика по запросам и упоминаниям</li><li>Админ-панели для управления настройками</li></ul>
       </div></div></div>
   </section>
+  </div>
 
   <!-- КАК ЭТО РАБОТАЕТ -->
   <section class="how" id="how" aria-labelledby="how-h">
@@ -564,5 +600,19 @@ d.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')go(-1);if(e.key=
 var x0=null;st.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
 st.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(dx<0?1:-1);x0=null});
 st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.clientX>r.left+r.width/2?1:-1)});
+})();
+
+(function(){
+var deck=document.querySelector('.deck');if(!deck)return;
+var items=[].slice.call(deck.querySelectorAll('.product')),cur=null,lock=0,px=-1,py=-1,wide=matchMedia('(min-width:861px)');
+function open(it){if(!wide.matches)it=null;if(it===cur)return;cur=it;items.forEach(function(i){i.classList.toggle('open',i===it)});deck.classList.toggle('has-open',!!it);lock=Date.now()+560;setTimeout(recheck,580)}
+function recheck(){if(!cur||px<0)return;var el=document.elementFromPoint(px,py),p=el&&el.closest&&el.closest('.deck .product');if(p&&p!==cur&&matchMedia('(hover:hover)').matches)open(p)}
+items.forEach(function(it){it.setAttribute('tabindex','0');
+it.addEventListener('mouseenter',function(){if(Date.now()<lock)return;open(it)});
+it.addEventListener('focusin',function(){open(it)});
+it.addEventListener('click',function(){open(it)})});
+deck.addEventListener('mousemove',function(e){px=e.clientX;py=e.clientY});
+deck.addEventListener('mouseleave',function(){px=-1;open(null)});
+if(wide.addEventListener)wide.addEventListener('change',function(){open(null)});
 })();
 </script>
