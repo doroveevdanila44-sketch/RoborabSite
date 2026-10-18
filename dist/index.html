@@ -146,6 +146,12 @@ a{color:inherit}
 .path .big{font:800 clamp(140px,26vw,460px)/.82 var(--f-display);letter-spacing:-.05em;margin-left:-.04em}
 .path h3{margin:clamp(14px,2vw,32px) 0 0;font:800 clamp(22px,2.6vw,44px)/1.1 var(--f-display);letter-spacing:-.03em;text-wrap:balance;max-width:20ch}
 .path .sub{margin:clamp(12px,1.4vw,20px) 0 0;font-size:clamp(17px,1.5vw,24px);line-height:1.35;font-weight:500;color:var(--mute);max-width:30ch}
+.bigrow{display:flex;align-items:center;gap:clamp(20px,3vw,48px)}
+.bigrow .app{margin-top:0}
+.path .lead{margin:clamp(14px,1.6vw,24px) 0 0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;font-weight:500;color:var(--fg);max-width:46ch}
+.princ{list-style:none;margin:clamp(14px,1.6vw,22px) 0 0;padding:0;display:grid;gap:8px;max-width:46ch}
+.princ li{position:relative;padding-left:22px;font:600 clamp(15px,1.1vw,17px)/1.35 var(--f-display);color:var(--fg)}
+.princ li::before{content:'';position:absolute;left:0;top:.5em;width:10px;height:10px;border-radius:3px;background:var(--fg)}
 .path .btn{margin-top:clamp(18px,2vw,30px)}
 @media(max-width:860px){.pgrid{grid-template-columns:1fr}}
 
@@ -305,13 +311,16 @@ textarea{min-height:96px;resize:vertical}
     <h2 id="paths-h">У вас есть два варианта</h2>
     <div class="pgrid">
       <article class="path">
-        <div class="big" aria-hidden="true">1</div>
+        <div class="bigrow">
+          <div class="big" aria-hidden="true">1</div>
+          <div class="app" id="app">
+            <button class="appicon" type="button" aria-haspopup="dialog" aria-controls="stores" aria-label="РОБОРАБ AI: выбрать устройство"></button>
+          </div>
+        </div>
         <h3>Скачать приложение «РОБОРАБ AI» и поговорить с нашей гориллой</h3>
         <p class="sub">Все нейросети дают инструкции. РОБОРАБ даёт инструмент.</p>
-        <div class="app" id="app">
-          <button class="appicon" type="button" aria-haspopup="dialog" aria-controls="stores" aria-label="РОБОРАБ AI: выбрать устройство"></button>
-          <span class="appnote">Доступно на всех устройствах<small>Нажми, чтобы войти</small></span>
-        </div>
+        <p class="lead">ИИ обучен не просто на трудах классиков управленческой мысли и коммерции, но на них же, пропущенных через критический анализ и очищенных от личных эмоциональных интерпретаций авторов. Клиент получает выжимку проверенной сути, а не пересказ чужих убеждений или пафоса.</p>
+        <ul class="princ"><li>Критический анализ источников</li><li>Без личных эмоциональных интерпретаций авторов</li><li>Проверенная суть вместо чужих убеждений и пафоса</li></ul>
         <dialog class="dl" id="stores" tabindex="-1" aria-labelledby="dl-h">
           <button class="dl-x" type="button" aria-label="Закрыть">×</button>
           <span class="dl-ico" aria-hidden="true"></span>
@@ -419,7 +428,6 @@ textarea{min-height:96px;resize:vertical}
           <span class="wk">План 2 · бизнеса пока нет, но есть амбиции</span>
           <h3>ИИ-собеседник, который учит думать как предприниматель</h3>
           <p>Режим бизнес-ментора помогает выстроить бизнес-мышление и проработать идею с нуля. Опора на классическую управленческую и философскую базу, адаптированную под практику предпринимателя.</p>
-          <p>ИИ обучен на классике управленческой мысли, пропущенной через критический анализ: без эмоциональных интерпретаций авторов, только суть идей.</p>
           <ul class="chips"><li>Стоики</li><li>Шопенгауэр</li><li>Филип Котлер</li></ul>
           <p class="inc">В подписку также входят:</p>
           <ul class="chips inc2"><li>Коммерческие предложения</li><li>Бизнес-планы для инвесторов</li><li>Бизнес-планы для госгрантов</li></ul>
