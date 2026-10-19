@@ -147,16 +147,6 @@ a{color:inherit}
 }
 
 
-/* ---------- манифест ---------- */
-.manifest{margin:max(0px,calc(var(--S) - var(--Gref,var(--G)))) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
-.mlist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,4vw,72px)}
-.mlist li{display:grid;gap:clamp(18px,2vw,30px);align-content:start}
-.mi{width:clamp(84px,8vw,120px);height:auto;display:block;filter:drop-shadow(0 14px 14px rgba(16,20,23,.22))}
-.mlist p{margin:0;font:800 clamp(22px,2.4vw,40px)/1.1 var(--f-display);letter-spacing:-.03em;text-wrap:balance}
-.mimg{height:clamp(84px,14vw,230px);width:auto;aspect-ratio:1.25;background:var(--mi) center/contain no-repeat;filter:none}
-@media(min-width:861px){.mlist li{justify-items:center;text-align:center}.mlist p{text-wrap:balance}}
-.manifest+.paths{margin-top:var(--S)}
-@media(max-width:860px){.mlist{grid-template-columns:1fr}.mlist li{grid-template-columns:112px 1fr;column-gap:18px;align-items:center}.mimg{width:112px;height:auto;background-position:left center}.mlist li:nth-child(2){grid-template-columns:1fr 112px}.mlist li:nth-child(2) .mi{order:2;background-position:right center!important}.mlist li:nth-child(2) p{text-align:left}}
 /* ---------- три формата общения с агентом ---------- */
 .how{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
 .how h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
@@ -285,18 +275,6 @@ textarea{min-height:96px;resize:vertical}
   </section>
 
   <!-- КАТАЛОГ: порядок фитнес, налоги, стройка, букинг, SEO/GEO. Одно белое пространство -->
-  <section class="manifest" aria-label="Манифест">
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-      <linearGradient id="mt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b4046"/><stop offset=".55" stop-color="#16191c"/><stop offset="1" stop-color="#0a0c0d"/></linearGradient>
-      <radialGradient id="mh" cx=".28" cy=".2" r=".7"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
-      <linearGradient id="mg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f3f4"/><stop offset="1" stop-color="#aeb4b9"/></linearGradient>
-    </defs></svg>
-    <ul class="mlist">
-      <li><div class="mi mimg" style="--mi:var(--img-m1)" role="img" aria-label="Щит с галочкой"></div><p>Мы отвечаем за результат работы ИИ, а не просто продаём доступ к нейросети.</p></li>
-      <li><div class="mi mimg" style="--mi:var(--img-m2)" role="img" aria-label="Глобус с курсором"></div><p>Цифровая реальность бизнеса уже наступила.</p></li>
-      <li><div class="mi mimg" style="--mi:var(--img-m3)" role="img" aria-label="Часы и рубль"></div><p>Мы выполняем тот же объём задач, тратя на 50% меньше.</p></li>
-    </ul>
-  </section>
 
   <!-- ПЕРЕХОД: два пути внедрения -->
   <section class="paths" id="paths" aria-labelledby="paths-h">
