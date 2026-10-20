@@ -1,0 +1,140 @@
+@name Norsk
+@sort Norwegian
+@top <span class="d"><span class="ml">Vi innfører</span> <span class="ml">kunstig</span></span><br><span class="ml">intelligens</span>
+@bot <span class="d"><span class="ml">i forretningsprosessene dine</span></span>
+@hi Hei {n}! Jeg er ROBORAB AI-agenten.
+@hi0 Hei! Jeg er ROBORAB AI-agenten.
+@known  Du er interessert i produktet «{p}». Jeg stiller noen spørsmål for å forstå oppgaven din.
+@unk  Jeg stiller noen spørsmål for å forstå hva du trenger.
+@q1 Hva driver bedriften din med?
+@q2 Hvilken oppgave eller prosess vil du automatisere?
+@q3 Hvor mange skal bruke verktøyet?
+@q4 Takk, dette er nok for en første forståelse. Når chatten er koblet til, fortsetter samtalen her.
+@mp Hei, jeg er interessert i detaljer om produktet «{p}»
+@m3 Hei, jeg vil beregne kostnaden ved å erstatte en ansatt eller en funksjon i bedriften min
+2|En rosa gorilla i skjorte og slips sitter i en svart skinnsofa
+3|Slik innfører vi det, rull ned
+4|Slik innfører vi det
+5|Du har to alternativer
+6|ROBORAB AI: velg enhet
+7|Tilgjengelig på alle enheter
+8|Trykk for å logge inn
+9|Last ned appen «ROBORAB AI» og snakk med gorillaen vår
+10|KI-en er trent på verkene til klassikerne innen ledelses- og handelstenkning. Men vi har ikke bare lastet inn bøkene: vi har analysert dem kritisk og fjernet forfatternes personlige følelsesmessige vurderinger. Kunden får et utdrag av den verifiserte kjernen, ikke gjenfortelling av andres overbevisninger eller patos.
+11|Lukk
+13|Velg enheten din
+14|Velg en ferdig løsning i katalogen nedenfor
+15|Velg løsning
+16|Maskot for fitness-CRM
+17|Fitness-CRM
+18|Kunder, medlemskap, timeplan og utbetalinger til trenere
+19|Les mer
+20|Skjermbilder fra appen
+21|Åpne skjerm 1
+22|Åpne skjerm 2
+23|Åpne skjerm 3
+24|Hele klubben med ett blikk: ubegrensede, prøve- og enkeltkort på én skjerm
+25|Finn en hvilken som helst kunde på et sekund: etternavn eller telefonnummer er nok
+26|Se trenernes ledige tider med en gang, uten samtaler og regneark
+27|Utbetalinger til trenere beregnes automatisk, og KI-agenten svarer kundene for deg
+28|Maskot for skatteagenten
+29|Skatteagent
+30|Skatter for et konsern: faktiske tall fra 1C, prognose og scenarier
+31|Hele konsernet på én skjerm
+32|Se hastebetalinger i forkant: ingen frist går forbi
+33|Sammenlign belastningen for alle juridiske enheter med ett trykk
+34|Agenten er tilgjengelig 24/7: spør «hva hvis» og få en beregning
+35|Maskot for byggeregnskap
+36|Byggeregnskap
+37|Byggeplasser, materialer og kostnader
+38|Byggeplasser, materialer og arbeider i én database
+39|Kostnadsføring for hver byggeplass
+40|Oversikt for lederen over alle byggeplasser
+41|Maskot for booking-CRM
+42|Booking-CRM
+43|Alle hotellets forespørsler i ett vindu
+44|Alle bookingforespørsler i én liste
+45|Status og historikk for hver forespørsel
+46|Hoteleieren følger forespørslene selv
+47|Maskot for SEO og GEO
+48|Oppsett, analyse, administrasjonspaneler
+49|SEO- og GEO-oppsett: nettstedets synlighet i søk og i KI-svar
+50|Administrasjonspanel for utstillingsvinduet: banner, slagord og kategorier endres direkte i grensesnittet
+51|Besøksanalyse for 7, 30 eller 90 dager: hvem kom, hvem forlot siden med en gang, og hvor mange handlekurver ble sendt til Telegram
+52|Se hvor mange kjøpere KI-assistenter (ChatGPT, Alisa, Perplexity, Gemini) har sendt, og besøkende per dag
+53|Slik fungerer det
+54|Trinn 1
+55|Trinn 2
+56|Trinn 3
+57|Du beskriver oppgaven
+58|Til KI-agenten: med tekst, tale eller videosamtale.
+59|Agenten fanger opp kjernen
+60|Lager et sammendrag av forespørselen din.
+61|En spesialist konfigurerer
+62|En teknisk spesialist tilpasser den ferdige løsningen til deg.
+63|Dagen etter
+64|Verktøyet er ditt
+65|Den ferdige løsningen er allerede i appen.
+66|Hvem ROBORAB er for
+67|Tre trinnvise planer: fra en gratis samtale til løsninger skreddersydd for bedriften din.
+68|Planikon
+69|Plan 1 · for å komme i gang
+70|Spør KI-en om bedriften din
+71|Samtale med KI-en om forretning: anbefalinger basert på informasjonen du gir, og praktiske råd.
+72|Gratis
+73|Kom i gang
+74|Plan 2 · ingen bedrift ennå, men ambisjoner
+75|En KI-samtalepartner som lærer deg å tenke som gründer
+76|Forretningsmentor-modusen hjelper deg å bygge gründertenkning og utvikle en idé fra bunnen av. Den bygger på det klassiske grunnlaget innen ledelse og filosofi, tilpasset gründerens praksis.
+77|Stoikerne
+78|Schopenhauer
+79|Philip Kotler
+80|Abonnementet inkluderer også:
+81|Kommersielle tilbud
+82|Forretningsplaner for investorer
+83|Forretningsplaner for offentlige tilskudd
+85|abonnement
+86|Plan 3 · du har allerede en bedrift
+87|Vi erstatter en ansatt eller en hel funksjon
+88|ROBORAB bygges inn i de interne prosessene og overtar arbeidet til en bestemt person eller avdeling. Du sparer penger og tid.
+89|Bygges inn i prosesser
+90|Sparer penger
+91|Sparer tid
+92|Individuell pris
+93|Få en pris på 10 minutter
+94|Fortell oss om oppgaven din
+95|Legg igjen navnet ditt og velg et produkt. Vi åpner en chat med ROBORAB AI: agenten stiller noen spørsmål og finner ut hva du trenger.
+96|Navn
+97|Produktet du er interessert i
+98|Gratis plan
+99|Abonnement med forretningsmentor
+100|Vet ikke ennå
+101|Send til ROBORAB AI-chatten
+102|Forrige skjerm
+103|Neste skjerm
+104|Meny
+105|Verktøyene mine
+106|G
+107|Ny chat
+108|Søk i chatter
+109|Prosjekter
+110|Chatter
+111|Første samtale
+112|Materialregistrering på byggeplasser
+113|Skatt og betalinger for enkeltpersonforetak
+114|Hotellforespørsler i ett vindu
+115|SEO og synlighet i KI-svar
+116|Gjest
+117|Min konto
+118|Del
+119|Tilbake til nettstedet
+120|Legg ved fil
+121|Skriv til ROBORAB AI
+122|Melding
+123|Tale
+124|Send
+125|Demoversjon: menyknappene er foreløpig plassholdere, og samtalen lagres ikke.
+126|Erstatning av ansatt eller funksjon
+127|Betalingsmåter
+128|og andre
+129|MIR

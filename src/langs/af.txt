@@ -1,0 +1,140 @@
+@name Afrikaans
+@sort Afrikaans
+@top <span class="d"><span class="ml">Ons implementeer</span> <span class="ml">kunsmatige</span></span><br><span class="ml">intelligensie</span>
+@bot <span class="d"><span class="ml">in sakeprosesse</span></span>
+@hi Hallo {n}! Ek is die ROBORAB AI-agent.
+@hi0 Hallo! Ek is die ROBORAB AI-agent.
+@known  Jy stel belang in die produk «{p}». Ek sal 'n paar vrae vra om jou taak te verstaan.
+@unk  Ek sal 'n paar vrae vra om te verstaan wat jy nodig het.
+@q1 Waarmee hou jou maatskappy hom besig?
+@q2 Watter taak of proses wil jy outomatiseer?
+@q3 Hoeveel mense sal die hulpmiddel gebruik?
+@q4 Dankie, dit is genoeg vir 'n eerste begrip. Sodra die klets gekoppel is, gaan die gesprek hier voort.
+@mp Hallo, ek stel belang in die besonderhede van die produk «{p}»
+@m3 Hallo, ek wil die koste bereken om 'n werknemer of funksie in my maatskappy te vervang
+2|'n Pienk gorilla in hemp en das sit op 'n swart leerbank
+3|Hoe ons dit implementeer, blaai af
+4|Hoe ons dit implementeer
+5|Jy het twee opsies
+6|ROBORAB AI: kies toestel
+7|Beskikbaar op alle toestelle
+8|Tik om aan te meld
+9|Laai die «ROBORAB AI»-toepassing af en gesels met ons gorilla
+10|Die KI is opgelei op die werke van die klassieke denkers oor bestuur en handel. Maar ons het nie net daardie boeke gelaai nie: ons het dit kritiese ontleed en die skrywers se persoonlike emosionele oordele verwyder. Die kliënt kry 'n uittreksel van geverifieerde kern, nie 'n oorvertelling van ander se oortuigings of patos nie.
+11|Sluit
+13|Kies jou toestel
+14|Kies 'n gereedgemaakte oplossing in die katalogus hieronder
+15|Kies oplossing
+16|Gimnasium-CRM-maskot
+17|Gimnasium-CRM
+18|Kliënte, lidmaatskappe, rooster en uitbetalings aan afrigters
+19|Kom meer te wete
+20|Toepassingskerms
+21|Maak skerm 1 oop
+22|Maak skerm 2 oop
+23|Maak skerm 3 oop
+24|Die hele klub in een oogopslag: onbeperkte, proef- en enkelbesoekkaartjies op een skerm
+25|Vind enige kliënt in 'n sekonde: 'n van of telefoonnommer is genoeg
+26|Sien afrigters se vrye tye dadelik, sonder oproepe en sigblaaie
+27|Uitbetalings aan afrigters word self bereken, en die KI-agent antwoord kliënte namens jou
+28|Belastingagent-maskot
+29|Belastingagent
+30|Belasting van 'n maatskappygroep: werklike syfers uit 1C, vooruitskatting en scenario's
+31|Die hele maatskappygroep op een skerm
+32|Sien dringende betalings vooruit: geen sperdatum glip verby nie
+33|Vergelyk die las van alle regspersone met een tik
+34|Die agent is 24/7 beskikbaar: vra «wat as» en kry 'n berekening
+35|Boukrekeningkunde-maskot
+36|Boukrekeningkunde
+37|Terreine, materiaal en koste
+38|Terreine, materiaal en werk in een databasis
+39|Kosteopname vir elke terrein
+40|Opsomming vir die bestuurder oor alle terreine
+41|Besprekings-CRM-maskot
+42|Besprekings-CRM
+43|Al die hotel se versoeke in een venster
+44|Alle besprekingsversoeke in een lys
+45|Status en geskiedenis van elke versoek
+46|Die hoteleienaar volg self die versoeke
+47|SEO- en GEO-maskot
+48|Opstelling, analitiek, administrasiepanele
+49|SEO- en GEO-opstelling: sigbaarheid van die webwerf in soektogte en in KI-antwoorde
+50|Winkelvenster-administrasiepaneel: banier, slagspreuk en kategorieë word direk in die koppelvlak verander
+51|Besoekeranalitiek vir 7, 30 of 90 dae: wie het gekom, wie het dadelik weggegaan en hoeveel mandjies na Telegram gestuur is
+52|Sien hoeveel kopers KI-assistente (ChatGPT, Alisa, Perplexity, Gemini) gebring het, en besoekers per dag
+53|Hoe dit werk
+54|Stap 1
+55|Stap 2
+56|Stap 3
+57|Jy beskryf die taak
+58|Aan die KI-agent: per teks, stem of video-oproep.
+59|Die agent vang die kern
+60|Stel 'n opsomming van jou versoek op.
+61|'n Spesialis stel op
+62|'n Tegniese spesialis pas die gereedgemaakte oplossing by jou aan.
+63|Die volgende dag
+64|Die hulpmiddel is joune
+65|Die voltooide oplossing is reeds in die toepassing.
+66|Vir wie ROBORAB is
+67|Drie stapsgewyse planne: van 'n gratis gesprek tot oplossings vir jou besigheid.
+68|Planikoon
+69|Plan 1 · om te begin
+70|Vra die KI oor jou besigheid
+71|Gesels met die KI oor besigheid: aanbevelings gebaseer op die inligting wat jy deel, en praktiese raad.
+72|Gratis
+73|Begin
+74|Plan 2 · nog geen besigheid nie, maar wel ambisie
+75|'n KI-gespreksgenoot wat jou leer dink soos 'n entrepreneur
+76|Die besigheidsmentor-modus help jou om 'n ondernemersingesteldheid te bou en 'n idee van nuuts af uit te werk. Dit steun op die klassieke grondslag van bestuur en filosofie, aangepas by die entrepreneur se praktyk.
+77|Die Stoïsyne
+78|Schopenhauer
+79|Philip Kotler
+80|Die intekening sluit ook in:
+81|Kommersiële voorstelle
+82|Sakeplanne vir beleggers
+83|Sakeplanne vir staatstoelaes
+85|intekening
+86|Plan 3 · jy het reeds 'n besigheid
+87|Ons vervang 'n werknemer of 'n hele funksie
+88|ROBORAB word in jou interne prosesse ingebou en neem die werk van 'n spesifieke persoon of afdeling oor. Jy bespaar geld en tyd.
+89|Ingebou in prosesse
+90|Bespaar geld
+91|Bespaar tyd
+92|Individuele prys
+93|Kry 'n prys in 10 minute
+94|Vertel ons van jou taak
+95|Los jou naam en kies 'n produk. Ons maak 'n klets met ROBORAB AI oop: die agent sal 'n paar vrae vra en uitvind wat jy presies nodig het.
+96|Naam
+97|Die produk waarin jy belangstel
+98|Gratis plan
+99|Intekening met 'n besigheidsmentor
+100|Weet nog nie
+101|Stuur na die ROBORAB AI-klets
+102|Vorige skerm
+103|Volgende skerm
+104|Kieslys
+105|My hulpmiddels
+106|G
+107|Nuwe klets
+108|Deursoek kletse
+109|Projekte
+110|Kletse
+111|Eerste gesprek
+112|Materiaalopname op terreine
+113|Belasting en betalings vir eenmanbesighede
+114|Hotelversoeke in een venster
+115|SEO en sigbaarheid in KI-antwoorde
+116|Gas
+117|My rekening
+118|Deel
+119|Terug na die webwerf
+120|Heg lêer aan
+121|Skryf aan ROBORAB AI
+122|Boodskap
+123|Stem
+124|Stuur
+125|Demoweergawe: die kieslyskoppies is vir eers plekhouers en die gesprek word nie gestoor nie.
+126|Vervanging van werknemer of funksie
+127|Betaalmetodes
+128|en ander
+129|MIR

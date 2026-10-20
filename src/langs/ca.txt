@@ -1,0 +1,140 @@
+@name Català
+@sort Catalan
+@top <span class="d"><span class="ml">Implantem</span> <span class="ml">la intel·ligència</span></span><br><span class="ml">artificial</span>
+@bot <span class="d"><span class="ml">als processos de negoci</span></span>
+@hi Hola, {n}! Sóc l'agent de ROBORAB AI.
+@hi0 Hola! Sóc l'agent de ROBORAB AI.
+@known  Us interessa el producte «{p}». Us faré unes quantes preguntes per entendre la vostra tasca.
+@unk  Us faré unes quantes preguntes per entendre què necessiteu.
+@q1 A què es dedica la vostra empresa?
+@q2 Quina tasca o procés voleu automatitzar?
+@q3 Quantes persones faran servir l'eina?
+@q4 Gràcies, amb això n'hi ha prou per a una primera idea. Quan el xat estigui connectat, la conversa continuarà aquí.
+@mp Hola, m'interessen els detalls del producte «{p}»
+@m3 Hola, vull calcular el cost de substituir un empleat o una funció a la meva empresa
+2|Un goril·la rosa amb camisa i corbata assegut en un sofà de cuir negre
+3|Com ho implantem, desplaceu-vos avall
+4|Com ho implantem
+5|Teniu dues opcions
+6|ROBORAB AI: trieu el dispositiu
+7|Disponible en tots els dispositius
+8|Toqueu per iniciar la sessió
+9|Baixeu l'aplicació «ROBORAB AI» i parleu amb el nostre goril·la
+10|La IA està entrenada amb les obres dels clàssics del pensament directiu i comercial. Però no hem carregat aquests llibres sense més: els hem sotmès a una anàlisi crítica i hem eliminat les valoracions emocionals personals dels autors. El client rep l'extracte de l'essència verificada, no una repetició de creences o d'èmfasi aliens.
+11|Tanca
+13|Trieu el vostre dispositiu
+14|Trieu una solució ja feta al catàleg de sota
+15|Triar solució
+16|Mascota del CRM de fitness
+17|CRM de fitness
+18|Clients, abonaments, horaris i pagaments als entrenadors
+19|Més informació
+20|Pantalles de l'aplicació
+21|Obre la pantalla 1
+22|Obre la pantalla 2
+23|Obre la pantalla 3
+24|Tot el club d'un cop d'ull: il·limitats, de prova i entrades puntuals en una sola pantalla
+25|Trobeu qualsevol client en un segon: n'hi ha prou amb el cognom o el telèfon
+26|Veieu a l'instant les franges lliures dels entrenadors, sense trucades ni fulls de càlcul
+27|Els pagaments als entrenadors es calculen sols i l'agent d'IA respon els clients per vosaltres
+28|Mascota de l'agent fiscal
+29|Agent fiscal
+30|Impostos d'un grup d'empreses: dades reals d'1C, previsió i escenaris
+31|Tot el grup d'empreses en una sola pantalla
+32|Veieu els pagaments urgents amb antelació: cap termini se us escapa
+33|Compareu la càrrega de totes les entitats jurídiques amb un toc
+34|L'agent està disponible 24/7: pregunteu «i si…» i obtingueu un càlcul
+35|Mascota de la comptabilitat d'obra
+36|Comptabilitat d'obra
+37|Obres, materials i costos
+38|Obres, materials i treballs en una sola base
+39|Control de costos de cada obra
+40|Resum per al director de totes les obres
+41|Mascota del CRM de reserves
+42|CRM de reserves
+43|Totes les sol·licituds de l'hotel en una finestra
+44|Totes les sol·licituds de reserva en una llista
+45|Estat i historial de cada sol·licitud
+46|El propietari de l'hotel fa el seguiment de les sol·licituds ell mateix
+47|Mascota de SEO i GEO
+48|Configuració, analítica, panells d'administració
+49|Configuració de SEO i GEO: visibilitat del lloc als cercadors i a les respostes d'IA
+50|Panell d'administració de l'aparador: el bàner, el lema i les categories es canvien directament a la interfície
+51|Analítica de visitants a 7, 30 o 90 dies: qui ha vingut, qui ha marxat de seguida i quants carrets s'han enviat a Telegram
+52|Veieu quants compradors han portat els assistents d'IA (ChatGPT, Alisa, Perplexity, Gemini) i els visitants per dia
+53|Com funciona
+54|Pas 1
+55|Pas 2
+56|Pas 3
+57|Descriviu la tasca
+58|A l'agent d'IA: per text, veu o videotrucada.
+59|L'agent capta l'essencial
+60|Elabora un resum de la vostra sol·licitud.
+61|Un especialista ho configura
+62|Un especialista tècnic adapta la solució ja feta a vosaltres.
+63|L'endemà
+64|L'eina és vostra
+65|La solució acabada ja és a l'aplicació.
+66|Per a qui és ROBORAB
+67|Tres plans progressius: d'una conversa gratuïta a solucions a mida del vostre negoci.
+68|Icona del pla
+69|Pla 1 · per començar
+70|Pregunteu a la IA sobre el vostre negoci
+71|Conversa amb la IA sobre negocis: recomanacions basades en la informació que doneu i consells pràctics.
+72|Gratuït
+73|Comença
+74|Pla 2 · encara no teniu negoci, però teniu ambició
+75|Un interlocutor d'IA que us ensenya a pensar com un emprenedor
+76|El mode mentor de negocis ajuda a construir una mentalitat empresarial i a treballar una idea des de zero. Es basa en la base clàssica de gestió i filosofia, adaptada a la pràctica de l'emprenedor.
+77|Els estoics
+78|Schopenhauer
+79|Philip Kotler
+80|La subscripció també inclou:
+81|Propostes comercials
+82|Plans de negoci per a inversors
+83|Plans de negoci per a subvencions públiques
+85|subscripció
+86|Pla 3 · ja teniu un negoci
+87|Substituirem un empleat o una funció sencera
+88|ROBORAB s'integra als processos interns i assumeix la feina d'una persona o àrea concreta. Estalvieu diners i temps.
+89|S'integra als processos
+90|Estalvia diners
+91|Estalvia temps
+92|Preu a mida
+93|Calculeu el cost en 10 minuts
+94|Expliqueu-nos la vostra tasca
+95|Deixeu el vostre nom i trieu un producte. Obrirem un xat amb ROBORAB AI: l'agent farà unes quantes preguntes i esbrinarà què necessiteu exactament.
+96|Nom
+97|El producte que us interessa
+98|Pla gratuït
+99|Subscripció amb mentor de negocis
+100|Encara no ho sé
+101|Envia al xat de ROBORAB AI
+102|Pantalla anterior
+103|Pantalla següent
+104|Menú
+105|Les meves eines
+106|C
+107|Xat nou
+108|Cerca als xats
+109|Projectes
+110|Xats
+111|Primera conversa
+112|Control de materials a les obres
+113|Impostos i pagaments d'autònoms
+114|Sol·licituds de l'hotel en una finestra
+115|SEO i visibilitat a les respostes d'IA
+116|Convidat
+117|El meu compte
+118|Comparteix
+119|Torna al lloc
+120|Adjunta un fitxer
+121|Escriviu a ROBORAB AI
+122|Missatge
+123|Veu
+124|Envia
+125|Versió de demostració: els botons del menú són marcadors de posició i la conversa no es desa.
+126|Substitució d'un empleat o d'una funció
+127|Formes de pagament
+128|i altres
+129|MIR

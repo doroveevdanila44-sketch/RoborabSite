@@ -1,0 +1,140 @@
+@name Suomi
+@sort Finnish
+@top <span class="d"><span class="ml">Tekoälyn</span> <span class="ml">käyttöönotto</span></span><br><span class="ml">yrityksesi</span>
+@bot <span class="d"><span class="ml">liiketoimintaprosesseissa</span></span>
+@hi Hei {n}! Olen ROBORAB AI -agentti.
+@hi0 Hei! Olen ROBORAB AI -agentti.
+@known  Olet kiinnostunut tuotteesta «{p}». Esitän muutaman kysymyksen ymmärtääkseni tehtäväsi.
+@unk  Esitän muutaman kysymyksen ymmärtääkseni, mitä tarvitset.
+@q1 Mitä yrityksesi tekee?
+@q2 Minkä tehtävän tai prosessin haluat automatisoida?
+@q3 Kuinka moni käyttää työkalua?
+@q4 Kiitos, tämä riittää ensimmäiseen käsitykseen. Kun chat on yhdistetty, keskustelu jatkuu tässä.
+@mp Hei, olen kiinnostunut tuotteen «{p}» tiedoista
+@m3 Hei, haluan laskea työntekijän tai toiminnon korvaamisen kustannukset yrityksessäni
+2|Pinkki gorilla paidassa ja solmiossa istuu mustalla nahkasohvalla
+3|Näin otamme käyttöön, vieritä alas
+4|Näin otamme käyttöön
+5|Sinulla on kaksi vaihtoehtoa
+6|ROBORAB AI: valitse laite
+7|Saatavilla kaikilla laitteilla
+8|Kirjaudu napauttamalla
+9|Lataa «ROBORAB AI» -sovellus ja juttele gorillamme kanssa
+10|Tekoäly on koulutettu johtamis- ja kauppa-ajattelun klassikoiden teoksilla. Emme kuitenkaan vain ladanneet kirjoja: kävimme ne läpi kriittisellä analyysilla ja poistimme kirjoittajien henkilökohtaiset tunneperäiset arviot. Asiakas saa tiivistelmän tarkistetusta ytimestä, ei toisten uskomusten tai paatoksen kertausta.
+11|Sulje
+13|Valitse laitteesi
+14|Valitse valmis ratkaisu alla olevasta luettelosta
+15|Valitse ratkaisu
+16|Kuntosali-CRM:n maskotti
+17|Kuntosali-CRM
+18|Asiakkaat, jäsenyydet, aikataulu ja valmentajien palkkiot
+19|Lue lisää
+20|Sovelluksen näkymät
+21|Avaa näkymä 1
+22|Avaa näkymä 2
+23|Avaa näkymä 3
+24|Koko kerho yhdellä silmäyksellä: rajattomat, kokeilu- ja kertakortit yhdellä näytöllä
+25|Löydät minkä tahansa asiakkaan sekunnissa: sukunimi tai puhelinnumero riittää
+26|Näet valmentajien vapaat ajat heti, ilman soittoja ja taulukoita
+27|Valmentajien palkkiot lasketaan itsestään, ja tekoälyagentti vastaa asiakkaille puolestasi
+28|Veroagentin maskotti
+29|Veroagentti
+30|Yritysryhmän verot: toteuma 1C:stä, ennuste ja skenaariot
+31|Koko yritysryhmä yhdellä näytöllä
+32|Näet kiireelliset maksut etukäteen: yksikään eräpäivä ei jää huomaamatta
+33|Vertaat kaikkien oikeushenkilöiden kuormitusta yhdellä kosketuksella
+34|Agentti on tavoitettavissa 24/7: kysy «entä jos» ja saat laskelman
+35|Rakennuskirjanpidon maskotti
+36|Rakennuskirjanpito
+37|Työmaat, materiaalit ja kustannukset
+38|Työmaat, materiaalit ja työt yhdessä tietokannassa
+39|Kustannusseuranta jokaiselle työmaalle
+40|Johtajan yhteenveto kaikista työmaista
+41|Varaus-CRM:n maskotti
+42|Varaus-CRM
+43|Kaikki hotellin pyynnöt yhdessä ikkunassa
+44|Kaikki varauspyynnöt yhdessä luettelossa
+45|Jokaisen pyynnön tila ja historia
+46|Hotellin omistaja seuraa pyyntöjä itse
+47|SEO:n ja GEO:n maskotti
+48|Asetukset, analytiikka, hallintapaneelit
+49|SEO- ja GEO-asetukset: sivuston näkyvyys haussa ja tekoälyn vastauksissa
+50|Näyteikkunan hallintapaneeli: banneri, slogan ja kategoriat muutetaan suoraan käyttöliittymässä
+51|Kävijäanalytiikka 7, 30 tai 90 päivältä: ketkä tulivat, ketkä lähtivät heti ja kuinka monta ostoskoria lähetettiin Telegramiin
+52|Näet, kuinka monta ostajaa tekoälyavustajat (ChatGPT, Alisa, Perplexity, Gemini) toivat, sekä kävijät päivittäin
+53|Miten se toimii
+54|Vaihe 1
+55|Vaihe 2
+56|Vaihe 3
+57|Kuvaat tehtävän
+58|Tekoälyagentille: tekstillä, äänellä tai videopuhelulla.
+59|Agentti poimii ytimen
+60|Laatii yhteenvedon pyynnöstäsi.
+61|Asiantuntija määrittää
+62|Tekninen asiantuntija räätälöi valmiin ratkaisun sinulle.
+63|Seuraavana päivänä
+64|Työkalu on sinun
+65|Valmis ratkaisu on jo sovelluksessa.
+66|Kenelle ROBORAB on
+67|Kolme asteittaista pakettia: ilmaisesta keskustelusta yrityksellesi räätälöityihin ratkaisuihin.
+68|Paketin kuvake
+69|Paketti 1 · aloitukseen
+70|Kysy tekoälyltä yrityksestäsi
+71|Keskustelu tekoälyn kanssa liiketoiminnasta: suositukset antamiesi tietojen perusteella ja käytännön neuvoja.
+72|Ilmainen
+73|Aloita
+74|Paketti 2 · yritystä ei vielä ole, mutta on kunnianhimoa
+75|Tekoälykeskustelija, joka opettaa ajattelemaan kuin yrittäjä
+76|Liiketoimintamentorin tila auttaa rakentamaan yrittäjän ajattelutavan ja jalostamaan idean tyhjästä. Se nojaa johtamisen ja filosofian klassiseen perustaan, joka on sovitettu yrittäjän käytäntöön.
+77|Stoalaiset
+78|Schopenhauer
+79|Philip Kotler
+80|Tilaukseen kuuluu myös:
+81|Kaupalliset tarjoukset
+82|Liiketoimintasuunnitelmat sijoittajille
+83|Liiketoimintasuunnitelmat valtion avustuksiin
+85|tilaus
+86|Paketti 3 · yritys on jo olemassa
+87|Korvaamme työntekijän tai kokonaisen toiminnon
+88|ROBORAB integroituu sisäisiin prosesseihin ja ottaa hoitaakseen tietyn henkilön tai osaston työn. Säästät rahaa ja aikaa.
+89|Integroituu prosesseihin
+90|Säästää rahaa
+91|Säästää aikaa
+92|Yksilöllinen hinta
+93|Saat hinnan 10 minuutissa
+94|Kerro tehtävästäsi
+95|Jätä nimesi ja valitse tuote. Avaamme chatin ROBORAB AI:n kanssa: agentti esittää muutaman kysymyksen ja selvittää, mitä tarkalleen tarvitset.
+96|Nimi
+97|Tuote, josta olet kiinnostunut
+98|Ilmainen paketti
+99|Tilaus liiketoimintamentorilla
+100|En vielä tiedä
+101|Lähetä ROBORAB AI -chattiin
+102|Edellinen näkymä
+103|Seuraava näkymä
+104|Valikko
+105|Omat työkaluni
+106|V
+107|Uusi chat
+108|Hae chateista
+109|Projektit
+110|Chatit
+111|Ensimmäinen keskustelu
+112|Materiaaliseuranta työmailla
+113|Yksityisyrittäjän verot ja maksut
+114|Hotellin pyynnöt yhdessä ikkunassa
+115|SEO ja näkyvyys tekoälyn vastauksissa
+116|Vieras
+117|Oma tili
+118|Jaa
+119|Takaisin sivustolle
+120|Liitä tiedosto
+121|Kirjoita ROBORAB AI:lle
+122|Viesti
+123|Ääni
+124|Lähetä
+125|Esittelyversio: valikon painikkeet ovat toistaiseksi paikkamerkkejä, eikä keskustelua tallenneta.
+126|Työntekijän tai toiminnon korvaaminen
+127|Maksutavat
+128|ja muut
+129|MIR

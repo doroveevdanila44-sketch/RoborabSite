@@ -30,7 +30,7 @@
       else{r.n.nodeValue=r.pre+(tr!==null?tr:r.k)+r.post}
     });
     htmls.forEach(function(h){h.el.innerHTML=(HT[l]&&HT[l][h.key])?HT[l][h.key]:h.ru});
-    document.documentElement.lang=l;document.documentElement.dir=(l==='ar'?'rtl':'ltr');
+    document.documentElement.lang=l;document.documentElement.dir=(/^(ar|he|fa|ur)$/.test(l)?'rtl':'ltr');
     var ti=document.querySelector('title'); if(ti){if(!ti._ru)ti._ru=ti.textContent;ti.textContent=l!=='ru'&&EXTRA.title&&EXTRA.title[ti._ru]?EXTRA.title[ti._ru]:ti._ru}
     var cl=document.querySelector('.lang .cur');if(cl)cl.textContent=CFG.names[l];
     document.querySelectorAll('.lang li').forEach(function(li){li.setAttribute('aria-selected',li.getAttribute('data-l')===l?'true':'false')});

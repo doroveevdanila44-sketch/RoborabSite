@@ -1,0 +1,140 @@
+@name Azərbaycanca
+@sort Azerbaijani
+@top <span class="d"><span class="ml">Süni intellekti</span></span><br><span class="ml">tətbiq edirik</span>
+@bot <span class="d"><span class="ml">biznes proseslərinə</span></span>
+@hi Salam, {n}! Mən ROBORAB AI agentiyəm.
+@hi0 Salam! Mən ROBORAB AI agentiyəm.
+@known  Sizi «{p}» məhsulu maraqlandırır. Tapşırığınızı anlamaq üçün bir neçə sual verəcəyəm.
+@unk  Nəyə ehtiyacınız olduğunu anlamaq üçün bir neçə sual verəcəyəm.
+@q1 Şirkətiniz nə ilə məşğuldur?
+@q2 Hansı tapşırığı və ya prosesi avtomatlaşdırmaq istəyirsiniz?
+@q3 Alətdən neçə nəfər istifadə edəcək?
+@q4 Təşəkkür edirəm, ilkin anlayış üçün bu kifayətdir. Çat qoşulanda söhbət burada davam edəcək.
+@mp Salam, «{p}» məhsulunun təfərrüatları məni maraqlandırır
+@m3 Salam, şirkətimdə bir işçini və ya funksiyanı əvəz etməyin dəyərini hesablamaq istəyirəm
+2|Köynək və qalstuk taxmış çəhrayı qorilla qara dəri divanda oturub
+3|Necə tətbiq edirik, aşağı diyirləyin
+4|Necə tətbiq edirik
+5|İki seçiminiz var
+6|ROBORAB AI: cihazı seçin
+7|Bütün cihazlarda mövcuddur
+8|Daxil olmaq üçün toxunun
+9|«ROBORAB AI» tətbiqini yükləyin və qorillamızla söhbət edin
+10|Süni intellekt idarəetmə və ticarət klassiklərinin əsərləri üzərində öyrədilib. Lakin biz həmin kitabları sadəcə yükləməmişik: onları tənqidi təhlil etmiş və müəlliflərin şəxsi emosional qiymətlərini çıxarmışıq. Müştəri başqalarının inamlarının və ya pafosunun təkrarını yox, yoxlanılmış mahiyyətin xülasəsini alır.
+11|Bağla
+13|Cihazınızı seçin
+14|Aşağıdakı kataloqdan hazır həll seçin
+15|Həll seçin
+16|Fitnes CRM maskotu
+17|Fitnes CRM
+18|Müştərilər, abunələr, cədvəl və məşqçilərə ödənişlər
+19|Ətraflı
+20|Tətbiq ekranları
+21|1-ci ekranı açın
+22|2-ci ekranı açın
+23|3-cü ekranı açın
+24|Bütün klub bir baxışda: limitsiz, sınaq və birdəfəlik biletlər bir ekranda
+25|İstənilən müştərini bir saniyəyə tapın: soyad və ya telefon kifayətdir
+26|Məşqçilərin boş vaxtlarını dərhal görün, zənglər və cədvəllər olmadan
+27|Məşqçilərə ödənişlər özü hesablanır, süni intellekt agenti isə sizin əvəzinizə müştərilərə cavab verir
+28|Vergi agenti maskotu
+29|Vergi agenti
+30|Şirkətlər qrupunun vergiləri: 1C-dən real rəqəmlər, proqnoz və ssenarilər
+31|Bütün şirkətlər qrupu bir ekranda
+32|Təcili ödənişləri əvvəlcədən görün: heç bir müddət əldən çıxmır
+33|Bütün hüquqi şəxslərin yükünü bir toxunuşla müqayisə edin
+34|Agent 24/7 əlçatandır: «əgər» soruşun və hesablama alın
+35|Tikinti mühasibatlığı maskotu
+36|Tikinti mühasibatlığı
+37|Obyektlər, materiallar və xərclər
+38|Obyektlər, materiallar və işlər vahid bazada
+39|Hər obyekt üzrə xərclərin uçotu
+40|Bütün obyektlər üzrə rəhbər üçün xülasə
+41|Rezervasiya CRM maskotu
+42|Rezervasiya CRM
+43|Otelin bütün sorğuları bir pəncərədə
+44|Bütün rezervasiya sorğuları bir siyahıda
+45|Hər sorğunun statusu və tarixçəsi
+46|Otel sahibi sorğulara özü nəzarət edir
+47|SEO və GEO maskotu
+48|Quraşdırma, analitika, admin panelləri
+49|SEO və GEO quraşdırması: saytın axtarışda və süni intellekt cavablarında görünməsi
+50|Vitrinin admin paneli: banner, şüar və kateqoriyalar birbaşa interfeysdə dəyişdirilir
+51|7, 30 və ya 90 gün üzrə ziyarətçi analitikası: kim gəldi, kim dərhal getdi və Telegram-a neçə səbət göndərildi
+52|Süni intellekt köməkçilərinin (ChatGPT, Alisa, Perplexity, Gemini) neçə alıcı gətirdiyini və günlər üzrə ziyarətçiləri görün
+53|Necə işləyir
+54|Addım 1
+55|Addım 2
+56|Addım 3
+57|Siz tapşırığı təsvir edirsiniz
+58|Süni intellekt agentinə: mətn, səs və ya video zəng vasitəsilə.
+59|Agent mahiyyəti tutur
+60|Sorğunuzun xülasəsini hazırlayır.
+61|Mütəxəssis tənzimləyir
+62|Texniki mütəxəssis hazır həlli sizin üçün uyğunlaşdırır.
+63|Növbəti gün
+64|Alət sizindir
+65|Hazır həll artıq tətbiqdədir.
+66|ROBORAB kimlər üçündür
+67|Üç pilləli plan: pulsuz söhbətdən biznesinizə uyğun həllərə qədər.
+68|Plan nişanı
+69|Plan 1 · başlamaq üçün
+70|Biznesiniz barədə süni intellektdən soruşun
+71|Biznes haqqında süni intellektlə söhbət: verdiyiniz məlumata əsaslanan tövsiyələr və praktik məsləhətlər.
+72|Pulsuz
+73|Başla
+74|Plan 2 · hələ biznes yoxdur, amma hədəf var
+75|Sizə sahibkar kimi düşünməyi öyrədən süni intellekt həmsöhbəti
+76|Biznes mentor rejimi sahibkar təfəkkürünü formalaşdırmağa və ideyanı sıfırdan işləməyə kömək edir. İdarəetmə və fəlsəfənin klassik əsasına söykənir və sahibkarın təcrübəsinə uyğunlaşdırılıb.
+77|Stoiklər
+78|Şopenhauer
+79|Filip Kotler
+80|Abunəyə həmçinin daxildir:
+81|Kommersiya təklifləri
+82|İnvestorlar üçün biznes planlar
+83|Dövlət qrantları üçün biznes planlar
+85|abunə
+86|Plan 3 · artıq biznesiniz var
+87|Bir işçini və ya bütöv funksiyanı əvəz edəcəyik
+88|ROBORAB daxili proseslərə inteqrasiya olunur və konkret şəxsin və ya şöbənin işini öz üzərinə götürür. Pula və vaxta qənaət edirsiniz.
+89|Proseslərə inteqrasiya olunur
+90|Pula qənaət edir
+91|Vaxta qənaət edir
+92|Fərdi qiymət
+93|10 dəqiqəyə qiymət öyrənin
+94|Tapşırığınız barədə danışın
+95|Adınızı yazın və məhsul seçin. ROBORAB AI ilə çat açacağıq: agent bir neçə sual verəcək və tam olaraq nəyə ehtiyacınız olduğunu öyrənəcək.
+96|Ad
+97|Sizi maraqlandıran məhsul
+98|Pulsuz plan
+99|Biznes mentoru ilə abunə
+100|Hələ bilmirəm
+101|ROBORAB AI çatına göndər
+102|Əvvəlki ekran
+103|Növbəti ekran
+104|Menyu
+105|Mənim alətlərim
+106|M
+107|Yeni çat
+108|Çatlarda axtar
+109|Layihələr
+110|Çatlar
+111|İlk söhbət
+112|Obyektlərdə materialların uçotu
+113|Fərdi sahibkarın vergiləri və ödənişləri
+114|Otel sorğuları bir pəncərədə
+115|SEO və süni intellekt cavablarında görünmə
+116|Qonaq
+117|Hesabım
+118|Paylaş
+119|Sayta qayıt
+120|Fayl əlavə et
+121|ROBORAB AI-yə yazın
+122|Mesaj
+123|Səs
+124|Göndər
+125|Demo versiya: menyu düymələri hələlik nümunədir və söhbət saxlanmır.
+126|İşçinin və ya funksiyanın əvəzlənməsi
+127|Ödəniş üsulları
+128|və digərləri
+129|MIR

@@ -1,0 +1,140 @@
+@name Slovenščina
+@sort Slovenian
+@top <span class="d"><span class="ml">Uvajamo</span> <span class="ml">umetno</span></span><br><span class="ml">inteligenco</span>
+@bot <span class="d"><span class="ml">v poslovne procese</span></span>
+@hi Dober dan, {n}! Sem agent ROBORAB AI.
+@hi0 Dober dan! Sem agent ROBORAB AI.
+@known  Zanima vas izdelek «{p}». Postavil bom nekaj vprašanj, da razumem vašo nalogo.
+@unk  Postavil bom nekaj vprašanj, da razumem, kaj potrebujete.
+@q1 S čim se ukvarja vaše podjetje?
+@q2 Katero nalogo ali proces želite avtomatizirati?
+@q3 Koliko ljudi bo uporabljalo orodje?
+@q4 Hvala, to zadostuje za prvi vtis. Ko bo klepet povezan, se bo pogovor nadaljeval tukaj.
+@mp Dober dan, zanimajo me podrobnosti o izdelku «{p}»
+@m3 Dober dan, želim izračunati strošek nadomestitve zaposlenega ali funkcije v mojem podjetju
+2|Rožnata gorila v srajci in kravati sedi na črnem usnjenem kavču
+3|Kako uvajamo, pomaknite se navzdol
+4|Kako uvajamo
+5|Imate dve možnosti
+6|ROBORAB AI: izberite napravo
+7|Na voljo na vseh napravah
+8|Tapnite za prijavo
+9|Prenesite aplikacijo «ROBORAB AI» in se pogovorite z našo gorilo
+10|UI je naučen na delih klasikov upravljavske in trgovske misli. A teh knjig nismo preprosto naložili: podvrgli smo jih kritični analizi in odstranili osebne čustvene ocene avtorjev. Stranka dobi izvleček preverjene bistvenosti, ne obnove tujih prepričanj ali patosa.
+11|Zapri
+13|Izberite svojo napravo
+14|V katalogu spodaj izberite pripravljeno rešitev
+15|Izberi rešitev
+16|Maskota fitnes CRM
+17|Fitnes CRM
+18|Stranke, članarine, urnik in izplačila trenerjem
+19|Več informacij
+20|Zasloni aplikacije
+21|Odpri zaslon 1
+22|Odpri zaslon 2
+23|Odpri zaslon 3
+24|Cel klub na dlani: neomejene, poskusne in enkratne vstopnice na enem zaslonu
+25|Vsako stranko najdete v sekundi: dovolj sta priimek ali telefon
+26|Proste termine trenerjev vidite takoj, brez klicev in tabel
+27|Izplačila trenerjem se izračunajo sama, UI agent pa odgovarja strankam namesto vas
+28|Maskota davčnega agenta
+29|Davčni agent
+30|Davki skupine podjetij: dejanski podatki iz 1C, napoved in scenariji
+31|Vsa skupina podjetij na enem zaslonu
+32|Nujna plačila vidite vnaprej: noben rok ne uide
+33|Obremenitev vseh pravnih oseb primerjate z enim dotikom
+34|Agent je na voljo 24/7: vprašajte «kaj če» in dobite izračun
+35|Maskota gradbenega računovodstva
+36|Gradbeno računovodstvo
+37|Gradbišča, materiali in stroški
+38|Gradbišča, materiali in dela v eni bazi
+39|Evidenca stroškov za vsako gradbišče
+40|Pregled za vodjo po vseh gradbiščih
+41|Maskota rezervacijskega CRM
+42|Rezervacijski CRM
+43|Vse zahteve hotela v enem oknu
+44|Vse zahteve za rezervacijo na enem seznamu
+45|Stanje in zgodovina vsake zahteve
+46|Lastnik hotela zahteve spremlja sam
+47|Maskota SEO in GEO
+48|Nastavitev, analitika, skrbniške plošče
+49|Nastavitev SEO in GEO: vidnost spletnega mesta v iskalnikih in v odgovorih UI
+50|Skrbniška plošča izložbe: pasica, slogan in kategorije se spreminjajo neposredno v vmesniku
+51|Analitika obiskovalcev za 7, 30 ali 90 dni: kdo je prišel, kdo je takoj odšel in koliko košaric je bilo poslanih v Telegram
+52|Vidite, koliko kupcev so pripeljali UI pomočniki (ChatGPT, Alisa, Perplexity, Gemini), in obiskovalce po dnevih
+53|Kako deluje
+54|Korak 1
+55|Korak 2
+56|Korak 3
+57|Opišete nalogo
+58|UI agentu: z besedilom, glasom ali videoklicem.
+59|Agent zajame bistvo
+60|Pripravi povzetek vaše zahteve.
+61|Strokovnjak nastavi
+62|Tehnični strokovnjak prilagodi pripravljeno rešitev vam.
+63|Naslednji dan
+64|Orodje je vaše
+65|Dokončana rešitev je že v aplikaciji.
+66|Za koga je ROBORAB
+67|Trije postopni načrti: od brezplačnega pogovora do rešitev za vaše poslovanje.
+68|Ikona načrta
+69|Načrt 1 · za začetek
+70|Vprašajte UI o svojem poslu
+71|Pogovor z UI o poslovanju: priporočila na podlagi podatkov, ki jih posredujete, in praktični nasveti.
+72|Brezplačno
+73|Začni
+74|Načrt 2 · posla še nimate, a imate ambicije
+75|UI sogovornik, ki uči razmišljati kot podjetnik
+76|Način poslovnega mentorja pomaga zgraditi podjetniško razmišljanje in izdelati zamisel iz nič. Opira se na klasično upravljavsko in filozofsko podlago, prilagojeno praksi podjetnika.
+77|Stoiki
+78|Schopenhauer
+79|Philip Kotler
+80|Naročnina vključuje tudi:
+81|Komercialne ponudbe
+82|Poslovni načrti za vlagatelje
+83|Poslovni načrti za državne subvencije
+85|naročnina
+86|Načrt 3 · posel že imate
+87|Nadomestili bomo zaposlenega ali celotno funkcijo
+88|ROBORAB se vgradi v notranje procese in prevzame delo določene osebe ali področja. Prihranite denar in čas.
+89|Vgrajen v procese
+90|Prihrani denar
+91|Prihrani čas
+92|Individualna cena
+93|Izračunajte ceno v 10 minutah
+94|Povejte nam o svoji nalogi
+95|Pustite ime in izberite izdelek. Odprli bomo klepet z ROBORAB AI: agent bo postavil nekaj vprašanj in ugotovil, kaj natanko potrebujete.
+96|Ime
+97|Izdelek, ki vas zanima
+98|Brezplačni načrt
+99|Naročnina s poslovnim mentorjem
+100|Še ne vem
+101|Pošlji v klepet ROBORAB AI
+102|Prejšnji zaslon
+103|Naslednji zaslon
+104|Meni
+105|Moja orodja
+106|G
+107|Nov klepet
+108|Išči po klepetih
+109|Projekti
+110|Klepeti
+111|Prvi pogovor
+112|Evidenca materiala na gradbiščih
+113|Davki in plačila s. p.
+114|Zahteve hotela v enem oknu
+115|SEO in vidnost v odgovorih UI
+116|Gost
+117|Moj račun
+118|Deli
+119|Nazaj na spletno mesto
+120|Priloži datoteko
+121|Napišite ROBORAB AI
+122|Sporočilo
+123|Glas
+124|Pošlji
+125|Predstavitvena različica: gumbi menija so zaenkrat nadomestni, pogovor se ne shranjuje.
+126|Nadomestitev zaposlenega ali funkcije
+127|Načini plačila
+128|in drugi
+129|MIR

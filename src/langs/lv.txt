@@ -1,0 +1,140 @@
+@name Latviešu
+@sort Latvian
+@top <span class="d"><span class="ml">Ieviešam</span> <span class="ml">mākslīgo</span></span><br><span class="ml">intelektu</span>
+@bot <span class="d"><span class="ml">biznesa procesos</span></span>
+@hi Labdien, {n}! Es esmu ROBORAB AI aģents.
+@hi0 Labdien! Es esmu ROBORAB AI aģents.
+@known  Jūs interesē produkts «{p}». Uzdošu dažus jautājumus, lai saprastu jūsu uzdevumu.
+@unk  Uzdošu dažus jautājumus, lai saprastu, kas jums vajadzīgs.
+@q1 Ar ko nodarbojas jūsu uzņēmums?
+@q2 Kādu uzdevumu vai procesu vēlaties automatizēt?
+@q3 Cik cilvēku izmantos rīku?
+@q4 Paldies, ar to pietiek pirmajam priekšstatam. Kad tērzēšana būs pieslēgta, saruna turpināsies šeit.
+@mp Labdien, mani interesē informācija par produktu «{p}»
+@m3 Labdien, vēlos aprēķināt darbinieka vai funkcijas aizstāšanas izmaksas manā uzņēmumā
+2|Rozā gorilla kreklā un kaklasaitē sēž uz melna ādas dīvāna
+3|Kā mēs ieviešam, ritiniet uz leju
+4|Kā mēs ieviešam
+5|Jums ir divi varianti
+6|ROBORAB AI: izvēlieties ierīci
+7|Pieejams visās ierīcēs
+8|Pieskarieties, lai pieteiktos
+9|Lejupielādējiet lietotni «ROBORAB AI» un parunājiet ar mūsu gorillu
+10|MI ir apmācīts, izmantojot vadības un tirdzniecības domas klasiķu darbus. Taču mēs šīs grāmatas nevis vienkārši ielādējām: mēs tās kritiski analizējām un noņēmām autoru personiskos emocionālos vērtējumus. Klients saņem pārbaudītas būtības izvilkumu, nevis svešu uzskatu vai patosa atstāstu.
+11|Aizvērt
+13|Izvēlieties savu ierīci
+14|Izvēlieties gatavu risinājumu zemāk esošajā katalogā
+15|Izvēlēties risinājumu
+16|Fitnesa CRM talismans
+17|Fitnesa CRM
+18|Klienti, abonementi, grafiks un maksājumi treneriem
+19|Uzzināt vairāk
+20|Lietotnes ekrāni
+21|Atvērt 1. ekrānu
+22|Atvērt 2. ekrānu
+23|Atvērt 3. ekrānu
+24|Viss klubs kā uz delnas: neierobežotie, izmēģinājuma un vienreizējie abonementi vienā ekrānā
+25|Jebkuru klientu atradīsiet sekundē: pietiek ar uzvārdu vai tālruni
+26|Treneru brīvos laikus redzat uzreiz, bez zvaniem un tabulām
+27|Maksājumi treneriem tiek aprēķināti paši, un MI aģents atbild klientiem jūsu vietā
+28|Nodokļu aģenta talismans
+29|Nodokļu aģents
+30|Uzņēmumu grupas nodokļi: fakts no 1C, prognoze un scenāriji
+31|Visa uzņēmumu grupa vienā ekrānā
+32|Steidzamos maksājumus redzat iepriekš: neviens termiņš netiek nokavēts
+33|Visu juridisko personu slodzi salīdzināsiet ar vienu pieskārienu
+34|Aģents ir pieejams 24/7: pajautājiet «kas, ja» un saņemiet aprēķinu
+35|Būvniecības uzskaites talismans
+36|Būvniecības uzskaite
+37|Objekti, materiāli un izmaksas
+38|Objekti, materiāli un darbi vienā datubāzē
+39|Izmaksu uzskaite katram objektam
+40|Kopsavilkums vadītājam par visiem objektiem
+41|Rezervāciju CRM talismans
+42|Rezervāciju CRM
+43|Visi viesnīcas pieprasījumi vienā logā
+44|Visi rezervāciju pieprasījumi vienā sarakstā
+45|Katra pieprasījuma statuss un vēsture
+46|Viesnīcas īpašnieks pieprasījumus seko pats
+47|SEO un GEO talismans
+48|Iestatīšana, analītika, administrēšanas paneļi
+49|SEO un GEO iestatīšana: vietnes redzamība meklētājos un MI atbildēs
+50|Vitrīnas administrēšanas panelis: reklāmkarogs, sauklis un kategorijas mainās tieši saskarnē
+51|Apmeklētāju analītika par 7, 30 vai 90 dienām: kas atnāca, kas uzreiz aizgāja un cik grozu nosūtīti uz Telegram
+52|Redzams, cik pircēju atveduši MI asistenti (ChatGPT, Alisa, Perplexity, Gemini), un apmeklētāji pa dienām
+53|Kā tas darbojas
+54|1. solis
+55|2. solis
+56|3. solis
+57|Jūs aprakstāt uzdevumu
+58|MI aģentam: ar tekstu, balsi vai videozvanu.
+59|Aģents uztver būtību
+60|Sagatavo jūsu pieprasījuma kopsavilkumu.
+61|Speciālists iestata
+62|Tehniskais speciālists pielāgo gatavo risinājumu jums.
+63|Nākamajā dienā
+64|Rīks ir jūsu
+65|Gatavais risinājums jau ir lietotnē.
+66|Kam paredzēts ROBORAB
+67|Trīs pakāpeniski plāni: no bezmaksas sarunas līdz risinājumiem jūsu uzņēmumam.
+68|Plāna ikona
+69|1. plāns · sākumam
+70|Pajautājiet MI par savu biznesu
+71|Saruna ar MI par biznesu: ieteikumi, balstoties uz jūsu sniegto informāciju, un praktiski padomi.
+72|Bez maksas
+73|Sākt
+74|2. plāns · biznesa vēl nav, bet ir ambīcijas
+75|MI sarunbiedrs, kas māca domāt kā uzņēmējam
+76|Biznesa mentora režīms palīdz veidot uzņēmēja domāšanu un attīstīt ideju no nulles. Balstās uz klasisko vadības un filozofijas pamatu, pielāgotu uzņēmēja praksei.
+77|Stoiķi
+78|Šopenhauers
+79|Filips Kotlers
+80|Abonementā ietilpst arī:
+81|Komerciālie piedāvājumi
+82|Biznesa plāni investoriem
+83|Biznesa plāni valsts grantiem
+85|abonements
+86|3. plāns · bizness jau ir
+87|Aizstāsim darbinieku vai veselu funkciju
+88|ROBORAB iebūvējas iekšējos procesos un pārņem konkrēta cilvēka vai nodaļas darbu. Jūs ietaupāt naudu un laiku.
+89|Iebūvējas procesos
+90|Ietaupa naudu
+91|Ietaupa laiku
+92|Individuāla cena
+93|Uzziniet cenu 10 minūtēs
+94|Pastāstiet par savu uzdevumu
+95|Atstājiet vārdu un izvēlieties produktu. Atvērsim tērzēšanu ar ROBORAB AI: aģents uzdos dažus jautājumus un noskaidros, kas tieši jums vajadzīgs.
+96|Vārds
+97|Produkts, kas jūs interesē
+98|Bezmaksas plāns
+99|Abonements ar biznesa mentoru
+100|Vēl nezinu
+101|Nosūtīt uz ROBORAB AI tērzēšanu
+102|Iepriekšējais ekrāns
+103|Nākamais ekrāns
+104|Izvēlne
+105|Mani rīki
+106|V
+107|Jauna tērzēšana
+108|Meklēt tērzēšanās
+109|Projekti
+110|Tērzēšanas
+111|Pirmā saruna
+112|Materiālu uzskaite objektos
+113|Pašnodarbināto nodokļi un maksājumi
+114|Viesnīcas pieprasījumi vienā logā
+115|SEO un redzamība MI atbildēs
+116|Viesis
+117|Mans konts
+118|Kopīgot
+119|Atpakaļ uz vietni
+120|Pievienot failu
+121|Rakstiet ROBORAB AI
+122|Ziņa
+123|Balss
+124|Sūtīt
+125|Demonstrācijas versija: izvēlnes pogas pagaidām ir vietturi, un saruna netiek saglabāta.
+126|Darbinieka vai funkcijas aizstāšana
+127|Maksājumu veidi
+128|un citi
+129|MIR

@@ -1,0 +1,140 @@
+@name Bahasa Melayu
+@sort Malay
+@top <span class="d"><span class="ml">Melaksanakan</span> <span class="ml">kecerdasan</span></span><br><span class="ml">buatan</span>
+@bot <span class="d"><span class="ml">dalam proses perniagaan</span></span>
+@hi Helo {n}! Saya ejen ROBORAB AI.
+@hi0 Helo! Saya ejen ROBORAB AI.
+@known  Anda berminat dengan produk «{p}». Saya akan mengemukakan beberapa soalan untuk memahami tugas anda.
+@unk  Saya akan mengemukakan beberapa soalan untuk memahami keperluan anda.
+@q1 Apakah bidang syarikat anda?
+@q2 Tugas atau proses apakah yang ingin anda automasikan?
+@q3 Berapa ramai orang akan menggunakan alat ini?
+@q4 Terima kasih, ini sudah cukup untuk pemahaman awal. Apabila sembang disambungkan, perbualan akan diteruskan di sini.
+@mp Helo, saya berminat dengan butiran produk «{p}»
+@m3 Helo, saya ingin mengira kos menggantikan seorang pekerja atau satu fungsi dalam syarikat saya
+2|Seekor gorila merah jambu berbaju kemeja dan bertali leher duduk di atas sofa kulit hitam
+3|Cara kami melaksanakannya, tatal ke bawah
+4|Cara kami melaksanakannya
+5|Anda ada dua pilihan
+6|ROBORAB AI: pilih peranti
+7|Tersedia pada semua peranti
+8|Ketik untuk log masuk
+9|Muat turun aplikasi «ROBORAB AI» dan berbual dengan gorila kami
+10|AI dilatih menggunakan karya tokoh klasik pemikiran pengurusan dan perdagangan. Namun kami tidak sekadar memuatkan buku-buku itu: kami menganalisisnya secara kritis dan membuang penilaian emosi peribadi pengarang. Pelanggan menerima intisari yang telah disahkan, bukan penceritaan semula kepercayaan atau retorik orang lain.
+11|Tutup
+13|Pilih peranti anda
+14|Pilih penyelesaian sedia ada dalam katalog di bawah
+15|Pilih penyelesaian
+16|Maskot CRM kecergasan
+17|CRM kecergasan
+18|Pelanggan, keahlian, jadual dan bayaran kepada jurulatih
+19|Ketahui lebih lanjut
+20|Skrin aplikasi
+21|Buka skrin 1
+22|Buka skrin 2
+23|Buka skrin 3
+24|Seluruh kelab dalam satu pandangan: pas tanpa had, percubaan dan sekali masuk pada satu skrin
+25|Cari mana-mana pelanggan dalam sesaat: nama keluarga atau nombor telefon sudah memadai
+26|Lihat slot kosong jurulatih serta-merta, tanpa panggilan dan hamparan
+27|Bayaran jurulatih dikira sendiri, dan ejen AI menjawab pelanggan bagi pihak anda
+28|Maskot ejen cukai
+29|Ejen cukai
+30|Cukai kumpulan syarikat: data sebenar daripada 1C, ramalan dan senario
+31|Seluruh kumpulan syarikat pada satu skrin
+32|Lihat bayaran segera lebih awal: tiada tarikh akhir yang terlepas
+33|Bandingkan beban semua entiti undang-undang dengan satu ketikan
+34|Ejen sedia 24/7: tanya «bagaimana jika» dan dapatkan pengiraan
+35|Maskot perakaunan pembinaan
+36|Perakaunan pembinaan
+37|Tapak, bahan dan kos
+38|Tapak, bahan dan kerja dalam satu pangkalan data
+39|Pengesanan kos bagi setiap tapak
+40|Ringkasan untuk pengurus merentas semua tapak
+41|Maskot CRM tempahan
+42|CRM tempahan
+43|Semua permintaan hotel dalam satu tetingkap
+44|Semua permintaan tempahan dalam satu senarai
+45|Status dan sejarah bagi setiap permintaan
+46|Pemilik hotel menjejaki permintaan sendiri
+47|Maskot SEO dan GEO
+48|Persediaan, analitik, panel pentadbir
+49|Persediaan SEO dan GEO: keterlihatan tapak dalam carian dan jawapan AI
+50|Panel pentadbir etalase: sepanduk, slogan dan kategori diubah terus pada antara muka
+51|Analitik pelawat untuk 7, 30 atau 90 hari: siapa yang datang, siapa yang terus pergi dan berapa banyak troli dihantar ke Telegram
+52|Lihat berapa ramai pembeli dibawa oleh pembantu AI (ChatGPT, Alisa, Perplexity, Gemini), dan pelawat mengikut hari
+53|Cara ia berfungsi
+54|Langkah 1
+55|Langkah 2
+56|Langkah 3
+57|Anda terangkan tugas
+58|Kepada ejen AI: melalui teks, suara atau panggilan video.
+59|Ejen menangkap intipati
+60|Menyediakan ringkasan permintaan anda.
+61|Pakar menyediakan konfigurasi
+62|Pakar teknikal menyesuaikan penyelesaian sedia ada untuk anda.
+63|Keesokan harinya
+64|Alat ini milik anda
+65|Penyelesaian siap sudah ada dalam aplikasi.
+66|ROBORAB untuk siapa
+67|Tiga pelan berperingkat: daripada perbualan percuma hingga penyelesaian khusus untuk perniagaan anda.
+68|Ikon pelan
+69|Pelan 1 · untuk bermula
+70|Tanya AI tentang perniagaan anda
+71|Berbual dengan AI tentang perniagaan: cadangan berdasarkan maklumat yang anda berikan dan nasihat praktikal.
+72|Percuma
+73|Mula
+74|Pelan 2 · belum ada perniagaan, tetapi ada cita-cita
+75|Teman bual AI yang mengajar anda berfikir seperti usahawan
+76|Mod mentor perniagaan membantu membina minda perniagaan dan memperkembang idea dari sifar. Berasaskan asas klasik pengurusan dan falsafah yang disesuaikan dengan amalan usahawan.
+77|Kaum Stoik
+78|Schopenhauer
+79|Philip Kotler
+80|Langganan juga termasuk:
+81|Cadangan komersial
+82|Pelan perniagaan untuk pelabur
+83|Pelan perniagaan untuk geran kerajaan
+85|langganan
+86|Pelan 3 · anda sudah ada perniagaan
+87|Kami gantikan seorang pekerja atau keseluruhan fungsi
+88|ROBORAB disepadukan ke dalam proses dalaman dan mengambil alih kerja individu atau bahagian tertentu. Anda jimat wang dan masa.
+89|Disepadukan dalam proses
+90|Menjimatkan wang
+91|Menjimatkan masa
+92|Harga khusus
+93|Dapatkan harga dalam 10 minit
+94|Ceritakan tentang tugas anda
+95|Tinggalkan nama dan pilih produk. Kami akan membuka sembang dengan ROBORAB AI: ejen akan bertanya beberapa soalan dan mengetahui apa yang anda perlukan.
+96|Nama
+97|Produk yang anda minati
+98|Pelan percuma
+99|Langganan dengan mentor perniagaan
+100|Belum pasti
+101|Hantar ke sembang ROBORAB AI
+102|Skrin sebelumnya
+103|Skrin seterusnya
+104|Menu
+105|Alat saya
+106|T
+107|Sembang baharu
+108|Cari dalam sembang
+109|Projek
+110|Sembang
+111|Perbualan pertama
+112|Pengesanan bahan di tapak
+113|Cukai dan bayaran untuk perniagaan sendiri
+114|Permintaan hotel dalam satu tetingkap
+115|SEO dan keterlihatan dalam jawapan AI
+116|Tetamu
+117|Akaun saya
+118|Kongsi
+119|Kembali ke tapak
+120|Lampirkan fail
+121|Taip mesej kepada ROBORAB AI
+122|Mesej
+123|Suara
+124|Hantar
+125|Versi demo: butang menu buat masa ini hanyalah pemegang tempat dan perbualan tidak disimpan.
+126|Penggantian pekerja atau fungsi
+127|Kaedah pembayaran
+128|dan lain-lain
+129|MIR

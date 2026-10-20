@@ -23,8 +23,8 @@
 html{scroll-behavior:smooth;background:var(--fg)}
 html[lang=zh] .hero .ht .ml,html[lang=ja] .hero .ht .ml,html[lang=ko] .hero .ht .ml{letter-spacing:.5em;margin-right:-.5em}
 html[lang=zh] .hero,html[lang=ja] .hero,html[lang=ko] .hero{overflow-x:clip}
-html[lang=th] .hero .ht,html[lang=hi] .hero .ht,html[lang=ar] .hero .ht{line-height:1.3}
-@supports (text-box:trim-both cap alphabetic){html[lang=th] .tb .hero .ht,html[lang=hi] .tb .hero .ht,html[lang=ar] .tb .hero .ht,html[lang=th] .tb .hero .ht .ml,html[lang=hi] .tb .hero .ht .ml,html[lang=ar] .tb .hero .ht .ml{text-box:none}}
+html[lang=th] .hero .ht,html[lang=hi] .hero .ht,html[lang=ar] .hero .ht,html[lang=he] .hero .ht,html[lang=fa] .hero .ht,html[lang=ur] .hero .ht,html[lang=bn] .hero .ht,html[lang=ta] .hero .ht,html[lang=te] .hero .ht,html[lang=mr] .hero .ht{line-height:1.3}
+@supports (text-box:trim-both cap alphabetic){html[lang=th] .tb .hero .ht,html[lang=hi] .tb .hero .ht,html[lang=ar] .tb .hero .ht,html[lang=he] .tb .hero .ht,html[lang=fa] .tb .hero .ht,html[lang=ur] .tb .hero .ht,html[lang=bn] .tb .hero .ht,html[lang=ta] .tb .hero .ht,html[lang=te] .tb .hero .ht,html[lang=mr] .tb .hero .ht,html[lang=th] .tb .hero .ht .ml,html[lang=hi] .tb .hero .ht .ml,html[lang=ar] .tb .hero .ht .ml,html[lang=he] .tb .hero .ht .ml,html[lang=fa] .tb .hero .ht .ml,html[lang=ur] .tb .hero .ht .ml,html[lang=bn] .tb .hero .ht .ml,html[lang=ta] .tb .hero .ht .ml,html[lang=te] .tb .hero .ht .ml,html[lang=mr] .tb .hero .ht .ml{text-box:none}}
 
 body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.5 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
@@ -465,7 +465,7 @@ textarea{min-height:96px;resize:vertical}
     return ctx.measureText(text.toUpperCase()).actualBoundingBoxAscent * parseFloat(c.fontSize) / 100;
   }
   function fitAll(again){
-    var wide = /^(th|hi|ar)$/.test(root.lang);
+    var wide = /^(th|hi|ar|he|fa|ur|bn|ta|te|mr)$/.test(root.lang);
     var heroEl = document.querySelector('.hero'); if (heroEl && !again) { heroEl.style.paddingLeft = ''; heroEl.style.paddingRight = ''; }
     var narrow = window.matchMedia('(max-width:760px),(orientation:portrait) and (max-width:1100px)').matches;
     var tb = !!(window.CSS && CSS.supports && CSS.supports('text-box', 'trim-both cap alphabetic'));

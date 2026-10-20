@@ -1,0 +1,140 @@
+@name Lietuvių
+@sort Lithuanian
+@top <span class="d"><span class="ml">Diegiame</span> <span class="ml">dirbtinį</span></span><br><span class="ml">intelektą</span>
+@bot <span class="d"><span class="ml">į verslo procesus</span></span>
+@hi Sveiki, {n}! Aš esu ROBORAB AI agentas.
+@hi0 Sveiki! Aš esu ROBORAB AI agentas.
+@known  Jus domina produktas «{p}». Užduosiu kelis klausimus, kad suprasčiau jūsų užduotį.
+@unk  Užduosiu kelis klausimus, kad suprasčiau, ko jums reikia.
+@q1 Kuo užsiima jūsų įmonė?
+@q2 Kokią užduotį ar procesą norite automatizuoti?
+@q3 Kiek žmonių naudosis įrankiu?
+@q4 Ačiū, to pakanka pirmam supratimui. Prijungus pokalbių langą, pokalbis tęsis čia.
+@mp Sveiki, domina produkto «{p}» informacija
+@m3 Sveiki, noriu apskaičiuoti darbuotojo ar funkcijos pakeitimo savo įmonėje kainą
+2|Rožinė gorila su marškiniais ir kaklaraiščiu sėdi ant juodos odinės sofos
+3|Kaip diegiame, slinkite žemyn
+4|Kaip diegiame
+5|Turite du variantus
+6|ROBORAB AI: pasirinkite įrenginį
+7|Pasiekiama visuose įrenginiuose
+8|Palieskite, kad prisijungtumėte
+9|Atsisiųskite programėlę «ROBORAB AI» ir pasikalbėkite su mūsų gorila
+10|DI apmokytas remiantis vadybos ir prekybos minties klasikų darbais. Tačiau tų knygų ne tiesiog įkėlėme: jas kritiškai išanalizavome ir pašalinome asmeninius autorių emocinius vertinimus. Klientas gauna patikrintos esmės ištrauką, o ne svetimų įsitikinimų ar patoso atpasakojimą.
+11|Uždaryti
+13|Pasirinkite savo įrenginį
+14|Žemiau esančiame kataloge pasirinkite paruoštą sprendimą
+15|Pasirinkti sprendimą
+16|Sporto klubo CRM talismanas
+17|Sporto klubo CRM
+18|Klientai, abonementai, tvarkaraštis ir išmokos treneriams
+19|Sužinoti daugiau
+20|Programėlės ekranai
+21|Atidaryti 1 ekraną
+22|Atidaryti 2 ekraną
+23|Atidaryti 3 ekraną
+24|Visas klubas kaip ant delno: neribotos, bandomosios ir vienkartinės kortelės viename ekrane
+25|Bet kurį klientą rasite per sekundę: pakanka pavardės ar telefono
+26|Trenerių laisvus laikus matote iš karto, be skambučių ir lentelių
+27|Išmokos treneriams skaičiuojamos pačios, o DI agentas atsako klientams už jus
+28|Mokesčių agento talismanas
+29|Mokesčių agentas
+30|Įmonių grupės mokesčiai: faktas iš 1C, prognozė ir scenarijai
+31|Visa įmonių grupė viename ekrane
+32|Skubius mokėjimus matote iš anksto: nė vienas terminas nepraleidžiamas
+33|Visų juridinių asmenų apkrovą palyginsite vienu palietimu
+34|Agentas pasiekiamas 24/7: paklauskite «o jei» ir gaukite skaičiavimą
+35|Statybos apskaitos talismanas
+36|Statybos apskaita
+37|Objektai, medžiagos ir sąnaudos
+38|Objektai, medžiagos ir darbai vienoje duomenų bazėje
+39|Kiekvieno objekto sąnaudų apskaita
+40|Vadovo suvestinė apie visus objektus
+41|Rezervacijų CRM talismanas
+42|Rezervacijų CRM
+43|Visos viešbučio užklausos viename lange
+44|Visos rezervacijos užklausos viename sąraše
+45|Kiekvienos užklausos būsena ir istorija
+46|Viešbučio savininkas užklausas stebi pats
+47|SEO ir GEO talismanas
+48|Nustatymas, analitika, administravimo skydeliai
+49|SEO ir GEO nustatymas: svetainės matomumas paieškoje ir DI atsakymuose
+50|Vitrinos administravimo skydelis: reklamjuostė, šūkis ir kategorijos keičiami tiesiai sąsajoje
+51|Lankytojų analitika 7, 30 ar 90 dienų: kas atėjo, kas iškart išėjo ir kiek krepšelių išsiųsta į Telegram
+52|Matote, kiek pirkėjų atvedė DI asistentai (ChatGPT, Alisa, Perplexity, Gemini), ir lankytojus pagal dienas
+53|Kaip tai veikia
+54|1 žingsnis
+55|2 žingsnis
+56|3 žingsnis
+57|Jūs aprašote užduotį
+58|DI agentui: tekstu, balsu ar vaizdo skambučiu.
+59|Agentas pagauna esmę
+60|Parengia jūsų užklausos santrauką.
+61|Specialistas sukonfigūruoja
+62|Techninis specialistas pritaiko paruoštą sprendimą jums.
+63|Kitą dieną
+64|Įrankis jūsų
+65|Paruoštas sprendimas jau programėlėje.
+66|Kam skirtas ROBORAB
+67|Trys laipsniški planai: nuo nemokamo pokalbio iki sprendimų jūsų verslui.
+68|Plano piktograma
+69|1 planas · pradžiai
+70|Paklauskite DI apie savo verslą
+71|Pokalbis su DI apie verslą: rekomendacijos pagal jūsų pateiktą informaciją ir praktiniai patarimai.
+72|Nemokamai
+73|Pradėti
+74|2 planas · verslo dar nėra, bet yra ambicijų
+75|DI pašnekovas, mokantis mąstyti kaip verslininkas
+76|Verslo mentoriaus režimas padeda ugdyti verslininko mąstymą ir iš nulio išplėtoti idėją. Remiasi klasikiniu vadybos ir filosofijos pagrindu, pritaikytu verslininko praktikai.
+77|Stoikai
+78|Šopenhaueris
+79|Philip Kotler
+80|Į prenumeratą taip pat įeina:
+81|Komerciniai pasiūlymai
+82|Verslo planai investuotojams
+83|Verslo planai valstybės dotacijoms
+85|prenumerata
+86|3 planas · verslą jau turite
+87|Pakeisime darbuotoją arba visą funkciją
+88|ROBORAB integruojamas į vidinius procesus ir perima konkretaus žmogaus ar padalinio darbą. Taupote pinigus ir laiką.
+89|Integruojamas į procesus
+90|Taupo pinigus
+91|Taupo laiką
+92|Individuali kaina
+93|Sužinokite kainą per 10 minučių
+94|Papasakokite apie savo užduotį
+95|Palikite vardą ir pasirinkite produktą. Atversime pokalbį su ROBORAB AI: agentas užduos kelis klausimus ir išsiaiškins, ko tiksliai jums reikia.
+96|Vardas
+97|Produktas, kuris jus domina
+98|Nemokamas planas
+99|Prenumerata su verslo mentoriumi
+100|Dar nežinau
+101|Siųsti į ROBORAB AI pokalbį
+102|Ankstesnis ekranas
+103|Kitas ekranas
+104|Meniu
+105|Mano įrankiai
+106|S
+107|Naujas pokalbis
+108|Ieškoti pokalbiuose
+109|Projektai
+110|Pokalbiai
+111|Pirmasis pokalbis
+112|Medžiagų apskaita objektuose
+113|Individualios veiklos mokesčiai ir mokėjimai
+114|Viešbučio užklausos viename lange
+115|SEO ir matomumas DI atsakymuose
+116|Svečias
+117|Mano paskyra
+118|Bendrinti
+119|Atgal į svetainę
+120|Pridėti failą
+121|Rašykite ROBORAB AI
+122|Žinutė
+123|Balsas
+124|Siųsti
+125|Demonstracinė versija: meniu mygtukai kol kas yra laikini, pokalbis neišsaugomas.
+126|Darbuotojo ar funkcijos pakeitimas
+127|Mokėjimo būdai
+128|ir kiti
+129|MIR

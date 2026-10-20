@@ -1,0 +1,140 @@
+@name Filipino
+@sort Filipino
+@top <span class="d"><span class="ml">Ipinapatupad</span> <span class="ml">ang artificial</span></span><br><span class="ml">intelligence</span>
+@bot <span class="d"><span class="ml">sa mga proseso ng negosyo</span></span>
+@hi Kumusta, {n}! Ako ang ahente ng ROBORAB AI.
+@hi0 Kumusta! Ako ang ahente ng ROBORAB AI.
+@known  Interesado ka sa produktong «{p}». Magtatanong ako ng ilang tanong para maunawaan ang iyong gawain.
+@unk  Magtatanong ako ng ilang tanong para maunawaan ang kailangan mo.
+@q1 Ano ang ginagawa ng kumpanya mo?
+@q2 Anong gawain o proseso ang gusto mong i-automate?
+@q3 Ilang tao ang gagamit ng tool?
+@q4 Salamat, sapat na ito para sa unang pag-unawa. Kapag nakakonekta na ang chat, magpapatuloy dito ang usapan.
+@mp Kumusta, interesado ako sa mga detalye ng produktong «{p}»
+@m3 Kumusta, gusto kong kalkulahin ang gastos sa pagpapalit ng isang empleyado o tungkulin sa kumpanya ko
+2|Isang kulay-rosas na gorilya na naka-polo at kurbata na nakaupo sa itim na leather na sofa
+3|Paano namin ito ipinapatupad, mag-scroll pababa
+4|Paano namin ito ipinapatupad
+5|May dalawa kang opsyon
+6|ROBORAB AI: pumili ng device
+7|Available sa lahat ng device
+8|I-tap para mag-sign in
+9|I-download ang app na «ROBORAB AI» at makipag-usap sa aming gorilya
+10|Sinanay ang AI sa mga akda ng mga klasiko ng pamamahala at kalakalan. Pero hindi lang namin ini-load ang mga aklat na iyon: sinuri namin ang mga ito nang kritikal at inalis ang personal na emosyonal na paghatol ng mga may-akda. Ang kliyente ay nakakakuha ng kinalabasan ng napatunayang diwa, hindi muling pagsasalaysay ng paniniwala o drama ng iba.
+11|Isara
+13|Piliin ang iyong device
+14|Pumili ng handang solusyon sa katalogo sa ibaba
+15|Pumili ng solusyon
+16|Maskot ng fitness CRM
+17|Fitness CRM
+18|Mga kliyente, membership, iskedyul, at bayad sa mga trainer
+19|Alamin pa
+20|Mga screen ng app
+21|Buksan ang screen 1
+22|Buksan ang screen 2
+23|Buksan ang screen 3
+24|Buong club sa isang tingin: unlimited, trial, at isang-beses na pass sa iisang screen
+25|Mahahanap ang sinumang kliyente sa isang segundo: sapat na ang apelyido o telepono
+26|Makikita agad ang libreng oras ng mga trainer, walang tawag at spreadsheet
+27|Kusang kinakalkula ang bayad sa mga trainer, at ang AI agent ang sasagot sa mga kliyente para sa iyo
+28|Maskot ng tax agent
+29|Tax agent
+30|Mga buwis ng grupo ng kumpanya: aktwal mula sa 1C, forecast, at mga senaryo
+31|Ang buong grupo ng kumpanya sa iisang screen
+32|Makikita nang maaga ang mga agarang bayarin: walang deadline na lalampas
+33|Ihambing ang pasanin ng lahat ng legal entity sa isang tap
+34|Available ang agent 24/7: magtanong ng «paano kung» at makakuha ng kalkulasyon
+35|Maskot ng accounting sa konstruksiyon
+36|Accounting sa konstruksiyon
+37|Mga site, materyales, at gastos
+38|Mga site, materyales, at trabaho sa iisang database
+39|Pagsubaybay sa gastos ng bawat site
+40|Buod para sa manager sa lahat ng site
+41|Maskot ng booking CRM
+42|Booking CRM
+43|Lahat ng kahilingan ng hotel sa iisang window
+44|Lahat ng kahilingan sa booking sa iisang listahan
+45|Status at kasaysayan ng bawat kahilingan
+46|Ang may-ari ng hotel mismo ang sumusubaybay sa mga kahilingan
+47|Maskot ng SEO at GEO
+48|Setup, analytics, admin panel
+49|Setup ng SEO at GEO: visibility ng site sa search at sa mga sagot ng AI
+50|Admin panel ng storefront: banner, slogan, at mga kategorya ay binabago mismo sa interface
+51|Analytics ng bisita para sa 7, 30, o 90 araw: sino ang dumating, sino ang agad umalis, at ilang cart ang naipadala sa Telegram
+52|Makikita kung ilang mamimili ang dinala ng mga AI assistant (ChatGPT, Alisa, Perplexity, Gemini), at mga bisita kada araw
+53|Paano ito gumagana
+54|Hakbang 1
+55|Hakbang 2
+56|Hakbang 3
+57|Ilalarawan mo ang gawain
+58|Sa AI agent: sa text, boses, o video call.
+59|Kinukuha ng agent ang diwa
+60|Gumagawa ng buod ng iyong kahilingan.
+61|Isang espesyalista ang nagko-configure
+62|Inaangkop ng teknikal na espesyalista ang handang solusyon para sa iyo.
+63|Kinabukasan
+64|Sa iyo na ang tool
+65|Nasa app na ang tapos na solusyon.
+66|Para kanino ang ROBORAB
+67|Tatlong plano na paunti-unti: mula sa libreng usapan hanggang sa mga solusyong akma sa negosyo mo.
+68|Icon ng plano
+69|Plano 1 · pang-simula
+70|Magtanong sa AI tungkol sa negosyo mo
+71|Pakikipag-usap sa AI tungkol sa negosyo: mga rekomendasyon batay sa impormasyong ibinigay mo at praktikal na payo.
+72|Libre
+73|Magsimula
+74|Plano 2 · wala pang negosyo, pero may ambisyon
+75|Isang AI na kausap na nagtuturo mag-isip tulad ng negosyante
+76|Tinutulungan ka ng business-mentor mode na bumuo ng pag-iisip ng negosyante at paunlarin ang ideya mula sa wala. Nakabatay sa klasikong pundasyon ng pamamahala at pilosopiya, iniangkop sa praktika ng negosyante.
+77|Ang mga Stoiko
+78|Schopenhauer
+79|Philip Kotler
+80|Kasama rin sa subscription:
+81|Mga komersyal na panukala
+82|Business plan para sa mga investor
+83|Business plan para sa mga gawad ng gobyerno
+85|subscription
+86|Plano 3 · may negosyo ka na
+87|Papalitan namin ang isang empleyado o buong tungkulin
+88|Isinasama ang ROBORAB sa iyong mga panloob na proseso at inaako ang trabaho ng isang partikular na tao o seksyon. Nakakatipid ka ng pera at oras.
+89|Isinasama sa mga proseso
+90|Nakakatipid ng pera
+91|Nakakatipid ng oras
+92|Indibidwal na presyo
+93|Kumuha ng presyo sa loob ng 10 minuto
+94|Sabihin sa amin ang gawain mo
+95|Iwan ang pangalan mo at pumili ng produkto. Magbubukas kami ng chat sa ROBORAB AI: magtatanong ang agent at aalamin kung ano mismo ang kailangan mo.
+96|Pangalan
+97|Ang produktong interesado ka
+98|Libreng plano
+99|Subscription na may business mentor
+100|Hindi pa sigurado
+101|Ipadala sa ROBORAB AI chat
+102|Naunang screen
+103|Susunod na screen
+104|Menu
+105|Mga tool ko
+106|B
+107|Bagong chat
+108|Maghanap sa mga chat
+109|Mga proyekto
+110|Mga chat
+111|Unang usapan
+112|Pagsubaybay ng materyales sa mga site
+113|Buwis at bayarin ng sole proprietor
+114|Mga kahilingan ng hotel sa iisang window
+115|SEO at visibility sa mga sagot ng AI
+116|Bisita
+117|Aking account
+118|Ibahagi
+119|Bumalik sa site
+120|Mag-attach ng file
+121|Mag-message sa ROBORAB AI
+122|Mensahe
+123|Boses
+124|Ipadala
+125|Demo na bersyon: placeholder pa lang ang mga button ng menu at hindi sine-save ang usapan.
+126|Pagpapalit ng empleyado o tungkulin
+127|Mga paraan ng pagbabayad
+128|at iba pa
+129|MIR

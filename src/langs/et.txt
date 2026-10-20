@@ -1,0 +1,140 @@
+@name Eesti
+@sort Estonian
+@top <span class="d"><span class="ml">Rakendame</span> <span class="ml">tehisintellekti</span></span><br><span class="ml">teie</span>
+@bot <span class="d"><span class="ml">äriprotsessides</span></span>
+@hi Tere, {n}! Mina olen ROBORAB AI agent.
+@hi0 Tere! Mina olen ROBORAB AI agent.
+@known  Teid huvitab toode «{p}». Küsin paar küsimust, et teie ülesandest aru saada.
+@unk  Küsin paar küsimust, et aru saada, mida te vajate.
+@q1 Millega teie ettevõte tegeleb?
+@q2 Millist ülesannet või protsessi soovite automatiseerida?
+@q3 Kui palju inimesi tööriista kasutab?
+@q4 Aitäh, see piisab esmaseks arusaamaks. Kui vestlus on ühendatud, jätkub vestlus siin.
+@mp Tere, mind huvitavad toote «{p}» üksikasjad
+@m3 Tere, soovin arvutada töötaja või funktsiooni asendamise maksumuse oma ettevõttes
+2|Roosa gorilla särgis ja lipsuga istub musta nahkdiivani peal
+3|Kuidas me rakendame, kerige alla
+4|Kuidas me rakendame
+5|Teil on kaks varianti
+6|ROBORAB AI: valige seade
+7|Saadaval kõigis seadmetes
+8|Puudutage sisselogimiseks
+9|Laadige alla rakendus «ROBORAB AI» ja vestelge meie gorillaga
+10|Tehisintellekt on treenitud juhtimis- ja kaubandusmõtte klassikute teostel. Me ei laadinud neid raamatuid lihtsalt sisse: viisime need läbi kriitilise analüüsi ja eemaldasime autorite isiklikud emotsionaalsed hinnangud. Klient saab kontrollitud olemuse kokkuvõtte, mitte võõraste veendumuste või paatose ümberjutustuse.
+11|Sulge
+13|Valige oma seade
+14|Valige allolevast kataloogist valmislahendus
+15|Vali lahendus
+16|Fitnessi-CRM-i maskott
+17|Fitnessi-CRM
+18|Kliendid, kuukaardid, ajakava ja treenerite väljamaksed
+19|Loe lähemalt
+20|Rakenduse ekraanid
+21|Ava ekraan 1
+22|Ava ekraan 2
+23|Ava ekraan 3
+24|Kogu klubi ühe pilguga: piiramatud, proovi- ja ühekordsed kaardid ühel ekraanil
+25|Leiate iga kliendi sekundiga: piisab perekonnanimest või telefonist
+26|Näete treenerite vabu aegu kohe, ilma kõnede ja tabeliteta
+27|Treenerite väljamaksed arvutatakse ise ning tehisintellekti agent vastab klientidele teie eest
+28|Maksuagendi maskott
+29|Maksuagent
+30|Kontserni maksud: tegelik 1C-st, prognoos ja stsenaariumid
+31|Kogu kontsern ühel ekraanil
+32|Kiireloomulisi makseid näete ette: ükski tähtaeg ei jää märkamata
+33|Kõigi juriidiliste isikute koormust võrdlete ühe puudutusega
+34|Agent on kättesaadav 24/7: küsige «mis siis, kui» ja saate arvutuse
+35|Ehitusarvestuse maskott
+36|Ehitusarvestus
+37|Objektid, materjalid ja kulud
+38|Objektid, materjalid ja tööd ühes andmebaasis
+39|Iga objekti kulude arvestus
+40|Juhi kokkuvõte kõigi objektide kohta
+41|Broneerimis-CRM-i maskott
+42|Broneerimis-CRM
+43|Kõik hotelli päringud ühes aknas
+44|Kõik broneerimispäringud ühes nimekirjas
+45|Iga päringu staatus ja ajalugu
+46|Hotelli omanik jälgib päringuid ise
+47|SEO ja GEO maskott
+48|Seadistus, analüütika, haldusliidesed
+49|SEO ja GEO seadistus: saidi nähtavus otsingus ja tehisintellekti vastustes
+50|Vaateakna haldusliides: bänner, slogan ja kategooriad muudetakse otse liideses
+51|Külastajate analüütika 7, 30 või 90 päeva kohta: kes tuli, kes lahkus kohe ja mitu ostukorvi saadeti Telegrami
+52|Näete, kui palju ostjaid tõid tehisintellekti assistendid (ChatGPT, Alisa, Perplexity, Gemini), ja külastajaid päevade kaupa
+53|Kuidas see töötab
+54|Samm 1
+55|Samm 2
+56|Samm 3
+57|Kirjeldate ülesande
+58|Tehisintellekti agendile: tekstiga, häälega või videokõnega.
+59|Agent tabab olemuse
+60|Koostab teie päringu kokkuvõtte.
+61|Spetsialist seadistab
+62|Tehniline spetsialist kohandab valmislahenduse teile.
+63|Järgmisel päeval
+64|Tööriist on teie oma
+65|Valmislahendus on juba rakenduses.
+66|Kellele ROBORAB mõeldud on
+67|Kolm järk-järgulist plaani: tasuta vestlusest teie ärile loodud lahendusteni.
+68|Plaani ikoon
+69|Plaan 1 · alustamiseks
+70|Küsige tehisintellektilt oma äri kohta
+71|Vestlus tehisintellektiga äriteemadel: soovitused teie antud teabe põhjal ja praktilised nõuanded.
+72|Tasuta
+73|Alusta
+74|Plaan 2 · äri veel pole, kuid on ambitsioon
+75|Tehisintellektist vestluspartner, kes õpetab mõtlema nagu ettevõtja
+76|Äri mentori režiim aitab kujundada ettevõtlikku mõtteviisi ja arendada ideed nullist. Tugineb juhtimise ja filosoofia klassikalisele alusele, mis on kohandatud ettevõtja praktikaga.
+77|Stoikud
+78|Schopenhauer
+79|Philip Kotler
+80|Tellimus sisaldab ka:
+81|Kommertspakkumised
+82|Äriplaanid investoritele
+83|Äriplaanid riiklikele toetustele
+85|tellimus
+86|Plaan 3 · äri on juba olemas
+87|Asendame töötaja või terve funktsiooni
+88|ROBORAB integreeritakse sisemistesse protsessidesse ja võtab üle konkreetse inimese või valdkonna töö. Säästate raha ja aega.
+89|Integreeritakse protsessidesse
+90|Säästab raha
+91|Säästab aega
+92|Individuaalne hind
+93|Saage hind 10 minutiga
+94|Rääkige oma ülesandest
+95|Jätke nimi ja valige toode. Avame vestluse ROBORAB AI-ga: agent küsib paar küsimust ja selgitab välja, mida täpselt vajate.
+96|Nimi
+97|Toode, mis teid huvitab
+98|Tasuta plaan
+99|Tellimus äri mentoriga
+100|Ei tea veel
+101|Saada ROBORAB AI vestlusesse
+102|Eelmine ekraan
+103|Järgmine ekraan
+104|Menüü
+105|Minu tööriistad
+106|K
+107|Uus vestlus
+108|Otsi vestlustest
+109|Projektid
+110|Vestlused
+111|Esimene vestlus
+112|Materjalide arvestus objektidel
+113|FIE maksud ja maksed
+114|Hotelli päringud ühes aknas
+115|SEO ja nähtavus tehisintellekti vastustes
+116|Külaline
+117|Minu konto
+118|Jaga
+119|Tagasi saidile
+120|Lisa fail
+121|Kirjutage ROBORAB AI-le
+122|Sõnum
+123|Hääl
+124|Saada
+125|Demoversioon: menüünupud on praegu kohatäited ja vestlust ei salvestata.
+126|Töötaja või funktsiooni asendamine
+127|Makseviisid
+128|ja teised
+129|MIR

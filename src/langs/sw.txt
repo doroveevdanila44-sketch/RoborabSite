@@ -1,0 +1,140 @@
+@name Kiswahili
+@sort Swahili
+@top <span class="d"><span class="ml">Tunatekeleza</span> <span class="ml">akili</span></span><br><span class="ml">bandia</span>
+@bot <span class="d"><span class="ml">katika michakato ya biashara</span></span>
+@hi Habari {n}! Mimi ni wakala wa ROBORAB AI.
+@hi0 Habari! Mimi ni wakala wa ROBORAB AI.
+@known  Unavutiwa na bidhaa «{p}». Nitauliza maswali machache ili kuelewa kazi yako.
+@unk  Nitauliza maswali machache ili kuelewa unachohitaji.
+@q1 Kampuni yako inajishughulisha na nini?
+@q2 Ni kazi au mchakato gani unataka kuuendesha kiotomatiki?
+@q3 Watu wangapi watatumia zana hii?
+@q4 Asante, hii inatosha kwa uelewa wa awali. Mazungumzo yakiunganishwa, mazungumzo yataendelea hapa.
+@mp Habari, ninavutiwa na maelezo ya bidhaa «{p}»
+@m3 Habari, nataka kukokotoa gharama ya kuchukua nafasi ya mfanyakazi au kazi katika kampuni yangu
+2|Sokwe wa rangi ya waridi aliyevaa shati na tai ameketi kwenye sofa nyeusi ya ngozi
+3|Jinsi tunavyotekeleza, sogeza chini
+4|Jinsi tunavyotekeleza
+5|Una chaguo mbili
+6|ROBORAB AI: chagua kifaa
+7|Inapatikana kwenye vifaa vyote
+8|Gusa ili kuingia
+9|Pakua programu ya «ROBORAB AI» na uzungumze na sokwe wetu
+10|AI imefunzwa kwa kazi za wasomi wa kale wa usimamizi na biashara. Lakini hatukupakia vitabu hivyo tu: tumevichambua kwa umakini na kuondoa hukumu za kihisia binafsi za waandishi. Mteja hupata dondoo la kiini kilichothibitishwa, si masimulizi ya imani au mihemko ya wengine.
+11|Funga
+13|Chagua kifaa chako
+14|Chagua suluhisho tayari kwenye orodha iliyo hapa chini
+15|Chagua suluhisho
+16|Nembo ya CRM ya mazoezi
+17|CRM ya mazoezi
+18|Wateja, uanachama, ratiba na malipo kwa wakufunzi
+19|Jifunze zaidi
+20|Skrini za programu
+21|Fungua skrini 1
+22|Fungua skrini 2
+23|Fungua skrini 3
+24|Klabu nzima kwa mtazamo mmoja: tikiti zisizo na kikomo, za majaribio na za mara moja kwenye skrini moja
+25|Pata mteja yeyote kwa sekunde moja: jina la ukoo au simu vinatosha
+26|Ona nafasi huru za wakufunzi mara moja, bila simu na lahajedwali
+27|Malipo ya wakufunzi huhesabiwa yenyewe, na wakala wa AI huwajibu wateja kwa niaba yako
+28|Nembo ya wakala wa kodi
+29|Wakala wa kodi
+30|Kodi za kundi la kampuni: takwimu halisi kutoka 1C, utabiri na hali mbalimbali
+31|Kundi zima la kampuni kwenye skrini moja
+32|Ona malipo ya haraka mapema: hakuna tarehe ya mwisho inayopita
+33|Linganisha mzigo wa taasisi zote za kisheria kwa kugusa mara moja
+34|Wakala yupo saa 24 siku 7: uliza «je, ikiwa» upate hesabu
+35|Nembo ya uhasibu wa ujenzi
+36|Uhasibu wa ujenzi
+37|Maeneo ya ujenzi, vifaa na gharama
+38|Maeneo, vifaa na kazi katika hifadhidata moja
+39|Ufuatiliaji wa gharama za kila eneo
+40|Muhtasari wa meneja kwa maeneo yote
+41|Nembo ya CRM ya uhifadhi
+42|CRM ya uhifadhi
+43|Maombi yote ya hoteli kwenye dirisha moja
+44|Maombi yote ya uhifadhi kwenye orodha moja
+45|Hali na historia ya kila ombi
+46|Mmiliki wa hoteli hufuatilia maombi mwenyewe
+47|Nembo ya SEO na GEO
+48|Usanidi, uchanganuzi, paneli za usimamizi
+49|Usanidi wa SEO na GEO: mwonekano wa tovuti kwenye utafutaji na majibu ya AI
+50|Paneli ya usimamizi wa duka: bango, kaulimbiu na kategoria hubadilishwa moja kwa moja kwenye kiolesura
+51|Uchanganuzi wa wageni kwa siku 7, 30 au 90: nani alikuja, nani aliondoka mara moja na vikapu vingapi vilitumwa Telegram
+52|Ona wanunuzi wangapi waliletwa na wasaidizi wa AI (ChatGPT, Alisa, Perplexity, Gemini), na wageni kwa siku
+53|Jinsi inavyofanya kazi
+54|Hatua ya 1
+55|Hatua ya 2
+56|Hatua ya 3
+57|Unaeleza kazi
+58|Kwa wakala wa AI: kwa maandishi, sauti au simu ya video.
+59|Wakala hunasa kiini
+60|Huandaa muhtasari wa ombi lako.
+61|Mtaalamu huisanidi
+62|Mtaalamu wa kiufundi hurekebisha suluhisho tayari kwa ajili yako.
+63|Siku inayofuata
+64|Zana ni yako
+65|Suluhisho lililokamilika tayari liko kwenye programu.
+66|ROBORAB ni ya nani
+67|Mipango mitatu ya hatua kwa hatua: kutoka mazungumzo ya bure hadi suluhisho zilizoundwa kwa biashara yako.
+68|Ikoni ya mpango
+69|Mpango 1 · wa kuanzia
+70|Uliza AI kuhusu biashara yako
+71|Mazungumzo na AI kuhusu biashara: mapendekezo kulingana na taarifa unazotoa na ushauri wa vitendo.
+72|Bure
+73|Anza
+74|Mpango 2 · bado huna biashara, lakini una malengo
+75|Mwenzi wa mazungumzo wa AI anayekufundisha kufikiri kama mjasiriamali
+76|Hali ya mshauri wa biashara hukusaidia kujenga fikra za ujasiriamali na kukuza wazo kutoka sifuri. Inategemea msingi wa kale wa usimamizi na falsafa, uliorekebishwa kwa mazoezi ya mjasiriamali.
+77|Wastoiki
+78|Schopenhauer
+79|Philip Kotler
+80|Usajili pia unajumuisha:
+81|Mapendekezo ya kibiashara
+82|Mipango ya biashara kwa wawekezaji
+83|Mipango ya biashara kwa ruzuku za serikali
+85|usajili
+86|Mpango 3 · tayari una biashara
+87|Tutachukua nafasi ya mfanyakazi au kazi nzima
+88|ROBORAB huunganishwa kwenye michakato ya ndani na kuchukua kazi ya mtu au idara maalum. Unaokoa pesa na muda.
+89|Huunganishwa kwenye michakato
+90|Huokoa pesa
+91|Huokoa muda
+92|Bei maalum
+93|Pata bei ndani ya dakika 10
+94|Tuambie kuhusu kazi yako
+95|Acha jina lako na uchague bidhaa. Tutafungua mazungumzo na ROBORAB AI: wakala ataulizia maswali machache na kujua hasa unachohitaji.
+96|Jina
+97|Bidhaa unayovutiwa nayo
+98|Mpango wa bure
+99|Usajili na mshauri wa biashara
+100|Bado sijui
+101|Tuma kwenye mazungumzo ya ROBORAB AI
+102|Skrini iliyotangulia
+103|Skrini inayofuata
+104|Menyu
+105|Zana zangu
+106|M
+107|Mazungumzo mapya
+108|Tafuta kwenye mazungumzo
+109|Miradi
+110|Mazungumzo
+111|Mazungumzo ya kwanza
+112|Udhibiti wa vifaa kwenye maeneo ya ujenzi
+113|Kodi na malipo ya mfanyabiashara binafsi
+114|Maombi ya hoteli kwenye dirisha moja
+115|SEO na mwonekano katika majibu ya AI
+116|Mgeni
+117|Akaunti yangu
+118|Shiriki
+119|Rudi kwenye tovuti
+120|Ambatisha faili
+121|Andikia ROBORAB AI
+122|Ujumbe
+123|Sauti
+124|Tuma
+125|Toleo la majaribio: vitufe vya menyu kwa sasa ni vishikilia nafasi na mazungumzo hayahifadhiwi.
+126|Kubadilisha mfanyakazi au kazi
+127|Njia za malipo
+128|na nyinginezo
+129|MIR

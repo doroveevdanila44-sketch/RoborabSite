@@ -1,0 +1,140 @@
+@name Oʻzbekcha
+@sort Uzbek
+@top <span class="d"><span class="ml">Sunʼiy intellektni</span></span><br><span class="ml">joriy qilamiz</span>
+@bot <span class="d"><span class="ml">biznes jarayonlariga</span></span>
+@hi Salom, {n}! Men ROBORAB AI agentiman.
+@hi0 Salom! Men ROBORAB AI agentiman.
+@known  Sizni «{p}» mahsuloti qiziqtiryapti. Vazifangizni tushunish uchun bir nechta savol beraman.
+@unk  Sizga nima kerakligini tushunish uchun bir nechta savol beraman.
+@q1 Kompaniyangiz nima bilan shugʻullanadi?
+@q2 Qaysi vazifa yoki jarayonni avtomatlashtirmoqchisiz?
+@q3 Vositadan nechta odam foydalanadi?
+@q4 Rahmat, dastlabki tasavvur uchun bu yetarli. Chat ulangach, suhbat shu yerda davom etadi.
+@mp Salom, «{p}» mahsulotining tafsilotlari meni qiziqtiryapti
+@m3 Salom, kompaniyamdagi xodim yoki vazifani almashtirish narxini hisoblamoqchiman
+2|Koʻylak va galstuk taqqan pushti gorilla qora charm divanda oʻtiribdi
+3|Qanday joriy qilamiz, pastga aylantiring
+4|Qanday joriy qilamiz
+5|Sizda ikkita variant bor
+6|ROBORAB AI: qurilmani tanlang
+7|Barcha qurilmalarda mavjud
+8|Kirish uchun bosing
+9|«ROBORAB AI» ilovasini yuklab oling va gorillamiz bilan suhbatlashing
+10|Sunʼiy intellekt boshqaruv va savdo klassiklarining asarlarida oʻqitilgan. Biroq biz bu kitoblarni shunchaki yuklamadik: ularni tanqidiy tahlil qildik va mualliflarning shaxsiy hissiy baholarini olib tashladik. Mijoz boshqalarning eʼtiqodi yoki pafosini emas, tekshirilgan mohiyat xulosasini oladi.
+11|Yopish
+13|Qurilmangizni tanlang
+14|Quyidagi katalogdan tayyor yechimni tanlang
+15|Yechimni tanlash
+16|Fitnes CRM talismani
+17|Fitnes CRM
+18|Mijozlar, abonementlar, jadval va murabbiylarga toʻlovlar
+19|Batafsil
+20|Ilova ekranlari
+21|1-ekranni ochish
+22|2-ekranni ochish
+23|3-ekranni ochish
+24|Butun klub bir qarashda: cheksiz, sinov va bir martalik chiptalar bitta ekranda
+25|Istalgan mijozni bir soniyada toping: familiya yoki telefon yetarli
+26|Murabbiylarning boʻsh vaqtlarini darhol koʻring, qoʻngʻiroqlar va jadvallarsiz
+27|Murabbiylarga toʻlovlar oʻzi hisoblanadi, sunʼiy intellekt agenti esa sizning oʻrningizga mijozlarga javob beradi
+28|Soliq agenti talismani
+29|Soliq agenti
+30|Kompaniyalar guruhi soliqlari: 1C dagi haqiqiy raqamlar, bashorat va stsenariylar
+31|Butun kompaniyalar guruhi bitta ekranda
+32|Shoshilinch toʻlovlarni oldindan koʻring: birorta muddat oʻtib ketmaydi
+33|Barcha yuridik shaxslarning yukini bir bosishda solishtiring
+34|Agent 24/7 mavjud: «agar…» deb soʻrang va hisob-kitob oling
+35|Qurilish hisobi talismani
+36|Qurilish hisobi
+37|Obyektlar, materiallar va xarajatlar
+38|Obyektlar, materiallar va ishlar bitta bazada
+39|Har bir obyekt boʻyicha xarajatlar nazorati
+40|Barcha obyektlar boʻyicha rahbar uchun xulosa
+41|Bron CRM talismani
+42|Bron CRM
+43|Mehmonxonaning barcha soʻrovlari bitta oynada
+44|Barcha bron soʻrovlari bitta roʻyxatda
+45|Har bir soʻrovning holati va tarixi
+46|Mehmonxona egasi soʻrovlarni oʻzi kuzatadi
+47|SEO va GEO talismani
+48|Sozlash, tahlil, admin panellar
+49|SEO va GEO sozlash: saytning qidiruvda va sunʼiy intellekt javoblarida koʻrinishi
+50|Vitrinaning admin paneli: banner, shior va toifalar bevosita interfeysda oʻzgartiriladi
+51|7, 30 yoki 90 kunlik tashrif buyuruvchilar tahlili: kim keldi, kim darrov ketdi va Telegramga nechta savat yuborildi
+52|Sunʼiy intellekt yordamchilari (ChatGPT, Alisa, Perplexity, Gemini) nechta xaridor olib kelganini va kunlar boʻyicha tashrif buyuruvchilarni koʻring
+53|Bu qanday ishlaydi
+54|1-qadam
+55|2-qadam
+56|3-qadam
+57|Siz vazifani tasvirlaysiz
+58|Sunʼiy intellekt agentiga: matn, ovoz yoki video qoʻngʻiroq orqali.
+59|Agent mohiyatni tushunadi
+60|Soʻrovingiz boʻyicha xulosa tayyorlaydi.
+61|Mutaxassis sozlaydi
+62|Texnik mutaxassis tayyor yechimni siz uchun moslashtiradi.
+63|Ertasi kuni
+64|Vosita sizniki
+65|Tayyor yechim allaqachon ilovada.
+66|ROBORAB kimlar uchun
+67|Uch bosqichli reja: bepul suhbatdan biznesingizga moslashtirilgan yechimlargacha.
+68|Reja belgisi
+69|1-reja · boshlash uchun
+70|Biznesingiz haqida sunʼiy intellektdan soʻrang
+71|Biznes haqida sunʼiy intellekt bilan suhbat: siz bergan maʼlumotga asoslangan tavsiyalar va amaliy maslahatlar.
+72|Bepul
+73|Boshlash
+74|2-reja · hali biznes yoʻq, lekin intilish bor
+75|Tadbirkorcha fikrlashni oʻrgatadigan sunʼiy intellekt suhbatdoshi
+76|Biznes-mentor rejimi tadbirkorlik tafakkurini shakllantirishga va gʻoyani noldan rivojlantirishga yordam beradi. U boshqaruv va falsafaning klassik asosiga tayanadi va tadbirkor amaliyotiga moslashtirilgan.
+77|Stoiklar
+78|Shopengauer
+79|Filip Kotler
+80|Obunaga yana quyidagilar kiradi:
+81|Tijoriy takliflar
+82|Investorlar uchun biznes-rejalar
+83|Davlat grantlari uchun biznes-rejalar
+85|obuna
+86|3-reja · biznesingiz allaqachon bor
+87|Xodimni yoki butun bir vazifani almashtiramiz
+88|ROBORAB ichki jarayonlarga integratsiya qilinadi va muayyan odam yoki boʻlimning ishini zimmasiga oladi. Siz pul va vaqtni tejaysiz.
+89|Jarayonlarga integratsiya qilinadi
+90|Pulni tejaydi
+91|Vaqtni tejaydi
+92|Individual narx
+93|10 daqiqada narxni bilib oling
+94|Vazifangiz haqida aytib bering
+95|Ismingizni qoldiring va mahsulotni tanlang. ROBORAB AI bilan chat ochamiz: agent bir nechta savol berib, aynan nima kerakligini aniqlaydi.
+96|Ism
+97|Sizni qiziqtirgan mahsulot
+98|Bepul reja
+99|Biznes-mentor bilan obuna
+100|Hali bilmayman
+101|ROBORAB AI chatiga yuborish
+102|Oldingi ekran
+103|Keyingi ekran
+104|Menyu
+105|Mening vositalarim
+106|M
+107|Yangi chat
+108|Chatlardan qidirish
+109|Loyihalar
+110|Chatlar
+111|Birinchi suhbat
+112|Obyektlarda materiallar nazorati
+113|YaTT soliqlari va toʻlovlari
+114|Mehmonxona soʻrovlari bitta oynada
+115|SEO va sunʼiy intellekt javoblarida koʻrinish
+116|Mehmon
+117|Mening hisobim
+118|Ulashish
+119|Saytga qaytish
+120|Fayl biriktirish
+121|ROBORAB AI ga yozing
+122|Xabar
+123|Ovoz
+124|Yuborish
+125|Demo versiya: menyu tugmalari hozircha namuna, suhbat esa saqlanmaydi.
+126|Xodim yoki vazifani almashtirish
+127|Toʻlov usullari
+128|va boshqalar
+129|MIR

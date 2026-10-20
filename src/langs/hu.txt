@@ -1,0 +1,140 @@
+@name Magyar
+@sort Hungarian
+@top <span class="d"><span class="ml">Mesterséges</span> <span class="ml">intelligenciát</span></span><br><span class="ml">vezetünk be</span>
+@bot <span class="d"><span class="ml">az üzleti folyamatokba</span></span>
+@hi Jó napot, {n}! A ROBORAB AI ügynöke vagyok.
+@hi0 Jó napot! A ROBORAB AI ügynöke vagyok.
+@known  Önt a «{p}» termék érdekli. Néhány kérdést teszek fel, hogy megértsem a feladatát.
+@unk  Néhány kérdést teszek fel, hogy megértsem, mire van szüksége.
+@q1 Mivel foglalkozik a cége?
+@q2 Melyik feladatot vagy folyamatot szeretné automatizálni?
+@q3 Hányan fogják használni az eszközt?
+@q4 Köszönöm, ez elég az első áttekintéshez. Ha a csevegés csatlakoztatva lesz, a beszélgetés itt folytatódik.
+@mp Jó napot, a «{p}» termék részletei érdekelnek
+@m3 Jó napot, ki szeretném számolni egy munkavállaló vagy egy funkció kiváltásának költségét a cégemben
+2|Egy rózsaszín gorilla ingben és nyakkendőben ül egy fekete bőrkanapén
+3|Hogyan vezetjük be, görgessen lefelé
+4|Hogyan vezetjük be
+5|Két lehetősége van
+6|ROBORAB AI: eszköz kiválasztása
+7|Minden eszközön elérhető
+8|Érintse meg a bejelentkezéshez
+9|Töltse le a «ROBORAB AI» alkalmazást, és beszélgessen gorillánkkal
+10|Az MI a vezetési és kereskedelmi gondolkodás klasszikusainak művein tanult. De ezeket a könyveket nem egyszerűen betöltöttük: kritikai elemzésen vittük át, és eltávolítottuk a szerzők személyes érzelmi értékeléseit. Az ügyfél az ellenőrzött lényeg kivonatát kapja, nem mások meggyőződéseinek vagy pátoszának az átmesélését.
+11|Bezárás
+13|Válassza ki az eszközét
+14|Válasszon kész megoldást az alábbi katalógusból
+15|Megoldás kiválasztása
+16|Fitnesz CRM kabalája
+17|Fitnesz CRM
+18|Ügyfelek, bérletek, órarend és edzők kifizetései
+19|További részletek
+20|Az alkalmazás képernyői
+21|1. képernyő megnyitása
+22|2. képernyő megnyitása
+23|3. képernyő megnyitása
+24|Az egész klub egy pillantásra: korlátlan, próba- és egyszeri belépők egy képernyőn
+25|Bármely ügyfelet megtalál egy másodperc alatt: elég a vezetéknév vagy a telefonszám
+26|Az edzők szabad időpontjait azonnal látja, hívások és táblázatok nélkül
+27|Az edzők kifizetése magától kiszámolódik, az MI-ügynök pedig Ön helyett válaszol az ügyfeleknek
+28|Adóügynök kabalája
+29|Adóügynök
+30|Vállalatcsoport adói: tényadatok az 1C-ből, előrejelzés és forgatókönyvek
+31|A teljes vállalatcsoport egy képernyőn
+32|A sürgős kifizetéseket előre látja: egyetlen határidő sem marad le
+33|Az összes jogi személy terhelését egy érintéssel összehasonlíthatja
+34|Az ügynök a nap 24 órájában elérhető: kérdezze meg, «mi lenne, ha», és kapjon számítást
+35|Építési könyvelés kabalája
+36|Építési könyvelés
+37|Építkezések, anyagok és költségek
+38|Építkezések, anyagok és munkák egy adatbázisban
+39|Költségnyilvántartás minden építkezésre
+40|Vezetői összesítő az összes építkezésről
+41|Foglalási CRM kabalája
+42|Foglalási CRM
+43|A szálloda összes kérése egy ablakban
+44|Az összes foglalási kérés egy listában
+45|Minden kérés állapota és előzményei
+46|A szállodatulajdonos maga követi a kéréseket
+47|SEO és GEO kabalája
+48|Beállítás, analitika, adminisztrációs felületek
+49|SEO és GEO beállítás: a webhely láthatósága a keresőkben és az MI válaszaiban
+50|A kirakat adminisztrációs felülete: a banner, a szlogen és a kategóriák közvetlenül a felületen módosíthatók
+51|Látogatói analitika 7, 30 vagy 90 napra: ki érkezett, ki lépett ki azonnal, és hány kosarat küldtek el Telegramra
+52|Látható, hogy az MI-asszisztensek (ChatGPT, Alisza, Perplexity, Gemini) hány vásárlót hoztak, és a napi látogatók száma
+53|Hogyan működik
+54|1. lépés
+55|2. lépés
+56|3. lépés
+57|Ön leírja a feladatot
+58|Az MI-ügynöknek: szövegben, hangban vagy videóhívásban.
+59|Az ügynök összegyűjti a lényeget
+60|Összefoglalót készít a kéréséről.
+61|Szakember beállítja
+62|Műszaki szakember a kész megoldást Önre szabja.
+63|Másnap
+64|Az eszköz az Öné
+65|A kész megoldás már az alkalmazásban van.
+66|Kinek szól a ROBORAB
+67|Három fokozatos csomag: az ingyenes beszélgetéstől a vállalkozására szabott megoldásokig.
+68|Csomag ikonja
+69|1. csomag · az induláshoz
+70|Kérdezze az MI-t a vállalkozásáról
+71|Beszélgetés az MI-vel üzleti témákban: az Ön által megadott információkra épülő ajánlások és gyakorlati tanácsok.
+72|Ingyenes
+73|Kezdés
+74|2. csomag · még nincs vállalkozása, de van ambíciója
+75|MI beszélgetőtárs, aki vállalkozói gondolkodásra tanít
+76|Az üzleti mentor mód segít kialakítani a vállalkozói gondolkodást, és az ötletet a nulláról kidolgozni. A vezetéstudomány és a filozófia klasszikus alapjaira épül, a vállalkozó gyakorlatához igazítva.
+77|A sztoikusok
+78|Schopenhauer
+79|Philip Kotler
+80|Az előfizetés tartalmazza még:
+81|Kereskedelmi ajánlatok
+82|Üzleti tervek befektetőknek
+83|Üzleti tervek állami támogatásokhoz
+85|előfizetés
+86|3. csomag · már van vállalkozása
+87|Kiváltunk egy munkatársat vagy egy egész funkciót
+88|A ROBORAB beépül a belső folyamatokba, és átveszi egy adott személy vagy terület munkáját. Pénzt és időt takarít meg.
+89|Beépül a folyamatokba
+90|Pénzt takarít meg
+91|Időt takarít meg
+92|Egyedi ár
+93|Árajánlat 10 perc alatt
+94|Meséljen a feladatról
+95|Adja meg a nevét, és válasszon terméket. Csevegést nyitunk a ROBORAB AI-val: az ügynök néhány kérdést tesz fel, és kiderít, mire van pontosan szüksége.
+96|Név
+97|A termék, amely érdekli
+98|Ingyenes csomag
+99|Előfizetés üzleti mentorral
+100|Még nem tudom
+101|Küldés a ROBORAB AI csevegésbe
+102|Előző képernyő
+103|Következő képernyő
+104|Menü
+105|Eszközeim
+106|V
+107|Új csevegés
+108|Keresés a csevegésekben
+109|Projektek
+110|Csevegések
+111|Első beszélgetés
+112|Anyagnyilvántartás az építkezéseken
+113|Egyéni vállalkozók adói és befizetései
+114|A szálloda kérései egy ablakban
+115|SEO és láthatóság az MI válaszaiban
+116|Vendég
+117|Fiókom
+118|Megosztás
+119|Vissza a webhelyre
+120|Fájl csatolása
+121|Írjon a ROBORAB AI-nak
+122|Üzenet
+123|Hang
+124|Küldés
+125|Demóverzió: a menügombok egyelőre helyőrzők, a beszélgetés nem kerül mentésre.
+126|Munkavállaló vagy funkció kiváltása
+127|Fizetési módok
+128|és mások
+129|MIR
