@@ -94,6 +94,7 @@ main{flex:1;min-width:0;display:flex;flex-direction:column;height:100%;position:
     <button class="burger ib" id="burger" type="button" aria-label="Меню"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     <button class="model" type="button">РОБОРАБ AI <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
     <span class="sp"></span>
+    <span id="langslot"></span>
     <button class="ib" type="button" aria-label="Поделиться"><svg viewBox="0 0 24 24"><path d="M12 15V4M8 8l4-4 4 4M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg></button>
     <a class="back" href="./">На сайт</a>
   </div>
@@ -108,14 +109,20 @@ main{flex:1;min-width:0;display:flex;flex-direction:column;height:100%;position:
     <div class="fine">Демо-версия: кнопки меню пока заглушки, диалог не сохраняется.</div>
   </div>
 </main>
+{{I18N}}
 <script>
 (function(){
   var q=new URLSearchParams(location.search), name=(q.get('name')||'').trim(), prod=(q.get('product')||'').trim();
   var who=document.getElementById('who'), av=document.getElementById('av');
   if(name){who.textContent=name;av.textContent=name.charAt(0).toUpperCase()}
-  var hello='Здравствуйте'+(name?', '+name:'')+'! Я агент РОБОРАБ AI.';
-  hello+=(prod&&prod!=='Пока не знаю')?' Вы интересуетесь продуктом «'+prod+'». Задам несколько вопросов, чтобы понять вашу задачу.':' Задам несколько вопросов, чтобы понять, что вам нужно.';
-  var qs=[hello+'\n\nЧем занимается ваша компания?','Какую задачу или процесс вы хотите автоматизировать?','Сколько человек будут пользоваться инструментом?','Спасибо, этого достаточно для первого понимания. Когда чат будет подключён, здесь продолжится диалог.'];
+  var en=I18N.lang()==='en';
+  var pn=prod?I18N.t(prod):'';
+  var hello=en?('Hello'+(name?', '+name:'')+'! I am the ROBORAB AI agent.'):('Здравствуйте'+(name?', '+name:'')+'! Я агент РОБОРАБ AI.');
+  var known=prod&&prod!=='Пока не знаю';
+  if(en)hello+=known?(' You are interested in the product «'+pn+'». I will ask a few questions to understand your task.'):' I will ask a few questions to understand what you need.';
+  else hello+=known?(' Вы интересуетесь продуктом «'+prod+'». Задам несколько вопросов, чтобы понять вашу задачу.'):' Задам несколько вопросов, чтобы понять, что вам нужно.';
+  var qs=en?[hello+'\n\nWhat does your company do?','What task or process do you want to automate?','How many people will use the tool?','Thank you, that is enough for a first understanding. Once the chat is connected, the conversation will continue here.']:[hello+'\n\nЧем занимается ваша компания?','Какую задачу или процесс вы хотите автоматизировать?','Сколько человек будут пользоваться инструментом?','Спасибо, этого достаточно для первого понимания. Когда чат будет подключён, здесь продолжится диалог.'];
+  I18N.onChange(function(l){if(l!==(en?'en':'ru')){var u=new URL(location.href);u.searchParams.set('lang',l);location.replace(u.toString())}});
   var i=0,col=document.getElementById('col'),log=document.getElementById('log'),t=document.getElementById('t'),s=document.getElementById('s');
   function add(c,x){var d=document.createElement('div');d.className='m '+c;if(c==='a'){var ic=document.createElement('span');ic.className='ico';d.appendChild(ic)}var b=document.createElement('div');b.className='t';b.textContent=x;d.appendChild(b);col.appendChild(d);log.scrollTop=log.scrollHeight}
   function next(){if(i<qs.length)add('a',qs[i++]);if(i>=qs.length){t.disabled=s.disabled=true}}

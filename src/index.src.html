@@ -265,12 +265,12 @@ textarea{min-height:96px;resize:vertical}
 <main id="top">
   <!-- ЭКРАН 0: баннер. Отступы равны: край экрана до Р = Б до дивана = диван до края экрана -->
   <section class="hero wrap">
-    <p class="ht ht2" data-fit><span class="d"><span class="ml">Внедрение</span> <span class="ml">искусственного</span></span><br><span class="ml">интеллекта</span></p>
+    <p class="ht ht2" data-fit data-i18n="top"><span class="d"><span class="ml">Внедрение</span> <span class="ml">искусственного</span></span><br><span class="ml">интеллекта</span></p>
     <div class="banner">
       <div class="word" role="img" aria-label="РОБОРАБ"></div>
       <div class="sofa" role="img" aria-label="Розовая горилла в рубашке и галстуке сидит на чёрном кожаном диване"></div>
     </div>
-    <p class="ht" data-fit><span class="d"><span class="ml">в бизнес<span class="hy">-</span></span><span class="ml pr">процессы</span></span></p>
+    <p class="ht" data-fit data-i18n="bot"><span class="d"><span class="ml">в бизнес<span class="hy">-</span></span><span class="ml pr">процессы</span></span></p>
     <a class="down" href="#paths" aria-label="Как мы внедряем, листайте вниз"><span>Как мы внедряем</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></a>
   </section>
 
@@ -427,9 +427,10 @@ textarea{min-height:96px;resize:vertical}
       </div>
       <form id="lead" action="chat.html" method="get">
         <span class="leadico" aria-hidden="true"></span>
+        <input type="hidden" name="lang" value="ru">
         <label for="f-name">Имя<input id="f-name" name="name" type="text" autocomplete="name"></label>
         <label for="f-prod">Продукт, который вас заинтересовал
-          <select id="f-prod" name="product"><option>Фитнес-CRM</option><option>Налоговый агент</option><option>Строй-учёт</option><option>Букинг-CRM</option><option>SEO / GEO</option><option>Бесплатный план</option><option>Подписка с бизнес-ментором</option><option>Пока не знаю</option></select>
+          <select id="f-prod" name="product"><option value="Фитнес-CRM">Фитнес-CRM</option><option value="Налоговый агент">Налоговый агент</option><option value="Строй-учёт">Строй-учёт</option><option value="Букинг-CRM">Букинг-CRM</option><option value="SEO / GEO">SEO / GEO</option><option value="Бесплатный план">Бесплатный план</option><option value="Подписка с бизнес-ментором">Подписка с бизнес-ментором</option><option value="Пока не знаю">Пока не знаю</option></select>
         </label>
         <button class="btn" type="submit">Отправить в чат РОБОРАБ AI <span aria-hidden="true">→</span></button>
       </form>
@@ -591,4 +592,23 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 })();
 
 
+</script>
+{{I18N}}
+<script>
+(function(){
+  var f=document.getElementById("lead");
+  function upd(l){
+    if(f){var h=f.querySelector("input[name=lang]");if(h)h.value=l}
+    document.querySelectorAll("a[href^=\"chat.html\"]").forEach(function(a){
+      var o=a.getAttribute("data-h");if(!o){o=a.getAttribute("href");a.setAttribute("data-h",o)}
+      var q=new URLSearchParams(o.split("?")[1]||""),prod=q.get("product")||"",msg=q.get("msg")||"";
+      if(l==="en"){
+        if(prod==="Замена сотрудника или функции")msg="Hello, I want to calculate the cost of replacing an employee or a function in my company";
+        else msg="Hello, I am interested in the details of the product «"+I18N.t(prod)+"»";
+      }
+      q.set("msg",msg);q.set("lang",l);a.setAttribute("href","chat.html?"+q.toString());
+    });
+  }
+  I18N.onChange(upd);upd(I18N.lang());
+})();
 </script>
