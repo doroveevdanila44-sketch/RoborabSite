@@ -136,3 +136,6 @@
 124|Wyślij
 125|Wersja demo: przyciski menu to na razie atrapy, a rozmowa nie jest zapisywana.
 126|Zastąpienie pracownika lub funkcji
+127|Metody płatności
+128|i inne
+129|MIR

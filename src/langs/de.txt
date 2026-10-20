@@ -136,3 +136,6 @@
 124|Senden
 125|Demoversion: Die Menüschaltflächen sind vorerst Platzhalter, das Gespräch wird nicht gespeichert.
 126|Ersatz eines Mitarbeiters oder einer Funktion
+127|Zahlungsarten
+128|und weitere
+129|MIR

@@ -136,3 +136,6 @@
 124|Kirim
 125|Versi demo: tombol menu masih berupa placeholder dan percakapan tidak disimpan.
 126|Penggantian karyawan atau fungsi
+127|Metode pembayaran
+128|dan lainnya
+129|MIR

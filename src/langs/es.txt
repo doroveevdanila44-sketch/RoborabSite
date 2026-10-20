@@ -136,3 +136,6 @@
 124|Enviar
 125|Versión demo: los botones del menú son marcadores de posición y la conversación no se guarda.
 126|Sustitución de empleado o función
+127|Formas de pago
+128|y otras
+129|MIR

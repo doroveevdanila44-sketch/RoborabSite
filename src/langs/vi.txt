@@ -136,3 +136,6 @@
 124|Gửi
 125|Bản demo: các nút menu tạm thời chỉ là chỗ giữ chỗ, cuộc trò chuyện không được lưu.
 126|Thay thế nhân viên hoặc chức năng
+127|Phương thức thanh toán
+128|và các loại khác
+129|MIR

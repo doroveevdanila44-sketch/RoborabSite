@@ -136,3 +136,6 @@
 124|Gönder
 125|Demo sürüm: menü düğmeleri şimdilik yer tutucudur, konuşma kaydedilmez.
 126|Çalışan veya işlev yerine geçme
+127|Ödeme yöntemleri
+128|ve diğerleri
+129|MIR

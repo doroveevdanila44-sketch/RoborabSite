@@ -136,3 +136,6 @@
 124|Trimite
 125|Versiune demo: butoanele din meniu sunt deocamdată simulate, iar conversația nu se salvează.
 126|Înlocuirea unui angajat sau a unei funcții
+127|Metode de plată
+128|și altele
+129|MIR

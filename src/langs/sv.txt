@@ -136,3 +136,6 @@
 124|Skicka
 125|Demoversion: menyknapparna är platshållare tills vidare och samtalet sparas inte.
 126|Ersättning av anställd eller funktion
+127|Betalningssätt
+128|och andra
+129|MIR

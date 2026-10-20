@@ -136,3 +136,6 @@
 124|Envoyer
 125|Version démo : les boutons du menu sont des maquettes et la conversation n'est pas enregistrée.
 126|Remplacement d'un employé ou d'une fonction
+127|Moyens de paiement
+128|et autres
+129|MIR

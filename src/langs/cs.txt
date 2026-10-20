@@ -136,3 +136,6 @@
 124|Odeslat
 125|Demoverze: tlačítka nabídky jsou zatím zástupná a rozhovor se neukládá.
 126|Nahrazení zaměstnance nebo funkce
+127|Způsoby platby
+128|a další
+129|MIR

@@ -136,3 +136,6 @@
 124|Invia
 125|Versione demo: i pulsanti del menu sono segnaposto e la conversazione non viene salvata.
 126|Sostituzione di un dipendente o di una funzione
+127|Metodi di pagamento
+128|e altri
+129|MIR

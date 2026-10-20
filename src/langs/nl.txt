@@ -136,3 +136,6 @@
 124|Verzenden
 125|Demoversie: menuknoppen zijn nog plaatshouders en het gesprek wordt niet opgeslagen.
 126|Vervanging van medewerker of functie
+127|Betaalmethoden
+128|en andere
+129|MIR
