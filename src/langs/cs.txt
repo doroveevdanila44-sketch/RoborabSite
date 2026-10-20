@@ -1,0 +1,138 @@
+@name Čeština
+@sort Czech
+@top <span class="d"><span class="ml">Zavádíme</span> <span class="ml">umělou</span></span><br><span class="ml">inteligenci</span>
+@bot <span class="d"><span class="ml">do firemních&nbsp;</span><span class="ml pr">procesů</span></span>
+@hi Dobrý den, {n}! Jsem agent ROBORAB AI.
+@hi0 Dobrý den! Jsem agent ROBORAB AI.
+@known  Zajímá vás produkt „{p}“. Položím několik otázek, abych pochopil váš úkol.
+@unk  Položím několik otázek, abych pochopil, co potřebujete.
+@q1 Čím se vaše firma zabývá?
+@q2 Jaký úkol nebo proces chcete automatizovat?
+@q3 Kolik lidí bude nástroj používat?
+@q4 Děkuji, to stačí pro první představu. Až bude chat připojen, rozhovor bude pokračovat zde.
+@mp Dobrý den, zajímají mě podrobnosti o produktu „{p}“
+@m3 Dobrý den, chci spočítat náklady na nahrazení zaměstnance nebo funkce ve své firmě
+2|Růžová gorila v košili a kravatě sedí na černé kožené pohovce
+3|Jak to zavádíme, posuňte dolů
+4|Jak to zavádíme
+5|Máte dvě možnosti
+6|ROBORAB AI: vyberte zařízení
+7|Dostupné na všech zařízeních
+8|Klepnutím se přihlásíte
+9|Stáhněte si aplikaci „ROBORAB AI“ a promluvte si s naší gorilou
+10|AI je vycvičena na dílech klasiků manažerského a obchodního myšlení. Ty knihy jsme ale nenahráli jen tak: podrobili jsme je kritické analýze a odstranili osobní emocionální hodnocení autorů. Klient dostane výtah ověřené podstaty, ne převyprávění cizích přesvědčení či patosu.
+11|Zavřít
+13|Vyberte své zařízení
+14|Vyberte hotové řešení v katalogu níže
+15|Vybrat řešení
+16|Maskot fitness CRM
+17|Fitness CRM
+18|Klienti, permanentky, rozvrh a výplaty trenérům
+19|Zjistit více
+20|Obrazovky aplikace
+21|Otevřít obrazovku 1
+22|Otevřít obrazovku 2
+23|Otevřít obrazovku 3
+24|Celý klub na dlani: neomezené, zkušební a jednorázové vstupy na jedné obrazovce
+25|Každého klienta najdete za vteřinu: stačí příjmení nebo telefon
+26|Volné termíny trenérů vidíte hned, bez telefonů a tabulek
+27|Výplaty trenérům se počítají samy a AI agent odpovídá klientům za vás
+28|Maskot daňového agenta
+29|Daňový agent
+30|Daně skupiny společností: skutečnost z 1C, prognóza a scénáře
+31|Celá skupina společností na jedné obrazovce
+32|Naléhavé platby vidíte předem: žádný termín vám neunikne
+33|Zátěž všech právnických osob porovnáte jedním klepnutím
+34|Agent je k dispozici 24/7: zeptejte se „co kdyby“ a dostanete výpočet
+35|Maskot stavebního účetnictví
+36|Stavební účetnictví
+37|Stavby, materiály a náklady
+38|Stavby, materiály a práce v jedné databázi
+39|Evidence nákladů každé stavby
+40|Přehled pro vedoucího za všechny stavby
+41|Maskot rezervačního CRM
+42|Rezervační CRM
+43|Všechny požadavky hotelu v jednom okně
+44|Všechny požadavky na rezervaci v jednom seznamu
+45|Stav a historie každého požadavku
+46|Majitel hotelu sleduje požadavky sám
+47|Maskot SEO a GEO
+48|Nastavení, analytika, administrační panely
+49|Nastavení SEO a GEO: viditelnost webu ve vyhledávání a v odpovědích AI
+50|Administrační panel výlohy: banner, slogan a kategorie měníte přímo v rozhraní
+51|Analytika návštěvníků za 7, 30 nebo 90 dní: kdo přišel, kdo hned odešel a kolik košíků bylo odesláno do Telegramu
+52|Uvidíte, kolik kupujících přivedly AI asistenty (ChatGPT, Alisa, Perplexity, Gemini), a návštěvníky po dnech
+53|Jak to funguje
+54|Krok 1
+55|Krok 2
+56|Krok 3
+57|Popíšete úkol
+58|AI agentovi: textem, hlasem nebo videohovorem.
+59|Agent zachytí podstatu
+60|Vytvoří shrnutí vašeho požadavku.
+61|Specialista nastaví
+62|Technický specialista přizpůsobí hotové řešení vám.
+63|Další den
+64|Nástroj je váš
+65|Hotové řešení je už v aplikaci.
+66|Pro koho je ROBORAB
+67|Tři postupné plány: od bezplatného rozhovoru po řešení na míru vašemu podnikání.
+68|Ikona plánu
+69|Plán 1 · na start
+70|Zeptejte se AI na své podnikání
+71|Rozhovor s AI o podnikání: doporučení na základě vámi sdílených informací a praktické rady.
+72|Zdarma
+73|Začít
+74|Plán 2 · podnikání zatím není, ale ambice ano
+75|AI partner, který učí myslet jako podnikatel
+76|Režim obchodního mentora pomáhá vybudovat podnikatelské myšlení a rozpracovat nápad od nuly. Opírá se o klasický základ managementu a filozofie, přizpůsobený praxi podnikatele.
+77|Stoikové
+78|Schopenhauer
+79|Philip Kotler
+80|V předplatném je také:
+81|Obchodní nabídky
+82|Podnikatelské plány pro investory
+83|Podnikatelské plány pro státní granty
+84|1 500 ₽
+85|předplatné
+86|Plán 3 · už podnikáte
+87|Nahradíme zaměstnance nebo celou funkci
+88|ROBORAB se zabuduje do interních procesů a převezme práci konkrétního člověka či úseku. Ušetříte peníze i čas.
+89|Zabudován do procesů
+90|Šetří peníze
+91|Šetří čas
+92|Individuální cena
+93|Spočítejte cenu za 10 minut
+94|Řekněte nám o úkolu
+95|Zanechte jméno a vyberte produkt. Otevřeme chat s ROBORAB AI: agent položí pár otázek a zjistí, co přesně potřebujete.
+96|Jméno
+97|Produkt, který vás zajímá
+98|Bezplatný plán
+99|Předplatné s obchodním mentorem
+100|Zatím nevím
+101|Odeslat do chatu ROBORAB AI
+102|Předchozí obrazovka
+103|Další obrazovka
+104|Nabídka
+105|Moje nástroje
+106|H
+107|Nový chat
+108|Hledat v chatech
+109|Projekty
+110|Chaty
+111|První rozhovor
+112|Evidence materiálu na stavbách
+113|Daně a platby OSVČ
+114|Požadavky hotelu v jednom okně
+115|SEO a viditelnost v odpovědích AI
+116|Host
+117|Můj účet
+118|Sdílet
+119|Zpět na web
+120|Připojit soubor
+121|Napište ROBORAB AI
+122|Zpráva
+123|Hlas
+124|Odeslat
+125|Demoverze: tlačítka nabídky jsou zatím zástupná a rozhovor se neukládá.
+126|Nahrazení zaměstnance nebo funkce

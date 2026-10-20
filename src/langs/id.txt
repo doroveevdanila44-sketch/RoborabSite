@@ -1,0 +1,138 @@
+@name Bahasa Indonesia
+@sort Indonesian
+@top <span class="d"><span class="ml">Menerapkan</span> <span class="ml">kecerdasan</span></span><br><span class="ml">buatan</span>
+@bot <span class="d"><span class="ml">dalam proses&nbsp;</span><span class="ml pr">bisnis</span></span>
+@hi Halo {n}! Saya agen ROBORAB AI.
+@hi0 Halo! Saya agen ROBORAB AI.
+@known  Anda tertarik pada produk «{p}». Saya akan mengajukan beberapa pertanyaan untuk memahami tugas Anda.
+@unk  Saya akan mengajukan beberapa pertanyaan untuk memahami kebutuhan Anda.
+@q1 Apa bidang usaha perusahaan Anda?
+@q2 Tugas atau proses apa yang ingin Anda otomatisasi?
+@q3 Berapa orang yang akan memakai alat ini?
+@q4 Terima kasih, ini cukup untuk pemahaman awal. Setelah chat terhubung, percakapan akan berlanjut di sini.
+@mp Halo, saya tertarik dengan detail produk «{p}»
+@m3 Halo, saya ingin menghitung biaya mengganti seorang karyawan atau satu fungsi di perusahaan saya
+2|Gorila merah muda berkemeja dan berdasi duduk di sofa kulit hitam
+3|Cara kami menerapkannya, gulir ke bawah
+4|Cara kami menerapkannya
+5|Anda punya dua pilihan
+6|ROBORAB AI: pilih perangkat
+7|Tersedia di semua perangkat
+8|Ketuk untuk masuk
+9|Unduh aplikasi «ROBORAB AI» dan ngobrol dengan gorila kami
+10|AI dilatih dengan karya para klasik pemikiran manajemen dan perdagangan. Namun kami tidak sekadar memuat buku-buku itu: kami menelaahnya secara kritis dan membuang penilaian emosional pribadi para penulis. Klien menerima intisari yang sudah teruji, bukan penceritaan ulang keyakinan atau pathos orang lain.
+11|Tutup
+13|Pilih perangkat Anda
+14|Pilih solusi siap pakai di katalog di bawah
+15|Pilih solusi
+16|Maskot CRM kebugaran
+17|CRM kebugaran
+18|Klien, keanggotaan, jadwal, dan pembayaran pelatih
+19|Selengkapnya
+20|Layar aplikasi
+21|Buka layar 1
+22|Buka layar 2
+23|Buka layar 3
+24|Seluruh klub dalam sekali lihat: tanpa batas, percobaan, dan sekali masuk dalam satu layar
+25|Temukan klien mana pun dalam sedetik: cukup nama belakang atau nomor telepon
+26|Lihat slot kosong pelatih langsung, tanpa telepon dan tanpa tabel
+27|Pembayaran pelatih dihitung otomatis, dan agen AI menjawab klien untuk Anda
+28|Maskot agen pajak
+29|Agen pajak
+30|Pajak grup perusahaan: realisasi dari 1C, proyeksi, dan skenario
+31|Seluruh grup perusahaan dalam satu layar
+32|Lihat pembayaran mendesak lebih awal: tak ada tenggat yang terlewat
+33|Bandingkan beban semua badan hukum dengan satu ketukan
+34|Agen siaga 24/7: tanyakan «bagaimana jika» dan dapatkan perhitungan
+35|Maskot akuntansi konstruksi
+36|Akuntansi konstruksi
+37|Proyek, material, dan biaya
+38|Proyek, material, dan pekerjaan dalam satu basis data
+39|Pencatatan biaya setiap proyek
+40|Ringkasan untuk pimpinan atas semua proyek
+41|Maskot CRM pemesanan
+42|CRM pemesanan
+43|Semua permintaan hotel dalam satu jendela
+44|Semua permintaan pemesanan dalam satu daftar
+45|Status dan riwayat setiap permintaan
+46|Pemilik hotel memantau sendiri permintaan
+47|Maskot SEO dan GEO
+48|Pengaturan, analitik, panel admin
+49|Pengaturan SEO dan GEO: visibilitas situs di pencarian dan jawaban AI
+50|Panel admin etalase: banner, slogan, dan kategori diubah langsung di antarmuka
+51|Analitik pengunjung 7, 30, atau 90 hari: siapa yang datang, siapa yang langsung pergi, dan berapa keranjang terkirim ke Telegram
+52|Lihat berapa pembeli yang dibawa asisten AI (ChatGPT, Alisa, Perplexity, Gemini), dan pengunjung per hari
+53|Cara kerjanya
+54|Langkah 1
+55|Langkah 2
+56|Langkah 3
+57|Anda menjelaskan tugasnya
+58|Kepada agen AI: lewat teks, suara, atau panggilan video.
+59|Agen menangkap intinya
+60|Membuat ringkasan permintaan Anda.
+61|Spesialis mengonfigurasi
+62|Spesialis teknis menyesuaikan solusi siap pakai untuk Anda.
+63|Keesokan harinya
+64|Alatnya menjadi milik Anda
+65|Solusi jadi sudah ada di aplikasi.
+66|ROBORAB untuk siapa
+67|Tiga paket bertahap: dari percakapan gratis hingga solusi khusus untuk bisnis Anda.
+68|Ikon paket
+69|Paket 1 · untuk memulai
+70|Tanyakan pada AI soal bisnis Anda
+71|Mengobrol dengan AI soal bisnis: rekomendasi berdasarkan informasi yang Anda berikan dan saran praktis.
+72|Gratis
+73|Mulai
+74|Paket 2 · belum punya bisnis, tapi punya ambisi
+75|Teman bicara AI yang mengajarkan berpikir seperti pengusaha
+76|Mode mentor bisnis membantu membangun pola pikir bisnis dan mematangkan ide dari nol. Bertumpu pada dasar klasik manajemen dan filsafat yang disesuaikan dengan praktik pengusaha.
+77|Kaum Stoa
+78|Schopenhauer
+79|Philip Kotler
+80|Langganan juga mencakup:
+81|Penawaran komersial
+82|Rencana bisnis untuk investor
+83|Rencana bisnis untuk hibah pemerintah
+84|1.500 ₽
+85|langganan
+86|Paket 3 · Anda sudah punya bisnis
+87|Kami gantikan seorang karyawan atau seluruh fungsi
+88|ROBORAB tertanam dalam proses internal dan mengambil alih pekerjaan orang atau bagian tertentu. Anda menghemat uang dan waktu.
+89|Tertanam dalam proses
+90|Hemat biaya
+91|Hemat waktu
+92|Harga khusus
+93|Dapatkan harga dalam 10 menit
+94|Ceritakan tugas Anda
+95|Tinggalkan nama dan pilih produk. Kami akan membuka chat dengan ROBORAB AI: agen akan mengajukan beberapa pertanyaan dan mencari tahu apa yang sebenarnya Anda butuhkan.
+96|Nama
+97|Produk yang Anda minati
+98|Paket gratis
+99|Langganan dengan mentor bisnis
+100|Belum tahu
+101|Kirim ke chat ROBORAB AI
+102|Layar sebelumnya
+103|Layar berikutnya
+104|Menu
+105|Alat saya
+106|T
+107|Chat baru
+108|Cari chat
+109|Proyek
+110|Chat
+111|Percakapan pertama
+112|Pencatatan material di proyek
+113|Pajak dan pembayaran usaha perorangan
+114|Permintaan hotel dalam satu jendela
+115|SEO dan visibilitas di jawaban AI
+116|Tamu
+117|Akun saya
+118|Bagikan
+119|Kembali ke situs
+120|Lampirkan file
+121|Kirim pesan ke ROBORAB AI
+122|Pesan
+123|Suara
+124|Kirim
+125|Versi demo: tombol menu masih berupa placeholder dan percakapan tidak disimpan.
+126|Penggantian karyawan atau fungsi

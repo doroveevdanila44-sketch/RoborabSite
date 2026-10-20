@@ -1,0 +1,138 @@
+@name Tiếng Việt
+@sort Vietnamese
+@top <span class="d"><span class="ml">Triển khai</span> <span class="ml">trí tuệ</span></span><br><span class="ml">nhân tạo</span>
+@bot <span class="d"><span class="ml">vào quy trình&nbsp;</span><span class="ml pr">kinh doanh</span></span>
+@hi Xin chào {n}! Tôi là tác tử ROBORAB AI.
+@hi0 Xin chào! Tôi là tác tử ROBORAB AI.
+@known  Bạn quan tâm đến sản phẩm «{p}». Tôi sẽ hỏi vài câu để hiểu nhiệm vụ của bạn.
+@unk  Tôi sẽ hỏi vài câu để hiểu bạn cần gì.
+@q1 Công ty của bạn làm lĩnh vực gì?
+@q2 Bạn muốn tự động hóa nhiệm vụ hoặc quy trình nào?
+@q3 Có bao nhiêu người sẽ dùng công cụ này?
+@q4 Cảm ơn bạn, vậy là đủ để hiểu ban đầu. Khi chat được kết nối, cuộc trò chuyện sẽ tiếp tục tại đây.
+@mp Xin chào, tôi quan tâm đến chi tiết về sản phẩm «{p}»
+@m3 Xin chào, tôi muốn tính chi phí thay thế một nhân viên hoặc một chức năng trong công ty tôi
+2|Con khỉ đột màu hồng mặc áo sơ mi, thắt cà vạt ngồi trên ghế sofa da đen
+3|Cách chúng tôi triển khai, cuộn xuống
+4|Cách chúng tôi triển khai
+5|Bạn có hai lựa chọn
+6|ROBORAB AI: chọn thiết bị
+7|Có trên mọi thiết bị
+8|Chạm để đăng nhập
+9|Tải ứng dụng «ROBORAB AI» và trò chuyện với chú khỉ đột của chúng tôi
+10|AI được huấn luyện trên các tác phẩm kinh điển về tư duy quản trị và thương mại. Nhưng chúng tôi không chỉ nạp những cuốn sách đó: chúng tôi phân tích phản biện và loại bỏ các đánh giá cảm xúc cá nhân của tác giả. Khách hàng nhận được tinh chất đã kiểm chứng, chứ không phải lời kể lại niềm tin hay sự cường điệu của người khác.
+11|Đóng
+13|Chọn thiết bị của bạn
+14|Chọn giải pháp có sẵn trong danh mục bên dưới
+15|Chọn giải pháp
+16|Linh vật CRM phòng gym
+17|CRM phòng gym
+18|Khách hàng, thẻ thành viên, lịch tập và thanh toán cho huấn luyện viên
+19|Tìm hiểu thêm
+20|Màn hình ứng dụng
+21|Mở màn hình 1
+22|Mở màn hình 2
+23|Mở màn hình 3
+24|Toàn bộ câu lạc bộ trong tầm mắt: thẻ không giới hạn, thẻ dùng thử và vé lẻ trên một màn hình
+25|Tìm bất kỳ khách nào trong một giây: chỉ cần họ hoặc số điện thoại
+26|Thấy ngay khung giờ trống của huấn luyện viên, không cần gọi điện hay bảng tính
+27|Thanh toán cho huấn luyện viên tự động tính, còn tác tử AI trả lời khách thay bạn
+28|Linh vật tác tử thuế
+29|Tác tử thuế
+30|Thuế của nhóm công ty: số thực tế từ 1C, dự báo và kịch bản
+31|Toàn bộ nhóm công ty trên một màn hình
+32|Thấy trước các khoản thanh toán gấp: không bỏ lỡ hạn nào
+33|So sánh gánh nặng của mọi pháp nhân chỉ với một chạm
+34|Tác tử trực 24/7: hỏi «nếu như» và nhận ngay bản tính
+35|Linh vật kế toán xây dựng
+36|Kế toán xây dựng
+37|Công trình, vật tư và chi phí
+38|Công trình, vật tư và công việc trong một cơ sở dữ liệu
+39|Theo dõi chi phí từng công trình
+40|Tổng hợp cho lãnh đạo về tất cả công trình
+41|Linh vật CRM đặt phòng
+42|CRM đặt phòng
+43|Mọi yêu cầu của khách sạn trong một cửa sổ
+44|Mọi yêu cầu đặt phòng trong một danh sách
+45|Trạng thái và lịch sử của từng yêu cầu
+46|Chủ khách sạn tự theo dõi các yêu cầu
+47|Linh vật SEO và GEO
+48|Thiết lập, phân tích, bảng quản trị
+49|Thiết lập SEO và GEO: mức hiển thị của website trên tìm kiếm và trong câu trả lời của AI
+50|Bảng quản trị gian hàng: banner, khẩu hiệu và danh mục được sửa ngay trên giao diện
+51|Phân tích khách truy cập 7, 30 hoặc 90 ngày: ai đã đến, ai rời đi ngay và bao nhiêu giỏ hàng được gửi sang Telegram
+52|Xem có bao nhiêu người mua đến từ trợ lý AI (ChatGPT, Alisa, Perplexity, Gemini) và lượng truy cập theo ngày
+53|Cách hoạt động
+54|Bước 1
+55|Bước 2
+56|Bước 3
+57|Bạn mô tả nhiệm vụ
+58|Cho tác tử AI: bằng văn bản, giọng nói hoặc cuộc gọi video.
+59|Tác tử nắm bắt cốt lõi
+60|Lập bản tóm tắt yêu cầu của bạn.
+61|Chuyên gia thiết lập
+62|Chuyên gia kỹ thuật tùy chỉnh giải pháp có sẵn cho bạn.
+63|Ngày hôm sau
+64|Công cụ đã thuộc về bạn
+65|Giải pháp hoàn chỉnh đã có trong ứng dụng.
+66|ROBORAB dành cho ai
+67|Ba gói nâng dần: từ trò chuyện miễn phí đến giải pháp riêng cho doanh nghiệp của bạn.
+68|Biểu tượng gói
+69|Gói 1 · để bắt đầu
+70|Hỏi AI về doanh nghiệp của bạn
+71|Trò chuyện với AI về kinh doanh: đề xuất dựa trên thông tin bạn cung cấp và lời khuyên thực tế.
+72|Miễn phí
+73|Bắt đầu
+74|Gói 2 · chưa có doanh nghiệp nhưng có hoài bão
+75|Người đối thoại AI dạy bạn tư duy như một doanh nhân
+76|Chế độ cố vấn kinh doanh giúp xây dựng tư duy kinh doanh và phát triển ý tưởng từ con số không. Dựa trên nền tảng quản trị và triết học kinh điển, điều chỉnh theo thực tiễn của doanh nhân.
+77|Trường phái Khắc kỷ
+78|Schopenhauer
+79|Philip Kotler
+80|Gói đăng ký cũng bao gồm:
+81|Đề xuất thương mại
+82|Kế hoạch kinh doanh cho nhà đầu tư
+83|Kế hoạch kinh doanh cho tài trợ nhà nước
+84|1.500 ₽
+85|đăng ký
+86|Gói 3 · bạn đã có doanh nghiệp
+87|Chúng tôi thay thế một nhân viên hoặc cả một chức năng
+88|ROBORAB được tích hợp vào quy trình nội bộ và đảm nhận công việc của một người hoặc một bộ phận cụ thể. Bạn tiết kiệm tiền và thời gian.
+89|Tích hợp vào quy trình
+90|Tiết kiệm tiền
+91|Tiết kiệm thời gian
+92|Báo giá riêng
+93|Nhận báo giá trong 10 phút
+94|Hãy kể về nhiệm vụ của bạn
+95|Để lại tên và chọn sản phẩm. Chúng tôi sẽ mở chat với ROBORAB AI: tác tử sẽ hỏi vài câu và tìm ra chính xác bạn cần gì.
+96|Tên
+97|Sản phẩm bạn quan tâm
+98|Gói miễn phí
+99|Đăng ký kèm cố vấn kinh doanh
+100|Chưa rõ
+101|Gửi vào chat ROBORAB AI
+102|Màn hình trước
+103|Màn hình tiếp theo
+104|Menu
+105|Công cụ của tôi
+106|K
+107|Chat mới
+108|Tìm trong chat
+109|Dự án
+110|Chat
+111|Cuộc trò chuyện đầu tiên
+112|Theo dõi vật tư tại công trình
+113|Thuế và thanh toán cho hộ kinh doanh
+114|Yêu cầu khách sạn trong một cửa sổ
+115|SEO và mức hiển thị trong câu trả lời của AI
+116|Khách
+117|Tài khoản của tôi
+118|Chia sẻ
+119|Về trang web
+120|Đính kèm tệp
+121|Nhắn cho ROBORAB AI
+122|Tin nhắn
+123|Giọng nói
+124|Gửi
+125|Bản demo: các nút menu tạm thời chỉ là chỗ giữ chỗ, cuộc trò chuyện không được lưu.
+126|Thay thế nhân viên hoặc chức năng

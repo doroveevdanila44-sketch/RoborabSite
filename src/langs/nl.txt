@@ -1,0 +1,138 @@
+@name Nederlands
+@sort Dutch
+@top <span class="d"><span class="ml">Kunstmatige</span> <span class="ml">intelligentie</span></span><br><span class="ml">invoeren</span>
+@bot <span class="d"><span class="ml">in uw bedrijfs-</span><span class="ml pr">processen</span></span>
+@hi Hallo {n}! Ik ben de ROBORAB AI-agent.
+@hi0 Hallo! Ik ben de ROBORAB AI-agent.
+@known  U heeft interesse in het product «{p}». Ik stel een paar vragen om uw taak te begrijpen.
+@unk  Ik stel een paar vragen om te begrijpen wat u nodig heeft.
+@q1 Wat doet uw bedrijf?
+@q2 Welke taak of welk proces wilt u automatiseren?
+@q3 Hoeveel mensen gaan de tool gebruiken?
+@q4 Dank u, dit is genoeg voor een eerste indruk. Zodra de chat is gekoppeld, gaat het gesprek hier verder.
+@mp Hallo, ik ben geïnteresseerd in de details van het product «{p}»
+@m3 Hallo, ik wil de kosten berekenen van het vervangen van een medewerker of functie in mijn bedrijf
+2|Een roze gorilla in overhemd en das zit op een zwarte leren bank
+3|Zo voeren we het in, scroll omlaag
+4|Zo voeren we het in
+5|U heeft twee opties
+6|ROBORAB AI: kies een apparaat
+7|Beschikbaar op alle apparaten
+8|Tik om in te loggen
+9|Download de app «ROBORAB AI» en praat met onze gorilla
+10|De AI is getraind op de werken van klassieke denkers over management en handel. Maar we hebben die boeken niet zomaar geladen: we hebben ze kritisch geanalyseerd en de persoonlijke emotionele oordelen van de auteurs verwijderd. De klant krijgt een uittreksel van geverifieerde kern, geen navertelling van andermans overtuigingen of pathos.
+11|Sluiten
+13|Kies uw apparaat
+14|Kies hieronder in de catalogus een kant-en-klare oplossing
+15|Kies een oplossing
+16|Mascotte van de fitness-CRM
+17|Fitness-CRM
+18|Klanten, abonnementen, rooster en uitbetalingen aan trainers
+19|Meer informatie
+20|Appschermen
+21|Scherm 1 openen
+22|Scherm 2 openen
+23|Scherm 3 openen
+24|De hele club in één oogopslag: onbeperkt, proef- en losse kaarten op één scherm
+25|Vind elke klant in een seconde: een achternaam of telefoonnummer volstaat
+26|Zie direct de vrije tijden van trainers, zonder bellen of spreadsheets
+27|Uitbetalingen aan trainers worden vanzelf berekend en de AI-agent beantwoordt klanten voor u
+28|Mascotte van de belastingagent
+29|Belastingagent
+30|Belastingen van een bedrijvengroep: werkelijke cijfers uit 1C, prognose en scenario's
+31|De hele bedrijvengroep op één scherm
+32|Zie dringende betalingen vooraf: geen deadline ontsnapt aan u
+33|Vergelijk de belasting van alle rechtspersonen met één tik
+34|De agent is 24/7 bereikbaar: vraag «wat als» en krijg een berekening
+35|Mascotte van de bouwboekhouding
+36|Bouwboekhouding
+37|Projecten, materialen en kosten
+38|Projecten, materialen en werk in één database
+39|Kostenregistratie per project
+40|Overzicht voor de directie over alle projecten
+41|Mascotte van de boekings-CRM
+42|Boekings-CRM
+43|Alle hotelaanvragen in één venster
+44|Alle boekingsaanvragen in één lijst
+45|Status en geschiedenis van elke aanvraag
+46|De hoteleigenaar volgt de aanvragen zelf
+47|Mascotte van SEO en GEO
+48|Instellen, analyse, beheerpanelen
+49|SEO- en GEO-instelling: zichtbaarheid van de site in zoekmachines en AI-antwoorden
+50|Beheerpaneel van de etalage: banner, slogan en categorieën wijzigt u rechtstreeks in de interface
+51|Bezoekersanalyse over 7, 30 of 90 dagen: wie kwam, wie vertrok meteen en hoeveel winkelwagens naar Telegram zijn gestuurd
+52|Zie hoeveel kopers AI-assistenten (ChatGPT, Alisa, Perplexity, Gemini) hebben aangebracht, en bezoekers per dag
+53|Hoe het werkt
+54|Stap 1
+55|Stap 2
+56|Stap 3
+57|U beschrijft de taak
+58|Aan de AI-agent: via tekst, spraak of videogesprek.
+59|De agent legt de kern vast
+60|Maakt een samenvatting van uw verzoek.
+61|Een specialist configureert
+62|Een technisch specialist past de kant-en-klare oplossing op u aan.
+63|De volgende dag
+64|De tool is van u
+65|De kant-en-klare oplossing staat al in de app.
+66|Voor wie ROBORAB is
+67|Drie opbouwende plannen: van een gratis gesprek tot oplossingen op maat van uw bedrijf.
+68|Planpictogram
+69|Plan 1 · om te beginnen
+70|Vraag de AI over uw bedrijf
+71|Praten met de AI over zaken: aanbevelingen op basis van de informatie die u deelt en praktische adviezen.
+72|Gratis
+73|Beginnen
+74|Plan 2 · nog geen bedrijf, wel ambitie
+75|Een AI-gesprekspartner die leert denken als een ondernemer
+76|De zakenmentor-modus helpt u ondernemend te leren denken en een idee vanaf nul uit te werken. Gebaseerd op klassieke bestuurskundige en filosofische kennis, afgestemd op de praktijk van de ondernemer.
+77|De stoïcijnen
+78|Schopenhauer
+79|Philip Kotler
+80|Het abonnement omvat ook:
+81|Commerciële offertes
+82|Businessplannen voor investeerders
+83|Businessplannen voor overheidssubsidies
+84|1.500 ₽
+85|abonnement
+86|Plan 3 · u heeft al een bedrijf
+87|Wij vervangen een medewerker of een hele functie
+88|ROBORAB wordt ingebouwd in uw interne processen en neemt het werk van een specifiek persoon of onderdeel over. U bespaart geld en tijd.
+89|Ingebouwd in processen
+90|Bespaart geld
+91|Bespaart tijd
+92|Op maat
+93|Prijs in 10 minuten
+94|Vertel ons over uw taak
+95|Laat uw naam achter en kies een product. We openen een chat met ROBORAB AI: de agent stelt een paar vragen en achterhaalt wat u precies nodig heeft.
+96|Naam
+97|Het product waarin u geïnteresseerd bent
+98|Gratis plan
+99|Abonnement met zakenmentor
+100|Nog niet zeker
+101|Verstuur naar de ROBORAB AI-chat
+102|Vorig scherm
+103|Volgend scherm
+104|Menu
+105|Mijn tools
+106|G
+107|Nieuwe chat
+108|Chats zoeken
+109|Projecten
+110|Chats
+111|Eerste gesprek
+112|Materiaalregistratie op projecten
+113|Belastingen en betalingen voor zzp'ers
+114|Hotelaanvragen in één venster
+115|SEO en zichtbaarheid in AI-antwoorden
+116|Gast
+117|Mijn account
+118|Delen
+119|Terug naar de site
+120|Bestand toevoegen
+121|Bericht aan ROBORAB AI
+122|Bericht
+123|Spraak
+124|Verzenden
+125|Demoversie: menuknoppen zijn nog plaatshouders en het gesprek wordt niet opgeslagen.
+126|Vervanging van medewerker of functie

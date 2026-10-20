@@ -1,0 +1,138 @@
+@name Română
+@sort Romanian
+@top <span class="d"><span class="ml">Implementăm</span> <span class="ml">inteligența</span></span><br><span class="ml">artificială</span>
+@bot <span class="d"><span class="ml">în procesele&nbsp;</span><span class="ml pr">afacerii</span></span>
+@hi Bună ziua, {n}! Sunt agentul ROBORAB AI.
+@hi0 Bună ziua! Sunt agentul ROBORAB AI.
+@known  Vă interesează produsul «{p}». Vă voi pune câteva întrebări ca să înțeleg sarcina dvs.
+@unk  Vă voi pune câteva întrebări ca să înțeleg de ce aveți nevoie.
+@q1 Cu ce se ocupă firma dvs.?
+@q2 Ce sarcină sau proces doriți să automatizați?
+@q3 Câte persoane vor folosi instrumentul?
+@q4 Mulțumesc, este suficient pentru o primă înțelegere. Când chatul va fi conectat, conversația va continua aici.
+@mp Bună ziua, mă interesează detalii despre produsul «{p}»
+@m3 Bună ziua, vreau să calculez costul înlocuirii unui angajat sau a unei funcții în firma mea
+2|O gorilă roz în cămașă și cravată stă pe o canapea neagră din piele
+3|Cum implementăm, derulați în jos
+4|Cum implementăm
+5|Aveți două variante
+6|ROBORAB AI: alegeți dispozitivul
+7|Disponibil pe toate dispozitivele
+8|Atingeți pentru a vă autentifica
+9|Descărcați aplicația «ROBORAB AI» și vorbiți cu gorila noastră
+10|IA-ul este antrenat pe lucrările clasicilor gândirii manageriale și comerciale. Dar nu am încărcat pur și simplu cărțile: le-am supus unei analize critice și am eliminat evaluările emoționale personale ale autorilor. Clientul primește esența verificată, nu o repovestire a convingerilor sau a patosului altora.
+11|Închide
+13|Alegeți dispozitivul
+14|Alegeți o soluție gata făcută din catalogul de mai jos
+15|Alegeți soluția
+16|Mascota CRM-ului de fitness
+17|CRM fitness
+18|Clienți, abonamente, program și plăți către antrenori
+19|Aflați mai multe
+20|Ecranele aplicației
+21|Deschide ecranul 1
+22|Deschide ecranul 2
+23|Deschide ecranul 3
+24|Tot clubul dintr-o privire: nelimitate, de probă și intrări unice pe un singur ecran
+25|Găsiți orice client într-o secundă: ajunge numele sau telefonul
+26|Vedeți imediat intervalele libere ale antrenorilor, fără apeluri și tabele
+27|Plățile către antrenori se calculează singure, iar agentul IA răspunde clienților în locul dvs.
+28|Mascota agentului fiscal
+29|Agent fiscal
+30|Impozitele unui grup de firme: realizat din 1C, prognoză și scenarii
+31|Tot grupul de firme pe un singur ecran
+32|Vedeți din timp plățile urgente: niciun termen nu vă scapă
+33|Comparați sarcina tuturor persoanelor juridice dintr-o atingere
+34|Agentul este disponibil 24/7: întrebați «ce se întâmplă dacă» și primiți un calcul
+35|Mascota contabilității de șantier
+36|Contabilitate de șantier
+37|Șantiere, materiale și costuri
+38|Șantiere, materiale și lucrări într-o singură bază
+39|Evidența costurilor pentru fiecare șantier
+40|Sinteză pentru conducere privind toate șantierele
+41|Mascota CRM-ului de rezervări
+42|CRM de rezervări
+43|Toate cererile hotelului într-o singură fereastră
+44|Toate cererile de rezervare într-o singură listă
+45|Starea și istoricul fiecărei cereri
+46|Proprietarul hotelului urmărește singur cererile
+47|Mascota SEO și GEO
+48|Configurare, analiză, panouri de administrare
+49|Configurare SEO și GEO: vizibilitatea site-ului în căutare și în răspunsurile IA
+50|Panoul de administrare al vitrinei: bannerul, sloganul și categoriile se schimbă direct în interfață
+51|Analiza vizitatorilor pe 7, 30 sau 90 de zile: cine a venit, cine a plecat imediat și câte coșuri au fost trimise în Telegram
+52|Vedeți câți cumpărători au adus asistenții IA (ChatGPT, Alisa, Perplexity, Gemini) și vizitatorii pe zile
+53|Cum funcționează
+54|Pasul 1
+55|Pasul 2
+56|Pasul 3
+57|Descrieți sarcina
+58|Agentului IA: prin text, voce sau apel video.
+59|Agentul surprinde esența
+60|Întocmește un rezumat al cererii dvs.
+61|Un specialist configurează
+62|Un specialist tehnic adaptează soluția gata făcută pentru dvs.
+63|A doua zi
+64|Instrumentul este al dvs.
+65|Soluția finalizată este deja în aplicație.
+66|Pentru cine este ROBORAB
+67|Trei planuri progresive: de la o conversație gratuită la soluții pentru afacerea dvs.
+68|Pictograma planului
+69|Planul 1 · pentru început
+70|Întrebați IA-ul despre afacerea dvs.
+71|Discuție cu IA-ul despre afaceri: recomandări pe baza informațiilor oferite și sfaturi practice.
+72|Gratuit
+73|Începeți
+74|Planul 2 · încă nu aveți afacere, dar aveți ambiții
+75|Un interlocutor IA care vă învață să gândiți ca un antreprenor
+76|Modul mentor de afaceri vă ajută să vă formați gândirea antreprenorială și să dezvoltați o idee de la zero. Se bazează pe fundamentele clasice de management și filosofie, adaptate practicii antreprenorului.
+77|Stoicii
+78|Schopenhauer
+79|Philip Kotler
+80|Abonamentul include și:
+81|Oferte comerciale
+82|Planuri de afaceri pentru investitori
+83|Planuri de afaceri pentru granturi guvernamentale
+84|1.500 ₽
+85|abonament
+86|Planul 3 · aveți deja o afacere
+87|Înlocuim un angajat sau o funcție întreagă
+88|ROBORAB se integrează în procesele interne și preia munca unei anumite persoane sau a unui compartiment. Economisiți bani și timp.
+89|Se integrează în procese
+90|Economisește bani
+91|Economisește timp
+92|Preț individual
+93|Calculați costul în 10 minute
+94|Spuneți-ne despre sarcină
+95|Lăsați numele și alegeți un produs. Vom deschide un chat cu ROBORAB AI: agentul va pune câteva întrebări și va afla exact de ce aveți nevoie.
+96|Nume
+97|Produsul care vă interesează
+98|Plan gratuit
+99|Abonament cu mentor de afaceri
+100|Încă nu știu
+101|Trimite în chatul ROBORAB AI
+102|Ecranul anterior
+103|Ecranul următor
+104|Meniu
+105|Instrumentele mele
+106|O
+107|Chat nou
+108|Căutare în chaturi
+109|Proiecte
+110|Chaturi
+111|Prima conversație
+112|Evidența materialelor pe șantiere
+113|Impozite și plăți pentru PFA
+114|Cererile hotelului într-o singură fereastră
+115|SEO și vizibilitate în răspunsurile IA
+116|Oaspete
+117|Contul meu
+118|Distribuie
+119|Înapoi la site
+120|Atașează un fișier
+121|Scrieți-i lui ROBORAB AI
+122|Mesaj
+123|Voce
+124|Trimite
+125|Versiune demo: butoanele din meniu sunt deocamdată simulate, iar conversația nu se salvează.
+126|Înlocuirea unui angajat sau a unei funcții
