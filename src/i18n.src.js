@@ -1,12 +1,12 @@
 (function(){
-  var EN=/*EN*/{};var HTML=/*HTML*/{};var EXTRA=/*EXTRA*/{};
-  var LANGS=['ru','en'], cbs=[], cur='ru', recs=[], htmls=[];
+  var D={en:/*EN*/{},zh:/*ZH*/{}};var HT={en:/*HTML*/{},zh:/*HTMLZH*/{}};var EXTRA=/*EXTRA*/{};var EN=D.en;
+  var LANGS=['en','zh','ru'], cbs=[], cur='ru', recs=[], htmls=[];
   function norm(s){return s.replace(/\s+/g,' ').trim()}
   function detect(){
     try{var u=new URLSearchParams(location.search).get('lang');if(u&&LANGS.indexOf(u)>=0)return u}catch(e){}
     try{var s=localStorage.getItem('rr_lang');if(s&&LANGS.indexOf(s)>=0)return s}catch(e){}
     var n=((navigator.languages&&navigator.languages[0])||navigator.language||'ru').toLowerCase();
-    return /^(ru|be|kk)/.test(n)?'ru':'en';
+    return /^(ru|be|kk)/.test(n)?'ru':/^zh/.test(n)?'zh':'en';
   }
   function collect(){
     var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),n;
@@ -22,12 +22,12 @@
   function apply(l){
     cur=l;
     recs.forEach(function(r){
-      if(r.a){r.n.setAttribute(r.a,l==='en'?EN[r.k]:r.orig)}
-      else{r.n.nodeValue=l==='en'?r.pre+EN[r.k]+r.post:r.pre+r.k+r.post}
+      var dd=D[l];if(r.a){r.n.setAttribute(r.a,dd&&dd[r.k]!==undefined?dd[r.k]:r.orig)}
+      else{r.n.nodeValue=dd&&dd[r.k]!==undefined?r.pre+dd[r.k]+r.post:r.pre+r.k+r.post}
     });
-    htmls.forEach(function(h){h.el.innerHTML=(l==='en'&&HTML[h.key])?HTML[h.key]:h.ru});
+    htmls.forEach(function(h){h.el.innerHTML=(HT[l]&&HT[l][h.key])?HT[l][h.key]:h.ru});
     document.documentElement.lang=l;
-    var ti=document.querySelector('title'); if(ti){if(!ti._ru)ti._ru=ti.textContent;ti.textContent=l==='en'&&EXTRA.title&&EXTRA.title[ti._ru]?EXTRA.title[ti._ru]:ti._ru}
+    var ti=document.querySelector('title'); if(ti){if(!ti._ru)ti._ru=ti.textContent;ti.textContent=l!=='ru'&&EXTRA.title&&EXTRA.title[ti._ru]?EXTRA.title[ti._ru]:ti._ru}
     document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-l')===l?'true':'false')});
   }
   function set(l,user){
@@ -37,7 +37,7 @@
     cbs.forEach(function(f){try{f(l)}catch(e){}});
     try{window.dispatchEvent(new Event('resize'))}catch(e){}
   }
-  function t(ru){var k=norm(ru);return cur==='en'&&EN[k]!==undefined?EN[k]:ru}
+  function t(ru){var k=norm(ru),dd=D[cur];return dd&&dd[k]!==undefined?dd[k]:ru}
   function ui(){
     var css=document.createElement('style');
     css.textContent='.lang{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:50;display:inline-flex;gap:2px;padding:3px;border-radius:999px;background:rgba(255,255,255,.94);box-shadow:0 0 0 1px rgba(16,20,23,.12),0 6px 18px -8px rgba(16,20,23,.35);backdrop-filter:blur(6px)}'
@@ -47,12 +47,12 @@
       +'.lang button:focus-visible{outline:2px solid #101417;outline-offset:2px}';
     document.head.appendChild(css);
     var d=document.createElement('div');d.className='lang';d.setAttribute('role','group');d.setAttribute('aria-label','Language / Язык');
-    d.innerHTML='<button type="button" data-l="ru" lang="ru">RU</button><button type="button" data-l="en" lang="en">EN</button>';
+    d.innerHTML='<button type="button" data-l="en" lang="en">EN</button><button type="button" data-l="zh" lang="zh">中文</button><button type="button" data-l="ru" lang="ru">RU</button>';
     d.addEventListener('click',function(e){var b=e.target.closest('button');if(b)set(b.getAttribute('data-l'),true)});
     var slot=document.getElementById('langslot');
     if(slot){d.className+=' in';slot.appendChild(d)}else document.body.appendChild(d);
   }
   window.I18N={lang:function(){return cur},set:set,t:t,onChange:function(f){cbs.push(f)},extra:EXTRA};
   collect();ui();
-  var l=detect(); if(l==='en')set('en',false);else apply('ru');
+  var l=detect(); if(l!=='ru')set(l,false);else apply('ru');
 })();

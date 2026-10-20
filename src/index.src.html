@@ -21,6 +21,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--fg)}
+html[lang=zh] .hero .ht .ml{letter-spacing:.7em;margin-right:-.7em}
 body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.5 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--seo);outline-offset:3px}
@@ -73,6 +74,7 @@ a{color:inherit}
   .hero .ht .ml{display:block;width:max-content;white-space:nowrap;letter-spacing:-.03em}
   .hero .ht br{display:none}
   .hero .ht .hy{display:none}
+  html[lang=zh] .hero .ht .ml{letter-spacing:0;margin-right:0}
   .hero .ht .pr{display:none}
   .hero .ht2{grid-row:1}
   .hero>.ht:not(.ht2){grid-row:3}
@@ -602,7 +604,10 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     document.querySelectorAll("a[href^=\"chat.html\"]").forEach(function(a){
       var o=a.getAttribute("data-h");if(!o){o=a.getAttribute("href");a.setAttribute("data-h",o)}
       var q=new URLSearchParams(o.split("?")[1]||""),prod=q.get("product")||"",msg=q.get("msg")||"";
-      if(l==="en"){
+      if(l==="zh"){
+        if(prod==="Замена сотрудника или функции")msg="您好，我想核算替代公司一名员工或职能的费用";
+        else msg="您好，我对产品“"+I18N.t(prod)+"”的详情感兴趣";
+      }else if(l==="en"){
         if(prod==="Замена сотрудника или функции")msg="Hello, I want to calculate the cost of replacing an employee or a function in my company";
         else msg="Hello, I am interested in the details of the product «"+I18N.t(prod)+"»";
       }

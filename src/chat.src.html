@@ -115,14 +115,15 @@ main{flex:1;min-width:0;display:flex;flex-direction:column;height:100%;position:
   var q=new URLSearchParams(location.search), name=(q.get('name')||'').trim(), prod=(q.get('product')||'').trim();
   var who=document.getElementById('who'), av=document.getElementById('av');
   if(name){who.textContent=name;av.textContent=name.charAt(0).toUpperCase()}
-  var en=I18N.lang()==='en';
+  var L=I18N.lang(),en=L==='en',zh=L==='zh';
   var pn=prod?I18N.t(prod):'';
-  var hello=en?('Hello'+(name?', '+name:'')+'! I am the ROBORAB AI agent.'):('Здравствуйте'+(name?', '+name:'')+'! Я агент РОБОРАБ AI.');
+  var hello=zh?('你好'+(name?'，'+name:'')+'！我是 ROBORAB AI 助手。'):en?('Hello'+(name?', '+name:'')+'! I am the ROBORAB AI agent.'):('Здравствуйте'+(name?', '+name:'')+'! Я агент РОБОРАБ AI.');
   var known=prod&&prod!=='Пока не знаю';
-  if(en)hello+=known?(' You are interested in the product «'+pn+'». I will ask a few questions to understand your task.'):' I will ask a few questions to understand what you need.';
+  if(zh)hello+=known?('您对产品“'+pn+'”感兴趣。我会问几个问题来了解您的任务。'):'我会问几个问题来了解您的需求。';
+  else if(en)hello+=known?(' You are interested in the product «'+pn+'». I will ask a few questions to understand your task.'):' I will ask a few questions to understand what you need.';
   else hello+=known?(' Вы интересуетесь продуктом «'+prod+'». Задам несколько вопросов, чтобы понять вашу задачу.'):' Задам несколько вопросов, чтобы понять, что вам нужно.';
-  var qs=en?[hello+'\n\nWhat does your company do?','What task or process do you want to automate?','How many people will use the tool?','Thank you, that is enough for a first understanding. Once the chat is connected, the conversation will continue here.']:[hello+'\n\nЧем занимается ваша компания?','Какую задачу или процесс вы хотите автоматизировать?','Сколько человек будут пользоваться инструментом?','Спасибо, этого достаточно для первого понимания. Когда чат будет подключён, здесь продолжится диалог.'];
-  I18N.onChange(function(l){if(l!==(en?'en':'ru')){var u=new URL(location.href);u.searchParams.set('lang',l);location.replace(u.toString())}});
+  var qs=zh?[hello+'\n\n您的公司是做什么的？','您想自动化哪项任务或流程？','有多少人会使用这个工具？','谢谢，这些已足够初步了解。聊天接入后，对话将在此继续。']:en?[hello+'\n\nWhat does your company do?','What task or process do you want to automate?','How many people will use the tool?','Thank you, that is enough for a first understanding. Once the chat is connected, the conversation will continue here.']:[hello+'\n\nЧем занимается ваша компания?','Какую задачу или процесс вы хотите автоматизировать?','Сколько человек будут пользоваться инструментом?','Спасибо, этого достаточно для первого понимания. Когда чат будет подключён, здесь продолжится диалог.'];
+  I18N.onChange(function(l){if(l!==L){var u=new URL(location.href);u.searchParams.set('lang',l);location.replace(u.toString())}});
   var i=0,col=document.getElementById('col'),log=document.getElementById('log'),t=document.getElementById('t'),s=document.getElementById('s');
   function add(c,x){var d=document.createElement('div');d.className='m '+c;if(c==='a'){var ic=document.createElement('span');ic.className='ico';d.appendChild(ic)}var b=document.createElement('div');b.className='t';b.textContent=x;d.appendChild(b);col.appendChild(d);log.scrollTop=log.scrollHeight}
   function next(){if(i<qs.length)add('a',qs[i++]);if(i>=qs.length){t.disabled=s.disabled=true}}
