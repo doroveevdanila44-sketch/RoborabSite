@@ -21,7 +21,8 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--fg)}
-html[lang=zh] .hero .ht .ml{letter-spacing:.7em;margin-right:-.7em}
+html[lang=zh] .hero .ht .ml,html[lang=ja] .hero .ht .ml,html[lang=ko] .hero .ht .ml{letter-spacing:.5em;margin-right:-.5em}
+html[lang=zh] .hero,html[lang=ja] .hero,html[lang=ko] .hero{overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.5 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--seo);outline-offset:3px}
@@ -74,7 +75,7 @@ a{color:inherit}
   .hero .ht .ml{display:block;width:max-content;white-space:nowrap;letter-spacing:-.03em}
   .hero .ht br{display:none}
   .hero .ht .hy{display:none}
-  html[lang=zh] .hero .ht .ml{letter-spacing:0;margin-right:0}
+  html[lang=zh] .hero .ht .ml,html[lang=ja] .hero .ht .ml,html[lang=ko] .hero .ht .ml{letter-spacing:0;margin-right:0}
   .hero .ht .pr{display:none}
   .hero .ht2{grid-row:1}
   .hero>.ht:not(.ht2){grid-row:3}
@@ -248,6 +249,8 @@ a{color:inherit}
 form{display:grid;gap:14px}
 #lead{background:#fff;color:var(--fg);border-radius:40px;padding:clamp(24px,2.6vw,40px);box-shadow:0 30px 70px -30px rgba(0,0,0,.6)}
 #lead .leadico{width:clamp(56px,4.4vw,68px);aspect-ratio:1;border-radius:24%;background:var(--img-appicon) center/cover no-repeat;box-shadow:0 0 0 1px rgba(0,0,0,.09),0 6px 16px -6px rgba(0,0,0,.25)}
+#lead,#lead>*{min-width:0}
+#lead select,#lead input{width:100%;max-width:100%;min-width:0;box-sizing:border-box;text-overflow:ellipsis}
 #lead label{color:var(--mute)}
 #lead input,#lead select{background:var(--soft);color:var(--fg);border:1px solid transparent;border-radius:14px;padding:15px 22px}
 #lead input:focus,#lead select:focus{outline:3px solid var(--fg);outline-offset:1px}
@@ -604,12 +607,8 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     document.querySelectorAll("a[href^=\"chat.html\"]").forEach(function(a){
       var o=a.getAttribute("data-h");if(!o){o=a.getAttribute("href");a.setAttribute("data-h",o)}
       var q=new URLSearchParams(o.split("?")[1]||""),prod=q.get("product")||"",msg=q.get("msg")||"";
-      if(l==="zh"){
-        if(prod==="Замена сотрудника или функции")msg="您好，我想核算替代公司一名员工或职能的费用";
-        else msg="您好，我对产品“"+I18N.t(prod)+"”的详情感兴趣";
-      }else if(l==="en"){
-        if(prod==="Замена сотрудника или функции")msg="Hello, I want to calculate the cost of replacing an employee or a function in my company";
-        else msg="Hello, I am interested in the details of the product «"+I18N.t(prod)+"»";
+      if(l!=="ru"){var M=I18N.meta(l);
+        msg=prod==="Замена сотрудника или функции"?M.m3:M.mp.replace("{p}",I18N.t(prod));
       }
       q.set("msg",msg);q.set("lang",l);a.setAttribute("href","chat.html?"+q.toString());
     });

@@ -1,0 +1,138 @@
+@name Español
+@sort Spanish
+@top <span class="d"><span class="ml">Implantamos</span> <span class="ml">inteligencia</span></span><br><span class="ml">artificial</span>
+@bot <span class="d"><span class="ml">en sus procesos&nbsp;</span><span class="ml pr">de negocio</span></span>
+@hi Hola, {n}. Soy el agente de ROBORAB AI.
+@hi0 Hola. Soy el agente de ROBORAB AI.
+@known  Le interesa el producto «{p}». Le haré unas preguntas para entender su tarea.
+@unk  Le haré unas preguntas para entender qué necesita.
+@q1 ¿A qué se dedica su empresa?
+@q2 ¿Qué tarea o proceso quiere automatizar?
+@q3 ¿Cuántas personas usarán la herramienta?
+@q4 Gracias, con esto basta para una primera idea. Cuando el chat esté conectado, la conversación continuará aquí.
+@mp Hola, me interesan los detalles del producto «{p}»
+@m3 Hola, quiero calcular el coste de sustituir a un empleado o una función en mi empresa
+2|Un gorila rosa con camisa y corbata sentado en un sofá de cuero negro
+3|Cómo lo implantamos, desliza hacia abajo
+4|Cómo lo implantamos
+5|Tiene dos opciones
+6|ROBORAB AI: elegir dispositivo
+7|Disponible en todos los dispositivos
+8|Toque para iniciar sesión
+9|Descargue la app «ROBORAB AI» y hable con nuestro gorila
+10|La IA está entrenada con las obras de los clásicos del pensamiento directivo y comercial. Pero no nos limitamos a cargar esos libros: los sometimos a un análisis crítico y eliminamos las valoraciones emocionales personales de los autores. El cliente recibe un extracto de lo esencial ya contrastado, no un resumen de las creencias o el énfasis de otros.
+11|Cerrar
+13|Elija su dispositivo
+14|Elija una solución lista en el catálogo de abajo
+15|Elegir solución
+16|Mascota del CRM de fitness
+17|CRM de fitness
+18|Clientes, abonos, horarios y pagos a entrenadores
+19|Más información
+20|Pantallas de la app
+21|Abrir pantalla 1
+22|Abrir pantalla 2
+23|Abrir pantalla 3
+24|Todo el club de un vistazo: ilimitados, de prueba y pases sueltos en una sola pantalla
+25|Encuentre a cualquier cliente en un segundo: basta el apellido o el teléfono
+26|Vea al instante los huecos libres de los entrenadores, sin llamadas ni hojas de cálculo
+27|Los pagos a entrenadores se calculan solos y el agente de IA responde a los clientes por usted
+28|Mascota del agente fiscal
+29|Agente fiscal
+30|Impuestos de un grupo de empresas: datos reales de 1C, previsión y escenarios
+31|Todo el grupo de empresas en una sola pantalla
+32|Vea con antelación los pagos urgentes: ningún plazo se le escapa
+33|Compare la carga de todas las entidades jurídicas con un toque
+34|El agente está disponible 24/7: pregunte «¿y si…?» y obtenga el cálculo
+35|Mascota de contabilidad de obra
+36|Contabilidad de obra
+37|Obras, materiales y costes
+38|Obras, materiales y trabajos en una sola base
+39|Control de costes de cada obra
+40|Resumen para el director de todas las obras
+41|Mascota del CRM de reservas
+42|CRM de reservas
+43|Todas las solicitudes del hotel en una ventana
+44|Todas las solicitudes de reserva en una lista
+45|Estado e historial de cada solicitud
+46|El propietario del hotel sigue las solicitudes por sí mismo
+47|Mascota de SEO y GEO
+48|Configuración, analítica y paneles de administración
+49|Configuración de SEO y GEO: visibilidad del sitio en buscadores y en respuestas de IA
+50|Panel de administración de la tienda: banner, eslogan y categorías se cambian directamente en la interfaz
+51|Analítica de visitantes a 7, 30 o 90 días: quién llegó, quién se fue enseguida y cuántos carritos se enviaron a Telegram
+52|Vea cuántos compradores llegaron desde asistentes de IA (ChatGPT, Alisa, Perplexity, Gemini) y las visitas por día
+53|Cómo funciona
+54|Paso 1
+55|Paso 2
+56|Paso 3
+57|Usted describe la tarea
+58|Al agente de IA: por texto, voz o videollamada.
+59|El agente capta lo esencial
+60|Redacta un resumen de su solicitud.
+61|Un especialista lo configura
+62|Un especialista técnico adapta la solución lista a su caso.
+63|Al día siguiente
+64|La herramienta ya es suya
+65|La solución terminada ya está en la app.
+66|Para quién es ROBORAB
+67|Tres planes progresivos: desde una conversación gratuita hasta soluciones a medida para su negocio.
+68|Icono del plan
+69|Plan 1 · para empezar
+70|Pregunte a la IA sobre su negocio
+71|Conversación con la IA sobre negocios: recomendaciones basadas en la información que usted aporta y consejos prácticos.
+72|Gratis
+73|Empezar
+74|Plan 2 · aún no tiene negocio, pero sí ambición
+75|Un interlocutor de IA que enseña a pensar como un emprendedor
+76|El modo mentor de negocios ayuda a desarrollar mentalidad empresarial y a trabajar una idea desde cero. Se apoya en la base clásica de gestión y filosofía, adaptada a la práctica del emprendedor.
+77|Los estoicos
+78|Schopenhauer
+79|Philip Kotler
+80|La suscripción también incluye:
+81|Propuestas comerciales
+82|Planes de negocio para inversores
+83|Planes de negocio para subvenciones públicas
+84|1.500 ₽
+85|suscripción
+86|Plan 3 · ya tiene un negocio
+87|Sustituiremos a un empleado o una función entera
+88|ROBORAB se integra en sus procesos internos y asume el trabajo de una persona o área concreta. Usted ahorra dinero y tiempo.
+89|Se integra en los procesos
+90|Ahorra dinero
+91|Ahorra tiempo
+92|A medida
+93|Calcule el coste en 10 minutos
+94|Cuéntenos su tarea
+95|Deje su nombre y elija un producto. Abriremos un chat con ROBORAB AI: el agente hará unas preguntas y averiguará qué necesita exactamente.
+96|Nombre
+97|Producto que le interesa
+98|Plan gratuito
+99|Suscripción con mentor de negocios
+100|Aún no lo sé
+101|Enviar al chat de ROBORAB AI
+102|Pantalla anterior
+103|Pantalla siguiente
+104|Menú
+105|Mis herramientas
+106|I
+107|Nuevo chat
+108|Buscar chats
+109|Proyectos
+110|Chats
+111|Primera conversación
+112|Control de materiales en obras
+113|Impuestos y pagos de autónomos
+114|Solicitudes del hotel en una ventana
+115|SEO y visibilidad en respuestas de IA
+116|Invitado
+117|Mi cuenta
+118|Compartir
+119|Volver al sitio
+120|Adjuntar archivo
+121|Escribir a ROBORAB AI
+122|Mensaje
+123|Voz
+124|Enviar
+125|Versión demo: los botones del menú son marcadores de posición y la conversación no se guarda.
+126|Sustitución de empleado o función

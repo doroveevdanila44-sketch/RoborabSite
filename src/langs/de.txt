@@ -1,0 +1,138 @@
+@name Deutsch
+@sort German
+@top <span class="d"><span class="ml">Künstliche</span> <span class="ml">Intelligenz</span></span><br><span class="ml">in Ihre Prozesse</span>
+@bot <span class="d"><span class="ml">integrieren</span></span>
+@hi Hallo {n}! Ich bin der ROBORAB-AI-Agent.
+@hi0 Hallo! Ich bin der ROBORAB-AI-Agent.
+@known  Sie interessieren sich für das Produkt „{p}“. Ich stelle ein paar Fragen, um Ihre Aufgabe zu verstehen.
+@unk  Ich stelle ein paar Fragen, um zu verstehen, was Sie brauchen.
+@q1 Was macht Ihr Unternehmen?
+@q2 Welche Aufgabe oder welchen Prozess möchten Sie automatisieren?
+@q3 Wie viele Personen werden das Tool nutzen?
+@q4 Danke, das reicht für einen ersten Eindruck. Sobald der Chat angebunden ist, geht das Gespräch hier weiter.
+@mp Guten Tag, ich interessiere mich für Details zum Produkt „{p}“
+@m3 Guten Tag, ich möchte die Kosten für den Ersatz eines Mitarbeiters oder einer Funktion in meinem Unternehmen berechnen
+2|Ein pinker Gorilla in Hemd und Krawatte sitzt auf einem schwarzen Ledersofa
+3|So führen wir es ein, nach unten scrollen
+4|So führen wir es ein
+5|Sie haben zwei Möglichkeiten
+6|ROBORAB AI: Gerät wählen
+7|Auf allen Geräten verfügbar
+8|Zum Anmelden tippen
+9|Laden Sie die App „ROBORAB AI“ herunter und sprechen Sie mit unserem Gorilla
+10|Die KI ist mit den Werken der Klassiker des Management- und Handelsdenkens trainiert. Wir haben diese Bücher aber nicht einfach eingelesen: Wir haben sie kritisch analysiert und die persönlichen emotionalen Wertungen der Autoren entfernt. Der Kunde erhält den Extrakt geprüfter Substanz statt einer Nacherzählung fremder Überzeugungen oder fremden Pathos.
+11|Schließen
+13|Wählen Sie Ihr Gerät
+14|Wählen Sie unten im Katalog eine fertige Lösung
+15|Lösung wählen
+16|Maskottchen des Fitness-CRM
+17|Fitness-CRM
+18|Kunden, Mitgliedschaften, Stundenplan und Trainerabrechnung
+19|Mehr erfahren
+20|App-Screens
+21|Screen 1 öffnen
+22|Screen 2 öffnen
+23|Screen 3 öffnen
+24|Der ganze Club auf einen Blick: Flatrate, Probe- und Einzeltickets auf einem Screen
+25|Jeden Kunden in einer Sekunde finden: Nachname oder Telefonnummer genügt
+26|Freie Zeiten der Trainer sofort sehen, ohne Anrufe und Tabellen
+27|Die Trainerabrechnung läuft automatisch, und der KI-Agent antwortet den Kunden für Sie
+28|Maskottchen des Steuer-Agenten
+29|Steuer-Agent
+30|Steuern einer Unternehmensgruppe: Ist-Werte aus 1C, Prognose und Szenarien
+31|Die ganze Unternehmensgruppe auf einem Screen
+32|Dringende Zahlungen im Voraus sehen: keine Frist wird verpasst
+33|Die Belastung aller juristischen Personen mit einem Tipp vergleichen
+34|Der Agent ist rund um die Uhr erreichbar: „Was wäre wenn“ fragen und eine Berechnung erhalten
+35|Maskottchen der Baubuchhaltung
+36|Baubuchhaltung
+37|Baustellen, Material und Kosten
+38|Baustellen, Material und Leistungen in einer Datenbank
+39|Kostenerfassung für jede Baustelle
+40|Übersicht für die Leitung über alle Baustellen
+41|Maskottchen des Buchungs-CRM
+42|Buchungs-CRM
+43|Alle Hotelanfragen in einem Fenster
+44|Alle Buchungsanfragen in einer Liste
+45|Status und Verlauf jeder Anfrage
+46|Der Hotelinhaber verfolgt die Anfragen selbst
+47|Maskottchen für SEO und GEO
+48|Einrichtung, Analytik, Admin-Panels
+49|SEO- und GEO-Einrichtung: Sichtbarkeit der Website in der Suche und in KI-Antworten
+50|Admin-Panel des Shops: Banner, Slogan und Kategorien direkt in der Oberfläche ändern
+51|Besucheranalytik für 7, 30 oder 90 Tage: wer kam, wer sofort ging und wie viele Warenkörbe an Telegram gesendet wurden
+52|Sehen, wie viele Käufer KI-Assistenten (ChatGPT, Alice, Perplexity, Gemini) gebracht haben, und Besucher pro Tag
+53|So funktioniert es
+54|Schritt 1
+55|Schritt 2
+56|Schritt 3
+57|Sie beschreiben die Aufgabe
+58|Dem KI-Agenten: per Text, Sprache oder Videoanruf.
+59|Der Agent erfasst das Wesentliche
+60|Erstellt eine Zusammenfassung Ihrer Anfrage.
+61|Ein Spezialist richtet ein
+62|Ein technischer Spezialist passt die fertige Lösung an Sie an.
+63|Am nächsten Tag
+64|Das Tool gehört Ihnen
+65|Die fertige Lösung ist bereits in der App.
+66|Für wen ROBORAB ist
+67|Drei aufeinander aufbauende Pläne: vom kostenlosen Gespräch bis zu Lösungen für Ihr Unternehmen.
+68|Plan-Symbol
+69|Plan 1 · für den Start
+70|Fragen Sie die KI zu Ihrem Geschäft
+71|Gespräch mit der KI zu Geschäftsthemen: Empfehlungen auf Basis Ihrer Angaben und praktische Tipps.
+72|Kostenlos
+73|Starten
+74|Plan 2 · noch kein Unternehmen, aber Ehrgeiz
+75|Ein KI-Gesprächspartner, der unternehmerisches Denken lehrt
+76|Der Business-Mentor-Modus hilft, unternehmerisches Denken aufzubauen und eine Idee von null auszuarbeiten. Er stützt sich auf klassische Management- und Philosophiegrundlagen, angepasst an die Praxis von Unternehmern.
+77|Die Stoiker
+78|Schopenhauer
+79|Philip Kotler
+80|Im Abo außerdem enthalten:
+81|Geschäftsangebote
+82|Businesspläne für Investoren
+83|Businesspläne für staatliche Förderungen
+84|1.500 ₽
+85|Abo
+86|Plan 3 · Sie haben bereits ein Unternehmen
+87|Wir ersetzen einen Mitarbeiter oder eine ganze Funktion
+88|ROBORAB wird in Ihre internen Prozesse eingebettet und übernimmt die Arbeit einer bestimmten Person oder eines Bereichs. Sie sparen Geld und Zeit.
+89|In Prozesse eingebettet
+90|Spart Geld
+91|Spart Zeit
+92|Individuell
+93|Preis in 10 Minuten berechnen
+94|Erzählen Sie uns von Ihrer Aufgabe
+95|Hinterlassen Sie Ihren Namen und wählen Sie ein Produkt. Wir öffnen einen Chat mit ROBORAB AI: Der Agent stellt ein paar Fragen und klärt, was genau Sie brauchen.
+96|Name
+97|Das Produkt, das Sie interessiert
+98|Kostenloser Plan
+99|Abo mit Business-Mentor
+100|Noch nicht sicher
+101|An den ROBORAB-AI-Chat senden
+102|Vorheriger Screen
+103|Nächster Screen
+104|Menü
+105|Meine Tools
+106|G
+107|Neuer Chat
+108|Chats durchsuchen
+109|Projekte
+110|Chats
+111|Erstes Gespräch
+112|Materialerfassung auf Baustellen
+113|Steuern und Zahlungen für Einzelunternehmer
+114|Hotelanfragen in einem Fenster
+115|SEO und Sichtbarkeit in KI-Antworten
+116|Gast
+117|Mein Konto
+118|Teilen
+119|Zurück zur Website
+120|Datei anhängen
+121|Nachricht an ROBORAB AI
+122|Nachricht
+123|Sprache
+124|Senden
+125|Demoversion: Die Menüschaltflächen sind vorerst Platzhalter, das Gespräch wird nicht gespeichert.
+126|Ersatz eines Mitarbeiters oder einer Funktion

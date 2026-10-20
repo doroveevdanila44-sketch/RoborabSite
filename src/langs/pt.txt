@@ -1,0 +1,138 @@
+@name Português
+@sort Portuguese
+@top <span class="d"><span class="ml">Implementamos</span> <span class="ml">inteligência</span></span><br><span class="ml">artificial</span>
+@bot <span class="d"><span class="ml">nos processos&nbsp;</span><span class="ml pr">de negócio</span></span>
+@hi Olá, {n}! Sou o agente da ROBORAB AI.
+@hi0 Olá! Sou o agente da ROBORAB AI.
+@known  Você tem interesse no produto «{p}». Vou fazer algumas perguntas para entender a sua tarefa.
+@unk  Vou fazer algumas perguntas para entender o que você precisa.
+@q1 O que a sua empresa faz?
+@q2 Que tarefa ou processo você quer automatizar?
+@q3 Quantas pessoas vão usar a ferramenta?
+@q4 Obrigado, isso basta para uma primeira compreensão. Quando o chat for conectado, a conversa continuará aqui.
+@mp Olá, tenho interesse nos detalhes do produto «{p}»
+@m3 Olá, quero calcular o custo de substituir um funcionário ou uma função na minha empresa
+2|Um gorila rosa de camisa e gravata sentado num sofá de couro preto
+3|Como implementamos, role para baixo
+4|Como implementamos
+5|Você tem duas opções
+6|ROBORAB AI: escolher dispositivo
+7|Disponível em todos os dispositivos
+8|Toque para entrar
+9|Baixe o app «ROBORAB AI» e converse com o nosso gorila
+10|A IA foi treinada com as obras dos clássicos do pensamento de gestão e comércio. Mas não nos limitamos a carregar esses livros: submetemo-los a uma análise crítica e retiramos as avaliações emocionais pessoais dos autores. O cliente recebe o extrato da essência comprovada, e não um relato das crenças ou do pathos alheios.
+11|Fechar
+13|Escolha o seu dispositivo
+14|Escolha uma solução pronta no catálogo abaixo
+15|Escolher solução
+16|Mascote do CRM fitness
+17|CRM fitness
+18|Clientes, planos, agenda e pagamentos aos treinadores
+19|Saiba mais
+20|Telas do app
+21|Abrir tela 1
+22|Abrir tela 2
+23|Abrir tela 3
+24|O clube inteiro num relance: ilimitados, experimentais e avulsos numa só tela
+25|Encontre qualquer cliente em um segundo: basta o sobrenome ou o telefone
+26|Veja na hora os horários livres dos treinadores, sem ligações nem planilhas
+27|Os pagamentos aos treinadores são calculados sozinhos, e o agente de IA responde aos clientes por você
+28|Mascote do agente fiscal
+29|Agente fiscal
+30|Impostos de um grupo de empresas: dados reais do 1C, previsão e cenários
+31|Todo o grupo de empresas numa só tela
+32|Veja com antecedência os pagamentos urgentes: nenhum prazo passa despercebido
+33|Compare a carga de todas as pessoas jurídicas com um toque
+34|O agente está disponível 24/7: pergunte «e se…» e receba o cálculo
+35|Mascote da contabilidade de obras
+36|Contabilidade de obras
+37|Obras, materiais e custos
+38|Obras, materiais e serviços numa única base
+39|Controle de custos de cada obra
+40|Resumo para o gestor de todas as obras
+41|Mascote do CRM de reservas
+42|CRM de reservas
+43|Todos os pedidos do hotel numa só janela
+44|Todos os pedidos de reserva numa só lista
+45|Status e histórico de cada pedido
+46|O dono do hotel acompanha os pedidos pessoalmente
+47|Mascote de SEO e GEO
+48|Configuração, análise e painéis de administração
+49|Configuração de SEO e GEO: visibilidade do site na busca e nas respostas de IA
+50|Painel de administração da vitrine: banner, slogan e categorias são alterados direto na interface
+51|Análise de visitantes em 7, 30 ou 90 dias: quem chegou, quem saiu logo e quantos carrinhos foram enviados ao Telegram
+52|Veja quantos compradores vieram de assistentes de IA (ChatGPT, Alice, Perplexity, Gemini) e os visitantes por dia
+53|Como funciona
+54|Passo 1
+55|Passo 2
+56|Passo 3
+57|Você descreve a tarefa
+58|Ao agente de IA: por texto, voz ou chamada de vídeo.
+59|O agente capta o essencial
+60|Elabora um resumo do seu pedido.
+61|Um especialista configura
+62|Um especialista técnico personaliza a solução pronta para você.
+63|No dia seguinte
+64|A ferramenta é sua
+65|A solução pronta já está no app.
+66|Para quem é a ROBORAB
+67|Três planos progressivos: de uma conversa gratuita a soluções sob medida para o seu negócio.
+68|Ícone do plano
+69|Plano 1 · para começar
+70|Pergunte à IA sobre o seu negócio
+71|Conversa com a IA sobre negócios: recomendações com base nas informações que você fornece e conselhos práticos.
+72|Grátis
+73|Começar
+74|Plano 2 · ainda sem negócio, mas com ambição
+75|Um interlocutor de IA que ensina a pensar como empreendedor
+76|O modo mentor de negócios ajuda a construir mentalidade empreendedora e a desenvolver uma ideia do zero. Baseia-se na base clássica de gestão e filosofia, adaptada à prática do empreendedor.
+77|Os estoicos
+78|Schopenhauer
+79|Philip Kotler
+80|A assinatura também inclui:
+81|Propostas comerciais
+82|Planos de negócio para investidores
+83|Planos de negócio para subsídios públicos
+84|1.500 ₽
+85|assinatura
+86|Plano 3 · você já tem um negócio
+87|Substituímos um funcionário ou uma função inteira
+88|A ROBORAB integra-se aos processos internos e assume o trabalho de uma pessoa ou área específica. Você economiza dinheiro e tempo.
+89|Integra-se aos processos
+90|Economiza dinheiro
+91|Economiza tempo
+92|Sob medida
+93|Calcule o custo em 10 minutos
+94|Conte-nos a sua tarefa
+95|Deixe o seu nome e escolha um produto. Abriremos um chat com a ROBORAB AI: o agente fará algumas perguntas para descobrir do que você precisa exatamente.
+96|Nome
+97|O produto que lhe interessa
+98|Plano gratuito
+99|Assinatura com mentor de negócios
+100|Ainda não sei
+101|Enviar para o chat da ROBORAB AI
+102|Tela anterior
+103|Próxima tela
+104|Menu
+105|Minhas ferramentas
+106|C
+107|Novo chat
+108|Pesquisar chats
+109|Projetos
+110|Chats
+111|Primeira conversa
+112|Controle de materiais nas obras
+113|Impostos e pagamentos de MEI
+114|Pedidos do hotel numa só janela
+115|SEO e visibilidade nas respostas de IA
+116|Convidado
+117|Minha conta
+118|Compartilhar
+119|Voltar ao site
+120|Anexar arquivo
+121|Escreva para a ROBORAB AI
+122|Mensagem
+123|Voz
+124|Enviar
+125|Versão demo: os botões do menu são provisórios e a conversa não é salva.
+126|Substituição de funcionário ou função

@@ -1,0 +1,138 @@
+@name Français
+@sort French
+@top <span class="d"><span class="ml">Intégrer</span> <span class="ml">l'intelligence</span></span><br><span class="ml">artificielle</span>
+@bot <span class="d"><span class="ml">à vos process&nbsp;</span><span class="ml pr">métier</span></span>
+@hi Bonjour {n} ! Je suis l'agent ROBORAB AI.
+@hi0 Bonjour ! Je suis l'agent ROBORAB AI.
+@known  Le produit « {p} » vous intéresse. Je vais vous poser quelques questions pour comprendre votre besoin.
+@unk  Je vais vous poser quelques questions pour comprendre ce dont vous avez besoin.
+@q1 Quelle est l'activité de votre entreprise ?
+@q2 Quelle tâche ou quel processus souhaitez-vous automatiser ?
+@q3 Combien de personnes utiliseront l'outil ?
+@q4 Merci, c'est suffisant pour une première compréhension. Une fois le chat connecté, la conversation se poursuivra ici.
+@mp Bonjour, je souhaite en savoir plus sur le produit « {p} »
+@m3 Bonjour, je souhaite chiffrer le remplacement d'un employé ou d'une fonction dans mon entreprise
+2|Un gorille rose en chemise et cravate assis sur un canapé en cuir noir
+3|Comment nous l'intégrons, faites défiler
+4|Comment nous l'intégrons
+5|Vous avez deux options
+6|ROBORAB AI : choisir un appareil
+7|Disponible sur tous les appareils
+8|Appuyez pour vous connecter
+9|Téléchargez l'application « ROBORAB AI » et parlez à notre gorille
+10|L'IA est entraînée sur les œuvres des classiques de la pensée managériale et commerciale. Mais nous ne nous sommes pas contentés de charger ces livres : nous les avons soumis à une analyse critique et retiré les jugements émotionnels personnels des auteurs. Le client reçoit l'essentiel vérifié, et non un récit des convictions ou du pathos d'autrui.
+11|Fermer
+13|Choisissez votre appareil
+14|Choisissez une solution prête à l'emploi dans le catalogue ci-dessous
+15|Choisir une solution
+16|Mascotte du CRM fitness
+17|CRM fitness
+18|Clients, abonnements, planning et paiements des coachs
+19|En savoir plus
+20|Écrans de l'application
+21|Ouvrir l'écran 1
+22|Ouvrir l'écran 2
+23|Ouvrir l'écran 3
+24|Tout le club en un coup d'œil : illimités, essais et séances à l'unité sur un seul écran
+25|Retrouvez n'importe quel client en une seconde : un nom ou un téléphone suffit
+26|Voyez tout de suite les créneaux libres des coachs, sans appels ni tableurs
+27|Les paiements des coachs se calculent tout seuls et l'agent IA répond aux clients à votre place
+28|Mascotte de l'agent fiscal
+29|Agent fiscal
+30|Impôts d'un groupe de sociétés : réel depuis 1C, prévisions et scénarios
+31|Tout le groupe de sociétés sur un seul écran
+32|Voyez les paiements urgents à l'avance : aucune échéance ne vous échappe
+33|Comparez la charge de toutes les entités juridiques d'une seule touche
+34|L'agent est disponible 24 h/24 : demandez « et si… » et obtenez un calcul
+35|Mascotte de la comptabilité de chantier
+36|Comptabilité de chantier
+37|Chantiers, matériaux et coûts
+38|Chantiers, matériaux et travaux dans une seule base
+39|Suivi des coûts de chaque chantier
+40|Synthèse pour le dirigeant sur tous les chantiers
+41|Mascotte du CRM de réservation
+42|CRM de réservation
+43|Toutes les demandes de l'hôtel dans une seule fenêtre
+44|Toutes les demandes de réservation dans une seule liste
+45|Statut et historique de chaque demande
+46|Le propriétaire de l'hôtel suit lui-même les demandes
+47|Mascotte SEO et GEO
+48|Configuration, analytique, panneaux d'administration
+49|Configuration SEO et GEO : visibilité du site dans la recherche et dans les réponses de l'IA
+50|Panneau d'administration de la vitrine : bannière, slogan et catégories modifiables directement dans l'interface
+51|Analytique des visiteurs sur 7, 30 ou 90 jours : qui est venu, qui est parti aussitôt et combien de paniers ont été envoyés dans Telegram
+52|Voyez combien d'acheteurs viennent des assistants IA (ChatGPT, Alice, Perplexity, Gemini) et les visiteurs par jour
+53|Comment ça marche
+54|Étape 1
+55|Étape 2
+56|Étape 3
+57|Vous décrivez la tâche
+58|À l'agent IA : par texte, voix ou appel vidéo.
+59|L'agent en saisit l'essentiel
+60|Il rédige un résumé de votre demande.
+61|Un spécialiste configure
+62|Un spécialiste technique adapte la solution prête à l'emploi à vos besoins.
+63|Le lendemain
+64|L'outil est à vous
+65|La solution finalisée est déjà dans l'application.
+66|Pour qui est ROBORAB
+67|Trois formules progressives : de la conversation gratuite aux solutions sur mesure pour votre entreprise.
+68|Icône de la formule
+69|Formule 1 · pour démarrer
+70|Posez vos questions business à l'IA
+71|Échanges avec l'IA sur le monde des affaires : recommandations fondées sur les informations que vous fournissez et conseils pratiques.
+72|Gratuit
+73|Commencer
+74|Formule 2 · pas encore d'entreprise, mais de l'ambition
+75|Un interlocuteur IA qui apprend à penser en entrepreneur
+76|Le mode mentor business aide à construire une mentalité d'entrepreneur et à travailler une idée de zéro. Il s'appuie sur les fondamentaux classiques du management et de la philosophie, adaptés à la pratique de l'entrepreneur.
+77|Les stoïciens
+78|Schopenhauer
+79|Philip Kotler
+80|L'abonnement comprend aussi :
+81|Propositions commerciales
+82|Business plans pour investisseurs
+83|Business plans pour subventions publiques
+84|1 500 ₽
+85|abonnement
+86|Formule 3 · vous avez déjà une entreprise
+87|Nous remplaçons un employé ou toute une fonction
+88|ROBORAB s'intègre à vos processus internes et prend en charge le travail d'une personne ou d'un secteur précis. Vous économisez argent et temps.
+89|S'intègre aux processus
+90|Économise de l'argent
+91|Fait gagner du temps
+92|Sur devis
+93|Obtenez un prix en 10 minutes
+94|Parlez-nous de votre tâche
+95|Laissez votre nom et choisissez un produit. Nous ouvrirons un chat avec ROBORAB AI : l'agent posera quelques questions pour comprendre précisément votre besoin.
+96|Nom
+97|Le produit qui vous intéresse
+98|Formule gratuite
+99|Abonnement avec mentor business
+100|Je ne sais pas encore
+101|Envoyer dans le chat ROBORAB AI
+102|Écran précédent
+103|Écran suivant
+104|Menu
+105|Mes outils
+106|I
+107|Nouveau chat
+108|Rechercher dans les chats
+109|Projets
+110|Chats
+111|Première conversation
+112|Suivi des matériaux sur les chantiers
+113|Impôts et paiements des indépendants
+114|Demandes d'hôtel dans une seule fenêtre
+115|SEO et visibilité dans les réponses de l'IA
+116|Invité
+117|Mon compte
+118|Partager
+119|Retour au site
+120|Joindre un fichier
+121|Écrire à ROBORAB AI
+122|Message
+123|Voix
+124|Envoyer
+125|Version démo : les boutons du menu sont des maquettes et la conversation n'est pas enregistrée.
+126|Remplacement d'un employé ou d'une fonction

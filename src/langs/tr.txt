@@ -1,0 +1,138 @@
+@name Türkçe
+@sort Turkish
+@top <span class="d"><span class="ml">Yapay zekâyı</span> <span class="ml">iş süreçlerine</span></span>
+@bot <span class="d"><span class="ml">entegre ediyoruz</span></span>
+@hi Merhaba {n}! Ben ROBORAB AI ajanıyım.
+@hi0 Merhaba! Ben ROBORAB AI ajanıyım.
+@known  «{p}» ürünüyle ilgileniyorsunuz. Görevinizi anlamak için birkaç soru soracağım.
+@unk  Neye ihtiyacınız olduğunu anlamak için birkaç soru soracağım.
+@q1 Şirketiniz ne iş yapıyor?
+@q2 Hangi görevi veya süreci otomatikleştirmek istiyorsunuz?
+@q3 Aracı kaç kişi kullanacak?
+@q4 Teşekkürler, ilk anlayış için bu yeterli. Sohbet bağlandığında konuşma burada devam edecek.
+@mp Merhaba, «{p}» ürününün ayrıntılarıyla ilgileniyorum
+@m3 Merhaba, şirketimde bir çalışanın veya bir işlevin yerine geçmenin maliyetini hesaplamak istiyorum
+2|Siyah deri bir koltukta oturan gömlekli ve kravatlı pembe goril
+3|Nasıl uyguluyoruz, aşağı kaydırın
+4|Nasıl uyguluyoruz
+5|İki seçeneğiniz var
+6|ROBORAB AI: cihaz seçin
+7|Tüm cihazlarda kullanılabilir
+8|Giriş yapmak için dokunun
+9|«ROBORAB AI» uygulamasını indirin ve gorilimizle konuşun
+10|Yapay zekâ, yönetim ve ticaret düşüncesinin klasiklerinin eserleriyle eğitildi. Ancak bu kitapları öylece yüklemedik: eleştirel analizden geçirdik ve yazarların kişisel duygusal değerlendirmelerini ayıkladık. Müşteri, başkalarının inançlarının veya yüksek perdeden söylemlerinin özetini değil, doğrulanmış özün damıtılmış halini alır.
+11|Kapat
+13|Cihazınızı seçin
+14|Aşağıdaki katalogdan hazır bir çözüm seçin
+15|Çözüm seç
+16|Fitness CRM maskotu
+17|Fitness CRM
+18|Müşteriler, üyelikler, program ve antrenör ödemeleri
+19|Ayrıntılar
+20|Uygulama ekranları
+21|Ekran 1'i aç
+22|Ekran 2'yi aç
+23|Ekran 3'ü aç
+24|Tüm kulüp bir bakışta: sınırsız, deneme ve tek seferlik girişler tek ekranda
+25|Herhangi bir müşteriyi bir saniyede bulun: soyadı veya telefon yeterli
+26|Antrenörlerin boş saatlerini hemen görün, arama ve tablo yok
+27|Antrenör ödemeleri kendiliğinden hesaplanır, yapay zekâ ajanı müşterilere sizin yerinize yanıt verir
+28|Vergi ajanı maskotu
+29|Vergi ajanı
+30|Şirket grubunun vergileri: 1C'den gerçekleşen, tahmin ve senaryolar
+31|Tüm şirket grubu tek ekranda
+32|Acil ödemeleri önceden görün: hiçbir son tarih kaçmaz
+33|Tüm tüzel kişilerin yükünü tek dokunuşla karşılaştırın
+34|Ajan 7/24 yanınızda: «ya olursa» diye sorun, hesabı alın
+35|İnşaat muhasebesi maskotu
+36|İnşaat muhasebesi
+37|Şantiyeler, malzemeler ve maliyetler
+38|Şantiyeler, malzemeler ve işler tek veri tabanında
+39|Her şantiye için maliyet takibi
+40|Tüm şantiyeler için yönetici özeti
+41|Rezervasyon CRM maskotu
+42|Rezervasyon CRM
+43|Otelin tüm talepleri tek pencerede
+44|Tüm rezervasyon talepleri tek listede
+45|Her talebin durumu ve geçmişi
+46|Otel sahibi talepleri kendisi takip eder
+47|SEO ve GEO maskotu
+48|Kurulum, analitik, yönetim panelleri
+49|SEO ve GEO kurulumu: sitenin aramada ve yapay zekâ yanıtlarında görünürlüğü
+50|Vitrin yönetim paneli: banner, slogan ve kategoriler doğrudan arayüzde değiştirilir
+51|7, 30 veya 90 günlük ziyaretçi analitiği: kim geldi, kim hemen ayrıldı ve Telegram'a kaç sepet gönderildi
+52|Yapay zekâ asistanlarının (ChatGPT, Alisa, Perplexity, Gemini) kaç alıcı getirdiğini ve günlük ziyaretçileri görün
+53|Nasıl çalışır
+54|Adım 1
+55|Adım 2
+56|Adım 3
+57|Görevi siz anlatırsınız
+58|Yapay zekâ ajanına: yazıyla, sesle veya görüntülü görüşmeyle.
+59|Ajan özü toplar
+60|Talebinizin özetini hazırlar.
+61|Uzman yapılandırır
+62|Teknik uzman hazır çözümü size göre özelleştirir.
+63|Ertesi gün
+64|Araç sizde
+65|Hazır çözüm artık uygulamada.
+66|ROBORAB kimler için
+67|Kademeli üç plan: ücretsiz sohbetten işinize özel çözümlere.
+68|Plan simgesi
+69|Plan 1 · başlangıç için
+70|İşiniz hakkında yapay zekâya sorun
+71|İş dünyasında yapay zekâyla sohbet: verdiğiniz bilgilere dayalı öneriler ve pratik tavsiyeler.
+72|Ücretsiz
+73|Başla
+74|Plan 2 · henüz işiniz yok ama hedefiniz var
+75|Girişimci gibi düşünmeyi öğreten yapay zekâ sohbet ortağı
+76|İş mentoru modu, girişimci zihniyetini kurmanıza ve fikri sıfırdan geliştirmenize yardımcı olur. Girişimcinin pratiğine uyarlanmış klasik yönetim ve felsefe temeline dayanır.
+77|Stoacılar
+78|Schopenhauer
+79|Philip Kotler
+80|Aboneliğe ayrıca dahildir:
+81|Ticari teklifler
+82|Yatırımcılar için iş planları
+83|Devlet hibeleri için iş planları
+84|1.500 ₽
+85|abonelik
+86|Plan 3 · zaten bir işiniz var
+87|Bir çalışanın veya tüm bir işlevin yerini alırız
+88|ROBORAB iç süreçlerinize yerleşir ve belirli bir kişinin veya alanın işini üstlenir. Para ve zaman kazanırsınız.
+89|Süreçlere entegre olur
+90|Para tasarrufu sağlar
+91|Zaman tasarrufu sağlar
+92|Size özel fiyat
+93|10 dakikada fiyat alın
+94|Görevinizi anlatın
+95|Adınızı bırakın ve bir ürün seçin. ROBORAB AI ile bir sohbet açacağız: ajan birkaç soru sorup tam olarak neye ihtiyacınız olduğunu öğrenecek.
+96|Ad
+97|İlgilendiğiniz ürün
+98|Ücretsiz plan
+99|İş mentorlu abonelik
+100|Henüz bilmiyorum
+101|ROBORAB AI sohbetine gönder
+102|Önceki ekran
+103|Sonraki ekran
+104|Menü
+105|Araçlarım
+106|M
+107|Yeni sohbet
+108|Sohbetlerde ara
+109|Projeler
+110|Sohbetler
+111|İlk konuşma
+112|Şantiyelerde malzeme takibi
+113|Şahıs şirketleri için vergi ve ödemeler
+114|Otel talepleri tek pencerede
+115|SEO ve yapay zekâ yanıtlarında görünürlük
+116|Misafir
+117|Hesabım
+118|Paylaş
+119|Siteye dön
+120|Dosya ekle
+121|ROBORAB AI'a yazın
+122|Mesaj
+123|Ses
+124|Gönder
+125|Demo sürüm: menü düğmeleri şimdilik yer tutucudur, konuşma kaydedilmez.
+126|Çalışan veya işlev yerine geçme
