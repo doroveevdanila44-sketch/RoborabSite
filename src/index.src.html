@@ -23,6 +23,9 @@
 html{scroll-behavior:smooth;background:var(--fg)}
 html[lang=zh] .hero .ht .ml,html[lang=ja] .hero .ht .ml,html[lang=ko] .hero .ht .ml{letter-spacing:.5em;margin-right:-.5em}
 html[lang=zh] .hero,html[lang=ja] .hero,html[lang=ko] .hero{overflow-x:clip}
+html[lang=th] .hero .ht,html[lang=hi] .hero .ht,html[lang=ar] .hero .ht{line-height:1.3}
+@supports (text-box:trim-both cap alphabetic){html[lang=th] .tb .hero .ht,html[lang=hi] .tb .hero .ht,html[lang=ar] .tb .hero .ht,html[lang=th] .tb .hero .ht .ml,html[lang=hi] .tb .hero .ht .ml,html[lang=ar] .tb .hero .ht .ml{text-box:none}}
+
 body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.5 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--seo);outline-offset:3px}
@@ -457,6 +460,7 @@ textarea{min-height:96px;resize:vertical}
     return ctx.measureText(text.toUpperCase()).actualBoundingBoxAscent * parseFloat(c.fontSize) / 100;
   }
   function fitAll(again){
+    var wide = /^(th|hi|ar)$/.test(root.lang);
     var heroEl = document.querySelector('.hero'); if (heroEl && !again) { heroEl.style.paddingLeft = ''; heroEl.style.paddingRight = ''; }
     var narrow = window.matchMedia('(max-width:760px),(orientation:portrait) and (max-width:1100px)').matches;
     var tb = !!(window.CSS && CSS.supports && CSS.supports('text-box', 'trim-both cap alphabetic'));
@@ -501,9 +505,12 @@ textarea{min-height:96px;resize:vertical}
         var r1 = (inkAsc(top, 'В') || 0.727 * fs) / fs, Bn;
         /* каждая строка заголовка растягивается на всю ширину своим кеглем; блок обрезан по заглавным */
         var tl = [].slice.call(top.querySelectorAll('.ml')).filter(function(l){ return l.offsetParent !== null; }), capSum = 0;
-        tl.forEach(function(l){
-          l.style.fontSize = '100px';
-          var sw = l.getBoundingClientRect().width, f = 100 * top.clientWidth / sw;
+        var fmax = 0, sws = tl.map(function(l){ l.style.fontSize = '100px'; return l.getBoundingClientRect().width; });
+        sws.forEach(function(w0){ fmax = Math.max(fmax, w0); }); var fbase = 100 * top.clientWidth / (fmax || 1);
+        if (wide) r1 = 1.3;
+        tl.forEach(function(l, i){
+          /* короткая строка не растягивается больше чем в 1.6 раза от самой длинной: иначе в других языках буквы налезают друг на друга */
+          var f = Math.min(100 * top.clientWidth / sws[i], fbase * 1.6);
           l.style.fontSize = f + 'px'; capSum += r1 * f;
         });
         wh = word.getBoundingClientRect().height; sh = sofa.getBoundingClientRect().height; Bn = bot.getBoundingClientRect().height;
@@ -522,7 +529,7 @@ textarea{min-height:96px;resize:vertical}
         var af = Math.max(8, rawAf);
         /* зазоры текста вдвое меньше и подтянуты к верху; горилла на диване остаётся внизу, место уходит между «В БИЗНЕС» и ней */
         var an = af / 2, extraS = nG * (af - an);
-        tl.forEach(function(l, i){ if (i) l.style.marginTop = an + 'px'; });
+        tl.forEach(function(l, i){ if (i) l.style.marginTop = (wide ? Math.max(an, 0.26 * parseFloat(l.style.fontSize)) : an) + 'px'; });
         word.style.marginTop = Math.max(0, an - ptn) + 'px';
         bot.style.marginTop = Math.max(0, an - pbn + dln) + 'px';
         sofa.style.marginTop = Math.max(0, an - psn + extraS) + 'px';
