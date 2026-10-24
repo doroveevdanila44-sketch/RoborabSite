@@ -11,6 +11,8 @@ SITE = os.environ.get('SITE_URL', 'https://roborab.vercel.app').rstrip('/')
 T_KEY = 'РОБОРАБ: внедрение искусственного интеллекта в бизнес-процессы'
 D_KEY = 'РОБОРАБ внедряет ИИ-агентов в бизнес-процессы: фитнес-CRM, налоговый агент, строй-учёт, букинг-CRM, SEO и GEO. Начните бесплатно, подписка — от $20 в месяц.'
 LOCALE = {'en': 'en_US', 'en-GB': 'en_GB', 'ru': 'ru_RU', 'es': 'es_ES', 'fr': 'fr_FR', 'zh': 'zh_CN', 'de': 'de_DE', 'it': 'it_IT', 'pt': 'pt_PT', 'tr': 'tr_TR', 'ja': 'ja_JP', 'ko': 'ko_KR', 'uk': 'uk_UA', 'pl': 'pl_PL', 'nl': 'nl_NL', 'cs': 'cs_CZ', 'sv': 'sv_SE', 'ro': 'ro_RO', 'el': 'el_GR', 'id': 'id_ID', 'vi': 'vi_VN', 'kk': 'kk_KZ', 'hi': 'hi_IN', 'th': 'th_TH', 'ar': 'ar_AR', 'bg': 'bg_BG', 'hr': 'hr_HR', 'sk': 'sk_SK', 'sl': 'sl_SI', 'hu': 'hu_HU', 'fi': 'fi_FI', 'da': 'da_DK', 'nb': 'nb_NO', 'lt': 'lt_LT', 'lv': 'lv_LV', 'et': 'et_EE', 'ca': 'ca_ES', 'af': 'af_ZA', 'ms': 'ms_MY', 'fil': 'fil_PH', 'he': 'he_IL', 'fa': 'fa_IR', 'ur': 'ur_PK', 'bn': 'bn_BD', 'ta': 'ta_IN', 'te': 'te_IN', 'mr': 'mr_IN', 'be': 'be_BY', 'az': 'az_AZ', 'uz': 'uz_UZ', 'ka': 'ka_GE', 'hy': 'hy_AM', 'sr': 'sr_RS', 'sw': 'sw_KE'}
+import hashlib
+def AV(n): return hashlib.md5(open(pathlib.Path(__file__).parent/'assets'/(n+'.webp'),'rb').read()).hexdigest()[:8]
 IMG = ['roborab-en', 'c-fit', 'c-tax', 'c-build', 'c-booking', 'c-seo', 'roborab', 'sofa', 'appicon', 's1', 's2', 's3', 'p1', 'p2', 'p3', 't1', 't2', 't3', 'h1', 'h2', 'h3', 'h4', 'n1', 'n2', 'm1', 'm2', 'm3', 'g1', 'g2', 'g3']
 CLEAN = """() => {
   ['html', '.hero', '.hero .ht', '.hero .ht .ml', '.word', '.sofa', '.banner', '.down'].forEach(s => document.querySelectorAll(s).forEach(e => e.removeAttribute('style')));
@@ -46,7 +48,7 @@ def head_extra(l, cfg, langs, T, Dsc, t):
             f'<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="{LOCALE.get(l, l)}">{other}'
             f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{H.escape(T)}"><meta name="twitter:description" content="{H.escape(Dsc)}"><meta name="twitter:image" content="{SITE}/assets/og.jpg">'
             f'<meta name="robots" content="index,follow,max-image-preview:large"><link rel="icon" type="image/webp" href="/assets/appicon.webp"><link rel="apple-touch-icon" href="/assets/appicon.webp">'
-            f'<link rel="preload" as="image" href="/assets/sofa.webp"><link rel="preload" as="image" href="/assets/{"roborab" if l == "ru" else "roborab-en"}.webp">'
+            f'<link rel="preload" as="image" href="/assets/sofa.webp?v={AV("sofa")}"><link rel="preload" as="image" href="/assets/{"roborab" if l == "ru" else "roborab-en"}.webp?v={AV("roborab" if l == "ru" else "roborab-en")}">'
             f'<script type="application/ld+json">{ld(l, cfg, T, Dsc, t)}</script>')
 
 async def main():
@@ -81,7 +83,7 @@ async def main():
         d = re.sub(r'<html[^>]*>', f'<html lang="{l}" dir="{"rtl" if l in ("ar", "he", "fa", "ur") else "ltr"}" data-pl="{l}">', d, 1)
         d = re.sub(r'<title>.*?</title>', '<title>' + H.escape(T) + '</title>', d, 1, flags=re.S)
         d = re.sub(r'<meta name="description"[^>]*>', '<meta name="description" content="' + H.escape(Dsc, quote=True) + '">', d, 1)
-        d = re.sub(r'--img-([a-z0-9-]+):url\(data:image/webp;base64,[A-Za-z0-9+/=]+\)', r'--img-\1:url(/assets/\1.webp)', d)
+        d = re.sub(r'--img-([a-z0-9-]+):url\(data:image/webp;base64,[A-Za-z0-9+/=]+\)', lambda m: '--img-%s:url(/assets/%s.webp?v=%s)' % (m.group(1), m.group(1), AV(m.group(1))), d)
         d = d.replace('/i18n.js?v=__V__', f'/i18n.js?v={v}')
         d = d.replace('href="chat.html', 'href="/chat.html').replace('action="chat.html"', 'action="/chat.html"')
         d = d.replace('</head>', head_extra(l, cfg, langs, T, Dsc, t) + '</head>', 1)
