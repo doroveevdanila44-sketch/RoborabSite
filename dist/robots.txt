@@ -2,4 +2,44 @@ User-agent: *
 Allow: /
 Disallow: /chat.html
 
+User-agent: GPTBot
+Allow: /
+Disallow: /chat.html
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /chat.html
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /chat.html
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /chat.html
+
+User-agent: Claude-User
+Allow: /
+Disallow: /chat.html
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /chat.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /chat.html
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /chat.html
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /chat.html
+
+User-agent: CCBot
+Allow: /
+Disallow: /chat.html
+
 Sitemap: https://roborab.vercel.app/sitemap.xml

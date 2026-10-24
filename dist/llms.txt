@@ -66,4 +66,6 @@ ROBORAB deploys AI agents into B2B business processes. Plans: Explorer (free), M
 - [اردو](https://roborab.vercel.app/ur/)
 - [Oʻzbekcha](https://roborab.vercel.app/uz/)
 - [Tiếng Việt](https://roborab.vercel.app/vi/)
-- [Русский](https://roborab.vercel.app/ru/)
+
+## Full text
+- [llms-full.txt](https://roborab.vercel.app/llms-full.txt)

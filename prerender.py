@@ -27,6 +27,9 @@ CLEAN = """() => {
 
 def slug(cfg, l): return cfg['paths'][l]
 
+_src = (root / 'src' / 'index.src.html').read_text()
+PRODUCTS = [(re.search(r'<h3>(.*?)</h3>', sec, re.S).group(1), re.search(r'<p class="tag">(.*?)</p>', sec, re.S).group(1)) for sec in re.findall(r'<section class="product[^"]*" id="[^"]+">.*?(?=<section|</main>)', _src, flags=re.S)]
+
 def ld(l, cfg, T, Dsc, t):
     url = SITE + slug(cfg, l)
     org = {'@type': 'Organization', '@id': SITE + '/#org', 'name': 'ROBORAB' if l != 'ru' else 'РОБОРАБ', 'url': SITE + '/', 'logo': SITE + '/assets/appicon.webp'}
@@ -35,6 +38,9 @@ def ld(l, cfg, T, Dsc, t):
     svc = {'@type': 'Service', 'name': T, 'provider': {'@id': SITE + '/#org'}, 'serviceType': 'AI agents for business processes', 'inLanguage': l,
            'offers': [{'@type': 'Offer', 'name': t('Исследователь'), 'price': '0', 'priceCurrency': 'USD'},
                       {'@type': 'Offer', 'name': t('Ментор'), 'url': url, 'priceCurrency': 'USD', 'priceSpecification': {'@type': 'UnitPriceSpecification', 'price': '20', 'priceCurrency': 'USD', 'unitCode': 'MON', 'billingDuration': 1}}]}
+    svc['hasOfferCatalog'] = {'@type': 'OfferCatalog', 'name': t('Выбрать готовое решение в каталоге ниже'), 'itemListElement': [
+        {'@type': 'Offer', 'itemOffered': {'@type': 'Service', 'name': H.unescape(t(n)), 'description': H.unescape(t(dsc)), 'provider': {'@id': SITE + '/#org'}}} for n, dsc in PRODUCTS]}
+    org['description'] = Dsc; org['availableLanguage'] = l
     return json.dumps({'@context': 'https://schema.org', '@graph': [org, site, page, svc]}, ensure_ascii=False)
 
 def head_extra(l, cfg, langs, T, Dsc, t):
@@ -58,7 +64,7 @@ async def main():
     async with async_playwright() as p:
         b = await p.chromium.launch(); pg = await (await b.new_context(viewport={'width': 1440, 'height': 900})).new_page()
         await pg.goto(tmp.as_uri()); await pg.wait_for_timeout(800)
-        cfg = await pg.evaluate('I18N.cfg'); langs = cfg['order'] + ['ru']
+        cfg = await pg.evaluate('I18N.cfg'); langs = list(dict.fromkeys(cfg['order'] + ['ru']))
         names = cfg['names']
         for l in langs:
             await pg.evaluate(f"I18N.set('{l}',false)"); await pg.wait_for_timeout(250)
@@ -80,6 +86,7 @@ async def main():
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
     for l, (doc, T, Dsc, t) in out_pages.items():
         d = doc
+        d = re.sub(r'<meta name="claude:[^>]*>', '', d)
         d = re.sub(r'<html[^>]*>', f'<html lang="{l}" dir="{"rtl" if l in ("ar", "he", "fa", "ur") else "ltr"}" data-pl="{l}">', d, 1)
         d = re.sub(r'<title>.*?</title>', '<title>' + H.escape(T) + '</title>', d, 1, flags=re.S)
         d = re.sub(r'<meta name="description"[^>]*>', '<meta name="description" content="' + H.escape(Dsc, quote=True) + '">', d, 1)
@@ -94,11 +101,16 @@ async def main():
         path.parent.mkdir(parents=True, exist_ok=True); path.write_text(d)
         sitemap.append(f'<url><loc>{SITE}{slug(cfg, l)}</loc>' + ''.join(f'<xhtml:link rel="alternate" hreflang="{"en-US" if c == "en" else c}" href="{SITE}{slug(cfg, c)}"/>' for c in langs) + f'<xhtml:link rel="alternate" hreflang="x-default" href="{SITE}/"/></url>')
     sitemap.append('</urlset>'); (dist / 'sitemap.xml').write_text('\n'.join(sitemap))
-    (dist / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nDisallow: /chat.html\n\nSitemap: {SITE}/sitemap.xml\n')
+    (dist / 'robots.txt').write_text(''.join(f'User-agent: {b}\nAllow: /\nDisallow: /chat.html\n\n' for b in ['*', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'PerplexityBot', 'Google-Extended', 'Applebot-Extended', 'CCBot']) + f'Sitemap: {SITE}/sitemap.xml\n')
     en = out_pages['en']
     llms = [f'# ROBORAB', '', f'> {en[2]}', '', 'ROBORAB deploys AI agents into B2B business processes. Plans: Explorer (free), Mentor ($20 per month, or $18 per month billed yearly), Integrator (custom price: replacing an employee or a whole function).', '', '## Products', '- Fitness CRM: clients, memberships, schedules, trainer payouts', '- Tax agent: group-of-companies taxes, actuals from 1C, forecasts and scenarios', '- Construction accounting: sites, materials and costs', '- Booking CRM: hotel booking requests in one window', '- SEO and GEO: setup, analytics, admin panels', '', '## Languages']
     llms += [f'- [{names[c]}]({SITE}{slug(cfg, c)})' for c in langs]
-    (dist / 'llms.txt').write_text('\n'.join(llms) + '\n')
+    (dist / 'llms.txt').write_text('\n'.join(llms) + '\n\n## Full text\n- [llms-full.txt](' + SITE + '/llms-full.txt)\n')
+    body = re.search(r'<main.*?</main>', en[0], flags=re.S).group(0)
+    body = re.sub(r'<(script|style)\b.*?</\1>', '', body, flags=re.S)
+    body = re.sub(r'</(h[1-6]|p|li|div|section|a|button)>', '\\n', body); body = H.unescape(re.sub(r'<[^>]+>', ' ', body))
+    body = '\n'.join(x for x in (re.sub(r'[ \t]+', ' ', y).strip() for y in body.split('\n')) if x and x not in ('×', 'Learn more', 'Start', 'Choose a solution ↓') and not x.isdigit())
+    (dist / 'llms-full.txt').write_text('# ROBORAB: full page text (English)\n\n' + body + '\n')
     # чат: внешний словарь, без индексации
     c = chat_html
     jsm = [m for m in re.finditer(r'<script>\n\(function\(\)\{\n  var D=', c)]
