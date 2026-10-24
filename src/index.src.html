@@ -170,19 +170,19 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 .how{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
 .how h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
 .steps{list-style:none;margin:clamp(28px,4vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
-.steps li{position:relative;display:grid;gap:18px;align-content:start}
-.steps .ic{width:150px;height:150px;background:left center/contain no-repeat;mix-blend-mode:multiply}
+.steps li{position:relative;display:grid;gap:18px;align-content:start;justify-items:center;text-align:center}
+.steps .ic{width:150px;height:150px;background:center/contain no-repeat;mix-blend-mode:multiply}
 .steps li:nth-child(1) .ic{background-image:var(--img-h1)}.steps li:nth-child(2) .ic{background-image:var(--img-h2)}.steps li:nth-child(3) .ic{background-image:var(--img-h3)}.steps li:nth-child(4) .ic{background-image:var(--img-h4)}
-.steps li:not(.last)::after{content:'';position:absolute;top:75px;left:166px;right:calc(-1 * clamp(20px,3vw,48px) + 12px);border-top:2px dashed #c9d0d5}
+.steps li:not(.last)::after{content:'';position:absolute;top:75px;left:calc(50% + 91px);right:calc(-1 * clamp(20px,3vw,48px) - 50% + 91px + 12px);border-top:2px dashed #c9d0d5}
 .steps .sn{display:block;font:700 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
 .steps li.last .sn{color:var(--seo)}
 .steps h3{margin:10px 0 0;font:800 clamp(20px,1.9vw,30px)/1.1 var(--f-display);letter-spacing:-.03em}
-.steps p{margin:10px 0 0;color:var(--mute);font-size:clamp(15px,1.2vw,18px);line-height:1.45;max-width:30ch}
+.steps p{margin:10px 0 0;color:var(--mute);font-size:clamp(15px,1.2vw,18px);line-height:1.45;max-width:30ch;margin-inline:auto}
 @media(max-width:860px){
-  .steps{grid-template-columns:1fr;gap:28px}
-  .steps li{grid-template-columns:76px 1fr;gap:16px}
-  .steps .ic{width:76px;height:76px}
-  .steps li:not(.last)::after{top:88px;bottom:-24px;left:37px;right:auto;border-top:0;border-left:2px dashed #c9d0d5}
+  .steps{grid-template-columns:1fr;gap:44px}
+  .steps li{gap:12px}
+  .steps .ic{width:96px;height:96px}
+  .steps li:not(.last)::after{top:auto;bottom:-34px;height:24px;left:50%;right:auto;border-top:0;border-left:2px dashed #c9d0d5}
 }
 
 /* ---------- каталог: одно сплошное белое пространство. Картинка разрезана по плашке, низ уехал вниз, в разрезе вся информация. Без теней, без наслоения ---------- */
@@ -290,8 +290,8 @@ textarea{min-height:96px;resize:vertical}
 .pdesc{width:100%}
 .wt .btn,.wbuy .btn{white-space:normal;max-width:100%;text-align:center;line-height:1.25}
 .btn{white-space:normal;text-align:center;line-height:1.25;max-width:100%}
-.cat,.how h2,.who h2,.who .lead,.contact h2,.paths h2,.wh h2{text-align:center;margin-inline:auto}
-@media(max-width:860px),(orientation:portrait) and (max-width:1100px){.cat,.how h2,.who h2,.who .lead,.contact h2,.contact .grid>div>p{text-align:center;margin-inline:auto}.contact h2{max-width:20ch}.contact .grid>div>p{max-width:46ch}.who .lead{max-width:60ch}}
+.cat,.how h2,.who h2,.who .lead,.paths h2{text-align:center;margin-inline:auto}
+@media(max-width:860px),(orientation:portrait) and (max-width:1100px){.cat,.how h2,.who h2,.who .lead{text-align:center;margin-inline:auto}.contact h2{max-width:20ch}.contact .grid>div>p{max-width:46ch}.who .lead{max-width:60ch}}
 .wt .yr{margin:8px 0 0;font:600 13px/1.35 var(--f-body);color:var(--wl);max-width:none}
 .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 .langs-foot{max-width:1760px;margin:clamp(24px,4vw,48px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));display:flex;flex-wrap:wrap;gap:6px 14px;font:500 12px/1.6 var(--f-body);color:var(--mute);justify-content:center}
