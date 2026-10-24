@@ -1,6 +1,5 @@
 # ROBORAB: full page text (English)
 
-ROBORAB: implementing artificial intelligence in business processes
 Implementing artificial intelligence
 into business  processes
 How we implement it
