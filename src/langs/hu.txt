@@ -141,3 +141,18 @@
 130|Vagy havi 18 $ egész évre előre fizetve (évi 216 $)
 131|ROBORAB: mesterséges intelligencia az üzleti folyamatokban
 132|A ROBORAB AI-ügynököket vezet be az üzleti folyamatokba: fitnesz CRM, adóügynök, építőipari könyvelés, foglalási CRM, SEO és GEO. Kezdje ingyen, előfizetés havi 20 $-tól.
+133|Gyakori kérdések
+134|Mi a ROBORAB?
+135|A ROBORAB mesterséges intelligencia ügynököket vezet be a vállalatok üzleti folyamataiba. Kezdhet ingyenes beszélgetéssel az MI-vel, választhat kész megoldást a katalógusból, vagy rendelhet a vállalkozására szabott megoldást.
+136|Hogyan vezethető be a mesterséges intelligencia az üzleti folyamatokba?
+137|A feladatot szöveggel, hanggal vagy videóhívással írja le az MI-ügynöknek. Az ügynök összefoglalót készít a kérésről, egy műszaki szakember testre szabja Önnek a kész megoldást, és másnap az eszköz már az alkalmazásban van.
+138|Mennyibe kerül az MI bevezetése?
+139|A Felfedező csomag ingyenes. A Mentor havi 20 $, vagy havi 18 $, ha egy teljes évet előre fizet (évi 216 $). Az Integrátor ára egyedi: a költségbecslést 10 percen belül megkaphatja a csevegésben.
+140|Milyen kész megoldások vannak a katalógusban?
+141|Fitnesz CRM, adóügynök vállalatcsoportnak, építési könyvelés, foglalási CRM szállodai megkeresésekhez, valamint SEO és GEO beállítás.
+142|Helyettesítheti az MI a munkavállalót vagy egy teljes funkciót?
+143|Erre való az Integrátor csomag: a ROBORAB beépül a vállalat belső folyamataiba, és átveszi egy konkrét személy vagy terület munkáját. Pénzt és időt takarít meg.
+144|Miben különbözik a Mentor a Felfedezőtől?
+145|A Felfedező beszélgetés az MI-vel az üzletről: ajánlások az Ön által megosztott információk alapján és gyakorlati tanácsok. A Mentor segít vállalkozói gondolkodásmódot kialakítani, és a klasszikus vezetési és filozófiai gondolkodásra támaszkodik: a sztoikusokra, Schopenhauerre, Philip Kotlerre. Az előfizetés kereskedelmi ajánlatokat, valamint befektetőknek és állami támogatásokhoz készülő üzleti terveket is tartalmaz.
+146|Milyen nyelveken érhető el az oldal?
+147|Az oldal és az ügynökkel folytatott csevegés több mint 50 nyelven érhető el. A nyelvet az első képernyő jobb felső sarkában lévő földgömb gombbal váltja.

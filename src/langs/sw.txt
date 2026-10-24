@@ -141,3 +141,18 @@
 130|Au $18 kwa mwezi ukilipia mwaka mzima ($216 kwa mwaka)
 131|ROBORAB: akili bandia katika michakato ya biashara
 132|ROBORAB hutekeleza mawakala wa AI katika michakato ya biashara: CRM ya mazoezi, wakala wa kodi, uhasibu wa ujenzi, CRM ya uhifadhi, SEO na GEO. Anza bure, usajili kuanzia $20 kwa mwezi.
+133|Maswali yanayoulizwa mara kwa mara
+134|ROBORAB ni nini?
+135|ROBORAB hutekeleza mawakala wa AI katika michakato ya biashara ya kampuni. Unaweza kuanza na mazungumzo ya bure na AI, kuchagua suluhisho tayari kutoka kwenye katalogi, au kuagiza suluhisho lililotengenezwa kwa ajili ya biashara yako.
+136|Akili bandia hutekelezwaje katika michakato ya biashara?
+137|Unaeleza kazi kwa wakala wa AI kwa maandishi, sauti au simu ya video. Wakala huandaa muhtasari wa ombi lako, mtaalamu wa kiufundi hurekebisha suluhisho tayari kwa ajili yako, na siku inayofuata zana tayari iko kwenye programu.
+138|Utekelezaji wa AI unagharimu kiasi gani?
+139|Mpango wa Mchunguzi ni bure. Mshauri anagharimu $20 kwa mwezi, au $18 kwa mwezi ukilipia mwaka mzima ($216 kwa mwaka). Bei ya Mjumuishaji hupangwa kibinafsi: unaweza kupata makadirio ya gharama kwenye gumzo ndani ya dakika 10.
+140|Ni suluhisho gani tayari zilizopo kwenye katalogi?
+141|CRM ya mazoezi, wakala wa kodi kwa kundi la kampuni, uhasibu wa ujenzi, CRM ya uhifadhi kwa maombi ya hoteli, pamoja na usanidi wa SEO na GEO.
+142|Je, AI inaweza kuchukua nafasi ya mfanyakazi au kazi nzima?
+143|Kwa hilo kuna mpango wa Mjumuishaji: ROBORAB huunganishwa kwenye michakato ya ndani ya kampuni yako na kuchukua kazi ya mtu au eneo maalum. Unaokoa pesa na muda.
+144|Mshauri anatofautianaje na Mchunguzi?
+145|Mchunguzi ni mazungumzo na AI kuhusu biashara: mapendekezo kulingana na taarifa unazoshiriki na ushauri wa vitendo. Mshauri hukusaidia kujenga fikra za mjasiriamali na hutegemea fikra za kawaida za usimamizi na falsafa: Wastoiki, Schopenhauer, Philip Kotler. Usajili pia unajumuisha mapendekezo ya kibiashara na mipango ya biashara kwa wawekezaji na kwa ruzuku za serikali.
+146|Tovuti inapatikana kwa lugha gani?
+147|Tovuti na gumzo na wakala vinapatikana kwa zaidi ya lugha 50. Unabadilisha lugha kwa kitufe cha dunia kwenye kona ya juu kulia ya skrini ya kwanza.

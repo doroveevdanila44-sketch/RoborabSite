@@ -141,3 +141,18 @@
 130|Atau $18 sebulan jika membayar untuk setahun penuh ($216 setahun)
 131|ROBORAB: kecerdasan buatan dalam proses perniagaan
 132|ROBORAB melaksanakan ejen AI dalam proses perniagaan: CRM kecergasan, ejen cukai, perakaunan pembinaan, CRM tempahan, SEO dan GEO. Mulakan percuma, langganan bermula $20 sebulan.
+133|Soalan lazim
+134|Apakah ROBORAB?
+135|ROBORAB melaksanakan ejen AI dalam proses perniagaan syarikat. Anda boleh bermula dengan perbualan percuma bersama AI, memilih penyelesaian siap pakai daripada katalog, atau menempah penyelesaian yang dibina khas untuk perniagaan anda.
+136|Bagaimanakah kecerdasan buatan dilaksanakan dalam proses perniagaan?
+137|Anda menerangkan tugasan kepada ejen AI melalui teks, suara atau panggilan video. Ejen menyediakan ringkasan permintaan anda, pakar teknikal menyesuaikan penyelesaian siap pakai untuk anda, dan keesokan harinya alat itu sudah berada dalam aplikasi.
+138|Berapakah kos pelaksanaan AI?
+139|Pelan Peneroka adalah percuma. Mentor berharga $20 sebulan, atau $18 sebulan jika anda membayar untuk setahun penuh ($216 setahun). Harga Integrator ditetapkan secara individu: anda boleh mendapatkan anggaran kos dalam sembang dalam masa 10 minit.
+140|Apakah penyelesaian siap pakai dalam katalog?
+141|CRM kecergasan, ejen cukai untuk kumpulan syarikat, perakaunan pembinaan, CRM tempahan untuk permintaan hotel, serta tetapan SEO dan GEO.
+142|Bolehkah AI menggantikan pekerja atau seluruh fungsi?
+143|Untuk itulah pelan Integrator wujud: ROBORAB disepadukan dalam proses dalaman syarikat anda dan mengambil alih kerja seseorang atau bidang tertentu. Anda menjimatkan wang dan masa.
+144|Apakah perbezaan Mentor dengan Peneroka?
+145|Peneroka ialah perbualan dengan AI tentang perniagaan: cadangan berdasarkan maklumat yang anda kongsi dan nasihat praktikal. Mentor membantu anda membina minda usahawan dan bersandar pada pemikiran pengurusan dan falsafah klasik: golongan Stoik, Schopenhauer, Philip Kotler. Langganan turut merangkumi cadangan komersial serta pelan perniagaan untuk pelabur dan untuk geran kerajaan.
+146|Dalam bahasa apakah laman ini tersedia?
+147|Laman dan sembang dengan ejen tersedia dalam lebih 50 bahasa. Anda menukar bahasa dengan butang glob di penjuru kanan atas skrin pertama.

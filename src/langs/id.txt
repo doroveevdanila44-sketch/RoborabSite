@@ -142,3 +142,18 @@
 130|Atau $18 per bulan jika membayar setahun penuh ($216 per tahun)
 131|ROBORAB: kecerdasan buatan dalam proses bisnis
 132|ROBORAB menerapkan agen AI dalam proses bisnis: CRM kebugaran, agen pajak, akuntansi konstruksi, CRM pemesanan, SEO dan GEO. Mulai gratis, langganan mulai $20 per bulan.
+133|Pertanyaan yang sering diajukan
+134|Apa itu ROBORAB?
+135|ROBORAB menerapkan agen AI dalam proses bisnis perusahaan. Anda bisa mulai dengan percakapan gratis bersama AI, memilih solusi siap pakai dari katalog, atau memesan solusi yang dibuat khusus untuk bisnis Anda.
+136|Bagaimana cara menerapkan kecerdasan buatan dalam proses bisnis?
+137|Anda menjelaskan tugas kepada agen AI melalui teks, suara, atau panggilan video. Agen menyusun ringkasan permintaan Anda, spesialis teknis menyesuaikan solusi siap pakai untuk Anda, dan keesokan harinya alat tersebut sudah ada di aplikasi.
+138|Berapa biaya penerapan AI?
+139|Paket Penjelajah gratis. Mentor $20 per bulan, atau $18 per bulan jika membayar setahun penuh ($216 per tahun). Harga Integrator ditentukan secara individual: Anda bisa mendapatkan perkiraan biaya di chat dalam 10 menit.
+140|Solusi siap pakai apa saja yang ada di katalog?
+141|CRM kebugaran, agen pajak untuk grup perusahaan, akuntansi konstruksi, CRM pemesanan untuk permintaan hotel, serta pengaturan SEO dan GEO.
+142|Bisakah AI menggantikan karyawan atau seluruh fungsi?
+143|Untuk itulah ada paket Integrator: ROBORAB dibangun ke dalam proses internal perusahaan Anda dan mengambil alih pekerjaan orang atau bidang tertentu. Anda menghemat uang dan waktu.
+144|Apa bedanya Mentor dengan Penjelajah?
+145|Penjelajah adalah percakapan dengan AI tentang bisnis: rekomendasi berdasarkan informasi yang Anda bagikan dan saran praktis. Mentor membantu membangun pola pikir wirausaha dan bersandar pada pemikiran manajemen dan filsafat klasik: kaum Stoik, Schopenhauer, Philip Kotler. Langganan juga mencakup proposal komersial serta rencana bisnis untuk investor dan untuk hibah pemerintah.
+146|Situs tersedia dalam bahasa apa saja?
+147|Situs dan chat dengan agen tersedia dalam lebih dari 50 bahasa. Anda mengganti bahasa dengan tombol globe di pojok kanan atas layar pertama.

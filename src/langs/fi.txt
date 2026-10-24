@@ -141,3 +141,18 @@
 130|Tai 18 $ kuukaudessa, kun maksat koko vuoden kerralla (216 $ vuodessa)
 131|ROBORAB: tekoäly liiketoimintaprosesseihin
 132|ROBORAB tuo tekoälyagentit liiketoimintaprosesseihin: kuntosalin CRM, veroagentti, rakennuskirjanpito, varaus-CRM, SEO ja GEO. Aloita ilmaiseksi, tilaus alkaen 20 $ kuukaudessa.
+133|Usein kysytyt kysymykset
+134|Mikä ROBORAB on?
+135|ROBORAB tuo tekoälyagentit yritysten liiketoimintaprosesseihin. Voit aloittaa maksuttomalla keskustelulla tekoälyn kanssa, valita valmiin ratkaisun luettelosta tai tilata liiketoiminnallesi räätälöidyn ratkaisun.
+136|Miten tekoäly otetaan käyttöön liiketoimintaprosesseissa?
+137|Kuvaat tehtävän tekoälyagentille tekstillä, puheella tai videopuhelulla. Agentti kirjoittaa tiivistelmän pyynnöstäsi, tekninen asiantuntija mukauttaa valmiin ratkaisun sinulle, ja seuraavana päivänä työkalu on jo sovelluksessa.
+138|Paljonko tekoälyn käyttöönotto maksaa?
+139|Tutkija-paketti on ilmainen. Mentori maksaa 20 $ kuukaudessa tai 18 $ kuukaudessa, kun maksat koko vuoden kerralla (216 $ vuodessa). Integraattorin hinta on yksilöllinen: kustannusarvion saat chatissa 10 minuutissa.
+140|Mitä valmiita ratkaisuja luettelossa on?
+141|Kuntosali-CRM, veroagentti yritysryhmälle, rakennuskirjanpito, varaus-CRM hotellien pyynnöille sekä SEO:n ja GEO:n määritys.
+142|Voiko tekoäly korvata työntekijän tai kokonaisen toiminnon?
+143|Sitä varten on Integraattori-paketti: ROBORAB rakennetaan yrityksesi sisäisiin prosesseihin ja se ottaa hoitaakseen tietyn henkilön tai alueen työn. Säästät rahaa ja aikaa.
+144|Miten Mentori eroaa Tutkijasta?
+145|Tutkija on keskustelu tekoälyn kanssa liiketoiminnasta: suosituksia jakamasi tiedon perusteella ja käytännön neuvoja. Mentori auttaa kehittämään yrittäjäajattelua ja nojaa klassiseen johtamis- ja filosofiseen ajatteluun: stoalaisiin, Schopenhaueriin, Philip Kotleriin. Tilaukseen kuuluvat myös kaupalliset tarjoukset sekä liiketoimintasuunnitelmat sijoittajille ja valtion avustuksia varten.
+146|Millä kielillä sivusto on saatavilla?
+147|Sivusto ja chat agentin kanssa ovat saatavilla yli 50 kielellä. Vaihdat kielen maapallopainikkeella ensimmäisen näkymän oikeasta yläkulmasta.

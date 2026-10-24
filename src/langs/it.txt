@@ -142,3 +142,18 @@
 130|Oppure 18 $ al mese pagando l’intero anno (216 $ all’anno)
 131|ROBORAB: intelligenza artificiale nei processi aziendali
 132|ROBORAB integra agenti IA nei processi aziendali: CRM fitness, agente fiscale, contabilità di cantiere, CRM prenotazioni, SEO e GEO. Inizia gratis, abbonamento da 20 $ al mese.
+133|Domande frequenti
+134|Che cos’è ROBORAB?
+135|ROBORAB introduce agenti di IA nei processi aziendali delle imprese. Puoi iniziare con una conversazione gratuita con l’IA, scegliere una soluzione già pronta dal catalogo oppure ordinare una soluzione su misura per la tua attività.
+136|Come si introduce l’intelligenza artificiale nei processi aziendali?
+137|Descrivi il compito all’agente di IA con testo, voce o videochiamata. L’agente scrive un riepilogo della tua richiesta, uno specialista tecnico personalizza per te una soluzione già pronta e il giorno dopo lo strumento è già nell’app.
+138|Quanto costa introdurre l’IA?
+139|Il piano Esploratore è gratuito. Mentor costa 20 $ al mese, oppure 18 $ al mese se paghi un anno intero (216 $ all’anno). Il prezzo di Integratore è individuale: puoi ottenere una stima dei costi in chat in 10 minuti.
+140|Quali soluzioni già pronte ci sono nel catalogo?
+141|CRM fitness, un agente fiscale per un gruppo di aziende, contabilità di cantiere, un CRM prenotazioni per le richieste degli hotel e la configurazione di SEO e GEO.
+142|L’IA può sostituire un dipendente o un’intera funzione?
+143|Per questo c’è il piano Integratore: ROBORAB viene integrato nei processi interni dell’azienda e si fa carico del lavoro di una persona o di un’area specifica. Risparmi denaro e tempo.
+144|In cosa Mentor è diverso da Esploratore?
+145|Esploratore è una conversazione con l’IA sul business: consigli basati sulle informazioni che condividi e suggerimenti pratici. Mentor ti aiuta a sviluppare una mentalità imprenditoriale e si basa sul pensiero classico di management e filosofia: gli stoici, Schopenhauer, Philip Kotler. L’abbonamento include anche proposte commerciali e business plan per investitori e per bandi pubblici.
+146|In quali lingue è disponibile il sito?
+147|Il sito e la chat con l’agente sono disponibili in più di 50 lingue. Cambi lingua con il pulsante del globo in alto a destra nella prima schermata.

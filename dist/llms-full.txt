@@ -82,6 +82,14 @@ Saves money
 Saves time
 Custom pricing
 Get a price in 10 minutes
+Frequently asked questions
+What is ROBORAB? ROBORAB deploys AI agents into company business processes. You can start with a free conversation with the AI, pick a ready-made solution from the catalog, or order a solution built for your business.
+How do you implement artificial intelligence in business processes? You describe the task to the AI agent by text, voice or video call. The agent writes a summary of your request, a technical specialist customizes a ready-made solution for you, and the next day the tool is already in the app.
+How much does AI implementation cost? The Explorer plan is free. Mentor costs $20 per month, or $18 per month when you pay for a full year ($216 per year). Integrator is priced individually: you can get a cost estimate in the chat within 10 minutes.
+Which ready-made solutions are in the catalog? Fitness CRM, a tax agent for a group of companies, construction accounting, a booking CRM for hotel requests, and SEO and GEO setup.
+Can AI replace an employee or a whole function? That is what the Integrator plan is for: ROBORAB is built into your company's internal processes and takes over the work of a specific person or area. You save money and time.
+How is Mentor different from Explorer? Explorer is a conversation with the AI about business: recommendations based on the information you share, and practical advice. Mentor helps you build an entrepreneurial mindset and draws on classic management and philosophical thought: the Stoics, Schopenhauer, Philip Kotler. The subscription also includes commercial proposals and business plans for investors and for government grants.
+Which languages is the site available in? The site and the agent chat are available in more than 50 languages. You change the language with the globe button in the top-right corner of the first screen.
 Tell us about your task
 Leave your name and choose a product. We will open a chat with ROBORAB AI: the agent will ask a few questions and find out what exactly you need.
 Name

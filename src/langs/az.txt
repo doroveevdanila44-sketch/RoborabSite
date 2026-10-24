@@ -141,3 +141,18 @@
 130|Və ya bütün ili birdəfəlik ödəsəniz ayda 18 $ (ildə 216 $)
 131|ROBORAB: biznes proseslərində süni intellekt
 132|ROBORAB biznes proseslərinə süni intellekt agentləri tətbiq edir: fitnes CRM, vergi agenti, tikinti mühasibatlığı, rezervasiya CRM, SEO və GEO. Pulsuz başlayın, abunə ayda 20 $-dan.
+133|Tez-tez verilən suallar
+134|ROBORAB nədir?
+135|ROBORAB şirkətlərin biznes proseslərinə süni intellekt agentlərini tətbiq edir. Süni intellektlə pulsuz söhbətdən başlaya, kataloqdan hazır həll seçə və ya biznesiniz üçün həll sifariş edə bilərsiniz.
+136|Süni intellekti biznes proseslərinə necə tətbiq etmək olar?
+137|Tapşırığı süni intellekt agentinə mətnlə, səslə və ya video zənglə izah edirsiniz. Agent sorğunuzun xülasəsini hazırlayır, texniki mütəxəssis hazır həlli sizin üçün fərdiləşdirir və növbəti gün alət artıq tətbiqdə olur.
+138|Süni intellektin tətbiqi nə qədərdir?
+139|Tədqiqatçı planı pulsuzdur. Mentor ayda $20, bir il üçün birdəfəlik ödəniş zamanı isə ayda $18 (ildə $216) təşkil edir. İnteqrator üçün qiymət fərdidir: çatda 10 dəqiqə ərzində xərc hesablaması ala bilərsiniz.
+140|Kataloqda hansı hazır həllər var?
+141|Fitnes CRM, şirkətlər qrupu üçün vergi agenti, tikinti mühasibatlığı, otel sorğuları üçün rezervasiya CRM və SEO ilə GEO quraşdırması.
+142|Süni intellekt işçini və ya bütöv bir funksiyanı əvəz edə bilərmi?
+143|Bunun üçün İnteqrator planı var: ROBORAB şirkətinizin daxili proseslərinə inteqrasiya olunur və konkret şəxsin və ya istiqamətin işini öz üzərinə götürür. Siz pula və vaxta qənaət edirsiniz.
+144|Mentor Tədqiqatçıdan nə ilə fərqlənir?
+145|Tədqiqatçı süni intellektlə biznes haqqında söhbətdir: paylaşdığınız məlumata əsaslanan tövsiyələr və praktiki məsləhətlər. Mentor sahibkar təfəkkürü formalaşdırmağa kömək edir və klassik idarəetmə və fəlsəfi fikrə əsaslanır: stoiklər, Şopenhauer, Filip Kotler. Abunəyə həmçinin kommersiya təklifləri, investorlar və dövlət qrantları üçün biznes planlar daxildir.
+146|Sayt hansı dillərdə mövcuddur?
+147|Sayt və agentlə çat 50-dən çox dildə mövcuddur. Dili birinci ekranın yuxarı sağ küncündəki qlobus düyməsi ilə dəyişirsiniz.

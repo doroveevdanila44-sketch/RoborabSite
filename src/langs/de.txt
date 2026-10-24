@@ -142,3 +142,18 @@
 130|Oder 18 $ pro Monat bei Zahlung für ein ganzes Jahr (216 $ pro Jahr)
 131|ROBORAB: Künstliche Intelligenz in Ihren Geschäftsprozessen
 132|ROBORAB integriert KI-Agenten in Geschäftsprozesse: Fitness-CRM, Steuer-Agent, Bauabrechnung, Buchungs-CRM, SEO und GEO. Kostenlos starten, Abo ab 20 $ pro Monat.
+133|Häufige Fragen
+134|Was ist ROBORAB?
+135|ROBORAB führt KI-Agenten in die Geschäftsprozesse von Unternehmen ein. Sie können mit einem kostenlosen Gespräch mit der KI beginnen, eine fertige Lösung aus dem Katalog wählen oder eine Lösung für Ihr Unternehmen bestellen.
+136|Wie führt man künstliche Intelligenz in Geschäftsprozesse ein?
+137|Sie beschreiben dem KI-Agenten die Aufgabe per Text, Sprache oder Videoanruf. Der Agent erstellt eine Zusammenfassung Ihrer Anfrage, ein technischer Spezialist passt eine fertige Lösung für Sie an, und am nächsten Tag ist das Werkzeug bereits in der App.
+138|Was kostet die Einführung von KI?
+139|Der Tarif Entdecker ist kostenlos. Mentor kostet 20 $ pro Monat oder 18 $ pro Monat bei Zahlung für ein ganzes Jahr (216 $ pro Jahr). Integrator wird individuell berechnet: Eine Kostenschätzung erhalten Sie im Chat innerhalb von 10 Minuten.
+140|Welche fertigen Lösungen gibt es im Katalog?
+141|Fitness-CRM, ein Steuer-Agent für eine Unternehmensgruppe, Baubuchhaltung, ein Buchungs-CRM für Hotelanfragen sowie die Einrichtung von SEO und GEO.
+142|Kann KI einen Mitarbeiter oder eine ganze Funktion ersetzen?
+143|Dafür gibt es den Tarif Integrator: ROBORAB wird in die internen Prozesse Ihres Unternehmens eingebaut und übernimmt die Arbeit einer bestimmten Person oder eines Bereichs. Sie sparen Geld und Zeit.
+144|Wie unterscheidet sich Mentor von Entdecker?
+145|Entdecker ist ein Gespräch mit der KI über Ihr Geschäft: Empfehlungen auf Grundlage der Informationen, die Sie teilen, und praktische Ratschläge. Mentor hilft Ihnen, unternehmerisches Denken aufzubauen, und stützt sich auf klassisches Management- und philosophisches Denken: die Stoiker, Schopenhauer, Philip Kotler. Im Abonnement sind außerdem Angebote sowie Businesspläne für Investoren und für staatliche Fördermittel enthalten.
+146|In welchen Sprachen ist die Website verfügbar?
+147|Die Website und der Chat mit dem Agenten sind in mehr als 50 Sprachen verfügbar. Die Sprache ändern Sie mit dem Globus-Button oben rechts auf dem ersten Bildschirm.

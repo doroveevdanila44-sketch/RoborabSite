@@ -141,3 +141,18 @@
 130|Vai 18 $ mēnesī, ja maksājat par visu gadu uzreiz (216 $ gadā)
 131|ROBORAB: mākslīgais intelekts biznesa procesos
 132|ROBORAB ievieš MI aģentus biznesa procesos: fitnesa CRM, nodokļu aģents, būvniecības uzskaite, rezervāciju CRM, SEO un GEO. Sāciet bez maksas, abonements no 20 $ mēnesī.
+133|Biežāk uzdotie jautājumi
+134|Kas ir ROBORAB?
+135|ROBORAB ievieš mākslīgā intelekta aģentus uzņēmumu biznesa procesos. Varat sākt ar bezmaksas sarunu ar mākslīgo intelektu, izvēlēties gatavu risinājumu no kataloga vai pasūtīt jūsu biznesam pielāgotu risinājumu.
+136|Kā ieviest mākslīgo intelektu biznesa procesos?
+137|Uzdevumu aprakstāt mākslīgā intelekta aģentam ar tekstu, balsi vai video zvanu. Aģents sagatavo jūsu pieprasījuma kopsavilkumu, tehniskais speciālists pielāgo gatavu risinājumu jums, un nākamajā dienā rīks jau ir lietotnē.
+138|Cik maksā mākslīgā intelekta ieviešana?
+139|Plāns „Pētnieks“ ir bezmaksas. „Mentors“ maksā 20 $ mēnesī vai 18 $ mēnesī, ja maksājat par visu gadu uzreiz (216 $ gadā). „Integratora“ cena ir individuāla: izmaksu aprēķinu varat saņemt tērzēšanā 10 minūšu laikā.
+140|Kādi gatavi risinājumi ir katalogā?
+141|Fitnesa CRM, nodokļu aģents uzņēmumu grupai, būvniecības uzskaite, rezervāciju CRM viesnīcu pieprasījumiem, kā arī SEO un GEO iestatīšana.
+142|Vai mākslīgais intelekts var aizstāt darbinieku vai veselu funkciju?
+143|Tam paredzēts plāns „Integrators“: ROBORAB tiek iebūvēts jūsu uzņēmuma iekšējos procesos un pārņem konkrēta cilvēka vai virziena darbu. Ietaupāt naudu un laiku.
+144|Ar ko „Mentors“ atšķiras no „Pētnieka“?
+145|„Pētnieks“ ir saruna ar mākslīgo intelektu par biznesu: ieteikumi, balstoties uz jūsu sniegto informāciju, un praktiski padomi. „Mentors“ palīdz attīstīt uzņēmēja domāšanu un balstās uz klasisko vadības un filozofijas domu: stoiķiem, Šopenhaueru, Filipu Kotleru. Abonementā ietilpst arī komerciālie piedāvājumi un biznesa plāni investoriem un valsts grantiem.
+146|Kādās valodās ir pieejama vietne?
+147|Vietne un tērzēšana ar aģentu ir pieejamas vairāk nekā 50 valodās. Valodu maināt ar globusa pogu pirmā ekrāna augšējā labajā stūrī.

@@ -142,3 +142,18 @@
 130|Of $18 per maand als je het hele jaar vooruit betaalt ($216 per jaar)
 131|ROBORAB: kunstmatige intelligentie in uw bedrijfsprocessen
 132|ROBORAB brengt AI-agenten in bedrijfsprocessen: fitness-CRM, belastingagent, bouwadministratie, boekings-CRM, SEO en GEO. Begin gratis, abonnement vanaf $20 per maand.
+133|Veelgestelde vragen
+134|Wat is ROBORAB?
+135|ROBORAB voert AI-agenten in bij de bedrijfsprocessen van bedrijven. U kunt beginnen met een gratis gesprek met de AI, een kant-en-klare oplossing uit de catalogus kiezen of een oplossing op maat voor uw bedrijf bestellen.
+136|Hoe voert u kunstmatige intelligentie in bij bedrijfsprocessen?
+137|U beschrijft de taak aan de AI-agent via tekst, spraak of videogesprek. De agent maakt een samenvatting van uw verzoek, een technisch specialist past een kant-en-klare oplossing voor u aan en de volgende dag staat de tool al in de app.
+138|Wat kost het invoeren van AI?
+139|Het Ontdekker-abonnement is gratis. Mentor kost $20 per maand, of $18 per maand bij betaling voor een vol jaar ($216 per jaar). Integrator wordt individueel geprijsd: u krijgt binnen 10 minuten een kostenraming in de chat.
+140|Welke kant-en-klare oplossingen staan er in de catalogus?
+141|Fitness-CRM, een belastingagent voor een groep bedrijven, bouwboekhouding, een boekings-CRM voor hotelaanvragen en de inrichting van SEO en GEO.
+142|Kan AI een medewerker of een hele functie vervangen?
+143|Daarvoor is het Integrator-abonnement: ROBORAB wordt ingebouwd in de interne processen van uw bedrijf en neemt het werk van een specifieke persoon of afdeling over. U bespaart geld en tijd.
+144|Wat is het verschil tussen Mentor en Ontdekker?
+145|Ontdekker is een gesprek met de AI over zakendoen: aanbevelingen op basis van de informatie die u deelt en praktisch advies. Mentor helpt u een ondernemersmentaliteit op te bouwen en put uit klassiek management- en filosofisch denken: de Stoïcijnen, Schopenhauer, Philip Kotler. Het abonnement omvat ook commerciële voorstellen en businessplannen voor investeerders en voor overheidssubsidies.
+146|In welke talen is de website beschikbaar?
+147|De website en de chat met de agent zijn beschikbaar in meer dan 50 talen. U wisselt van taal met de wereldbolknop rechtsboven op het eerste scherm.

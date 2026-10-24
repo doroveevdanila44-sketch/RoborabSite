@@ -141,3 +141,18 @@
 130|Ili 18 $ mjesečno uz plaćanje cijele godine (216 $ godišnje)
 131|ROBORAB: umjetna inteligencija u poslovnim procesima
 132|ROBORAB uvodi AI agente u poslovne procese: fitness CRM, porezni agent, građevinsko računovodstvo, CRM za rezervacije, SEO i GEO. Počnite besplatno, pretplata od 20 $ mjesečno.
+133|Česta pitanja
+134|Što je ROBORAB?
+135|ROBORAB uvodi AI agente u poslovne procese tvrtki. Možete početi besplatnim razgovorom s umjetnom inteligencijom, odabrati gotovo rješenje iz kataloga ili naručiti rješenje izrađeno za vaše poslovanje.
+136|Kako uvesti umjetnu inteligenciju u poslovne procese?
+137|Zadatak opisujete AI agentu tekstom, glasom ili videopozivom. Agent sastavlja sažetak vašeg zahtjeva, tehnički stručnjak prilagođava gotovo rješenje za vas, a sljedeći dan alat je već u aplikaciji.
+138|Koliko košta uvođenje umjetne inteligencije?
+139|Paket Istraživač je besplatan. Mentor košta 20 $ mjesečno ili 18 $ mjesečno uz plaćanje cijele godine unaprijed (216 $ godišnje). Cijena paketa Integrator je individualna: procjenu troškova možete dobiti u chatu u roku od 10 minuta.
+140|Koja gotova rješenja postoje u katalogu?
+141|Fitness CRM, porezni agent za grupu tvrtki, građevinsko knjigovodstvo, booking CRM za hotelske upite te postavljanje SEO-a i GEO-a.
+142|Može li umjetna inteligencija zamijeniti zaposlenika ili cijelu funkciju?
+143|Za to služi paket Integrator: ROBORAB se ugrađuje u interne procese vaše tvrtke i preuzima posao određene osobe ili područja. Štedite novac i vrijeme.
+144|Po čemu se Mentor razlikuje od Istraživača?
+145|Istraživač je razgovor s umjetnom inteligencijom o poslovanju: preporuke temeljene na informacijama koje podijelite i praktični savjeti. Mentor pomaže razviti poduzetničko razmišljanje i oslanja se na klasičnu upravljačku i filozofsku misao: stoike, Schopenhauera, Philipa Kotlera. Pretplata uključuje i komercijalne ponude te poslovne planove za investitore i za državne potpore.
+146|Na kojim je jezicima web-mjesto dostupno?
+147|Web-mjesto i chat s agentom dostupni su na više od 50 jezika. Jezik mijenjate gumbom s globusom u gornjem desnom kutu prvog zaslona.

@@ -142,3 +142,18 @@
 130|Hoặc $18 mỗi tháng khi trả trọn một năm ($216 mỗi năm)
 131|ROBORAB: đưa trí tuệ nhân tạo vào quy trình kinh doanh
 132|ROBORAB triển khai tác nhân AI vào quy trình kinh doanh: CRM phòng gym, tác nhân thuế, kế toán xây dựng, CRM đặt chỗ, SEO và GEO. Bắt đầu miễn phí, gói đăng ký từ $20 mỗi tháng.
+133|Câu hỏi thường gặp
+134|ROBORAB là gì?
+135|ROBORAB triển khai các tác tử AI vào quy trình kinh doanh của doanh nghiệp. Bạn có thể bắt đầu bằng cuộc trò chuyện miễn phí với AI, chọn giải pháp làm sẵn từ danh mục hoặc đặt giải pháp được xây dựng riêng cho doanh nghiệp của bạn.
+136|Làm thế nào để triển khai trí tuệ nhân tạo vào quy trình kinh doanh?
+137|Bạn mô tả nhiệm vụ cho tác tử AI bằng văn bản, giọng nói hoặc cuộc gọi video. Tác tử viết bản tóm tắt yêu cầu của bạn, chuyên gia kỹ thuật tùy chỉnh giải pháp làm sẵn cho bạn, và ngày hôm sau công cụ đã có trong ứng dụng.
+138|Triển khai AI tốn bao nhiêu?
+139|Gói Nhà thám hiểm miễn phí. Cố vấn có giá $20 mỗi tháng, hoặc $18 mỗi tháng khi thanh toán trọn một năm ($216 mỗi năm). Giá gói Nhà tích hợp được tính riêng: bạn có thể nhận ước tính chi phí trong cuộc trò chuyện chỉ sau 10 phút.
+140|Danh mục có những giải pháp làm sẵn nào?
+141|CRM phòng gym, tác tử thuế cho nhóm công ty, kế toán xây dựng, CRM đặt phòng cho yêu cầu của khách sạn, cùng với thiết lập SEO và GEO.
+142|AI có thể thay thế một nhân viên hoặc cả một chức năng không?
+143|Gói Nhà tích hợp dành cho việc này: ROBORAB được tích hợp vào quy trình nội bộ của công ty bạn và đảm nhận công việc của một người hoặc một mảng cụ thể. Bạn tiết kiệm tiền và thời gian.
+144|Cố vấn khác Nhà thám hiểm ở điểm nào?
+145|Nhà thám hiểm là cuộc trò chuyện với AI về kinh doanh: khuyến nghị dựa trên thông tin bạn chia sẻ và lời khuyên thực tế. Cố vấn giúp bạn hình thành tư duy doanh nhân và dựa trên tư tưởng quản trị và triết học kinh điển: phái Khắc kỷ, Schopenhauer, Philip Kotler. Gói đăng ký còn bao gồm đề xuất thương mại và kế hoạch kinh doanh cho nhà đầu tư và cho các khoản tài trợ của nhà nước.
+146|Trang web có những ngôn ngữ nào?
+147|Trang web và cuộc trò chuyện với tác tử có sẵn bằng hơn 50 ngôn ngữ. Bạn đổi ngôn ngữ bằng nút hình quả địa cầu ở góc trên bên phải của màn hình đầu tiên.

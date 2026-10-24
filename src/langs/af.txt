@@ -141,3 +141,18 @@
 130|Of $18 per maand as jy vir 'n volle jaar betaal ($216 per jaar)
 131|ROBORAB: kunsmatige intelligensie in sakeprosesse
 132|ROBORAB implementeer KI-agente in sakeprosesse: fiksheids-CRM, belastingagent, bourekeningkunde, besprekings-CRM, SEO en GEO. Begin gratis, intekening vanaf $20 per maand.
+133|Gereelde vrae
+134|Wat is ROBORAB?
+135|ROBORAB implementeer KI-agente in ’n maatskappy se sakeprosesse. Jy kan met ’n gratis gesprek met die KI begin, ’n gereed oplossing uit die katalogus kies, of ’n oplossing vir jou besigheid bestel.
+136|Hoe implementeer jy kunsmatige intelligensie in sakeprosesse?
+137|Jy beskryf die taak aan die KI-agent per teks, stem of video-oproep. Die agent skryf ’n opsomming van jou versoek, ’n tegniese spesialis pas ’n gereed oplossing vir jou aan, en die volgende dag is die hulpmiddel reeds in die toepassing.
+138|Hoeveel kos KI-implementering?
+139|Die Verkenner-plan is gratis. Mentor kos $20 per maand, of $18 per maand as jy vir ’n volle jaar vooruit betaal ($216 per jaar). Integreerder word individueel geprys: jy kan binne 10 minute ’n koste-skatting in die klets kry.
+140|Watter gereed oplossings is in die katalogus?
+141|Gimnasium-CRM, ’n belastingagent vir ’n groep maatskappye, boukrekeningkunde, ’n besprekings-CRM vir hotelversoeke, en SEO- en GEO-opstelling.
+142|Kan KI ’n werknemer of ’n hele funksie vervang?
+143|Daarvoor is die Integreerder-plan: ROBORAB word in jou maatskappy se interne prosesse ingebou en neem die werk van ’n bepaalde persoon of area oor. Jy spaar geld en tyd.
+144|Hoe verskil Mentor van Verkenner?
+145|Verkenner is ’n gesprek met die KI oor besigheid: aanbevelings gebaseer op die inligting wat jy deel, en praktiese raad. Mentor help jou ’n ondernemersingesteldheid ontwikkel en put uit klassieke bestuurs- en filosofiese denke: die Stoïsyne, Schopenhauer, Philip Kotler. Die intekening sluit ook kommersiële voorstelle en sakeplanne vir beleggers en vir staatstoekennings in.
+146|In watter tale is die webwerf beskikbaar?
+147|Die webwerf en die agent-klets is in meer as 50 tale beskikbaar. Jy verander die taal met die aardbol-knoppie in die regterbovenhoek van die eerste skerm.

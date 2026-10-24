@@ -142,3 +142,18 @@
 130|Ou US$ 18 por mês pagando o ano inteiro (US$ 216 por ano)
 131|ROBORAB: inteligência artificial nos processos de negócio
 132|A ROBORAB implementa agentes de IA nos processos de negócio: CRM fitness, agente fiscal, contabilidade de obras, CRM de reservas, SEO e GEO. Comece grátis, assinatura a partir de US$ 20 por mês.
+133|Perguntas frequentes
+134|O que é a ROBORAB?
+135|A ROBORAB implementa agentes de IA nos processos de negócio das empresas. Pode começar com uma conversa gratuita com a IA, escolher uma solução pronta do catálogo ou encomendar uma solução feita à medida do seu negócio.
+136|Como se implementa inteligência artificial nos processos de negócio?
+137|Descreve a tarefa ao agente de IA por texto, voz ou videochamada. O agente redige um resumo do seu pedido, um especialista técnico personaliza uma solução pronta para si e, no dia seguinte, a ferramenta já está na aplicação.
+138|Quanto custa implementar IA?
+139|O plano Explorador é gratuito. O Mentor custa 20 $ por mês, ou 18 $ por mês se pagar um ano inteiro (216 $ por ano). O Integrador tem preço individual: pode obter uma estimativa de custo no chat em 10 minutos.
+140|Que soluções prontas existem no catálogo?
+141|CRM fitness, um agente fiscal para um grupo de empresas, contabilidade de obras, um CRM de reservas para pedidos de hotel e a configuração de SEO e GEO.
+142|A IA pode substituir um funcionário ou uma função inteira?
+143|Para isso existe o plano Integrador: a ROBORAB é integrada nos processos internos da empresa e assume o trabalho de uma pessoa ou de uma área concreta. Poupa dinheiro e tempo.
+144|Em que é que o Mentor se distingue do Explorador?
+145|O Explorador é uma conversa com a IA sobre negócios: recomendações com base nas informações que partilha e conselhos práticos. O Mentor ajuda a desenvolver uma mentalidade empreendedora e baseia-se no pensamento clássico de gestão e filosófico: os estoicos, Schopenhauer, Philip Kotler. A subscrição inclui também propostas comerciais e planos de negócio para investidores e para subsídios públicos.
+146|Em que idiomas está disponível o site?
+147|O site e o chat com o agente estão disponíveis em mais de 50 idiomas. Muda o idioma com o botão do globo no canto superior direito do primeiro ecrã.

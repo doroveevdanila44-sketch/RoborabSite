@@ -142,3 +142,18 @@
 130|Sau 18 $ pe lună dacă plătești pentru un an întreg (216 $ pe an)
 131|ROBORAB: inteligența artificială în procesele de afaceri
 132|ROBORAB implementează agenți IA în procesele de afaceri: CRM pentru fitness, agent fiscal, contabilitate pentru șantiere, CRM de rezervări, SEO și GEO. Începeți gratuit, abonament de la 20 $ pe lună.
+133|Întrebări frecvente
+134|Ce este ROBORAB?
+135|ROBORAB implementează agenți de IA în procesele de afaceri ale companiilor. Poți începe cu o conversație gratuită cu IA, poți alege o soluție gata făcută din catalog sau poți comanda o soluție creată pentru afacerea ta.
+136|Cum se implementează inteligența artificială în procesele de afaceri?
+137|Descrii sarcina agentului de IA prin text, voce sau apel video. Agentul redactează un rezumat al cererii tale, un specialist tehnic personalizează pentru tine o soluție gata făcută, iar a doua zi instrumentul este deja în aplicație.
+138|Cât costă implementarea IA?
+139|Planul Explorator este gratuit. Mentor costă 20 $ pe lună sau 18 $ pe lună dacă plătești pentru un an întreg (216 $ pe an). Prețul pentru Integrator este individual: poți primi o estimare a costului în chat în 10 minute.
+140|Ce soluții gata făcute există în catalog?
+141|CRM fitness, un agent fiscal pentru un grup de companii, contabilitate de șantier, un CRM de rezervări pentru cererile hotelurilor și configurarea SEO și GEO.
+142|Poate IA să înlocuiască un angajat sau o funcție întreagă?
+143|Pentru asta există planul Integrator: ROBORAB se integrează în procesele interne ale companiei tale și preia munca unei persoane sau a unui domeniu anume. Economisești bani și timp.
+144|Prin ce diferă Mentor de Explorator?
+145|Exploratorul este o conversație cu IA despre afaceri: recomandări bazate pe informațiile pe care le împărtășești și sfaturi practice. Mentorul te ajută să-ți formezi o mentalitate antreprenorială și se sprijină pe gândirea clasică de management și filosofică: stoicii, Schopenhauer, Philip Kotler. Abonamentul include și propuneri comerciale și planuri de afaceri pentru investitori și pentru granturi de stat.
+146|În ce limbi este disponibil site-ul?
+147|Site-ul și chatul cu agentul sunt disponibile în peste 50 de limbi. Schimbi limba cu butonul cu glob din colțul din dreapta sus al primului ecran.

@@ -141,3 +141,18 @@
 130|Ali 18 $ na mesec ob plačilu za celo leto (216 $ na leto)
 131|ROBORAB: umetna inteligenca v poslovnih procesih
 132|ROBORAB uvaja AI agente v poslovne procese: fitnes CRM, davčni agent, gradbeno računovodstvo, CRM za rezervacije, SEO in GEO. Začnite brezplačno, naročnina od 20 $ na mesec.
+133|Pogosta vprašanja
+134|Kaj je ROBORAB?
+135|ROBORAB uvaja agente umetne inteligence v poslovne procese podjetij. Začnete lahko z brezplačnim pogovorom z umetno inteligenco, izberete končno rešitev iz kataloga ali naročite rešitev, narejeno za vaše podjetje.
+136|Kako uvesti umetno inteligenco v poslovne procese?
+137|Nalogo opišete agentu umetne inteligence z besedilom, glasom ali videoklicem. Agent pripravi povzetek vaše zahteve, tehnični strokovnjak prilagodi končno rešitev za vas, naslednji dan pa je orodje že v aplikaciji.
+138|Koliko stane uvedba umetne inteligence?
+139|Paket Raziskovalec je brezplačen. Mentor stane 20 $ na mesec ali 18 $ na mesec ob plačilu za celo leto (216 $ na leto). Cena paketa Integrator je individualna: oceno stroškov lahko dobite v klepetu v 10 minutah.
+140|Katere končne rešitve so v katalogu?
+141|Fitnes CRM, davčni agent za skupino podjetij, gradbeno računovodstvo, rezervacijski CRM za hotelske povpraševanja ter nastavitev SEO in GEO.
+142|Ali lahko umetna inteligenca nadomesti zaposlenega ali celotno funkcijo?
+143|Za to je paket Integrator: ROBORAB se vgradi v notranje procese vašega podjetja in prevzame delo določene osebe ali področja. Prihranite denar in čas.
+144|Po čem se Mentor razlikuje od Raziskovalca?
+145|Raziskovalec je pogovor z umetno inteligenco o poslovanju: priporočila na podlagi informacij, ki jih delite, in praktični nasveti. Mentor pomaga razviti podjetniško razmišljanje in se opira na klasično vodstveno in filozofsko misel: stoike, Schopenhauerja, Philipa Kotlerja. Naročnina vključuje tudi komercialne ponudbe ter poslovne načrte za vlagatelje in za državne spodbude.
+146|V katerih jezikih je spletno mesto na voljo?
+147|Spletno mesto in klepet z agentom sta na voljo v več kot 50 jezikih. Jezik zamenjate z gumbom z globusom v zgornjem desnem kotu prvega zaslona.

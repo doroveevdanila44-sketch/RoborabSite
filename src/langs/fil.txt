@@ -141,3 +141,18 @@
 130|O $18 kada buwan kung magbabayad ka para sa buong taon ($216 kada taon)
 131|ROBORAB: artificial intelligence sa mga proseso ng negosyo
 132|Ipinapatupad ng ROBORAB ang mga AI agent sa mga proseso ng negosyo: fitness CRM, tax agent, accounting sa konstruksiyon, booking CRM, SEO at GEO. Magsimula nang libre, subscription mula $20 kada buwan.
+133|Mga madalas itanong
+134|Ano ang ROBORAB?
+135|Ipinapatupad ng ROBORAB ang mga AI agent sa mga proseso ng negosyo ng mga kumpanya. Maaari kang magsimula sa libreng pakikipag-usap sa AI, pumili ng handang solusyon mula sa katalogo, o mag-order ng solusyong akma sa iyong negosyo.
+136|Paano ipapatupad ang artificial intelligence sa mga proseso ng negosyo?
+137|Inilalarawan mo ang gawain sa AI agent sa pamamagitan ng teksto, boses, o video call. Gumagawa ang agent ng buod ng iyong kahilingan, iniaakma ng isang technical specialist ang handang solusyon para sa iyo, at kinabukasan ay nasa app na ang tool.
+138|Magkano ang pagpapatupad ng AI?
+139|Libre ang planong Tagapagsaliksik. Ang Mentor ay $20 kada buwan, o $18 kada buwan kung babayaran mo ang buong taon ($216 kada taon). Indibidwal ang presyo ng Integrator: makakakuha ka ng tantiya ng gastos sa chat sa loob ng 10 minuto.
+140|Anong mga handang solusyon ang nasa katalogo?
+141|Fitness CRM, tax agent para sa grupo ng mga kumpanya, accounting sa konstruksiyon, booking CRM para sa mga kahilingan ng hotel, at setup ng SEO at GEO.
+142|Kaya bang palitan ng AI ang isang empleyado o buong tungkulin?
+143|Para dito ang planong Integrator: isinasama ang ROBORAB sa panloob na mga proseso ng iyong kumpanya at pinapalitan ang trabaho ng isang partikular na tao o bahagi. Nakakatipid ka ng pera at oras.
+144|Paano naiiba ang Mentor sa Tagapagsaliksik?
+145|Ang Tagapagsaliksik ay pakikipag-usap sa AI tungkol sa negosyo: mga rekomendasyong batay sa impormasyong ibinabahagi mo at praktikal na payo. Tinutulungan ka ng Mentor na bumuo ng pag-iisip ng negosyante at gumagamit ng klasikong kaisipan sa pamamahala at pilosopiya: ang mga Stoic, si Schopenhauer, si Philip Kotler. Kasama rin sa subscription ang mga komersyal na panukala at business plan para sa mga investor at para sa mga grant ng gobyerno.
+146|Sa anong mga wika makukuha ang site?
+147|Makukuha ang site at ang chat sa agent sa mahigit 50 wika. Binabago mo ang wika gamit ang globe button sa kanang itaas ng unang screen.

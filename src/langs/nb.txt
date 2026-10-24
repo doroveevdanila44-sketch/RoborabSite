@@ -141,3 +141,18 @@
 130|Eller 18 $ per måned når du betaler for et helt år (216 $ per år)
 131|ROBORAB: kunstig intelligens i forretningsprosessene dine
 132|ROBORAB innfører AI-agenter i forretningsprosesser: fitness-CRM, skatteagent, byggregnskap, bookings-CRM, SEO og GEO. Start gratis, abonnement fra 20 $ per måned.
+133|Ofte stilte spørsmål
+134|Hva er ROBORAB?
+135|ROBORAB innfører AI-agenter i bedrifters forretningsprosesser. Du kan starte med en gratis samtale med AI-en, velge en ferdig løsning fra katalogen eller bestille en løsning bygget for din virksomhet.
+136|Hvordan innfører man kunstig intelligens i forretningsprosesser?
+137|Du beskriver oppgaven for AI-agenten med tekst, tale eller videosamtale. Agenten skriver et sammendrag av forespørselen din, en teknisk spesialist tilpasser en ferdig løsning for deg, og dagen etter er verktøyet allerede i appen.
+138|Hva koster det å innføre AI?
+139|Utforsker-planen er gratis. Mentor koster 20 $ per måned, eller 18 $ per måned når du betaler for et helt år (216 $ per år). Integrator prises individuelt: du kan få et kostnadsoverslag i chatten innen 10 minutter.
+140|Hvilke ferdige løsninger finnes i katalogen?
+141|Fitness-CRM, en skatteagent for en gruppe selskaper, byggeregnskap, et booking-CRM for hotellforespørsler samt oppsett av SEO og GEO.
+142|Kan AI erstatte en ansatt eller en hel funksjon?
+143|Det er det Integrator-planen er til for: ROBORAB bygges inn i virksomhetens interne prosesser og overtar arbeidet til en bestemt person eller et bestemt område. Du sparer penger og tid.
+144|Hvordan skiller Mentor seg fra Utforsker?
+145|Utforsker er en samtale med AI-en om forretning: anbefalinger basert på informasjonen du deler, og praktiske råd. Mentor hjelper deg å utvikle en gründertankegang og bygger på klassisk ledelses- og filosofisk tenkning: stoikerne, Schopenhauer, Philip Kotler. Abonnementet inkluderer også kommersielle tilbud og forretningsplaner for investorer og for offentlige tilskudd.
+146|Hvilke språk er nettstedet tilgjengelig på?
+147|Nettstedet og chatten med agenten er tilgjengelige på mer enn 50 språk. Du bytter språk med globusknappen øverst til høyre på første skjermbilde.

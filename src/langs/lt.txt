@@ -141,3 +141,18 @@
 130|Arba 18 $ per mėnesį, mokant už visus metus iš karto (216 $ per metus)
 131|ROBORAB: dirbtinis intelektas verslo procesuose
 132|ROBORAB diegia DI agentus verslo procesuose: sporto klubo CRM, mokesčių agentas, statybų apskaita, rezervacijų CRM, SEO ir GEO. Pradėkite nemokamai, prenumerata nuo 20 $ per mėnesį.
+133|Dažnai užduodami klausimai
+134|Kas yra ROBORAB?
+135|ROBORAB diegia dirbtinio intelekto agentus įmonių verslo procesuose. Galite pradėti nuo nemokamo pokalbio su dirbtiniu intelektu, pasirinkti paruoštą sprendimą iš katalogo arba užsisakyti jūsų verslui pritaikytą sprendimą.
+136|Kaip įdiegti dirbtinį intelektą verslo procesuose?
+137|Užduotį dirbtinio intelekto agentui aprašote tekstu, balsu arba vaizdo skambučiu. Agentas parengia jūsų užklausos santrauką, techninis specialistas pritaiko paruoštą sprendimą jums, o kitą dieną įrankis jau būna programėlėje.
+138|Kiek kainuoja dirbtinio intelekto diegimas?
+139|Planas „Tyrinėtojas“ nemokamas. „Mentorius“ kainuoja 20 $ per mėnesį arba 18 $ per mėnesį, jei mokate už visus metus iš karto (216 $ per metus). „Integratoriaus“ kaina individuali: kainos apskaičiavimą galite gauti pokalbyje per 10 minučių.
+140|Kokių paruoštų sprendimų yra kataloge?
+141|Sporto klubo CRM, mokesčių agentas įmonių grupei, statybos apskaita, rezervacijų CRM viešbučių užklausoms, taip pat SEO ir GEO nustatymas.
+142|Ar dirbtinis intelektas gali pakeisti darbuotoją ar visą funkciją?
+143|Tam skirtas planas „Integratorius“: ROBORAB integruojamas į jūsų įmonės vidinius procesus ir perima konkretaus žmogaus ar krypties darbą. Taupote pinigus ir laiką.
+144|Kuo „Mentorius“ skiriasi nuo „Tyrinėtojo“?
+145|„Tyrinėtojas“ – tai pokalbis su dirbtiniu intelektu apie verslą: rekomendacijos pagal jūsų pateiktą informaciją ir praktiniai patarimai. „Mentorius“ padeda ugdyti verslininko mąstymą ir remiasi klasikine vadybos ir filosofine mintimi: stoikais, Schopenhaueriu, Philipu Kotleriu. Į prenumeratą taip pat įeina komerciniai pasiūlymai ir verslo planai investuotojams bei valstybės paramai.
+146|Kokiomis kalbomis prieinama svetainė?
+147|Svetainė ir pokalbis su agentu prieinami daugiau nei 50 kalbų. Kalbą pakeičiate gaublio mygtuku pirmojo ekrano viršuje dešinėje.

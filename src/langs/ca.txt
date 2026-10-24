@@ -141,3 +141,18 @@
 130|O 18 $ al mes si pagueu l’any sencer (216 $ a l’any)
 131|ROBORAB: intel·ligència artificial als processos de negoci
 132|ROBORAB implanta agents d’IA als processos de negoci: CRM de fitness, agent fiscal, comptabilitat d’obra, CRM de reserves, SEO i GEO. Comenceu gratis, subscripció des de 20 $ al mes.
+133|Preguntes freqüents
+134|Què és ROBORAB?
+135|ROBORAB implanta agents d’IA en els processos de negoci de les empreses. Pots començar amb una conversa gratuïta amb la IA, triar una solució ja feta del catàleg o encarregar una solució a mida per al teu negoci.
+136|Com s’implanta la intel·ligència artificial en els processos de negoci?
+137|Descrius la tasca a l’agent d’IA per text, per veu o per videotrucada. L’agent redacta un resum de la teva sol·licitud, un especialista tècnic personalitza una solució ja feta per a tu i l’endemà l’eina ja és a l’aplicació.
+138|Quant costa implantar la IA?
+139|El pla Explorador és gratuït. Mentor costa 20 $ al mes, o 18 $ al mes si pagues un any sencer (216 $ a l’any). Integrador té un preu individual: pots obtenir una estimació del cost al xat en 10 minuts.
+140|Quines solucions ja fetes hi ha al catàleg?
+141|CRM de fitness, un agent fiscal per a un grup d’empreses, comptabilitat d’obra, un CRM de reserves per a sol·licituds d’hotel i la configuració de SEO i GEO.
+142|Pot la IA substituir un empleat o tota una funció?
+143|Per a això hi ha el pla Integrador: ROBORAB s’integra en els processos interns de l’empresa i assumeix la feina d’una persona o d’un àmbit concret. Estalvies diners i temps.
+144|En què es diferencia Mentor d’Explorador?
+145|Explorador és una conversa amb la IA sobre negocis: recomanacions basades en la informació que comparteixes i consells pràctics. Mentor t’ajuda a desenvolupar una mentalitat emprenedora i s’inspira en el pensament clàssic de gestió i filosòfic: els estoics, Schopenhauer, Philip Kotler. La subscripció inclou també propostes comercials i plans de negoci per a inversors i per a subvencions públiques.
+146|En quins idiomes està disponible el web?
+147|El web i el xat amb l’agent estan disponibles en més de 50 idiomes. Canvies l’idioma amb el botó del globus a l’extrem superior dret de la primera pantalla.

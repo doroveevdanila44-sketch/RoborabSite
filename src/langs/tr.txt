@@ -142,3 +142,18 @@
 130|Ya da tüm yılı peşin ödeyince ayda 18 $ (yılda 216 $)
 131|ROBORAB: iş süreçlerinize yapay zekâ entegrasyonu
 132|ROBORAB, iş süreçlerine yapay zekâ ajanları entegre eder: fitness CRM, vergi ajanı, inşaat muhasebesi, rezervasyon CRM, SEO ve GEO. Ücretsiz başlayın, abonelik ayda 20 $'dan.
+133|Sık sorulan sorular
+134|ROBORAB nedir?
+135|ROBORAB, şirketlerin iş süreçlerine yapay zekâ ajanları kurar. Yapay zekâ ile ücretsiz bir sohbetle başlayabilir, katalogdan hazır bir çözüm seçebilir veya işinize özel bir çözüm sipariş edebilirsiniz.
+136|Yapay zekâ iş süreçlerine nasıl entegre edilir?
+137|Görevi yapay zekâ ajanına metinle, sesle veya görüntülü aramayla anlatırsınız. Ajan talebinizin özetini çıkarır, teknik uzman hazır çözümü sizin için özelleştirir ve ertesi gün araç uygulamada hazır olur.
+138|Yapay zekâ entegrasyonu ne kadar tutar?
+139|Kâşif planı ücretsizdir. Mentor ayda 20 $, tam bir yılı peşin ödediğinizde ise ayda 18 $ (yılda 216 $). Entegratör için fiyat kişiye özeldir: maliyet tahminini sohbette 10 dakika içinde alabilirsiniz.
+140|Katalogda hangi hazır çözümler var?
+141|Fitness CRM, şirket grubu için vergi ajanı, inşaat muhasebesi, otel talepleri için rezervasyon CRM ve SEO ile GEO kurulumu.
+142|Yapay zekâ bir çalışanın veya bütün bir işlevin yerini alabilir mi?
+143|Bunun için Entegratör planı var: ROBORAB şirketinizin iç süreçlerine yerleşir ve belirli bir kişinin veya alanın işini üstlenir. Para ve zamandan tasarruf edersiniz.
+144|Mentor, Kâşif’ten nasıl farklıdır?
+145|Kâşif, iş hakkında yapay zekâ ile yapılan bir sohbettir: paylaştığınız bilgilere dayalı öneriler ve pratik tavsiyeler. Mentor girişimci düşünce yapısı geliştirmenize yardımcı olur ve klasik yönetim ve felsefe düşüncesine dayanır: Stoacılar, Schopenhauer, Philip Kotler. Abonelik ayrıca ticari teklifleri ve yatırımcılar ile devlet hibeleri için iş planlarını da kapsar.
+146|Site hangi dillerde kullanılabilir?
+147|Site ve ajanla sohbet 50’den fazla dilde kullanılabilir. Dili, ilk ekranın sağ üst köşesindeki küre düğmesiyle değiştirirsiniz.

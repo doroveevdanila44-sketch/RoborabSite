@@ -141,3 +141,18 @@
 130|Eller 18 $ pr. måned, når du betaler for et helt år (216 $ om året)
 131|ROBORAB: kunstig intelligens i dine forretningsprocesser
 132|ROBORAB indfører AI-agenter i forretningsprocesser: fitness-CRM, skatteagent, byggeregnskab, booking-CRM, SEO og GEO. Start gratis, abonnement fra 20 $ pr. måned.
+133|Ofte stillede spørgsmål
+134|Hvad er ROBORAB?
+135|ROBORAB implementerer AI-agenter i virksomheders forretningsprocesser. Du kan starte med en gratis samtale med AI’en, vælge en færdig løsning fra kataloget eller bestille en løsning bygget til din virksomhed.
+136|Hvordan implementerer man kunstig intelligens i forretningsprocesser?
+137|Du beskriver opgaven for AI-agenten via tekst, tale eller videoopkald. Agenten skriver et resumé af din forespørgsel, en teknisk specialist tilpasser en færdig løsning til dig, og dagen efter er værktøjet allerede i appen.
+138|Hvad koster det at implementere AI?
+139|Udforsker-planen er gratis. Mentor koster 20 $ om måneden, eller 18 $ om måneden ved betaling for et helt år (216 $ om året). Integrator prissættes individuelt: du kan få et prisoverslag i chatten inden for 10 minutter.
+140|Hvilke færdige løsninger er der i kataloget?
+141|Fitness-CRM, en skatteagent til en gruppe virksomheder, byggeregnskab, et booking-CRM til hotelforespørgsler samt opsætning af SEO og GEO.
+142|Kan AI erstatte en medarbejder eller en hel funktion?
+143|Det er det, Integrator-planen er til: ROBORAB bygges ind i virksomhedens interne processer og overtager arbejdet for en bestemt person eller et bestemt område. Du sparer penge og tid.
+144|Hvordan adskiller Mentor sig fra Udforsker?
+145|Udforsker er en samtale med AI’en om forretning: anbefalinger baseret på de oplysninger, du deler, og praktiske råd. Mentor hjælper dig med at opbygge en iværksættertankegang og trækker på klassisk ledelses- og filosofisk tænkning: stoikerne, Schopenhauer, Philip Kotler. Abonnementet omfatter også kommercielle tilbud og forretningsplaner til investorer og til offentlige tilskud.
+146|Hvilke sprog findes siden på?
+147|Siden og agent-chatten findes på mere end 50 sprog. Du skifter sprog med globusknappen i øverste højre hjørne af første skærmbillede.

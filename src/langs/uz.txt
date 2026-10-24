@@ -141,3 +141,18 @@
 130|Yoki butun yilni bir yoʻla toʻlasangiz oyiga $18 (yiliga $216)
 131|ROBORAB: biznes jarayonlarida sunʼiy intellekt
 132|ROBORAB biznes jarayonlariga sunʼiy intellekt agentlarini joriy qiladi: fitnes CRM, soliq agenti, qurilish hisobi, bron CRM, SEO va GEO. Bepul boshlang, obuna oyiga $20 dan.
+133|Ko‘p so‘raladigan savollar
+134|ROBORAB nima?
+135|ROBORAB kompaniyalarning biznes jarayonlariga sun’iy intellekt agentlarini joriy etadi. Sun’iy intellekt bilan bepul suhbatdan boshlashingiz, katalogdan tayyor yechimni tanlashingiz yoki biznesingiz uchun maxsus yechim buyurtma qilishingiz mumkin.
+136|Sun’iy intellektni biznes jarayonlariga qanday joriy etish mumkin?
+137|Vazifani sun’iy intellekt agentiga matn, ovoz yoki video qo‘ng‘iroq orqali tushuntirasiz. Agent so‘rovingizning qisqacha mazmunini tuzadi, texnik mutaxassis tayyor yechimni siz uchun moslashtiradi, ertasi kuni esa vosita allaqachon ilovada bo‘ladi.
+138|Sun’iy intellektni joriy etish qancha turadi?
+139|Tadqiqotchi tarifi bepul. Mentor oyiga $20 yoki bir yilga birdaniga to‘langanda oyiga $18 (yiliga $216) turadi. Integrator narxi individual: xarajat bahosini chatda 10 daqiqada olishingiz mumkin.
+140|Katalogda qanday tayyor yechimlar bor?
+141|Fitnes CRM, kompaniyalar guruhi uchun soliq agenti, qurilish hisobi, mehmonxona so‘rovlari uchun bron CRM, shuningdek SEO va GEO sozlash.
+142|Sun’iy intellekt xodimni yoki butun bir funksiyani almashtira oladimi?
+143|Buning uchun Integrator tarifi bor: ROBORAB kompaniyangizning ichki jarayonlariga o‘rnatiladi va aniq bir odam yoki yo‘nalish ishini o‘z zimmasiga oladi. Siz pul va vaqtni tejaysiz.
+144|Mentor Tadqiqotchidan nimasi bilan farq qiladi?
+145|Tadqiqotchi — biznes haqida sun’iy intellekt bilan suhbat: siz ulashgan ma’lumotga asoslangan tavsiyalar va amaliy maslahatlar. Mentor tadbirkorlik tafakkurini shakllantirishga yordam beradi va klassik boshqaruv hamda falsafiy fikrga tayanadi: stoiklar, Shopengauer, Filip Kotler. Obunaga shuningdek tijoriy takliflar, investorlar va davlat grantlari uchun biznes-rejalar kiradi.
+146|Sayt qaysi tillarda mavjud?
+147|Sayt va agent bilan chat 50 dan ortiq tilda mavjud. Tilni birinchi ekranning yuqori o‘ng burchagidagi globus tugmasi bilan almashtirasiz.

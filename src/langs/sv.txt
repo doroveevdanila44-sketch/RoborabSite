@@ -142,3 +142,18 @@
 130|Eller 18 $ per månad om du betalar för ett helt år (216 $ per år)
 131|ROBORAB: artificiell intelligens i era affärsprocesser
 132|ROBORAB inför AI-agenter i affärsprocesser: fitness-CRM, skatteagent, byggredovisning, boknings-CRM, SEO och GEO. Börja gratis, prenumeration från 20 $ per månad.
+133|Vanliga frågor
+134|Vad är ROBORAB?
+135|ROBORAB inför AI-agenter i företags affärsprocesser. Du kan börja med ett gratis samtal med AI:n, välja en färdig lösning ur katalogen eller beställa en lösning byggd för ditt företag.
+136|Hur inför man artificiell intelligens i affärsprocesser?
+137|Du beskriver uppgiften för AI-agenten via text, tal eller videosamtal. Agenten skriver en sammanfattning av din förfrågan, en teknisk specialist anpassar en färdig lösning åt dig, och dagen därpå finns verktyget redan i appen.
+138|Vad kostar det att införa AI?
+139|Planen Upptäckare är gratis. Mentor kostar 20 $ per månad, eller 18 $ per månad vid betalning för ett helt år (216 $ per år). Integratör prissätts individuellt: du kan få en kostnadsuppskattning i chatten inom 10 minuter.
+140|Vilka färdiga lösningar finns i katalogen?
+141|Fitness-CRM, en skatteagent för en företagsgrupp, byggbokföring, ett boknings-CRM för hotellförfrågningar samt inställning av SEO och GEO.
+142|Kan AI ersätta en anställd eller en hel funktion?
+143|Det är vad planen Integratör är till för: ROBORAB byggs in i företagets interna processer och tar över arbetet för en viss person eller ett visst område. Du sparar pengar och tid.
+144|Hur skiljer sig Mentor från Upptäckare?
+145|Upptäckare är ett samtal med AI:n om affärer: rekommendationer baserade på den information du delar och praktiska råd. Mentor hjälper dig att utveckla ett entreprenörstänkande och bygger på klassiskt ledarskaps- och filosofiskt tänkande: stoikerna, Schopenhauer, Philip Kotler. Abonnemanget inkluderar även kommersiella offerter och affärsplaner för investerare och för statliga bidrag.
+146|På vilka språk finns webbplatsen?
+147|Webbplatsen och chatten med agenten finns på fler än 50 språk. Du byter språk med jordglobsknappen uppe till höger på första skärmen.

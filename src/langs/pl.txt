@@ -142,3 +142,18 @@
 130|Albo 18 $ miesięcznie przy płatności za cały rok (216 $ rocznie)
 131|ROBORAB: sztuczna inteligencja w procesach biznesowych
 132|ROBORAB wdraża agentów AI w procesy biznesowe: CRM dla fitness, agent podatkowy, księgowość budowlana, CRM rezerwacji, SEO i GEO. Zacznij za darmo, subskrypcja od 20 $ miesięcznie.
+133|Często zadawane pytania
+134|Czym jest ROBORAB?
+135|ROBORAB wdraża agentów AI w procesy biznesowe firm. Możesz zacząć od bezpłatnej rozmowy ze sztuczną inteligencją, wybrać gotowe rozwiązanie z katalogu albo zamówić rozwiązanie stworzone dla Twojej firmy.
+136|Jak wdrożyć sztuczną inteligencję w procesy biznesowe?
+137|Opisujesz zadanie agentowi AI tekstem, głosem lub w rozmowie wideo. Agent sporządza podsumowanie Twojego zapytania, specjalista techniczny dostosowuje dla Ciebie gotowe rozwiązanie, a następnego dnia narzędzie jest już w aplikacji.
+138|Ile kosztuje wdrożenie AI?
+139|Plan Odkrywca jest bezpłatny. Mentor kosztuje 20 $ miesięcznie lub 18 $ miesięcznie przy płatności za cały rok (216 $ rocznie). Cena planu Integrator jest indywidualna: wycenę możesz otrzymać na czacie w 10 minut.
+140|Jakie gotowe rozwiązania są w katalogu?
+141|CRM dla fitnessu, agent podatkowy dla grupy firm, księgowość budowlana, CRM rezerwacji dla zapytań hotelowych oraz konfiguracja SEO i GEO.
+142|Czy AI może zastąpić pracownika lub całą funkcję?
+143|Do tego służy plan Integrator: ROBORAB jest wbudowywany w wewnętrzne procesy firmy i przejmuje pracę konkretnej osoby lub obszaru. Oszczędzasz pieniądze i czas.
+144|Czym Mentor różni się od Odkrywcy?
+145|Odkrywca to rozmowa ze sztuczną inteligencją o biznesie: rekomendacje oparte na informacjach, którymi się dzielisz, i praktyczne porady. Mentor pomaga wypracować przedsiębiorcze myślenie i opiera się na klasycznej myśli zarządczej i filozoficznej: stoikach, Schopenhauerze, Philipie Kotlerze. Subskrypcja obejmuje też oferty handlowe oraz biznesplany dla inwestorów i dla dotacji rządowych.
+146|W jakich językach dostępna jest strona?
+147|Strona i czat z agentem są dostępne w ponad 50 językach. Język zmieniasz przyciskiem z globusem w prawym górnym rogu pierwszego ekranu.

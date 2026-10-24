@@ -142,3 +142,18 @@
 130|Ou 18 $ par mois si vous payez l’année entière (216 $ par an)
 131|ROBORAB : l’intelligence artificielle dans vos processus métier
 132|ROBORAB intègre des agents IA à vos processus métier : CRM fitness, agent fiscal, comptabilité de chantier, CRM de réservation, SEO et GEO. Démarrez gratuitement, abonnement dès 20 $ par mois.
+133|Questions fréquentes
+134|Qu’est-ce que ROBORAB ?
+135|ROBORAB déploie des agents d’IA dans les processus métier des entreprises. Vous pouvez commencer par une conversation gratuite avec l’IA, choisir une solution toute faite dans le catalogue ou commander une solution conçue pour votre activité.
+136|Comment mettre en place l’intelligence artificielle dans les processus métier ?
+137|Vous décrivez la tâche à l’agent d’IA par texte, par la voix ou en appel vidéo. L’agent rédige un résumé de votre demande, un spécialiste technique personnalise une solution toute faite pour vous, et le lendemain l’outil est déjà dans l’application.
+138|Combien coûte la mise en place de l’IA ?
+139|Le plan Explorateur est gratuit. Mentor coûte 20 $ par mois, ou 18 $ par mois si vous payez une année entière (216 $ par an). Le prix d’Intégrateur est individuel : vous pouvez obtenir une estimation du coût dans le chat en 10 minutes.
+140|Quelles solutions toutes faites le catalogue propose-t-il ?
+141|Un CRM fitness, un agent fiscal pour un groupe d’entreprises, la comptabilité de chantier, un CRM de réservation pour les demandes d’hôtel, ainsi que la configuration du SEO et du GEO.
+142|L’IA peut-elle remplacer un employé ou toute une fonction ?
+143|C’est le rôle du plan Intégrateur : ROBORAB s’intègre aux processus internes de votre entreprise et prend en charge le travail d’une personne ou d’un domaine précis. Vous économisez de l’argent et du temps.
+144|En quoi Mentor diffère-t-il d’Explorateur ?
+145|Explorateur est une conversation avec l’IA sur votre activité : des recommandations fondées sur les informations que vous partagez et des conseils pratiques. Mentor vous aide à développer un état d’esprit entrepreneurial et s’appuie sur la pensée classique du management et de la philosophie : les stoïciens, Schopenhauer, Philip Kotler. L’abonnement comprend aussi des propositions commerciales et des business plans pour les investisseurs et pour les subventions publiques.
+146|Dans quelles langues le site est-il disponible ?
+147|Le site et le chat avec l’agent sont disponibles dans plus de 50 langues. Vous changez de langue avec le bouton en forme de globe en haut à droite du premier écran.

@@ -141,3 +141,18 @@
 130|Või 18 $ kuus, kui maksad kogu aasta ette (216 $ aastas)
 131|ROBORAB: tehisintellekt äriprotsessides
 132|ROBORAB toob tehisintellekti agendid äriprotsessidesse: fitnessi CRM, maksuagent, ehitusarvestus, broneeringute CRM, SEO ja GEO. Alusta tasuta, tellimus alates 20 $ kuus.
+133|Korduma kippuvad küsimused
+134|Mis on ROBORAB?
+135|ROBORAB toob tehisintellekti agendid ettevõtete äriprotsessidesse. Võite alustada tasuta vestlusega tehisintellektiga, valida kataloogist valmislahenduse või tellida oma ettevõttele kohandatud lahenduse.
+136|Kuidas rakendada tehisintellekti äriprotsessides?
+137|Kirjeldate ülesande tehisintellekti agendile tekstina, häälega või videokõnes. Agent koostab teie päringust kokkuvõtte, tehniline spetsialist kohandab teile valmislahenduse ja järgmisel päeval on tööriist juba rakenduses.
+138|Kui palju maksab tehisintellekti rakendamine?
+139|Avastaja pakett on tasuta. Mentor maksab 20 $ kuus või 18 $ kuus, kui maksate kogu aasta ette (216 $ aastas). Integraatori hind on individuaalne: kuluhinnangu saate vestluses 10 minutiga.
+140|Millised valmislahendused on kataloogis?
+141|Fitnessi-CRM, maksuagent ettevõtete grupile, ehitusarvestus, broneerimis-CRM hotellipäringute jaoks ning SEO ja GEO seadistus.
+142|Kas tehisintellekt saab asendada töötaja või terve funktsiooni?
+143|Selleks on Integraatori pakett: ROBORAB ehitatakse teie ettevõtte sisemistesse protsessidesse ja see võtab üle konkreetse inimese või valdkonna töö. Säästate raha ja aega.
+144|Mille poolest Mentor Avastajast erineb?
+145|Avastaja on vestlus tehisintellektiga äri teemal: soovitused teie jagatud teabe põhjal ja praktilised nõuanded. Mentor aitab arendada ettevõtlikku mõtteviisi ning toetub klassikalisele juhtimis- ja filosoofilisele mõttele: stoikud, Schopenhauer, Philip Kotler. Tellimus sisaldab ka äripakkumisi ning äriplaane investoritele ja riiklikele toetustele.
+146|Millistes keeltes sait on saadaval?
+147|Sait ja vestlus agendiga on saadaval rohkem kui 50 keeles. Keelt muudate maakerakujulise nupuga esimese ekraani paremas ülanurgas.

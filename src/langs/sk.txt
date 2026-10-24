@@ -141,3 +141,18 @@
 130|Alebo 18 $ mesačne pri platbe za celý rok (216 $ ročne)
 131|ROBORAB: umelá inteligencia v obchodných procesoch
 132|ROBORAB zavádza AI agentov do obchodných procesov: fitness CRM, daňový agent, stavebné účtovníctvo, rezervačný CRM, SEO a GEO. Začnite zadarmo, predplatné od 20 $ mesačne.
+133|Často kladené otázky
+134|Čo je ROBORAB?
+135|ROBORAB zavádza AI agentov do podnikových procesov firiem. Môžete začať bezplatným rozhovorom s AI, vybrať hotové riešenie z katalógu alebo si objednať riešenie na mieru vášmu podnikaniu.
+136|Ako zaviesť umelú inteligenciu do podnikových procesov?
+137|Úlohu opíšete AI agentovi textom, hlasom alebo videohovorom. Agent vytvorí zhrnutie vašej požiadavky, technický špecialista upraví hotové riešenie pre vás a nasledujúci deň je nástroj už v aplikácii.
+138|Koľko stojí zavedenie AI?
+139|Tarif Prieskumník je zadarmo. Mentor stojí 20 $ mesačne, alebo 18 $ mesačne pri platbe za celý rok (216 $ ročne). Cena Integrátora je individuálna: odhad nákladov získate v chate do 10 minút.
+140|Aké hotové riešenia sú v katalógu?
+141|Fitness CRM, daňový agent pre skupinu firiem, stavebné účtovníctvo, rezervačné CRM pre požiadavky hotelov a nastavenie SEO a GEO.
+142|Môže AI nahradiť zamestnanca alebo celú funkciu?
+143|Na to slúži tarif Integrátor: ROBORAB sa zabuduje do vnútorných procesov firmy a prevezme prácu konkrétneho človeka alebo oblasti. Ušetríte peniaze aj čas.
+144|Čím sa Mentor líši od Prieskumníka?
+145|Prieskumník je rozhovor s AI o podnikaní: odporúčania na základe informácií, ktoré zdieľate, a praktické rady. Mentor pomáha budovať podnikateľské myslenie a čerpá z klasického manažérskeho a filozofického myslenia: stoikov, Schopenhauera, Philipa Kotlera. Predplatné zahŕňa aj obchodné ponuky a podnikateľské plány pre investorov a pre štátne granty.
+146|V akých jazykoch je web dostupný?
+147|Web aj chat s agentom sú dostupné vo viac ako 50 jazykoch. Jazyk zmeníte tlačidlom s glóbusom v pravom hornom rohu prvej obrazovky.

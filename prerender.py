@@ -30,6 +30,8 @@ def slug(cfg, l): return cfg['paths'][l]
 _src = (root / 'src' / 'index.src.html').read_text()
 PRODUCTS = [(re.search(r'<h3>(.*?)</h3>', sec, re.S).group(1), re.search(r'<p class="tag">(.*?)</p>', sec, re.S).group(1)) for sec in re.findall(r'<section class="product[^"]*" id="[^"]+">.*?(?=<section|</main>)', _src, flags=re.S)]
 
+FAQS = re.findall(r'<details><summary>(.*?)</summary><p>(.*?)</p></details>', _src, flags=re.S)
+
 def ld(l, cfg, T, Dsc, t):
     url = SITE + slug(cfg, l)
     org = {'@type': 'Organization', '@id': SITE + '/#org', 'name': 'ROBORAB' if l != 'ru' else 'РОБОРАБ', 'url': SITE + '/', 'logo': SITE + '/assets/appicon.webp'}
@@ -40,8 +42,9 @@ def ld(l, cfg, T, Dsc, t):
                       {'@type': 'Offer', 'name': t('Ментор'), 'url': url, 'priceCurrency': 'USD', 'priceSpecification': {'@type': 'UnitPriceSpecification', 'price': '20', 'priceCurrency': 'USD', 'unitCode': 'MON', 'billingDuration': 1}}]}
     svc['hasOfferCatalog'] = {'@type': 'OfferCatalog', 'name': t('Выбрать готовое решение в каталоге ниже'), 'itemListElement': [
         {'@type': 'Offer', 'itemOffered': {'@type': 'Service', 'name': H.unescape(t(n)), 'description': H.unescape(t(dsc)), 'provider': {'@id': SITE + '/#org'}}} for n, dsc in PRODUCTS]}
+    faq = {'@type': 'FAQPage', 'inLanguage': l, 'mainEntity': [{'@type': 'Question', 'name': H.unescape(t(q)), 'acceptedAnswer': {'@type': 'Answer', 'text': H.unescape(t(a))}} for q, a in FAQS]}
     org['description'] = Dsc; org['availableLanguage'] = l
-    return json.dumps({'@context': 'https://schema.org', '@graph': [org, site, page, svc]}, ensure_ascii=False)
+    return json.dumps({'@context': 'https://schema.org', '@graph': [org, site, page, svc, faq]}, ensure_ascii=False)
 
 def head_extra(l, cfg, langs, T, Dsc, t):
     url = SITE + slug(cfg, l)
