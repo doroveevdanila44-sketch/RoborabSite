@@ -76,14 +76,14 @@
 64|Työkalu on sinun
 65|Valmis ratkaisu on jo sovelluksessa.
 66|Kenelle ROBORAB on
-67|Kolme asteittaista pakettia: ilmaisesta keskustelusta yrityksellesi räätälöityihin ratkaisuihin.
+67|Tutkija sopii aloittamiseen. Mentori: jos sinulla ei vielä ole yritystä mutta on kunnianhimoa, autamme sinua. Integraattori: jos sinulla on jo yritys, olemme valmiita tekemään kaiken puolestasi.
 68|Paketin kuvake
-69|Paketti 1 · aloitukseen
+69|Tutkija
 70|Kysy tekoälyltä yrityksestäsi
 71|Keskustelu tekoälyn kanssa liiketoiminnasta: suositukset antamiesi tietojen perusteella ja käytännön neuvoja.
 72|Ilmainen
 73|Aloita
-74|Paketti 2 · yritystä ei vielä ole, mutta on kunnianhimoa
+74|Mentori
 75|Tekoälykeskustelija, joka opettaa ajattelemaan kuin yrittäjä
 76|Liiketoimintamentorin tila auttaa rakentamaan yrittäjän ajattelutavan ja jalostamaan idean tyhjästä. Se nojaa johtamisen ja filosofian klassiseen perustaan, joka on sovitettu yrittäjän käytäntöön.
 77|Stoalaiset
@@ -93,8 +93,8 @@
 81|Kaupalliset tarjoukset
 82|Liiketoimintasuunnitelmat sijoittajille
 83|Liiketoimintasuunnitelmat valtion avustuksiin
-85|tilaus
-86|Paketti 3 · yritys on jo olemassa
+85|kuukaudessa
+86|Integraattori
 87|Korvaamme työntekijän tai kokonaisen toiminnon
 88|ROBORAB integroituu sisäisiin prosesseihin ja ottaa hoitaakseen tietyn henkilön tai osaston työn. Säästät rahaa ja aikaa.
 89|Integroituu prosesseihin
@@ -138,3 +138,6 @@
 127|Maksutavat
 128|ja muut
 129|MIR
+130|Tai 18 $ kuukaudessa, kun maksat koko vuoden kerralla (216 $ vuodessa)
+131|ROBORAB: tekoäly liiketoimintaprosesseihin
+132|ROBORAB tuo tekoälyagentit liiketoimintaprosesseihin: kuntosalin CRM, veroagentti, rakennuskirjanpito, varaus-CRM, SEO ja GEO. Aloita ilmaiseksi, tilaus alkaen 20 $ kuukaudessa.

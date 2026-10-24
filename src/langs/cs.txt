@@ -76,14 +76,14 @@
 64|Nástroj je váš
 65|Hotové řešení je už v aplikaci.
 66|Pro koho je ROBORAB
-67|Tři postupné plány: od bezplatného rozhovoru po řešení na míru vašemu podnikání.
+67|Průzkumník je na začátek. Mentor: pokud ještě nemáte firmu, ale máte ambice, pomůžeme vám. Integrátor: pokud už firmu máte, jsme připraveni udělat všechno za vás.
 68|Ikona plánu
-69|Plán 1 · na start
+69|Průzkumník
 70|Zeptejte se AI na své podnikání
 71|Rozhovor s AI o podnikání: doporučení na základě vámi sdílených informací a praktické rady.
 72|Zdarma
 73|Začít
-74|Plán 2 · podnikání zatím není, ale ambice ano
+74|Mentor
 75|AI partner, který učí myslet jako podnikatel
 76|Režim obchodního mentora pomáhá vybudovat podnikatelské myšlení a rozpracovat nápad od nuly. Opírá se o klasický základ managementu a filozofie, přizpůsobený praxi podnikatele.
 77|Stoikové
@@ -94,8 +94,8 @@
 82|Podnikatelské plány pro investory
 83|Podnikatelské plány pro státní granty
 84|1 500 ₽
-85|předplatné
-86|Plán 3 · už podnikáte
+85|měsíčně
+86|Integrátor
 87|Nahradíme zaměstnance nebo celou funkci
 88|ROBORAB se zabuduje do interních procesů a převezme práci konkrétního člověka či úseku. Ušetříte peníze i čas.
 89|Zabudován do procesů
@@ -139,3 +139,6 @@
 127|Způsoby platby
 128|a další
 129|MIR
+130|Nebo 18 $ měsíčně při platbě za celý rok (216 $ ročně)
+131|ROBORAB: umělá inteligence v obchodních procesech
+132|ROBORAB zavádí AI agenty do obchodních procesů: fitness CRM, daňový agent, stavební účetnictví, rezervační CRM, SEO a GEO. Začněte zdarma, předplatné od 20 $ měsíčně.

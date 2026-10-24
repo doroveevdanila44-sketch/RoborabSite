@@ -76,14 +76,14 @@
 64|Công cụ đã thuộc về bạn
 65|Giải pháp hoàn chỉnh đã có trong ứng dụng.
 66|ROBORAB dành cho ai
-67|Ba gói nâng dần: từ trò chuyện miễn phí đến giải pháp riêng cho doanh nghiệp của bạn.
+67|Nhà thám hiểm phù hợp để bắt đầu. Cố vấn: nếu bạn chưa có doanh nghiệp nhưng có hoài bão, chúng tôi sẽ giúp bạn. Nhà tích hợp: nếu bạn đã có doanh nghiệp, chúng tôi sẵn sàng làm tất cả cho bạn.
 68|Biểu tượng gói
-69|Gói 1 · để bắt đầu
+69|Nhà thám hiểm
 70|Hỏi AI về doanh nghiệp của bạn
 71|Trò chuyện với AI về kinh doanh: đề xuất dựa trên thông tin bạn cung cấp và lời khuyên thực tế.
 72|Miễn phí
 73|Bắt đầu
-74|Gói 2 · chưa có doanh nghiệp nhưng có hoài bão
+74|Cố vấn
 75|Người đối thoại AI dạy bạn tư duy như một doanh nhân
 76|Chế độ cố vấn kinh doanh giúp xây dựng tư duy kinh doanh và phát triển ý tưởng từ con số không. Dựa trên nền tảng quản trị và triết học kinh điển, điều chỉnh theo thực tiễn của doanh nhân.
 77|Trường phái Khắc kỷ
@@ -94,8 +94,8 @@
 82|Kế hoạch kinh doanh cho nhà đầu tư
 83|Kế hoạch kinh doanh cho tài trợ nhà nước
 84|1.500 ₽
-85|đăng ký
-86|Gói 3 · bạn đã có doanh nghiệp
+85|mỗi tháng
+86|Nhà tích hợp
 87|Chúng tôi thay thế một nhân viên hoặc cả một chức năng
 88|ROBORAB được tích hợp vào quy trình nội bộ và đảm nhận công việc của một người hoặc một bộ phận cụ thể. Bạn tiết kiệm tiền và thời gian.
 89|Tích hợp vào quy trình
@@ -139,3 +139,6 @@
 127|Phương thức thanh toán
 128|và các loại khác
 129|MIR
+130|Hoặc $18 mỗi tháng khi trả trọn một năm ($216 mỗi năm)
+131|ROBORAB: đưa trí tuệ nhân tạo vào quy trình kinh doanh
+132|ROBORAB triển khai tác nhân AI vào quy trình kinh doanh: CRM phòng gym, tác nhân thuế, kế toán xây dựng, CRM đặt chỗ, SEO và GEO. Bắt đầu miễn phí, gói đăng ký từ $20 mỗi tháng.

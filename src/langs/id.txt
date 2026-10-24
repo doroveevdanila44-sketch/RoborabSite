@@ -76,14 +76,14 @@
 64|Alatnya menjadi milik Anda
 65|Solusi jadi sudah ada di aplikasi.
 66|ROBORAB untuk siapa
-67|Tiga paket bertahap: dari percakapan gratis hingga solusi khusus untuk bisnis Anda.
+67|Penjelajah cocok untuk memulai. Mentor: jika Anda belum punya bisnis tetapi punya ambisi, kami akan membantu. Integrator: jika Anda sudah punya bisnis, kami siap mengerjakan semuanya untuk Anda.
 68|Ikon paket
-69|Paket 1 · untuk memulai
+69|Penjelajah
 70|Tanyakan pada AI soal bisnis Anda
 71|Mengobrol dengan AI soal bisnis: rekomendasi berdasarkan informasi yang Anda berikan dan saran praktis.
 72|Gratis
 73|Mulai
-74|Paket 2 · belum punya bisnis, tapi punya ambisi
+74|Mentor
 75|Teman bicara AI yang mengajarkan berpikir seperti pengusaha
 76|Mode mentor bisnis membantu membangun pola pikir bisnis dan mematangkan ide dari nol. Bertumpu pada dasar klasik manajemen dan filsafat yang disesuaikan dengan praktik pengusaha.
 77|Kaum Stoa
@@ -94,8 +94,8 @@
 82|Rencana bisnis untuk investor
 83|Rencana bisnis untuk hibah pemerintah
 84|1.500 ₽
-85|langganan
-86|Paket 3 · Anda sudah punya bisnis
+85|per bulan
+86|Integrator
 87|Kami gantikan seorang karyawan atau seluruh fungsi
 88|ROBORAB tertanam dalam proses internal dan mengambil alih pekerjaan orang atau bagian tertentu. Anda menghemat uang dan waktu.
 89|Tertanam dalam proses
@@ -139,3 +139,6 @@
 127|Metode pembayaran
 128|dan lainnya
 129|MIR
+130|Atau $18 per bulan jika membayar setahun penuh ($216 per tahun)
+131|ROBORAB: kecerdasan buatan dalam proses bisnis
+132|ROBORAB menerapkan agen AI dalam proses bisnis: CRM kebugaran, agen pajak, akuntansi konstruksi, CRM pemesanan, SEO dan GEO. Mulai gratis, langganan mulai $20 per bulan.

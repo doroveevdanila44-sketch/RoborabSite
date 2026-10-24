@@ -76,14 +76,14 @@
 64|Sa iyo na ang tool
 65|Nasa app na ang tapos na solusyon.
 66|Para kanino ang ROBORAB
-67|Tatlong plano na paunti-unti: mula sa libreng usapan hanggang sa mga solusyong akma sa negosyo mo.
+67|Ang Tagapagsaliksik ay para sa simula. Ang Mentor: kung wala ka pang negosyo pero may ambisyon, tutulungan ka namin. Ang Integrator: kung may negosyo ka na, handa kaming gawin ang lahat para sa iyo.
 68|Icon ng plano
-69|Plano 1 · pang-simula
+69|Tagapagsaliksik
 70|Magtanong sa AI tungkol sa negosyo mo
 71|Pakikipag-usap sa AI tungkol sa negosyo: mga rekomendasyon batay sa impormasyong ibinigay mo at praktikal na payo.
 72|Libre
 73|Magsimula
-74|Plano 2 · wala pang negosyo, pero may ambisyon
+74|Mentor
 75|Isang AI na kausap na nagtuturo mag-isip tulad ng negosyante
 76|Tinutulungan ka ng business-mentor mode na bumuo ng pag-iisip ng negosyante at paunlarin ang ideya mula sa wala. Nakabatay sa klasikong pundasyon ng pamamahala at pilosopiya, iniangkop sa praktika ng negosyante.
 77|Ang mga Stoiko
@@ -93,8 +93,8 @@
 81|Mga komersyal na panukala
 82|Business plan para sa mga investor
 83|Business plan para sa mga gawad ng gobyerno
-85|subscription
-86|Plano 3 · may negosyo ka na
+85|kada buwan
+86|Integrator
 87|Papalitan namin ang isang empleyado o buong tungkulin
 88|Isinasama ang ROBORAB sa iyong mga panloob na proseso at inaako ang trabaho ng isang partikular na tao o seksyon. Nakakatipid ka ng pera at oras.
 89|Isinasama sa mga proseso
@@ -138,3 +138,6 @@
 127|Mga paraan ng pagbabayad
 128|at iba pa
 129|MIR
+130|O $18 kada buwan kung magbabayad ka para sa buong taon ($216 kada taon)
+131|ROBORAB: artificial intelligence sa mga proseso ng negosyo
+132|Ipinapatupad ng ROBORAB ang mga AI agent sa mga proseso ng negosyo: fitness CRM, tax agent, accounting sa konstruksiyon, booking CRM, SEO at GEO. Magsimula nang libre, subscription mula $20 kada buwan.

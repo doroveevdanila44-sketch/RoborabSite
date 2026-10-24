@@ -76,14 +76,14 @@
 64|Alat je vaš
 65|Gotovo rješenje već je u aplikaciji.
 66|Za koga je ROBORAB
-67|Tri postupna plana: od besplatnog razgovora do rješenja za vaš posao.
+67|Istraživač je za početak. Mentor: ako još nemate posao, ali imate ambicije, pomoći ćemo vam. Integrator: ako već imate posao, spremni smo sve učiniti umjesto vas.
 68|Ikona plana
-69|Plan 1 · za početak
+69|Istraživač
 70|Pitajte UI o svom poslu
 71|Razgovor s UI-jem o poslovanju: preporuke na temelju informacija koje dostavite i praktični savjeti.
 72|Besplatno
 73|Započni
-74|Plan 2 · još nemate posao, ali imate ambicije
+74|Mentor
 75|UI sugovornik koji uči razmišljati kao poduzetnik
 76|Način poslovnog mentora pomaže izgraditi poduzetničko razmišljanje i razraditi ideju od nule. Oslanja se na klasičnu upravljačku i filozofsku osnovu prilagođenu praksi poduzetnika.
 77|Stoici
@@ -93,8 +93,8 @@
 81|Komercijalne ponude
 82|Poslovni planovi za investitore
 83|Poslovni planovi za državne potpore
-85|pretplata
-86|Plan 3 · već imate posao
+85|mjesečno
+86|Integrator
 87|Zamijenit ćemo zaposlenika ili cijelu funkciju
 88|ROBORAB se ugrađuje u interne procese i preuzima posao određene osobe ili odjela. Štedite novac i vrijeme.
 89|Ugrađuje se u procese
@@ -138,3 +138,6 @@
 127|Načini plaćanja
 128|i drugi
 129|MIR
+130|Ili 18 $ mjesečno uz plaćanje cijele godine (216 $ godišnje)
+131|ROBORAB: umjetna inteligencija u poslovnim procesima
+132|ROBORAB uvodi AI agente u poslovne procese: fitness CRM, porezni agent, građevinsko računovodstvo, CRM za rezervacije, SEO i GEO. Počnite besplatno, pretplata od 20 $ mjesečno.

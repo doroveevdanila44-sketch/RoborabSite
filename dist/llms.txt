@@ -1,0 +1,69 @@
+# ROBORAB
+
+> ROBORAB deploys AI agents in business processes: fitness CRM, tax agent, construction accounting, booking CRM, SEO and GEO. Start free, subscription from $20 per month.
+
+ROBORAB deploys AI agents into B2B business processes. Plans: Explorer (free), Mentor ($20 per month, or $18 per month billed yearly), Integrator (custom price: replacing an employee or a whole function).
+
+## Products
+- Fitness CRM: clients, memberships, schedules, trainer payouts
+- Tax agent: group-of-companies taxes, actuals from 1C, forecasts and scenarios
+- Construction accounting: sites, materials and costs
+- Booking CRM: hotel booking requests in one window
+- SEO and GEO: setup, analytics, admin panels
+
+## Languages
+- [English (US)](https://roborab.vercel.app/)
+- [English (UK)](https://roborab.vercel.app/en-gb/)
+- [Español](https://roborab.vercel.app/es/)
+- [Français](https://roborab.vercel.app/fr/)
+- [中文](https://roborab.vercel.app/zh/)
+- [Afrikaans](https://roborab.vercel.app/af/)
+- [العربية](https://roborab.vercel.app/ar/)
+- [Հայերեն](https://roborab.vercel.app/hy/)
+- [Azərbaycanca](https://roborab.vercel.app/az/)
+- [Беларуская](https://roborab.vercel.app/be/)
+- [বাংলা](https://roborab.vercel.app/bn/)
+- [Български](https://roborab.vercel.app/bg/)
+- [Català](https://roborab.vercel.app/ca/)
+- [Hrvatski](https://roborab.vercel.app/hr/)
+- [Čeština](https://roborab.vercel.app/cs/)
+- [Dansk](https://roborab.vercel.app/da/)
+- [Nederlands](https://roborab.vercel.app/nl/)
+- [Eesti](https://roborab.vercel.app/et/)
+- [Filipino](https://roborab.vercel.app/fil/)
+- [Suomi](https://roborab.vercel.app/fi/)
+- [ქართული](https://roborab.vercel.app/ka/)
+- [Deutsch](https://roborab.vercel.app/de/)
+- [Ελληνικά](https://roborab.vercel.app/el/)
+- [עברית](https://roborab.vercel.app/he/)
+- [हिन्दी](https://roborab.vercel.app/hi/)
+- [Magyar](https://roborab.vercel.app/hu/)
+- [Bahasa Indonesia](https://roborab.vercel.app/id/)
+- [Italiano](https://roborab.vercel.app/it/)
+- [日本語](https://roborab.vercel.app/ja/)
+- [Қазақша](https://roborab.vercel.app/kk/)
+- [한국어](https://roborab.vercel.app/ko/)
+- [Latviešu](https://roborab.vercel.app/lv/)
+- [Lietuvių](https://roborab.vercel.app/lt/)
+- [Bahasa Melayu](https://roborab.vercel.app/ms/)
+- [मराठी](https://roborab.vercel.app/mr/)
+- [Norsk](https://roborab.vercel.app/nb/)
+- [فارسی](https://roborab.vercel.app/fa/)
+- [Polski](https://roborab.vercel.app/pl/)
+- [Português](https://roborab.vercel.app/pt/)
+- [Română](https://roborab.vercel.app/ro/)
+- [Русский](https://roborab.vercel.app/ru/)
+- [Српски](https://roborab.vercel.app/sr/)
+- [Slovenčina](https://roborab.vercel.app/sk/)
+- [Slovenščina](https://roborab.vercel.app/sl/)
+- [Kiswahili](https://roborab.vercel.app/sw/)
+- [Svenska](https://roborab.vercel.app/sv/)
+- [தமிழ்](https://roborab.vercel.app/ta/)
+- [తెలుగు](https://roborab.vercel.app/te/)
+- [ไทย](https://roborab.vercel.app/th/)
+- [Türkçe](https://roborab.vercel.app/tr/)
+- [Українська](https://roborab.vercel.app/uk/)
+- [اردو](https://roborab.vercel.app/ur/)
+- [Oʻzbekcha](https://roborab.vercel.app/uz/)
+- [Tiếng Việt](https://roborab.vercel.app/vi/)
+- [Русский](https://roborab.vercel.app/ru/)

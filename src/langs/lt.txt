@@ -76,14 +76,14 @@
 64|Įrankis jūsų
 65|Paruoštas sprendimas jau programėlėje.
 66|Kam skirtas ROBORAB
-67|Trys laipsniški planai: nuo nemokamo pokalbio iki sprendimų jūsų verslui.
+67|Tyrinėtojas tinka pradžiai. Mentorius – jei verslo dar neturite, bet turite ambicijų: padėsime jums. Integratorius – jei verslą jau turite: esame pasiruošę viską padaryti už jus.
 68|Plano piktograma
-69|1 planas · pradžiai
+69|Tyrinėtojas
 70|Paklauskite DI apie savo verslą
 71|Pokalbis su DI apie verslą: rekomendacijos pagal jūsų pateiktą informaciją ir praktiniai patarimai.
 72|Nemokamai
 73|Pradėti
-74|2 planas · verslo dar nėra, bet yra ambicijų
+74|Mentorius
 75|DI pašnekovas, mokantis mąstyti kaip verslininkas
 76|Verslo mentoriaus režimas padeda ugdyti verslininko mąstymą ir iš nulio išplėtoti idėją. Remiasi klasikiniu vadybos ir filosofijos pagrindu, pritaikytu verslininko praktikai.
 77|Stoikai
@@ -93,8 +93,8 @@
 81|Komerciniai pasiūlymai
 82|Verslo planai investuotojams
 83|Verslo planai valstybės dotacijoms
-85|prenumerata
-86|3 planas · verslą jau turite
+85|per mėnesį
+86|Integratorius
 87|Pakeisime darbuotoją arba visą funkciją
 88|ROBORAB integruojamas į vidinius procesus ir perima konkretaus žmogaus ar padalinio darbą. Taupote pinigus ir laiką.
 89|Integruojamas į procesus
@@ -138,3 +138,6 @@
 127|Mokėjimo būdai
 128|ir kiti
 129|MIR
+130|Arba 18 $ per mėnesį, mokant už visus metus iš karto (216 $ per metus)
+131|ROBORAB: dirbtinis intelektas verslo procesuose
+132|ROBORAB diegia DI agentus verslo procesuose: sporto klubo CRM, mokesčių agentas, statybų apskaita, rezervacijų CRM, SEO ir GEO. Pradėkite nemokamai, prenumerata nuo 20 $ per mėnesį.

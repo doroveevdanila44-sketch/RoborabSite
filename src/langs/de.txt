@@ -76,14 +76,14 @@
 64|Das Tool gehört Ihnen
 65|Die fertige Lösung ist bereits in der App.
 66|Für wen ROBORAB ist
-67|Drei aufeinander aufbauende Pläne: vom kostenlosen Gespräch bis zu Lösungen für Ihr Unternehmen.
+67|Entdecker passt für den Start. Mentor: wenn Sie noch kein Unternehmen haben, aber Ambitionen – wir helfen Ihnen. Integrator: wenn Sie bereits ein Unternehmen haben – wir übernehmen alles für Sie.
 68|Plan-Symbol
-69|Plan 1 · für den Start
+69|Entdecker
 70|Fragen Sie die KI zu Ihrem Geschäft
 71|Gespräch mit der KI zu Geschäftsthemen: Empfehlungen auf Basis Ihrer Angaben und praktische Tipps.
 72|Kostenlos
 73|Starten
-74|Plan 2 · noch kein Unternehmen, aber Ehrgeiz
+74|Mentor
 75|Ein KI-Gesprächspartner, der unternehmerisches Denken lehrt
 76|Der Business-Mentor-Modus hilft, unternehmerisches Denken aufzubauen und eine Idee von null auszuarbeiten. Er stützt sich auf klassische Management- und Philosophiegrundlagen, angepasst an die Praxis von Unternehmern.
 77|Die Stoiker
@@ -94,8 +94,8 @@
 82|Businesspläne für Investoren
 83|Businesspläne für staatliche Förderungen
 84|1.500 ₽
-85|Abo
-86|Plan 3 · Sie haben bereits ein Unternehmen
+85|pro Monat
+86|Integrator
 87|Wir ersetzen einen Mitarbeiter oder eine ganze Funktion
 88|ROBORAB wird in Ihre internen Prozesse eingebettet und übernimmt die Arbeit einer bestimmten Person oder eines Bereichs. Sie sparen Geld und Zeit.
 89|In Prozesse eingebettet
@@ -139,3 +139,6 @@
 127|Zahlungsarten
 128|und weitere
 129|MIR
+130|Oder 18 $ pro Monat bei Zahlung für ein ganzes Jahr (216 $ pro Jahr)
+131|ROBORAB: Künstliche Intelligenz in Ihren Geschäftsprozessen
+132|ROBORAB integriert KI-Agenten in Geschäftsprozesse: Fitness-CRM, Steuer-Agent, Bauabrechnung, Buchungs-CRM, SEO und GEO. Kostenlos starten, Abo ab 20 $ pro Monat.

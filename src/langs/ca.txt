@@ -76,14 +76,14 @@
 64|L'eina és vostra
 65|La solució acabada ja és a l'aplicació.
 66|Per a qui és ROBORAB
-67|Tres plans progressius: d'una conversa gratuïta a solucions a mida del vostre negoci.
+67|Explorador és per començar. Mentor: si encara no teniu negoci però teniu ambició, us ajudarem. Integrador: si ja teniu un negoci, estem preparats per fer-ho tot per vosaltres.
 68|Icona del pla
-69|Pla 1 · per començar
+69|Explorador
 70|Pregunteu a la IA sobre el vostre negoci
 71|Conversa amb la IA sobre negocis: recomanacions basades en la informació que doneu i consells pràctics.
 72|Gratuït
 73|Comença
-74|Pla 2 · encara no teniu negoci, però teniu ambició
+74|Mentor
 75|Un interlocutor d'IA que us ensenya a pensar com un emprenedor
 76|El mode mentor de negocis ajuda a construir una mentalitat empresarial i a treballar una idea des de zero. Es basa en la base clàssica de gestió i filosofia, adaptada a la pràctica de l'emprenedor.
 77|Els estoics
@@ -93,8 +93,8 @@
 81|Propostes comercials
 82|Plans de negoci per a inversors
 83|Plans de negoci per a subvencions públiques
-85|subscripció
-86|Pla 3 · ja teniu un negoci
+85|al mes
+86|Integrador
 87|Substituirem un empleat o una funció sencera
 88|ROBORAB s'integra als processos interns i assumeix la feina d'una persona o àrea concreta. Estalvieu diners i temps.
 89|S'integra als processos
@@ -138,3 +138,6 @@
 127|Formes de pagament
 128|i altres
 129|MIR
+130|O 18 $ al mes si pagueu l’any sencer (216 $ a l’any)
+131|ROBORAB: intel·ligència artificial als processos de negoci
+132|ROBORAB implanta agents d’IA als processos de negoci: CRM de fitness, agent fiscal, comptabilitat d’obra, CRM de reserves, SEO i GEO. Comenceu gratis, subscripció des de 20 $ al mes.

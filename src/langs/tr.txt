@@ -76,14 +76,14 @@
 64|Araç sizde
 65|Hazır çözüm artık uygulamada.
 66|ROBORAB kimler için
-67|Kademeli üç plan: ücretsiz sohbetten işinize özel çözümlere.
+67|Kâşif başlangıç içindir. Mentor: henüz bir işiniz yok ama hedefleriniz varsa size yardım edeceğiz. Entegratör: zaten bir işiniz varsa her şeyi sizin için yapmaya hazırız.
 68|Plan simgesi
-69|Plan 1 · başlangıç için
+69|Kâşif
 70|İşiniz hakkında yapay zekâya sorun
 71|İş dünyasında yapay zekâyla sohbet: verdiğiniz bilgilere dayalı öneriler ve pratik tavsiyeler.
 72|Ücretsiz
 73|Başla
-74|Plan 2 · henüz işiniz yok ama hedefiniz var
+74|Mentor
 75|Girişimci gibi düşünmeyi öğreten yapay zekâ sohbet ortağı
 76|İş mentoru modu, girişimci zihniyetini kurmanıza ve fikri sıfırdan geliştirmenize yardımcı olur. Girişimcinin pratiğine uyarlanmış klasik yönetim ve felsefe temeline dayanır.
 77|Stoacılar
@@ -94,8 +94,8 @@
 82|Yatırımcılar için iş planları
 83|Devlet hibeleri için iş planları
 84|1.500 ₽
-85|abonelik
-86|Plan 3 · zaten bir işiniz var
+85|aylık
+86|Entegratör
 87|Bir çalışanın veya tüm bir işlevin yerini alırız
 88|ROBORAB iç süreçlerinize yerleşir ve belirli bir kişinin veya alanın işini üstlenir. Para ve zaman kazanırsınız.
 89|Süreçlere entegre olur
@@ -139,3 +139,6 @@
 127|Ödeme yöntemleri
 128|ve diğerleri
 129|MIR
+130|Ya da tüm yılı peşin ödeyince ayda 18 $ (yılda 216 $)
+131|ROBORAB: iş süreçlerinize yapay zekâ entegrasyonu
+132|ROBORAB, iş süreçlerine yapay zekâ ajanları entegre eder: fitness CRM, vergi ajanı, inşaat muhasebesi, rezervasyon CRM, SEO ve GEO. Ücretsiz başlayın, abonelik ayda 20 $'dan.

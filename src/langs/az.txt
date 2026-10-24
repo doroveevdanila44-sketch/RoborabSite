@@ -76,14 +76,14 @@
 64|Alət sizindir
 65|Hazır həll artıq tətbiqdədir.
 66|ROBORAB kimlər üçündür
-67|Üç pilləli plan: pulsuz söhbətdən biznesinizə uyğun həllərə qədər.
+67|Tədqiqatçı başlamaq üçündür. Mentor: hələ biznesiniz yoxdursa, amma hədəfləriniz varsa, sizə kömək edəcəyik. İnteqrator: biznesiniz artıq varsa, hər şeyi sizin üçün etməyə hazırıq.
 68|Plan nişanı
-69|Plan 1 · başlamaq üçün
+69|Tədqiqatçı
 70|Biznesiniz barədə süni intellektdən soruşun
 71|Biznes haqqında süni intellektlə söhbət: verdiyiniz məlumata əsaslanan tövsiyələr və praktik məsləhətlər.
 72|Pulsuz
 73|Başla
-74|Plan 2 · hələ biznes yoxdur, amma hədəf var
+74|Mentor
 75|Sizə sahibkar kimi düşünməyi öyrədən süni intellekt həmsöhbəti
 76|Biznes mentor rejimi sahibkar təfəkkürünü formalaşdırmağa və ideyanı sıfırdan işləməyə kömək edir. İdarəetmə və fəlsəfənin klassik əsasına söykənir və sahibkarın təcrübəsinə uyğunlaşdırılıb.
 77|Stoiklər
@@ -93,8 +93,8 @@
 81|Kommersiya təklifləri
 82|İnvestorlar üçün biznes planlar
 83|Dövlət qrantları üçün biznes planlar
-85|abunə
-86|Plan 3 · artıq biznesiniz var
+85|aylıq
+86|İnteqrator
 87|Bir işçini və ya bütöv funksiyanı əvəz edəcəyik
 88|ROBORAB daxili proseslərə inteqrasiya olunur və konkret şəxsin və ya şöbənin işini öz üzərinə götürür. Pula və vaxta qənaət edirsiniz.
 89|Proseslərə inteqrasiya olunur
@@ -138,3 +138,6 @@
 127|Ödəniş üsulları
 128|və digərləri
 129|MIR
+130|Və ya bütün ili birdəfəlik ödəsəniz ayda 18 $ (ildə 216 $)
+131|ROBORAB: biznes proseslərində süni intellekt
+132|ROBORAB biznes proseslərinə süni intellekt agentləri tətbiq edir: fitnes CRM, vergi agenti, tikinti mühasibatlığı, rezervasiya CRM, SEO və GEO. Pulsuz başlayın, abunə ayda 20 $-dan.

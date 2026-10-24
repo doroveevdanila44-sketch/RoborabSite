@@ -76,14 +76,14 @@
 64|Rīks ir jūsu
 65|Gatavais risinājums jau ir lietotnē.
 66|Kam paredzēts ROBORAB
-67|Trīs pakāpeniski plāni: no bezmaksas sarunas līdz risinājumiem jūsu uzņēmumam.
+67|Pētnieks ir piemērots sākumam. Mentors — ja uzņēmuma vēl nav, bet ir ambīcijas: mēs jums palīdzēsim. Integrators — ja uzņēmums jau ir: esam gatavi izdarīt visu jūsu vietā.
 68|Plāna ikona
-69|1. plāns · sākumam
+69|Pētnieks
 70|Pajautājiet MI par savu biznesu
 71|Saruna ar MI par biznesu: ieteikumi, balstoties uz jūsu sniegto informāciju, un praktiski padomi.
 72|Bez maksas
 73|Sākt
-74|2. plāns · biznesa vēl nav, bet ir ambīcijas
+74|Mentors
 75|MI sarunbiedrs, kas māca domāt kā uzņēmējam
 76|Biznesa mentora režīms palīdz veidot uzņēmēja domāšanu un attīstīt ideju no nulles. Balstās uz klasisko vadības un filozofijas pamatu, pielāgotu uzņēmēja praksei.
 77|Stoiķi
@@ -93,8 +93,8 @@
 81|Komerciālie piedāvājumi
 82|Biznesa plāni investoriem
 83|Biznesa plāni valsts grantiem
-85|abonements
-86|3. plāns · bizness jau ir
+85|mēnesī
+86|Integrators
 87|Aizstāsim darbinieku vai veselu funkciju
 88|ROBORAB iebūvējas iekšējos procesos un pārņem konkrēta cilvēka vai nodaļas darbu. Jūs ietaupāt naudu un laiku.
 89|Iebūvējas procesos
@@ -138,3 +138,6 @@
 127|Maksājumu veidi
 128|un citi
 129|MIR
+130|Vai 18 $ mēnesī, ja maksājat par visu gadu uzreiz (216 $ gadā)
+131|ROBORAB: mākslīgais intelekts biznesa procesos
+132|ROBORAB ievieš MI aģentus biznesa procesos: fitnesa CRM, nodokļu aģents, būvniecības uzskaite, rezervāciju CRM, SEO un GEO. Sāciet bez maksas, abonements no 20 $ mēnesī.

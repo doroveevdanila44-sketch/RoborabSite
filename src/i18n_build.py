@@ -5,8 +5,8 @@ def _load(path, name):
 def make(root):
     src = pathlib.Path(root) / 'src'
     en_m = _load(src / 'i18n.en.py', 'i18n_en'); zh_m = _load(src / 'i18n.zh.py', 'i18n_zh')
-    keys = list(en_m.EN) + ['Замена сотрудника или функции', 'Способы оплаты', 'и другие', 'МИР']
-    EN = dict(en_m.EN); EN['Замена сотрудника или функции'] = 'Employee or function replacement'; EN['Способы оплаты'] = 'Payment methods'; EN['и другие'] = 'and others'; EN['МИР'] = 'MIR'
+    keys = list(en_m.EN) + ['Замена сотрудника или функции', 'Способы оплаты', 'и другие', 'МИР', 'Или $18 в месяц при оплате сразу за год ($216 в год)', 'РОБОРАБ: внедрение искусственного интеллекта в бизнес-процессы', 'РОБОРАБ внедряет ИИ-агентов в бизнес-процессы: фитнес-CRM, налоговый агент, строй-учёт, букинг-CRM, SEO и GEO. Начните бесплатно, подписка — от $20 в месяц.']
+    EN = dict(en_m.EN); EN['Замена сотрудника или функции'] = 'Employee or function replacement'; EN['Способы оплаты'] = 'Payment methods'; EN['и другие'] = 'and others'; EN['МИР'] = 'MIR'; EN['Или $18 в месяц при оплате сразу за год ($216 в год)'] = 'Or $18 per month when you pay for a full year ($216 per year)'; EN['РОБОРАБ: внедрение искусственного интеллекта в бизнес-процессы'] = 'ROBORAB: implementing artificial intelligence in business processes'; EN['РОБОРАБ внедряет ИИ-агентов в бизнес-процессы: фитнес-CRM, налоговый агент, строй-учёт, букинг-CRM, SEO и GEO. Начните бесплатно, подписка — от $20 в месяц.'] = 'ROBORAB deploys AI agents in business processes: fitness CRM, tax agent, construction accounting, booking CRM, SEO and GEO. Start free, subscription from $20 per month.'
     D, HT, META, NAMES, SORT = {}, {}, {}, {}, {}
     D['en'] = EN; HT['en'] = {'top': en_m.HTML['top'], 'bot': en_m.HTML['bot']}
     META['en'] = dict(hi='Hello, {n}! I am the ROBORAB AI agent.', hi0='Hello! I am the ROBORAB AI agent.',
@@ -17,7 +17,7 @@ def make(root):
     NAMES['en'] = 'English (US)'
     D['en-GB'] = {k: v.replace('customizes', 'customises') for k, v in EN.items()}
     HT['en-GB'] = HT['en']; META['en-GB'] = META['en']; NAMES['en-GB'] = 'English (UK)'
-    zh = dict(zh_m.ZH); zh['Способы оплаты'] = '支付方式'; zh['и другие'] = '及其他'; zh['МИР'] = 'MIR'; D['zh'] = zh; HT['zh'] = {'top': zh_m.HTML['top'], 'bot': zh_m.HTML['bot']}
+    zh = dict(zh_m.ZH); zh['Способы оплаты'] = '支付方式'; zh['и другие'] = '及其他'; zh['МИР'] = 'MIR'; zh['РОБОРАБ: внедрение искусственного интеллекта в бизнес-процессы'] = 'ROBORAB：将人工智能引入业务流程'; zh['РОБОРАБ внедряет ИИ-агентов в бизнес-процессы: фитнес-CRM, налоговый агент, строй-учёт, букинг-CRM, SEO и GEO. Начните бесплатно, подписка — от $20 в месяц.'] = 'ROBORAB 将 AI 智能体引入业务流程：健身 CRM、税务智能体、施工核算、预订 CRM、SEO 与 GEO。免费开始，订阅每月 $20 起。'; zh['Или $18 в месяц при оплате сразу за год ($216 в год)'] = '或一次性按年付费，每月仅 $18（全年 $216）'; D['zh'] = zh; HT['zh'] = {'top': zh_m.HTML['top'], 'bot': zh_m.HTML['bot']}
     META['zh'] = dict(hi='你好，{n}！我是 ROBORAB AI 助手。', hi0='你好！我是 ROBORAB AI 助手。',
         known='您对产品“{p}”感兴趣。我会问几个问题来了解您的任务。', unk='我会问几个问题来了解您的需求。',
         q=['您的公司是做什么的？', '您想自动化哪项任务或流程？', '有多少人会使用这个工具？', '谢谢，这些已足够初步了解。聊天接入后，对话将在此继续。'],
@@ -45,7 +45,8 @@ def make(root):
     top = ['en', 'en-GB', 'es', 'fr', 'zh']
     rest = sorted([c for c in NAMES if c not in top], key=lambda c: SORT[c])
     order = top + rest
-    cfg = dict(order=order, top=len(top), names=NAMES, ru_t={})
+    paths = {c: ('/' if c == 'en' else '/' + c.lower() + '/') for c in order + ['ru']}
+    cfg = dict(order=order, top=len(top), names=NAMES, ru_t={}, paths=paths)
     js = (src / 'i18n.src.js').read_text()
     for tag, obj in (('/*D*/{}', D), ('/*HT*/{}', HT), ('/*META*/{}', META), ('/*CFG*/{}', cfg), ('/*EXTRA*/{}', {'title': {'РОБОРАБ': 'ROBORAB', 'РОБОРАБ AI': 'ROBORAB AI'}})):
         js = js.replace(tag, json.dumps(obj, ensure_ascii=False))

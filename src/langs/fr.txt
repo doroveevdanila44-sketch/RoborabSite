@@ -76,14 +76,14 @@
 64|L'outil est à vous
 65|La solution finalisée est déjà dans l'application.
 66|Pour qui est ROBORAB
-67|Trois formules progressives : de la conversation gratuite aux solutions sur mesure pour votre entreprise.
+67|Explorateur convient pour démarrer. Mentor : si vous n’avez pas encore d’entreprise mais de l’ambition, nous vous aiderons. Intégrateur : si vous avez déjà une entreprise, nous sommes prêts à tout faire pour vous.
 68|Icône de la formule
-69|Formule 1 · pour démarrer
+69|Explorateur
 70|Posez vos questions business à l'IA
 71|Échanges avec l'IA sur le monde des affaires : recommandations fondées sur les informations que vous fournissez et conseils pratiques.
 72|Gratuit
 73|Commencer
-74|Formule 2 · pas encore d'entreprise, mais de l'ambition
+74|Mentor
 75|Un interlocuteur IA qui apprend à penser en entrepreneur
 76|Le mode mentor business aide à construire une mentalité d'entrepreneur et à travailler une idée de zéro. Il s'appuie sur les fondamentaux classiques du management et de la philosophie, adaptés à la pratique de l'entrepreneur.
 77|Les stoïciens
@@ -94,8 +94,8 @@
 82|Business plans pour investisseurs
 83|Business plans pour subventions publiques
 84|1 500 ₽
-85|abonnement
-86|Formule 3 · vous avez déjà une entreprise
+85|par mois
+86|Intégrateur
 87|Nous remplaçons un employé ou toute une fonction
 88|ROBORAB s'intègre à vos processus internes et prend en charge le travail d'une personne ou d'un secteur précis. Vous économisez argent et temps.
 89|S'intègre aux processus
@@ -139,3 +139,6 @@
 127|Moyens de paiement
 128|et autres
 129|MIR
+130|Ou 18 $ par mois si vous payez l’année entière (216 $ par an)
+131|ROBORAB : l’intelligence artificielle dans vos processus métier
+132|ROBORAB intègre des agents IA à vos processus métier : CRM fitness, agent fiscal, comptabilité de chantier, CRM de réservation, SEO et GEO. Démarrez gratuitement, abonnement dès 20 $ par mois.

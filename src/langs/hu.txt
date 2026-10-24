@@ -76,14 +76,14 @@
 64|Az eszköz az Öné
 65|A kész megoldás már az alkalmazásban van.
 66|Kinek szól a ROBORAB
-67|Három fokozatos csomag: az ingyenes beszélgetéstől a vállalkozására szabott megoldásokig.
+67|A Felfedező a kezdéshez való. A Mentor: ha még nincs vállalkozásod, de vannak ambícióid, segítünk. Az Integrátor: ha már van vállalkozásod, mindent kész vagyunk megcsinálni helyetted.
 68|Csomag ikonja
-69|1. csomag · az induláshoz
+69|Felfedező
 70|Kérdezze az MI-t a vállalkozásáról
 71|Beszélgetés az MI-vel üzleti témákban: az Ön által megadott információkra épülő ajánlások és gyakorlati tanácsok.
 72|Ingyenes
 73|Kezdés
-74|2. csomag · még nincs vállalkozása, de van ambíciója
+74|Mentor
 75|MI beszélgetőtárs, aki vállalkozói gondolkodásra tanít
 76|Az üzleti mentor mód segít kialakítani a vállalkozói gondolkodást, és az ötletet a nulláról kidolgozni. A vezetéstudomány és a filozófia klasszikus alapjaira épül, a vállalkozó gyakorlatához igazítva.
 77|A sztoikusok
@@ -93,8 +93,8 @@
 81|Kereskedelmi ajánlatok
 82|Üzleti tervek befektetőknek
 83|Üzleti tervek állami támogatásokhoz
-85|előfizetés
-86|3. csomag · már van vállalkozása
+85|havonta
+86|Integrátor
 87|Kiváltunk egy munkatársat vagy egy egész funkciót
 88|A ROBORAB beépül a belső folyamatokba, és átveszi egy adott személy vagy terület munkáját. Pénzt és időt takarít meg.
 89|Beépül a folyamatokba
@@ -138,3 +138,6 @@
 127|Fizetési módok
 128|és mások
 129|MIR
+130|Vagy havi 18 $ egész évre előre fizetve (évi 216 $)
+131|ROBORAB: mesterséges intelligencia az üzleti folyamatokban
+132|A ROBORAB AI-ügynököket vezet be az üzleti folyamatokba: fitnesz CRM, adóügynök, építőipari könyvelés, foglalási CRM, SEO és GEO. Kezdje ingyen, előfizetés havi 20 $-tól.

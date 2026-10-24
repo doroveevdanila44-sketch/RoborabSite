@@ -76,14 +76,14 @@
 64|Verktøyet er ditt
 65|Den ferdige løsningen er allerede i appen.
 66|Hvem ROBORAB er for
-67|Tre trinnvise planer: fra en gratis samtale til løsninger skreddersydd for bedriften din.
+67|Utforsker passer for å komme i gang. Mentor: hvis du ikke har en bedrift ennå, men har ambisjoner, hjelper vi deg. Integrator: hvis du allerede har en bedrift, er vi klare til å gjøre alt for deg.
 68|Planikon
-69|Plan 1 · for å komme i gang
+69|Utforsker
 70|Spør KI-en om bedriften din
 71|Samtale med KI-en om forretning: anbefalinger basert på informasjonen du gir, og praktiske råd.
 72|Gratis
 73|Kom i gang
-74|Plan 2 · ingen bedrift ennå, men ambisjoner
+74|Mentor
 75|En KI-samtalepartner som lærer deg å tenke som gründer
 76|Forretningsmentor-modusen hjelper deg å bygge gründertenkning og utvikle en idé fra bunnen av. Den bygger på det klassiske grunnlaget innen ledelse og filosofi, tilpasset gründerens praksis.
 77|Stoikerne
@@ -93,8 +93,8 @@
 81|Kommersielle tilbud
 82|Forretningsplaner for investorer
 83|Forretningsplaner for offentlige tilskudd
-85|abonnement
-86|Plan 3 · du har allerede en bedrift
+85|per måned
+86|Integrator
 87|Vi erstatter en ansatt eller en hel funksjon
 88|ROBORAB bygges inn i de interne prosessene og overtar arbeidet til en bestemt person eller avdeling. Du sparer penger og tid.
 89|Bygges inn i prosesser
@@ -138,3 +138,6 @@
 127|Betalingsmåter
 128|og andre
 129|MIR
+130|Eller 18 $ per måned når du betaler for et helt år (216 $ per år)
+131|ROBORAB: kunstig intelligens i forretningsprosessene dine
+132|ROBORAB innfører AI-agenter i forretningsprosesser: fitness-CRM, skatteagent, byggregnskap, bookings-CRM, SEO og GEO. Start gratis, abonnement fra 20 $ per måned.

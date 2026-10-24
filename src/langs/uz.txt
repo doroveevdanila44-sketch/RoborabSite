@@ -76,14 +76,14 @@
 64|Vosita sizniki
 65|Tayyor yechim allaqachon ilovada.
 66|ROBORAB kimlar uchun
-67|Uch bosqichli reja: bepul suhbatdan biznesingizga moslashtirilgan yechimlargacha.
+67|Tadqiqotchi boshlash uchun. Mentor: agar biznesingiz hali yoʻq, ammo intilishingiz bor boʻlsa, biz yordam beramiz. Integrator: agar biznesingiz allaqachon bor boʻlsa, hammasini siz uchun qilishga tayyormiz.
 68|Reja belgisi
-69|1-reja · boshlash uchun
+69|Tadqiqotchi
 70|Biznesingiz haqida sunʼiy intellektdan soʻrang
 71|Biznes haqida sunʼiy intellekt bilan suhbat: siz bergan maʼlumotga asoslangan tavsiyalar va amaliy maslahatlar.
 72|Bepul
 73|Boshlash
-74|2-reja · hali biznes yoʻq, lekin intilish bor
+74|Mentor
 75|Tadbirkorcha fikrlashni oʻrgatadigan sunʼiy intellekt suhbatdoshi
 76|Biznes-mentor rejimi tadbirkorlik tafakkurini shakllantirishga va gʻoyani noldan rivojlantirishga yordam beradi. U boshqaruv va falsafaning klassik asosiga tayanadi va tadbirkor amaliyotiga moslashtirilgan.
 77|Stoiklar
@@ -93,8 +93,8 @@
 81|Tijoriy takliflar
 82|Investorlar uchun biznes-rejalar
 83|Davlat grantlari uchun biznes-rejalar
-85|obuna
-86|3-reja · biznesingiz allaqachon bor
+85|oyiga
+86|Integrator
 87|Xodimni yoki butun bir vazifani almashtiramiz
 88|ROBORAB ichki jarayonlarga integratsiya qilinadi va muayyan odam yoki boʻlimning ishini zimmasiga oladi. Siz pul va vaqtni tejaysiz.
 89|Jarayonlarga integratsiya qilinadi
@@ -138,3 +138,6 @@
 127|Toʻlov usullari
 128|va boshqalar
 129|MIR
+130|Yoki butun yilni bir yoʻla toʻlasangiz oyiga $18 (yiliga $216)
+131|ROBORAB: biznes jarayonlarida sunʼiy intellekt
+132|ROBORAB biznes jarayonlariga sunʼiy intellekt agentlarini joriy qiladi: fitnes CRM, soliq agenti, qurilish hisobi, bron CRM, SEO va GEO. Bepul boshlang, obuna oyiga $20 dan.

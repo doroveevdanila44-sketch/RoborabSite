@@ -76,14 +76,14 @@
 64|Narzędzie jest Twoje
 65|Gotowe rozwiązanie jest już w aplikacji.
 66|Dla kogo jest ROBORAB
-67|Trzy plany o rosnącym zakresie: od bezpłatnej rozmowy po rozwiązania dla Twojego biznesu.
+67|Odkrywca jest na start. Mentor – jeśli nie masz jeszcze firmy, ale masz ambicje: pomożemy Ci. Integrator – jeśli firmę już masz: jesteśmy gotowi zrobić wszystko za Ciebie.
 68|Ikona planu
-69|Plan 1 · na start
+69|Odkrywca
 70|Zapytaj AI o swój biznes
 71|Rozmowa z AI o biznesie: rekomendacje na podstawie przekazanych informacji i praktyczne porady.
 72|Bezpłatnie
 73|Zacznij
-74|Plan 2 · biznesu jeszcze nie ma, ale są ambicje
+74|Mentor
 75|Rozmówca AI, który uczy myśleć jak przedsiębiorca
 76|Tryb mentora biznesowego pomaga zbudować przedsiębiorcze myślenie i dopracować pomysł od zera. Opiera się na klasycznej podstawie zarządzania i filozofii, dostosowanej do praktyki przedsiębiorcy.
 77|Stoicy
@@ -94,8 +94,8 @@
 82|Biznesplany dla inwestorów
 83|Biznesplany do dotacji rządowych
 84|1 500 ₽
-85|subskrypcja
-86|Plan 3 · masz już biznes
+85|miesięcznie
+86|Integrator
 87|Zastąpimy pracownika lub całą funkcję
 88|ROBORAB wbudowuje się w wewnętrzne procesy i przejmuje pracę konkretnej osoby lub działu. Oszczędzasz pieniądze i czas.
 89|Wbudowuje się w procesy
@@ -139,3 +139,6 @@
 127|Metody płatności
 128|i inne
 129|MIR
+130|Albo 18 $ miesięcznie przy płatności za cały rok (216 $ rocznie)
+131|ROBORAB: sztuczna inteligencja w procesach biznesowych
+132|ROBORAB wdraża agentów AI w procesy biznesowe: CRM dla fitness, agent podatkowy, księgowość budowlana, CRM rezerwacji, SEO i GEO. Zacznij za darmo, subskrypcja od 20 $ miesięcznie.

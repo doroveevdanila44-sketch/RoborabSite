@@ -76,14 +76,14 @@
 64|Tööriist on teie oma
 65|Valmislahendus on juba rakenduses.
 66|Kellele ROBORAB mõeldud on
-67|Kolm järk-järgulist plaani: tasuta vestlusest teie ärile loodud lahendusteni.
+67|Avastaja sobib alustamiseks. Mentor – kui ettevõtet veel pole, kuid ambitsioon on olemas: aitame sind. Integraator – kui ettevõte on juba olemas: oleme valmis tegema kõik sinu eest.
 68|Plaani ikoon
-69|Plaan 1 · alustamiseks
+69|Avastaja
 70|Küsige tehisintellektilt oma äri kohta
 71|Vestlus tehisintellektiga äriteemadel: soovitused teie antud teabe põhjal ja praktilised nõuanded.
 72|Tasuta
 73|Alusta
-74|Plaan 2 · äri veel pole, kuid on ambitsioon
+74|Mentor
 75|Tehisintellektist vestluspartner, kes õpetab mõtlema nagu ettevõtja
 76|Äri mentori režiim aitab kujundada ettevõtlikku mõtteviisi ja arendada ideed nullist. Tugineb juhtimise ja filosoofia klassikalisele alusele, mis on kohandatud ettevõtja praktikaga.
 77|Stoikud
@@ -93,8 +93,8 @@
 81|Kommertspakkumised
 82|Äriplaanid investoritele
 83|Äriplaanid riiklikele toetustele
-85|tellimus
-86|Plaan 3 · äri on juba olemas
+85|kuus
+86|Integraator
 87|Asendame töötaja või terve funktsiooni
 88|ROBORAB integreeritakse sisemistesse protsessidesse ja võtab üle konkreetse inimese või valdkonna töö. Säästate raha ja aega.
 89|Integreeritakse protsessidesse
@@ -138,3 +138,6 @@
 127|Makseviisid
 128|ja teised
 129|MIR
+130|Või 18 $ kuus, kui maksad kogu aasta ette (216 $ aastas)
+131|ROBORAB: tehisintellekt äriprotsessides
+132|ROBORAB toob tehisintellekti agendid äriprotsessidesse: fitnessi CRM, maksuagent, ehitusarvestus, broneeringute CRM, SEO ja GEO. Alusta tasuta, tellimus alates 20 $ kuus.

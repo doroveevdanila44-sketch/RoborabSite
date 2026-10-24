@@ -76,14 +76,14 @@
 64|De tool is van u
 65|De kant-en-klare oplossing staat al in de app.
 66|Voor wie ROBORAB is
-67|Drie opbouwende plannen: van een gratis gesprek tot oplossingen op maat van uw bedrijf.
+67|Ontdekker is om te beginnen. Mentor: als je nog geen bedrijf hebt, maar wel ambitie: wij helpen je. Integrator: als je al een bedrijf hebt: wij nemen alles voor je uit handen.
 68|Planpictogram
-69|Plan 1 · om te beginnen
+69|Ontdekker
 70|Vraag de AI over uw bedrijf
 71|Praten met de AI over zaken: aanbevelingen op basis van de informatie die u deelt en praktische adviezen.
 72|Gratis
 73|Beginnen
-74|Plan 2 · nog geen bedrijf, wel ambitie
+74|Mentor
 75|Een AI-gesprekspartner die leert denken als een ondernemer
 76|De zakenmentor-modus helpt u ondernemend te leren denken en een idee vanaf nul uit te werken. Gebaseerd op klassieke bestuurskundige en filosofische kennis, afgestemd op de praktijk van de ondernemer.
 77|De stoïcijnen
@@ -94,8 +94,8 @@
 82|Businessplannen voor investeerders
 83|Businessplannen voor overheidssubsidies
 84|1.500 ₽
-85|abonnement
-86|Plan 3 · u heeft al een bedrijf
+85|per maand
+86|Integrator
 87|Wij vervangen een medewerker of een hele functie
 88|ROBORAB wordt ingebouwd in uw interne processen en neemt het werk van een specifiek persoon of onderdeel over. U bespaart geld en tijd.
 89|Ingebouwd in processen
@@ -139,3 +139,6 @@
 127|Betaalmethoden
 128|en andere
 129|MIR
+130|Of $18 per maand als je het hele jaar vooruit betaalt ($216 per jaar)
+131|ROBORAB: kunstmatige intelligentie in uw bedrijfsprocessen
+132|ROBORAB brengt AI-agenten in bedrijfsprocessen: fitness-CRM, belastingagent, bouwadministratie, boekings-CRM, SEO en GEO. Begin gratis, abonnement vanaf $20 per maand.

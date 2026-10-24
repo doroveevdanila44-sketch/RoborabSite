@@ -76,14 +76,14 @@
 64|A ferramenta é sua
 65|A solução pronta já está no app.
 66|Para quem é a ROBORAB
-67|Três planos progressivos: de uma conversa gratuita a soluções sob medida para o seu negócio.
+67|Explorador serve para começar. Mentor: se você ainda não tem um negócio, mas tem ambição, vamos ajudar. Integrador: se você já tem um negócio, estamos prontos para fazer tudo por você.
 68|Ícone do plano
-69|Plano 1 · para começar
+69|Explorador
 70|Pergunte à IA sobre o seu negócio
 71|Conversa com a IA sobre negócios: recomendações com base nas informações que você fornece e conselhos práticos.
 72|Grátis
 73|Começar
-74|Plano 2 · ainda sem negócio, mas com ambição
+74|Mentor
 75|Um interlocutor de IA que ensina a pensar como empreendedor
 76|O modo mentor de negócios ajuda a construir mentalidade empreendedora e a desenvolver uma ideia do zero. Baseia-se na base clássica de gestão e filosofia, adaptada à prática do empreendedor.
 77|Os estoicos
@@ -94,8 +94,8 @@
 82|Planos de negócio para investidores
 83|Planos de negócio para subsídios públicos
 84|1.500 ₽
-85|assinatura
-86|Plano 3 · você já tem um negócio
+85|por mês
+86|Integrador
 87|Substituímos um funcionário ou uma função inteira
 88|A ROBORAB integra-se aos processos internos e assume o trabalho de uma pessoa ou área específica. Você economiza dinheiro e tempo.
 89|Integra-se aos processos
@@ -139,3 +139,6 @@
 127|Formas de pagamento
 128|e outras
 129|MIR
+130|Ou US$ 18 por mês pagando o ano inteiro (US$ 216 por ano)
+131|ROBORAB: inteligência artificial nos processos de negócio
+132|A ROBORAB implementa agentes de IA nos processos de negócio: CRM fitness, agente fiscal, contabilidade de obras, CRM de reservas, SEO e GEO. Comece grátis, assinatura a partir de US$ 20 por mês.

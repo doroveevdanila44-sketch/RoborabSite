@@ -76,14 +76,14 @@
 64|Zana ni yako
 65|Suluhisho lililokamilika tayari liko kwenye programu.
 66|ROBORAB ni ya nani
-67|Mipango mitatu ya hatua kwa hatua: kutoka mazungumzo ya bure hadi suluhisho zilizoundwa kwa biashara yako.
+67|Mchunguzi ni kwa kuanza. Mshauri: kama huna biashara bado lakini una malengo, tutakusaidia. Mjumuishaji: kama tayari una biashara, tuko tayari kukufanyia kila kitu.
 68|Ikoni ya mpango
-69|Mpango 1 · wa kuanzia
+69|Mchunguzi
 70|Uliza AI kuhusu biashara yako
 71|Mazungumzo na AI kuhusu biashara: mapendekezo kulingana na taarifa unazotoa na ushauri wa vitendo.
 72|Bure
 73|Anza
-74|Mpango 2 · bado huna biashara, lakini una malengo
+74|Mshauri
 75|Mwenzi wa mazungumzo wa AI anayekufundisha kufikiri kama mjasiriamali
 76|Hali ya mshauri wa biashara hukusaidia kujenga fikra za ujasiriamali na kukuza wazo kutoka sifuri. Inategemea msingi wa kale wa usimamizi na falsafa, uliorekebishwa kwa mazoezi ya mjasiriamali.
 77|Wastoiki
@@ -93,8 +93,8 @@
 81|Mapendekezo ya kibiashara
 82|Mipango ya biashara kwa wawekezaji
 83|Mipango ya biashara kwa ruzuku za serikali
-85|usajili
-86|Mpango 3 · tayari una biashara
+85|kwa mwezi
+86|Mjumuishaji
 87|Tutachukua nafasi ya mfanyakazi au kazi nzima
 88|ROBORAB huunganishwa kwenye michakato ya ndani na kuchukua kazi ya mtu au idara maalum. Unaokoa pesa na muda.
 89|Huunganishwa kwenye michakato
@@ -138,3 +138,6 @@
 127|Njia za malipo
 128|na nyinginezo
 129|MIR
+130|Au $18 kwa mwezi ukilipia mwaka mzima ($216 kwa mwaka)
+131|ROBORAB: akili bandia katika michakato ya biashara
+132|ROBORAB hutekeleza mawakala wa AI katika michakato ya biashara: CRM ya mazoezi, wakala wa kodi, uhasibu wa ujenzi, CRM ya uhifadhi, SEO na GEO. Anza bure, usajili kuanzia $20 kwa mwezi.

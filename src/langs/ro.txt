@@ -76,14 +76,14 @@
 64|Instrumentul este al dvs.
 65|Soluția finalizată este deja în aplicație.
 66|Pentru cine este ROBORAB
-67|Trei planuri progresive: de la o conversație gratuită la soluții pentru afacerea dvs.
+67|Explorator este pentru început. Mentor: dacă încă nu ai o afacere, dar ai ambiții, te ajutăm. Integrator: dacă ai deja o afacere, suntem gata să facem totul pentru tine.
 68|Pictograma planului
-69|Planul 1 · pentru început
+69|Explorator
 70|Întrebați IA-ul despre afacerea dvs.
 71|Discuție cu IA-ul despre afaceri: recomandări pe baza informațiilor oferite și sfaturi practice.
 72|Gratuit
 73|Începeți
-74|Planul 2 · încă nu aveți afacere, dar aveți ambiții
+74|Mentor
 75|Un interlocutor IA care vă învață să gândiți ca un antreprenor
 76|Modul mentor de afaceri vă ajută să vă formați gândirea antreprenorială și să dezvoltați o idee de la zero. Se bazează pe fundamentele clasice de management și filosofie, adaptate practicii antreprenorului.
 77|Stoicii
@@ -94,8 +94,8 @@
 82|Planuri de afaceri pentru investitori
 83|Planuri de afaceri pentru granturi guvernamentale
 84|1.500 ₽
-85|abonament
-86|Planul 3 · aveți deja o afacere
+85|pe lună
+86|Integrator
 87|Înlocuim un angajat sau o funcție întreagă
 88|ROBORAB se integrează în procesele interne și preia munca unei anumite persoane sau a unui compartiment. Economisiți bani și timp.
 89|Se integrează în procese
@@ -139,3 +139,6 @@
 127|Metode de plată
 128|și altele
 129|MIR
+130|Sau 18 $ pe lună dacă plătești pentru un an întreg (216 $ pe an)
+131|ROBORAB: inteligența artificială în procesele de afaceri
+132|ROBORAB implementează agenți IA în procesele de afaceri: CRM pentru fitness, agent fiscal, contabilitate pentru șantiere, CRM de rezervări, SEO și GEO. Începeți gratuit, abonament de la 20 $ pe lună.

@@ -76,14 +76,14 @@
 64|Alat ini milik anda
 65|Penyelesaian siap sudah ada dalam aplikasi.
 66|ROBORAB untuk siapa
-67|Tiga pelan berperingkat: daripada perbualan percuma hingga penyelesaian khusus untuk perniagaan anda.
+67|Peneroka sesuai untuk bermula. Mentor: jika anda belum ada perniagaan tetapi ada cita-cita, kami akan membantu. Integrator: jika anda sudah ada perniagaan, kami sedia melakukan segalanya untuk anda.
 68|Ikon pelan
-69|Pelan 1 · untuk bermula
+69|Peneroka
 70|Tanya AI tentang perniagaan anda
 71|Berbual dengan AI tentang perniagaan: cadangan berdasarkan maklumat yang anda berikan dan nasihat praktikal.
 72|Percuma
 73|Mula
-74|Pelan 2 · belum ada perniagaan, tetapi ada cita-cita
+74|Mentor
 75|Teman bual AI yang mengajar anda berfikir seperti usahawan
 76|Mod mentor perniagaan membantu membina minda perniagaan dan memperkembang idea dari sifar. Berasaskan asas klasik pengurusan dan falsafah yang disesuaikan dengan amalan usahawan.
 77|Kaum Stoik
@@ -93,8 +93,8 @@
 81|Cadangan komersial
 82|Pelan perniagaan untuk pelabur
 83|Pelan perniagaan untuk geran kerajaan
-85|langganan
-86|Pelan 3 · anda sudah ada perniagaan
+85|sebulan
+86|Integrator
 87|Kami gantikan seorang pekerja atau keseluruhan fungsi
 88|ROBORAB disepadukan ke dalam proses dalaman dan mengambil alih kerja individu atau bahagian tertentu. Anda jimat wang dan masa.
 89|Disepadukan dalam proses
@@ -138,3 +138,6 @@
 127|Kaedah pembayaran
 128|dan lain-lain
 129|MIR
+130|Atau $18 sebulan jika membayar untuk setahun penuh ($216 setahun)
+131|ROBORAB: kecerdasan buatan dalam proses perniagaan
+132|ROBORAB melaksanakan ejen AI dalam proses perniagaan: CRM kecergasan, ejen cukai, perakaunan pembinaan, CRM tempahan, SEO dan GEO. Mulakan percuma, langganan bermula $20 sebulan.

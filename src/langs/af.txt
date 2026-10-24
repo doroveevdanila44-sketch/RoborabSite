@@ -76,14 +76,14 @@
 64|Die hulpmiddel is joune
 65|Die voltooide oplossing is reeds in die toepassing.
 66|Vir wie ROBORAB is
-67|Drie stapsgewyse planne: van 'n gratis gesprek tot oplossings vir jou besigheid.
+67|Verkenner is om te begin. Mentor: as jy nog nie 'n besigheid het nie, maar wel ambisie, help ons jou. Integreerder: as jy reeds 'n besigheid het, is ons gereed om alles vir jou te doen.
 68|Planikoon
-69|Plan 1 · om te begin
+69|Verkenner
 70|Vra die KI oor jou besigheid
 71|Gesels met die KI oor besigheid: aanbevelings gebaseer op die inligting wat jy deel, en praktiese raad.
 72|Gratis
 73|Begin
-74|Plan 2 · nog geen besigheid nie, maar wel ambisie
+74|Mentor
 75|'n KI-gespreksgenoot wat jou leer dink soos 'n entrepreneur
 76|Die besigheidsmentor-modus help jou om 'n ondernemersingesteldheid te bou en 'n idee van nuuts af uit te werk. Dit steun op die klassieke grondslag van bestuur en filosofie, aangepas by die entrepreneur se praktyk.
 77|Die Stoïsyne
@@ -93,8 +93,8 @@
 81|Kommersiële voorstelle
 82|Sakeplanne vir beleggers
 83|Sakeplanne vir staatstoelaes
-85|intekening
-86|Plan 3 · jy het reeds 'n besigheid
+85|per maand
+86|Integreerder
 87|Ons vervang 'n werknemer of 'n hele funksie
 88|ROBORAB word in jou interne prosesse ingebou en neem die werk van 'n spesifieke persoon of afdeling oor. Jy bespaar geld en tyd.
 89|Ingebou in prosesse
@@ -138,3 +138,6 @@
 127|Betaalmetodes
 128|en ander
 129|MIR
+130|Of $18 per maand as jy vir 'n volle jaar betaal ($216 per jaar)
+131|ROBORAB: kunsmatige intelligensie in sakeprosesse
+132|ROBORAB implementeer KI-agente in sakeprosesse: fiksheids-CRM, belastingagent, bourekeningkunde, besprekings-CRM, SEO en GEO. Begin gratis, intekening vanaf $20 per maand.

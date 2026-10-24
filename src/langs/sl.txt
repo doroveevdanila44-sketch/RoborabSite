@@ -76,14 +76,14 @@
 64|Orodje je vaše
 65|Dokončana rešitev je že v aplikaciji.
 66|Za koga je ROBORAB
-67|Trije postopni načrti: od brezplačnega pogovora do rešitev za vaše poslovanje.
+67|Raziskovalec je za začetek. Mentor: če še nimate podjetja, a imate ambicije, vam bomo pomagali. Integrator: če podjetje že imate, smo pripravljeni narediti vse namesto vas.
 68|Ikona načrta
-69|Načrt 1 · za začetek
+69|Raziskovalec
 70|Vprašajte UI o svojem poslu
 71|Pogovor z UI o poslovanju: priporočila na podlagi podatkov, ki jih posredujete, in praktični nasveti.
 72|Brezplačno
 73|Začni
-74|Načrt 2 · posla še nimate, a imate ambicije
+74|Mentor
 75|UI sogovornik, ki uči razmišljati kot podjetnik
 76|Način poslovnega mentorja pomaga zgraditi podjetniško razmišljanje in izdelati zamisel iz nič. Opira se na klasično upravljavsko in filozofsko podlago, prilagojeno praksi podjetnika.
 77|Stoiki
@@ -93,8 +93,8 @@
 81|Komercialne ponudbe
 82|Poslovni načrti za vlagatelje
 83|Poslovni načrti za državne subvencije
-85|naročnina
-86|Načrt 3 · posel že imate
+85|na mesec
+86|Integrator
 87|Nadomestili bomo zaposlenega ali celotno funkcijo
 88|ROBORAB se vgradi v notranje procese in prevzame delo določene osebe ali področja. Prihranite denar in čas.
 89|Vgrajen v procese
@@ -138,3 +138,6 @@
 127|Načini plačila
 128|in drugi
 129|MIR
+130|Ali 18 $ na mesec ob plačilu za celo leto (216 $ na leto)
+131|ROBORAB: umetna inteligenca v poslovnih procesih
+132|ROBORAB uvaja AI agente v poslovne procese: fitnes CRM, davčni agent, gradbeno računovodstvo, CRM za rezervacije, SEO in GEO. Začnite brezplačno, naročnina od 20 $ na mesec.
