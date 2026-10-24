@@ -93,6 +93,9 @@ async def main():
         d = re.sub(r'--img-([a-z0-9-]+):url\(data:image/webp;base64,[A-Za-z0-9+/=]+\)', lambda m: '--img-%s:url(/assets/%s.webp?v=%s)' % (m.group(1), m.group(1), AV(m.group(1))), d)
         d = d.replace('/i18n.js?v=__V__', f'/i18n.js?v={v}')
         d = d.replace('href="chat.html', 'href="/chat.html').replace('action="chat.html"', 'action="/chat.html"')
+        for nm in ('yandex-verification', 'google-site-verification', 'msvalidate.01'):
+            val = os.environ.get(nm.upper().replace('-', '_').replace('.', '_'))
+            if val: d = d.replace('</head>', f'<meta name="{nm}" content="{H.escape(val)}"></head>', 1)
         d = d.replace('</head>', head_extra(l, cfg, langs, T, Dsc, t) + '</head>', 1)
         foot = '<nav class="langs-foot" aria-label="Languages">' + ''.join(f'<a href="{slug(cfg, c)}" hreflang="{c}" lang="{c}"{" aria-current=\"page\"" if c == l else ""}>{H.escape(names[c])}</a>' for c in langs) + '</nav>'
         d = d.replace('</main>', '</main>' + foot, 1)
@@ -101,7 +104,7 @@ async def main():
         path.parent.mkdir(parents=True, exist_ok=True); path.write_text(d)
         sitemap.append(f'<url><loc>{SITE}{slug(cfg, l)}</loc>' + ''.join(f'<xhtml:link rel="alternate" hreflang="{"en-US" if c == "en" else c}" href="{SITE}{slug(cfg, c)}"/>' for c in langs) + f'<xhtml:link rel="alternate" hreflang="x-default" href="{SITE}/"/></url>')
     sitemap.append('</urlset>'); (dist / 'sitemap.xml').write_text('\n'.join(sitemap))
-    (dist / 'robots.txt').write_text(''.join(f'User-agent: {b}\nAllow: /\nDisallow: /chat.html\n\n' for b in ['*', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'PerplexityBot', 'Google-Extended', 'Applebot-Extended', 'CCBot']) + f'Sitemap: {SITE}/sitemap.xml\n')
+    (dist / 'robots.txt').write_text(''.join(f'User-agent: {b}\nAllow: /\nDisallow: /chat.html\n\n' for b in ['*', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'PerplexityBot', 'Google-Extended', 'Applebot-Extended', 'CCBot', 'Yandex', 'YandexBot', 'YandexAdditional']) + f'Sitemap: {SITE}/sitemap.xml\n')
     en = out_pages['en']
     llms = [f'# ROBORAB', '', f'> {en[2]}', '', 'ROBORAB deploys AI agents into B2B business processes. Plans: Explorer (free), Mentor ($20 per month, or $18 per month billed yearly), Integrator (custom price: replacing an employee or a whole function).', '', '## Products', '- Fitness CRM: clients, memberships, schedules, trainer payouts', '- Tax agent: group-of-companies taxes, actuals from 1C, forecasts and scenarios', '- Construction accounting: sites, materials and costs', '- Booking CRM: hotel booking requests in one window', '- SEO and GEO: setup, analytics, admin panels', '', '## Languages']
     llms += [f'- [{names[c]}]({SITE}{slug(cfg, c)})' for c in langs]

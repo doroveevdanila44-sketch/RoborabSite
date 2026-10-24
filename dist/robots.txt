@@ -42,4 +42,16 @@ User-agent: CCBot
 Allow: /
 Disallow: /chat.html
 
+User-agent: Yandex
+Allow: /
+Disallow: /chat.html
+
+User-agent: YandexBot
+Allow: /
+Disallow: /chat.html
+
+User-agent: YandexAdditional
+Allow: /
+Disallow: /chat.html
+
 Sitemap: https://roborab.vercel.app/sitemap.xml
