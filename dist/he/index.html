@@ -100,6 +100,7 @@ a{color:inherit}
 .down:hover,.down:hover span{color:#4d555c}
 .down svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 @keyframes bob{0%,100%{transform:translateY(0);opacity:.55}50%{transform:translateY(8px);opacity:1}}
+.h1w{display:contents;font:inherit;margin:0}
 .hero .ht{margin:0;align-self:center;font:800 clamp(18px,3.2cqw,72px)/.95 var(--f-hero);letter-spacing:-.03em;text-transform:uppercase;white-space:nowrap}
 .hero .ht span{display:inline-block;white-space:nowrap}
 .hero .ht{position:relative;z-index:1}
@@ -113,7 +114,7 @@ a{color:inherit}
   html[lang=zh] .hero .ht .ml,html[lang=ja] .hero .ht .ml,html[lang=ko] .hero .ht .ml{letter-spacing:0;margin-right:0}
   .hero .ht .pr{display:none}
   .hero .ht2{grid-row:1}
-  .hero>.ht:not(.ht2){grid-row:3}
+  .hero .ht:not(.ht2){grid-row:3}
 }
 .cat{margin:max(0px,calc(var(--S) - var(--Gref,var(--G)))) 0 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));font:800 clamp(24px,3.4vw,46px)/1.08 var(--f-display);letter-spacing:-.035em;max-width:1760px;margin-inline:auto}
 .cat+.product{margin-top:calc(var(--S) * .4)}
@@ -335,12 +336,12 @@ textarea{min-height:96px;resize:vertical}
   <div class="herolang" id="herolang"></div>
   <!-- ЭКРАН 0: баннер. Отступы равны: край экрана до Р = Б до дивана = диван до края экрана -->
   <section class="hero wrap">
-    <h1 class="ht ht2" data-fit="" data-i18n="top"><span class="d"><span class="ml">מטמיעים</span> <span class="ml">בינה</span></span><br><span class="ml">מלאכותית</span></h1>
-    <div class="banner">
-      <div class="word" role="img" aria-label="ROBORAB"></div>
-      <div class="sofa" role="img" aria-label="Розовая горилла в рубашке и галстуке сидит на чёрном диване между двумя мозгами в кроссовках"></div>
-    </div>
-    <p class="ht" data-fit="" data-i18n="bot"><span class="d"><span class="ml">בתהליכים עסקיים</span></span></p>
+    <h1 class="h1w"><span class="ht ht2" data-fit="" data-i18n="top"><span class="d"><span class="ml">מטמיעים</span> <span class="ml">בינה</span></span><br><span class="ml">מלאכותית</span></span>
+    <span class="banner">
+      <span class="word" role="img" aria-label="ROBORAB"></span>
+      <span class="sofa" aria-hidden="true"></span>
+    </span>
+    <span class="ht" data-fit="" data-i18n="bot"><span class="d"><span class="ml">בתהליכים עסקיים</span></span></span></h1>
     <a class="down" href="#paths" aria-label="איך אנחנו מטמיעים, גללו למטה"><span>איך אנחנו מטמיעים</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></a>
   </section>
 
