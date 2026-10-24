@@ -168,6 +168,12 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 .princ li::before{content:'';position:absolute;left:0;top:.5em;width:10px;height:10px;border-radius:3px;background:var(--fg)}
 .path .btn{margin-top:clamp(18px,2vw,30px)}
 @media(max-width:860px){.pgrid{grid-template-columns:1fr}
+.path{text-align:center;display:flex;flex-direction:column;align-items:center}
+.path .big{margin-left:0;text-align:center}
+.path h3,.path .lead,.path .sub,.princ{margin-inline:auto}
+.path h3{max-width:24ch}
+.path:first-child .app{align-self:center!important;text-align:left}
+.pgrid .path+.path{margin-top:clamp(36px,8vw,64px)}
 .path:first-child{display:flex;flex-direction:column}
 .path:first-child .bigrow{display:contents}
 .path:first-child .big{order:1}.path:first-child h3{order:2}.path:first-child .pdesc{order:3}
@@ -181,7 +187,9 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 .path:first-child .app{grid-column:1;grid-row:3;justify-self:start;margin-top:clamp(18px,2vw,30px)}
 .path:first-child .pdesc{grid-column:2;grid-row:1/span 3;align-self:center}
 .path:first-child .pdesc .lead{margin-top:0;max-width:none;font-weight:400;font-size:clamp(22px,2.5vw,38px);line-height:1.3;letter-spacing:-.01em}
-.pgrid .path+.path{margin-top:clamp(28px,4vw,64px)}
+.pgrid .path+.path{margin-top:clamp(28px,4vw,64px);text-align:center;display:flex;flex-direction:column;align-items:center}
+.pgrid .path+.path .big{margin-left:0}
+.pgrid .path+.path h3{max-width:28ch;margin-inline:auto}
 }
 
 
@@ -277,7 +285,8 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 .price b{font:800 clamp(28px,2.6vw,40px)/1 var(--f-display);letter-spacing:-.03em}
 .price b.sm{font-size:clamp(20px,1.8vw,26px)}
 .price span{font:600 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--wl)}
-@media(max-width:1100px){.wgrid{grid-template-columns:1fr}.wm{aspect-ratio:1/.7;max-width:420px;margin-inline:auto}}
+@media(max-width:1100px) and (min-width:701px){.wgrid{gap:12px}.wcard{border-radius:22px}.wm{margin:8px 0 2px}.wt{padding:0 14px 18px}.wt h3{font-size:clamp(18px,2.6vw,24px)}.wt p{font-size:14px;line-height:1.45;margin-top:10px}.wk{font-size:10px;letter-spacing:.06em}.chips{gap:6px;margin-top:12px}.chips li{padding:6px 8px;font-size:12px}.price b{font-size:clamp(24px,3.2vw,30px)}.price span{font-size:10px}.pay{font-size:10px}.pay li{padding:5px 7px}.wt .btn,.wbuy .btn{padding:12px 14px;font-size:14px;white-space:normal;text-align:center}}
+@media(max-width:700px){.wgrid{grid-template-columns:1fr}.wm{aspect-ratio:1/.7;max-width:420px;margin-inline:auto}}
 
 /* ---------- контакт ---------- */
 .contact{margin-top:var(--S);background:var(--fg);color:#fff;padding-block:clamp(40px,6vw,88px)}
@@ -302,11 +311,18 @@ textarea{min-height:96px;resize:vertical}
 .note{font-size:14px;color:#b9c1c8;min-height:1.4em;margin:0}
 @media(max-width:820px){.contact .grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.down{animation:none}.btn{transition:none}.btn:hover{transform:none}html{scroll-behavior:auto}}
+#top{position:relative}
+.herolang{position:absolute;top:12px;right:max(var(--m),env(safe-area-inset-right,0px));z-index:30;height:32px}
+@media(max-width:760px),(orientation:portrait) and (max-width:1100px){.herolang{position:relative;top:auto;right:auto;height:44px;display:flex;justify-content:flex-end;align-items:center;padding:0 max(var(--m),env(safe-area-inset-right,0px))}}
+.pdesc{width:100%}
+.wt .btn,.wbuy .btn{white-space:normal;max-width:100%;text-align:center;line-height:1.25}
+.btn{white-space:normal;text-align:center;line-height:1.25;max-width:100%}
 </style>
 
 
 
 <main id="top">
+  <div class="herolang" id="herolang"></div>
   <!-- ЭКРАН 0: баннер. Отступы равны: край экрана до Р = Б до дивана = диван до края экрана -->
   <section class="hero wrap">
     <p class="ht ht2" data-fit data-i18n="top"><span class="d"><span class="ml">Внедрение</span> <span class="ml">искусственного</span></span><br><span class="ml">интеллекта</span></p>
@@ -499,6 +515,7 @@ textarea{min-height:96px;resize:vertical}
     var wide = /^(th|hi|ar|he|fa|ur|bn|ta|te|mr)$/.test(root.lang);
     var heroEl = document.querySelector('.hero'); if (heroEl && !again) { heroEl.style.paddingLeft = ''; heroEl.style.paddingRight = ''; }
     var narrow = window.matchMedia('(max-width:760px),(orientation:portrait) and (max-width:1100px)').matches;
+    var hl = document.getElementById('herolang'), VH = window.innerHeight - (narrow && hl ? hl.offsetHeight : 0);
     var tb = !!(window.CSS && CSS.supports && CSS.supports('text-box', 'trim-both cap alphabetic'));
     root.classList.toggle('tb', tb);
     fits.forEach(function(p){
@@ -525,7 +542,7 @@ textarea{min-height:96px;resize:vertical}
         var B = bot.getBoundingClientRect().height, cap1 = inkAsc(top, 'В') || 0.727 * fs;
         var pt = 0.0161 * wh, pb = 0.0179 * wh, hb = wh - pt - pb, k = 1.12;
         /* зазор между строками «Внедрение искусственного» и «интеллекта» (от низа букв до верха следующих) тоже равен a */
-        var a = Math.max(10, (window.innerHeight - 2 * cap1 - hb - B) / (4 + k));
+        var a = Math.max(44, (VH - 2 * cap1 - hb - B) / (4 + k));
         top.style.lineHeight = (cap1 + a) + 'px';
         banner.style.marginTop = Math.max(0, a - pt) + 'px';
         bot.style.marginTop = Math.max(0, a - pb + 0.0079 * wh) + 'px';
@@ -546,18 +563,18 @@ textarea{min-height:96px;resize:vertical}
         if (wide) r1 = 1.3;
         tl.forEach(function(l, i){
           /* короткая строка не растягивается больше чем в 1.6 раза от самой длинной: иначе в других языках буквы налезают друг на друга */
-          var f = Math.min(100 * top.clientWidth / sws[i], fbase * 1.6);
+          var f = Math.min(100 * top.clientWidth / sws[i], fbase * (wide ? 1.2 : 1.6));
           l.style.fontSize = f + 'px'; capSum += r1 * f;
         });
         wh = word.getBoundingClientRect().height; sh = sofa.getBoundingClientRect().height; Bn = bot.getBoundingClientRect().height;
         var abn = inkAsc(bot, 'б'), acn = inkAsc(bot, 'В'), dln = abn > acn ? abn - acn : 0;
         var ptn = 0.0161 * wh, pbn = 0.0099 * wh, psn = 0.012 * sh;
-        var Tn = Math.min(28, Math.max(14, 0.022 * window.innerHeight)), Bt = window.innerWidth <= 760 ? -15 : 4;
+        var Tn = Math.min(28, Math.max(14, 0.022 * VH)), Bt = window.innerWidth <= 760 ? -15 : 4;
         var nG = tl.length + 2, fixedH = capSum + wh + Bn + sh - ptn - pbn + dln - psn;
-        var rawAf = (window.innerHeight - Tn - Bt - fixedH) / nG, tgtAf = 0.03 * window.innerHeight;
+        var rawAf = (VH - Tn - Bt - fixedH) / nG, tgtAf = 0.03 * VH;
         if (!again && rawAf < tgtAf && fixedH > 0) {
           /* планшет: на широком экране блок не влезает по высоте, сужаем его по центру */
-          var kk = Math.max(0.3, (window.innerHeight - Tn - Bt - nG * tgtAf) / fixedH), cw = top.clientWidth, side = cw * (1 - kk) / 2;
+          var kk = Math.max(0.3, (VH - Tn - Bt - nG * tgtAf) / fixedH), cw = top.clientWidth, side = cw * (1 - kk) / 2;
           var hs = getComputedStyle(heroEl), pl = parseFloat(hs.paddingLeft) || 0, pr = parseFloat(hs.paddingRight) || 0;
           heroEl.style.paddingLeft = (pl + side) + 'px'; heroEl.style.paddingRight = (pr + side) + 'px';
           return fitAll(true);
@@ -592,17 +609,17 @@ textarea{min-height:96px;resize:vertical}
       else { banner.style.marginTop = m1 + 'px'; extra = m1 + m2 + dl; }
       rg = 0;
     } else {
-      rg = narrow ? 18 : Math.max(14, Math.round(window.innerHeight * 0.025));
+      rg = narrow ? 18 : Math.max(14, Math.round(VH * 0.025));
     }
     var used = narrow ? wh + sh : banner.getBoundingClientRect().height;
     fits.forEach(function(p){ used += p.getBoundingClientRect().height; });
-    var g = Math.max(14, (window.innerHeight - used - (n - 1) * rg - extra) / 2);
+    var g = Math.max(14, (VH - used - (n - 1) * rg - extra) / 2);
     root.style.setProperty('--rg', rg + 'px');
     root.style.setProperty('--Gref', g + 'px');
     if (narrow && tb) {
       /* телефон: текстовый блок уезжает наверх (небольшой воздух T), освободившееся место уходит
          в промежуток между «В БИЗНЕС» и гориллой; низ и положение гориллы остаются прежними */
-      var T = Math.min(28, Math.max(14, 0.022 * window.innerHeight)), Dg = Math.max(0, g - T);
+      var T = Math.min(28, Math.max(14, 0.022 * VH)), Dg = Math.max(0, g - T);
       sofa.style.marginTop = (parseFloat(sofa.style.marginTop || 0) + Dg) + 'px';
       root.style.setProperty('--G', T + 'px');
       root.style.setProperty('--Gb', g + 'px');
@@ -611,7 +628,8 @@ textarea{min-height:96px;resize:vertical}
       root.style.removeProperty('--Gb');
     }
   }
-  fitAll(); window.addEventListener('resize', function(){ fitAll(); }); window.addEventListener('load', function(){ fitAll(); });
+  var rfT; fitAll(); window.addEventListener('resize', function(){ fitAll(); clearTimeout(rfT); rfT = setTimeout(fitAll, 300); });
+  if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', function(){ fitAll(); }); window.addEventListener('load', function(){ fitAll(); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ fitAll(); });
 })();
 
@@ -677,7 +695,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     htmls.forEach(function(h){h.el.innerHTML=(HT[l]&&HT[l][h.key])?HT[l][h.key]:h.ru});
     document.documentElement.lang=l;document.documentElement.dir=(/^(ar|he|fa|ur)$/.test(l)?'rtl':'ltr');
     var ti=document.querySelector('title'); if(ti){if(!ti._ru)ti._ru=ti.textContent;ti.textContent=l!=='ru'&&EXTRA.title&&EXTRA.title[ti._ru]?EXTRA.title[ti._ru]:ti._ru}
-    var cl=document.querySelector('.lang .cur');if(cl)cl.textContent=CFG.names[l];
+    var cl=document.querySelector('.lang .cur');if(cl)cl.textContent=code2(l);
     document.querySelectorAll('.lang li').forEach(function(li){li.setAttribute('aria-selected',li.getAttribute('data-l')===l?'true':'false')});
   }
   function set(l,user){
@@ -687,11 +705,12 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     cbs.forEach(function(f){try{f(l)}catch(e){}});
     try{window.dispatchEvent(new Event('resize'))}catch(e){}
   }
+  function code2(l){return l==='en-GB'?'GB':l==='fil'?'TL':l.slice(0,2).toUpperCase()}
   function t(ru){var k=norm(ru),dd=D[cur];return dd&&dd[k]!==undefined?dd[k]:ru}
   function ui(){
     var css=document.createElement('style');
     css.textContent='.lang{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:50;font:600 13px/1 Inter,system-ui,sans-serif}'
-      +'.lang>button{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;color:#101417;background:rgba(255,255,255,.96);padding:10px 12px 10px 11px;border-radius:999px;box-shadow:0 0 0 1px rgba(16,20,23,.12),0 6px 18px -8px rgba(16,20,23,.35);font:inherit}'
+      +'.lang>button{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;color:#101417;background:rgba(255,255,255,.96);padding:7px 11px 7px 9px;border-radius:999px;box-shadow:0 0 0 1px rgba(16,20,23,.12),0 6px 18px -8px rgba(16,20,23,.35);font:inherit}'
       +'.lang svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}'
       +'.lang .chev{width:14px;height:14px;transition:transform .15s}.lang.open .chev{transform:rotate(180deg)}'
       +'.lang>button:focus-visible{outline:2px solid #101417;outline-offset:2px}'
@@ -704,18 +723,18 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
       +'.lang li.sep{padding:0;margin:6px 8px;height:1px;background:#e3e7ea;cursor:default;pointer-events:none}'
       +'.lang.in{position:relative;right:auto;bottom:auto}.lang.in ul{bottom:auto;top:calc(100% + 8px)}'
       +'.lang.in>button{box-shadow:0 0 0 1px rgba(16,20,23,.14)}'
-      +'@media(max-width:520px){.lang .cur{max-width:96px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}}';
+      +'.lang .cur{letter-spacing:.04em}.lang svg{width:16px;height:16px}';
     document.head.appendChild(css);
     var d=document.createElement('div');d.className='lang';
     var items=CFG.order.map(function(c,i){return (i===CFG.top?'<li class="sep" role="presentation"></li>':'')+'<li role="option" data-l="'+c+'" lang="'+c+'">'+CFG.names[c]+'</li>'}).join('');
-    d.innerHTML='<button type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z"/></svg><span class="cur"></span><svg class="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button><ul role="listbox" aria-label="Language">'+items+'</ul>';
+    d.innerHTML='<button type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z"/></svg><span class="cur"></span></button><ul role="listbox" aria-label="Language">'+items+'</ul>';
     var btn=d.querySelector('button');
     function tog(o){d.classList.toggle('open',o);btn.setAttribute('aria-expanded',o?'true':'false')}
     btn.addEventListener('click',function(e){e.stopPropagation();tog(!d.classList.contains('open'))});
     d.querySelector('ul').addEventListener('click',function(e){var li=e.target.closest('li[data-l]');if(li){tog(false);set(li.getAttribute('data-l'),true)}});
     document.addEventListener('click',function(e){if(!d.contains(e.target))tog(false)});
     document.addEventListener('keydown',function(e){if(e.key==='Escape')tog(false)});
-    var slot=document.getElementById('langslot');
+    var slot=document.getElementById('langslot')||document.getElementById('herolang');
     if(slot){d.className+=' in';slot.appendChild(d)}else document.body.appendChild(d);
   }
   window.I18N={lang:function(){return cur},set:set,t:t,onChange:function(f){cbs.push(f)},extra:EXTRA,
