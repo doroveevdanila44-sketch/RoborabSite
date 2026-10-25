@@ -100,8 +100,6 @@ async def main():
             val = os.environ.get(nm.upper().replace('-', '_').replace('.', '_'))
             if val: d = d.replace('</head>', f'<meta name="{nm}" content="{H.escape(val)}"></head>', 1)
         d = d.replace('</head>', head_extra(l, cfg, langs, T, Dsc, t) + '</head>', 1)
-        foot = '<nav class="langs-foot" aria-label="Languages">' + ''.join(f'<a href="{slug(cfg, c)}" hreflang="{c}" lang="{c}"{" aria-current=\"page\"" if c == l else ""}>{H.escape(names[c])}</a>' for c in langs) + '</nav>'
-        d = d.replace('</main>', '</main>' + foot, 1)
         d = '<!doctype html>\n' + d
         path = dist / ('index.html' if l == 'en' else slug(cfg, l).strip('/') + '/index.html')
         path.parent.mkdir(parents=True, exist_ok=True); path.write_text(d)
