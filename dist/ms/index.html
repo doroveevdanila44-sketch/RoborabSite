@@ -21,6 +21,7 @@
   --gutter-r:max(16px,env(safe-area-inset-right,0px));
   color-scheme:light;
   --img-roborab-en:url(/assets/roborab-en.webp?v=687077af);
+  --img-brain:url(/assets/brain.webp?v=22f2d81e);
   --img-c-fit:url(/assets/c-fit.webp?v=dc3616af);
   --img-c-tax:url(/assets/c-tax.webp?v=917ba79e);
   --img-c-build:url(/assets/c-build.webp?v=ac599c71);
@@ -305,7 +306,9 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 @media(max-width:700px){.wgrid{grid-template-columns:1fr}.wm{aspect-ratio:1/.7;max-width:420px;margin-inline:auto}}
 
 /* ---------- контакт ---------- */
-.contact{margin-top:var(--S);background:var(--fg);color:#fff;padding-block:clamp(40px,6vw,88px)}
+.contact{--bw:clamp(190px,25vw,380px);position:relative;margin-top:calc(var(--S) + var(--bw) * .42);background:var(--fg);color:#fff;padding-block:calc(var(--bw) * .5 + 24px) clamp(40px,6vw,88px)}
+.brainsit{position:absolute;top:0;left:max(var(--m),6vw);width:var(--bw);aspect-ratio:720 / 549;background:var(--img-brain) center / 100% 100% no-repeat;transform:translateY(-55%);pointer-events:none;z-index:2}
+@media(max-width:860px){.contact{--bw:clamp(170px,48vw,300px)}.brainsit{left:max(var(--m),5vw)}}
 .contact .wrap{padding-left:max(var(--m),env(safe-area-inset-left,0px));padding-right:max(var(--m),env(safe-area-inset-right,0px))}
 .contact h2{margin:0;font:800 clamp(28px,4vw,56px)/1.05 var(--f-display);letter-spacing:-.04em;max-width:14ch}
 .contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:start}
@@ -517,6 +520,7 @@ textarea{min-height:96px;resize:vertical}
   </section>
 
   <section class="contact" id="contact">
+    <span class="brainsit" role="img" aria-label="Мозг в кроссовках показывает на форму"></span>
     <div class="wrap grid">
       <div>
         <h2>Ceritakan tentang tugas anda</h2>
