@@ -219,17 +219,27 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 }
 
 /* ---------- каталог: одно сплошное белое пространство. Картинка разрезана по плашке, низ уехал вниз, в разрезе вся информация. Без теней, без наслоения ---------- */
-.product{background:#fff;padding:0;margin-top:var(--S)}
-.card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(8px,3vw,56px);width:100%;max-width:1760px;margin-inline:auto;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
-.mascot{width:100%;max-width:760px;aspect-ratio:1;justify-self:center;background:var(--mimg) center/contain no-repeat;-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 0,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);mask-composite:intersect}
-#tax .mascot,#booking .mascot{order:2}
-@media(min-width:861px){#tax .mascot,#booking .mascot{transform:scaleX(-1)}}
-@media(max-width:860px){.card{grid-template-columns:minmax(0,1fr);gap:0}.mascot{max-width:520px;order:0!important}}
+.cgrid{--cg:clamp(10px,2vw,28px);display:flex;flex-wrap:wrap;justify-content:center;gap:var(--cg);width:100%;max-width:1760px;margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
+.product{flex:0 0 calc((100% - 2 * var(--cg)) / 3);min-width:0;display:flex;flex-direction:column;background:#f6f7f8;border-radius:clamp(16px,2vw,28px);padding:clamp(10px,1.4vw,20px);scroll-margin-top:24px}
+.product .mascot{width:100%;aspect-ratio:1;background:var(--mimg) center/contain no-repeat #fff;border-radius:clamp(12px,1.6vw,20px)}
+.product h3{margin:clamp(12px,1.4vw,20px) 0 0;font:800 clamp(18px,2.1vw,30px)/1.05 var(--f-display);letter-spacing:-.035em}
+.product>.tag{margin:6px 0 0;color:var(--mute);font-weight:500;font-size:clamp(13px,1.1vw,16px);line-height:1.35}
+.pc-more{margin-top:auto;align-self:stretch;border:0;cursor:pointer;background:var(--btn,var(--acc));color:#fff;font:600 clamp(13px,1.1vw,16px)/1 var(--f-body);padding:clamp(12px,1.2vw,16px) 12px;border-radius:14px;-webkit-tap-highlight-color:transparent}
+.product>.tag{margin-bottom:clamp(12px,1.4vw,18px)}
+@media(min-width:1101px){.product{flex-basis:calc((100% - 4 * var(--cg)) / 5)}.product h3{font-size:clamp(18px,1.7vw,26px)}}
+@media(max-width:860px){.product{flex-basis:calc((100% - var(--cg)) / 2)}}
+.pd{border:0;padding:clamp(20px,3vw,40px);border-radius:28px;background:#fff;color:var(--fg);width:min(94vw,840px);max-height:92dvh;margin:auto;overflow:auto;box-shadow:0 30px 80px -20px rgba(0,0,0,.45)}
+.pd::backdrop{background:rgba(10,12,14,.5);backdrop-filter:blur(4px)}
+.pd[open]{animation:dlin .22s ease-out}
+.pd .dl-x{position:sticky;float:right;top:0;margin:-8px -8px 0 0;z-index:3}
+.pd:focus{outline:none}
+.pd .panel{padding:0}
+.pd .row{padding-right:44px}
 .panel{position:relative;z-index:2;container-type:inline-size;background:#fff;padding:clamp(8px,2vw,32px) 0}
 .panel .in{width:100%}
 .panel .row{display:grid;grid-template-columns:1fr auto;gap:12px 24px;align-items:end}
 .meta{font:600 12px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-.panel h3{margin:0;font:800 clamp(26px,4.4cqw,60px)/1 var(--f-display);letter-spacing:-.04em}
+.panel h3,.panel h4{margin:0;font:800 clamp(26px,4.4cqw,60px)/1 var(--f-display);letter-spacing:-.04em}
 .tag{margin:8px 0 0;color:var(--mute);font-weight:500;font-size:clamp(15px,1.8cqw,20px)}
 .feats{list-style:none;margin:clamp(14px,2vw,26px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2.4cqw,32px)}
 .feats li{font-size:clamp(13.5px,1.5cqw,17px);line-height:1.38;font-weight:500;min-width:0}
@@ -250,7 +260,7 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 @media(max-width:760px){.lb .pv,.lb .nx{top:auto;bottom:max(14px,env(safe-area-inset-bottom));translate:none;width:44px;height:44px}.lb .pv{left:calc(50% - 60px)}.lb .nx{right:calc(50% - 60px)}.lb .cn{display:none}.lb .st{height:min(78dvh,900px);top:calc(50% - 30px)}}
 
 .feats.f4{grid-template-columns:repeat(2,1fr)}
-.panel .btn{background:var(--btn,var(--acc));color:#fff}
+.panel .btn,.pc-more{background:var(--btn,var(--acc));color:#fff}
 @container (max-width:620px){.panel .row{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.panel .btn{width:100%}}
 
 #catalog{--acc:#a2eb41;--accfg:#fff;--mimg:var(--img-c-fit)}
@@ -396,63 +406,90 @@ textarea{min-height:96px;resize:vertical}
   </section>
 
 
+  <div class="cgrid">
   <section class="product" id="catalog">
-    <div class="card"><div class="mascot" role="img" aria-label="健身 CRM 吉祥物"></div>
+    <div class="mascot" role="img" aria-label="健身 CRM 吉祥物"></div>
+    <h3>健身 CRM</h3><p class="tag">客户、会员卡、课表与教练结算</p>
+    <button type="button" class="btn pc-more">了解详情</button>
+    <dialog class="pd" aria-labelledby="pd-catalog">
+      <button class="dl-x" type="button" aria-label="关闭">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>健身 CRM</h3><p class="tag">客户、会员卡、课表与教练结算</p></div>
+          <div><h4 id="pd-catalog">健身 CRM</h4><p class="tag">客户、会员卡、课表与教练结算</p></div>
           <a class="btn" href="/chat.html?product=%D0%A4%D0%B8%D1%82%D0%BD%D0%B5%D1%81-CRM&amp;msg=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E5%AF%B9%E4%BA%A7%E5%93%81%E2%80%9C%E5%81%A5%E8%BA%AB+CRM%E2%80%9D%E7%9A%84%E8%AF%A6%E6%83%85%E6%84%9F%E5%85%B4%E8%B6%A3&amp;lang=zh" data-h="chat.html?product=%D0%A4%D0%B8%D1%82%D0%BD%D0%B5%D1%81-CRM&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%A4%D0%B8%D1%82%D0%BD%D0%B5%D1%81-CRM%C2%BB">了解详情</a>
         </div>
         <div class="shots" role="group" aria-label="应用界面"><button type="button" class="shot" style="--s:var(--img-s1)" aria-label="打开界面 1"></button><button type="button" class="shot" style="--s:var(--img-s2)" aria-label="打开界面 2"></button><button type="button" class="shot" style="--s:var(--img-s3)" aria-label="打开界面 3"></button></div>
         <ul class="feats f4"><li>整个俱乐部一目了然：不限次、体验卡和单次卡尽在一屏</li><li>一秒找到任何客户：只需姓氏或电话</li><li>教练空闲时段一目了然，无需打电话或翻表格</li><li>教练结算自动计算，AI 助手替您回复客户</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
 
-  <section class="product fade" id="tax">
-    <div class="card"><div class="mascot" role="img" aria-label="税务代理吉祥物"></div>
+  <section class="product" id="tax">
+    <div class="mascot" role="img" aria-label="税务代理吉祥物"></div>
+    <h3>税务代理</h3><p class="tag">集团公司税务：1C 实际数据、预测与情景分析</p>
+    <button type="button" class="btn pc-more">了解详情</button>
+    <dialog class="pd" aria-labelledby="pd-tax">
+      <button class="dl-x" type="button" aria-label="关闭">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>税务代理</h3><p class="tag">集团公司税务：1C 实际数据、预测与情景分析</p></div>
+          <div><h4 id="pd-tax">税务代理</h4><p class="tag">集团公司税务：1C 实际数据、预测与情景分析</p></div>
           <a class="btn" href="/chat.html?product=%D0%9D%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9+%D0%B0%D0%B3%D0%B5%D0%BD%D1%82&amp;msg=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E5%AF%B9%E4%BA%A7%E5%93%81%E2%80%9C%E7%A8%8E%E5%8A%A1%E4%BB%A3%E7%90%86%E2%80%9D%E7%9A%84%E8%AF%A6%E6%83%85%E6%84%9F%E5%85%B4%E8%B6%A3&amp;lang=zh" data-h="chat.html?product=%D0%9D%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B0%D0%B3%D0%B5%D0%BD%D1%82&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%9D%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%C2%BB">了解详情</a>
         </div>
         <div class="shots" role="group" aria-label="应用界面"><button type="button" class="shot" style="--s:var(--img-t1)" aria-label="打开界面 1"></button><button type="button" class="shot" style="--s:var(--img-t2)" aria-label="打开界面 2"></button><button type="button" class="shot" style="--s:var(--img-t3)" aria-label="打开界面 3"></button></div>
         <ul class="feats f4"><li>整个集团公司尽在一屏</li><li>提前看到紧急付款：不会错过任何期限</li><li>一键对比所有法人实体的税负</li><li>助手 24/7 在线：问一句“如果……会怎样”，即得测算</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
 
   <section class="product" id="build">
-    <div class="card"><div class="mascot" role="img" aria-label="工程核算吉祥物"></div>
+    <div class="mascot" role="img" aria-label="工程核算吉祥物"></div>
+    <h3>工程核算</h3><p class="tag">项目、材料与成本</p>
+    <button type="button" class="btn pc-more">了解详情</button>
+    <dialog class="pd" aria-labelledby="pd-build">
+      <button class="dl-x" type="button" aria-label="关闭">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>工程核算</h3><p class="tag">项目、材料与成本</p></div>
+          <div><h4 id="pd-build">工程核算</h4><p class="tag">项目、材料与成本</p></div>
           <a class="btn" href="/chat.html?product=%D0%A1%D1%82%D1%80%D0%BE%D0%B9-%D1%83%D1%87%D1%91%D1%82&amp;msg=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E5%AF%B9%E4%BA%A7%E5%93%81%E2%80%9C%E5%B7%A5%E7%A8%8B%E6%A0%B8%E7%AE%97%E2%80%9D%E7%9A%84%E8%AF%A6%E6%83%85%E6%84%9F%E5%85%B4%E8%B6%A3&amp;lang=zh" data-h="chat.html?product=%D0%A1%D1%82%D1%80%D0%BE%D0%B9-%D1%83%D1%87%D1%91%D1%82&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%A1%D1%82%D1%80%D0%BE%D0%B9-%D1%83%D1%87%D1%91%D1%82%C2%BB">了解详情</a>
         </div>
         <ul class="feats"><li>项目、材料和工程集中于一个数据库</li><li>按项目核算成本</li><li>面向管理者的全项目汇总</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
 
-  <section class="product fade" id="booking">
-    <div class="card"><div class="mascot" role="img" aria-label="预订 CRM 吉祥物"></div>
+  <section class="product" id="booking">
+    <div class="mascot" role="img" aria-label="预订 CRM 吉祥物"></div>
+    <h3>预订 CRM</h3><p class="tag">酒店所有申请集中在一个窗口</p>
+    <button type="button" class="btn pc-more">了解详情</button>
+    <dialog class="pd" aria-labelledby="pd-booking">
+      <button class="dl-x" type="button" aria-label="关闭">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>预订 CRM</h3><p class="tag">酒店所有申请集中在一个窗口</p></div>
+          <div><h4 id="pd-booking">预订 CRM</h4><p class="tag">酒店所有申请集中在一个窗口</p></div>
           <a class="btn" href="/chat.html?product=%D0%91%D1%83%D0%BA%D0%B8%D0%BD%D0%B3-CRM&amp;msg=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E5%AF%B9%E4%BA%A7%E5%93%81%E2%80%9C%E9%A2%84%E8%AE%A2+CRM%E2%80%9D%E7%9A%84%E8%AF%A6%E6%83%85%E6%84%9F%E5%85%B4%E8%B6%A3&amp;lang=zh" data-h="chat.html?product=%D0%91%D1%83%D0%BA%D0%B8%D0%BD%D0%B3-CRM&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%91%D1%83%D0%BA%D0%B8%D0%BD%D0%B3-CRM%C2%BB">了解详情</a>
         </div>
         <ul class="feats"><li>所有预订申请在同一列表</li><li>每个申请的状态与历史</li><li>酒店老板亲自跟进申请</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
 
   <section class="product" id="seo">
-    <div class="card"><div class="mascot" role="img" aria-label="SEO 与 GEO 吉祥物"></div>
+    <div class="mascot" role="img" aria-label="SEO 与 GEO 吉祥物"></div>
+    <h3>SEO / GEO</h3><p class="tag">配置、分析与管理后台</p>
+    <button type="button" class="btn pc-more">了解详情</button>
+    <dialog class="pd" aria-labelledby="pd-seo">
+      <button class="dl-x" type="button" aria-label="关闭">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>SEO / GEO</h3><p class="tag">配置、分析与管理后台</p></div>
+          <div><h4 id="pd-seo">SEO / GEO</h4><p class="tag">配置、分析与管理后台</p></div>
           <a class="btn" href="/chat.html?product=SEO+%2F+GEO&amp;msg=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E5%AF%B9%E4%BA%A7%E5%93%81%E2%80%9CSEO+%2F+GEO%E2%80%9D%E7%9A%84%E8%AF%A6%E6%83%85%E6%84%9F%E5%85%B4%E8%B6%A3&amp;lang=zh" data-h="chat.html?product=SEO%20%2F%20GEO&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%ABSEO%20%2F%20GEO%C2%BB">了解详情</a>
         </div>
         <div class="shots" role="group" aria-label="应用界面"><button type="button" class="shot" style="--s:var(--img-g1)" aria-label="打开界面 1"></button><button type="button" class="shot" style="--s:var(--img-g2)" aria-label="打开界面 2"></button><button type="button" class="shot" style="--s:var(--img-g3)" aria-label="打开界面 3"></button></div>
         <ul class="feats f4"><li>SEO 与 GEO 配置：网站在搜索和 AI 回答中的可见度</li><li>店铺管理后台：横幅、标语和分类可直接在界面中修改</li><li>7、30 或 90 天访客分析：谁来了、谁立刻离开、有多少购物车发送到 Telegram</li><li>可查看 AI 助手（ChatGPT、Alice、Perplexity、Gemini）带来多少买家，以及每日访客数</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
+  </div>
 
   <!-- КАК ЭТО РАБОТАЕТ -->
   <section class="how" id="how" aria-labelledby="how-h">
@@ -683,6 +720,10 @@ d.addEventListener('click',function(e){
   if(e.target.closest('.dl-x')||e.target===d){d.close();return}
   var a=e.target.closest('a[data-empty]');if(a)e.preventDefault()});
 })();
+
+(function(){document.querySelectorAll('.product').forEach(function(c){var b=c.querySelector('.pc-more'),d=c.querySelector('.pd');if(!b||!d)return;
+b.addEventListener('click',function(){if(d.showModal)d.showModal();else d.setAttribute('open','');try{d.focus({preventScroll:true})}catch(e){}});
+d.addEventListener('click',function(e){if(e.target.closest('.dl-x')||e.target===d)d.close()})})})();
 
 (function(){var d=document.getElementById('lb');if(!d)return;var st=document.getElementById('lbst'),cn=document.getElementById('lbcn'),list=[],i=0;
 function show(){st.style.backgroundImage=getComputedStyle(list[i]).backgroundImage;cn.textContent=(i+1)+' / '+list.length}

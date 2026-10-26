@@ -16,10 +16,14 @@ Android
 Pick a ready-made solution in the catalog below
 Fitness CRM
 Clients, memberships, schedules and trainer payouts
+Fitness CRM
+Clients, memberships, schedules and trainer payouts
 The whole club at a glance: unlimited, trial and single-visit passes on one screen
 Find any client in a second: a last name or phone number is enough
 See trainers' free slots right away, no calls or spreadsheets
 Trainer payouts are calculated automatically, and the AI agent answers clients for you
+Tax agent
+Taxes for a group of companies: actuals from 1C, forecast and scenarios
 Tax agent
 Taxes for a group of companies: actuals from 1C, forecast and scenarios
 The whole group of companies on one screen
@@ -28,14 +32,20 @@ Compare the load across all legal entities in one tap
 The agent is on call 24/7: ask “what if” and get a calculation
 Construction accounting
 Sites, materials and costs
+Construction accounting
+Sites, materials and costs
 Sites, materials and works in one database
 Cost tracking for every site
 A manager's summary across all sites
 Booking CRM
 All hotel requests in one window
+Booking CRM
+All hotel requests in one window
 All booking requests in one list
 Status and history for every request
 The hotel owner tracks requests personally
+SEO / GEO
+Setup, analytics, admin panels
 SEO / GEO
 Setup, analytics, admin panels
 SEO and GEO setup: site visibility in search and in AI answers

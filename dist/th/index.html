@@ -219,17 +219,27 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 }
 
 /* ---------- каталог: одно сплошное белое пространство. Картинка разрезана по плашке, низ уехал вниз, в разрезе вся информация. Без теней, без наслоения ---------- */
-.product{background:#fff;padding:0;margin-top:var(--S)}
-.card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(8px,3vw,56px);width:100%;max-width:1760px;margin-inline:auto;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
-.mascot{width:100%;max-width:760px;aspect-ratio:1;justify-self:center;background:var(--mimg) center/contain no-repeat;-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 0,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);mask-composite:intersect}
-#tax .mascot,#booking .mascot{order:2}
-@media(min-width:861px){#tax .mascot,#booking .mascot{transform:scaleX(-1)}}
-@media(max-width:860px){.card{grid-template-columns:minmax(0,1fr);gap:0}.mascot{max-width:520px;order:0!important}}
+.cgrid{--cg:clamp(10px,2vw,28px);display:flex;flex-wrap:wrap;justify-content:center;gap:var(--cg);width:100%;max-width:1760px;margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
+.product{flex:0 0 calc((100% - 2 * var(--cg)) / 3);min-width:0;display:flex;flex-direction:column;background:#f6f7f8;border-radius:clamp(16px,2vw,28px);padding:clamp(10px,1.4vw,20px);scroll-margin-top:24px}
+.product .mascot{width:100%;aspect-ratio:1;background:var(--mimg) center/contain no-repeat #fff;border-radius:clamp(12px,1.6vw,20px)}
+.product h3{margin:clamp(12px,1.4vw,20px) 0 0;font:800 clamp(18px,2.1vw,30px)/1.05 var(--f-display);letter-spacing:-.035em}
+.product>.tag{margin:6px 0 0;color:var(--mute);font-weight:500;font-size:clamp(13px,1.1vw,16px);line-height:1.35}
+.pc-more{margin-top:auto;align-self:stretch;border:0;cursor:pointer;background:var(--btn,var(--acc));color:#fff;font:600 clamp(13px,1.1vw,16px)/1 var(--f-body);padding:clamp(12px,1.2vw,16px) 12px;border-radius:14px;-webkit-tap-highlight-color:transparent}
+.product>.tag{margin-bottom:clamp(12px,1.4vw,18px)}
+@media(min-width:1101px){.product{flex-basis:calc((100% - 4 * var(--cg)) / 5)}.product h3{font-size:clamp(18px,1.7vw,26px)}}
+@media(max-width:860px){.product{flex-basis:calc((100% - var(--cg)) / 2)}}
+.pd{border:0;padding:clamp(20px,3vw,40px);border-radius:28px;background:#fff;color:var(--fg);width:min(94vw,840px);max-height:92dvh;margin:auto;overflow:auto;box-shadow:0 30px 80px -20px rgba(0,0,0,.45)}
+.pd::backdrop{background:rgba(10,12,14,.5);backdrop-filter:blur(4px)}
+.pd[open]{animation:dlin .22s ease-out}
+.pd .dl-x{position:sticky;float:right;top:0;margin:-8px -8px 0 0;z-index:3}
+.pd:focus{outline:none}
+.pd .panel{padding:0}
+.pd .row{padding-right:44px}
 .panel{position:relative;z-index:2;container-type:inline-size;background:#fff;padding:clamp(8px,2vw,32px) 0}
 .panel .in{width:100%}
 .panel .row{display:grid;grid-template-columns:1fr auto;gap:12px 24px;align-items:end}
 .meta{font:600 12px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-.panel h3{margin:0;font:800 clamp(26px,4.4cqw,60px)/1 var(--f-display);letter-spacing:-.04em}
+.panel h3,.panel h4{margin:0;font:800 clamp(26px,4.4cqw,60px)/1 var(--f-display);letter-spacing:-.04em}
 .tag{margin:8px 0 0;color:var(--mute);font-weight:500;font-size:clamp(15px,1.8cqw,20px)}
 .feats{list-style:none;margin:clamp(14px,2vw,26px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2.4cqw,32px)}
 .feats li{font-size:clamp(13.5px,1.5cqw,17px);line-height:1.38;font-weight:500;min-width:0}
@@ -250,7 +260,7 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 @media(max-width:760px){.lb .pv,.lb .nx{top:auto;bottom:max(14px,env(safe-area-inset-bottom));translate:none;width:44px;height:44px}.lb .pv{left:calc(50% - 60px)}.lb .nx{right:calc(50% - 60px)}.lb .cn{display:none}.lb .st{height:min(78dvh,900px);top:calc(50% - 30px)}}
 
 .feats.f4{grid-template-columns:repeat(2,1fr)}
-.panel .btn{background:var(--btn,var(--acc));color:#fff}
+.panel .btn,.pc-more{background:var(--btn,var(--acc));color:#fff}
 @container (max-width:620px){.panel .row{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.panel .btn{width:100%}}
 
 #catalog{--acc:#a2eb41;--accfg:#fff;--mimg:var(--img-c-fit)}
@@ -396,63 +406,90 @@ textarea{min-height:96px;resize:vertical}
   </section>
 
 
+  <div class="cgrid">
   <section class="product" id="catalog">
-    <div class="card"><div class="mascot" role="img" aria-label="มาสคอต CRM ฟิตเนส"></div>
+    <div class="mascot" role="img" aria-label="มาสคอต CRM ฟิตเนส"></div>
+    <h3>CRM ฟิตเนส</h3><p class="tag">ลูกค้า สมาชิก ตารางเรียน และการจ่ายเงินเทรนเนอร์</p>
+    <button type="button" class="btn pc-more">ดูรายละเอียด</button>
+    <dialog class="pd" aria-labelledby="pd-catalog">
+      <button class="dl-x" type="button" aria-label="ปิด">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>CRM ฟิตเนส</h3><p class="tag">ลูกค้า สมาชิก ตารางเรียน และการจ่ายเงินเทรนเนอร์</p></div>
+          <div><h4 id="pd-catalog">CRM ฟิตเนส</h4><p class="tag">ลูกค้า สมาชิก ตารางเรียน และการจ่ายเงินเทรนเนอร์</p></div>
           <a class="btn" href="/chat.html?product=%D0%A4%D0%B8%D1%82%D0%BD%D0%B5%D1%81-CRM&amp;msg=%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5+%E0%B8%89%E0%B8%B1%E0%B8%99%E0%B8%AA%E0%B8%99%E0%B9%83%E0%B8%88%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%AD%E0%B8%B5%E0%B8%A2%E0%B8%94%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%9C%E0%B8%A5%E0%B8%B4%E0%B8%95%E0%B8%A0%E0%B8%B1%E0%B8%93%E0%B8%91%E0%B9%8C+%C2%ABCRM+%E0%B8%9F%E0%B8%B4%E0%B8%95%E0%B9%80%E0%B8%99%E0%B8%AA%C2%BB&amp;lang=th" data-h="chat.html?product=%D0%A4%D0%B8%D1%82%D0%BD%D0%B5%D1%81-CRM&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%A4%D0%B8%D1%82%D0%BD%D0%B5%D1%81-CRM%C2%BB">ดูรายละเอียด</a>
         </div>
         <div class="shots" role="group" aria-label="หน้าจอของแอป"><button type="button" class="shot" style="--s:var(--img-s1)" aria-label="เปิดหน้าจอ 1"></button><button type="button" class="shot" style="--s:var(--img-s2)" aria-label="เปิดหน้าจอ 2"></button><button type="button" class="shot" style="--s:var(--img-s3)" aria-label="เปิดหน้าจอ 3"></button></div>
         <ul class="feats f4"><li>เห็นทั้งสโมสรในพริบตา: บัตรไม่จำกัด บัตรทดลอง และบัตรครั้งเดียวบนหน้าจอเดียว</li><li>ค้นหาลูกค้าคนไหนก็ได้ในหนึ่งวินาที: แค่นามสกุลหรือเบอร์โทร</li><li>เห็นช่วงว่างของเทรนเนอร์ทันที ไม่ต้องโทรหรือเปิดตาราง</li><li>การจ่ายเงินเทรนเนอร์คำนวณให้อัตโนมัติ และเอเจนต์ AI ตอบลูกค้าแทนคุณ</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
 
-  <section class="product fade" id="tax">
-    <div class="card"><div class="mascot" role="img" aria-label="มาสคอตเอเจนต์ภาษี"></div>
+  <section class="product" id="tax">
+    <div class="mascot" role="img" aria-label="มาสคอตเอเจนต์ภาษี"></div>
+    <h3>เอเจนต์ภาษี</h3><p class="tag">ภาษีของกลุ่มบริษัท: ตัวเลขจริงจาก 1C การพยากรณ์ และสถานการณ์จำลอง</p>
+    <button type="button" class="btn pc-more">ดูรายละเอียด</button>
+    <dialog class="pd" aria-labelledby="pd-tax">
+      <button class="dl-x" type="button" aria-label="ปิด">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>เอเจนต์ภาษี</h3><p class="tag">ภาษีของกลุ่มบริษัท: ตัวเลขจริงจาก 1C การพยากรณ์ และสถานการณ์จำลอง</p></div>
+          <div><h4 id="pd-tax">เอเจนต์ภาษี</h4><p class="tag">ภาษีของกลุ่มบริษัท: ตัวเลขจริงจาก 1C การพยากรณ์ และสถานการณ์จำลอง</p></div>
           <a class="btn" href="/chat.html?product=%D0%9D%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9+%D0%B0%D0%B3%D0%B5%D0%BD%D1%82&amp;msg=%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5+%E0%B8%89%E0%B8%B1%E0%B8%99%E0%B8%AA%E0%B8%99%E0%B9%83%E0%B8%88%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%AD%E0%B8%B5%E0%B8%A2%E0%B8%94%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%9C%E0%B8%A5%E0%B8%B4%E0%B8%95%E0%B8%A0%E0%B8%B1%E0%B8%93%E0%B8%91%E0%B9%8C+%C2%AB%E0%B9%80%E0%B8%AD%E0%B9%80%E0%B8%88%E0%B8%99%E0%B8%95%E0%B9%8C%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B5%C2%BB&amp;lang=th" data-h="chat.html?product=%D0%9D%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B0%D0%B3%D0%B5%D0%BD%D1%82&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%9D%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%C2%BB">ดูรายละเอียด</a>
         </div>
         <div class="shots" role="group" aria-label="หน้าจอของแอป"><button type="button" class="shot" style="--s:var(--img-t1)" aria-label="เปิดหน้าจอ 1"></button><button type="button" class="shot" style="--s:var(--img-t2)" aria-label="เปิดหน้าจอ 2"></button><button type="button" class="shot" style="--s:var(--img-t3)" aria-label="เปิดหน้าจอ 3"></button></div>
         <ul class="feats f4"><li>ทั้งกลุ่มบริษัทบนหน้าจอเดียว</li><li>เห็นการชำระเงินเร่งด่วนล่วงหน้า: ไม่พลาดกำหนดใด ๆ</li><li>เปรียบเทียบภาระของนิติบุคคลทั้งหมดได้ด้วยการแตะครั้งเดียว</li><li>เอเจนต์พร้อมตลอด 24/7: ถามว่า «ถ้าหาก» แล้วรับการคำนวณ</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
 
   <section class="product" id="build">
-    <div class="card"><div class="mascot" role="img" aria-label="มาสคอตบัญชีงานก่อสร้าง"></div>
+    <div class="mascot" role="img" aria-label="มาสคอตบัญชีงานก่อสร้าง"></div>
+    <h3>บัญชีงานก่อสร้าง</h3><p class="tag">ไซต์งาน วัสดุ และต้นทุน</p>
+    <button type="button" class="btn pc-more">ดูรายละเอียด</button>
+    <dialog class="pd" aria-labelledby="pd-build">
+      <button class="dl-x" type="button" aria-label="ปิด">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>บัญชีงานก่อสร้าง</h3><p class="tag">ไซต์งาน วัสดุ และต้นทุน</p></div>
+          <div><h4 id="pd-build">บัญชีงานก่อสร้าง</h4><p class="tag">ไซต์งาน วัสดุ และต้นทุน</p></div>
           <a class="btn" href="/chat.html?product=%D0%A1%D1%82%D1%80%D0%BE%D0%B9-%D1%83%D1%87%D1%91%D1%82&amp;msg=%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5+%E0%B8%89%E0%B8%B1%E0%B8%99%E0%B8%AA%E0%B8%99%E0%B9%83%E0%B8%88%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%AD%E0%B8%B5%E0%B8%A2%E0%B8%94%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%9C%E0%B8%A5%E0%B8%B4%E0%B8%95%E0%B8%A0%E0%B8%B1%E0%B8%93%E0%B8%91%E0%B9%8C+%C2%AB%E0%B8%9A%E0%B8%B1%E0%B8%8D%E0%B8%8A%E0%B8%B5%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%81%E0%B9%88%E0%B8%AD%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%C2%BB&amp;lang=th" data-h="chat.html?product=%D0%A1%D1%82%D1%80%D0%BE%D0%B9-%D1%83%D1%87%D1%91%D1%82&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%A1%D1%82%D1%80%D0%BE%D0%B9-%D1%83%D1%87%D1%91%D1%82%C2%BB">ดูรายละเอียด</a>
         </div>
         <ul class="feats"><li>ไซต์งาน วัสดุ และงานในฐานข้อมูลเดียว</li><li>บันทึกต้นทุนของแต่ละไซต์งาน</li><li>สรุปสำหรับผู้บริหารครอบคลุมทุกไซต์งาน</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
 
-  <section class="product fade" id="booking">
-    <div class="card"><div class="mascot" role="img" aria-label="มาสคอต CRM การจอง"></div>
+  <section class="product" id="booking">
+    <div class="mascot" role="img" aria-label="มาสคอต CRM การจอง"></div>
+    <h3>CRM การจอง</h3><p class="tag">คำขอทั้งหมดของโรงแรมในหน้าต่างเดียว</p>
+    <button type="button" class="btn pc-more">ดูรายละเอียด</button>
+    <dialog class="pd" aria-labelledby="pd-booking">
+      <button class="dl-x" type="button" aria-label="ปิด">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>CRM การจอง</h3><p class="tag">คำขอทั้งหมดของโรงแรมในหน้าต่างเดียว</p></div>
+          <div><h4 id="pd-booking">CRM การจอง</h4><p class="tag">คำขอทั้งหมดของโรงแรมในหน้าต่างเดียว</p></div>
           <a class="btn" href="/chat.html?product=%D0%91%D1%83%D0%BA%D0%B8%D0%BD%D0%B3-CRM&amp;msg=%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5+%E0%B8%89%E0%B8%B1%E0%B8%99%E0%B8%AA%E0%B8%99%E0%B9%83%E0%B8%88%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%AD%E0%B8%B5%E0%B8%A2%E0%B8%94%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%9C%E0%B8%A5%E0%B8%B4%E0%B8%95%E0%B8%A0%E0%B8%B1%E0%B8%93%E0%B8%91%E0%B9%8C+%C2%ABCRM+%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%88%E0%B8%AD%E0%B8%87%C2%BB&amp;lang=th" data-h="chat.html?product=%D0%91%D1%83%D0%BA%D0%B8%D0%BD%D0%B3-CRM&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%91%D1%83%D0%BA%D0%B8%D0%BD%D0%B3-CRM%C2%BB">ดูรายละเอียด</a>
         </div>
         <ul class="feats"><li>คำขอจองทั้งหมดในรายการเดียว</li><li>สถานะและประวัติของแต่ละคำขอ</li><li>เจ้าของโรงแรมติดตามคำขอได้ด้วยตัวเอง</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
 
   <section class="product" id="seo">
-    <div class="card"><div class="mascot" role="img" aria-label="มาสคอต SEO และ GEO"></div>
+    <div class="mascot" role="img" aria-label="มาสคอต SEO และ GEO"></div>
+    <h3>SEO / GEO</h3><p class="tag">การตั้งค่า การวิเคราะห์ แผงผู้ดูแล</p>
+    <button type="button" class="btn pc-more">ดูรายละเอียด</button>
+    <dialog class="pd" aria-labelledby="pd-seo">
+      <button class="dl-x" type="button" aria-label="ปิด">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>SEO / GEO</h3><p class="tag">การตั้งค่า การวิเคราะห์ แผงผู้ดูแล</p></div>
+          <div><h4 id="pd-seo">SEO / GEO</h4><p class="tag">การตั้งค่า การวิเคราะห์ แผงผู้ดูแล</p></div>
           <a class="btn" href="/chat.html?product=SEO+%2F+GEO&amp;msg=%E0%B8%AA%E0%B8%A7%E0%B8%B1%E0%B8%AA%E0%B8%94%E0%B8%B5+%E0%B8%89%E0%B8%B1%E0%B8%99%E0%B8%AA%E0%B8%99%E0%B9%83%E0%B8%88%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%AD%E0%B8%B5%E0%B8%A2%E0%B8%94%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%9C%E0%B8%A5%E0%B8%B4%E0%B8%95%E0%B8%A0%E0%B8%B1%E0%B8%93%E0%B8%91%E0%B9%8C+%C2%ABSEO+%2F+GEO%C2%BB&amp;lang=th" data-h="chat.html?product=SEO%20%2F%20GEO&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%ABSEO%20%2F%20GEO%C2%BB">ดูรายละเอียด</a>
         </div>
         <div class="shots" role="group" aria-label="หน้าจอของแอป"><button type="button" class="shot" style="--s:var(--img-g1)" aria-label="เปิดหน้าจอ 1"></button><button type="button" class="shot" style="--s:var(--img-g2)" aria-label="เปิดหน้าจอ 2"></button><button type="button" class="shot" style="--s:var(--img-g3)" aria-label="เปิดหน้าจอ 3"></button></div>
         <ul class="feats f4"><li>การตั้งค่า SEO และ GEO: การมองเห็นของเว็บไซต์ในการค้นหาและในคำตอบของ AI</li><li>แผงผู้ดูแลหน้าร้าน: แบนเนอร์ สโลแกน และหมวดหมู่แก้ไขได้ในอินเทอร์เฟซโดยตรง</li><li>การวิเคราะห์ผู้เข้าชม 7, 30 หรือ 90 วัน: ใครเข้ามา ใครออกทันที และมีกี่ตะกร้าที่ส่งไป Telegram</li><li>ดูว่าผู้ช่วย AI (ChatGPT, Alisa, Perplexity, Gemini) พาผู้ซื้อมากี่คน และผู้เข้าชมรายวัน</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
+  </div>
 
   <!-- КАК ЭТО РАБОТАЕТ -->
   <section class="how" id="how" aria-labelledby="how-h">
@@ -683,6 +720,10 @@ d.addEventListener('click',function(e){
   if(e.target.closest('.dl-x')||e.target===d){d.close();return}
   var a=e.target.closest('a[data-empty]');if(a)e.preventDefault()});
 })();
+
+(function(){document.querySelectorAll('.product').forEach(function(c){var b=c.querySelector('.pc-more'),d=c.querySelector('.pd');if(!b||!d)return;
+b.addEventListener('click',function(){if(d.showModal)d.showModal();else d.setAttribute('open','');try{d.focus({preventScroll:true})}catch(e){}});
+d.addEventListener('click',function(e){if(e.target.closest('.dl-x')||e.target===d)d.close()})})})();
 
 (function(){var d=document.getElementById('lb');if(!d)return;var st=document.getElementById('lbst'),cn=document.getElementById('lbcn'),list=[],i=0;
 function show(){st.style.backgroundImage=getComputedStyle(list[i]).backgroundImage;cn.textContent=(i+1)+' / '+list.length}

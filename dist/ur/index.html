@@ -219,17 +219,27 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 }
 
 /* ---------- каталог: одно сплошное белое пространство. Картинка разрезана по плашке, низ уехал вниз, в разрезе вся информация. Без теней, без наслоения ---------- */
-.product{background:#fff;padding:0;margin-top:var(--S)}
-.card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(8px,3vw,56px);width:100%;max-width:1760px;margin-inline:auto;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
-.mascot{width:100%;max-width:760px;aspect-ratio:1;justify-self:center;background:var(--mimg) center/contain no-repeat;-webkit-mask-image:linear-gradient(to bottom,#000 0,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,#000 0,#000 86%,transparent 100%),linear-gradient(to right,transparent 0,#000 14%,#000 86%,transparent 100%);mask-composite:intersect}
-#tax .mascot,#booking .mascot{order:2}
-@media(min-width:861px){#tax .mascot,#booking .mascot{transform:scaleX(-1)}}
-@media(max-width:860px){.card{grid-template-columns:minmax(0,1fr);gap:0}.mascot{max-width:520px;order:0!important}}
+.cgrid{--cg:clamp(10px,2vw,28px);display:flex;flex-wrap:wrap;justify-content:center;gap:var(--cg);width:100%;max-width:1760px;margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
+.product{flex:0 0 calc((100% - 2 * var(--cg)) / 3);min-width:0;display:flex;flex-direction:column;background:#f6f7f8;border-radius:clamp(16px,2vw,28px);padding:clamp(10px,1.4vw,20px);scroll-margin-top:24px}
+.product .mascot{width:100%;aspect-ratio:1;background:var(--mimg) center/contain no-repeat #fff;border-radius:clamp(12px,1.6vw,20px)}
+.product h3{margin:clamp(12px,1.4vw,20px) 0 0;font:800 clamp(18px,2.1vw,30px)/1.05 var(--f-display);letter-spacing:-.035em}
+.product>.tag{margin:6px 0 0;color:var(--mute);font-weight:500;font-size:clamp(13px,1.1vw,16px);line-height:1.35}
+.pc-more{margin-top:auto;align-self:stretch;border:0;cursor:pointer;background:var(--btn,var(--acc));color:#fff;font:600 clamp(13px,1.1vw,16px)/1 var(--f-body);padding:clamp(12px,1.2vw,16px) 12px;border-radius:14px;-webkit-tap-highlight-color:transparent}
+.product>.tag{margin-bottom:clamp(12px,1.4vw,18px)}
+@media(min-width:1101px){.product{flex-basis:calc((100% - 4 * var(--cg)) / 5)}.product h3{font-size:clamp(18px,1.7vw,26px)}}
+@media(max-width:860px){.product{flex-basis:calc((100% - var(--cg)) / 2)}}
+.pd{border:0;padding:clamp(20px,3vw,40px);border-radius:28px;background:#fff;color:var(--fg);width:min(94vw,840px);max-height:92dvh;margin:auto;overflow:auto;box-shadow:0 30px 80px -20px rgba(0,0,0,.45)}
+.pd::backdrop{background:rgba(10,12,14,.5);backdrop-filter:blur(4px)}
+.pd[open]{animation:dlin .22s ease-out}
+.pd .dl-x{position:sticky;float:right;top:0;margin:-8px -8px 0 0;z-index:3}
+.pd:focus{outline:none}
+.pd .panel{padding:0}
+.pd .row{padding-right:44px}
 .panel{position:relative;z-index:2;container-type:inline-size;background:#fff;padding:clamp(8px,2vw,32px) 0}
 .panel .in{width:100%}
 .panel .row{display:grid;grid-template-columns:1fr auto;gap:12px 24px;align-items:end}
 .meta{font:600 12px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-.panel h3{margin:0;font:800 clamp(26px,4.4cqw,60px)/1 var(--f-display);letter-spacing:-.04em}
+.panel h3,.panel h4{margin:0;font:800 clamp(26px,4.4cqw,60px)/1 var(--f-display);letter-spacing:-.04em}
 .tag{margin:8px 0 0;color:var(--mute);font-weight:500;font-size:clamp(15px,1.8cqw,20px)}
 .feats{list-style:none;margin:clamp(14px,2vw,26px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2.4cqw,32px)}
 .feats li{font-size:clamp(13.5px,1.5cqw,17px);line-height:1.38;font-weight:500;min-width:0}
@@ -250,7 +260,7 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 @media(max-width:760px){.lb .pv,.lb .nx{top:auto;bottom:max(14px,env(safe-area-inset-bottom));translate:none;width:44px;height:44px}.lb .pv{left:calc(50% - 60px)}.lb .nx{right:calc(50% - 60px)}.lb .cn{display:none}.lb .st{height:min(78dvh,900px);top:calc(50% - 30px)}}
 
 .feats.f4{grid-template-columns:repeat(2,1fr)}
-.panel .btn{background:var(--btn,var(--acc));color:#fff}
+.panel .btn,.pc-more{background:var(--btn,var(--acc));color:#fff}
 @container (max-width:620px){.panel .row{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.panel .btn{width:100%}}
 
 #catalog{--acc:#a2eb41;--accfg:#fff;--mimg:var(--img-c-fit)}
@@ -396,63 +406,90 @@ textarea{min-height:96px;resize:vertical}
   </section>
 
 
+  <div class="cgrid">
   <section class="product" id="catalog">
-    <div class="card"><div class="mascot" role="img" aria-label="فٹنس سی آر ایم کا ماسکوٹ"></div>
+    <div class="mascot" role="img" aria-label="فٹنس سی آر ایم کا ماسکوٹ"></div>
+    <h3>فٹنس سی آر ایم</h3><p class="tag">کلائنٹس، رکنیتیں، شیڈول اور ٹرینرز کو ادائیگیاں</p>
+    <button type="button" class="btn pc-more">مزید جانیں</button>
+    <dialog class="pd" aria-labelledby="pd-catalog">
+      <button class="dl-x" type="button" aria-label="بند کریں">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>فٹنس سی آر ایم</h3><p class="tag">کلائنٹس، رکنیتیں، شیڈول اور ٹرینرز کو ادائیگیاں</p></div>
+          <div><h4 id="pd-catalog">فٹنس سی آر ایم</h4><p class="tag">کلائنٹس، رکنیتیں، شیڈول اور ٹرینرز کو ادائیگیاں</p></div>
           <a class="btn" href="/chat.html?product=%D0%A4%D0%B8%D1%82%D0%BD%D0%B5%D1%81-CRM&amp;msg=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%DB%8C%DA%A9%D9%85%D8%8C+%D9%85%D8%AC%DA%BE%DB%92+%D9%BE%D8%B1%D9%88%DA%88%DA%A9%D9%B9+%C2%AB%D9%81%D9%B9%D9%86%D8%B3+%D8%B3%DB%8C+%D8%A2%D8%B1+%D8%A7%DB%8C%D9%85%C2%BB+%DA%A9%DB%8C+%D8%AA%D9%81%D8%B5%DB%8C%D9%84%D8%A7%D8%AA+%D9%85%DB%8C%DA%BA+%D8%AF%D9%84%DA%86%D8%B3%D9%BE%DB%8C+%DB%81%DB%92&amp;lang=ur" data-h="chat.html?product=%D0%A4%D0%B8%D1%82%D0%BD%D0%B5%D1%81-CRM&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%A4%D0%B8%D1%82%D0%BD%D0%B5%D1%81-CRM%C2%BB">مزید جانیں</a>
         </div>
         <div class="shots" role="group" aria-label="ایپ کی اسکرینیں"><button type="button" class="shot" style="--s:var(--img-s1)" aria-label="اسکرین 1 کھولیں"></button><button type="button" class="shot" style="--s:var(--img-s2)" aria-label="اسکرین 2 کھولیں"></button><button type="button" class="shot" style="--s:var(--img-s3)" aria-label="اسکرین 3 کھولیں"></button></div>
         <ul class="feats f4"><li>پوری کلب ایک نظر میں: لامحدود، ٹرائل اور ایک بار کے پاس ایک اسکرین پر</li><li>کسی بھی کلائنٹ کو ایک سیکنڈ میں تلاش کریں: خاندانی نام یا فون کافی ہے</li><li>ٹرینرز کے خالی اوقات فوراً دیکھیں، بغیر کالز اور اسپریڈ شیٹس کے</li><li>ٹرینرز کی ادائیگیاں خود بخود شمار ہوتی ہیں، اور اے آئی ایجنٹ آپ کی جگہ کلائنٹس کو جواب دیتا ہے</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
 
-  <section class="product fade" id="tax">
-    <div class="card"><div class="mascot" role="img" aria-label="ٹیکس ایجنٹ کا ماسکوٹ"></div>
+  <section class="product" id="tax">
+    <div class="mascot" role="img" aria-label="ٹیکس ایجنٹ کا ماسکوٹ"></div>
+    <h3>ٹیکس ایجنٹ</h3><p class="tag">کمپنیوں کے گروپ کے ٹیکس: 1C سے اصل اعداد، پیش گوئی اور منظرنامے</p>
+    <button type="button" class="btn pc-more">مزید جانیں</button>
+    <dialog class="pd" aria-labelledby="pd-tax">
+      <button class="dl-x" type="button" aria-label="بند کریں">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>ٹیکس ایجنٹ</h3><p class="tag">کمپنیوں کے گروپ کے ٹیکس: 1C سے اصل اعداد، پیش گوئی اور منظرنامے</p></div>
+          <div><h4 id="pd-tax">ٹیکس ایجنٹ</h4><p class="tag">کمپنیوں کے گروپ کے ٹیکس: 1C سے اصل اعداد، پیش گوئی اور منظرنامے</p></div>
           <a class="btn" href="/chat.html?product=%D0%9D%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9+%D0%B0%D0%B3%D0%B5%D0%BD%D1%82&amp;msg=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%DB%8C%DA%A9%D9%85%D8%8C+%D9%85%D8%AC%DA%BE%DB%92+%D9%BE%D8%B1%D9%88%DA%88%DA%A9%D9%B9+%C2%AB%D9%B9%DB%8C%DA%A9%D8%B3+%D8%A7%DB%8C%D8%AC%D9%86%D9%B9%C2%BB+%DA%A9%DB%8C+%D8%AA%D9%81%D8%B5%DB%8C%D9%84%D8%A7%D8%AA+%D9%85%DB%8C%DA%BA+%D8%AF%D9%84%DA%86%D8%B3%D9%BE%DB%8C+%DB%81%DB%92&amp;lang=ur" data-h="chat.html?product=%D0%9D%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B0%D0%B3%D0%B5%D0%BD%D1%82&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%9D%D0%B0%D0%BB%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%C2%BB">مزید جانیں</a>
         </div>
         <div class="shots" role="group" aria-label="ایپ کی اسکرینیں"><button type="button" class="shot" style="--s:var(--img-t1)" aria-label="اسکرین 1 کھولیں"></button><button type="button" class="shot" style="--s:var(--img-t2)" aria-label="اسکرین 2 کھولیں"></button><button type="button" class="shot" style="--s:var(--img-t3)" aria-label="اسکرین 3 کھولیں"></button></div>
         <ul class="feats f4"><li>کمپنیوں کا پورا گروپ ایک اسکرین پر</li><li>فوری ادائیگیاں پہلے سے دیکھیں: کوئی آخری تاریخ نہیں چھوٹتی</li><li>تمام قانونی اداروں کا بوجھ ایک ٹیپ سے موازنہ کریں</li><li>ایجنٹ 24/7 دستیاب ہے: «اگر…» پوچھیں اور حساب حاصل کریں</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
 
   <section class="product" id="build">
-    <div class="card"><div class="mascot" role="img" aria-label="تعمیراتی اکاؤنٹنگ کا ماسکوٹ"></div>
+    <div class="mascot" role="img" aria-label="تعمیراتی اکاؤنٹنگ کا ماسکوٹ"></div>
+    <h3>تعمیراتی اکاؤنٹنگ</h3><p class="tag">سائٹس، مواد اور اخراجات</p>
+    <button type="button" class="btn pc-more">مزید جانیں</button>
+    <dialog class="pd" aria-labelledby="pd-build">
+      <button class="dl-x" type="button" aria-label="بند کریں">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>تعمیراتی اکاؤنٹنگ</h3><p class="tag">سائٹس، مواد اور اخراجات</p></div>
+          <div><h4 id="pd-build">تعمیراتی اکاؤنٹنگ</h4><p class="tag">سائٹس، مواد اور اخراجات</p></div>
           <a class="btn" href="/chat.html?product=%D0%A1%D1%82%D1%80%D0%BE%D0%B9-%D1%83%D1%87%D1%91%D1%82&amp;msg=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%DB%8C%DA%A9%D9%85%D8%8C+%D9%85%D8%AC%DA%BE%DB%92+%D9%BE%D8%B1%D9%88%DA%88%DA%A9%D9%B9+%C2%AB%D8%AA%D8%B9%D9%85%DB%8C%D8%B1%D8%A7%D8%AA%DB%8C+%D8%A7%DA%A9%D8%A7%D8%A4%D9%86%D9%B9%D9%86%DA%AF%C2%BB+%DA%A9%DB%8C+%D8%AA%D9%81%D8%B5%DB%8C%D9%84%D8%A7%D8%AA+%D9%85%DB%8C%DA%BA+%D8%AF%D9%84%DA%86%D8%B3%D9%BE%DB%8C+%DB%81%DB%92&amp;lang=ur" data-h="chat.html?product=%D0%A1%D1%82%D1%80%D0%BE%D0%B9-%D1%83%D1%87%D1%91%D1%82&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%A1%D1%82%D1%80%D0%BE%D0%B9-%D1%83%D1%87%D1%91%D1%82%C2%BB">مزید جانیں</a>
         </div>
         <ul class="feats"><li>سائٹس، مواد اور کام ایک ڈیٹابیس میں</li><li>ہر سائٹ کے اخراجات کا حساب</li><li>تمام سائٹس پر مینیجر کے لیے خلاصہ</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
 
-  <section class="product fade" id="booking">
-    <div class="card"><div class="mascot" role="img" aria-label="بکنگ سی آر ایم کا ماسکوٹ"></div>
+  <section class="product" id="booking">
+    <div class="mascot" role="img" aria-label="بکنگ سی آر ایم کا ماسکوٹ"></div>
+    <h3>بکنگ سی آر ایم</h3><p class="tag">ہوٹل کی تمام درخواستیں ایک ونڈو میں</p>
+    <button type="button" class="btn pc-more">مزید جانیں</button>
+    <dialog class="pd" aria-labelledby="pd-booking">
+      <button class="dl-x" type="button" aria-label="بند کریں">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>بکنگ سی آر ایم</h3><p class="tag">ہوٹل کی تمام درخواستیں ایک ونڈو میں</p></div>
+          <div><h4 id="pd-booking">بکنگ سی آر ایم</h4><p class="tag">ہوٹل کی تمام درخواستیں ایک ونڈو میں</p></div>
           <a class="btn" href="/chat.html?product=%D0%91%D1%83%D0%BA%D0%B8%D0%BD%D0%B3-CRM&amp;msg=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%DB%8C%DA%A9%D9%85%D8%8C+%D9%85%D8%AC%DA%BE%DB%92+%D9%BE%D8%B1%D9%88%DA%88%DA%A9%D9%B9+%C2%AB%D8%A8%DA%A9%D9%86%DA%AF+%D8%B3%DB%8C+%D8%A2%D8%B1+%D8%A7%DB%8C%D9%85%C2%BB+%DA%A9%DB%8C+%D8%AA%D9%81%D8%B5%DB%8C%D9%84%D8%A7%D8%AA+%D9%85%DB%8C%DA%BA+%D8%AF%D9%84%DA%86%D8%B3%D9%BE%DB%8C+%DB%81%DB%92&amp;lang=ur" data-h="chat.html?product=%D0%91%D1%83%D0%BA%D0%B8%D0%BD%D0%B3-CRM&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%91%D1%83%D0%BA%D0%B8%D0%BD%D0%B3-CRM%C2%BB">مزید جانیں</a>
         </div>
         <ul class="feats"><li>بکنگ کی تمام درخواستیں ایک فہرست میں</li><li>ہر درخواست کی حالت اور تاریخ</li><li>ہوٹل کا مالک درخواستوں کو خود دیکھتا ہے</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
 
   <section class="product" id="seo">
-    <div class="card"><div class="mascot" role="img" aria-label="ایس ای او اور جی ای او کا ماسکوٹ"></div>
+    <div class="mascot" role="img" aria-label="ایس ای او اور جی ای او کا ماسکوٹ"></div>
+    <h3>SEO / GEO</h3><p class="tag">سیٹ اپ، تجزیات، ایڈمن پینل</p>
+    <button type="button" class="btn pc-more">مزید جانیں</button>
+    <dialog class="pd" aria-labelledby="pd-seo">
+      <button class="dl-x" type="button" aria-label="بند کریں">×</button>
       <div class="panel"><div class="in">
         <div class="row">
-          <div><h3>SEO / GEO</h3><p class="tag">سیٹ اپ، تجزیات، ایڈمن پینل</p></div>
+          <div><h4 id="pd-seo">SEO / GEO</h4><p class="tag">سیٹ اپ، تجزیات، ایڈمن پینل</p></div>
           <a class="btn" href="/chat.html?product=SEO+%2F+GEO&amp;msg=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85+%D8%B9%D9%84%DB%8C%DA%A9%D9%85%D8%8C+%D9%85%D8%AC%DA%BE%DB%92+%D9%BE%D8%B1%D9%88%DA%88%DA%A9%D9%B9+%C2%ABSEO+%2F+GEO%C2%BB+%DA%A9%DB%8C+%D8%AA%D9%81%D8%B5%DB%8C%D9%84%D8%A7%D8%AA+%D9%85%DB%8C%DA%BA+%D8%AF%D9%84%DA%86%D8%B3%D9%BE%DB%8C+%DB%81%DB%92&amp;lang=ur" data-h="chat.html?product=SEO%20%2F%20GEO&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%ABSEO%20%2F%20GEO%C2%BB">مزید جانیں</a>
         </div>
         <div class="shots" role="group" aria-label="ایپ کی اسکرینیں"><button type="button" class="shot" style="--s:var(--img-g1)" aria-label="اسکرین 1 کھولیں"></button><button type="button" class="shot" style="--s:var(--img-g2)" aria-label="اسکرین 2 کھولیں"></button><button type="button" class="shot" style="--s:var(--img-g3)" aria-label="اسکرین 3 کھولیں"></button></div>
         <ul class="feats f4"><li>ایس ای او اور جی ای او سیٹ اپ: سرچ اور اے آئی کے جوابات میں سائٹ کی نمایاں موجودگی</li><li>اسٹور فرنٹ کا ایڈمن پینل: بینر، نعرہ اور زمرے براہِ راست انٹرفیس میں بدلتے ہیں</li><li>7، 30 یا 90 دن کے وزیٹرز کے تجزیات: کون آیا، کون فوراً چلا گیا اور کتنی ٹوکریاں ٹیلیگرام بھیجی گئیں</li><li>دیکھیں کتنے خریداروں کو اے آئی اسسٹنٹس (ChatGPT، Alisa، Perplexity، Gemini) لائے، اور روزانہ وزیٹرز</li></ul>
-      </div></div></div>
+      </div></div>
+    </dialog>
   </section>
+  </div>
 
   <!-- КАК ЭТО РАБОТАЕТ -->
   <section class="how" id="how" aria-labelledby="how-h">
@@ -683,6 +720,10 @@ d.addEventListener('click',function(e){
   if(e.target.closest('.dl-x')||e.target===d){d.close();return}
   var a=e.target.closest('a[data-empty]');if(a)e.preventDefault()});
 })();
+
+(function(){document.querySelectorAll('.product').forEach(function(c){var b=c.querySelector('.pc-more'),d=c.querySelector('.pd');if(!b||!d)return;
+b.addEventListener('click',function(){if(d.showModal)d.showModal();else d.setAttribute('open','');try{d.focus({preventScroll:true})}catch(e){}});
+d.addEventListener('click',function(e){if(e.target.closest('.dl-x')||e.target===d)d.close()})})})();
 
 (function(){var d=document.getElementById('lb');if(!d)return;var st=document.getElementById('lbst'),cn=document.getElementById('lbcn'),list=[],i=0;
 function show(){st.style.backgroundImage=getComputedStyle(list[i]).backgroundImage;cn.textContent=(i+1)+' / '+list.length}
