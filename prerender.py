@@ -13,7 +13,7 @@ D_KEY = 'РОБОРАБ внедряет ИИ-агентов в бизнес-п�
 LOCALE = {'en': 'en_US', 'en-GB': 'en_GB', 'ru': 'ru_RU', 'es': 'es_ES', 'fr': 'fr_FR', 'zh': 'zh_CN', 'de': 'de_DE', 'it': 'it_IT', 'pt': 'pt_PT', 'tr': 'tr_TR', 'ja': 'ja_JP', 'ko': 'ko_KR', 'uk': 'uk_UA', 'pl': 'pl_PL', 'nl': 'nl_NL', 'cs': 'cs_CZ', 'sv': 'sv_SE', 'ro': 'ro_RO', 'el': 'el_GR', 'id': 'id_ID', 'vi': 'vi_VN', 'kk': 'kk_KZ', 'hi': 'hi_IN', 'th': 'th_TH', 'ar': 'ar_AR', 'bg': 'bg_BG', 'hr': 'hr_HR', 'sk': 'sk_SK', 'sl': 'sl_SI', 'hu': 'hu_HU', 'fi': 'fi_FI', 'da': 'da_DK', 'nb': 'nb_NO', 'lt': 'lt_LT', 'lv': 'lv_LV', 'et': 'et_EE', 'ca': 'ca_ES', 'af': 'af_ZA', 'ms': 'ms_MY', 'fil': 'fil_PH', 'he': 'he_IL', 'fa': 'fa_IR', 'ur': 'ur_PK', 'bn': 'bn_BD', 'ta': 'ta_IN', 'te': 'te_IN', 'mr': 'mr_IN', 'be': 'be_BY', 'az': 'az_AZ', 'uz': 'uz_UZ', 'ka': 'ka_GE', 'hy': 'hy_AM', 'sr': 'sr_RS', 'sw': 'sw_KE'}
 import hashlib
 def AV(n): return hashlib.md5(open(pathlib.Path(__file__).parent/'assets'/(n+'.webp'),'rb').read()).hexdigest()[:8]
-IMG = ['roborab-en', 'brain', 'c-fit', 'c-tax', 'c-build', 'c-booking', 'c-seo', 'roborab', 'sofa', 'appicon', 's1', 's2', 's3', 'p1', 'p2', 'p3', 't1', 't2', 't3', 'h1', 'h2', 'h3', 'h4', 'n1', 'n2', 'm1', 'm2', 'm3', 'g1', 'g2', 'g3']
+IMG = ['roborab-en', 'brain', 'c-fit', 'c-tax', 'c-build', 'c-booking', 'c-seo', 'c-frank', 'roborab', 'sofa', 'appicon', 's1', 's2', 's3', 'p1', 'p2', 'p3', 't1', 't2', 't3', 'h1', 'h2', 'h3', 'h4', 'n1', 'n2', 'm1', 'm2', 'm3', 'g1', 'g2', 'g3']
 CLEAN = """() => {
   ['html', '.hero', '.hero .ht', '.hero .ht .ml', '.word', '.sofa', '.banner', '.down'].forEach(s => document.querySelectorAll(s).forEach(e => e.removeAttribute('style')));
   document.documentElement.classList.remove('tb');

@@ -236,6 +236,13 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 #build{--acc:#fcc118;--accfg:#fff;--mimg:var(--img-c-build)}
 #booking{--acc:#393939;--accfg:#fff;--mimg:var(--img-c-booking)}
 #seo{--acc:#fa3c8a;--accfg:#fff;--mimg:var(--img-c-seo)}
+#frank{--acc:#7cc62b;--accfg:#fff;--mimg:var(--img-c-frank);flex-basis:100%;background:#101417;color:#fff;display:grid;grid-template-columns:clamp(110px,16vw,220px) minmax(0,1fr) auto;align-items:center;gap:clamp(12px,3vw,40px);box-shadow:inset 0 0 0 2px #7cc62b}
+#frank .mascot{background-color:#fff}
+#frank h3{margin:0;font-size:clamp(22px,2.6vw,38px);color:#fff}
+#frank>.ft .tag,#frank>.tag{color:#b9c2c8;margin:8px 0 0;font-size:clamp(14px,1.3vw,18px)}
+#frank .pc-more{margin:0;align-self:center;padding-inline:clamp(20px,3vw,44px)}
+#frank .pd{color:var(--fg)}
+@media(max-width:860px){#frank{grid-template-columns:clamp(90px,26vw,150px) minmax(0,1fr)}#frank .pc-more{grid-column:1/-1;align-self:stretch}}
 
 .faq{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
 .faq h2{margin:0;text-align:center;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
@@ -457,6 +464,21 @@ textarea{min-height:96px;resize:vertical}
       </div></div>
     </dialog>
   </section>
+  <section class="product" id="frank">
+    <div class="mascot" role="img" aria-label="Маскот Франкенштейна"></div>
+    <div class="ft"><h3>Франкенштейн</h3><p class="tag">Объединяем продукты и собираем новое решение специально для вас</p></div>
+    <button type="button" class="btn pc-more">Узнать детали</button>
+    <dialog class="pd" aria-labelledby="pd-frank">
+      <button class="dl-x" type="button" aria-label="Закрыть">×</button>
+      <div class="panel"><div class="in">
+        <div class="row">
+          <div><h4 id="pd-frank">Франкенштейн</h4><p class="tag">Объединяем продукты и собираем новое решение специально для вас</p></div>
+          <a class="btn" href="chat.html?product=%D0%A4%D1%80%D0%B0%D0%BD%D0%BA%D0%B5%D0%BD%D1%88%D1%82%D0%B5%D0%B9%D0%BD&amp;msg=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B7%D0%B0%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D0%BE%D0%B2%D0%B0%D0%BB%D0%B8%20%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BF%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%83%20%C2%AB%D0%A4%D1%80%D0%B0%D0%BD%D0%BA%D0%B5%D0%BD%D1%88%D1%82%D0%B5%D0%B9%D0%BD%C2%BB">Узнать детали</a>
+        </div>
+        <ul class="feats"><li>Объединяем готовые продукты каталога в одно решение</li><li>Собираем новое решение специально под ваш бизнес</li><li>Вы описываете задачу, остальное собираем мы</li></ul>
+      </div></div>
+    </dialog>
+  </section>
   </div>
 
   <!-- КАК ЭТО РАБОТАЕТ -->
@@ -536,7 +558,7 @@ textarea{min-height:96px;resize:vertical}
         <input type="hidden" name="lang" value="ru">
         <label for="f-name">Имя<input id="f-name" name="name" type="text" autocomplete="name"></label>
         <label for="f-prod">Продукт, который вас заинтересовал
-          <select id="f-prod" name="product"><option value="Фитнес-CRM">Фитнес-CRM</option><option value="Налоговый агент">Налоговый агент</option><option value="Строй-учёт">Строй-учёт</option><option value="Букинг-CRM">Букинг-CRM</option><option value="SEO / GEO">SEO / GEO</option><option value="Бесплатный план">Бесплатный план</option><option value="Подписка с бизнес-ментором">Подписка с бизнес-ментором</option><option value="Пока не знаю">Пока не знаю</option></select>
+          <select id="f-prod" name="product"><option value="Фитнес-CRM">Фитнес-CRM</option><option value="Налоговый агент">Налоговый агент</option><option value="Строй-учёт">Строй-учёт</option><option value="Букинг-CRM">Букинг-CRM</option><option value="SEO / GEO">SEO / GEO</option><option value="Франкенштейн">Франкенштейн</option><option value="Бесплатный план">Бесплатный план</option><option value="Подписка с бизнес-ментором">Подписка с бизнес-ментором</option><option value="Пока не знаю">Пока не знаю</option></select>
         </label>
         <button class="btn" type="submit">Отправить в чат РОБОРАБ AI <span aria-hidden="true">→</span></button>
       </form>

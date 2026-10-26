@@ -52,6 +52,13 @@ SEO and GEO setup: site visibility in search and in AI answers
 Storefront admin panel: banner, slogan and categories are edited right in the interface
 Visitor analytics for 7, 30 or 90 days: who came, who left at once and how many carts were sent to Telegram
 See how many buyers were brought by AI assistants (ChatGPT, Alice, Perplexity, Gemini), and visitors by day
+Frankenstein
+We combine products and build a new solution made specially for you
+Frankenstein
+We combine products and build a new solution made specially for you
+We combine ready-made catalog products into one solution
+We build a new solution specially for your business
+You describe the task, we assemble the rest
 How it works
 Step 1 You describe the task
 To the AI agent: by text, voice or video call.
@@ -100,5 +107,5 @@ Tell us about your task
 Leave your name and choose a product. We will open a chat with ROBORAB AI: the agent will ask a few questions and find out what exactly you need.
 Name
 The product you are interested in
-Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO Free plan Subscription with a business mentor Not sure yet
+Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO Frankenstein Free plan Subscription with a business mentor Not sure yet
 Send to the ROBORAB AI chat →
