@@ -227,7 +227,7 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 .product>.tag{margin:6px 0 0;color:var(--mute);font-weight:500;font-size:clamp(13px,1.1vw,16px);line-height:1.35}
 .pc-more{margin-top:auto;align-self:stretch;border:0;cursor:pointer;background:var(--btn,var(--acc));color:#fff;font:600 clamp(13px,1.1vw,16px)/1 var(--f-body);padding:clamp(12px,1.2vw,16px) 12px;border-radius:14px;-webkit-tap-highlight-color:transparent}
 .product>.tag{margin-bottom:clamp(12px,1.4vw,18px)}
-@media(min-width:1101px){.product{flex-basis:calc((100% - 4 * var(--cg)) / 5)}.product h3{font-size:clamp(18px,1.7vw,26px)}}
+@media(min-width:1101px){.product{flex-basis:calc((100% - 5 * var(--cg)) / 6)}.product h3{font-size:clamp(17px,1.5vw,24px)}}
 @media(max-width:860px){.product{flex-basis:calc((100% - var(--cg)) / 2)}}
 .pd{border:0;padding:clamp(20px,3vw,40px);border-radius:28px;background:#fff;color:var(--fg);width:min(94vw,840px);max-height:92dvh;margin:auto;overflow:auto;box-shadow:0 30px 80px -20px rgba(0,0,0,.45)}
 .pd::backdrop{background:rgba(10,12,14,.5);backdrop-filter:blur(4px)}
@@ -269,13 +269,7 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 #build{--acc:#fcc118;--accfg:#fff;--mimg:var(--img-c-build)}
 #booking{--acc:#393939;--accfg:#fff;--mimg:var(--img-c-booking)}
 #seo{--acc:#fa3c8a;--accfg:#fff;--mimg:var(--img-c-seo)}
-#frank{--acc:#7cc62b;--accfg:#fff;--mimg:var(--img-c-frank);flex-basis:100%;background:#101417;color:#fff;display:grid;grid-template-columns:clamp(110px,16vw,220px) minmax(0,1fr) auto;align-items:center;gap:clamp(12px,3vw,40px);box-shadow:inset 0 0 0 2px #7cc62b}
-#frank .mascot{background-color:#fff}
-#frank h3{margin:0;font-size:clamp(22px,2.6vw,38px);color:#fff}
-#frank>.ft .tag,#frank>.tag{color:#b9c2c8;margin:8px 0 0;font-size:clamp(14px,1.3vw,18px)}
-#frank .pc-more{margin:0;align-self:center;padding-inline:clamp(20px,3vw,44px)}
-#frank .pd{color:var(--fg)}
-@media(max-width:860px){#frank{grid-template-columns:clamp(90px,26vw,150px) minmax(0,1fr)}#frank .pc-more{grid-column:1/-1;align-self:stretch}}
+#frank{--acc:#7cc62b;--accfg:#fff;--mimg:var(--img-c-frank);background:#eaf6da}
 
 .faq{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
 .faq h2{margin:0;text-align:center;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
@@ -499,7 +493,7 @@ textarea{min-height:96px;resize:vertical}
   </section>
   <section class="product" id="frank">
     <div class="mascot" role="img" aria-label="Маскот Франкенштейна"></div>
-    <div class="ft"><h3>Франкенштейн</h3><p class="tag">Объединяем продукты и собираем новое решение специально для вас</p></div>
+    <h3>Франкенштейн</h3><p class="tag">Объединяем продукты и собираем новое решение специально для вас</p>
     <button type="button" class="btn pc-more">Узнать детали</button>
     <dialog class="pd" aria-labelledby="pd-frank">
       <button class="dl-x" type="button" aria-label="Закрыть">×</button>
