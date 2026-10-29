@@ -687,7 +687,7 @@ textarea{min-height:96px;resize:vertical}
       var arD = (getComputedStyle(word).aspectRatio || '1001 / 554').split('/').map(parseFloat), arW = arD[0] / (arD[1] || 1);
       var availH = VH - tp - rowH - g1 - 46, wordW = Math.min(Wc, availH * arW), wordH = wordW / arW;
       word.style.width = wordW + 'px';
-      var sw0 = Math.min(Wc * 0.32, 560); sofa.style.width = sw0 + 'px';
+      var sw0 = Math.min(Wc * 0.37, 650); sofa.style.width = sw0 + 'px';
       var M = Math.max(g1 * 2, VH - tp - rowH - g1 - wordH - g1 + g1);
       sofa.style.marginTop = M + 'px';
       root.style.setProperty('--rg', g1 + 'px'); root.style.setProperty('--G', tp + 'px'); root.style.setProperty('--Gb', '0px'); root.style.setProperty('--Gref', g1 + 'px');
