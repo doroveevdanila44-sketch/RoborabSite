@@ -4,7 +4,7 @@ Implementing artificial intelligence
 into business  processes
 How we implement it
 AI integration for business: diagnosis first, solution second
-Tell the agent about your business in the chat at any time, even at night. It will find where you lose time and money. A specialist will review the result and propose a solution: tailor a ready-made product or build one from scratch.
+Tell the agent about your business in the chat at any time, even at night. It will find where you are losing money. Then a live specialist will review the result and propose a solution. A ready-made product or a solution from scratch.
 Diagnosis is free
 Start online diagnosis
 See ready-made solutions
@@ -26,7 +26,7 @@ Corporate chatbots
 Chatbots and AI assistants for your company.
 Specialized projects
 Non-standard task? We will combine your products or build from scratch.
-How does it work?
+How it works
 Step 1 You describe the task
 To the AI agent: by text, voice or video call.
 Step 2 The agent captures the essence
@@ -83,7 +83,7 @@ We combine ready-made catalog products into one solution
 We build a new solution specially for your business
 You describe the task, we assemble the rest
 Where to start
-You know the task or picked a solution in the catalog: Integrator. Not sure what you need: Explorer.
+Explorer: you do not know what you need. Integrator: you know the task or picked a solution in the catalog. Mentor: you have no business yet, only an idea.
 Explorer
 I do not know what I need
 Tell the agent about your work. It will find what can be automated. A specialist will review the result and propose a solution.

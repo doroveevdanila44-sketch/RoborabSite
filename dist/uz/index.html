@@ -205,7 +205,7 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 .how h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
 .steps{list-style:none;margin:clamp(28px,4vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
 .steps li{position:relative;display:grid;gap:18px;align-content:start;justify-items:center;text-align:center}
-.steps .ic{width:150px;height:150px;background:center/contain no-repeat;mix-blend-mode:multiply}
+.steps .ic{width:88px;height:88px;background:center/contain no-repeat;mix-blend-mode:multiply}
 .steps li:nth-child(1) .ic{background-image:var(--img-h1)}.steps li:nth-child(2) .ic{background-image:var(--img-h2)}.steps li:nth-child(3) .ic{background-image:var(--img-h3)}.steps li:nth-child(4) .ic{background-image:var(--img-h4)}
 .steps li:not(.last)::after{content:'';position:absolute;top:75px;left:calc(50% + 91px);right:calc(-1 * clamp(20px,3vw,48px) - 50% + 91px + 12px);border-top:2px dashed #c9d0d5}
 .steps .sn{display:block;font:700 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
@@ -215,7 +215,7 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 @media(max-width:860px){
   .steps{grid-template-columns:1fr;gap:44px}
   .steps li{gap:12px}
-  .steps .ic{width:96px;height:96px}
+  .steps .ic{width:72px;height:72px}
   .steps li:not(.last)::after{top:auto;bottom:-34px;height:24px;left:50%;right:auto;border-top:0;border-left:2px dashed #c9d0d5}
 }
 
@@ -230,6 +230,7 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 .chead{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
 .csub{margin:clamp(10px,1.2vw,18px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));text-align:center;color:var(--mute);font-weight:500;font-size:clamp(16px,1.4vw,20px)}
 .chead+.csub+.cgrid{margin-top:clamp(24px,3vw,44px)}
+.who .lead span{display:block}
 .svc{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
 .svc h2{margin:0;text-align:center;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
 .svcgrid{--cg:clamp(10px,2vw,24px);list-style:none;margin:clamp(24px,3.4vw,48px) 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--cg)}
@@ -400,7 +401,7 @@ textarea{min-height:96px;resize:vertical}
   <!-- ВВЕДЕНИЕ: чем занимаемся, для кого, диагностика -->
   <section class="intro" id="intro" aria-labelledby="intro-h">
     <h2 id="intro-h">AI integration for business: diagnosis first, solution second</h2>
-    <p class="lead">Tell the agent about your business in the chat at any time, even at night. It will find where you lose time and money. A specialist will review the result and propose a solution: tailor a ready-made product or build one from scratch.</p>
+    <p class="lead">Tell the agent about your business in the chat at any time, even at night. It will find where you are losing money. Then a live specialist will review the result and propose a solution. A ready-made product or a solution from scratch.</p>
     <p class="princ">Diagnosis is free</p>
     <div class="ctas">
       <a class="btn" href="/chat.html?msg=Salom%2C+%C2%AB%C2%BB+mahsulotining+tafsilotlari+meni+qiziqtiryapti&amp;lang=uz" data-h="chat.html">Start online diagnosis</a>
@@ -429,7 +430,7 @@ textarea{min-height:96px;resize:vertical}
 
   <!-- КАК ЭТО РАБОТАЕТ -->
   <section class="how" id="how" aria-labelledby="how-h">
-    <h2 id="how-h">How does it work?</h2>
+    <h2 id="how-h">Bu qanday ishlaydi</h2>
     <ol class="steps">
       <li><span class="ic"></span><div><span class="sn">1-qadam</span><h3>Siz vazifani tasvirlaysiz</h3><p>Sunʼiy intellekt agentiga: matn, ovoz yoki video qoʻngʻiroq orqali.</p></div></li>
       <li><span class="ic"></span><div><span class="sn">2-qadam</span><h3>Agent mohiyatni tushunadi</h3><p>Soʻrovingiz boʻyicha xulosa tayyorlaydi.</p></div></li>
@@ -543,7 +544,7 @@ textarea{min-height:96px;resize:vertical}
   <!-- ДЛЯ КОГО РОБОРАБ -->
   <section class="who" id="who" aria-labelledby="who-h">
     <h2 id="who-h">Where to start</h2>
-    <p class="lead">You know the task or picked a solution in the catalog: Integrator. Not sure what you need: Explorer.</p>
+    <p class="lead"><span>Explorer: you do not know what you need.</span><span>Integrator: you know the task or picked a solution in the catalog.</span><span>Mentor: you have no business yet, only an idea.</span></p>
     <div class="wgrid">
       <article class="wcard w0">
         <div class="wm" role="img" aria-label="Reja belgisi"></div>
@@ -781,7 +782,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 
 
 </script>
-<script src="/i18n.js?v=0b15d987"></script>
+<script src="/i18n.js?v=42d8ec25"></script>
 <script>
 (function(){
   var f=document.getElementById("lead");

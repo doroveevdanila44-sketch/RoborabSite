@@ -205,7 +205,7 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 .how h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
 .steps{list-style:none;margin:clamp(28px,4vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
 .steps li{position:relative;display:grid;gap:18px;align-content:start;justify-items:center;text-align:center}
-.steps .ic{width:150px;height:150px;background:center/contain no-repeat;mix-blend-mode:multiply}
+.steps .ic{width:88px;height:88px;background:center/contain no-repeat;mix-blend-mode:multiply}
 .steps li:nth-child(1) .ic{background-image:var(--img-h1)}.steps li:nth-child(2) .ic{background-image:var(--img-h2)}.steps li:nth-child(3) .ic{background-image:var(--img-h3)}.steps li:nth-child(4) .ic{background-image:var(--img-h4)}
 .steps li:not(.last)::after{content:'';position:absolute;top:75px;left:calc(50% + 91px);right:calc(-1 * clamp(20px,3vw,48px) - 50% + 91px + 12px);border-top:2px dashed #c9d0d5}
 .steps .sn{display:block;font:700 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
@@ -215,7 +215,7 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 @media(max-width:860px){
   .steps{grid-template-columns:1fr;gap:44px}
   .steps li{gap:12px}
-  .steps .ic{width:96px;height:96px}
+  .steps .ic{width:72px;height:72px}
   .steps li:not(.last)::after{top:auto;bottom:-34px;height:24px;left:50%;right:auto;border-top:0;border-left:2px dashed #c9d0d5}
 }
 
@@ -230,6 +230,7 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 .chead{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
 .csub{margin:clamp(10px,1.2vw,18px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));text-align:center;color:var(--mute);font-weight:500;font-size:clamp(16px,1.4vw,20px)}
 .chead+.csub+.cgrid{margin-top:clamp(24px,3vw,44px)}
+.who .lead span{display:block}
 .svc{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
 .svc h2{margin:0;text-align:center;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
 .svcgrid{--cg:clamp(10px,2vw,24px);list-style:none;margin:clamp(24px,3.4vw,48px) 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--cg)}
@@ -400,7 +401,7 @@ textarea{min-height:96px;resize:vertical}
   <!-- ВВЕДЕНИЕ: чем занимаемся, для кого, диагностика -->
   <section class="intro" id="intro" aria-labelledby="intro-h">
     <h2 id="intro-h">面向企业的 AI 集成：先诊断，再给方案</h2>
-    <p class="lead">随时在聊天中向智能体介绍您的业务，哪怕是深夜。它会找出您在哪些环节浪费了时间和金钱。专家会审阅结果并提出方案：定制现成产品，或从零开始打造。</p>
+    <p class="lead">随时在聊天中向智能体介绍您的业务，哪怕是深夜。它会找出您在哪里亏钱。随后由真人专家审阅结果并提出方案：现成产品，或从零开始的方案。</p>
     <p class="princ">诊断免费</p>
     <div class="ctas">
       <a class="btn" href="/chat.html?msg=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E5%AF%B9%E4%BA%A7%E5%93%81%E2%80%9C%E2%80%9D%E7%9A%84%E8%AF%A6%E6%83%85%E6%84%9F%E5%85%B4%E8%B6%A3&amp;lang=zh" data-h="chat.html">开始在线诊断</a>
@@ -429,7 +430,7 @@ textarea{min-height:96px;resize:vertical}
 
   <!-- КАК ЭТО РАБОТАЕТ -->
   <section class="how" id="how" aria-labelledby="how-h">
-    <h2 id="how-h">它是如何运作的？</h2>
+    <h2 id="how-h">工作流程</h2>
     <ol class="steps">
       <li><span class="ic"></span><div><span class="sn">第 1 步</span><h3>您描述任务</h3><p>向 AI 助手描述：文字、语音或视频通话。</p></div></li>
       <li><span class="ic"></span><div><span class="sn">第 2 步</span><h3>助手提炼要点</h3><p>生成您需求的摘要。</p></div></li>
@@ -543,7 +544,7 @@ textarea{min-height:96px;resize:vertical}
   <!-- ДЛЯ КОГО РОБОРАБ -->
   <section class="who" id="who" aria-labelledby="who-h">
     <h2 id="who-h">从何开始</h2>
-    <p class="lead">清楚任务或已在目录中选好方案：选整合者。不确定需要什么：选探索者。</p>
+    <p class="lead"><span>探索者：不确定需要什么。</span><span>整合者：清楚任务，或已在目录中选好方案。</span><span>导师：还没有生意，只有一个想法。</span></p>
     <div class="wgrid">
       <article class="wcard w0">
         <div class="wm" role="img" aria-label="方案图标"></div>
@@ -781,7 +782,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 
 
 </script>
-<script src="/i18n.js?v=0b15d987"></script>
+<script src="/i18n.js?v=42d8ec25"></script>
 <script>
 (function(){
   var f=document.getElementById("lead");
