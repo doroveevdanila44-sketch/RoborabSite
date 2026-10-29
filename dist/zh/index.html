@@ -755,7 +755,9 @@ textarea{min-height:96px;resize:vertical}
         root.style.setProperty('--rg', '0px');
         root.style.setProperty('--G', Tn + 'px');
         root.style.setProperty('--Gb', '0px');
-        root.style.setProperty('--Gref', '4px');
+        /* телефон: три промежутка (В БИЗНЕС > горилла, горилла > заголовок, плашка приложения > «Что мы делаем») равны одному значению */
+        if (window.innerWidth <= 760) { root.style.setProperty('--S', Math.max(60, an + extraS) + 'px'); root.style.setProperty('--Gref', Bt + 'px'); }
+        else { root.style.removeProperty('--S'); root.style.setProperty('--Gref', '4px'); }
         sofa.style.marginBottom = Bt + 'px';
         if (tabl) { var sr0 = sofa.getBoundingClientRect(), dBot = (svhPx() - Bt) - (sr0.bottom + window.scrollY - sh * 0.01); if (dBot > 2) sofa.style.marginTop = (parseFloat(sofa.style.marginTop || 0) + dBot) + 'px'; }
         /* стрелка на телефоне стоит посередине промежутка между «В БИЗНЕС» и гориллой */
