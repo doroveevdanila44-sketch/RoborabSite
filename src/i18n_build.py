@@ -26,8 +26,6 @@ def make(root):
         q=['What does your company do?', 'What task or process do you want to automate?', 'How many people will use the tool?', 'Thank you, that is enough for a first understanding. Once the chat is connected, the conversation will continue here.'],
         mp='Hello, I am interested in the details of the product «{p}»', m3='Hello, I want to calculate the cost of replacing an employee or a function in my company')
     NAMES['en'] = 'English (US)'
-    D['en-GB'] = {k: v.replace('customizes', 'customises') for k, v in EN.items()}
-    HT['en-GB'] = HT['en']; META['en-GB'] = META['en']; NAMES['en-GB'] = 'English (UK)'
     zh = dict(zh_m.ZH); zh.update({k: v for k, _, v in fr_m.FRANK}); zh.update({k: v for k, _, v in in_m.INTRO}); zh.update(dg['zh']); zh.update({k: v for (k, _), v in zip(faq_m.FAQ, _load(src / 'faq_zh.py', 'faq_zh').ZH)}); zh['Способы оплаты'] = '支付方式'; zh['и другие'] = '及其他'; zh['МИР'] = 'MIR'; zh['РОБОРАБ: внедрение искусственного интеллекта в бизнес-процессы'] = 'ROBORAB：将人工智能引入业务流程'; zh['РОБОРАБ внедряет ИИ-агентов в бизнес-процессы: фитнес-CRM, налоговый агент, строй-учёт, букинг-CRM, SEO и GEO. Начните бесплатно, подписка — от $20 в месяц.'] = 'ROBORAB 将 AI 智能体引入业务流程：健身 CRM、税务智能体、施工核算、预订 CRM、SEO 与 GEO。免费开始，订阅每月 $20 起。'; zh['Или $18 в месяц при оплате сразу за год ($216 в год)'] = '或一次性按年付费，每月仅 $18（全年 $216）'; D['zh'] = zh; HT['zh'] = {'top': zh_m.HTML['top'], 'bot': zh_m.HTML['bot']}
     for old, new, en_, zh_ in c3.REN: zh.pop(old, None); zh[new] = zh_
     for ru_, en_, zh_ in c3.EXTRA: zh[ru_] = zh_
@@ -42,7 +40,9 @@ def make(root):
         q=['Чем занимается ваша компания?', 'Какую задачу или процесс вы хотите автоматизировать?', 'Сколько человек будут пользоваться инструментом?', 'Спасибо, этого достаточно для первого понимания. Когда чат будет подключён, здесь продолжится диалог.'],
         mp='Здравствуйте, меня заинтересовали подробности по продукту «{p}»', m3='')
     NAMES['ru'] = 'Русский'; SORT['ru'] = 'Russian'
+    KEEP = ('ar',)  # live languages besides ru/en/zh; other langs/*.txt stay in the repo but are not built
     for f in sorted((src / 'langs').glob('*.txt')):
+        if f.stem not in KEEP: continue
         code = f.stem; meta = {}; nums = {}
         for line in f.read_text().split('\n'):
             if line.startswith('@'):
@@ -53,10 +53,11 @@ def make(root):
         for i, k in enumerate(keys, 1):
             d[k] = EN[k] if k in CH else nums.get(i, EN[k])
         d.update({k: v for k, v in dg.get(code, {}).items() if k in d and k not in CH})
+        if code == 'ar': d.update({k: v for k, v in json.loads((src / 'ar_extra.json').read_text()).items() if k in d})
         D[code] = d; HT[code] = {'top': meta['top'], 'bot': meta['bot']}
         META[code] = dict(hi=meta['hi'], hi0=meta['hi0'], known=meta['known'], unk=meta['unk'], q=[meta['q1'], meta['q2'], meta['q3'], meta['q4']], mp=meta['mp'], m3=meta['m3'])
         NAMES[code] = meta['name']; SORT[code] = meta['sort']
-    top = ['en', 'en-GB', 'es', 'fr', 'zh']
+    top = ['en', 'zh', 'ar']
     rest = sorted([c for c in NAMES if c not in top], key=lambda c: SORT[c])
     order = top + rest
     paths = {c: ('/' if c == 'en' else '/' + c.lower() + '/') for c in order + ['ru']}
