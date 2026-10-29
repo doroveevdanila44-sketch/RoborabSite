@@ -4,7 +4,7 @@ Implementing artificial intelligence
 into business  processes
 How we implement it
 AI integration for business: diagnosis first, solution second
-Tell the AI agent about your business in the chat at any time, even at 3 a.m. It will find where you lose time and money. A specialist will review the summary and either tailor a ready-made product from the catalog to you or build a solution entirely around you. Need a website? We build those too.
+Tell the agent about your business in the chat at any time, even at night. It will find where you lose time and money. A specialist will review the result and propose a solution: tailor a ready-made product or build one from scratch.
 Diagnosis is free
 Start online diagnosis
 See ready-made solutions
@@ -15,6 +15,17 @@ Windows
 macOS
 iPhone / iPad
 Android
+What we do
+AI process automation
+We embed AI agents into your workflows.
+SaaS platforms
+Ready-made industry products and platforms built for your task.
+Web services and websites
+Websites and web services, including SEO and GEO.
+Corporate chatbots
+Chatbots and AI assistants for your company.
+Specialized projects
+Non-standard task? We will combine your products or build from scratch.
 How does it work?
 Step 1 You describe the task
 To the AI agent: by text, voice or video call.
@@ -71,21 +82,20 @@ We combine products and build a new solution made specially for you
 We combine ready-made catalog products into one solution
 We build a new solution specially for your business
 You describe the task, we assemble the rest
-Who ROBORAB is for
-Not sure where to start? Take the diagnosis. Know what you need to implement? Take Integrator.
+Where to start
+You know the task or picked a solution in the catalog: Integrator. Not sure what you need: Explorer.
 Explorer
-Diagnosis: we will find what hurts
-For those who see that processes are stuck but cannot tell why. Tell the agent about your work and it will find what can be automated.
+I do not know what I need
+Tell the agent about your work. It will find what can be automated. A specialist will review the result and propose a solution.
 Free
 Integrator
-Know what you need to implement? We will build it
-For those who already know the task: connect telephony, smart customer counting, build your own CRM. We will embed AI into your processes and take the work on ourselves.
+I know what I need
+We will implement a ready-made solution from the catalog or build one from scratch. For example, AI in telephony or your own CRM.
 Built into processes
 Saves money
 Saves time
 Custom pricing
 Get a price in 10 minutes
-If you do not have a business yet, there is the Mentor mode: an AI sparring partner for developing your idea, $20 per month. Learn more
 Mentor
 An AI conversation partner that teaches you to think like an entrepreneur
 The business-mentor mode helps you build a business mindset and develop an idea from scratch. It draws on classic management and philosophical thought, adapted to an entrepreneur's practice.
