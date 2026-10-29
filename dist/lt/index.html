@@ -663,7 +663,7 @@ textarea{min-height:96px;resize:vertical}
         wh = word.getBoundingClientRect().height; sh = sofa.getBoundingClientRect().height; Bn = bot.getBoundingClientRect().height;
         var abn = inkAsc(bot, 'б'), acn = inkAsc(bot, 'В'), dln = abn > acn ? abn - acn : 0;
         var ptn = 0.0161 * wh, pbn = 0.0099 * wh, psn = 0.012 * sh;
-        var Tn = Math.min(28, Math.max(14, 0.022 * VH)), Bt = window.innerWidth <= 760 ? -15 : 4;
+        var Tn = Math.min(28, Math.max(14, 0.022 * VH)), Bt = window.innerWidth <= 760 ? 12 : 4;
         var nG = tl.length + 2, fixedH = capSum + wh + Bn + sh - ptn - pbn + dln - psn;
         var rawAf = (VH - Tn - Bt - fixedH) / nG, tgtAf = 0.03 * VH;
         if (!again && rawAf < tgtAf && fixedH > 0) {
