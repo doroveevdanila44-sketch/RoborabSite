@@ -326,24 +326,6 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 .faqlist details[open] summary::after{transform:rotate(45deg)}
 .faqlist summary:focus-visible{outline:3px solid var(--fg);outline-offset:2px}
 .faqlist p{margin:0 0 clamp(16px,2vw,24px);color:var(--mute);font-size:clamp(15px,1.3vw,18px);line-height:1.55;max-width:70ch}
-.res{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
-.res h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
-.resg{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:clamp(24px,5vw,80px);margin-top:clamp(28px,4vw,56px);align-items:start}
-.spec{margin:0;font:500 clamp(13px,1.1vw,15px)/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;position:sticky;top:24px}
-.spec div{padding:16px 0;border-top:1px solid #e3e6e9}.spec div:last-child{border-bottom:1px solid #e3e6e9}
-.spec dt{margin:0 0 6px;color:var(--mute);text-transform:uppercase;letter-spacing:.1em;font-size:.85em}
-.spec dd{margin:0}
-.rlist{list-style:none;margin:0;padding:0;counter-reset:r;border-top:1px solid #e3e6e9}
-.rlist li{counter-increment:r;display:grid;grid-template-columns:clamp(36px,4vw,64px) minmax(0,1fr) minmax(0,1.2fr);gap:8px clamp(12px,2vw,32px);padding:clamp(18px,2.4vw,32px) 0;border-bottom:1px solid #e3e6e9;align-items:baseline}
-.rlist li::before{content:counter(r,decimal-leading-zero);font:500 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute)}
-.rlist h3{margin:0;font:800 clamp(19px,1.9vw,28px)/1.15 var(--f-display);letter-spacing:-.03em}
-.rlist p{margin:0;color:var(--mute);font-size:clamp(15px,1.25vw,18px);line-height:1.5}
-@media(max-width:860px){.resg{grid-template-columns:1fr}.spec{position:static}.rlist li{grid-template-columns:36px minmax(0,1fr)}.rlist p{grid-column:2}}
-.faqlist{counter-reset:q}.faqlist summary{counter-increment:q}
-.faqlist summary::before{content:counter(q,decimal-leading-zero);flex:none;width:2.2em;font:500 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute)}
-.faqlist summary{justify-content:flex-start}.faqlist summary::after{margin-inline-start:auto}
-#lead{counter-reset:f}#lead label{counter-increment:f}
-#lead label::before{content:counter(f,decimal-leading-zero) " / ";font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.06em;opacity:.7}
 .who{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
 .who h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
 .who .lead{margin:14px 0 0;color:var(--mute);font-size:clamp(16px,1.4vw,22px);max-width:50ch}
@@ -477,24 +459,6 @@ textarea{min-height:96px;resize:vertical}
       <li><span class="ic"></span><div><span class="sn">第 3 步</span><h3>专家进行配置</h3><p>技术专家根据您的需求定制现成方案。</p></div></li>
       <li class="last"><span class="ic"></span><div><span class="sn">次日</span><h3>工具交付给您</h3><p>只剩下配置。</p></div></li>
     </ol>
-  </section>
-
-  <!-- ЧТО ВЫ ПОЛУЧИТЕ -->
-  <section class="res" id="result" aria-labelledby="res-h">
-    <h2 id="res-h">您将获得</h2>
-    <div class="resg">
-      <dl class="spec">
-        <div><dt>价格</dt><dd>免费</dd></div>
-        <div><dt>形式</dt><dd>文字、语音、视频通话</dd></div>
-        <div><dt>时间</dt><dd>随时，甚至深夜</dd></div>
-      </dl>
-      <ol class="rlist">
-        <li><h3>金钱与时间的流失点清单</h3><p>智能体梳理您的流程，找出金钱和时间流失的地方。</p></li>
-        <li><h3>针对您任务的方案</h3><p>目录中的现成产品，或从零开始的方案。由真人专家准备建议。</p></li>
-        <li><h3>如果不需要 AI，我们会坦诚相告</h3><p>如果自动化无法回本，我们会直接说明。</p></li>
-        <li><h3>次日见到成果</h3><p>专家定制现成方案，工具即归您所有。</p></li>
-      </ol>
-    </div>
   </section>
 
   <h2 class="chead" id="catalog-h">行业现成解决方案</h2>
