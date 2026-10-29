@@ -756,10 +756,10 @@ textarea{min-height:96px;resize:vertical}
     }
   }
   var rfT, lastW = window.innerWidth, lastH = window.innerHeight; fitAll();
-  window.addEventListener('resize', function(){
+  window.addEventListener('resize', function(ev){
     /* на планшете и телефоне при скролле Safari прячет панель и меняет высоту окна: это не повод пересобирать первый экран, иначе страница дёргается */
     var dw = Math.abs(window.innerWidth - lastW), dh = Math.abs(window.innerHeight - lastH);
-    if (dw < 2 && dh < 160) return;
+    if (!ev.forceFit && dw < 2 && dh < 160) return;
     lastW = window.innerWidth; lastH = window.innerHeight; fitAll(); clearTimeout(rfT); rfT = setTimeout(fitAll, 300);
   });
   if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', function(){ fitAll(); }); window.addEventListener('load', function(){ fitAll(); });
@@ -797,7 +797,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 
 
 </script>
-<script src="/i18n.js?v=b920d8de"></script>
+<script src="/i18n.js?v=c6ff15d9"></script>
 <script>
 (function(){
   var f=document.getElementById("lead");

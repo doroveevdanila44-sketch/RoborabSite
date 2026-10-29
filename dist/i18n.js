@@ -45,7 +45,7 @@
     if(user){try{localStorage.setItem('rr_lang',l)}catch(e){}}
     apply(l);
     cbs.forEach(function(f){try{f(l)}catch(e){}});
-    try{window.dispatchEvent(new Event('resize'))}catch(e){}
+    try{var rev=new Event('resize');rev.forceFit=true;window.dispatchEvent(rev)}catch(e){}
   }
   function code2(l){return l==='en-GB'?'GB':l==='fil'?'TL':l.slice(0,2).toUpperCase()}
   function t(ru){var k=norm(ru),dd=D[cur];return dd&&dd[k]!==undefined?dd[k]:ru}
