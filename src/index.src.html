@@ -115,9 +115,9 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
   .word{grid-column:1/-1;grid-row:2;justify-self:center}
   .sofa{grid-column:1/-1;grid-row:3;justify-self:center}
   .s2l,.s2r{display:block;grid-row:3;grid-column:1/-1;align-self:center;position:relative;z-index:3}
-  .s2l{justify-self:start;max-width:19%;font:800 clamp(20px,2.1vw,36px)/1.08 var(--f-display);letter-spacing:-.03em}
+  .s2l{justify-self:start;max-width:28%;font:800 clamp(20px,2.1vw,36px)/1.08 var(--f-display);letter-spacing:-.03em}
   .s2l span{display:block;margin-top:.5em;font:500 clamp(14px,1.2vw,19px)/1.35 var(--f-body);letter-spacing:0;color:var(--mute)}
-  .s2r{justify-self:end;max-width:19%;white-space:normal;text-align:center}
+  .s2r{justify-self:end;max-width:24%;white-space:normal;text-align:center}
 }
 
 /* ---------- сцены с телефоном ---------- */
@@ -654,7 +654,7 @@ textarea{min-height:96px;resize:vertical}
       var arD = (getComputedStyle(word).aspectRatio || '1001 / 554').split('/').map(parseFloat), arW = arD[0] / (arD[1] || 1);
       var availH = VH - tp - rowH - g1 - 46, wordW = Math.min(Wc, availH * arW), wordH = wordW / arW;
       word.style.width = wordW + 'px';
-      var sw0 = Math.min(Wc * 0.62, 1000); sofa.style.width = sw0 + 'px';
+      var sw0 = Math.min(Wc * 0.32, 560); sofa.style.width = sw0 + 'px';
       var M = Math.max(g1 * 2, VH - tp - rowH - g1 - wordH - g1 + g1);
       sofa.style.marginTop = M + 'px';
       root.style.setProperty('--rg', g1 + 'px'); root.style.setProperty('--G', tp + 'px'); root.style.setProperty('--Gb', '0px'); root.style.setProperty('--Gref', g1 + 'px');
