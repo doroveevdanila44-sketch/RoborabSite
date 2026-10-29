@@ -651,13 +651,15 @@ textarea{min-height:96px;resize:vertical}
     var c = getComputedStyle(el); ctx.font = c.fontWeight + ' 100px ' + c.fontFamily;
     return ctx.measureText(text.toUpperCase()).actualBoundingBoxAscent * parseFloat(c.fontSize) / 100;
   }
+  /* высота экрана при видимой панели Safari (svh): не меняется, когда панель прячется при скролле, поэтому раскладка не прыгает */
+  var svhProbe; function svhPx(){ try { if (!svhProbe) { svhProbe = document.createElement('div'); svhProbe.style.cssText = 'position:fixed;left:0;top:0;width:0;height:100svh;visibility:hidden;pointer-events:none'; document.body.appendChild(svhProbe); } var h = svhProbe.offsetHeight; return h > 100 ? h : window.innerHeight; } catch (e) { return window.innerHeight; } }
   function fitAll(again){
     var wide = /^(th|hi|ar|he|fa|ur|bn|ta|te|mr)$/.test(root.lang);
     var heroEl = document.querySelector('.hero'), bnEls = [].slice.call(document.querySelectorAll('.sofa')); if (heroEl && !again) { heroEl.style.paddingLeft = ''; heroEl.style.paddingRight = ''; delete heroEl.dataset.bw; bnEls.forEach(function(e){ e.style.width = ''; e.style.justifySelf = ''; }); var wd0 = document.querySelector('.word'); if (wd0) { wd0.style.width = ''; } fits.forEach(function(p){ p.style.transform = ''; p.style.marginBottom = ''; }); }
     if (heroEl && !again && window.matchMedia('(min-width:761px) and (orientation:portrait) and (max-width:1100px)').matches) { var hcs = getComputedStyle(heroEl); heroEl.dataset.bw = String((heroEl.clientWidth - parseFloat(hcs.paddingLeft) - parseFloat(hcs.paddingRight)) / 1.5); }
     if (heroEl && heroEl.dataset.bw) bnEls.forEach(function(e){ e.style.width = parseFloat(heroEl.dataset.bw) + 'px'; e.style.justifySelf = 'center'; });
     var narrow = window.matchMedia('(max-width:760px),(orientation:portrait) and (max-width:1100px)').matches;
-    var hl = document.getElementById('herolang'), VH = window.innerHeight - (narrow && hl ? hl.offsetHeight : 0);
+    var hl = document.getElementById('herolang'), VH = svhPx() - (narrow && hl ? hl.offsetHeight : 0);
     var tb = !!(window.CSS && CSS.supports && CSS.supports('text-box', 'trim-both cap alphabetic'));
     root.classList.toggle('tb', tb);
     var tabl = narrow && window.innerWidth > 760;
@@ -755,7 +757,7 @@ textarea{min-height:96px;resize:vertical}
         root.style.setProperty('--Gb', '0px');
         root.style.setProperty('--Gref', '4px');
         sofa.style.marginBottom = Bt + 'px';
-        if (tabl) { var sr0 = sofa.getBoundingClientRect(), dBot = (window.innerHeight - Bt) - (sr0.bottom + window.scrollY - sh * 0.01); if (dBot > 2) sofa.style.marginTop = (parseFloat(sofa.style.marginTop || 0) + dBot) + 'px'; }
+        if (tabl) { var sr0 = sofa.getBoundingClientRect(), dBot = (svhPx() - Bt) - (sr0.bottom + window.scrollY - sh * 0.01); if (dBot > 2) sofa.style.marginTop = (parseFloat(sofa.style.marginTop || 0) + dBot) + 'px'; }
         /* стрелка на телефоне стоит посередине промежутка между «В БИЗНЕС» и гориллой */
         var dn = document.querySelector('.down'), hero = document.querySelector('.hero');
         if (dn && hero) {
@@ -834,7 +836,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 })();
 
 
-</script>
+</script><div style="position: fixed; left: 0px; top: 0px; width: 0px; height: 100svh; visibility: hidden; pointer-events: none;"></div>
 <script src="/i18n.js?v=a3dd2cec"></script>
 <script>
 (function(){
