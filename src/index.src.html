@@ -604,6 +604,7 @@ textarea{min-height:96px;resize:vertical}
   function fitAll(again){
     var wide = /^(th|hi|ar|he|fa|ur|bn|ta|te|mr)$/.test(root.lang);
     var heroEl = document.querySelector('.hero'), bnEls = [].slice.call(document.querySelectorAll('.sofa')); if (heroEl && !again) { heroEl.style.paddingLeft = ''; heroEl.style.paddingRight = ''; delete heroEl.dataset.bw; bnEls.forEach(function(e){ e.style.width = ''; e.style.justifySelf = ''; }); }
+    if (heroEl && !again && window.matchMedia('(min-width:761px) and (orientation:portrait) and (max-width:1100px)').matches) { var hcs = getComputedStyle(heroEl); heroEl.dataset.bw = String((heroEl.clientWidth - parseFloat(hcs.paddingLeft) - parseFloat(hcs.paddingRight)) / 1.5); }
     if (heroEl && heroEl.dataset.bw) bnEls.forEach(function(e){ e.style.width = parseFloat(heroEl.dataset.bw) + 'px'; e.style.justifySelf = 'center'; });
     var narrow = window.matchMedia('(max-width:760px),(orientation:portrait) and (max-width:1100px)').matches;
     var hl = document.getElementById('herolang'), VH = window.innerHeight - (narrow && hl ? hl.offsetHeight : 0);
@@ -668,7 +669,7 @@ textarea{min-height:96px;resize:vertical}
         if (!again && rawAf < tgtAf && fixedH > 0) {
           /* планшет: блок не влезает по высоте. Заголовок и РОБОРАБ остаются во всю ширину, уменьшается только горилла на диване */
           var bannerH = sh - psn, textH = fixedH - bannerH;
-          var kk = Math.max(0.3, Math.min(1, (VH - Tn - Bt - nG * tgtAf * 0.55 - textH) / bannerH)), cw = top.clientWidth;
+          var kk = Math.max(0.3, Math.min(1, (VH - Tn - Bt - nG * tgtAf * 0.55 - textH) / bannerH)), cw = sofa.getBoundingClientRect().width;
           heroEl.dataset.bw = String(cw * kk);
           return fitAll(true);
         }
@@ -721,7 +722,13 @@ textarea{min-height:96px;resize:vertical}
       root.style.removeProperty('--Gb');
     }
   }
-  var rfT; fitAll(); window.addEventListener('resize', function(){ fitAll(); clearTimeout(rfT); rfT = setTimeout(fitAll, 300); });
+  var rfT, lastW = window.innerWidth, lastH = window.innerHeight; fitAll();
+  window.addEventListener('resize', function(){
+    /* на планшете и телефоне при скролле Safari прячет панель и меняет высоту окна: это не повод пересобирать первый экран, иначе страница дёргается */
+    var dw = Math.abs(window.innerWidth - lastW), dh = Math.abs(window.innerHeight - lastH);
+    if (dw < 2 && dh < 160) return;
+    lastW = window.innerWidth; lastH = window.innerHeight; fitAll(); clearTimeout(rfT); rfT = setTimeout(fitAll, 300);
+  });
   if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', function(){ fitAll(); }); window.addEventListener('load', function(){ fitAll(); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ fitAll(); });
 })();
