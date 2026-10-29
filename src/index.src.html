@@ -293,6 +293,24 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 .faqlist details[open] summary::after{transform:rotate(45deg)}
 .faqlist summary:focus-visible{outline:3px solid var(--fg);outline-offset:2px}
 .faqlist p{margin:0 0 clamp(16px,2vw,24px);color:var(--mute);font-size:clamp(15px,1.3vw,18px);line-height:1.55;max-width:70ch}
+.res{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
+.res h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
+.resg{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,2fr);gap:clamp(24px,5vw,80px);margin-top:clamp(28px,4vw,56px);align-items:start}
+.spec{margin:0;font:500 clamp(13px,1.1vw,15px)/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;position:sticky;top:24px}
+.spec div{padding:16px 0;border-top:1px solid #e3e6e9}.spec div:last-child{border-bottom:1px solid #e3e6e9}
+.spec dt{margin:0 0 6px;color:var(--mute);text-transform:uppercase;letter-spacing:.1em;font-size:.85em}
+.spec dd{margin:0}
+.rlist{list-style:none;margin:0;padding:0;counter-reset:r;border-top:1px solid #e3e6e9}
+.rlist li{counter-increment:r;display:grid;grid-template-columns:clamp(36px,4vw,64px) minmax(0,1fr) minmax(0,1.2fr);gap:8px clamp(12px,2vw,32px);padding:clamp(18px,2.4vw,32px) 0;border-bottom:1px solid #e3e6e9;align-items:baseline}
+.rlist li::before{content:counter(r,decimal-leading-zero);font:500 14px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute)}
+.rlist h3{margin:0;font:800 clamp(19px,1.9vw,28px)/1.15 var(--f-display);letter-spacing:-.03em}
+.rlist p{margin:0;color:var(--mute);font-size:clamp(15px,1.25vw,18px);line-height:1.5}
+@media(max-width:860px){.resg{grid-template-columns:1fr}.spec{position:static}.rlist li{grid-template-columns:36px minmax(0,1fr)}.rlist p{grid-column:2}}
+.faqlist{counter-reset:q}.faqlist summary{counter-increment:q}
+.faqlist summary::before{content:counter(q,decimal-leading-zero);flex:none;width:2.2em;font:500 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--mute)}
+.faqlist summary{justify-content:flex-start}.faqlist summary::after{margin-inline-start:auto}
+#lead{counter-reset:f}#lead label{counter-increment:f}
+#lead label::before{content:counter(f,decimal-leading-zero) " / ";font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.06em;opacity:.7}
 .who{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
 .who h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
 .who .lead{margin:14px 0 0;color:var(--mute);font-size:clamp(16px,1.4vw,22px);max-width:50ch}
@@ -426,6 +444,24 @@ textarea{min-height:96px;resize:vertical}
       <li><span class="ic"></span><div><span class="sn">Шаг 3</span><h3>Специалист настраивает</h3><p>Технический специалист кастомизирует готовое решение под вас.</p></div></li>
       <li class="last"><span class="ic"></span><div><span class="sn">На следующий день</span><h3>Инструмент у вас</h3><p>Остаётся только настройка.</p></div></li>
     </ol>
+  </section>
+
+  <!-- ЧТО ВЫ ПОЛУЧИТЕ -->
+  <section class="res" id="result" aria-labelledby="res-h">
+    <h2 id="res-h">Что вы получите</h2>
+    <div class="resg">
+      <dl class="spec">
+        <div><dt>Цена</dt><dd>Бесплатно</dd></div>
+        <div><dt>Формат</dt><dd>Текст, голос, видеозвонок</dd></div>
+        <div><dt>Когда</dt><dd>В любое время, даже ночью</dd></div>
+      </dl>
+      <ol class="rlist">
+        <li><h3>Список потерь денег и времени</h3><p>Агент разбирает ваши процессы и находит, где вы теряете деньги и время.</p></li>
+        <li><h3>Решение под вашу задачу</h3><p>Готовый продукт из каталога или решение с нуля. Предложение готовит живой специалист.</p></li>
+        <li><h3>Честный ответ, если ИИ не нужен</h3><p>Если автоматизация не окупится, скажем об этом прямо.</p></li>
+        <li><h3>Результат на следующий день</h3><p>Специалист кастомизирует готовое решение, и инструмент у вас.</p></li>
+      </ol>
+    </div>
   </section>
 
   <h2 class="chead" id="catalog-h">Готовые решения для отраслей</h2>
@@ -577,11 +613,13 @@ textarea{min-height:96px;resize:vertical}
       <details><summary>Что такое РОБОРАБ?</summary><p>РОБОРАБ внедряет ИИ-агентов в бизнес-процессы компаний. Можно начать с бесплатной диагностики в чате, выбрать готовое решение из каталога или заказать решение под ваш бизнес.</p></details>
       <details><summary>Как внедрить искусственный интеллект в бизнес-процессы?</summary><p>Вы описываете задачу ИИ-агенту: текстом, голосом или в видеозвонке. Агент формирует резюме запроса, технический специалист настраивает готовое решение под вас, а на следующий день инструмент уже в приложении.</p></details>
       <details><summary>Сколько стоит внедрение ИИ?</summary><p>Диагностика в чате бесплатна. Для внедрения («Интегратор») цена индивидуальная: расчёт стоимости можно получить за 10 минут в чате.</p></details>
+      <details><summary>Что я получу после диагностики?</summary><p>Список мест, где вы теряете деньги и время, и предложение специалиста: готовый продукт или решение с нуля.</p></details>
+      <details><summary>А если ИИ мне не нужен?</summary><p>Скажем об этом прямо. Диагностика бесплатна, вы ничем не рискуете.</p></details>
       <details><summary>Какие готовые решения есть в каталоге?</summary><p>Фитнес-CRM, налоговый агент для группы компаний, строй-учёт, букинг-CRM для приёма заявок отеля, а также настройка SEO и GEO.</p></details>
       <details><summary>Может ли ИИ заменить сотрудника или целую функцию?</summary><p>Для этого есть тариф «Интегратор»: РОБОРАБ встраивается во внутренние процессы компании и берёт на себя работу конкретного человека или направления. Вы экономите деньги и время.</p></details>
       <details><summary>С чего начать, если я не знаю, что мне нужно?</summary><p>Начните с диагностики: расскажите ИИ-агенту в чате о своём бизнесе. Он поможет найти, где процессы буксуют. Специалист изучит резюме и предложит, что внедрять.</p></details>
       <details><summary>Можно ли заказать то, чего нет в каталоге?</summary><p>Да. Мы настроим готовый продукт под вас, объединим несколько продуктов (решение «Гибрид») или соберём решение полностью под вас. Делаем и сайты.</p></details>
-      <details><summary>На каких языках работает сайт?</summary><p>Сайт и чат с агентом доступны более чем на 50 языках. Язык меняется кнопкой с глобусом в правом верхнем углу первого экрана.</p></details>
+      <details><summary>На каких языках работает сайт?</summary><p>Сайт доступен на русском, английском, китайском и арабском. Язык меняется кнопкой с глобусом в правом верхнем углу первого экрана.</p></details>
     </div>
   </section>
 
