@@ -12,6 +12,12 @@ def make(root):
     in_m = _load(src / 'intro.py', 'intro'); keys += [k for k, _, _ in in_m.INTRO]
     dg = json.loads((src / 'diag_tr.json').read_text()); keys += [k for k in dg['en'] if k not in keys]
     EN = dict(en_m.EN); EN.update({k: v for k, v in faq_m.FAQ}); EN.update({k: v for k, v, _ in fr_m.FRANK}); EN.update({k: v for k, v, _ in in_m.INTRO}); EN.update(dg['en']); EN['Замена сотрудника или функции'] = 'Employee or function replacement'; EN['Способы оплаты'] = 'Payment methods'; EN['и другие'] = 'and others'; EN['МИР'] = 'MIR'; EN['Или $18 в месяц при оплате сразу за год ($216 в год)'] = 'Or $18 per month when you pay for a full year ($216 per year)'; EN['РОБОРАБ: внедрение искусственного интеллекта в бизнес-процессы'] = 'ROBORAB: implementing artificial intelligence in business processes'; EN['РОБОРАБ внедряет ИИ-агентов в бизнес-процессы: фитнес-CRM, налоговый агент, строй-учёт, букинг-CRM, SEO и GEO. Начните бесплатно, подписка — от $20 в месяц.'] = 'ROBORAB deploys AI agents in business processes: fitness CRM, tax agent, construction accounting, booking CRM, SEO and GEO. Start free, subscription from $20 per month.'
+    c3 = _load(src / 'copy3.py', 'copy3'); CH = set()
+    for old, new, en_, zh_ in c3.REN:
+        assert old in keys, old[:50]
+        keys[keys.index(old)] = new; EN.pop(old, None); EN[new] = en_; CH.add(new)
+    for ru_, en_, zh_ in c3.EXTRA:
+        keys.append(ru_); EN[ru_] = en_; CH.add(ru_)
     D, HT, META, NAMES, SORT = {}, {}, {}, {}, {}
     D['en'] = EN; HT['en'] = {'top': en_m.HTML['top'], 'bot': en_m.HTML['bot']}
     META['en'] = dict(hi='Hello, {n}! I am the ROBORAB AI agent.', hi0='Hello! I am the ROBORAB AI agent.',
@@ -23,6 +29,8 @@ def make(root):
     D['en-GB'] = {k: v.replace('customizes', 'customises') for k, v in EN.items()}
     HT['en-GB'] = HT['en']; META['en-GB'] = META['en']; NAMES['en-GB'] = 'English (UK)'
     zh = dict(zh_m.ZH); zh.update({k: v for k, _, v in fr_m.FRANK}); zh.update({k: v for k, _, v in in_m.INTRO}); zh.update(dg['zh']); zh.update({k: v for (k, _), v in zip(faq_m.FAQ, _load(src / 'faq_zh.py', 'faq_zh').ZH)}); zh['Способы оплаты'] = '支付方式'; zh['и другие'] = '及其他'; zh['МИР'] = 'MIR'; zh['РОБОРАБ: внедрение искусственного интеллекта в бизнес-процессы'] = 'ROBORAB：将人工智能引入业务流程'; zh['РОБОРАБ внедряет ИИ-агентов в бизнес-процессы: фитнес-CRM, налоговый агент, строй-учёт, букинг-CRM, SEO и GEO. Начните бесплатно, подписка — от $20 в месяц.'] = 'ROBORAB 将 AI 智能体引入业务流程：健身 CRM、税务智能体、施工核算、预订 CRM、SEO 与 GEO。免费开始，订阅每月 $20 起。'; zh['Или $18 в месяц при оплате сразу за год ($216 в год)'] = '或一次性按年付费，每月仅 $18（全年 $216）'; D['zh'] = zh; HT['zh'] = {'top': zh_m.HTML['top'], 'bot': zh_m.HTML['bot']}
+    for old, new, en_, zh_ in c3.REN: zh.pop(old, None); zh[new] = zh_
+    for ru_, en_, zh_ in c3.EXTRA: zh[ru_] = zh_
     META['zh'] = dict(hi='你好，{n}！我是 ROBORAB AI 助手。', hi0='你好！我是 ROBORAB AI 助手。',
         known='您对产品“{p}”感兴趣。我会问几个问题来了解您的任务。', unk='我会问几个问题来了解您的需求。',
         q=['您的公司是做什么的？', '您想自动化哪项任务或流程？', '有多少人会使用这个工具？', '谢谢，这些已足够初步了解。聊天接入后，对话将在此继续。'],
@@ -43,8 +51,8 @@ def make(root):
                 n, _, v = line.partition('|'); nums[int(n)] = v
         d = {}
         for i, k in enumerate(keys, 1):
-            d[k] = nums.get(i, EN[k])
-        d.update(dg.get(code, {}))
+            d[k] = EN[k] if k in CH else nums.get(i, EN[k])
+        d.update({k: v for k, v in dg.get(code, {}).items() if k in d and k not in CH})
         D[code] = d; HT[code] = {'top': meta['top'], 'bot': meta['bot']}
         META[code] = dict(hi=meta['hi'], hi0=meta['hi0'], known=meta['known'], unk=meta['unk'], q=[meta['q1'], meta['q2'], meta['q3'], meta['q4']], mp=meta['mp'], m3=meta['m3'])
         NAMES[code] = meta['name']; SORT[code] = meta['sort']
