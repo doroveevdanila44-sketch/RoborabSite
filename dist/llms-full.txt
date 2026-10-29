@@ -3,17 +3,29 @@
 Implementing artificial intelligence
 into business  processes
 How we implement it
-You have two options
+AI integration for business: diagnosis first, solution second
+Tell the AI agent in the chat about your business at any time, even at 3 a.m. It will uncover your real problems instead of pushing tools on you. A specialist will review the summary and propose a solution: a ready-made product from the catalog, a custom solution or a website.
+If you do not need AI, we will not implement it.
+Start online diagnosis
+See ready-made solutions
 Available on all devices Tap to sign in
-Download the ROBORAB AI app and talk to our gorilla
-The AI is trained on the works of classic management and commerce thinkers. But we did not simply load those books: we put them through critical analysis and removed the authors' personal emotional judgments. The client gets a distillation of verified substance, not a retelling of other people's beliefs or pathos.
 ROBORAB AI
 Choose your device
 Windows
 macOS
 iPhone / iPad
 Android
-Pick a ready-made solution in the catalog below
+How it works
+Step 1 You describe the task
+To the AI agent: by text, voice or video call.
+Step 2 The agent captures the essence
+Writes a summary of your request.
+Step 3 A specialist configures it
+A technical specialist customizes the ready-made solution for you.
+The next day The tool is yours
+The finished solution is already in the app.
+Ready-made solutions by industry
+If none fits, we will build one for you.
 Fitness CRM
 Clients, memberships, schedules and trainer payouts
 Fitness CRM
@@ -59,15 +71,6 @@ We combine products and build a new solution made specially for you
 We combine ready-made catalog products into one solution
 We build a new solution specially for your business
 You describe the task, we assemble the rest
-How it works
-Step 1 You describe the task
-To the AI agent: by text, voice or video call.
-Step 2 The agent captures the essence
-Writes a summary of your request.
-Step 3 A specialist configures it
-A technical specialist customizes the ready-made solution for you.
-The next day The tool is yours
-The finished solution is already in the app.
 Who ROBORAB is for
 Explorer suits a start. Mentor is for when you have no business yet but have ambitions: we will help you. Integrator is for when you already have a business: we are ready to do it all for you.
 Explorer

@@ -220,6 +220,16 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
 }
 
 /* ---------- каталог: одно сплошное белое пространство. Картинка разрезана по плашке, низ уехал вниз, в разрезе вся информация. Без теней, без наслоения ---------- */
+.intro{margin:max(0px,calc(var(--S) - var(--Gref,var(--G)))) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:980px;text-align:center}
+.intro h2{margin:0;font:800 clamp(30px,4.6vw,64px)/1.02 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
+.intro .lead{margin:clamp(18px,2.4vw,32px) auto 0;font-size:clamp(17px,1.5vw,22px);line-height:1.5;font-weight:500;max-width:62ch}
+.intro .princ{margin:clamp(14px,1.8vw,22px) auto 0;display:inline-block;padding:10px 18px;border-radius:999px;background:#f2f4f5;font:700 clamp(15px,1.3vw,18px)/1.3 var(--f-display)}
+.intro .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:clamp(22px,2.6vw,34px)}
+.intro .ctas .btn{padding:17px 28px;font-size:clamp(15px,1.2vw,17px)}
+.intro .app{justify-content:center;margin-top:clamp(26px,3vw,40px)}
+.chead{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
+.csub{margin:clamp(10px,1.2vw,18px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));text-align:center;color:var(--mute);font-weight:500;font-size:clamp(16px,1.4vw,20px)}
+.chead+.csub+.cgrid{margin-top:clamp(24px,3vw,44px)}
 .cgrid{--cg:clamp(10px,2vw,28px);display:flex;flex-wrap:wrap;justify-content:center;gap:var(--cg);width:100%;max-width:1760px;margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
 .product{flex:0 0 calc((100% - 2 * var(--cg)) / 3);min-width:0;display:flex;flex-direction:column;background:#f6f7f8;border-radius:clamp(16px,2vw,28px);padding:clamp(10px,1.4vw,20px);scroll-margin-top:24px}
 .product .mascot{width:100%;aspect-ratio:1;background:var(--mimg) center/contain no-repeat #fff;border-radius:clamp(12px,1.6vw,20px)}
@@ -348,7 +358,7 @@ textarea{min-height:96px;resize:vertical}
 .pdesc{width:100%}
 .wt .btn,.wbuy .btn{white-space:normal;max-width:100%;text-align:center;line-height:1.25}
 .btn{white-space:normal;text-align:center;line-height:1.25;max-width:100%}
-.cat,.how h2,.who h2,.who .lead,.paths h2{text-align:center;margin-inline:auto}
+.cat,.how h2,.who h2,.who .lead,.paths h2,.intro h2,.chead,.csub{text-align:center;margin-inline:auto}
 @media(max-width:860px),(orientation:portrait) and (max-width:1100px){.cat,.how h2,.who h2,.who .lead{text-align:center;margin-inline:auto}.contact h2{max-width:20ch}.contact .grid>div>p{max-width:46ch}.who .lead{max-width:60ch}}
 .wt .yr{margin:8px 0 0;font:600 13px/1.35 var(--f-body);color:var(--wl);max-width:none}
 .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
@@ -368,28 +378,25 @@ textarea{min-height:96px;resize:vertical}
       <span class="sofa" aria-hidden="true"></span>
     </span>
     <span class="ht" data-fit="" data-i18n="bot" style=""><span class="d"><span class="ml">nos processos&nbsp;</span><span class="ml pr">de negócio</span></span></span></h1>
-    <a class="down" href="#paths" aria-label="Como implementamos, role para baixo"><span>Como implementamos</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></a>
+    <a class="down" href="#intro" aria-label="Como implementamos, role para baixo"><span>Como implementamos</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></a>
   </section>
 
   <!-- КАТАЛОГ: порядок фитнес, налоги, стройка, букинг, SEO/GEO. Одно белое пространство -->
 
-  <!-- ПЕРЕХОД: два пути внедрения -->
-  <section class="paths" id="paths" aria-labelledby="paths-h">
-    <h2 id="paths-h">Você tem duas opções</h2>
-    <div class="pgrid">
-      <article class="path">
-        <div class="bigrow">
-          <div class="big" aria-hidden="true">1</div>
-          <div class="app" id="app">
-            <button class="appicon" type="button" aria-haspopup="dialog" aria-controls="stores" aria-label="ROBORAB AI: escolher dispositivo"></button>
-            <span class="appnote">Disponível em todos os dispositivos<small>Toque para entrar</small></span>
-          </div>
-        </div>
-        <h3>Baixe o app «ROBORAB AI» e converse com o nosso gorila</h3>
-        <div class="pdesc">
-    <p class="lead">A IA foi treinada com as obras dos clássicos do pensamento de gestão e comércio. Mas não nos limitamos a carregar esses livros: submetemo-los a uma análise crítica e retiramos as avaliações emocionais pessoais dos autores. O cliente recebe o extrato da essência comprovada, e não um relato das crenças ou do pathos alheios.</p>
-        </div>
-        <dialog class="dl" id="stores" tabindex="-1" aria-labelledby="dl-h">
+  <!-- ВВЕДЕНИЕ: чем занимаемся, для кого, диагностика -->
+  <section class="intro" id="intro" aria-labelledby="intro-h">
+    <h2 id="intro-h">AI integration for business: diagnosis first, solution second</h2>
+    <p class="lead">Tell the AI agent in the chat about your business at any time, even at 3 a.m. It will uncover your real problems instead of pushing tools on you. A specialist will review the summary and propose a solution: a ready-made product from the catalog, a custom solution or a website.</p>
+    <p class="princ">If you do not need AI, we will not implement it.</p>
+    <div class="ctas">
+      <a class="btn" href="/chat.html?msg=Ol%C3%A1%2C+tenho+interesse+nos+detalhes+do+produto+%C2%AB%C2%BB&amp;lang=pt" data-h="chat.html">Start online diagnosis</a>
+      <a class="btn ghost" href="#catalog">See ready-made solutions</a>
+    </div>
+    <div class="app" id="app">
+      <button class="appicon" type="button" aria-haspopup="dialog" aria-controls="stores" aria-label="ROBORAB AI: escolher dispositivo"></button>
+      <span class="appnote">Disponível em todos os dispositivos<small>Toque para entrar</small></span>
+    </div>
+    <dialog class="dl" id="stores" tabindex="-1" aria-labelledby="dl-h">
           <button class="dl-x" type="button" aria-label="Fechar">×</button>
           <span class="dl-ico" aria-hidden="true"></span>
           <h3 id="dl-h">ROBORAB AI</h3>
@@ -398,16 +405,21 @@ textarea{min-height:96px;resize:vertical}
             <a href="#" data-empty="">Windows</a><a href="#" data-empty="">macOS</a><a href="#" data-empty="">iPhone / iPad</a><a href="#" data-empty="">Android</a>
           </div>
         </dialog>
-      </article>
-      <article class="path">
-        <div class="big" aria-hidden="true">2</div>
-        <h3>Escolha uma solução pronta no catálogo abaixo</h3>
-        <a class="btn" href="#catalog">Escolher solução <span aria-hidden="true">↓</span></a>
-      </article>
-    </div>
   </section>
 
+  <!-- КАК ЭТО РАБОТАЕТ -->
+  <section class="how" id="how" aria-labelledby="how-h">
+    <h2 id="how-h">Como funciona</h2>
+    <ol class="steps">
+      <li><span class="ic"></span><div><span class="sn">Passo 1</span><h3>Você descreve a tarefa</h3><p>Ao agente de IA: por texto, voz ou chamada de vídeo.</p></div></li>
+      <li><span class="ic"></span><div><span class="sn">Passo 2</span><h3>O agente capta o essencial</h3><p>Elabora um resumo do seu pedido.</p></div></li>
+      <li><span class="ic"></span><div><span class="sn">Passo 3</span><h3>Um especialista configura</h3><p>Um especialista técnico personaliza a solução pronta para você.</p></div></li>
+      <li class="last"><span class="ic"></span><div><span class="sn">No dia seguinte</span><h3>A ferramenta é sua</h3><p>A solução pronta já está no app.</p></div></li>
+    </ol>
+  </section>
 
+  <h2 class="chead" id="catalog-h">Ready-made solutions by industry</h2>
+  <p class="csub">If none fits, we will build one for you.</p>
   <div class="cgrid">
   <section class="product" id="catalog">
     <div class="mascot" role="img" aria-label="Mascote do CRM fitness"></div>
@@ -507,17 +519,6 @@ textarea{min-height:96px;resize:vertical}
     </dialog>
   </section>
   </div>
-
-  <!-- КАК ЭТО РАБОТАЕТ -->
-  <section class="how" id="how" aria-labelledby="how-h">
-    <h2 id="how-h">Como funciona</h2>
-    <ol class="steps">
-      <li><span class="ic"></span><div><span class="sn">Passo 1</span><h3>Você descreve a tarefa</h3><p>Ao agente de IA: por texto, voz ou chamada de vídeo.</p></div></li>
-      <li><span class="ic"></span><div><span class="sn">Passo 2</span><h3>O agente capta o essencial</h3><p>Elabora um resumo do seu pedido.</p></div></li>
-      <li><span class="ic"></span><div><span class="sn">Passo 3</span><h3>Um especialista configura</h3><p>Um especialista técnico personaliza a solução pronta para você.</p></div></li>
-      <li class="last"><span class="ic"></span><div><span class="sn">No dia seguinte</span><h3>A ferramenta é sua</h3><p>A solução pronta já está no app.</p></div></li>
-    </ol>
-  </section>
 
   <!-- ДЛЯ КОГО РОБОРАБ -->
   <section class="who" id="who" aria-labelledby="who-h">
@@ -758,7 +759,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 
 
 </script>
-<script src="/i18n.js?v=032f92cc"></script>
+<script src="/i18n.js?v=447123c0"></script>
 <script>
 (function(){
   var f=document.getElementById("lead");
