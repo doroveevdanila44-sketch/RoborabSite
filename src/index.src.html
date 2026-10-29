@@ -92,7 +92,6 @@ a{color:inherit}
   .hero .ht .hy,.hero .ht .pr{display:inline}
 }
 @supports (text-box:trim-both cap alphabetic){@media(min-width:761px) and (orientation:portrait) and (max-width:1100px){.tb .hero .ht .d{text-box:trim-both cap alphabetic}}}
-}
 .cat{margin:max(0px,calc(var(--S) - var(--Gref,var(--G)))) 0 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));font:800 clamp(24px,3.4vw,46px)/1.08 var(--f-display);letter-spacing:-.035em;max-width:1760px;margin-inline:auto}
 .cat+.product{margin-top:calc(var(--S) * .4)}
 .banner{--gap:var(--m);--colw:calc((100cqw - var(--gap)) / 2);display:grid;grid-template-columns:var(--colw) var(--colw);column-gap:var(--gap);row-gap:var(--gap);align-items:end}
@@ -105,6 +104,7 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
   .word{grid-column:1;grid-row:2}
   .sofa{grid-column:1;grid-row:4}
 }
+.s2l,.s2r{display:none}
 @media (min-width:761px) and (orientation:landscape),(min-width:1101px){
   .hero{grid-template-columns:max-content minmax(0,1fr);column-gap:0}
   .hero .ht2{grid-row:1;grid-column:1;white-space:nowrap;align-self:start}
@@ -114,6 +114,11 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
   .banner{display:contents}
   .word{grid-column:1/-1;grid-row:2;justify-self:center}
   .sofa{grid-column:1/-1;grid-row:3;justify-self:center}
+  .s2l,.s2r{display:block;grid-row:3;grid-column:1/-1;align-self:center;position:relative;z-index:3}
+  .s2l{justify-self:start;max-width:19%;font:800 clamp(20px,2.1vw,36px)/1.08 var(--f-display);letter-spacing:-.03em}
+  .s2l span{display:block;margin-top:.5em;font:500 clamp(14px,1.2vw,19px)/1.35 var(--f-body);letter-spacing:0;color:var(--mute)}
+  .s2r{justify-self:end;max-width:19%;white-space:normal;text-align:center}
+}
 
 /* ---------- сцены с телефоном ---------- */
 
@@ -375,6 +380,8 @@ textarea{min-height:96px;resize:vertical}
       <span class="sofa" aria-hidden="true"></span>
     </span>
     <span class="ht" data-fit data-i18n="bot"><span class="d"><span class="ml">в бизнес<span class="hy">-</span></span><span class="ml pr">процессы</span></span></span></h1>
+    <div class="s2l"><b>Диагностика бесплатна</b><span>В чате, в любое время</span></div>
+    <a class="btn s2r" href="chat.html">Пройти онлайн-диагностику</a>
     <a class="down" href="#intro" aria-label="Как мы внедряем, листайте вниз"><span>Как мы внедряем</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></a>
   </section>
 
@@ -647,7 +654,7 @@ textarea{min-height:96px;resize:vertical}
       var arD = (getComputedStyle(word).aspectRatio || '1001 / 554').split('/').map(parseFloat), arW = arD[0] / (arD[1] || 1);
       var availH = VH - tp - rowH - g1 - 46, wordW = Math.min(Wc, availH * arW), wordH = wordW / arW;
       word.style.width = wordW + 'px';
-      var sw0 = Math.min(Wc * 0.74, 1100); sofa.style.width = sw0 + 'px';
+      var sw0 = Math.min(Wc * 0.62, 1000); sofa.style.width = sw0 + 'px';
       var M = Math.max(g1 * 2, VH - tp - rowH - g1 - wordH - g1 + g1);
       sofa.style.marginTop = M + 'px';
       root.style.setProperty('--rg', g1 + 'px'); root.style.setProperty('--G', tp + 'px'); root.style.setProperty('--Gb', '0px'); root.style.setProperty('--Gref', g1 + 'px');
