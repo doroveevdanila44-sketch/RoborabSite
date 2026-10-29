@@ -61,7 +61,7 @@ def make(root):
     rest = sorted([c for c in NAMES if c not in top], key=lambda c: SORT[c])
     order = top + rest
     paths = {c: ('/' if c == 'en' else '/' + c.lower() + '/') for c in order + ['ru']}
-    cfg = dict(order=order, top=len(top), names=NAMES, ru_t={}, paths=paths)
+    cfg = dict(order=order, top=len(order), names=NAMES, ru_t={}, paths=paths)
     js = (src / 'i18n.src.js').read_text()
     for tag, obj in (('/*D*/{}', D), ('/*HT*/{}', HT), ('/*META*/{}', META), ('/*CFG*/{}', cfg), ('/*EXTRA*/{}', {'title': {'РОБОРАБ': 'ROBORAB', 'РОБОРАБ AI': 'ROBORAB AI'}})):
         js = js.replace(tag, json.dumps(obj, ensure_ascii=False))

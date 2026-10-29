@@ -118,6 +118,7 @@ a{color:inherit}
   .hero .ht2{grid-row:1}
   .hero .ht:not(.ht2){grid-row:3}
 }
+@media(min-width:761px) and (orientation:portrait) and (max-width:1100px){.hero .ht .pr{display:block}}
 .cat{margin:max(0px,calc(var(--S) - var(--Gref,var(--G)))) 0 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));font:800 clamp(24px,3.4vw,46px)/1.08 var(--f-display);letter-spacing:-.035em;max-width:1760px;margin-inline:auto}
 .cat+.product{margin-top:calc(var(--S) * .4)}
 .banner{--gap:var(--m);--colw:calc((100cqw - var(--gap)) / 2);display:grid;grid-template-columns:var(--colw) var(--colw);column-gap:var(--gap);row-gap:var(--gap);align-items:end}
@@ -629,7 +630,8 @@ textarea{min-height:96px;resize:vertical}
   }
   function fitAll(again){
     var wide = /^(th|hi|ar|he|fa|ur|bn|ta|te|mr)$/.test(root.lang);
-    var heroEl = document.querySelector('.hero'); if (heroEl && !again) { heroEl.style.paddingLeft = ''; heroEl.style.paddingRight = ''; }
+    var heroEl = document.querySelector('.hero'), bnEls = [].slice.call(document.querySelectorAll('.word,.sofa')); if (heroEl && !again) { heroEl.style.paddingLeft = ''; heroEl.style.paddingRight = ''; delete heroEl.dataset.bw; bnEls.forEach(function(e){ e.style.width = ''; e.style.justifySelf = ''; }); }
+    if (heroEl && heroEl.dataset.bw) bnEls.forEach(function(e){ e.style.width = parseFloat(heroEl.dataset.bw) + 'px'; e.style.justifySelf = 'center'; });
     var narrow = window.matchMedia('(max-width:760px),(orientation:portrait) and (max-width:1100px)').matches;
     var hl = document.getElementById('herolang'), VH = window.innerHeight - (narrow && hl ? hl.offsetHeight : 0);
     var tb = !!(window.CSS && CSS.supports && CSS.supports('text-box', 'trim-both cap alphabetic'));
@@ -689,10 +691,10 @@ textarea{min-height:96px;resize:vertical}
         var nG = tl.length + 2, fixedH = capSum + wh + Bn + sh - ptn - pbn + dln - psn;
         var rawAf = (VH - Tn - Bt - fixedH) / nG, tgtAf = 0.03 * VH;
         if (!again && rawAf < tgtAf && fixedH > 0) {
-          /* планшет: на широком экране блок не влезает по высоте, сужаем его по центру */
-          var kk = Math.max(0.3, (VH - Tn - Bt - nG * tgtAf) / fixedH), cw = top.clientWidth, side = cw * (1 - kk) / 2;
-          var hs = getComputedStyle(heroEl), pl = parseFloat(hs.paddingLeft) || 0, pr = parseFloat(hs.paddingRight) || 0;
-          heroEl.style.paddingLeft = (pl + side) + 'px'; heroEl.style.paddingRight = (pr + side) + 'px';
+          /* планшет: блок не влезает по высоте. Заголовок остаётся во всю ширину, сужаем только баннер с гориллой по центру */
+          var bannerH = wh + sh - ptn - pbn - psn, textH = fixedH - bannerH;
+          var kk = Math.max(0.3, Math.min(1, (VH - Tn - Bt - nG * tgtAf - textH) / bannerH)), cw = top.clientWidth;
+          heroEl.dataset.bw = String(cw * kk);
           return fitAll(true);
         }
         var af = Math.max(8, rawAf);
@@ -780,7 +782,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 
 
 </script>
-<script src="/i18n.js?v=29782d75"></script>
+<script src="/i18n.js?v=b920d8de"></script>
 <script>
 (function(){
   var f=document.getElementById("lead");
