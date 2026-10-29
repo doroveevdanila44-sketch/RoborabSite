@@ -125,6 +125,7 @@ a{color:inherit}
   .hero .ht .hy,.hero .ht .pr{display:inline}
 }
 @supports (text-box:trim-both cap alphabetic){@media(min-width:761px) and (orientation:portrait) and (max-width:1100px){.tb .hero .ht .d{text-box:trim-both cap alphabetic}}}
+}
 .cat{margin:max(0px,calc(var(--S) - var(--Gref,var(--G)))) 0 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));font:800 clamp(24px,3.4vw,46px)/1.08 var(--f-display);letter-spacing:-.035em;max-width:1760px;margin-inline:auto}
 .cat+.product{margin-top:calc(var(--S) * .4)}
 .banner{--gap:var(--m);--colw:calc((100cqw - var(--gap)) / 2);display:grid;grid-template-columns:var(--colw) var(--colw);column-gap:var(--gap);row-gap:var(--gap);align-items:end}
@@ -137,6 +138,15 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
   .word{grid-column:1;grid-row:2}
   .sofa{grid-column:1;grid-row:4}
 }
+@media (min-width:761px) and (orientation:landscape),(min-width:1101px){
+  .hero{grid-template-columns:max-content minmax(0,1fr);column-gap:0}
+  .hero .ht2{grid-row:1;grid-column:1;white-space:nowrap;align-self:start}
+  .hero .ht:not(.ht2){grid-row:1;grid-column:2;align-self:start;justify-self:end}
+  .hero .ht2 br{display:none}
+  .hero .ht2>.ml{margin-left:.3em}
+  .banner{display:contents}
+  .word{grid-column:1/-1;grid-row:2;justify-self:center}
+  .sofa{grid-column:1/-1;grid-row:3;justify-self:center}
 
 /* ---------- сцены с телефоном ---------- */
 
@@ -393,12 +403,12 @@ textarea{min-height:96px;resize:vertical}
   <!-- ЭКРАН 0: баннер. Отступы равны: край экрана до Р = Б до дивана = диван до края экрана -->
   <section class="hero wrap">
     <h1 class="h1w"><span class="ht ht2" data-fit="" data-i18n="top" style=""><span class="d"><span class="ml">Implementing</span> <span class="ml">artificial</span></span><br><span class="ml">intelligence</span></span>
-    <span class="banner" style="">
-      <span class="word" role="img" aria-label="ROBORAB"></span>
-      <span class="sofa" aria-hidden="true"></span>
+    <span class="banner">
+      <span class="word" role="img" aria-label="ROBORAB" style=""></span>
+      <span class="sofa" aria-hidden="true" style=""></span>
     </span>
     <span class="ht" data-fit="" data-i18n="bot" style=""><span class="d"><span class="ml">into business&nbsp;</span><span class="ml pr">processes</span></span></span></h1>
-    <a class="down" href="#intro" aria-label="How we implement it, scroll down"><span>How we implement it</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></a>
+    <a class="down" href="#intro" aria-label="How we implement it, scroll down" style=""><span>How we implement it</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></a>
   </section>
 
   <!-- КАТАЛОГ: порядок фитнес, налоги, стройка, букинг, SEO/GEO. Одно белое пространство -->
@@ -636,7 +646,7 @@ textarea{min-height:96px;resize:vertical}
   }
   function fitAll(again){
     var wide = /^(th|hi|ar|he|fa|ur|bn|ta|te|mr)$/.test(root.lang);
-    var heroEl = document.querySelector('.hero'), bnEls = [].slice.call(document.querySelectorAll('.sofa')); if (heroEl && !again) { heroEl.style.paddingLeft = ''; heroEl.style.paddingRight = ''; delete heroEl.dataset.bw; bnEls.forEach(function(e){ e.style.width = ''; e.style.justifySelf = ''; }); }
+    var heroEl = document.querySelector('.hero'), bnEls = [].slice.call(document.querySelectorAll('.sofa')); if (heroEl && !again) { heroEl.style.paddingLeft = ''; heroEl.style.paddingRight = ''; delete heroEl.dataset.bw; bnEls.forEach(function(e){ e.style.width = ''; e.style.justifySelf = ''; }); var wd0 = document.querySelector('.word'); if (wd0) { wd0.style.width = ''; } fits.forEach(function(p){ p.style.transform = ''; p.style.marginBottom = ''; }); }
     if (heroEl && !again && window.matchMedia('(min-width:761px) and (orientation:portrait) and (max-width:1100px)').matches) { var hcs = getComputedStyle(heroEl); heroEl.dataset.bw = String((heroEl.clientWidth - parseFloat(hcs.paddingLeft) - parseFloat(hcs.paddingRight)) / 1.5); }
     if (heroEl && heroEl.dataset.bw) bnEls.forEach(function(e){ e.style.width = parseFloat(heroEl.dataset.bw) + 'px'; e.style.justifySelf = 'center'; });
     var narrow = window.matchMedia('(max-width:760px),(orientation:portrait) and (max-width:1100px)').matches;
@@ -657,6 +667,26 @@ textarea{min-height:96px;resize:vertical}
     document.querySelectorAll('.hero .ht .ml,.hero .ht .d').forEach(function(l){ l.style.marginTop = ''; l.style.fontSize = ''; });
     var dn0 = document.querySelector('.down'); if (dn0) { dn0.style.top = ''; dn0.style.bottom = ''; }
     top.style.lineHeight = '';
+    if (!narrow) {
+      /* компьютер: заголовок одной строкой во всю ширину (с растяжкой по высоте), РОБОРАБ во всю ширину, горилла крупно на втором экране */
+      var hs0 = getComputedStyle(heroEl), Wc = heroEl.clientWidth - parseFloat(hs0.paddingLeft) - parseFloat(hs0.paddingRight), KY = /^(zh|ja|ko|th|hi|ar|he|fa|ur|bn|ta|te|mr)$/.test(root.lang) ? 1 : 1.75;
+      top.style.fontSize = bot.style.fontSize = '100px'; top.style.transform = bot.style.transform = ''; top.style.marginBottom = bot.style.marginBottom = '';
+      var wA = top.getBoundingClientRect().width, wB = bot.getBoundingClientRect().width;
+      var fsD = 100 * Wc / (wA + wB + 34);
+      top.style.fontSize = bot.style.fontSize = fsD + 'px';
+      var Hh = Math.max(top.getBoundingClientRect().height, bot.getBoundingClientRect().height);
+      [top, bot].forEach(function(e){ e.style.transformOrigin = '0 0'; e.style.transform = 'scaleY(' + KY + ')'; e.style.marginBottom = ((KY - 1) * Hh) + 'px'; });
+      var rowH = KY * Hh, g1 = Math.round(Math.max(16, 0.026 * VH)), tp = 50;
+      var arD = (getComputedStyle(word).aspectRatio || '1001 / 554').split('/').map(parseFloat), arW = arD[0] / (arD[1] || 1);
+      var availH = VH - tp - rowH - g1 - 46, wordW = Math.min(Wc, availH * arW), wordH = wordW / arW;
+      word.style.width = wordW + 'px';
+      var sw0 = Math.min(Wc * 0.74, 1100); sofa.style.width = sw0 + 'px';
+      var M = Math.max(g1 * 2, VH - tp - rowH - g1 - wordH - g1 + g1);
+      sofa.style.marginTop = M + 'px';
+      root.style.setProperty('--rg', g1 + 'px'); root.style.setProperty('--G', tp + 'px'); root.style.setProperty('--Gb', '0px'); root.style.setProperty('--Gref', g1 + 'px');
+      var dnD = document.querySelector('.down'); if (dnD) { dnD.style.bottom = 'auto'; dnD.style.top = Math.round(VH - 40) + 'px'; }
+      return;
+    }
     var fs = parseFloat(getComputedStyle(top).fontSize), wh = word.getBoundingClientRect().height, sh = sofa.getBoundingClientRect().height;
     var extra = 0, rg, n = narrow ? 4 : 3;
     if (tb) {
@@ -718,6 +748,7 @@ textarea{min-height:96px;resize:vertical}
         root.style.setProperty('--Gb', '0px');
         root.style.setProperty('--Gref', '4px');
         sofa.style.marginBottom = Bt + 'px';
+        if (tabl) { var sr0 = sofa.getBoundingClientRect(), dBot = (window.innerHeight - Bt) - (sr0.bottom + window.scrollY - sh * 0.01); if (dBot > 2) sofa.style.marginTop = (parseFloat(sofa.style.marginTop || 0) + dBot) + 'px'; }
         /* стрелка на телефоне стоит посередине промежутка между «В БИЗНЕС» и гориллой */
         var dn = document.querySelector('.down'), hero = document.querySelector('.hero');
         if (dn && hero) {
