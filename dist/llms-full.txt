@@ -84,41 +84,18 @@ We combine products and build a new solution made specially for you
 We combine ready-made catalog products into one solution
 We build a new solution specially for your business
 You describe the task, we assemble the rest
-Where to start
-Explorer: you do not know what you need. Integrator: you know the task or picked a solution in the catalog. Mentor: you have no business yet, only an idea.
-Explorer
-I do not know what I need
-Tell the agent about your work. It will find what can be automated. A specialist will review the result and propose a solution.
-Free
-Integrator
-I know what I need
-We will implement a ready-made solution from the catalog or build one from scratch. For example, AI in telephony or your own CRM.
-Built into processes
-Saves money
-Saves time
-Custom pricing
-Get a price in 10 minutes
-Mentor
-An AI conversation partner that teaches you to think like an entrepreneur
-The business-mentor mode helps you build a business mindset and develop an idea from scratch. It draws on classic management and philosophical thought, adapted to an entrepreneur's practice.
-The Stoics
-Schopenhauer
-Philip Kotler
-The subscription also includes:
-Commercial proposals
-Business plans for investors
-Business plans for government grants
-$20 per month
-Or $18 per month when you pay for a full year ($216 per year)
-Payment methods
+Just write in the chat
+You do not need to know what you need. Write anything about your business in the chat and talk to the agent.
+It will find where you lose money and time. A specialist will study the result and propose a solution.
+Start online diagnosis
 Frequently asked questions
 What is ROBORAB? ROBORAB implements AI agents into companies' business processes. You can start with free diagnostics in chat, choose a ready-made solution from the catalog, or order a solution for your business.
 How do you implement artificial intelligence in business processes? You describe the task to the AI agent by text, voice or video call. The agent writes a summary of your request, a technical specialist customizes a ready-made solution for you, and the next day the tool is already in the app.
-How much does AI implementation cost? Diagnostics in chat is free. Implementation (Integrator) is priced individually: you can get a cost estimate in the chat within 10 minutes.
+How much does AI implementation cost? Diagnostics in chat is free. Implementation is priced individually: you can get a cost estimate in the chat within 10 minutes.
 What will I get after the diagnosis? A list of where you lose money and time, and a specialist proposal: a ready-made product or a solution from scratch.
 What if I do not need AI? We will say so directly. The diagnosis is free, so you risk nothing.
 Which ready-made solutions are in the catalog? Fitness CRM, a tax agent for a group of companies, construction accounting, a booking CRM for hotel requests, and SEO and GEO setup.
-Can AI replace an employee or a whole function? That is what the Integrator plan is for: ROBORAB is built into your company's internal processes and takes over the work of a specific person or area. You save money and time.
+Can AI replace an employee or a whole function? Yes. ROBORAB is built into your company's internal processes and takes over the work of a specific person or area. You save money and time.
 Where do I start if I do not know what I need? Start with the diagnosis: tell the AI agent about your business in the chat. It will help find where processes get stuck. A specialist will review the summary and suggest what to implement.
 Can I order something that is not in the catalog? Yes. We will tailor a ready-made product to you, combine several products (the Hybrid solution) or build a solution entirely around you. We also build websites.
 Which languages is the site available in? The site is available in Russian, English, Chinese and Arabic. You change the language with the globe button in the top-right corner of the first screen.

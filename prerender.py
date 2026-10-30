@@ -9,7 +9,7 @@ root = pathlib.Path(__file__).parent
 dist = root / 'dist'
 SITE = os.environ.get('SITE_URL', 'https://roborab.vercel.app').rstrip('/')
 T_KEY = 'РОБОРАБ: внедрение искусственного интеллекта в бизнес-процессы'
-D_KEY = 'РОБОРАБ внедряет ИИ-агентов в бизнес-процессы: фитнес-CRM, налоговый агент, строй-учёт, букинг-CRM, SEO и GEO. Начните бесплатно, подписка — от $20 в месяц.'
+D_KEY = 'РОБОРАБ внедряет ИИ-агентов в бизнес-процессы: фитнес-CRM, налоговый агент, строй-учёт, букинг-CRM, SEO и GEO. Диагностика в чате бесплатна.'
 LOCALE = {'en': 'en_US', 'en-GB': 'en_GB', 'ru': 'ru_RU', 'es': 'es_ES', 'fr': 'fr_FR', 'zh': 'zh_CN', 'de': 'de_DE', 'it': 'it_IT', 'pt': 'pt_PT', 'tr': 'tr_TR', 'ja': 'ja_JP', 'ko': 'ko_KR', 'uk': 'uk_UA', 'pl': 'pl_PL', 'nl': 'nl_NL', 'cs': 'cs_CZ', 'sv': 'sv_SE', 'ro': 'ro_RO', 'el': 'el_GR', 'id': 'id_ID', 'vi': 'vi_VN', 'kk': 'kk_KZ', 'hi': 'hi_IN', 'th': 'th_TH', 'ar': 'ar_AR', 'bg': 'bg_BG', 'hr': 'hr_HR', 'sk': 'sk_SK', 'sl': 'sl_SI', 'hu': 'hu_HU', 'fi': 'fi_FI', 'da': 'da_DK', 'nb': 'nb_NO', 'lt': 'lt_LT', 'lv': 'lv_LV', 'et': 'et_EE', 'ca': 'ca_ES', 'af': 'af_ZA', 'ms': 'ms_MY', 'fil': 'fil_PH', 'he': 'he_IL', 'fa': 'fa_IR', 'ur': 'ur_PK', 'bn': 'bn_BD', 'ta': 'ta_IN', 'te': 'te_IN', 'mr': 'mr_IN', 'be': 'be_BY', 'az': 'az_AZ', 'uz': 'uz_UZ', 'ka': 'ka_GE', 'hy': 'hy_AM', 'sr': 'sr_RS', 'sw': 'sw_KE'}
 import hashlib
 def AV(n): return hashlib.md5(open(pathlib.Path(__file__).parent/'assets'/(n+'.webp'),'rb').read()).hexdigest()[:8]
@@ -37,9 +37,7 @@ def ld(l, cfg, T, Dsc, t):
     org = {'@type': 'Organization', '@id': SITE + '/#org', 'name': 'ROBORAB' if l != 'ru' else 'РОБОРАБ', 'url': SITE + '/', 'logo': SITE + '/assets/appicon.webp'}
     site = {'@type': 'WebSite', '@id': SITE + '/#site', 'url': SITE + '/', 'name': 'ROBORAB', 'inLanguage': l, 'publisher': {'@id': SITE + '/#org'}}
     page = {'@type': 'WebPage', '@id': url + '#page', 'url': url, 'name': T, 'description': Dsc, 'inLanguage': l, 'isPartOf': {'@id': SITE + '/#site'}, 'about': {'@id': SITE + '/#org'}}
-    svc = {'@type': 'Service', 'name': T, 'provider': {'@id': SITE + '/#org'}, 'serviceType': 'AI agents for business processes', 'inLanguage': l,
-           'offers': [{'@type': 'Offer', 'name': t('Исследователь'), 'price': '0', 'priceCurrency': 'USD'},
-                      {'@type': 'Offer', 'name': t('Ментор'), 'url': url, 'priceCurrency': 'USD', 'priceSpecification': {'@type': 'UnitPriceSpecification', 'price': '20', 'priceCurrency': 'USD', 'unitCode': 'MON', 'billingDuration': 1}}]}
+    svc = {'@type': 'Service', 'name': T, 'provider': {'@id': SITE + '/#org'}, 'serviceType': 'AI agents for business processes', 'inLanguage': l}
     svc['hasOfferCatalog'] = {'@type': 'OfferCatalog', 'name': t('Выбрать готовое решение в каталоге ниже'), 'itemListElement': [
         {'@type': 'Offer', 'itemOffered': {'@type': 'Service', 'name': H.unescape(t(n)), 'description': H.unescape(t(dsc)), 'provider': {'@id': SITE + '/#org'}}} for n, dsc in PRODUCTS]}
     faq = {'@type': 'FAQPage', 'inLanguage': l, 'mainEntity': [{'@type': 'Question', 'name': H.unescape(t(q)), 'acceptedAnswer': {'@type': 'Answer', 'text': H.unescape(t(a))}} for q, a in FAQS]}
@@ -107,7 +105,7 @@ async def main():
     sitemap.append('</urlset>'); (dist / 'sitemap.xml').write_text('\n'.join(sitemap))
     (dist / 'robots.txt').write_text(''.join(f'User-agent: {b}\nAllow: /\nDisallow: /chat.html\n\n' for b in ['*', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'PerplexityBot', 'Google-Extended', 'Applebot-Extended', 'CCBot', 'Yandex', 'YandexBot', 'YandexAdditional']) + f'Sitemap: {SITE}/sitemap.xml\n')
     en = out_pages['en']
-    llms = [f'# ROBORAB', '', f'> {en[2]}', '', 'ROBORAB deploys AI agents into B2B business processes. Plans: Explorer (free), Mentor ($20 per month, or $18 per month billed yearly), Integrator (custom price: replacing an employee or a whole function).', '', '## Products', '- Fitness CRM: clients, memberships, schedules, trainer payouts', '- Tax agent: group-of-companies taxes, actuals from 1C, forecasts and scenarios', '- Construction accounting: sites, materials and costs', '- Booking CRM: hotel booking requests in one window', '- SEO and GEO: setup, analytics, admin panels', '', '## Languages']
+    llms = [f'# ROBORAB', '', f'> {en[2]}', '', 'ROBORAB deploys AI agents into B2B business processes. The diagnosis in the chat is free; implementation is priced individually.', '', '## Products', '- Fitness CRM: clients, memberships, schedules, trainer payouts', '- Tax agent: group-of-companies taxes, actuals from 1C, forecasts and scenarios', '- Construction accounting: sites, materials and costs', '- Booking CRM: hotel booking requests in one window', '- SEO and GEO: setup, analytics, admin panels', '', '## Languages']
     llms += [f'- [{names[c]}]({SITE}{slug(cfg, c)})' for c in langs]
     (dist / 'llms.txt').write_text('\n'.join(llms) + '\n\n## Full text\n- [llms-full.txt](' + SITE + '/llms-full.txt)\n')
     body = re.search(r'<main.*?</main>', en[0], flags=re.S).group(0)

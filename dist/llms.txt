@@ -1,8 +1,8 @@
 # ROBORAB
 
-> ROBORAB deploys AI agents in business processes: fitness CRM, tax agent, construction accounting, booking CRM, SEO and GEO. Start free, subscription from $20 per month.
+> ROBORAB deploys AI agents in business processes: fitness CRM, tax agent, construction accounting, booking CRM, SEO and GEO. The diagnosis in the chat is free.
 
-ROBORAB deploys AI agents into B2B business processes. Plans: Explorer (free), Mentor ($20 per month, or $18 per month billed yearly), Integrator (custom price: replacing an employee or a whole function).
+ROBORAB deploys AI agents into B2B business processes. The diagnosis in the chat is free; implementation is priced individually.
 
 ## Products
 - Fitness CRM: clients, memberships, schedules, trainer payouts
