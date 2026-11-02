@@ -44,6 +44,7 @@
   --img-h2:url(/assets/h2.webp?v=2dc004c8);
   --img-h3:url(/assets/h3.webp?v=eba2c042);
   --img-h4:url(/assets/h4.webp?v=0a0d96c4);
+  --img-gor:url(/assets/gor.webp?v=e9638c08);
   --img-n1:url(/assets/n1.webp?v=4bdc46ae);
   --img-n2:url(/assets/n2.webp?v=7a0d1e22);
   --img-m1:url(/assets/m1.webp?v=ca263fe1);
@@ -128,16 +129,15 @@ a{color:inherit}
 .cat{margin:max(0px,calc(var(--S) - var(--Gref,var(--G)))) 0 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));font:800 clamp(24px,3.4vw,46px)/1.08 var(--f-display);letter-spacing:-.035em;max-width:1760px;margin-inline:auto}
 .cat+.product{margin-top:calc(var(--S) * .4)}
 .banner{--gap:var(--m);--colw:calc((100cqw - var(--gap)) / 2);display:grid;grid-template-columns:var(--colw) var(--colw);column-gap:var(--gap);row-gap:var(--gap);align-items:end}
-.word{grid-column:1;grid-row:1;width:100%;aspect-ratio:1001 / 554;background:var(--img-roborab) center / 100% 100% no-repeat}
-html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-roborab-en)}
-.sofa{grid-column:2;grid-row:1;width:100%;aspect-ratio:1664 / 812;background:var(--img-sofa) center / 100% 100% no-repeat}
+.word{grid-column:1;grid-row:1;width:100%;position:relative;container-type:inline-size;aspect-ratio:var(--AR,6.7);color:var(--fg)}
+.word .wtx{position:absolute;left:0;top:calc(var(--T,0) * 1em);font:800 calc(100cqw / var(--R,4.6))/1 var(--f-display);white-space:nowrap;letter-spacing:0;transform:scaleY(var(--ky,1));transform-origin:0 calc(var(--T,0) * -1em)}
+.sofa{grid-column:2;grid-row:1;width:100%;aspect-ratio:640 / 665;background:var(--img-gor) center / 100% 100% no-repeat}
 @supports (text-box:trim-both cap alphabetic){.tb .hero .ht{text-box:trim-both cap alphabetic}@media(max-width:760px),(orientation:portrait) and (max-width:1100px){.tb .hero .ht{text-box:none}.tb .hero .ht .ml{text-box:trim-both cap alphabetic}}}
 @media(max-width:760px),(orientation:portrait) and (max-width:1100px){
   .banner{display:contents;transform:none}
   .word{grid-column:1;grid-row:2}
-  .sofa{grid-column:1;grid-row:4}
+  .sofa{grid-column:1;grid-row:4;justify-self:end;width:44%}
 }
-.s2l,.s2r{display:none}
 @media (min-width:761px) and (orientation:landscape),(min-width:1101px){
   .hero{grid-template-columns:max-content minmax(0,1fr);column-gap:0}
   .hero .ht2{grid-row:1;grid-column:1;white-space:nowrap;align-self:start}
@@ -146,11 +146,7 @@ html:not([lang=ru]) .word{aspect-ratio:1001 / 512;background-image:var(--img-rob
   .hero .ht2>.ml{margin-left:.3em}
   .banner{display:contents}
   .word{grid-column:1/-1;grid-row:2;justify-self:center}
-  .sofa{grid-column:1/-1;grid-row:3;justify-self:center}
-  .s2l,.s2r{display:block;grid-row:3;grid-column:1/-1;align-self:center;position:relative;z-index:3}
-  .s2l{justify-self:start;max-width:28%;font:800 clamp(20px,2.1vw,36px)/1.08 var(--f-display);letter-spacing:-.03em}
-  .s2l span{display:block;margin-top:.5em;font:500 clamp(14px,1.2vw,19px)/1.35 var(--f-body);letter-spacing:0;color:var(--mute)}
-  .s2r{justify-self:end;max-width:24%;white-space:normal;text-align:center}
+  .sofa{position:absolute;right:max(var(--m),env(safe-area-inset-right,0px));bottom:0;width:min(22vw,340px);z-index:3}
 }
 
 /* ---------- сцены с телефоном ---------- */
@@ -423,12 +419,10 @@ textarea{min-height:96px;resize:vertical}
   <section class="hero wrap">
     <h1 class="h1w"><span class="ht ht2" data-fit="" data-i18n="top"><span class="d"><span class="ml">Внедрение</span> <span class="ml">искусственного</span></span><br><span class="ml">интеллекта</span></span>
     <span class="banner">
-      <span class="word" role="img" aria-label="РОБОРАБ"></span>
+      <span class="word" role="img" aria-label="РОБОРАБ" data-r="4.826171875" data-c="0.74"><b class="wtx" aria-hidden="true">РОБОРАБ</b></span>
       <span class="sofa" aria-hidden="true"></span>
     </span>
     <span class="ht" data-fit="" data-i18n="bot"><span class="d"><span class="ml">в бизнес<span class="hy">-</span></span><span class="ml pr">процессы</span></span></span></h1>
-    <div class="s2l"><b>Диагностика бесплатна</b><span>В чате, в любое время</span></div>
-    <a class="btn s2r" href="/chat.html?msg=&amp;lang=ru" data-h="chat.html">Пройти онлайн-диагностику</a>
     <a class="down" href="#intro" aria-label="Как мы внедряем, листайте вниз"><span>Как мы внедряем</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></a>
   </section>
 
@@ -624,7 +618,26 @@ textarea{min-height:96px;resize:vertical}
   }
   /* высота экрана при видимой панели Safari (svh): не меняется, когда панель прячется при скролле, поэтому раскладка не прыгает */
   var svhProbe; function svhPx(){ try { if (!svhProbe) { svhProbe = document.createElement('div'); svhProbe.style.cssText = 'position:fixed;left:0;top:0;width:0;height:100svh;visibility:hidden;pointer-events:none'; document.body.appendChild(svhProbe); } var h = svhProbe.offsetHeight; return h > 100 ? h : window.innerHeight; } catch (e) { return window.innerHeight; } }
+  /* РОБОРАБ буквами: размер шрифта задаётся шириной блока, пропорции берутся из реального шрифта */
+  function fitWordText(){
+    var w = document.querySelector('.word'); if (!w || !ctx) return;
+    var tx = w.querySelector('.wtx'), t = document.documentElement.lang === 'ru' ? 'РОБОРАБ' : 'ROBORAB';
+    if (tx.textContent !== t) tx.textContent = t;
+    var c = getComputedStyle(tx); ctx.font = '800 100px ' + c.fontFamily;
+    var m = ctx.measureText(t), cap = m.actualBoundingBoxAscent / 100, fa = m.fontBoundingBoxAscent / 100, fd = m.fontBoundingBoxDescent / 100;
+    if (!(m.width > 0) || !(cap > 0)) return;
+    var R = m.width / 100, hl = (1 - (fa + fd)) / 2;
+    w.dataset.r = R; w.dataset.c = cap; w.style.setProperty('--R', R.toFixed(4)); w.style.setProperty('--T', (-(hl + fa - cap)).toFixed(4));
+    setWordKy(0.75 * R / cap);
+  }
+  /* буквы тянутся по вертикали: ky задаёт высоту блока, пропорции блока и масштаб текста меняются вместе */
+  function setWordKy(ky){
+    var w = document.querySelector('.word'); if (!w || !w.dataset.r) return 1;
+    ky = Math.max(1, Math.min(4.2, ky)); var R = +w.dataset.r, c = +w.dataset.c;
+    w.style.setProperty('--ky', ky.toFixed(4)); w.style.setProperty('--AR', (R / (c * ky)).toFixed(4)); return ky;
+  }
   function fitAll(again){
+    fitWordText();
     var wide = /^(th|hi|ar|he|fa|ur|bn|ta|te|mr)$/.test(root.lang);
     var heroEl = document.querySelector('.hero'), bnEls = [].slice.call(document.querySelectorAll('.sofa')); if (heroEl && !again) { heroEl.style.paddingLeft = ''; heroEl.style.paddingRight = ''; delete heroEl.dataset.bw; bnEls.forEach(function(e){ e.style.width = ''; e.style.justifySelf = ''; }); var wd0 = document.querySelector('.word'); if (wd0) { wd0.style.width = ''; } fits.forEach(function(p){ p.style.transform = ''; p.style.marginBottom = ''; }); }
     if (heroEl && !again && window.matchMedia('(min-width:761px) and (orientation:portrait) and (max-width:1100px)').matches) { var hcs = getComputedStyle(heroEl); heroEl.dataset.bw = String((heroEl.clientWidth - parseFloat(hcs.paddingLeft) - parseFloat(hcs.paddingRight)) / 1.5); }
@@ -659,8 +672,8 @@ textarea{min-height:96px;resize:vertical}
       var rowH = KY * Hh, g1 = Math.round(Math.max(16, 0.026 * VH)), tp = 50;
       var arD = (getComputedStyle(word).aspectRatio || '1001 / 554').split('/').map(parseFloat), arW = arD[0] / (arD[1] || 1);
       var availH = VH - tp - rowH - g1 - 46, wordW = Math.min(Wc, availH * arW), wordH = wordW / arW;
-      word.style.width = wordW + 'px';
-      var sw0 = Math.min(Wc * 0.37, 650); sofa.style.width = sw0 + 'px';
+      word.style.width = Wc + 'px'; setWordKy(availH / (Wc * (+word.dataset.c) / (+word.dataset.r))); wordW = Wc; wordH = word.getBoundingClientRect().height;
+      
       var M = Math.max(g1 * 2, VH - tp - rowH - g1 - wordH - g1 + g1);
       sofa.style.marginTop = M + 'px';
       root.style.setProperty('--rg', g1 + 'px'); root.style.setProperty('--G', tp + 'px'); root.style.setProperty('--Gb', '0px'); root.style.setProperty('--Gref', g1 + 'px');
@@ -677,7 +690,7 @@ textarea{min-height:96px;resize:vertical}
            (воздух сверху = зазор до РОБОРАБ = a), такой же зазор a между РОБОРАБ и нижней строкой,
            снизу воздух чуть больше (k·a). Все зазоры считаются от краёв букв и картинки. */
         var B = bot.getBoundingClientRect().height, cap1 = inkAsc(top, 'В') || 0.727 * fs;
-        var pt = 0.0161 * wh, pb = 0.0179 * wh, hb = wh - pt - pb, k = 1.12;
+        var pt = 0, pb = 0, hb = wh - pt - pb, k = 1.12;
         /* зазор между строками «Внедрение искусственного» и «интеллекта» (от низа букв до верха следующих) тоже равен a */
         var a = Math.max(44, (VH - 2 * cap1 - hb - B) / (4 + k));
         top.style.lineHeight = (cap1 + a) + 'px';
@@ -705,7 +718,7 @@ textarea{min-height:96px;resize:vertical}
         });
         wh = word.getBoundingClientRect().height; sh = sofa.getBoundingClientRect().height; Bn = bot.getBoundingClientRect().height;
         var abn = inkAsc(bot, 'б'), acn = inkAsc(bot, 'В'), dln = abn > acn ? abn - acn : 0;
-        var ptn = 0.0161 * wh, pbn = 0.0099 * wh, psn = 0.012 * sh;
+        var ptn = 0, pbn = 0, psn = 0;
         var Tn = Math.min(28, Math.max(14, 0.022 * VH)), Bt = window.innerWidth <= 760 ? 12 : 4;
         var nG = tl.length + 2, fixedH = capSum + wh + Bn + sh - ptn - pbn + dln - psn;
         var rawAf = (VH - Tn - Bt - fixedH) / nG, tgtAf = 0.03 * VH;
@@ -741,7 +754,7 @@ textarea{min-height:96px;resize:vertical}
         return;
       }
       var U = Math.max(8, 0.08 * fs);
-      var m1 = Math.max(0, U - 0.0161 * wh), m2 = Math.max(0, U - 0.0099 * wh), m3 = Math.max(0, U - 0.012 * sh), dl = 0;
+      var m1 = Math.max(0, U - 0), m2 = Math.max(0, U - 0), m3 = Math.max(0, U - 0), dl = 0;
       var ab = inkAsc(bot, 'б'), ac = inkAsc(bot, 'В');
       if (ab > ac) dl = ab - ac;
       bot.style.marginTop = (m2 + dl) + 'px';

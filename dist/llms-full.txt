@@ -1,9 +1,8 @@
 # ROBORAB: full page text (English)
 
 Implementing artificial intelligence
+ROBORAB
 into business  processes
-Diagnosis is free In the chat, at any time
-Start online diagnosis
 How we implement it
 AI integration for business: diagnosis first, solution second
 Tell the agent about your business in the chat at any time, even at night. It will find where you are losing money. Then a live specialist will review the result and propose a solution. A ready-made product or a solution from scratch.
