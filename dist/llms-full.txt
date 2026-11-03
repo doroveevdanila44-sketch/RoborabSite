@@ -85,7 +85,7 @@ Storefront admin panel: banner, slogan and categories are edited right in the in
 Visitor analytics for 7, 30 or 90 days: who came, who left at once and how many carts were sent to Telegram
 See how many buyers were brought by AI assistants (ChatGPT, Alice, Perplexity, Gemini), and visitors by day
 Describe your problem in your own words
-You write about your problem to our AI agent ROBORAB AI in the chat: what slows your work down, where money and time go. The agent runs on frontier Claude models and asks follow-up questions. Then it assembles the result, and a live specialist checks it and proposes a solution: a ready-made product from the catalog or a solution from scratch. If you do not need AI, we will say so.
+You write about your problem to our AI agent ROBORAB AI in the chat: what slows your work down, where money and time go. The agent runs on frontier Claude models, asks follow-up questions and makes the diagnosis. Then our specialist builds the tool for you. The same agent presents the finished tool to you, right in the chat. If you do not need AI, we will say so.
 Start the free diagnosis
 Frequently asked questions
 What is ROBORAB? ROBORAB implements AI agents into companies' business processes. You can start with free diagnostics in chat, choose a ready-made solution from the catalog, or order a solution for your business.
