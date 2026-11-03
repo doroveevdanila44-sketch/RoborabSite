@@ -36,14 +36,14 @@ Step 3 A specialist configures it
 A technical specialist customizes the ready-made solution for you.
 The next day The tool is yours
 Only the setup remains.
-Pay once. No subscription.
-You pay for implementation once and we say goodbye: no fees, no monthly charges. The tool stays with you and runs without us.
-One payment for implementation
-No subscription fee and no monthly charges.
-The tool is yours
-We train you or the founder to use the tool. You pay for the server yourself: we set it up on your computer or internal server, or help you choose hosting.
-Help on request
-Ran into a problem? Write in the chat and our specialist will handle it.
+Consulting and implementation for your industry
+We work with businesses from idea to operation. We keep the infrastructure in our app or deploy it on your server.
+Multi-agent systems for your profession
+Are you a lawyer? We will build a system of agents: some track changes in the law, others review your cases.
+We build into your ecosystem
+We connect agents to spreadsheets, databases and 1C and tune them to your processes.
+Your infrastructure
+We keep everything in our app, managed through chat, or host it on your server.
 Ready-made solutions by industry
 If none fits, we will build one for you.
 Fitness CRM
@@ -91,7 +91,7 @@ Frequently asked questions
 What is ROBORAB? ROBORAB implements AI agents into companies' business processes. You can start with free diagnostics in chat, choose a ready-made solution from the catalog, or order a solution for your business.
 How do you implement artificial intelligence in business processes? You describe the task to the AI agent by text, voice or video call. The agent writes a summary of your request, a technical specialist customizes a ready-made solution for you, and the next day the tool is already in the app.
 How much does AI implementation cost? Diagnostics in chat is free. Implementation is priced individually: you can get a cost estimate in the chat within 10 minutes.
-Is there a subscription? No. You pay for implementation once. After that you pay for the server yourself, and if difficulties come up, you write in the chat and our specialist helps.
+Which systems do you work with? With spreadsheets, databases and 1C. Agents can stay in our app or be deployed on your server. For lawyers we build multi-agent systems that track changes in the law and review cases.
 What will I get after the diagnosis? A list of where you lose money and time, and a specialist proposal: a ready-made product or a solution from scratch.
 What if I do not need AI? We will say so directly. The diagnosis is free, so you risk nothing.
 Which ready-made solutions are in the catalog? Fitness CRM, a tax agent for a group of companies, construction accounting, a booking CRM for hotel requests, and SEO and GEO setup.
