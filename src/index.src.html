@@ -367,6 +367,7 @@ textarea{min-height:96px;resize:vertical}
 /* тёмная полоса: «Что мы делаем» и «Как это работает» на одном фоне с градиентом, как у футера */
 .dark{margin-block:calc(var(--S) / 2);padding-block:calc(var(--S) / 2);display:flow-root;color:#fff;background:var(--fg)}
 .dark .svc{margin-top:0}
+.once{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px;text-align:center}.once h2{margin:0 auto;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}.once .lead{margin:clamp(14px,1.6vw,22px) auto 0;max-width:60ch;color:#b9c1c8;font-size:clamp(16px,1.4vw,22px);line-height:1.5}.once .svcgrid li{text-align:start}
 .dark h2,.dark h3{color:#fff}
 .dark .svcgrid p,.dark .steps p{color:#b9c1c8}
 .dark .steps .sn{color:rgba(255,255,255,.62)}.dark .steps li.last .sn{color:#fff}
@@ -430,6 +431,11 @@ textarea{min-height:96px;resize:vertical}
       <li><span class="ic"></span><div><span class="sn">Шаг 3</span><h3>Специалист настраивает</h3><p>Технический специалист кастомизирует готовое решение под вас.</p></div></li>
       <li class="last"><span class="ic"></span><div><span class="sn">На следующий день</span><h3>Инструмент у вас</h3><p>Остаётся только настройка.</p></div></li>
     </ol>
+  </section>
+  <section class="once" id="once" aria-labelledby="once-h">
+    <h2 id="once-h">Платите один раз. Подписки нет.</h2>
+    <p class="lead">Вы платите за внедрение один раз, и на этом мы прощаемся: ни абонентской платы, ни ежемесячных списаний. Инструмент остаётся у вас и работает без нас.</p>
+    <ul class="svcgrid"><li><h3>Один платёж за внедрение</h3><p>Без абонентской платы и ежемесячных списаний.</p></li><li><h3>Инструмент у вас</h3><p>Обучаем вас или основателя работать с инструментом. Сервер оплачиваете сами: поднимаем на вашем компьютере или внутреннем сервере либо помогаем выбрать хостинг.</p></li><li><h3>Помощь по запросу</h3><p>Возникла сложность? Напишите в чат, и наш специалист всё сделает.</p></li></ul>
   </section>
   </div>
 
@@ -535,6 +541,7 @@ textarea{min-height:96px;resize:vertical}
       <details><summary>Что такое РОБОРАБ?</summary><p>РОБОРАБ внедряет ИИ-агентов в бизнес-процессы компаний. Можно начать с бесплатной диагностики в чате, выбрать готовое решение из каталога или заказать решение под ваш бизнес.</p></details>
       <details><summary>Как внедрить искусственный интеллект в бизнес-процессы?</summary><p>Вы описываете задачу ИИ-агенту: текстом, голосом или в видеозвонке. Агент формирует резюме запроса, технический специалист настраивает готовое решение под вас, а на следующий день инструмент уже в приложении.</p></details>
       <details><summary>Сколько стоит внедрение ИИ?</summary><p>Диагностика в чате бесплатна. Цена внедрения индивидуальная: расчёт стоимости можно получить за 10 минут в чате.</p></details>
+      <details><summary>Есть ли подписка?</summary><p>Нет. Вы платите за внедрение один раз. Дальше сервер оплачиваете сами, а если появятся трудности, пишете в чат, и наш специалист поможет.</p></details>
       <details><summary>Что я получу после диагностики?</summary><p>Список мест, где вы теряете деньги и время, и предложение специалиста: готовый продукт или решение с нуля.</p></details>
       <details><summary>А если ИИ мне не нужен?</summary><p>Скажем об этом прямо. Диагностика бесплатна, вы ничем не рискуете.</p></details>
       <details><summary>Какие готовые решения есть в каталоге?</summary><p>Фитнес-CRM, налоговый агент для группы компаний, строй-учёт, букинг-CRM для приёма заявок отеля, а также настройка SEO и GEO.</p></details>
