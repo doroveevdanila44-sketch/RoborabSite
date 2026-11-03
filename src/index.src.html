@@ -182,9 +182,12 @@ a{color:inherit}
 .how h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
 .steps{list-style:none;margin:clamp(28px,4vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
 .steps li{position:relative;display:grid;gap:18px;align-content:start;justify-items:center;text-align:center}
-.steps li:not(.last)::after{content:'';position:absolute;top:44px;left:calc(50% + 62px);right:calc(-1 * clamp(20px,3vw,48px) - 50% + 62px + 12px);border-top:2px dashed rgba(255,255,255,.28)}
-.steps .ic{width:88px;height:88px;background:center/contain no-repeat}
-.steps li:nth-child(1) .ic{background-image:var(--img-h1)}.steps li:nth-child(2) .ic{background-image:var(--img-h2)}.steps li:nth-child(3) .ic{background-image:var(--img-h3)}.steps li:nth-child(4) .ic{background-image:var(--img-h4)}
+.steps li:not(.last)::after{content:'';position:absolute;top:84px;left:calc(50% + 88px);right:calc(-1 * clamp(20px,3vw,48px) - 50% + 88px + 12px);border-top:2px dashed rgba(255,255,255,.28)}
+.steps .ic{position:relative;isolation:isolate;width:150px;height:140px}
+.steps .ic::after{content:'';position:absolute;inset:0;background:center bottom/contain no-repeat}
+.steps .ic::before{content:'';position:absolute;z-index:-1;inset:22% 10% 0 10%;border-radius:32%;background:var(--tl)}
+.steps li:nth-child(1){--tl:linear-gradient(145deg,#4fd0ff,#1aa6e8)}.steps li:nth-child(2){--tl:linear-gradient(145deg,#ffd04a,#f5a800)}.steps li:nth-child(3){--tl:linear-gradient(145deg,#6a7078,#363b41)}.steps li:nth-child(4){--tl:linear-gradient(145deg,#ff5fae,#e5157e)}
+.steps li:nth-child(1) .ic::after{background-image:var(--img-h1)}.steps li:nth-child(2) .ic::after{background-image:var(--img-h2)}.steps li:nth-child(3) .ic::after{background-image:var(--img-h3)}.steps li:nth-child(4) .ic::after{background-image:var(--img-h4)}
 .steps .sn{display:block;font:700 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
 .steps li.last .sn{color:var(--seo)}
 .steps h3{margin:10px 0 0;font:800 clamp(20px,1.9vw,30px)/1.1 var(--f-display);letter-spacing:-.03em}
@@ -192,7 +195,7 @@ a{color:inherit}
 @media(max-width:860px){
   .steps{grid-template-columns:1fr;gap:44px}
   .steps li{gap:12px}
-  .steps .ic{width:72px;height:72px}
+  .steps .ic{width:130px;height:122px}
   .steps li:not(.last)::after{top:auto;bottom:-34px;height:24px;left:50%;right:auto;border-top:0;border-left:2px dashed rgba(255,255,255,.28)}
 }
 
