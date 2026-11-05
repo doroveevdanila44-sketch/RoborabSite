@@ -160,3 +160,16 @@ h1.big{max-width:100%}
 #lead input,#lead select{min-width:0;max-width:100%;width:100%;box-sizing:border-box;-webkit-appearance:none;appearance:none}
 #lead select{background-image:linear-gradient(45deg,transparent 50%,#fff 50%),linear-gradient(135deg,#fff 50%,transparent 50%);background-position:calc(100% - 22px) 52%,calc(100% - 16px) 52%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
 #lead .btn{max-width:100%}
+/* мобильный первый экран: нижние четыре пункта с описанием, в две колонки */
+@media(max-height:700px) and (min-width:601px){.hcols{display:none}}
+@media(max-width:600px){
+  .hcols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 14px;padding-top:12px}
+  .hcols>div{padding-top:10px}
+  .hcols small{font-size:11px}
+  .hcols b{margin-top:6px;font-size:14px;line-height:1.15}
+  .hcols span{display:block;margin-top:4px;font-size:12px;line-height:1.3}
+  .htext{padding-top:clamp(20px,4vh,40px);padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+  .hsub{margin-top:12px;font-size:15px}
+  .hcta{margin-top:14px;gap:14px}
+  .hcta .btn{padding:16px 24px}
+}
