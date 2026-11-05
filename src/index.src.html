@@ -60,7 +60,7 @@ button{font-family:inherit}
 /* первый экран: окно-пилюля раскрывается на весь экран */
 .hero{position:relative;height:300svh}
 .stage{position:sticky;top:0;height:100svh;overflow:hidden}
-.htext{position:relative;z-index:2;height:100%;padding:calc(76px + clamp(14px,3.2vh,40px)) clamp(16px,3.4vw,40px) clamp(18px,3vh,36px);display:flex;flex-direction:column;will-change:transform,opacity}
+.htext{position:relative;z-index:2;height:100%;padding:clamp(24px,6vh,64px) clamp(16px,3.4vw,40px) clamp(18px,3vh,36px);display:flex;flex-direction:column;will-change:transform,opacity}
 h1.big{margin:0;font:500 clamp(30px,8.6vw,158px)/.9 var(--f);letter-spacing:-.07em;max-width:15ch}
 h1.big .ln{display:block;white-space:nowrap}
 h1.big .ln:nth-child(3){padding-left:clamp(0px,11.5vw,210px)}
@@ -306,25 +306,6 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .dl-x,.dl-x:focus,.dl-x:focus-visible,.appicon,.app{outline:none;-webkit-tap-highlight-color:transparent}
 </style>
 <body>
-<header class="hdr" id="hdr">
-  <a class="brand" href="#top" aria-label="РОБОРАБ"><i></i><span>РОБОРАБ</span></a>
-  <nav class="hnav">
-    <a class="st" href="chat.html">Начать <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 11 3M5 3h6v6"/></svg></a>
-    <button type="button" id="mbtn" aria-expanded="false" aria-controls="menu"><span>Меню</span><span class="bars" aria-hidden="true"></span></button>
-  </nav>
-</header>
-<div class="menu" id="menu">
-  <ol>
-    <li><a href="#approach">Как мы работаем</a></li>
-    <li><a href="#solutions">Готовые решения</a></li>
-    <li><a href="#process">Процесс</a></li>
-    <li><a href="#start">С чего начать</a></li>
-    <li><a href="#faq">Вопросы</a></li>
-    <li><a href="#contact">Контакты</a></li>
-  </ol>
-  <div class="mf"><span>РОБОРАБ</span><a href="chat.html">Рассказать о бизнесе</a></div>
-</div>
-
 <main id="top">
   <section class="hero" aria-labelledby="h1">
     <div class="stage" id="stage">
@@ -604,11 +585,6 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
   function clamp(v){ return v < 0 ? 0 : v > 1 ? 1 : v; }
 
   /* меню */
-  var mbtn = $('#mbtn'), menu = $('#menu');
-  function setMenu(o){ body.classList.toggle('menu-open', o); mbtn.setAttribute('aria-expanded', o ? 'true' : 'false'); }
-  mbtn.addEventListener('click', function(){ setMenu(!body.classList.contains('menu-open')); });
-  menu.addEventListener('click', function(e){ if (e.target.closest('a')) setMenu(false); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setMenu(false); });
 
   /* вкладки каталога */
   var tabs = [].slice.call(document.querySelectorAll('#tabs [role=tab]')), prods = [].slice.call(document.querySelectorAll('#cgrid .product'));
@@ -669,7 +645,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
   }
 
   /* первый экран: окно-пилюля раскрывается на весь экран, дальше проступает надпись, потом наезжает лист */
-  var stage = $('#stage'), htext = $('#htext'), himg = $('#himg'), hword = $('#hword'), pill = $('#pill'), hdr = $('#hdr');
+  var stage = $('#stage'), htext = $('#htext'), himg = $('#himg'), hword = $('#hword'), pill = $('#pill');
   var R = null;
   function measure(){
     var keep = htext.style.transform; htext.style.transform = 'none';
@@ -679,7 +655,6 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
   }
   function frame(){
     var y = window.scrollY || root.scrollTop, vh = window.innerHeight || 800;
-    hdr.classList.toggle('sc', y > vh * 1.9);
     if (reduce || !R) return;
     var t = clamp(y / (vh * 0.6)), e = 1 - Math.pow(1 - t, 3);
     var rad = Math.max(0, R.h / 2 * (1 - e));
@@ -691,7 +666,6 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     var wi = clamp((y - vh * 0.3) / (vh * 0.45)), wout = 1 - clamp((y - vh * 1.25) / (vh * 0.6));
     hword.style.setProperty('--wo', (wi * wout).toFixed(3));
     hword.style.setProperty('--wy', ((1 - wi) * 40 - clamp((y - vh) / vh) * 60).toFixed(1) + 'px');
-    hdr.classList.toggle('inv', e > 0.6 && y < vh * 1.7);
   }
   var tick = false;
   window.addEventListener('scroll', function(){ if (!tick) { tick = true; requestAnimationFrame(function(){ tick = false; frame(); }); } }, {passive: true});
