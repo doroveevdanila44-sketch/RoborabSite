@@ -5,7 +5,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&amp;family=Montserrat:ital,wght@1,800;1,900&amp;display=swap">
 <script>document.documentElement.classList.add('js')</script>
 <style>
 /* РОБОРАБ v2: по структуре и движению join-way.com. Кремовый фон, Manrope, hero-«окно», лист наезжает сверху */
@@ -338,6 +338,151 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .dl-x{position:absolute;top:10px;right:10px;width:36px;height:36px;border:0;border-radius:50%;background:#eef0f2;color:var(--fg);font:500 22px/1 var(--f-body);cursor:pointer}
 .dl-x:hover{background:#e0e3e6}
 .dl-x,.dl-x:focus,.dl-x:focus-visible,.appicon,.app{outline:none;-webkit-tap-highlight-color:transparent}
+/* ТЕМА v3: яркая, округлая, жирный курсив. Фиолетовый + лайм + глубокий индиго */
+:root{
+  --violet:#6a2cf0;--deep:#25104f;--blue:#6a2cf0;--bblue:#0957e8;--lime:#cdf200;
+  --bg:#f5f2fc;--ink:#1b0b42;--mute:rgba(27,11,66,.64);--line:rgba(27,11,66,.12);--soft:rgba(106,44,240,.07);
+  --fd:'Montserrat','Manrope',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --r:48px;
+}
+:focus-visible{outline-color:var(--violet)}
+html,body{background:var(--bg)}
+/* заголовки: тяжёлый курсив */
+h1.big,h2.t,.product h3,.ditem h3,.cols3 b,.steps h3,.way h3,.cta .box h3,.way .gn,.wm,.hword,.pc-more,.btn,.lnk,.lab,.tabs button,.mq-t span,.way .bd{font-family:var(--fd);font-style:italic}
+h1.big{font-weight:900;font-size:clamp(26px,7.2vw,124px);line-height:.98;letter-spacing:-.04em}
+h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spacing:-.035em}
+.dgrid h2.t{font-size:clamp(28px,3.6vw,56px)}
+.product h3{font-weight:900;font-size:clamp(30px,4vw,60px);line-height:1;letter-spacing:-.035em}
+.ditem h3,.cols3 b,.steps h3,.way h3{font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.cols3 b{font-size:clamp(20px,2.1vw,30px)}.steps h3{font-size:clamp(20px,1.9vw,28px)}.ditem h3{font-size:clamp(22px,2.3vw,34px)}.way h3{font-size:clamp(26px,2.8vw,42px)}
+.cta .box h3{font-weight:900;font-size:clamp(30px,3.8vw,58px);line-height:1;letter-spacing:-.035em}
+.hword{font-weight:900;letter-spacing:-.04em;color:rgba(91,31,224,.92)}
+.wm{font-weight:900;font-size:clamp(50px,14.4vw,270px);line-height:.9;letter-spacing:-.045em;padding-right:.08em;background:linear-gradient(100deg,#1b0b42 0%,#6a2cf0 38%,#cdf200 62%,#1b0b42 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.faqlist summary{font-family:var(--f);font-weight:800;letter-spacing:-.02em}
+.hcols b,.tabs button{font-weight:800}
+
+/* кнопки: круглые, пухлые */
+.btn,.pc-more{background:var(--violet);color:#fff;font-weight:800;font-size:15px;padding:20px 32px;box-shadow:0 10px 24px -10px rgba(106,44,240,.7);transition:transform .4s var(--ease),background .3s,color .3s,box-shadow .4s}
+.btn:hover,.pc-more:hover{background:var(--lime);color:var(--ink);transform:translateY(-3px) rotate(-1.5deg) scale(1.04);box-shadow:0 16px 28px -12px rgba(106,44,240,.6)}
+.lnk{font-weight:800}
+
+/* метки секций: цветные таблетки */
+.lab{display:inline-block;justify-self:start;align-self:start;padding:9px 14px;border-radius:999px;background:var(--soft);color:var(--violet);font-weight:800;font-size:11px;letter-spacing:.1em;margin-top:.5em}
+.lab::before,.lab::after{content:none}
+.dk .lab{background:rgba(205,242,0,.14);color:var(--lime)}
+
+/* первый экран: фиолетовое поле, белый курсив, лаймовое окно */
+.hero{background:var(--violet)}
+.stage{background:var(--violet)}
+.stage::before,.stage::after{content:'';position:absolute;z-index:1;border-radius:50%;pointer-events:none}
+.stage::before{width:min(46vw,640px);aspect-ratio:1;right:-9vw;top:-14vw;background:radial-gradient(circle at 35% 35%,#e3ff4d,var(--lime) 55%,#a9d000);animation:bob 9s ease-in-out infinite}
+.stage::after{width:min(34vw,460px);aspect-ratio:1;left:-8vw;bottom:-12vw;background:radial-gradient(circle at 40% 35%,#3f86ff,var(--bblue) 60%,#0a3aa8);opacity:.9;animation:bob 11s ease-in-out -4s infinite}
+@keyframes bob{50%{transform:translate(0,-2.4vw) rotate(8deg)}}
+.htext{color:#fff}
+.hsub{color:rgba(255,255,255,.86);font-weight:500}
+.hcols>div{border-top:2px solid rgba(255,255,255,.28)}
+.hcols small{color:rgba(255,255,255,.7)}.hcols span{color:rgba(255,255,255,.78)}
+.hcta .btn{background:var(--lime);color:var(--ink);box-shadow:0 12px 26px -10px rgba(0,0,0,.45)}
+.hcta .btn:hover{background:#fff}
+.hcta .lnk{color:#fff}
+.himg{background:var(--lime)}
+.art{background:
+  radial-gradient(55% 50% at 14% 96%,rgba(106,44,240,.95),rgba(106,44,240,0) 70%),
+  radial-gradient(40% 40% at 88% 8%,#fff9a6,rgba(255,249,166,0) 70%),
+  linear-gradient(180deg,#d8f800 0%,#cdf200 55%,#b5e000 100%)}
+.art::before{background-image:linear-gradient(rgba(60,20,160,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(60,20,160,.10) 1px,transparent 1px)}
+.art .ape{filter:drop-shadow(0 26px 34px rgba(60,10,160,.38))}
+
+/* лист */
+.sheet{border-radius:var(--r) var(--r) 0 0}
+.sheet::before{background:rgba(106,44,240,.35);width:54px;height:5px;margin-left:-27px}
+
+/* лента: наклонная лаймовая полоса */
+.mq{background:var(--lime);padding:15px 0;margin:0 -3vw clamp(48px,6vw,88px);transform:rotate(-1.4deg);border-block:3px solid var(--ink)}
+.mq-t span{background:var(--ink);color:#fff;border:0;font-weight:800;padding:13px 22px;font-size:14px}
+.mq-t span:nth-child(3n+2){background:var(--violet)}.mq-t span:nth-child(3n){background:#fff;color:var(--ink)}
+
+/* панели */
+.panel-art{border-radius:clamp(28px,3.4vw,48px)}
+.pa-1{background:linear-gradient(135deg,#6a2cf0,#9a6bff 60%,#c7a8ff)}
+.pa-1::after{background:radial-gradient(circle,rgba(205,242,0,.95),rgba(205,242,0,0) 65%)}
+.pa-2{background:linear-gradient(135deg,#25104f,#4a1fa8)}
+
+/* тёмные блоки: глубокий индиго */
+.dk{background:var(--deep);color:#fff;border-radius:clamp(32px,4.4vw,60px)}
+.dk::before{background-image:linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px)}
+.dsub,.cols3 span,.ditem p{color:rgba(255,255,255,.72)}
+.cols3>div{border-top:2px solid rgba(255,255,255,.2)}
+.ditem p{border-bottom-color:rgba(255,255,255,.2)}
+.tile{border-radius:clamp(22px,2.4vw,34px)}
+.tile.t1{background:#cbb6ff}.tile.t2{background:var(--violet)}.tile.t3{background:var(--lime)}
+.tile i{border-color:var(--ink)}
+
+/* вкладки: круглые плашки, прогресс лаймовой заливкой */
+.tabs{gap:10px;margin-top:clamp(28px,3.4vw,48px)}
+.tabs .tl{display:none}
+.tabs button{isolation:isolate;overflow:hidden;background:#fff;color:var(--ink);border:0;border-radius:999px;padding:18px 22px;box-shadow:0 8px 20px -14px rgba(106,44,240,.55);transition:transform .35s var(--ease)}
+.tabs button:first-of-type{padding-left:22px}
+.tabs button:hover{transform:translateY(-2px)}
+.tabs button::before{display:none}
+.tabs button::after{inset:0;height:100%;top:0;z-index:-1;background:var(--lime);border-radius:inherit}
+.tabs button[aria-selected=true]{color:var(--ink);box-shadow:0 0 0 3px var(--ink)}
+.tabs i{color:var(--violet);font-family:var(--fd);font-style:italic;font-weight:900}
+@media(max-width:820px){.tabs{grid-template-columns:repeat(5,minmax(160px,1fr))}}
+
+/* витрина продукта */
+.cgrid .product.on{background:#fff;border-radius:clamp(28px,3.6vw,52px);padding:clamp(18px,2.6vw,40px);box-shadow:0 24px 50px -30px rgba(106,44,240,.55)}
+.product .mascot{background-color:#fff}
+.product>.tag{color:var(--mute);font-weight:500}
+
+/* шаги: цветные карточки */
+.steps{gap:clamp(12px,1.4vw,20px)}
+.steps li{border:0;border-radius:clamp(26px,2.6vw,38px);padding:clamp(22px,2.2vw,32px);min-height:clamp(230px,22vw,300px);display:flex;flex-direction:column;background:#fff;transition:transform .5s var(--ease)}
+.steps li:hover{transform:translateY(-6px) rotate(-.8deg)}
+.steps li::before{font:900 clamp(40px,4.4vw,64px)/1 var(--fd);font-style:italic;letter-spacing:-.04em;color:var(--violet);margin-bottom:auto}
+.steps li:nth-child(1){background:var(--lime)}.steps li:nth-child(1)::before{color:var(--ink)}
+.steps li:nth-child(2){background:var(--violet);color:#fff}.steps li:nth-child(2)::before{color:var(--lime)}.steps li:nth-child(2) p{color:rgba(255,255,255,.82)}
+.steps li:nth-child(4){background:var(--deep);color:#fff}.steps li:nth-child(4)::before{color:var(--lime)}.steps li:nth-child(4) p{color:rgba(255,255,255,.78)}
+.steps h3{margin-top:18px}
+
+/* три способа */
+.way{border-radius:clamp(30px,3.4vw,48px);background:#fff;box-shadow:0 20px 44px -30px rgba(106,44,240,.5);transition:transform .5s var(--ease)}
+.way:hover{transform:translateY(-6px) rotate(-.6deg)}
+.way .gn{color:rgba(106,44,240,.09)}
+.way small{font-weight:800;color:var(--violet)}
+.way.bl{background:var(--violet);color:#fff;box-shadow:0 24px 50px -26px rgba(106,44,240,.9)}.way.bl small{color:var(--lime)}.way.bl .gn{color:rgba(255,255,255,.14)}
+.ways>.way:last-child{background:var(--lime)}.ways>.way:last-child small,.ways>.way:last-child p{color:var(--ink)}.ways>.way:last-child .gn{color:rgba(27,11,66,.1)}
+.way .bd{background:var(--lime);color:var(--ink)}
+
+/* FAQ: плашки */
+.faqlist{border-top:0;row-gap:10px}
+.faqlist details{background:#fff;border:0;border-radius:30px;padding:0 clamp(20px,2.4vw,32px);transition:background .3s}
+.faqlist details[open]{background:#fff;box-shadow:0 0 0 3px var(--violet)}
+.faqlist summary::after{background:linear-gradient(var(--ink),var(--ink)) center/12px 2.5px no-repeat,linear-gradient(var(--ink),var(--ink)) center/2.5px 12px no-repeat,var(--lime);box-shadow:none}
+
+/* заявка: фиолетовая плашка */
+.cta .box{background:var(--violet);border-radius:clamp(32px,4.4vw,60px);position:relative;overflow:hidden}
+.cta .box::after{content:'';position:absolute;right:-8%;bottom:-30%;width:42%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(205,242,0,.5),rgba(205,242,0,0) 65%);pointer-events:none}
+.cta .box>*{position:relative;z-index:1}
+.cta .box p{color:rgba(255,255,255,.86)}
+#lead label{color:rgba(255,255,255,.85);font-weight:700}
+#lead input,#lead select{background:rgba(255,255,255,.14);border:2px solid transparent;border-radius:20px;padding:15px 18px;color:#fff}
+#lead input:focus,#lead select:focus{border-color:var(--lime);background:rgba(255,255,255,.2)}
+#lead .btn{background:var(--lime);color:var(--ink);box-shadow:0 12px 26px -10px rgba(0,0,0,.4)}
+#lead .btn:hover{background:#fff}
+
+/* заставка */
+.splash{background:var(--violet)}
+
+/* раскрытие блоков */
+.gx:not(.tile){clip-path:inset(calc((1 - var(--gp,1))*16%) calc((1 - var(--gp,1))*28%) calc((1 - var(--gp,1))*16%) calc((1 - var(--gp,1))*28%) round calc(48px + (1 - var(--gp,1))*180px))}
+.gx:not(.tile)>*{opacity:calc(var(--gp,1)*1.6 - .6)}
+.gx.tile{clip-path:circle(calc(var(--gp,1)*74%) at 50% 50%)}
+.gx.gd{clip-path:none}.gx.gd>*{opacity:1}
+
+@media (prefers-reduced-motion:reduce){.stage::before,.stage::after{animation:none}.btn:hover,.pc-more:hover,.steps li:hover,.way:hover{transform:none}}
+@media(max-width:600px){.stage::before{width:58vw;right:-22vw;top:-26vw}.stage::after{width:60vw;left:-26vw;bottom:-22vw}}
+
 </style>
 <link rel="canonical" href="https://roborab.vercel.app/zh/"><link rel="alternate" hreflang="en-US" href="https://roborab.vercel.app/"><link rel="alternate" hreflang="zh" href="https://roborab.vercel.app/zh/"><link rel="alternate" hreflang="ar" href="https://roborab.vercel.app/ar/"><link rel="alternate" hreflang="ru" href="https://roborab.vercel.app/ru/"><link rel="alternate" hreflang="x-default" href="https://roborab.vercel.app/"><meta property="og:type" content="website"><meta property="og:site_name" content="ROBORAB"><meta property="og:title" content="ROBORAB：将人工智能引入业务流程"><meta property="og:description" content="ROBORAB 将 AI 智能体引入业务流程：健身 CRM、税务智能体、施工核算、预订 CRM、SEO 与 GEO。聊天中的诊断免费。"><meta property="og:url" content="https://roborab.vercel.app/zh/"><meta property="og:image" content="https://roborab.vercel.app/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="zh_CN"><meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="ar_AR"><meta property="og:locale:alternate" content="ru_RU"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="ROBORAB：将人工智能引入业务流程"><meta name="twitter:description" content="ROBORAB 将 AI 智能体引入业务流程：健身 CRM、税务智能体、施工核算、预订 CRM、SEO 与 GEO。聊天中的诊断免费。"><meta name="twitter:image" content="https://roborab.vercel.app/assets/og.jpg"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="icon" type="image/webp" href="/assets/appicon.webp"><link rel="apple-touch-icon" href="/assets/appicon.webp"><link rel="preload" as="image" href="/assets/sofa.webp?v=66794370"><link rel="preload" as="image" href="/assets/roborab-en.webp?v=687077af"><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://roborab.vercel.app/#org", "name": "ROBORAB", "url": "https://roborab.vercel.app/", "logo": "https://roborab.vercel.app/assets/appicon.webp", "description": "ROBORAB 将 AI 智能体引入业务流程：健身 CRM、税务智能体、施工核算、预订 CRM、SEO 与 GEO。聊天中的诊断免费。", "availableLanguage": "zh"}, {"@type": "WebSite", "@id": "https://roborab.vercel.app/#site", "url": "https://roborab.vercel.app/", "name": "ROBORAB", "inLanguage": "zh", "publisher": {"@id": "https://roborab.vercel.app/#org"}}, {"@type": "WebPage", "@id": "https://roborab.vercel.app/zh/#page", "url": "https://roborab.vercel.app/zh/", "name": "ROBORAB：将人工智能引入业务流程", "description": "ROBORAB 将 AI 智能体引入业务流程：健身 CRM、税务智能体、施工核算、预订 CRM、SEO 与 GEO。聊天中的诊断免费。", "inLanguage": "zh", "isPartOf": {"@id": "https://roborab.vercel.app/#site"}, "about": {"@id": "https://roborab.vercel.app/#org"}}, {"@type": "Service", "name": "ROBORAB：将人工智能引入业务流程", "provider": {"@id": "https://roborab.vercel.app/#org"}, "serviceType": "AI agents for business processes", "inLanguage": "zh", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "在下方目录中选择现成方案", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "健身 CRM", "description": "客户、会员卡、课表与教练结算", "provider": {"@id": "https://roborab.vercel.app/#org"}}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "税务代理", "description": "集团公司税务：1C 实际数据、预测与情景分析", "provider": {"@id": "https://roborab.vercel.app/#org"}}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "工程核算", "description": "项目、材料与成本", "provider": {"@id": "https://roborab.vercel.app/#org"}}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "预订 CRM", "description": "酒店所有申请集中在一个窗口", "provider": {"@id": "https://roborab.vercel.app/#org"}}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SEO / GEO", "description": "配置、分析与管理后台", "provider": {"@id": "https://roborab.vercel.app/#org"}}}]}}, {"@type": "FAQPage", "inLanguage": "zh", "mainEntity": [{"@type": "Question", "name": "ROBORAB 是什么？", "acceptedAnswer": {"@type": "Answer", "text": "ROBORAB 将 AI 智能体引入企业的业务流程。您可以先与 AI 免费对话，从目录中选择现成的解决方案，或定制适合您业务的解决方案。"}}, {"@type": "Question", "name": "如何将人工智能引入业务流程？", "acceptedAnswer": {"@type": "Answer", "text": "您通过文字、语音或视频通话向 AI 智能体描述任务。智能体会整理您的需求摘要，技术专家为您定制现成的解决方案，第二天工具就已在应用中。"}}, {"@type": "Question", "name": "引入 AI 需要多少费用？", "acceptedAnswer": {"@type": "Answer", "text": "聊天中的诊断免费。实施费用因项目而异：您可在聊天中 10 分钟内获得费用估算。"}}, {"@type": "Question", "name": "您对接哪些系统？", "acceptedAnswer": {"@type": "Answer", "text": "表格、数据库和 1C。智能体可留在我们的应用中，或部署到您的服务器。我们为律师搭建多智能体系统，跟踪法律变化并审阅案件。"}}, {"@type": "Question", "name": "诊断之后我能得到什么？", "acceptedAnswer": {"@type": "Answer", "text": "一份金钱与时间流失点清单，以及专家的建议：现成产品或从零开始的方案。"}}, {"@type": "Question", "name": "如果我不需要 AI 呢？", "acceptedAnswer": {"@type": "Answer", "text": "我们会直接告诉您。诊断免费，您没有任何风险。"}}, {"@type": "Question", "name": "目录中有哪些现成的解决方案？", "acceptedAnswer": {"@type": "Answer", "text": "健身 CRM、集团公司税务智能体、施工会计、酒店预订请求用的预订 CRM，以及 SEO 和 GEO 设置。"}}, {"@type": "Question", "name": "AI 能否取代员工或整个职能？", "acceptedAnswer": {"@type": "Answer", "text": "可以。ROBORAB 嵌入公司内部流程，接手具体某个人或某个方向的工作。您节省金钱和时间。"}}, {"@type": "Question", "name": "如果我不知道自己需要什么，该从哪里开始？", "acceptedAnswer": {"@type": "Answer", "text": "先从诊断开始：在聊天中向 AI 智能体介绍您的业务。它会帮您找出流程卡在哪里。专家会审阅摘要并建议实施什么。"}}, {"@type": "Question", "name": "可以定制目录中没有的内容吗？", "acceptedAnswer": {"@type": "Answer", "text": "可以。我们会为您定制现成产品，整合多个产品（“混合方案”），或完全按您的需求打造方案。我们也做网站。"}}, {"@type": "Question", "name": "网站支持哪些语言？", "acceptedAnswer": {"@type": "Answer", "text": "网站提供俄语、英语、中文和阿拉伯语。点击首屏右上角的地球按钮即可切换语言。"}}]}]}</script></head><body>
 <main id="top">
@@ -707,6 +852,25 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
   window.addEventListener('load', measure);
   measure();
+
+  /* раскрытие блоков из «объекта»: окно растёт из малой формы по мере прокрутки (как первый экран) */
+  if (!reduce && !bot) {
+    var gx = [].slice.call(document.querySelectorAll('.dk,.panel-art,.cgrid,.cta .box,.tile'));
+    gx.forEach(function(el){ el.classList.add('gx'); el.style.setProperty('--gp', 0); });
+    var gtick = false;
+    function grow(){
+      var vh = window.innerHeight || 800;
+      gx.forEach(function(el){
+        var top = el.getBoundingClientRect().top;
+        var p = clamp((vh * 0.96 - top) / (vh * (el.classList.contains('tile') ? 0.4 : 0.6)));
+        var e = 1 - Math.pow(1 - p, 3);
+        el.style.setProperty('--gp', e.toFixed(3));
+        el.classList.toggle('gd', e >= 0.999);
+      });
+    }
+    window.addEventListener('scroll', function(){ if (!gtick) { gtick = true; requestAnimationFrame(function(){ gtick = false; grow(); }); } }, {passive: true});
+    window.addEventListener('resize', grow); window.addEventListener('load', grow); grow();
+  }
 })();
 
 </script>
