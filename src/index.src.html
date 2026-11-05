@@ -340,10 +340,6 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 /* первый экран: фиолетовое поле, белый курсив, лаймовое окно */
 .hero{background:var(--violet)}
 .stage{background:var(--violet)}
-.stage::before,.stage::after{content:'';position:absolute;z-index:1;border-radius:50%;pointer-events:none}
-.stage::before{width:min(46vw,640px);aspect-ratio:1;right:-9vw;top:-14vw;background:radial-gradient(circle at 35% 35%,#e3ff4d,var(--lime) 55%,#a9d000);animation:bob 9s ease-in-out infinite}
-.stage::after{width:min(34vw,460px);aspect-ratio:1;left:-8vw;bottom:-12vw;background:radial-gradient(circle at 40% 35%,#3f86ff,var(--bblue) 60%,#0a3aa8);opacity:.9;animation:bob 11s ease-in-out -4s infinite}
-@keyframes bob{50%{transform:translate(0,-2.4vw) rotate(8deg)}}
 .htext{color:#fff}
 .hsub{color:rgba(255,255,255,.86);font-weight:500}
 .hcols>div{border-top:2px solid rgba(255,255,255,.28)}
@@ -446,8 +442,22 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 .gx.tile{clip-path:circle(calc(var(--gp,1)*74%) at 50% 50%)}
 .gx.gd{clip-path:none}.gx.gd>*{opacity:1}
 
-@media (prefers-reduced-motion:reduce){.stage::before,.stage::after{animation:none}.btn:hover,.pc-more:hover,.steps li:hover,.way:hover{transform:none}}
-@media(max-width:600px){.stage::before{width:58vw;right:-22vw;top:-26vw}.stage::after{width:60vw;left:-26vw;bottom:-22vw}}
+@media (prefers-reduced-motion:reduce){.btn:hover,.pc-more:hover,.steps li:hover,.way:hover{transform:none}}
+
+.dk{overflow:clip}
+/* техфиксы */
+.sheet{overflow-x:clip}
+h1.big{max-width:100%}
+@media(max-width:600px){
+  h1.big{font-size:clamp(30px,10.2vw,44px);line-height:1}
+  h1.big .ln{white-space:normal}
+  h1.big .ln:nth-child(3){padding-left:0}
+}
+.pa-1::after{right:-5%;top:-16%;width:36%;background:var(--lime);opacity:1}
+.pa-2::after{background:rgba(205,242,0,.9);left:auto;right:-6%;bottom:-18%;width:30%}
+.cta .box::after{display:none}
+.way .gn{font-size:clamp(100px,10.5vw,160px);right:.08em;top:-.06em}
+.wm{background:linear-gradient(100deg,#25104f 0%,#6a2cf0 35%,#9a6bff 55%,#6a2cf0 75%,#25104f 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text}
 
 </style>
 <body>
