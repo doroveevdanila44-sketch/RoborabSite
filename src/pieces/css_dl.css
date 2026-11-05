@@ -1,0 +1,13 @@
+.dl{border:0;padding:clamp(24px,3vw,36px);border-radius:28px;background:#fff;color:var(--fg);width:min(92vw,380px);text-align:center;box-shadow:0 30px 80px -20px rgba(0,0,0,.45);margin:auto;overflow:visible}
+.dl::backdrop{background:rgba(10,12,14,.5);backdrop-filter:blur(4px)}
+.dl[open]{animation:dlin .22s ease-out}
+@keyframes dlin{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+.dl-ico{display:block;width:72px;aspect-ratio:1;margin:0 auto 14px;border-radius:24%;background:var(--img-appicon) center/cover no-repeat;box-shadow:0 0 0 1px rgba(0,0,0,.09),0 6px 16px -6px rgba(0,0,0,.25)}
+.dl h3{margin:0;font:800 28px/1 var(--f-display);letter-spacing:-.03em}
+.dl p{margin:8px 0 0;color:var(--mute);font-size:16px}
+.dl-list{display:grid;gap:10px;margin-top:20px}
+.dl-list a{padding:15px 18px;border-radius:14px;font:600 16px/1 var(--f-body);text-decoration:none;color:#fff;background:var(--fg);transition:transform .2s ease,filter .2s ease}
+.dl-list a:hover{transform:scale(1.03);filter:brightness(1.15)}
+.dl-x{position:absolute;top:10px;right:10px;width:36px;height:36px;border:0;border-radius:50%;background:#eef0f2;color:var(--fg);font:500 22px/1 var(--f-body);cursor:pointer}
+.dl-x:hover{background:#e0e3e6}
+.dl-x,.dl-x:focus,.dl-x:focus-visible,.appicon,.app{outline:none;-webkit-tap-highlight-color:transparent}

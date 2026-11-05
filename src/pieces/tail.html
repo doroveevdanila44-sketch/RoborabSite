@@ -1,0 +1,18 @@
+{{I18N}}
+<script>
+(function(){
+  var f=document.getElementById("lead");
+  function upd(l){
+    if(f){var h=f.querySelector("input[name=lang]");if(h)h.value=l}
+    var B=document.documentElement.getAttribute("data-pl")?"/":"";document.querySelectorAll("a[href*=\"roborabaichat.vercel.app\"]").forEach(function(a){
+      var o=a.getAttribute("data-h");if(!o){o=a.getAttribute("href");a.setAttribute("data-h",o)}
+      var q=new URLSearchParams(o.split("?")[1]||""),prod=q.get("product")||"",msg=q.get("msg")||"";
+      if(l!=="ru"){var M=I18N.meta(l);
+        msg=prod==="Замена сотрудника или функции"?M.m3:M.mp.replace("{p}",I18N.t(prod));
+      }
+      q.set("msg",msg);q.set("lang",l);a.setAttribute("href","https://roborabaichat.vercel.app/?"+q.toString());
+    });
+  }
+  I18N.onChange(upd);upd(I18N.lang());
+})();
+</script>
