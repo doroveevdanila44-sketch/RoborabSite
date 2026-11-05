@@ -4,6 +4,8 @@ Implementing artificial intelligence
 ROBORAB
 into business  processes
 How we implement it
+Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO
+Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO
 AI integration for business: diagnosis first, solution second
 Tell the agent about your business in the chat at any time, even at night. It will find where you are losing money. Then a live specialist will review the result and propose a solution. A ready-made product or a solution from scratch.
 Diagnosis is free
@@ -46,6 +48,11 @@ Your infrastructure
 We keep everything in our app, managed through chat, or host it on your server.
 Ready-made solutions by industry
 If none fits, we will build one for you.
+01 Fitness CRM
+02 Tax agent
+03 Construction accounting
+04 Booking CRM
+05 SEO / GEO
 Fitness CRM
 Clients, memberships, schedules and trainer payouts
 Fitness CRM

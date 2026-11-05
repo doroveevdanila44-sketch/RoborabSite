@@ -6,6 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<script>document.documentElement.classList.add('js')</script>
 <style>
 /* Layout: белая «студия». Маскоты стоят на белом, информация о продукте лежит в белой плашке, которую они держат в зубах/руках.
    Каталог: 5 экранов-стопка (sticky), каждый следующий наезжает на предыдущий.
@@ -407,6 +408,46 @@ textarea{min-height:96px;resize:vertical}
 .dark h2,.dark h3{color:#fff}
 .dark .svcgrid p,.dark .steps p{color:#b9c1c8}
 .dark .steps .sn{color:rgba(255,255,255,.62)}.dark .steps li.last .sn{color:#fff}
+/* ---------- движение (по мотивам join-way.com): быстрый старт и мягкая остановка, появление снизу, лента, плавный аккордеон ---------- */
+:root{--ease:cubic-bezier(.16,1,.3,1);--ease2:cubic-bezier(.4,0,.2,1);interpolate-size:allow-keywords}
+.js .rv{opacity:0;transform:translateY(var(--ry,18px));transition:opacity .55s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv.in.done{transition-delay:0s}
+.js h2.rv,.js .chead.rv{--ry:.3em}
+/* первый экран: при скролле текст, надпись и горилла плавно уходят вверх и гаснут (только translate и opacity, размеры не меняются) */
+.js .hero .ht{translate:0 calc(var(--hp,0) * -7svh);opacity:calc(1 - var(--hp,0) * .9)}
+.js .hero .word{translate:0 calc(var(--hp,0) * -3svh);opacity:calc(1 - var(--hp,0) * .85)}
+.js .hero .sofa{translate:0 calc(var(--hp,0) * 4svh);opacity:calc(1 - var(--hp,0) * .8)}
+/* лента продуктов */
+.mq{direction:ltr;display:flex;overflow:hidden;border-block:1px solid var(--line);padding:clamp(14px,1.6vw,22px) 0;background:var(--bg);position:relative;z-index:2}
+.mq-t{flex:none;display:flex;align-items:center;gap:clamp(28px,3vw,56px);padding-right:clamp(28px,3vw,56px);font:800 clamp(18px,2vw,30px)/1 var(--f-display);letter-spacing:-.03em;text-transform:uppercase;white-space:nowrap;animation:marquee-x 26s linear infinite}
+.mq:hover .mq-t{animation-play-state:paused}
+.mq-t span{display:flex;align-items:center;gap:clamp(28px,3vw,56px)}
+.mq-t span::after{content:'';flex:none;width:.4em;height:.4em;border-radius:50%;background:var(--c,var(--fg))}
+.mq .p-fit{--c:var(--fit)}.mq .p-tax{--c:var(--tax)}.mq .p-build{--c:var(--build)}.mq .p-booking{--c:var(--booking)}.mq .p-seo{--c:var(--seo)}
+@keyframes marquee-x{to{transform:translateX(-100%)}}
+/* вкладки каталога 01-05 */
+.ctabs{display:none}
+.js .ctabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:clamp(24px,3vw,44px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
+.ctabs button{display:inline-flex;align-items:baseline;gap:10px;border:0;cursor:pointer;background:var(--soft);color:var(--mute);font:700 clamp(14px,1.2vw,17px)/1 var(--f-display);letter-spacing:-.02em;padding:14px 20px;border-radius:14px;transition:background .3s var(--ease2),color .3s var(--ease2),transform .3s var(--ease2);-webkit-tap-highlight-color:transparent}
+.ctabs button:hover{color:var(--fg);transform:translateY(-2px)}
+.ctabs button[aria-selected=true]{background:var(--fg);color:#fff}
+.ctabs i{font:600 11px/1 var(--f-body);font-style:normal;letter-spacing:.1em;opacity:.6}
+.js .ctabs+.cgrid{margin-top:clamp(16px,2vw,28px)}
+.cgrid.tabbed{display:block;max-width:1100px}
+.cgrid.tabbed .product{display:none}
+.cgrid.tabbed .product.on{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr auto auto auto 1fr;column-gap:clamp(16px,3vw,48px);align-items:start;padding:clamp(14px,2vw,28px);animation:tabin .6s var(--ease)}
+.cgrid.tabbed .product.on .mascot{grid-column:1;grid-row:1/-1}
+.cgrid.tabbed .product.on h3{grid-column:2;grid-row:2;align-self:end;margin:0;font-size:clamp(26px,3.4vw,52px)}
+.cgrid.tabbed .product.on>.tag{grid-column:2;grid-row:3;font-size:clamp(15px,1.3vw,20px);margin-bottom:clamp(14px,1.6vw,24px)}
+.cgrid.tabbed .product.on .pc-more{grid-column:2;grid-row:4;margin-top:0;align-self:start;justify-self:start;padding-inline:clamp(26px,3vw,44px)}
+@media(max-width:760px){.cgrid.tabbed .product.on{display:flex}.cgrid.tabbed .product.on h3{font-size:clamp(24px,7vw,34px);margin-top:clamp(12px,1.4vw,20px)}.cgrid.tabbed .product.on .pc-more{align-self:stretch}.ctabs button{padding:12px 14px}}
+@keyframes tabin{from{opacity:0;transform:translateY(14px)}}
+/* аккордеон FAQ: плавное раскрытие (где браузер умеет) */
+.faqlist details::details-content{height:0;overflow:clip;transition:height .28s var(--ease2),content-visibility .28s allow-discrete}
+.faqlist details[open]::details-content{height:auto}
+.faqlist summary::after{transition:transform .28s var(--ease2)}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.js .hero .ht,.js .hero .word,.js .hero .sofa{translate:none;opacity:1}.mq-t{animation:none}.cgrid.tabbed .product.on{animation:none}.faqlist details::details-content{transition:none}}
 .dark .svcgrid li{background:linear-gradient(145deg,rgba(255,255,255,.17),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 18px 40px -22px rgba(0,0,0,.7)}
 </style>
 
@@ -426,6 +467,12 @@ textarea{min-height:96px;resize:vertical}
   </section>
 
   <!-- КАТАЛОГ: порядок фитнес, налоги, стройка, букинг, SEO/GEO. Одно белое пространство -->
+
+  <!-- ЛЕНТА ПРОДУКТОВ: бесконечная, 26 секунд на круг. Только названия из каталога -->
+  <div class="mq" aria-hidden="true">
+    <div class="mq-t"><span class="p-fit">健身 CRM</span><span class="p-tax">税务代理</span><span class="p-build">工程核算</span><span class="p-booking">预订 CRM</span><span class="p-seo">SEO / GEO</span><span class="p-fit">健身 CRM</span><span class="p-tax">税务代理</span><span class="p-build">工程核算</span><span class="p-booking">预订 CRM</span><span class="p-seo">SEO / GEO</span><span class="p-fit">健身 CRM</span><span class="p-tax">税务代理</span><span class="p-build">工程核算</span><span class="p-booking">预订 CRM</span><span class="p-seo">SEO / GEO</span></div>
+    <div class="mq-t"><span class="p-fit">健身 CRM</span><span class="p-tax">税务代理</span><span class="p-build">工程核算</span><span class="p-booking">预订 CRM</span><span class="p-seo">SEO / GEO</span><span class="p-fit">健身 CRM</span><span class="p-tax">税务代理</span><span class="p-build">工程核算</span><span class="p-booking">预订 CRM</span><span class="p-seo">SEO / GEO</span><span class="p-fit">健身 CRM</span><span class="p-tax">税务代理</span><span class="p-build">工程核算</span><span class="p-booking">预订 CRM</span><span class="p-seo">SEO / GEO</span></div>
+  </div>
 
   <!-- ВВЕДЕНИЕ: чем занимаемся, для кого, диагностика -->
   <section class="intro" id="intro" aria-labelledby="intro-h">
@@ -477,8 +524,15 @@ textarea{min-height:96px;resize:vertical}
 
   <h2 class="chead" id="catalog-h">行业现成解决方案</h2>
   <p class="csub">如果都不合适，我们将为您量身定制。</p>
-  <div class="cgrid">
-  <section class="product" id="catalog">
+  <div class="ctabs" role="tablist" aria-label="行业现成解决方案">
+    <button type="button" role="tab" data-t="catalog" aria-selected="true" tabindex="0"><i>01</i>健身 CRM</button>
+    <button type="button" role="tab" data-t="tax" aria-selected="false" tabindex="-1"><i>02</i>税务代理</button>
+    <button type="button" role="tab" data-t="build" aria-selected="false" tabindex="-1"><i>03</i>工程核算</button>
+    <button type="button" role="tab" data-t="booking" aria-selected="false" tabindex="-1"><i>04</i>预订 CRM</button>
+    <button type="button" role="tab" data-t="seo" aria-selected="false" tabindex="-1"><i>05</i>SEO / GEO</button>
+  </div>
+  <div class="cgrid tabbed">
+  <section class="product on" id="catalog">
     <div class="mascot" role="img" aria-label="健身 CRM 吉祥物"></div>
     <h3>健身 CRM</h3><p class="tag">客户、会员卡、课表与教练结算</p>
     <button type="button" class="btn pc-more">了解详情</button>
@@ -825,6 +879,67 @@ st.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedT
 st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.clientX>r.left+r.width/2?1:-1)});
 })();
 
+/* ---------- движение: появление блоков, первый экран, вкладки каталога ---------- */
+(function(){
+  var root = document.documentElement, reduce = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* вкладки каталога: показываем один продукт, остальные скрыты; ссылка #id открывает нужный */
+  var grid = document.querySelector('.cgrid'), tabs = [].slice.call(document.querySelectorAll('.ctabs [role=tab]'));
+  var prods = grid ? [].slice.call(grid.querySelectorAll('.product')) : [];
+  function pick(id, focus){
+    var hit = false;
+    prods.forEach(function(p){ var on = p.id === id; if (on) hit = true; p.classList.toggle('on', on); });
+    if (!hit) return;
+    tabs.forEach(function(t){ var on = t.getAttribute('data-t') === id; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); });
+  }
+  if (grid && tabs.length === prods.length) {
+    grid.classList.add('tabbed');
+    pick(prods[0].id);
+    tabs.forEach(function(t, i){
+      t.addEventListener('click', function(){ pick(t.getAttribute('data-t')); });
+      t.addEventListener('keydown', function(e){
+        var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return;
+        e.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length].getAttribute('data-t'), true);
+      });
+    });
+    var fromHash = function(){ var h = decodeURIComponent(location.hash.slice(1)); if (h) pick(h); };
+    window.addEventListener('hashchange', fromHash); fromHash();
+  }
+
+  /* при пререндере (headless) движение не включаем: в готовый HTML не должны попасть скрытые блоки */
+  if (reduce || navigator.webdriver || !('IntersectionObserver' in window)) return;
+
+  /* появление блоков снизу с задержкой по порядку внутри родителя */
+  var sel = ['.intro h2','.intro .lead','.intro .princ','.intro .ctas','.intro .app',
+    '.svc h2','.svcgrid li','.how h2','.steps li','.once h2','.once .lead','.chead','.csub','.ctabs','.cgrid',
+    '.who h2','.who p','.who .btn','.faq h2','.faqlist details','.contact h2','.contact .grid>div'].join(',');
+  var seen = new Map(), targets = [].slice.call(document.querySelectorAll(sel));
+  targets.forEach(function(el){
+    var p = el.parentNode, n = seen.get(p) || 0; seen.set(p, n + 1);
+    el.style.setProperty('--d', Math.min(n, 5) * 0.07 + 's');
+    el.classList.add('rv');
+  });
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (!e.isIntersecting) return;
+      var el = e.target; el.classList.add('in'); io.unobserve(el);
+      setTimeout(function(){ el.classList.add('done'); }, 1400);
+    });
+  }, {threshold: 0.12, rootMargin: '0px 0px -6% 0px'});
+  targets.forEach(function(el){ io.observe(el); });
+
+  /* первый экран: --hp от 0 до 1 за первые 0.8 экрана прокрутки */
+  var hero = document.querySelector('.hero'), ticking = false;
+  function upd(){
+    ticking = false;
+    var y = window.scrollY || root.scrollTop, h = (window.innerHeight || 800) * 0.8;
+    hero.style.setProperty('--hp', Math.max(0, Math.min(1, y / h)).toFixed(3));
+  }
+  if (hero) {
+    window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, {passive: true});
+    upd();
+  }
+})();
 
 </script><div style="position: fixed; left: 0px; top: 0px; width: 0px; height: 100svh; visibility: hidden; pointer-events: none;"></div>
 <script src="/i18n.js?v=263bdd30"></script>
