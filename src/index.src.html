@@ -155,7 +155,7 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .cgrid .product{display:none}
 .cgrid .product.on{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);align-items:center;animation:tabin .7s var(--ease)}
 @keyframes tabin{from{opacity:0;transform:translateY(16px)}}
-.product .mascot{aspect-ratio:1/.82;border-radius:clamp(24px,3vw,40px);background:var(--mimg) center/contain no-repeat,color-mix(in srgb,var(--acc) 30%,var(--bg));background-blend-mode:multiply}
+.product .mascot{aspect-ratio:1/.9;background:var(--mimg) center bottom/contain no-repeat var(--bg);background-blend-mode:multiply;-webkit-mask-image:linear-gradient(180deg,#000 66%,transparent 99%);mask-image:linear-gradient(180deg,#000 66%,transparent 99%)}
 .product h3{margin:0;font:500 clamp(32px,4.4vw,68px)/.95 var(--f);letter-spacing:-.06em}
 .product>.tag{margin:16px 0 0;max-width:30ch;color:var(--mute);font:400 clamp(16px,1.5vw,21px)/1.4 var(--f)}
 .pc-more{margin-top:28px;justify-self:start;border:0;cursor:pointer;background:var(--ink);color:var(--bg);padding:18px 28px;border-radius:999px;font:600 15px/1 var(--f);transition:background .35s var(--ease2)}
@@ -488,7 +488,6 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
     <section class="sec" id="process" aria-labelledby="pr-h">
       <div class="c">
         <div class="sh"><span class="lab">Процесс</span><h2 class="t" id="pr-h">Как это работает<br><span class="blue">в четыре шага.</span></h2></div>
-        <div class="panel-art pa-2" role="img" aria-label="Мозг в кроссовках"><span class="a1"></span></div>
         <ol class="steps">
           <li><span class="ic"></span><div><span class="sn">Шаг 1</span><h3>Вы описываете задачу</h3><p>ИИ-агенту: текстом, голосом или в видеозвонке.</p></div></li>
           <li><span class="ic"></span><div><span class="sn">Шаг 2</span><h3>Агент собирает суть</h3><p>Формирует резюме вашего запроса.</p></div></li>
