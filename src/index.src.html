@@ -3,231 +3,247 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap">
 <script>document.documentElement.classList.add('js')</script>
 <style>
-/* Layout: белая «студия». Маскоты стоят на белом, информация о продукте лежит в белой плашке, которую они держат в зубах/руках.
-   Каталог: 5 экранов-стопка (sticky), каждый следующий наезжает на предыдущий.
-   Тема: одна светлая. Картинки маскотов на белом фоне, тёмную тему не делаем осознанно. */
+/* РОБОРАБ v2: по структуре и движению join-way.com. Кремовый фон, Manrope, hero-«окно», лист наезжает сверху */
 :root{
-  --bg:#ffffff; --fg:#101417; --mute:#5b646c; --line:#e3e7ea; --soft:#f3f5f6;
-  --tax:#0f7f8d; --fit:#5f7d1f; --booking:#141414; --build:#d4540a; --seo:#d62f60;
-  --f-hero:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
-  --f-display:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
-  --f-body:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
-  --f-mono:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
-  --gutter-l:max(16px,env(safe-area-inset-left,0px));
-  --gutter-r:max(16px,env(safe-area-inset-right,0px));
-  color-scheme:light;
+  --bg:#f3f0e8;--ink:#111514;--mute:rgba(17,21,20,.62);--line:rgba(17,21,20,.14);--blue:#0957e8;--lime:#d7ff43;
+  --soft:rgba(17,21,20,.05);--r:56px;--ease:cubic-bezier(.16,1,.3,1);--ease2:cubic-bezier(.4,0,.2,1);
+  --f:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --fit:#5f7d1f;--tax:#0f7f8d;--build:#d4540a;--booking:#141414;--seo:#d62f60;
+  --fg:#111514;--f-body:var(--f);--f-display:var(--f);--f-mono:var(--f);--c:min(100% - 32px,1280px);interpolate-size:allow-keywords;color-scheme:light;
 {{ASSET_VARS}}
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--fg)}
-html[lang=zh] .hero .ht .ml,html[lang=ja] .hero .ht .ml,html[lang=ko] .hero .ht .ml{letter-spacing:.5em;margin-right:-.5em}
-html[lang=zh] .hero,html[lang=ja] .hero,html[lang=ko] .hero{overflow-x:clip}
-html[lang=th] .hero .ht,html[lang=hi] .hero .ht,html[lang=ar] .hero .ht,html[lang=he] .hero .ht,html[lang=fa] .hero .ht,html[lang=ur] .hero .ht,html[lang=bn] .hero .ht,html[lang=ta] .hero .ht,html[lang=te] .hero .ht,html[lang=mr] .hero .ht{line-height:1.3}
-@supports (text-box:trim-both cap alphabetic){html[lang=th] .tb .hero .ht,html[lang=hi] .tb .hero .ht,html[lang=ar] .tb .hero .ht,html[lang=he] .tb .hero .ht,html[lang=fa] .tb .hero .ht,html[lang=ur] .tb .hero .ht,html[lang=bn] .tb .hero .ht,html[lang=ta] .tb .hero .ht,html[lang=te] .tb .hero .ht,html[lang=mr] .tb .hero .ht,html[lang=th] .tb .hero .ht .ml,html[lang=hi] .tb .hero .ht .ml,html[lang=ar] .tb .hero .ht .ml,html[lang=he] .tb .hero .ht .ml,html[lang=fa] .tb .hero .ht .ml,html[lang=ur] .tb .hero .ht .ml,html[lang=bn] .tb .hero .ht .ml,html[lang=ta] .tb .hero .ht .ml,html[lang=te] .tb .hero .ht .ml,html[lang=mr] .tb .hero .ht .ml{text-box:none}}
-
-body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.5 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 var(--f);-webkit-font-smoothing:antialiased;overflow-x:clip}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--seo);outline-offset:3px}
-.wrap{width:100%;max-width:1760px;margin-inline:auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.c{width:var(--c);margin-inline:auto}
+.blue{color:var(--blue)}.lime{color:var(--lime)}
 
-/* ---------- общие картинки с кропом ---------- */
+/* кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:18px 28px;border:0;border-radius:999px;background:var(--ink);color:var(--bg);font:600 15px/1 var(--f);text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .35s var(--ease2),transform .35s var(--ease2),color .35s var(--ease2)}
+.btn:hover{background:var(--blue)}
+.btn svg{width:14px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6}
+.lnk{display:inline-flex;align-items:center;gap:8px;font:600 15px/1 var(--f);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:3px;transition:border-color .3s}
+.lnk:hover{border-color:currentColor}
 
-/* ---------- шапка ---------- */
-.hdr{height:var(--hh);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-block:0}
-.hdr .btn{justify-self:end;padding:9px 16px;font-size:13px}
-@media(max-width:760px){.hdr{grid-template-columns:1fr auto}.hdr .nav{display:none}}
-.brand{justify-self:start;font:700 16px/1 var(--f-display);letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
-.brand i{font-style:normal;color:var(--seo)}
-.nav{display:flex;gap:28px;font-weight:500;font-size:14px}
-.nav a{text-decoration:none;color:var(--mute)}
-.nav a:hover{color:var(--fg)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;font:600 15px/1 var(--f-body);text-decoration:none;color:#fff;background:var(--fg);border:0;cursor:pointer;white-space:nowrap}
-.btn{border-radius:14px;transition:transform .2s ease,filter .2s ease}
-.btn:hover{transform:scale(1.1);filter:brightness(1.12)}
+/* шапка */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:60;height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,3.4vw,40px);transition:background .4s var(--ease2),color .4s var(--ease2),border-color .4s;border-bottom:1px solid transparent;color:var(--ink)}
+.hdr.sc{background:rgba(243,240,232,.84);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+.hdr.inv{color:#fff}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font:700 13px/1 var(--f);letter-spacing:.08em;text-transform:uppercase}
+.brand i{width:28px;height:28px;border-radius:9px;background:var(--img-appicon) center/cover no-repeat;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+.hnav{display:flex;align-items:center;gap:clamp(18px,2.6vw,36px);font:500 15px/1 var(--f)}
+.hnav a,.hnav button{display:inline-flex;align-items:center;gap:8px;color:inherit;text-decoration:none;background:none;border:0;padding:0;cursor:pointer;font:inherit}
+.hnav svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.5}
+.bars{width:20px;height:10px;position:relative;display:inline-block}
+.bars::before,.bars::after{content:'';position:absolute;left:0;right:0;height:1.5px;background:currentColor;transition:transform .4s var(--ease)}
+.bars::before{top:0}.bars::after{bottom:0}
+.menu-open .bars::before{transform:translateY(4.25px) rotate(45deg)}.menu-open .bars::after{transform:translateY(-4.25px) rotate(-45deg)}
+@media(max-width:640px){.hnav .st{display:none}}
 
+/* меню */
+.menu{position:fixed;inset:0;z-index:55;background:var(--ink);color:var(--bg);padding:110px clamp(16px,3.4vw,40px) 40px;display:flex;flex-direction:column;justify-content:space-between;clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .7s var(--ease),visibility 0s .7s}
+.menu-open .menu{clip-path:inset(0);visibility:visible;transition:clip-path .7s var(--ease),visibility 0s}
+.menu-open .hdr{color:var(--bg);background:none;border-color:transparent;backdrop-filter:none}
+.menu ol{list-style:none;margin:0;padding:0;counter-reset:m}
+.menu li{counter-increment:m;border-top:1px solid rgba(243,240,232,.16)}
+.menu li a{display:flex;align-items:baseline;gap:20px;padding:clamp(10px,1.6vw,20px) 0;text-decoration:none;font:500 clamp(30px,6vw,76px)/1 var(--f);letter-spacing:-.05em;transition:color .3s,padding .5s var(--ease)}
+.menu li a::before{content:'0' counter(m);font:500 12px/1 var(--f);letter-spacing:.1em;color:var(--lime)}
+.menu li a:hover{color:var(--lime);padding-left:14px}
+.menu .mf{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:rgba(243,240,232,.6);font-size:14px}
 
-/* ---------- нулевой экран: РОБОРАБ слева, диван справа. Один и тот же отступ --m: край экрана до Р, Б до дивана, диван до края экрана ---------- */
-:root{--m:clamp(20px,2.6vw,48px);--hh:0px;--G:clamp(56px,16vw,280px);--S:clamp(110px,17vw,300px)}
-/* --G: промежутки внутри первого экрана. --S: воздух между блоками ниже по странице.
-   На компьютере оно равно свободному месту над и под баннером на первом экране: баннер стоит ровно по центру окна. */
-@media(min-width:761px){:root{
-  --W0:calc(min(100vw,1760px) - 2 * var(--m));
-  --topH:calc(var(--W0) * 0.0537);--botH:calc(var(--W0) * 0.1081);--bannerH:calc((var(--W0) - var(--m)) / 2 * 0.5535);
-  --G:max(14px,calc((100svh - var(--hh) - var(--topH) - var(--botH) - var(--bannerH)) / 4))}}
-.btn.ghost{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 2px var(--fg)}
-.hdr.wrap,.hero.wrap{padding-left:max(var(--m),env(safe-area-inset-left,0px));padding-right:max(var(--m),env(safe-area-inset-right,0px))}
-.hero{position:relative;container-type:inline-size;display:grid;grid-template-columns:minmax(0,1fr);row-gap:var(--rg,24px);padding-top:var(--G);padding-bottom:var(--Gb,var(--G))}
-.down{position:absolute;left:50%;translate:-50% 0;bottom:clamp(12px,calc(var(--Gref,var(--G)) * .3),40px);height:34px;display:flex;align-items:center;gap:8px;color:#a3a9af;text-decoration:none;white-space:nowrap;animation:bob 1.8s ease-in-out infinite}
-.down span{font:600 11px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:#7b838a}
-@media(max-height:760px) and (min-width:761px){.down{display:none}}
-@media(max-width:760px){.down{display:none}}
-.down{transition:opacity .35s ease}
-.down:not(.gone){opacity:1}
-.down.gone{animation:none;opacity:0;pointer-events:none}
-.down:hover,.down:hover span{color:#4d555c}
-.down svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-@keyframes bob{0%,100%{transform:translateY(0);opacity:.55}50%{transform:translateY(8px);opacity:1}}
-.h1w{display:contents;font:inherit;margin:0}
-.hero .ht{margin:0;align-self:center;font:800 clamp(18px,3.2cqw,72px)/.95 var(--f-hero);letter-spacing:-.03em;text-transform:uppercase;white-space:nowrap}
-.hero .ht span{display:inline-block;white-space:nowrap}
-.hero .ht{position:relative;z-index:1}
-.hero .ht2{line-height:.95;white-space:normal}
-@media(max-width:760px){
-  .hero .ht{font-size:8cqw;line-height:.95;white-space:normal}
-  .hero .ht .d{display:contents}
-  .hero .ht .ml{display:block;width:max-content;white-space:nowrap;letter-spacing:-.03em}
-  .hero .ht br{display:none}
-  .hero .ht .hy{display:none}
-  html[lang=zh] .hero .ht .ml,html[lang=ja] .hero .ht .ml,html[lang=ko] .hero .ht .ml{letter-spacing:0;margin-right:0}
-  .hero .ht .pr{display:none}
-  .hero .ht2{grid-row:1}
-  .hero .ht:not(.ht2){grid-row:3}
+/* первый экран: окно-пилюля раскрывается на весь экран */
+.hero{position:relative;height:300svh}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden}
+.htext{position:relative;z-index:2;height:100%;padding:calc(76px + clamp(14px,3.2vh,40px)) clamp(16px,3.4vw,40px) clamp(18px,3vh,36px);display:flex;flex-direction:column;will-change:transform,opacity}
+h1.big{margin:0;font:500 clamp(30px,8.6vw,158px)/.9 var(--f);letter-spacing:-.07em;max-width:15ch}
+h1.big .ln{display:block;white-space:nowrap}
+h1.big .ln:nth-child(3){padding-left:clamp(0px,11.5vw,210px)}
+.pill{display:inline-block;vertical-align:-.04em;width:1.9em;height:.78em;margin-left:.16em;border-radius:999px;background:transparent}
+.hsub{margin:clamp(16px,2.6vh,34px) 0 0;max-width:34ch;font:400 clamp(16px,1.5vw,22px)/1.4 var(--f);color:var(--mute);letter-spacing:-.01em}
+.hcta{display:flex;align-items:center;gap:clamp(16px,2vw,30px);margin-top:clamp(16px,2.6vh,32px);flex-wrap:wrap}
+.hcols{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,30px);padding-top:20px}
+.hcols>div{border-top:1px solid var(--line);padding-top:14px;min-width:0}
+.hcols small{display:block;font:500 13px/1.2 var(--f);color:var(--mute)}
+.hcols b{display:block;margin-top:12px;font:600 clamp(15px,1.3vw,19px)/1.2 var(--f);letter-spacing:-.02em}
+.hcols span{display:block;margin-top:8px;font:400 14px/1.35 var(--f);color:var(--mute)}
+@media(max-width:900px){.hcols{grid-template-columns:repeat(2,1fr)}h1.big .ln:nth-child(3){padding-left:0}}
+@media(max-height:700px){.hcols{display:none}}
+@media(max-width:600px){.hcols{gap:12px}.hcols span{display:none}.hcols b{font-size:15px}}
+.himg{position:absolute;inset:0;z-index:3;overflow:hidden;clip-path:inset(50% 50% 50% 50% round 999px);pointer-events:none;background:#0b3fb5}
+.art{position:absolute;inset:-4%;background:
+  radial-gradient(60% 50% at 78% 18%,rgba(215,255,67,.9),rgba(215,255,67,0) 60%),
+  radial-gradient(90% 70% at 20% 90%,#0957e8,rgba(9,87,232,0) 70%),
+  linear-gradient(180deg,#0b2f8f 0%,#0957e8 45%,#5aa9ff 100%);transform:scale(var(--sc,1.18));will-change:transform}
+.art::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(180deg,#000,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%)}
+.art .ape{position:absolute;z-index:2;right:max(3vw,24px);bottom:0;width:min(40vw,520px);aspect-ratio:640/665;background:var(--img-gor) center/contain no-repeat;filter:drop-shadow(0 30px 40px rgba(0,0,40,.35))}
+.hword{position:absolute;left:0;right:0;top:44%;text-align:center;font:400 clamp(60px,17vw,300px)/1 var(--f);letter-spacing:-.06em;color:rgba(255,255,255,.9);opacity:var(--wo,0);transform:translateY(var(--wy,0px));pointer-events:none;white-space:nowrap}
+
+/* лист, наезжающий на hero */
+.sheet{position:relative;z-index:10;margin-top:-100svh;background:var(--bg);border-radius:var(--r) var(--r) 0 0;padding-top:clamp(56px,7vw,104px)}
+.sheet::before{content:'';position:absolute;top:14px;left:50%;width:44px;height:4px;margin-left:-22px;border-radius:4px;background:rgba(17,21,20,.22)}
+section{scroll-margin-top:90px}
+.sec{padding-bottom:clamp(72px,9vw,140px)}
+.sh{display:grid;grid-template-columns:minmax(120px,200px) 1fr;gap:clamp(14px,3vw,48px);align-items:start}
+.lab{font:500 11px/1.3 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);padding-top:.7em}
+.lab::before{content:'[ '}.lab::after{content:' ]'}
+h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em;text-wrap:balance}
+.note{max-width:34ch;color:var(--mute);font:400 15px/1.5 var(--f);justify-self:end;align-self:end}
+@media(max-width:820px){.sh{grid-template-columns:1fr}.note{justify-self:start}}
+
+/* лента услуг */
+.mq{display:flex;overflow:hidden;direction:ltr;padding:clamp(8px,1vw,14px) 0 clamp(40px,5vw,72px)}
+.mq-t{flex:none;display:flex;gap:10px;padding-right:10px;animation:marquee-x 40s linear infinite}
+.mq:hover .mq-t{animation-play-state:paused}
+.mq-t span{white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:12px 20px;font:500 15px/1 var(--f)}
+@keyframes marquee-x{to{transform:translateX(-100%)}}
+
+/* подход */
+.panel-art{position:relative;overflow:hidden;border-radius:clamp(24px,3vw,40px);aspect-ratio:16/8;margin-top:clamp(32px,4vw,64px);background:linear-gradient(135deg,#d9c9b0,#f1e6d3)}
+.panel-art .a1,.panel-art .a2{position:absolute;background:center/contain no-repeat}
+.pa-1 .a1{inset:6% auto 0 8%;width:34%;background-image:var(--img-gor)}
+.pa-1{background:linear-gradient(135deg,#0957e8,#5aa9ff)}
+.pa-1::after{content:'';position:absolute;right:-6%;top:-30%;width:60%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(215,255,67,.9),rgba(215,255,67,0) 65%)}
+.pa-2{background:linear-gradient(135deg,#111514,#2a302e)}
+.pa-2 .a1{inset:8% 8% 0 auto;width:36%;background-image:var(--img-brain)}
+.pa-2::after{content:'';position:absolute;left:-4%;bottom:-40%;width:60%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(215,255,67,.55),rgba(215,255,67,0) 65%)}
+@media(max-width:700px){.panel-art{aspect-ratio:4/3}.pa-1 .a1{width:50%}.pa-2 .a1{width:52%}}
+
+/* тёмные блоки */
+.dk{background:var(--ink);color:var(--bg);border-radius:clamp(28px,4vw,56px);margin:0 clamp(8px,1vw,16px);padding:clamp(40px,6vw,96px) 0;position:relative;overflow:hidden}
+.dk::before{content:'';position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(243,240,232,.05) 1px,transparent 1px);background-size:calc(100% / 12) 100%;pointer-events:none}
+.dk .lab{color:rgba(243,240,232,.6)}
+.dk .sh{position:relative}
+.dsub{margin:clamp(18px,2vw,28px) 0 0;max-width:46ch;color:rgba(243,240,232,.62);font:400 clamp(15px,1.3vw,18px)/1.5 var(--f)}
+.cols3{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,44px);margin-top:clamp(40px,5vw,80px);margin-left:calc(200px + clamp(14px,3vw,48px))}
+.cols3>div{border-top:1px solid rgba(243,240,232,.2);padding-top:18px}
+.cols3 small{font:500 12px/1 var(--f);letter-spacing:.1em;color:var(--lime)}
+.cols3 b{display:block;margin-top:14px;font:500 clamp(22px,2.4vw,34px)/1.05 var(--f);letter-spacing:-.04em}
+.cols3 span{display:block;margin-top:10px;color:rgba(243,240,232,.62);font:400 15px/1.45 var(--f)}
+@media(max-width:1000px){.cols3{margin-left:0;grid-template-columns:1fr}}
+.dgrid{position:relative;display:grid;grid-template-columns:minmax(120px,200px) minmax(0,.9fr) minmax(0,1.5fr);gap:clamp(14px,3vw,48px)}
+.dgrid>div:nth-child(2){position:sticky;top:110px;align-self:start}.dgrid h2.t{font-size:clamp(32px,4vw,62px)}
+.dlist{display:grid;gap:clamp(24px,3vw,44px)}
+.ditem{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:clamp(16px,2.4vw,32px);align-items:center}
+.tile{aspect-ratio:1;border-radius:0 0 clamp(18px,2vw,28px) clamp(18px,2vw,28px);display:grid;place-items:center;position:relative}
+.tile i{display:block;width:34%;aspect-ratio:1;border:4px solid #111514;border-radius:50%;position:relative}
+.tile i::after{content:'';position:absolute;right:-26%;bottom:-26%;width:44%;aspect-ratio:1;border-radius:50%;background:var(--lime);border:3px solid #111514}
+.tile.t1{background:#d9c9b0}.tile.t2{background:var(--blue)}.tile.t2 i{border-color:#fff;border-radius:50%}.tile.t2 i::after{background:#fff;border-color:#fff}.tile.t3{background:var(--lime)}.tile.t3 i{border-radius:14px}.tile.t3 i::after{background:#111514;border-radius:6px}
+.ditem h3{margin:0;font:500 clamp(24px,2.6vw,40px)/1 var(--f);letter-spacing:-.05em}
+.ditem p{margin:14px 0 0;color:rgba(243,240,232,.62);font:400 15px/1.5 var(--f);padding-bottom:14px;border-bottom:1px solid rgba(243,240,232,.2)}
+@media(max-width:1000px){.dgrid{grid-template-columns:1fr}.dgrid>div:nth-child(2){position:static}.ditem{grid-template-columns:1fr 2fr}}
+@media(max-width:560px){.ditem{grid-template-columns:1fr}.tile{aspect-ratio:2/1;border-radius:18px}}
+
+/* каталог: вкладки 01-05 */
+.tabs{display:grid;grid-template-columns:repeat(5,1fr);margin-top:clamp(32px,4vw,56px);border-top:0}
+.tabs .tl{grid-column:1/-1;font:500 11px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.tabs button{position:relative;text-align:left;background:none;border:0;border-left:1px solid var(--line);padding:22px 16px 20px;cursor:pointer;color:var(--mute);font:500 clamp(14px,1.3vw,19px)/1.15 var(--f);letter-spacing:-.02em;display:flex;gap:14px;align-items:baseline;transition:color .35s var(--ease2)}
+.tabs button:first-of-type{border-left:0;padding-left:0}
+.tabs button::before{content:'';position:absolute;left:0;right:0;top:0;height:2px;background:var(--line)}
+.tabs button::after{content:'';position:absolute;left:0;top:0;height:2px;width:0;background:var(--blue)}
+.tabs button[aria-selected=true]{color:var(--ink)}
+.tabs button[aria-selected=true]::after{width:100%;transition:width var(--tdur,8s) linear}
+.tabs button.manual[aria-selected=true]::after{transition:width .5s var(--ease2)}
+.tabs i{font:500 11px/1 var(--f);font-style:normal;color:var(--blue);letter-spacing:.06em;flex:none}
+@media(max-width:820px){.tabs{grid-template-columns:repeat(5,minmax(150px,1fr));overflow-x:auto;scrollbar-width:none}}
+.cgrid{margin-top:clamp(20px,2.4vw,36px)}
+.cgrid .product{display:none}
+.cgrid .product.on{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);align-items:center;animation:tabin .7s var(--ease)}
+@keyframes tabin{from{opacity:0;transform:translateY(16px)}}
+.product .mascot{aspect-ratio:1/.82;border-radius:clamp(24px,3vw,40px);background:var(--mimg) center/contain no-repeat,color-mix(in srgb,var(--acc) 30%,var(--bg));background-blend-mode:multiply}
+.product h3{margin:0;font:500 clamp(32px,4.4vw,68px)/.95 var(--f);letter-spacing:-.06em}
+.product>.tag{margin:16px 0 0;max-width:30ch;color:var(--mute);font:400 clamp(16px,1.5vw,21px)/1.4 var(--f)}
+.pc-more{margin-top:28px;justify-self:start;border:0;cursor:pointer;background:var(--ink);color:var(--bg);padding:18px 28px;border-radius:999px;font:600 15px/1 var(--f);transition:background .35s var(--ease2)}
+.pc-more:hover{background:var(--blue)}
+.cgrid .product.on{grid-template-rows:1fr auto auto auto 1fr}
+.product .mascot{grid-column:1;grid-row:1/-1}
+.product>h3,.product>.tag,.product>.pc-more{grid-column:2}
+.product>h3{grid-row:2;align-self:end}.product>.tag{grid-row:3}.product>.pc-more{grid-row:4;align-self:start}
+@media(max-width:760px){.cgrid .product.on{grid-template-columns:1fr;grid-template-rows:none}.product .mascot,.product>h3,.product>.tag,.product>.pc-more{grid-row:auto}.product .mascot,.product>h3,.product>.tag,.product>.pc-more{grid-column:1}}
+
+/* процесс */
+.steps{list-style:none;margin:clamp(32px,4vw,64px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.4vw,36px);counter-reset:s}
+.steps li{counter-increment:s;border-top:1px solid var(--line);padding-top:18px}
+.steps li::before{content:'0' counter(s);display:block;font:500 12px/1 var(--f);letter-spacing:.1em;color:var(--blue)}
+.steps .sn{display:none}
+.steps h3{margin:14px 0 0;font:500 clamp(22px,2.2vw,32px)/1.05 var(--f);letter-spacing:-.045em}
+.steps p{margin:10px 0 0;color:var(--mute);font:400 15px/1.45 var(--f)}
+.steps .ic{display:none}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* три способа начать */
+.ways{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,24px);margin-top:clamp(32px,4vw,64px)}
+.way{position:relative;overflow:hidden;min-height:clamp(300px,30vw,420px);border-radius:clamp(24px,3vw,36px);padding:clamp(22px,2.4vw,36px);background:#fbfaf6;display:flex;flex-direction:column;box-shadow:0 0 0 1px var(--line)}
+.way .gn{position:absolute;right:-.04em;top:-.12em;font:500 clamp(140px,16vw,240px)/1 var(--f);letter-spacing:-.08em;color:rgba(9,87,232,.08);pointer-events:none}
+.way small{position:relative;font:500 11px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.way h3{position:relative;margin:auto 0 0;font:500 clamp(30px,3.2vw,48px)/1 var(--f);letter-spacing:-.055em}
+.way p{position:relative;margin:12px 0 0;color:var(--mute);font:400 15px/1.45 var(--f);max-width:28ch}
+.way .lnk{position:relative;margin-top:24px;align-self:flex-start}
+.way.bl{background:var(--blue);color:#fff;box-shadow:none}.way.bl small,.way.bl p{color:rgba(255,255,255,.78)}.way.bl .gn{color:rgba(255,255,255,.12)}
+.way .bd{position:absolute;right:20px;top:20px;background:var(--lime);color:var(--ink);border-radius:999px;padding:7px 12px;font:700 10px/1 var(--f);letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:900px){.ways{grid-template-columns:1fr}.way{min-height:260px}}
+
+/* FAQ */
+.faqlist{margin-top:clamp(28px,4vw,56px);border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(120px,200px) 1fr;column-gap:clamp(14px,3vw,48px)}
+.faqlist details{grid-column:2;border-bottom:1px solid var(--line)}
+.faqlist summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:clamp(18px,2vw,28px) 0;font:500 clamp(18px,1.9vw,26px)/1.2 var(--f);letter-spacing:-.03em}
+.faqlist summary::-webkit-details-marker{display:none}
+.faqlist summary::after{content:'';flex:none;width:34px;height:34px;border-radius:50%;background:linear-gradient(var(--ink),var(--ink)) center/12px 1.5px no-repeat,linear-gradient(var(--ink),var(--ink)) center/1.5px 12px no-repeat;box-shadow:inset 0 0 0 1px var(--line);transition:transform .4s var(--ease)}
+.faqlist details[open] summary::after{transform:rotate(45deg)}
+.faqlist p{margin:0 0 clamp(18px,2vw,28px);color:var(--mute);font:400 clamp(15px,1.2vw,17px)/1.6 var(--f);max-width:68ch}
+.faqlist details::details-content{height:0;overflow:clip;transition:height .35s var(--ease2),content-visibility .35s allow-discrete}
+.faqlist details[open]::details-content{height:auto}
+@media(max-width:820px){.faqlist{grid-template-columns:1fr}.faqlist details{grid-column:1}}
+
+/* заявка */
+.cta{padding-bottom:clamp(56px,7vw,100px)}
+.cta .box{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,64px);background:var(--ink);color:var(--bg);border-radius:clamp(28px,4vw,48px);padding:clamp(28px,4.4vw,64px);margin-top:clamp(28px,3vw,48px)}
+.cta .box h3{margin:0;font:500 clamp(34px,4.4vw,68px)/.95 var(--f);letter-spacing:-.06em}
+.cta .box p{margin:18px 0 0;max-width:36ch;color:rgba(243,240,232,.62)}
+#lead{display:grid;gap:18px;align-content:start;min-width:0}
+#lead .leadico{display:none}
+#lead label{display:grid;gap:8px;font:500 12px/1 var(--f);letter-spacing:.08em;text-transform:uppercase;color:rgba(243,240,232,.6)}
+#lead input,#lead select{width:100%;background:transparent;color:var(--bg);border:0;border-bottom:1px solid rgba(243,240,232,.28);padding:12px 0;border-radius:0;font:500 18px/1.2 var(--f);letter-spacing:-.01em;text-transform:none;outline:none;transition:border-color .3s}
+#lead input:focus,#lead select:focus{border-color:var(--lime)}
+#lead select option{color:#111514}
+#lead .btn{margin-top:10px;justify-self:start;background:var(--lime);color:var(--ink)}
+#lead .btn:hover{background:#fff}
+@media(max-width:860px){.cta .box{grid-template-columns:1fr}}
+
+/* подвал */
+.ft{padding:0 0 28px;position:relative;overflow:hidden}
+.ft .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;color:var(--mute);font-size:14px}
+.ft nav{display:flex;gap:clamp(14px,2vw,28px);flex-wrap:wrap}
+.ft nav a{text-decoration:none}.ft nav a:hover{color:var(--ink)}
+.app{display:flex;align-items:center;gap:12px;cursor:pointer}
+.appicon{flex:none;width:44px;aspect-ratio:1;border:0;padding:0;cursor:pointer;border-radius:24%;background:var(--img-appicon) center/cover no-repeat;box-shadow:0 0 0 1px rgba(0,0,0,.09)}
+.appnote{font:600 14px/1.25 var(--f);color:var(--ink)}.appnote small{display:block;font-weight:500;color:var(--mute)}
+.wm{margin:clamp(24px,4vw,56px) 0 0;text-align:center;font:600 clamp(60px,15.5vw,290px)/.84 var(--f);letter-spacing:-.07em;background:linear-gradient(100deg,#111514 0%,#0957e8 40%,#d7ff43 60%,#111514 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:wm 7.5s ease-in-out infinite;user-select:none;white-space:nowrap}
+@keyframes wm{0%,100%{background-position:0 0}50%{background-position:100% 0}}
+
+/* заставка */
+.splash{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:opacity .6s var(--ease2),visibility 0s .6s}
+.splash i{width:84px;height:84px;border-radius:24px;background:var(--img-appicon) center/cover no-repeat;box-shadow:0 18px 40px -16px rgba(0,0,0,.35);animation:spl 1s var(--ease) both}
+.splash.out{opacity:0;visibility:hidden}
+@keyframes spl{from{opacity:0;transform:scale(.8)}}
+
+/* движение: появление блоков */
+.js .rv{opacity:0;transform:translateY(var(--ry,22px));transition:opacity .6s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv.in.done{transition-delay:0s}
+.js h2.rv{--ry:.3em}
+
+@media (prefers-reduced-motion:reduce){
+  .js .rv{opacity:1;transform:none;transition:none}.mq-t,.wm{animation:none}.splash{display:none}html{scroll-behavior:auto}
+  .cgrid .product.on{animation:none}.faqlist details::details-content{transition:none}
 }
-.cat{margin:max(0px,calc(var(--S) - var(--Gref,var(--G)))) 0 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));font:800 clamp(24px,3.4vw,46px)/1.08 var(--f-display);letter-spacing:-.035em;max-width:1760px;margin-inline:auto}
-.cat+.product{margin-top:calc(var(--S) * .4)}
-.banner{--gap:var(--m);--colw:calc((100cqw - var(--gap)) / 2);display:grid;grid-template-columns:var(--colw) var(--colw);column-gap:var(--gap);row-gap:var(--gap);align-items:end}
-.word{grid-column:1;grid-row:1;width:100%;position:relative;container-type:inline-size;aspect-ratio:var(--AR,6.7);color:var(--fg)}
-.word .wtx{position:absolute;left:0;top:calc(var(--T,0) * 1em);font:800 calc(100cqw / var(--R,4.6))/1 var(--f-display);white-space:nowrap;letter-spacing:0;transform:scaleY(var(--ky,1));transform-origin:0 calc(var(--T,0) * -1em)}
-.sofa{grid-column:2;grid-row:1;width:100%;aspect-ratio:640 / 665;background:var(--img-gor) center / 100% 100% no-repeat}
-@supports (text-box:trim-both cap alphabetic){.tb .hero .ht{text-box:trim-both cap alphabetic}@media(max-width:760px){.tb .hero .ht{text-box:none}.tb .hero .ht .ml{text-box:trim-both cap alphabetic}}}
-@media(max-width:760px){
-  .banner{display:contents;transform:none}
-  .word{grid-column:1;grid-row:2}
-  .sofa{grid-column:1;grid-row:4;justify-self:end;width:44%}
-}
-@media (min-width:761px){
-  .hero{grid-template-columns:max-content minmax(0,1fr);column-gap:0}
-  .hero .ht2{grid-row:1;grid-column:1;white-space:nowrap;align-self:start}
-  .hero .ht:not(.ht2){grid-row:1;grid-column:2;align-self:start;justify-self:end}
-  .hero .ht2 br{display:none}
-  .hero .ht2>.ml{margin-left:.3em}
-  .banner{display:contents}
-  .word{grid-column:1/-1;grid-row:2;justify-self:center}
-  .sofa{position:absolute;right:max(var(--m),env(safe-area-inset-right,0px));bottom:-1.8vw;width:min(22vw,340px);z-index:3}
-}
 
-/* ---------- сцены с телефоном ---------- */
-
-
-/* ---------- переходный блок: два пути внедрения ---------- */
-.paths{margin:max(0px,calc(var(--S) - var(--Gref,var(--G)))) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
-.app{display:flex;align-items:center;gap:14px;margin-top:clamp(16px,1.8vw,26px)}
-.appicon{flex:none;width:clamp(52px,4.4vw,68px);aspect-ratio:1;border:0;padding:0;cursor:pointer;border-radius:24%;background:var(--img-appicon) center/cover no-repeat;box-shadow:0 0 0 1px rgba(0,0,0,.09),0 6px 16px -6px rgba(0,0,0,.25);transition:transform .2s ease}
-.appicon:hover{transform:scale(1.08)}
-.appicon:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
-.dl{border:0;padding:clamp(24px,3vw,36px);border-radius:28px;background:#fff;color:var(--fg);width:min(92vw,380px);text-align:center;box-shadow:0 30px 80px -20px rgba(0,0,0,.45);margin:auto;overflow:visible}
-.dl::backdrop{background:rgba(10,12,14,.5);backdrop-filter:blur(4px)}
-.dl[open]{animation:dlin .22s ease-out}
-@keyframes dlin{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
-.dl-ico{display:block;width:72px;aspect-ratio:1;margin:0 auto 14px;border-radius:24%;background:var(--img-appicon) center/cover no-repeat;box-shadow:0 0 0 1px rgba(0,0,0,.09),0 6px 16px -6px rgba(0,0,0,.25)}
-.dl h3{margin:0;font:800 28px/1 var(--f-display);letter-spacing:-.03em}
-.dl p{margin:8px 0 0;color:var(--mute);font-size:16px}
-.dl-list{display:grid;gap:10px;margin-top:20px}
-.dl-list a{padding:15px 18px;border-radius:14px;font:600 16px/1 var(--f-body);text-decoration:none;color:#fff;background:var(--fg);transition:transform .2s ease,filter .2s ease}
-.dl-list a:hover{transform:scale(1.03);filter:brightness(1.15)}
-.dl-x{position:absolute;top:10px;right:10px;width:36px;height:36px;border:0;border-radius:50%;background:#eef0f2;color:var(--fg);font:500 22px/1 var(--f-body);cursor:pointer}
-.dl-x:hover{background:#e0e3e6}
-.dl-x,.dl-x:focus,.dl-x:focus-visible,.appicon,.app{outline:none;-webkit-tap-highlight-color:transparent}
-.dl:focus{outline:none}
-.app{cursor:pointer}
-.appicon:focus-visible{outline:3px solid var(--fg);outline-offset:3px}
-.appnote small{display:block;margin-top:3px;font-weight:500;color:var(--mute);font-size:.92em}
-.appnote{font:600 clamp(14px,1.1vw,17px)/1.25 var(--f-body);color:var(--fg)}
-.paths h2{margin:0;text-align:center;text-transform:uppercase;font:800 clamp(34px,6vw,96px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
-.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,72px);margin-top:clamp(28px,4vw,64px)}
-.path{padding-top:0;min-width:0}
-.path .big{font:800 clamp(140px,26vw,460px)/.82 var(--f-display);letter-spacing:-.05em;margin-left:-.04em}
-.path h3{margin:clamp(14px,2vw,32px) 0 0;font:800 clamp(22px,2.6vw,44px)/1.1 var(--f-display);letter-spacing:-.03em;text-wrap:balance;max-width:20ch}
-.path .sub{margin:clamp(12px,1.4vw,20px) 0 0;font-size:clamp(17px,1.5vw,24px);line-height:1.35;font-weight:500;color:var(--mute);max-width:30ch}
-.bigrow{display:flex;align-items:center;gap:clamp(20px,3vw,48px)}
-.bigrow .app{margin-top:0}
-.path .lead{margin:clamp(14px,1.6vw,24px) 0 0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;font-weight:500;color:var(--fg);max-width:46ch}
-.princ{list-style:none;margin:clamp(14px,1.6vw,22px) 0 0;padding:0;display:grid;gap:8px;max-width:46ch}
-.princ li{position:relative;padding-left:22px;font:600 clamp(15px,1.1vw,17px)/1.35 var(--f-display);color:var(--fg)}
-.princ li::before{content:'';position:absolute;left:0;top:.5em;width:10px;height:10px;border-radius:3px;background:var(--fg)}
-.path .btn{margin-top:clamp(18px,2vw,30px)}
-@media(max-width:860px){.pgrid{grid-template-columns:1fr}
-.path{text-align:center;display:flex;flex-direction:column;align-items:center}
-.path .big{margin-left:0;text-align:center;position:relative}
-.path:first-child .big{left:-.05em}
-.path+.path .big{left:-.02em}
-.path h3,.path .lead,.path .sub,.princ{margin-inline:auto}
-.path h3{max-width:24ch}
-.path:first-child .app{align-self:center!important;text-align:left}
-.pgrid .path+.path{margin-top:clamp(36px,8vw,64px)}
-.path:first-child{display:flex;flex-direction:column}
-.path:first-child .bigrow{display:contents}
-.path:first-child .big{order:1}.path:first-child h3{order:2}.path:first-child .pdesc{order:3}
-.path:first-child .app{order:4;align-self:flex-start;margin-top:clamp(18px,5vw,26px)}}
-@media(min-width:861px){
-.pgrid{grid-template-columns:1fr}
-.path:first-child{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(28px,4vw,72px);align-items:start}
-.path:first-child .bigrow{display:contents}
-.path:first-child .big{grid-column:1;grid-row:1}
-.path:first-child h3{grid-column:1;grid-row:2}
-.path:first-child .app{grid-column:1;grid-row:3;justify-self:start;margin-top:clamp(18px,2vw,30px)}
-.path:first-child .pdesc{grid-column:2;grid-row:1/span 3;align-self:center}
-.path:first-child .pdesc .lead{margin-top:0;max-width:none;font-weight:400;font-size:clamp(22px,2.5vw,38px);line-height:1.3;letter-spacing:-.01em}
-.pgrid .path+.path{margin-top:clamp(28px,4vw,64px);text-align:center;display:flex;flex-direction:column;align-items:center}
-.pgrid .path+.path .big{margin-left:0;position:relative;left:-.02em}
-.path:first-child .big{margin-left:-.09em}
-.pgrid .path+.path h3{max-width:28ch;margin-inline:auto}
-}
-
-
-/* ---------- три формата общения с агентом ---------- */
-.how{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
-.how h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
-.steps{list-style:none;margin:clamp(28px,4vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
-.steps li{position:relative;display:grid;gap:18px;align-content:start;justify-items:center;text-align:center}
-.steps li:not(.last)::after{content:'';position:absolute;top:100px;left:calc(50% + 140px);right:calc(-1 * clamp(20px,3vw,48px) - 50% + 140px + 12px);border-top:2px dashed rgba(255,255,255,.28)}
-.steps .ic{position:relative;isolation:isolate;width:260px;height:186px}
-.steps .ic::after{content:'';position:absolute;inset:0;background:center bottom/contain no-repeat}
-
-.steps li:nth-child(1) .ic::after{background-image:var(--img-h1)}.steps li:nth-child(2) .ic::after{background-image:var(--img-h2)}.steps li:nth-child(3) .ic::after{background-image:var(--img-h3)}.steps li:nth-child(4) .ic::after{background-image:var(--img-h4)}
-.steps .sn{display:block;font:700 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
-.steps li.last .sn{color:var(--seo)}
-.steps h3{margin:10px 0 0;font:800 clamp(20px,1.9vw,30px)/1.1 var(--f-display);letter-spacing:-.03em}
-.steps p{margin:10px 0 0;color:var(--mute);font-size:clamp(15px,1.2vw,18px);line-height:1.45;max-width:30ch;margin-inline:auto}
-@media(max-width:860px){
-  .steps{grid-template-columns:1fr;gap:44px}
-  .steps li{gap:12px}
-  .steps .ic{width:230px;height:165px}
-  .steps li:not(.last)::after{top:auto;bottom:-34px;height:24px;left:50%;right:auto;border-top:0;border-left:2px dashed rgba(255,255,255,.28)}
-}
-
-/* ---------- каталог: одно сплошное белое пространство. Картинка разрезана по плашке, низ уехал вниз, в разрезе вся информация. Без теней, без наслоения ---------- */
-.intro{margin:max(0px,calc(var(--S) - var(--Gref,var(--G)))) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:980px;text-align:center}
-.intro h2{margin:0;font:800 clamp(30px,4.6vw,64px)/1.02 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
-.intro .lead{margin:clamp(18px,2.4vw,32px) auto 0;font-size:clamp(17px,1.5vw,22px);line-height:1.5;font-weight:500;max-width:62ch}
-.intro .princ{margin:clamp(14px,1.8vw,22px) auto 0;display:inline-block;padding:10px 18px;border-radius:999px;background:#f2f4f5;font:700 clamp(15px,1.3vw,18px)/1.3 var(--f-display)}
-.intro .ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:clamp(22px,2.6vw,34px)}
-.intro .ctas .btn{padding:17px 28px;font-size:clamp(15px,1.2vw,17px);flex:0 0 min(300px,100%);width:min(300px,100%)}
-.intro .app{justify-content:center;margin-top:clamp(26px,3vw,40px)}
-@media(max-width:760px){.intro{margin-top:0;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;box-sizing:border-box;padding-block:7svh}.intro>*{margin-top:0!important;margin-bottom:0}.intro .ctas{margin-top:0}}
-.chead{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
-.csub{margin:clamp(10px,1.2vw,18px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));text-align:center;color:var(--mute);font-weight:500;font-size:clamp(16px,1.4vw,20px)}
-.chead+.csub+.cgrid{margin-top:clamp(24px,3vw,44px)}
-.who .lead span{display:block}
-.svc{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
-.svc h2{margin:0;text-align:center;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
-.svcgrid{--cg:clamp(10px,2vw,24px);list-style:none;margin:clamp(24px,3.4vw,48px) 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--cg)}
-.svcgrid li{flex:0 0 calc((100% - 2 * var(--cg)) / 3);min-width:0;background:#f6f7f8;border-radius:clamp(16px,2vw,28px);padding:clamp(18px,2vw,32px)}
-.svcgrid h3{margin:0;font:800 clamp(18px,1.8vw,26px)/1.1 var(--f-display);letter-spacing:-.03em}
-.svcgrid p{margin:10px 0 0;color:var(--mute);font-weight:500;font-size:clamp(14px,1.15vw,17px);line-height:1.4}
-@media(max-width:700px){.svcgrid li{flex-basis:100%}}
-.cgrid{--cg:clamp(10px,2vw,28px);display:flex;flex-wrap:wrap;justify-content:center;gap:var(--cg);width:100%;max-width:1760px;margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
-.product{flex:0 0 calc((100% - 2 * var(--cg)) / 3);min-width:0;display:flex;flex-direction:column;background:#f6f7f8;border-radius:clamp(16px,2vw,28px);padding:clamp(10px,1.4vw,20px);scroll-margin-top:24px}
-.product .mascot{width:100%;aspect-ratio:1;background:var(--mimg) center/contain no-repeat #fff;border-radius:clamp(12px,1.6vw,20px)}
-.product h3{margin:clamp(12px,1.4vw,20px) 0 0;font:800 clamp(18px,2.1vw,30px)/1.05 var(--f-display);letter-spacing:-.035em}
-.product>.tag{margin:6px 0 0;color:var(--mute);font-weight:500;font-size:clamp(13px,1.1vw,16px);line-height:1.35}
-.pc-more{margin-top:auto;align-self:stretch;border:0;cursor:pointer;background:var(--btn,var(--acc));color:#fff;font:600 clamp(13px,1.1vw,16px)/1 var(--f-body);padding:clamp(12px,1.2vw,16px) 12px;border-radius:14px;-webkit-tap-highlight-color:transparent}
-.product>.tag{margin-bottom:clamp(12px,1.4vw,18px)}
-@media(min-width:1101px){.product{flex-basis:calc((100% - 4 * var(--cg)) / 5)}.product h3{font-size:clamp(17px,1.5vw,24px)}}
-@media(max-width:860px){.product{flex-basis:calc((100% - var(--cg)) / 2)}}
 .pd{border:0;padding:clamp(20px,3vw,40px);border-radius:28px;background:#fff;color:var(--fg);width:min(94vw,840px);max-height:92dvh;margin:auto;overflow:auto;box-shadow:0 30px 80px -20px rgba(0,0,0,.45)}
 .pd::backdrop{background:rgba(10,12,14,.5);backdrop-filter:blur(4px)}
 .pd[open]{animation:dlin .22s ease-out}
@@ -275,230 +291,99 @@ a{color:inherit}
 #build{--btxt:#101417;--acc:#fcc118;--accfg:#fff;--mimg:var(--img-c-build)}
 #booking{--btxt:#fff;--acc:#393939;--accfg:#fff;--mimg:var(--img-c-booking)}
 #seo{--btxt:#101417;--acc:#fa3c8a;--accfg:#fff;--mimg:var(--img-c-seo)}
-
-.faq{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
-.faq h2{margin:0;text-align:center;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
-.faqlist{margin:clamp(24px,4vw,48px) auto 0;max-width:980px;border-top:1px solid #e3e6e9}
-.faqlist details{border-bottom:1px solid #e3e6e9}
-.faqlist summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:clamp(16px,2vw,24px) 0;font:700 clamp(17px,1.8vw,24px)/1.25 var(--f-display);letter-spacing:-.02em}
-.faqlist summary::-webkit-details-marker{display:none}
-.faqlist summary::after{content:'+';flex:none;font:400 28px/1 var(--f-body);color:var(--mute);transition:transform .2s}
-.faqlist details[open] summary::after{transform:rotate(45deg)}
-.faqlist summary:focus-visible{outline:3px solid var(--fg);outline-offset:2px}
-.faqlist p{margin:0 0 clamp(16px,2vw,24px);color:var(--mute);font-size:clamp(15px,1.3vw,18px);line-height:1.55;max-width:70ch}
-.who{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px}
-.who h2{margin:0;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}
-.who .lead{margin:14px 0 0;color:var(--mute);font-size:clamp(16px,1.4vw,22px);max-width:50ch}
-.who.one{text-align:center}.who.one h2{margin-inline:auto}.who.one p{margin:18px auto 0;max-width:56ch;color:var(--mute);font-size:clamp(17px,1.5vw,22px);line-height:1.5}.who.one .btn{margin-top:clamp(24px,3vw,36px)}
-.wgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,32px);margin-top:clamp(28px,4vw,56px)}
-.wcard{position:relative;display:flex;flex-direction:column;border-radius:28px;overflow:hidden;background:#fff;border:2px solid var(--bc);min-width:0;transition:border-color .25s ease,box-shadow .25s ease}
-.wcard:hover,.wcard:focus-within{border-color:var(--bc);box-shadow:0 0 0 4px color-mix(in srgb,var(--bc) 22%,transparent),0 18px 40px -24px var(--bc)}
-.w0{--btn:#38d0e0;--bc:#38d0e0;--wl:#0a98aa;--chip:#e6f8fb;--acc:#0f93a6;--accfg:#fff}
-.w1{--bc:#101417;--wl:#5b646c;--chip:#eef0f2;--acc:var(--fg);--accfg:#fff}
-.w2{--btn:#9556ec;--bc:#9556ec;--wl:#6d32c9;--chip:#f1e8fd;--acc:#9556ec;--accfg:#fff}
-.wm{width:100%;aspect-ratio:1/.8;margin:12px 0 6px;background:var(--wi) center/contain no-repeat;mix-blend-mode:multiply}
-.w0 .wm{--wi:var(--img-p1)}
-.w1 .wm{--wi:var(--img-p3)}
-.w2 .wm{--wi:var(--img-p2)}
-.wt{padding:0 clamp(20px,2.6vw,40px) clamp(22px,2.6vw,40px);display:flex;flex-direction:column;align-items:flex-start;flex:1}
-.wk{font:700 12px/1.2 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--wl)}
-.wt h3{margin:12px 0 0;font:800 clamp(24px,2.3vw,36px)/1.08 var(--f-display);letter-spacing:-.035em}
-.wt p{margin:14px 0 0;font-size:clamp(16px,1.25vw,19px);line-height:1.5;max-width:46ch;color:#2c343a}
-.chips{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.chips li{padding:8px 12px;border-radius:10px;background:var(--chip);font:600 14px/1 var(--f-body)}
-.wt .btn{margin-top:auto;background:var(--fg);color:#fff}
-.wt p.inc{margin:20px 0 0;font-weight:600}
-.wt .inc2{margin-top:10px}
-.wbuy{margin-top:auto;padding-top:24px;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
-.wbuy .btn{margin-top:0}
-.pay{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;font:600 12px/1 var(--f-body);color:var(--wl)}
-.pay span{letter-spacing:.1em;text-transform:uppercase}
-.pay ul{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0;padding:0}
-.pay li.lg{display:flex;align-items:center;padding:5px 9px}.pay li.lg img{height:22px;width:auto;display:block}
-.pay li{border:1px solid rgba(16,20,23,.28);border-radius:8px;padding:6px 9px;font-weight:700;letter-spacing:0;color:var(--fg)}
-.price{display:flex;align-items:baseline;gap:8px}
-.price b{font:800 clamp(28px,2.6vw,40px)/1 var(--f-display);letter-spacing:-.03em}
-.price b.sm{font-size:clamp(20px,1.8vw,26px)}
-.price span{font:600 12px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--wl)}
-@media(max-width:1100px) and (min-width:701px){.wgrid{gap:12px}.wcard{border-radius:22px}.wm{margin:8px 0 2px}.wt{padding:0 14px 18px}.wt h3{font-size:clamp(18px,2.6vw,24px)}.wt p{font-size:14px;line-height:1.45;margin-top:10px}.wk{font-size:10px;letter-spacing:.06em}.chips{gap:6px;margin-top:12px}.chips li{padding:6px 8px;font-size:12px}.price b{font-size:clamp(24px,3.2vw,30px)}.price span{font-size:10px}.pay{font-size:10px}.pay li{padding:5px 7px}.wt .btn,.wbuy .btn{padding:12px 14px;font-size:14px;white-space:normal;text-align:center}}
-@media(max-width:700px){.wgrid{grid-template-columns:1fr}.wm{aspect-ratio:1/.7;max-width:420px;margin-inline:auto}}
-
-/* ---------- контакт ---------- */
-.contact{--bw:clamp(190px,25vw,380px);position:relative;margin-top:calc(var(--S) + var(--bw) * .42);background:var(--fg);color:#fff;padding-block:calc(var(--bw) * .5 + 24px) clamp(40px,6vw,88px)}
-.brainsit{position:absolute;top:0;left:max(var(--m),6vw);width:var(--bw);aspect-ratio:720 / 597;background:var(--img-brain) center / 100% 100% no-repeat;transform:translateY(-55%);pointer-events:none;z-index:2}
-@media(max-width:860px){.contact{--bw:clamp(170px,48vw,300px)}.brainsit{left:max(var(--m),5vw)}}
-.contact .wrap{padding-left:max(var(--m),env(safe-area-inset-left,0px));padding-right:max(var(--m),env(safe-area-inset-right,0px))}
-.contact h2{margin:0;font:800 clamp(28px,4vw,56px)/1.05 var(--f-display);letter-spacing:-.04em;max-width:14ch}
-.contact .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:start}
-.contact p{color:#b9c1c8;max-width:40ch;margin:18px 0 0}
-form{display:grid;gap:14px}
-#lead{background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(255,255,255,.07));color:#fff;border:1px solid rgba(255,255,255,.28);border-radius:40px;padding:clamp(24px,2.6vw,40px);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 30px 70px -30px rgba(0,0,0,.7)}
-#lead .leadico{width:clamp(56px,4.4vw,68px);aspect-ratio:1;border-radius:24%;background:var(--img-appicon) center/cover no-repeat;box-shadow:0 0 0 1px rgba(0,0,0,.09),0 6px 16px -6px rgba(0,0,0,.25)}
-#lead,#lead>*{min-width:0}
-#lead select,#lead input{width:100%;max-width:100%;min-width:0;box-sizing:border-box;text-overflow:ellipsis}
-#lead label{color:rgba(255,255,255,.72)}
-#lead input,#lead select{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:15px 22px;}
-#lead select option{color:#101417;background:#fff}
-#lead input::placeholder{color:rgba(255,255,255,.5)}
-#lead input:focus,#lead select:focus{outline:2px solid rgba(255,255,255,.85);outline-offset:1px}
-#lead select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center;background-size:18px;padding-right:48px}
-#lead .btn{background:linear-gradient(145deg,rgba(255,255,255,.34),rgba(255,255,255,.14));border:1px solid rgba(255,255,255,.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.45);color:#fff;justify-self:stretch;padding:17px 24px;font-size:16px}
-label{display:grid;gap:6px;font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:#b9c1c8}
-input,select,textarea{font:400 16px/1.3 var(--f-body);color:#fff;background:#1b2024;border:1px solid #38414a;padding:13px 14px;width:100%;border-radius:0}
-input:focus,select:focus,textarea:focus{outline:3px solid var(--seo);outline-offset:1px}
-textarea{min-height:96px;resize:vertical}
-.note{font-size:14px;color:#b9c1c8;min-height:1.4em;margin:0}
-@media(max-width:820px){.contact .grid{grid-template-columns:1fr}}
-@media (prefers-reduced-motion:reduce){.down{animation:none}.btn{transition:none}.btn:hover{transform:none}html{scroll-behavior:auto}}
-#top{position:relative}
-.herolang{position:absolute;top:12px;right:max(var(--m),env(safe-area-inset-right,0px));z-index:30;height:32px}
-@media(max-width:760px){.herolang{position:relative;top:auto;right:auto;height:44px;display:flex;justify-content:flex-end;align-items:center;padding:0 max(var(--m),env(safe-area-inset-right,0px))}}
-.pdesc{width:100%}
-.wt .btn,.wbuy .btn{white-space:normal;max-width:100%;text-align:center;line-height:1.25}
-.btn{white-space:normal;text-align:center;line-height:1.25;max-width:100%}
-.cat,.how h2,.who h2,.who .lead,.paths h2,.intro h2,.chead,.csub{text-align:center;margin-inline:auto}
-@media(max-width:860px),(orientation:portrait) and (max-width:1100px){.cat,.how h2,.who h2,.who .lead{text-align:center;margin-inline:auto}.contact h2{max-width:20ch}.contact .grid>div>p{max-width:46ch}.who .lead{max-width:60ch}}
-.wt .yr{margin:8px 0 0;font:600 13px/1.35 var(--f-body);color:var(--wl);max-width:none}
-.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-.langs-foot{max-width:1760px;margin:clamp(24px,4vw,48px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));display:flex;flex-wrap:wrap;gap:6px 14px;font:500 12px/1.6 var(--f-body);color:var(--mute);justify-content:center}
-.langs-foot a{color:var(--mute);text-decoration:none}.langs-foot a:hover{text-decoration:underline}
-/* стекло: кнопки и плашки. Пастельные пятна лежат за плашками, чтобы размытие было видно */
-.svcgrid li,.product{background:linear-gradient(145deg,rgba(255,255,255,.72),rgba(255,255,255,.38));border:1px solid rgba(255,255,255,.85);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 14px 34px -18px rgba(28,38,90,.28)}
-.btn,.pc-more,.panel .btn,.wt .btn{background:linear-gradient(145deg,rgba(32,38,46,.92),rgba(16,20,23,.74));border:1px solid rgba(255,255,255,.26);box-shadow:inset 0 1px 0 rgba(255,255,255,.32),0 10px 24px -12px rgba(16,20,23,.55);color:#fff}
-.btn.ghost{background:linear-gradient(145deg,rgba(255,255,255,.7),rgba(255,255,255,.34));border:1px solid rgba(16,20,23,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 10px 24px -14px rgba(28,38,90,.3);color:var(--fg)}
-.pc-more,.panel .btn,.wt .btn{background:linear-gradient(145deg,color-mix(in srgb,var(--btn,var(--acc)) 80%,#fff),color-mix(in srgb,var(--btn,var(--acc)) 52%,transparent));border:1px solid color-mix(in srgb,var(--btn,var(--acc)) 55%,#fff);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 10px 24px -12px color-mix(in srgb,var(--btn,var(--acc)) 80%,#000);color:var(--btxt,#101417)}
-/* тёмная полоса: «Что мы делаем» и «Как это работает» на одном фоне с градиентом, как у футера */
-.dark{margin-block:calc(var(--S) / 2);padding-block:calc(var(--S) / 2);display:flow-root;color:#fff;background:var(--fg)}
-.dark .svc{margin-top:0}
-.once{margin:var(--S) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px));max-width:1760px;text-align:center}.once h2{margin:0 auto;font:800 clamp(30px,4.6vw,72px)/1 var(--f-display);letter-spacing:-.035em;text-wrap:balance}.once .lead{margin:clamp(14px,1.6vw,22px) auto 0;max-width:60ch;color:#b9c1c8;font-size:clamp(16px,1.4vw,22px);line-height:1.5}.once .svcgrid li{text-align:start}
-.dark h2,.dark h3{color:#fff}
-.dark .svcgrid p,.dark .steps p{color:#b9c1c8}
-.dark .steps .sn{color:rgba(255,255,255,.62)}.dark .steps li.last .sn{color:#fff}
-/* ---------- движение (по мотивам join-way.com): быстрый старт и мягкая остановка, появление снизу, лента, плавный аккордеон ---------- */
-:root{--ease:cubic-bezier(.16,1,.3,1);--ease2:cubic-bezier(.4,0,.2,1);interpolate-size:allow-keywords}
-.js .rv{opacity:0;transform:translateY(var(--ry,18px));transition:opacity .55s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
-.js .rv.in{opacity:1;transform:none}
-.js .rv.in.done{transition-delay:0s}
-.js h2.rv,.js .chead.rv{--ry:.3em}
-/* первый экран: при скролле текст, надпись и горилла плавно уходят вверх и гаснут (только translate и opacity, размеры не меняются) */
-.js .hero .ht{translate:0 calc(var(--hp,0) * -7svh);opacity:calc(1 - var(--hp,0) * .9)}
-.js .hero .word{translate:0 calc(var(--hp,0) * -3svh);opacity:calc(1 - var(--hp,0) * .85)}
-.js .hero .sofa{translate:0 calc(var(--hp,0) * 4svh);opacity:calc(1 - var(--hp,0) * .8)}
-/* лента продуктов */
-.mq{direction:ltr;display:flex;overflow:hidden;border-block:1px solid var(--line);padding:clamp(14px,1.6vw,22px) 0;background:var(--bg);position:relative;z-index:2}
-.mq-t{flex:none;display:flex;align-items:center;gap:clamp(28px,3vw,56px);padding-right:clamp(28px,3vw,56px);font:800 clamp(18px,2vw,30px)/1 var(--f-display);letter-spacing:-.03em;text-transform:uppercase;white-space:nowrap;animation:marquee-x 26s linear infinite}
-.mq:hover .mq-t{animation-play-state:paused}
-.mq-t span{display:flex;align-items:center;gap:clamp(28px,3vw,56px)}
-.mq-t span::after{content:'';flex:none;width:.4em;height:.4em;border-radius:50%;background:var(--c,var(--fg))}
-.mq .p-fit{--c:var(--fit)}.mq .p-tax{--c:var(--tax)}.mq .p-build{--c:var(--build)}.mq .p-booking{--c:var(--booking)}.mq .p-seo{--c:var(--seo)}
-@keyframes marquee-x{to{transform:translateX(-100%)}}
-/* вкладки каталога 01-05 */
-.ctabs{display:none}
-.js .ctabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:clamp(24px,3vw,44px) auto 0;padding:0 max(var(--m),env(safe-area-inset-left,0px))}
-.ctabs button{display:inline-flex;align-items:baseline;gap:10px;border:0;cursor:pointer;background:var(--soft);color:var(--mute);font:700 clamp(14px,1.2vw,17px)/1 var(--f-display);letter-spacing:-.02em;padding:14px 20px;border-radius:14px;transition:background .3s var(--ease2),color .3s var(--ease2),transform .3s var(--ease2);-webkit-tap-highlight-color:transparent}
-.ctabs button:hover{color:var(--fg);transform:translateY(-2px)}
-.ctabs button[aria-selected=true]{background:var(--fg);color:#fff}
-.ctabs i{font:600 11px/1 var(--f-body);font-style:normal;letter-spacing:.1em;opacity:.6}
-.js .ctabs+.cgrid{margin-top:clamp(16px,2vw,28px)}
-.cgrid.tabbed{display:block;max-width:1100px}
-.cgrid.tabbed .product{display:none}
-.cgrid.tabbed .product.on{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:1fr auto auto auto 1fr;column-gap:clamp(16px,3vw,48px);align-items:start;padding:clamp(14px,2vw,28px);animation:tabin .6s var(--ease)}
-.cgrid.tabbed .product.on .mascot{grid-column:1;grid-row:1/-1}
-.cgrid.tabbed .product.on h3{grid-column:2;grid-row:2;align-self:end;margin:0;font-size:clamp(26px,3.4vw,52px)}
-.cgrid.tabbed .product.on>.tag{grid-column:2;grid-row:3;font-size:clamp(15px,1.3vw,20px);margin-bottom:clamp(14px,1.6vw,24px)}
-.cgrid.tabbed .product.on .pc-more{grid-column:2;grid-row:4;margin-top:0;align-self:start;justify-self:start;padding-inline:clamp(26px,3vw,44px)}
-@media(max-width:760px){.cgrid.tabbed .product.on{display:flex}.cgrid.tabbed .product.on h3{font-size:clamp(24px,7vw,34px);margin-top:clamp(12px,1.4vw,20px)}.cgrid.tabbed .product.on .pc-more{align-self:stretch}.ctabs button{padding:12px 14px}}
-@keyframes tabin{from{opacity:0;transform:translateY(14px)}}
-/* аккордеон FAQ: плавное раскрытие (где браузер умеет) */
-.faqlist details::details-content{height:0;overflow:clip;transition:height .28s var(--ease2),content-visibility .28s allow-discrete}
-.faqlist details[open]::details-content{height:auto}
-.faqlist summary::after{transition:transform .28s var(--ease2)}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.js .hero .ht,.js .hero .word,.js .hero .sofa{translate:none;opacity:1}.mq-t{animation:none}.cgrid.tabbed .product.on{animation:none}.faqlist details::details-content{transition:none}}
-.dark .svcgrid li{background:linear-gradient(145deg,rgba(255,255,255,.17),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 18px 40px -22px rgba(0,0,0,.7)}
+.dl{border:0;padding:clamp(24px,3vw,36px);border-radius:28px;background:#fff;color:var(--fg);width:min(92vw,380px);text-align:center;box-shadow:0 30px 80px -20px rgba(0,0,0,.45);margin:auto;overflow:visible}
+.dl::backdrop{background:rgba(10,12,14,.5);backdrop-filter:blur(4px)}
+.dl[open]{animation:dlin .22s ease-out}
+@keyframes dlin{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+.dl-ico{display:block;width:72px;aspect-ratio:1;margin:0 auto 14px;border-radius:24%;background:var(--img-appicon) center/cover no-repeat;box-shadow:0 0 0 1px rgba(0,0,0,.09),0 6px 16px -6px rgba(0,0,0,.25)}
+.dl h3{margin:0;font:800 28px/1 var(--f-display);letter-spacing:-.03em}
+.dl p{margin:8px 0 0;color:var(--mute);font-size:16px}
+.dl-list{display:grid;gap:10px;margin-top:20px}
+.dl-list a{padding:15px 18px;border-radius:14px;font:600 16px/1 var(--f-body);text-decoration:none;color:#fff;background:var(--fg);transition:transform .2s ease,filter .2s ease}
+.dl-list a:hover{transform:scale(1.03);filter:brightness(1.15)}
+.dl-x{position:absolute;top:10px;right:10px;width:36px;height:36px;border:0;border-radius:50%;background:#eef0f2;color:var(--fg);font:500 22px/1 var(--f-body);cursor:pointer}
+.dl-x:hover{background:#e0e3e6}
+.dl-x,.dl-x:focus,.dl-x:focus-visible,.appicon,.app{outline:none;-webkit-tap-highlight-color:transparent}
 </style>
-
-
+<body>
+<header class="hdr" id="hdr">
+  <a class="brand" href="#top" aria-label="РОБОРАБ"><i></i><span>РОБОРАБ</span></a>
+  <nav class="hnav">
+    <a class="st" href="chat.html">Начать <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 11 3M5 3h6v6"/></svg></a>
+    <button type="button" id="mbtn" aria-expanded="false" aria-controls="menu"><span>Меню</span><span class="bars" aria-hidden="true"></span></button>
+  </nav>
+</header>
+<div class="menu" id="menu">
+  <ol>
+    <li><a href="#approach">Как мы работаем</a></li>
+    <li><a href="#solutions">Готовые решения</a></li>
+    <li><a href="#process">Процесс</a></li>
+    <li><a href="#start">С чего начать</a></li>
+    <li><a href="#faq">Вопросы</a></li>
+    <li><a href="#contact">Контакты</a></li>
+  </ol>
+  <div class="mf"><span>РОБОРАБ</span><a href="chat.html">Рассказать о бизнесе</a></div>
+</div>
 
 <main id="top">
-  <div class="herolang" id="herolang"></div>
-  <!-- ЭКРАН 0: баннер. Отступы равны: край экрана до Р = Б до дивана = диван до края экрана -->
-  <section class="hero wrap">
-    <h1 class="h1w"><span class="ht ht2" data-fit data-i18n="top"><span class="d"><span class="ml">Внедрение</span> <span class="ml">искусственного</span></span><br><span class="ml">интеллекта</span></span>
-    <span class="banner">
-      <span class="word" role="img" aria-label="РОБОРАБ"><b class="wtx" aria-hidden="true">РОБОРАБ</b></span>
-      <span class="sofa" aria-hidden="true"></span>
-    </span>
-    <span class="ht" data-fit data-i18n="bot"><span class="d"><span class="ml">в бизнес<span class="hy">-</span></span><span class="ml pr">процессы</span></span></span></h1>
-    <a class="down" href="#intro" aria-label="Как мы внедряем, листайте вниз"><span>Как мы внедряем</span><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></a>
-  </section>
-
-  <!-- КАТАЛОГ: порядок фитнес, налоги, стройка, букинг, SEO/GEO. Одно белое пространство -->
-
-  <!-- ЛЕНТА ПРОДУКТОВ: бесконечная, 26 секунд на круг. Только названия из каталога -->
-  <div class="mq" aria-hidden="true">
-    <div class="mq-t"><span class="p-fit">Фитнес-CRM</span><span class="p-tax">Налоговый агент</span><span class="p-build">Строй-учёт</span><span class="p-booking">Букинг-CRM</span><span class="p-seo">SEO / GEO</span><span class="p-fit">Фитнес-CRM</span><span class="p-tax">Налоговый агент</span><span class="p-build">Строй-учёт</span><span class="p-booking">Букинг-CRM</span><span class="p-seo">SEO / GEO</span><span class="p-fit">Фитнес-CRM</span><span class="p-tax">Налоговый агент</span><span class="p-build">Строй-учёт</span><span class="p-booking">Букинг-CRM</span><span class="p-seo">SEO / GEO</span></div>
-    <div class="mq-t"><span class="p-fit">Фитнес-CRM</span><span class="p-tax">Налоговый агент</span><span class="p-build">Строй-учёт</span><span class="p-booking">Букинг-CRM</span><span class="p-seo">SEO / GEO</span><span class="p-fit">Фитнес-CRM</span><span class="p-tax">Налоговый агент</span><span class="p-build">Строй-учёт</span><span class="p-booking">Букинг-CRM</span><span class="p-seo">SEO / GEO</span><span class="p-fit">Фитнес-CRM</span><span class="p-tax">Налоговый агент</span><span class="p-build">Строй-учёт</span><span class="p-booking">Букинг-CRM</span><span class="p-seo">SEO / GEO</span></div>
-  </div>
-
-  <!-- ВВЕДЕНИЕ: чем занимаемся, для кого, диагностика -->
-  <section class="intro" id="intro" aria-labelledby="intro-h">
-    <h2 id="intro-h">ИИ-интеграция для бизнеса: сначала диагностика, потом решение</h2>
-    <p class="lead">Расскажите агенту в чате о своём бизнесе в любое время, даже ночью. Он найдёт, где вы теряете деньги. Потом живой специалист изучит итог и предложит решение. Готовый продукт или решение с нуля.</p>
-    <p class="princ">Диагностика бесплатна</p>
-    <div class="ctas">
-      <a class="btn" href="chat.html">Пройти онлайн-диагностику</a>
-      <a class="btn ghost" href="#catalog">Смотреть готовые решения</a>
+  <section class="hero" aria-labelledby="h1">
+    <div class="stage" id="stage">
+      <div class="htext" id="htext">
+        <h1 class="big" id="h1"><span class="ln">Внедряем ИИ<span class="pill" id="pill"></span></span><span class="ln">в бизнес-процессы</span><span class="ln">вашей компании.</span></h1>
+        <p class="hsub">Расскажите ИИ-агенту в чате о своём бизнесе в любое время. Специалист прочитает итог и предложит готовый продукт или решение с нуля.</p>
+        <div class="hcta">
+          <a class="btn" href="chat.html">Рассказать о бизнесе <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 11 3M5 3h6v6"/></svg></a>
+          <a class="lnk" href="#solutions">Смотреть решения</a>
+        </div>
+        <div class="hcols">
+          <div><small>Готовые решения</small><b>Продукт из каталога</b><span>Настроим под вас</span></div>
+          <div><small>Под клиента</small><b>Решение с нуля</b><span>Если из каталога ничего не подходит</span></div>
+          <div><small>Сайты</small><b>Сайт для бизнеса</b><span>Сайты и веб-сервисы, включая SEO и GEO.</span></div>
+          <div><small>Чат с агентом</small><b>Расскажите о бизнесе</b><span>В любое время</span></div>
+        </div>
+      </div>
+      <div class="himg" id="himg" aria-hidden="true"><div class="art"><div class="hword" id="hword">РОБОРАБ</div><span class="ape"></span></div></div>
     </div>
-    <div class="app" id="app">
-      <button class="appicon" type="button" aria-haspopup="dialog" aria-controls="stores" aria-label="РОБОРАБ AI: выбрать устройство"></button>
-      <span class="appnote">Доступно на всех устройствах<small>Нажми, чтобы войти</small></span>
+  </section>
+
+  <div class="sheet" id="sheet">
+    <div class="mq" aria-hidden="true">
+      <div class="mq-t"><span>Автоматизация процессов с ИИ</span><span>SaaS-платформы</span><span>Веб-сервисы и сайты</span><span>Корпоративные чат-боты</span><span>Специализированные проекты</span><span>Автоматизация процессов с ИИ</span><span>SaaS-платформы</span><span>Веб-сервисы и сайты</span><span>Корпоративные чат-боты</span><span>Специализированные проекты</span></div>
+      <div class="mq-t"><span>Автоматизация процессов с ИИ</span><span>SaaS-платформы</span><span>Веб-сервисы и сайты</span><span>Корпоративные чат-боты</span><span>Специализированные проекты</span><span>Автоматизация процессов с ИИ</span><span>SaaS-платформы</span><span>Веб-сервисы и сайты</span><span>Корпоративные чат-боты</span><span>Специализированные проекты</span></div>
     </div>
-    <dialog class="dl" id="stores" tabindex="-1" aria-labelledby="dl-h">
-          <button class="dl-x" type="button" aria-label="Закрыть">×</button>
-          <span class="dl-ico" aria-hidden="true"></span>
-          <h3 id="dl-h">РОБОРАБ AI</h3>
-          <p>Выберите устройство</p>
-          <div class="dl-list">
-            <a href="#" data-empty>Windows</a><a href="#" data-empty>macOS</a><a href="#" data-empty>iPhone / iPad</a><a href="#" data-empty>Android</a>
-          </div>
-        </dialog>
-  </section>
 
-  <div class="dark" id="dark">
-  <!-- ЧТО МЫ ДЕЛАЕМ -->
-  <section class="svc" id="services" aria-labelledby="svc-h">
-    <h2 id="svc-h">Что мы делаем</h2>
-    <ul class="svcgrid"><li><h3>Автоматизация процессов с ИИ</h3><p>Встраиваем ИИ-агентов в ваши рабочие процессы.</p></li><li><h3>SaaS-платформы</h3><p>Готовые отраслевые продукты и платформы под вашу задачу.</p></li><li><h3>Веб-сервисы и сайты</h3><p>Сайты и веб-сервисы, включая SEO и GEO.</p></li><li><h3>Корпоративные чат-боты</h3><p>Чат-боты и ИИ-ассистенты для вашей компании.</p></li><li><h3>Специализированные проекты</h3><p>Нестандартная задача? Соберём из ваших продуктов или сделаем с нуля.</p></li></ul>
-  </section>
+    <section class="sec" id="approach" aria-labelledby="ap-h">
+      <div class="c">
+        <div class="sh"><span class="lab">Как мы работаем</span><h2 class="t" id="ap-h">Сначала разберёмся.<br><span class="blue">Потом соберём.</span></h2></div>
+        <div class="panel-art pa-1" role="img" aria-label="Маскот РОБОРАБ"><span class="a1"></span></div>
+      </div>
+    </section>
 
-  <!-- КАК ЭТО РАБОТАЕТ -->
-  <section class="how" id="how" aria-labelledby="how-h">
-    <h2 id="how-h">Как это работает</h2>
-    <ol class="steps">
-      <li><span class="ic"></span><div><span class="sn">Шаг 1</span><h3>Вы описываете задачу</h3><p>ИИ-агенту: текстом, голосом или в видеозвонке.</p></div></li>
-      <li><span class="ic"></span><div><span class="sn">Шаг 2</span><h3>Агент собирает суть</h3><p>Формирует резюме вашего запроса.</p></div></li>
-      <li><span class="ic"></span><div><span class="sn">Шаг 3</span><h3>Специалист настраивает</h3><p>Технический специалист кастомизирует готовое решение под вас.</p></div></li>
-      <li class="last"><span class="ic"></span><div><span class="sn">На следующий день</span><h3>Инструмент у вас</h3><p>Остаётся только настройка.</p></div></li>
-    </ol>
-  </section>
-  <section class="once" id="once" aria-labelledby="once-h">
-    <h2 id="once-h">Консалтинг и внедрение под вашу отрасль</h2>
-    <p class="lead">Работаем с бизнесом от идеи до эксплуатации. Инфраструктуру оставляем в нашем приложении или разворачиваем на вашем сервере.</p>
-    <ul class="svcgrid"><li><h3>Мультиагентные системы под профессию</h3><p>Вы юрист? Соберём систему агентов: одни следят за изменениями в законах, другие просматривают ваши дела.</p></li><li><h3>Встраиваем в вашу экосистему</h3><p>Подключаем агентов к таблицам, базам данных и 1С и настраиваем под ваши процессы.</p></li><li><h3>Ваша инфраструктура</h3><p>Оставляем всё в нашем приложении, управление через чат, или поселяем на ваш сервер.</p></li></ul>
-  </section>
-  </div>
+    <section class="dk" id="chat" aria-labelledby="ch-h" style="margin-bottom:clamp(72px,9vw,140px)">
+      <div class="c">
+        <div class="sh"><span class="lab">Чат</span><div><h2 class="t" id="ch-h">Чат работает,<br><span class="lime">когда удобно вам.</span></h2><p class="dsub">Агент задаёт вопросы о вашем бизнесе. Специалист читает итог и предлагает решение.</p></div></div>
+        <div class="cols3">
+          <div><small>01</small><b>Кто вы?</b><span>Чем занимается ваша компания?</span></div>
+          <div><small>02</small><b>Что мешает?</b><span>Какую задачу или процесс вы хотите автоматизировать?</span></div>
+          <div><small>03</small><b>Что дальше?</b><span>Готовый продукт или решение с нуля.</span></div>
+        </div>
+      </div>
+    </section>
 
-  <h2 class="chead" id="catalog-h">Готовые решения для отраслей</h2>
-  <p class="csub">Если ни одно не подходит, соберём решение под вас.</p>
-  <div class="ctabs" role="tablist" aria-label="Готовые решения для отраслей">
-    <button type="button" role="tab" data-t="catalog" aria-selected="true"><i>01</i>Фитнес-CRM</button>
-    <button type="button" role="tab" data-t="tax" aria-selected="false"><i>02</i>Налоговый агент</button>
-    <button type="button" role="tab" data-t="build" aria-selected="false"><i>03</i>Строй-учёт</button>
-    <button type="button" role="tab" data-t="booking" aria-selected="false"><i>04</i>Букинг-CRM</button>
-    <button type="button" role="tab" data-t="seo" aria-selected="false"><i>05</i>SEO / GEO</button>
-  </div>
-  <div class="cgrid">
-  <section class="product" id="catalog">
+    <section class="sec" id="solutions" aria-labelledby="so-h">
+      <div class="c">
+        <div class="sh"><span class="lab">Готовые решения</span><h2 class="t" id="so-h">Готовые решения<br><span class="blue">для отраслей.</span></h2></div>
+        <p class="note" style="margin-top:20px">Если ни одно не подходит, соберём решение под вас.</p>
+        <div class="tabs" role="tablist" aria-label="Готовые решения для отраслей" id="tabs">
+          <span class="tl">Тип решения</span>
+          <button type="button" role="tab" data-t="catalog" aria-selected="true"><i>01</i>Фитнес-CRM</button>
+          <button type="button" role="tab" data-t="tax" aria-selected="false"><i>02</i>Налоговый агент</button>
+          <button type="button" role="tab" data-t="build" aria-selected="false"><i>03</i>Строй-учёт</button>
+          <button type="button" role="tab" data-t="booking" aria-selected="false"><i>04</i>Букинг-CRM</button>
+          <button type="button" role="tab" data-t="seo" aria-selected="false"><i>05</i>SEO / GEO</button>
+        </div>
+        <div class="cgrid" id="cgrid">
+<section class="product" id="catalog">
     <div class="mascot" role="img" aria-label="Маскот фитнес-CRM"></div>
     <h3>Фитнес-CRM</h3><p class="tag">Клиенты, абонементы, расписание и выплаты тренерам</p>
     <button type="button" class="btn pc-more">Узнать детали</button>
@@ -581,19 +466,53 @@ textarea{min-height:96px;resize:vertical}
     </dialog>
   </section>
 
-  </div>
+  
+        </div>
+      </div>
+    </section>
 
-  <!-- ДЛЯ КОГО РОБОРАБ -->
-  <section class="who one" id="who" aria-labelledby="who-h">
-    <h2 id="who-h">Опишите проблему своими словами</h2>
-    <p>Вы пишете нашему ИИ-агенту РОБОРАБ AI в чате о проблеме: что тормозит работу, где уходят деньги и время. Агент работает на передовых моделях Claude, задаёт уточняющие вопросы и ставит диагноз. Дальше наш специалист сам строит под вас инструмент. Готовый инструмент вам представляет тот же агент, прямо в чате. Если ИИ вам не нужен, мы так и скажем.</p>
-    <a class="btn" href="chat.html">Начать бесплатную диагностику</a>
-  </section>
+    <section class="dk" id="industry" aria-labelledby="in-h" style="margin-bottom:clamp(72px,9vw,140px)">
+      <div class="c">
+        <div class="dgrid">
+          <span class="lab">Под вашу отрасль</span>
+          <div><h2 class="t" id="in-h">Консалтинг и внедрение<br><span class="lime">под вашу отрасль.</span></h2><p class="dsub">Работаем с бизнесом от идеи до эксплуатации. Инфраструктуру оставляем в нашем приложении или разворачиваем на вашем сервере.</p></div>
+          <div class="dlist">
+            <div class="ditem"><div class="tile t1"><i></i></div><div><h3>Мультиагентные системы под профессию</h3><p>Вы юрист? Соберём систему агентов: одни следят за изменениями в законах, другие просматривают ваши дела.</p></div></div>
+            <div class="ditem"><div class="tile t2"><i></i></div><div><h3>Встраиваем в вашу экосистему</h3><p>Подключаем агентов к таблицам, базам данных и 1С и настраиваем под ваши процессы.</p></div></div>
+            <div class="ditem"><div class="tile t3"><i></i></div><div><h3>Ваша инфраструктура</h3><p>Оставляем всё в нашем приложении, управление через чат, или поселяем на ваш сервер.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- ЧАСТЫЕ ВОПРОСЫ -->
-  <section class="faq" id="faq" aria-labelledby="faq-h">
-    <h2 id="faq-h">Частые вопросы</h2>
-    <div class="faqlist">
+    <section class="sec" id="process" aria-labelledby="pr-h">
+      <div class="c">
+        <div class="sh"><span class="lab">Процесс</span><h2 class="t" id="pr-h">Как это работает<br><span class="blue">в четыре шага.</span></h2></div>
+        <div class="panel-art pa-2" role="img" aria-label="Мозг в кроссовках"><span class="a1"></span></div>
+        <ol class="steps">
+          <li><span class="ic"></span><div><span class="sn">Шаг 1</span><h3>Вы описываете задачу</h3><p>ИИ-агенту: текстом, голосом или в видеозвонке.</p></div></li>
+          <li><span class="ic"></span><div><span class="sn">Шаг 2</span><h3>Агент собирает суть</h3><p>Формирует резюме вашего запроса.</p></div></li>
+          <li><span class="ic"></span><div><span class="sn">Шаг 3</span><h3>Специалист настраивает</h3><p>Технический специалист кастомизирует готовое решение под вас.</p></div></li>
+          <li class="last"><span class="ic"></span><div><span class="sn">На следующий день</span><h3>Инструмент у вас</h3><p>Остаётся только настройка.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sec" id="start" aria-labelledby="st-h">
+      <div class="c">
+        <div class="sh"><span class="lab">С чего начать</span><h2 class="t" id="st-h">Три способа начать.<br><span class="blue">Выберите свой.</span></h2></div>
+        <div class="ways">
+          <div class="way"><span class="gn" aria-hidden="true">01</span><small>Каталог</small><h3>Готовый продукт</h3><p>Берём из каталога и настраиваем под вас.</p><a class="lnk" href="#solutions">Смотреть решения</a></div>
+          <div class="way bl"><span class="gn" aria-hidden="true">02</span><span class="bd">С нуля</span><small>Под клиента</small><h3>Решение под вас</h3><p>Если из каталога ничего не подходит.</p><a class="lnk" href="chat.html">Рассказать о бизнесе</a></div>
+          <div class="way"><span class="gn" aria-hidden="true">03</span><small>Сайты</small><h3>Сайт для бизнеса</h3><p>Сайты и веб-сервисы, включая SEO и GEO.</p><a class="lnk" href="chat.html">Рассказать о бизнесе</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="faq" aria-labelledby="fq-h">
+      <div class="c">
+        <div class="sh"><span class="lab">Вопросы</span><h2 class="t" id="fq-h">Частые вопросы</h2></div>
+        <div class="faqlist">
       <details><summary>Что такое РОБОРАБ?</summary><p>РОБОРАБ внедряет ИИ-агентов в бизнес-процессы компаний. Можно начать с бесплатной диагностики в чате, выбрать готовое решение из каталога или заказать решение под ваш бизнес.</p></details>
       <details><summary>Как внедрить искусственный интеллект в бизнес-процессы?</summary><p>Вы описываете задачу ИИ-агенту: текстом, голосом или в видеозвонке. Агент формирует резюме запроса, технический специалист настраивает готовое решение под вас, а на следующий день инструмент уже в приложении.</p></details>
       <details><summary>Сколько стоит внедрение ИИ?</summary><p>Диагностика в чате бесплатна. Цена внедрения индивидуальная: расчёт стоимости можно получить за 10 минут в чате.</p></details>
@@ -605,221 +524,52 @@ textarea{min-height:96px;resize:vertical}
       <details><summary>С чего начать, если я не знаю, что мне нужно?</summary><p>Начните с диагностики: расскажите ИИ-агенту в чате о своём бизнесе. Он поможет найти, где процессы буксуют. Специалист изучит резюме и предложит, что внедрять.</p></details>
       <details><summary>Можно ли заказать то, чего нет в каталоге?</summary><p>Да. Мы настроим готовый продукт под вас, объединим несколько продуктов (решение «Гибрид») или соберём решение полностью под вас. Делаем и сайты.</p></details>
       <details><summary>На каких языках работает сайт?</summary><p>Сайт доступен на русском, английском, китайском и арабском. Язык меняется кнопкой с глобусом в правом верхнем углу первого экрана.</p></details>
-    </div>
-  </section>
 
-  <section class="contact" id="contact">
-    <span class="brainsit" role="img" aria-label="Мозг в кроссовках показывает на форму"></span>
-    <div class="wrap grid">
-      <div>
-        <h2>Расскажите о задаче</h2>
-        <p>Оставьте имя и контакт, выберите продукт. Мы откроем чат с РОБОРАБ AI: агент задаст несколько вопросов и выяснит, что именно вам нужно.</p>
+        </div>
       </div>
-      <form id="lead" action="chat.html" method="get">
+    </section>
+
+    <section class="sec cta" id="contact" aria-labelledby="ct-h">
+      <div class="c">
+        <div class="sh"><span class="lab">Контакты</span><h2 class="t" id="ct-h">Расскажите<br><span class="blue">о задаче.</span></h2></div>
+        <div class="box">
+          <div><h3>Откроем чат</h3><p>Оставьте имя и контакт, выберите продукт. Мы откроем чат с РОБОРАБ AI: агент задаст несколько вопросов и выяснит, что именно вам нужно.</p></div>
+<form id="lead" action="chat.html" method="get">
         <span class="leadico" aria-hidden="true"></span>
         <input type="hidden" name="lang" value="ru">
         <label for="f-name">Имя<input id="f-name" name="name" type="text" autocomplete="name"></label>
         <label for="f-contact">Телефон или e-mail<input id="f-contact" name="contact" type="text" autocomplete="email" required></label>
         <label for="f-prod">Продукт, который вас заинтересовал
-          <select id="f-prod" name="product"><option value="Пока не знаю" selected>Пока не знаю</option><option value="Фитнес-CRM">Фитнес-CRM</option><option value="Налоговый агент">Налоговый агент</option><option value="Строй-учёт">Строй-учёт</option><option value="Букинг-CRM">Букинг-CRM</option><option value="SEO / GEO">SEO / GEO</option><option value="Гибрид">Гибрид</option><option value="Бесплатный план">Бесплатный план</option><option value="Подписка с бизнес-ментором">Подписка с бизнес-ментором</option></select>
+          <select id="f-prod" name="product"><option value="Пока не знаю" selected>Пока не знаю</option><option value="Фитнес-CRM">Фитнес-CRM</option><option value="Налоговый агент">Налоговый агент</option><option value="Строй-учёт">Строй-учёт</option><option value="Букинг-CRM">Букинг-CRM</option><option value="SEO / GEO">SEO / GEO</option></select>
         </label>
         <button class="btn" type="submit">Отправить в чат РОБОРАБ AI <span aria-hidden="true">→</span></button>
       </form>
-    </div>
-  </section>
+        </div>
+      </div>
+    </section>
+
+    <footer class="ft">
+      <div class="c">
+        <div class="row">
+          <nav><a href="#approach">Как мы работаем</a><a href="#solutions">Готовые решения</a><a href="#process">Процесс</a><a href="#faq">Вопросы</a><a href="#contact">Контакты</a></nav>
+          <div class="app" id="app"><button class="appicon" type="button" aria-haspopup="dialog" aria-controls="stores" aria-label="РОБОРАБ AI: выбрать устройство"></button><span class="appnote">Доступно на всех устройствах<small>Нажми, чтобы войти</small></span></div>
+        </div>
+        <div class="wm" aria-hidden="true">РОБОРАБ</div>
+      </div>
+    </footer>
+  </div>
 </main>
-
-
+<dialog class="dl" id="stores" tabindex="-1" aria-labelledby="dl-h">
+          <button class="dl-x" type="button" aria-label="Закрыть">×</button>
+          <span class="dl-ico" aria-hidden="true"></span>
+          <h3 id="dl-h">РОБОРАБ AI</h3>
+          <p>Выберите устройство</p>
+          <div class="dl-list">
+            <a href="#" data-empty>Windows</a><a href="#" data-empty>macOS</a><a href="#" data-empty>iPhone / iPad</a><a href="#" data-empty>Android</a>
+          </div>
+        </dialog>
 <dialog class="lb" id="lb" aria-label="Экраны приложения"><div class="st" id="lbst"></div><button class="x" type="button" aria-label="Закрыть">×</button><button class="pv" type="button" aria-label="Предыдущий экран">‹</button><button class="nx" type="button" aria-label="Следующий экран">›</button><div class="cn" id="lbcn"></div></dialog>
 <script>
-(function(){
-  /* первый экран: строки растягиваются на всю ширину, а свободная высота делится на 4 равных промежутка --G (она же расстояние между блоками на всей странице) */
-  var fits = document.querySelectorAll('.ht[data-fit]'), root = document.documentElement;
-  var ctx = null; try { ctx = document.createElement('canvas').getContext('2d'); } catch(e){}
-  function inkAsc(el, text){
-    if (!ctx) return 0;
-    var c = getComputedStyle(el); ctx.font = c.fontWeight + ' 100px ' + c.fontFamily;
-    return ctx.measureText(text.toUpperCase()).actualBoundingBoxAscent * parseFloat(c.fontSize) / 100;
-  }
-  /* высота экрана при видимой панели Safari (svh): не меняется, когда панель прячется при скролле, поэтому раскладка не прыгает */
-  var svhProbe; function svhPx(){ try { if (!svhProbe) { svhProbe = document.createElement('div'); svhProbe.style.cssText = 'position:fixed;left:0;top:0;width:0;height:100svh;visibility:hidden;pointer-events:none'; document.body.appendChild(svhProbe); } var h = svhProbe.offsetHeight; return h > 100 ? h : window.innerHeight; } catch (e) { return window.innerHeight; } }
-  /* РОБОРАБ буквами: размер шрифта задаётся шириной блока, пропорции берутся из реального шрифта */
-  function fitWordText(){
-    var w = document.querySelector('.word'); if (!w || !ctx) return;
-    var tx = w.querySelector('.wtx'), t = document.documentElement.lang === 'ru' ? 'РОБОРАБ' : 'ROBORAB';
-    if (tx.textContent !== t) tx.textContent = t;
-    var c = getComputedStyle(tx); ctx.font = '800 100px ' + c.fontFamily;
-    var m = ctx.measureText(t), cap = m.actualBoundingBoxAscent / 100, fa = m.fontBoundingBoxAscent / 100, fd = m.fontBoundingBoxDescent / 100;
-    if (!(m.width > 0) || !(cap > 0)) return;
-    var R = m.width / 100, hl = (1 - (fa + fd)) / 2;
-    w.dataset.r = R; w.dataset.c = cap; w.style.setProperty('--R', R.toFixed(4)); w.style.setProperty('--T', (-(hl + fa - cap)).toFixed(4));
-    setWordKy(1);
-  }
-  /* буквы тянутся по вертикали: ky задаёт высоту блока, пропорции блока и масштаб текста меняются вместе */
-  function setWordKy(ky){
-    var w = document.querySelector('.word'); if (!w || !w.dataset.r) return 1;
-    ky = Math.max(1, Math.min(4.2, ky)); var R = +w.dataset.r, c = +w.dataset.c;
-    w.style.setProperty('--ky', ky.toFixed(4)); w.style.setProperty('--AR', (R / (c * ky)).toFixed(4)); return ky;
-  }
-  function fitAll(again){
-    fitWordText();
-    var wide = /^(th|hi|ar|he|fa|ur|bn|ta|te|mr)$/.test(root.lang);
-    var heroEl = document.querySelector('.hero'), bnEls = [].slice.call(document.querySelectorAll('.sofa')); if (heroEl && !again) { heroEl.style.paddingLeft = ''; heroEl.style.paddingRight = ''; delete heroEl.dataset.bw; bnEls.forEach(function(e){ e.style.width = ''; e.style.justifySelf = ''; }); var wd0 = document.querySelector('.word'); if (wd0) { wd0.style.width = ''; } fits.forEach(function(p){ p.style.transform = ''; p.style.marginBottom = ''; }); }
-    if (heroEl && heroEl.dataset.bw) bnEls.forEach(function(e){ e.style.width = parseFloat(heroEl.dataset.bw) + 'px'; e.style.justifySelf = 'center'; });
-    var narrow = window.matchMedia('(max-width:760px)').matches;
-    var hl = document.getElementById('herolang'), VH = svhPx() - (narrow && hl ? hl.offsetHeight : 0);
-    var tb = !!(window.CSS && CSS.supports && CSS.supports('text-box', 'trim-both cap alphabetic'));
-    root.classList.toggle('tb', tb);
-    var tabl = false;
-    function linesOf(p){ return tabl ? [].slice.call(p.querySelectorAll(':scope > .d, :scope > .ml')) : [].slice.call(p.querySelectorAll('.ml')); }
-    fits.forEach(function(p){
-      p.style.fontSize = '100px';
-      var w = p.clientWidth, sw = 0;
-      if (narrow) linesOf(p).forEach(function(l){ sw = Math.max(sw, l.getBoundingClientRect().width); });
-      else sw = p.firstElementChild.getBoundingClientRect().width;
-      if (sw > 0) p.style.fontSize = (100 * w / sw) + 'px';
-    });
-    var word = document.querySelector('.word'), sofa = document.querySelector('.sofa'), banner = document.querySelector('.banner'), top = fits[0], bot = fits[1];
-    [word, sofa, banner, bot].forEach(function(e){ e.style.marginTop = ''; e.style.marginBottom = ''; });
-    document.querySelectorAll('.hero .ht .ml,.hero .ht .d').forEach(function(l){ l.style.marginTop = ''; l.style.fontSize = ''; });
-    var dn0 = document.querySelector('.down'); if (dn0) { dn0.style.top = ''; dn0.style.bottom = ''; }
-    top.style.lineHeight = '';
-    if (!narrow) {
-      /* компьютер: заголовок одной строкой во всю ширину (с растяжкой по высоте), РОБОРАБ во всю ширину, горилла крупно на втором экране */
-      var hs0 = getComputedStyle(heroEl), Wc = heroEl.clientWidth - parseFloat(hs0.paddingLeft) - parseFloat(hs0.paddingRight), KY = /^(zh|ja|ko|th|hi|ar|he|fa|ur|bn|ta|te|mr)$/.test(root.lang) ? 1 : 1.75;
-      top.style.fontSize = bot.style.fontSize = '100px'; top.style.transform = bot.style.transform = ''; top.style.marginBottom = bot.style.marginBottom = '';
-      var wA = top.getBoundingClientRect().width, wB = bot.getBoundingClientRect().width;
-      var fsD = 100 * Wc / (wA + wB + 34);
-      top.style.fontSize = bot.style.fontSize = fsD + 'px';
-      var Hh = Math.max(top.getBoundingClientRect().height, bot.getBoundingClientRect().height);
-      [top, bot].forEach(function(e){ e.style.transformOrigin = '0 0'; e.style.transform = 'scaleY(' + KY + ')'; e.style.marginBottom = ((KY - 1) * Hh) + 'px'; });
-      var rowH = KY * Hh, g1 = Math.round(Math.max(16, 0.026 * VH)), tp = 50;
-      var arD = (getComputedStyle(word).aspectRatio || '1001 / 554').split('/').map(parseFloat), arW = arD[0] / (arD[1] || 1);
-      var availH = VH - tp - rowH - g1 - 46, wordW = Math.min(Wc, availH * arW), wordH = wordW / arW;
-      word.style.width = Wc + 'px'; setWordKy(availH / (Wc * (+word.dataset.c) / (+word.dataset.r))); wordW = Wc; wordH = word.getBoundingClientRect().height;
-      
-      var M = Math.max(g1 * 2, VH - tp - rowH - g1 - wordH - g1 + g1);
-      sofa.style.marginTop = M + 'px';
-      root.style.setProperty('--rg', g1 + 'px'); root.style.setProperty('--G', tp + 'px'); root.style.setProperty('--Gb', '0px'); root.style.setProperty('--Gref', g1 + 'px');
-      var dnD = document.querySelector('.down'); if (dnD) { dnD.style.bottom = 'auto'; dnD.style.top = Math.round(VH - 40) + 'px'; }
-      return;
-    }
-    var fs = parseFloat(getComputedStyle(top).fontSize), wh = word.getBoundingClientRect().height, sh = sofa.getBoundingClientRect().height;
-    var extra = 0, rg, n = narrow ? 4 : 3;
-    if (tb) {
-      /* текст обрезан по заглавным и базовой линии, поэтому зазоры считаются от самих букв.
-         Верх и низ РОБОРАБ имеют равные видимые зазоры U, зазор до «б» считается от её верхушки. */
-      if (!narrow) {
-        /* компьютер: РОБОРАБ и диван стоят на месте. Верхний текст по центру пространства над РОБОРАБ
-           (воздух сверху = зазор до РОБОРАБ = a), такой же зазор a между РОБОРАБ и нижней строкой,
-           снизу воздух чуть больше (k·a). Все зазоры считаются от краёв букв и картинки. */
-        var B = bot.getBoundingClientRect().height, cap1 = inkAsc(top, 'В') || 0.727 * fs;
-        var pt = 0, pb = 0, hb = wh - pt - pb, k = 1.12;
-        /* зазор между строками «Внедрение искусственного» и «интеллекта» (от низа букв до верха следующих) тоже равен a */
-        var a = Math.max(44, (VH - 2 * cap1 - hb - B) / (4 + k));
-        top.style.lineHeight = (cap1 + a) + 'px';
-        banner.style.marginTop = Math.max(0, a - pt) + 'px';
-        bot.style.marginTop = Math.max(0, a - pb + 0.0079 * wh) + 'px';
-        root.style.setProperty('--rg', '0px');
-        root.style.setProperty('--G', a + 'px');
-        root.style.setProperty('--Gref', a + 'px');
-        root.style.setProperty('--Gb', (k * a) + 'px');
-        return;
-      }
-      if (narrow) {
-        /* телефон: текст сверху, все пять видимых зазоров равны a: между тремя строками заголовка, до РОБОРАБ,
-           до «В БИЗНЕС» и до гориллы. Сверху малый воздух T, снизу место под стрелку. */
-        var r1 = (inkAsc(top, 'В') || 0.727 * fs) / fs, Bn;
-        /* каждая строка заголовка растягивается на всю ширину своим кеглем; блок обрезан по заглавным */
-        var tl = linesOf(top).filter(function(l){ return l.offsetParent !== null; }), capSum = 0;
-        var fmax = 0, sws = tl.map(function(l){ l.style.fontSize = '100px'; return l.getBoundingClientRect().width; });
-        sws.forEach(function(w0){ fmax = Math.max(fmax, w0); }); var fbase = 100 * top.clientWidth / (fmax || 1);
-        if (wide) r1 = 1.3;
-        tl.forEach(function(l, i){
-          /* короткая строка не растягивается больше чем в 1.6 раза от самой длинной: иначе в других языках буквы налезают друг на друга */
-          var f = tabl ? 100 * top.clientWidth / sws[i] : Math.min(100 * top.clientWidth / sws[i], fbase * (wide ? 1.2 : 1.6));
-          l.style.fontSize = f + 'px'; capSum += r1 * f;
-        });
-        wh = word.getBoundingClientRect().height; sh = sofa.getBoundingClientRect().height; Bn = bot.getBoundingClientRect().height;
-        var abn = inkAsc(bot, 'б'), acn = inkAsc(bot, 'В'), dln = abn > acn ? abn - acn : 0;
-        var ptn = 0, pbn = 0, psn = 0;
-        var Tn = Math.min(28, Math.max(14, 0.022 * VH)), Bt = window.innerWidth <= 760 ? 12 : 4;
-        var nG = tl.length + 2, fixedH = capSum + wh + Bn + sh - ptn - pbn + dln - psn;
-        var rawAf = (VH - Tn - Bt - fixedH) / nG, tgtAf = 0.03 * VH;
-        if (!again && rawAf < tgtAf && fixedH > 0) {
-          /* планшет: блок не влезает по высоте. Заголовок и РОБОРАБ остаются во всю ширину, уменьшается только горилла на диване */
-          var bannerH = sh - psn, textH = fixedH - bannerH;
-          var kk = Math.max(0.3, Math.min(1, (VH - Tn - Bt - nG * tgtAf * 0.55 - textH) / bannerH)), cw = sofa.getBoundingClientRect().width;
-          heroEl.dataset.bw = String(cw * kk);
-          return fitAll(true);
-        }
-        var af = Math.max(8, rawAf);
-        /* зазоры текста вдвое меньше и подтянуты к верху; горилла на диване остаётся внизу, место уходит между «В БИЗНЕС» и ней */
-        var an = af / 2, extraS = nG * (af - an);
-        tl.forEach(function(l, i){ if (i) l.style.marginTop = (wide ? Math.max(an, 0.26 * parseFloat(l.style.fontSize)) : an) + 'px'; });
-        word.style.marginTop = Math.max(0, an - ptn) + 'px';
-        bot.style.marginTop = Math.max(0, an - pbn + dln) + 'px';
-        sofa.style.marginTop = Math.max(0, an - psn + extraS) + 'px';
-        root.style.setProperty('--rg', '0px');
-        root.style.setProperty('--G', Tn + 'px');
-        root.style.setProperty('--Gb', '0px');
-        /* телефон: три промежутка (В БИЗНЕС > горилла, горилла > заголовок, плашка приложения > «Что мы делаем») равны одному значению */
-        if (window.innerWidth <= 760) { root.style.setProperty('--S', Math.max(60, an + extraS) + 'px'); root.style.setProperty('--Gref', Bt + 'px'); }
-        else { root.style.removeProperty('--S'); root.style.setProperty('--Gref', '4px'); }
-        sofa.style.marginBottom = Bt + 'px';
-        if (tabl) { var sr0 = sofa.getBoundingClientRect(), dBot = (svhPx() - Bt) - (sr0.bottom + window.scrollY - sh * 0.01); if (dBot > 2) sofa.style.marginTop = (parseFloat(sofa.style.marginTop || 0) + dBot) + 'px'; }
-        /* стрелка на телефоне стоит посередине промежутка между «В БИЗНЕС» и гориллой */
-        var dn = document.querySelector('.down'), hero = document.querySelector('.hero');
-        if (dn && hero) {
-          var hr = hero.getBoundingClientRect(), br = bot.getBoundingClientRect(), sr = sofa.getBoundingClientRect();
-          var sofaInk = sr.top + psn, mid = (br.bottom + sofaInk) / 2 - hr.top;
-          dn.style.bottom = 'auto'; dn.style.top = Math.round(mid - dn.offsetHeight / 2) + 'px';
-        }
-        return;
-      }
-      var U = Math.max(8, 0.08 * fs);
-      var m1 = Math.max(0, U - 0), m2 = Math.max(0, U - 0), m3 = Math.max(0, U - 0), dl = 0;
-      var ab = inkAsc(bot, 'б'), ac = inkAsc(bot, 'В');
-      if (ab > ac) dl = ab - ac;
-      bot.style.marginTop = (m2 + dl) + 'px';
-      if (narrow) { word.style.marginTop = m1 + 'px'; sofa.style.marginTop = m3 + 'px'; extra = m1 + m2 + dl + m3; }
-      else { banner.style.marginTop = m1 + 'px'; extra = m1 + m2 + dl; }
-      rg = 0;
-    } else {
-      rg = narrow ? 18 : Math.max(14, Math.round(VH * 0.025));
-    }
-    var used = narrow ? wh + sh : banner.getBoundingClientRect().height;
-    fits.forEach(function(p){ used += p.getBoundingClientRect().height; });
-    var g = Math.max(14, (VH - used - (n - 1) * rg - extra) / 2);
-    root.style.setProperty('--rg', rg + 'px');
-    root.style.setProperty('--Gref', g + 'px');
-    if (narrow && tb) {
-      /* телефон: текстовый блок уезжает наверх (небольшой воздух T), освободившееся место уходит
-         в промежуток между «В БИЗНЕС» и гориллой; низ и положение гориллы остаются прежними */
-      var T = Math.min(28, Math.max(14, 0.022 * VH)), Dg = Math.max(0, g - T);
-      sofa.style.marginTop = (parseFloat(sofa.style.marginTop || 0) + Dg) + 'px';
-      root.style.setProperty('--G', T + 'px');
-      root.style.setProperty('--Gb', g + 'px');
-    } else {
-      root.style.setProperty('--G', g + 'px');
-      root.style.removeProperty('--Gb');
-    }
-  }
-  var rfT, lastW = window.innerWidth, lastH = window.innerHeight; fitAll();
-  window.addEventListener('resize', function(ev){
-    /* на планшете и телефоне при скролле Safari прячет панель и меняет высоту окна: это не повод пересобирать первый экран, иначе страница дёргается */
-    var dw = Math.abs(window.innerWidth - lastW), dh = Math.abs(window.innerHeight - lastH);
-    if (!ev.forceFit && dw < 2 && dh < 160) return;
-    lastW = window.innerWidth; lastH = window.innerHeight; fitAll(); clearTimeout(rfT); rfT = setTimeout(fitAll, 300);
-  });
-  if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', function(){ fitAll(); }); window.addEventListener('load', function(){ fitAll(); });
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ fitAll(); });
-})();
-
-(function(){var d=document.querySelector('.down');if(!d)return;
-function f(){d.classList.toggle('gone',(window.scrollY||document.documentElement.scrollTop)>24)}
-addEventListener('scroll',f,{passive:true});f()})();
-
 (function(){var b=document.querySelector('.app'),d=document.getElementById('stores');if(!b||!d)return;
 b.addEventListener('click',function(){if(d.showModal)d.showModal();else d.setAttribute('open','');try{d.focus({preventScroll:true})}catch(e){}});
 d.addEventListener('click',function(e){
@@ -845,66 +595,111 @@ st.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedT
 st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.clientX>r.left+r.width/2?1:-1)});
 })();
 
-/* ---------- движение: появление блоков, первый экран, вкладки каталога ---------- */
-(function(){
-  var root = document.documentElement, reduce = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-  /* вкладки каталога: показываем один продукт, остальные скрыты; ссылка #id открывает нужный */
-  var grid = document.querySelector('.cgrid'), tabs = [].slice.call(document.querySelectorAll('.ctabs [role=tab]'));
-  var prods = grid ? [].slice.call(grid.querySelectorAll('.product')) : [];
-  function pick(id, focus){
-    var hit = false;
-    prods.forEach(function(p){ var on = p.id === id; if (on) hit = true; p.classList.toggle('on', on); });
-    if (!hit) return;
-    tabs.forEach(function(t){ var on = t.getAttribute('data-t') === id; t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); });
+/* ---------- движение (по мотивам join-way.com) ---------- */
+(function(){
+  var root = document.documentElement, body = document.body;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var bot = !!navigator.webdriver;   /* при пререндере (headless) движение не включаем */
+  function $(s){ return document.querySelector(s); }
+  function clamp(v){ return v < 0 ? 0 : v > 1 ? 1 : v; }
+
+  /* меню */
+  var mbtn = $('#mbtn'), menu = $('#menu');
+  function setMenu(o){ body.classList.toggle('menu-open', o); mbtn.setAttribute('aria-expanded', o ? 'true' : 'false'); }
+  mbtn.addEventListener('click', function(){ setMenu(!body.classList.contains('menu-open')); });
+  menu.addEventListener('click', function(e){ if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setMenu(false); });
+
+  /* вкладки каталога */
+  var tabs = [].slice.call(document.querySelectorAll('#tabs [role=tab]')), prods = [].slice.call(document.querySelectorAll('#cgrid .product'));
+  var cur = 0, timer = null, manual = false, DUR = 8000;
+  function pick(i, user){
+    if (i < 0 || i >= prods.length) return;
+    cur = i;
+    prods.forEach(function(p, k){ p.classList.toggle('on', k === i); });
+    tabs.forEach(function(t, k){ t.setAttribute('aria-selected', k === i ? 'true' : 'false'); t.tabIndex = k === i ? 0 : -1; t.classList.toggle('manual', !!manual); });
+    clearTimeout(timer);
+    if (!manual && !reduce && !bot) timer = setTimeout(function(){ pick((cur + 1) % prods.length); }, DUR);
   }
-  if (grid && tabs.length === prods.length) {
-    grid.classList.add('tabbed');
-    pick(prods[0].id);
+  function byId(id){ for (var k = 0; k < prods.length; k++) if (prods[k].id === id) return k; return -1; }
+  if (tabs.length && tabs.length === prods.length) {
     tabs.forEach(function(t, i){
-      t.addEventListener('click', function(){ pick(t.getAttribute('data-t')); });
+      t.style.setProperty('--tdur', DUR + 'ms');
+      t.addEventListener('click', function(){ manual = true; pick(i); });
       t.addEventListener('keydown', function(e){
         var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return;
-        e.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length].getAttribute('data-t'), true);
+        e.preventDefault(); manual = true; var n = (i + d + tabs.length) % tabs.length; pick(n); tabs[n].focus();
       });
     });
-    var fromHash = function(){ var h = decodeURIComponent(location.hash.slice(1)); if (h) pick(h); };
+    var g = $('#tabs'); if (g) { ['mouseenter','touchstart','focusin'].forEach(function(ev){ g.addEventListener(ev, function(){ if (!manual) { manual = true; pick(cur); } }, {passive: true}); }); }
+    var gg = $('#cgrid'); if (gg) gg.addEventListener('mouseenter', function(){ if (!manual) { manual = true; pick(cur); } });
+    pick(0);
+    var fromHash = function(){ var k = byId(decodeURIComponent(location.hash.slice(1))); if (k >= 0) { manual = true; pick(k); } };
     window.addEventListener('hashchange', fromHash); fromHash();
   }
 
-  /* при пререндере (headless) движение не включаем: в готовый HTML не должны попасть скрытые блоки */
-  if (reduce || navigator.webdriver || !('IntersectionObserver' in window)) return;
+  if (bot) return;
 
-  /* появление блоков снизу с задержкой по порядку внутри родителя */
-  var sel = ['.intro h2','.intro .lead','.intro .princ','.intro .ctas','.intro .app',
-    '.svc h2','.svcgrid li','.how h2','.steps li','.once h2','.once .lead','.chead','.csub','.ctabs','.cgrid',
-    '.who h2','.who p','.who .btn','.faq h2','.faqlist details','.contact h2','.contact .grid>div'].join(',');
-  var seen = new Map(), targets = [].slice.call(document.querySelectorAll(sel));
-  targets.forEach(function(el){
-    var p = el.parentNode, n = seen.get(p) || 0; seen.set(p, n + 1);
-    el.style.setProperty('--d', Math.min(n, 5) * 0.07 + 's');
-    el.classList.add('rv');
-  });
-  var io = new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if (!e.isIntersecting) return;
-      var el = e.target; el.classList.add('in'); io.unobserve(el);
-      setTimeout(function(){ el.classList.add('done'); }, 1400);
+  /* заставка: один раз за сессию */
+  if (!reduce) {
+    var seen = false; try { seen = sessionStorage.getItem('rr_splash'); } catch(e) {}
+    if (!seen) {
+      var sp = document.createElement('div'); sp.className = 'splash'; sp.innerHTML = '<i></i>'; body.appendChild(sp);
+      try { sessionStorage.setItem('rr_splash', '1'); } catch(e) {}
+      setTimeout(function(){ sp.classList.add('out'); setTimeout(function(){ sp.remove(); }, 800); }, 1000);
+    }
+  }
+
+  /* появление блоков снизу */
+  if (!reduce && 'IntersectionObserver' in window) {
+    var sel = ['.sh','.note','.panel-art','.cols3>div','.dsub','.ditem','.tabs','.cgrid','.steps li','.way','.faqlist details','.cta .box>div','#lead','.mq'].join(',');
+    var seenP = new Map(), targets = [].slice.call(document.querySelectorAll(sel));
+    targets.forEach(function(el){
+      var p = el.parentNode, n = seenP.get(p) || 0; seenP.set(p, n + 1);
+      el.style.setProperty('--d', Math.min(n, 5) * 0.08 + 's'); el.classList.add('rv');
     });
-  }, {threshold: 0.12, rootMargin: '0px 0px -6% 0px'});
-  targets.forEach(function(el){ io.observe(el); });
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var el = e.target; el.classList.add('in'); io.unobserve(el);
+        setTimeout(function(){ el.classList.add('done'); }, 1500);
+      });
+    }, {threshold: 0.1, rootMargin: '0px 0px -6% 0px'});
+    targets.forEach(function(el){ io.observe(el); });
+  }
 
-  /* первый экран: --hp от 0 до 1 за первые 0.8 экрана прокрутки */
-  var hero = document.querySelector('.hero'), ticking = false;
-  function upd(){
-    ticking = false;
-    var y = window.scrollY || root.scrollTop, h = (window.innerHeight || 800) * 0.8;
-    hero.style.setProperty('--hp', Math.max(0, Math.min(1, y / h)).toFixed(3));
+  /* первый экран: окно-пилюля раскрывается на весь экран, дальше проступает надпись, потом наезжает лист */
+  var stage = $('#stage'), htext = $('#htext'), himg = $('#himg'), hword = $('#hword'), pill = $('#pill'), hdr = $('#hdr');
+  var R = null;
+  function measure(){
+    var keep = htext.style.transform; htext.style.transform = 'none';
+    var pr = pill.getBoundingClientRect(), sr = stage.getBoundingClientRect();
+    R = {l: pr.left - sr.left, t: pr.top - sr.top, r: sr.right - pr.right, b: sr.bottom - pr.bottom, h: pr.height};
+    htext.style.transform = keep; frame();
   }
-  if (hero) {
-    window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, {passive: true});
-    upd();
+  function frame(){
+    var y = window.scrollY || root.scrollTop, vh = window.innerHeight || 800;
+    hdr.classList.toggle('sc', y > vh * 1.9);
+    if (reduce || !R) return;
+    var t = clamp(y / (vh * 0.6)), e = 1 - Math.pow(1 - t, 3);
+    var rad = Math.max(0, R.h / 2 * (1 - e));
+    himg.style.clipPath = 'inset(' + (R.t * (1 - e)) + 'px ' + (R.r * (1 - e)) + 'px ' + (R.b * (1 - e)) + 'px ' + (R.l * (1 - e)) + 'px round ' + rad + 'px)';
+    himg.style.setProperty('--sc', (1.18 - 0.18 * e).toFixed(3));
+    var to = clamp(y / (vh * 0.3));
+    htext.style.opacity = (1 - to).toFixed(3);
+    htext.style.transform = 'translateY(' + (-to * 50).toFixed(1) + 'px)';
+    var wi = clamp((y - vh * 0.3) / (vh * 0.45)), wout = 1 - clamp((y - vh * 1.25) / (vh * 0.6));
+    hword.style.setProperty('--wo', (wi * wout).toFixed(3));
+    hword.style.setProperty('--wy', ((1 - wi) * 40 - clamp((y - vh) / vh) * 60).toFixed(1) + 'px');
+    hdr.classList.toggle('inv', e > 0.6 && y < vh * 1.7);
   }
+  var tick = false;
+  window.addEventListener('scroll', function(){ if (!tick) { tick = true; requestAnimationFrame(function(){ tick = false; frame(); }); } }, {passive: true});
+  window.addEventListener('resize', function(){ measure(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  window.addEventListener('load', measure);
+  measure();
 })();
 
 </script>

@@ -1,53 +1,25 @@
 # ROBORAB: full page text (English)
 
-Implementing artificial intelligence
+We bring AI into the processes of your company.
+Tell the AI agent about your business in a chat, any time. A specialist reads the summary and offers a ready product or a solution built from scratch.
+Tell us about your business
+See the solutions
+Ready solutions A product from the catalog Tuned to your business
+Custom A solution from scratch When nothing in the catalog fits
+Websites A website for business Websites and web services, including SEO and GEO.
+Chat with the agent Tell us about your business Any time
 ROBORAB
-into business  processes
-How we implement it
-Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO
-Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO
-AI integration for business: diagnosis first, solution second
-Tell the agent about your business in the chat at any time, even at night. It will find where you are losing money. Then a live specialist will review the result and propose a solution. A ready-made product or a solution from scratch.
-Diagnosis is free
-Start online diagnosis
-See ready-made solutions
-Available on all devices Tap to sign in
-ROBORAB AI
-Choose your device
-Windows
-macOS
-iPhone / iPad
-Android
-What we do
-AI process automation
-We embed AI agents into your workflows.
-SaaS platforms
-Ready-made industry products and platforms built for your task.
-Web services and websites
-Websites and web services, including SEO and GEO.
-Corporate chatbots
-Chatbots and AI assistants for your company.
-Specialized projects
-Non-standard task? We will combine your products or build from scratch.
-How it works
-Step 1 You describe the task
-To the AI agent: by text, voice or video call.
-Step 2 The agent captures the essence
-Writes a summary of your request.
-Step 3 A specialist configures it
-A technical specialist customizes the ready-made solution for you.
-The next day The tool is yours
-Only the setup remains.
-Consulting and implementation for your industry
-We work with businesses from idea to operation. We keep the infrastructure in our app or deploy it on your server.
-Multi-agent systems for your profession
-Are you a lawyer? We will build a system of agents: some track changes in the law, others review your cases.
-We build into your ecosystem
-We connect agents to spreadsheets, databases and 1C and tune them to your processes.
-Your infrastructure
-We keep everything in our app, managed through chat, or host it on your server.
-Ready-made solutions by industry
+AI process automation SaaS platforms Web services and websites Corporate chatbots Specialized projects AI process automation SaaS platforms Web services and websites Corporate chatbots Specialized projects
+AI process automation SaaS platforms Web services and websites Corporate chatbots Specialized projects AI process automation SaaS platforms Web services and websites Corporate chatbots Specialized projects
+How we work First we understand. Then we build.
+Chat The chat is open when it suits you.
+The agent asks about your business. A specialist reads the summary and proposes a solution.
+01 Who are you? What does your company do?
+02 What gets in the way? Which task or process do you want to automate?
+03 What next? A ready product or a solution from scratch.
+Ready solutions Ready solutions for industries.
 If none fits, we will build one for you.
+Type of solution
 01 Fitness CRM
 02 Tax agent
 03 Construction accounting
@@ -91,10 +63,35 @@ SEO and GEO setup: site visibility in search and in AI answers
 Storefront admin panel: banner, slogan and categories are edited right in the interface
 Visitor analytics for 7, 30 or 90 days: who came, who left at once and how many carts were sent to Telegram
 See how many buyers were brought by AI assistants (ChatGPT, Alice, Perplexity, Gemini), and visitors by day
-Describe your problem in your own words
-You write about your problem to our AI agent ROBORAB AI in the chat: what slows your work down, where money and time go. The agent runs on frontier Claude models, asks follow-up questions and makes the diagnosis. Then our specialist builds the tool for you. The same agent presents the finished tool to you, right in the chat. If you do not need AI, we will say so.
-Start the free diagnosis
-Frequently asked questions
+For your industry
+Consulting and implementation for your industry.
+We work with businesses from idea to operation. We keep the infrastructure in our app or deploy it on your server.
+Multi-agent systems for your profession
+Are you a lawyer? We will build a system of agents: some track changes in the law, others review your cases.
+We build into your ecosystem
+We connect agents to spreadsheets, databases and 1C and tune them to your processes.
+Your infrastructure
+We keep everything in our app, managed through chat, or host it on your server.
+Process How it works in four steps.
+Step 1 You describe the task
+To the AI agent: by text, voice or video call.
+Step 2 The agent captures the essence
+Writes a summary of your request.
+Step 3 A specialist configures it
+A technical specialist customizes the ready-made solution for you.
+The next day The tool is yours
+Only the setup remains.
+Where to start Three ways to start. Pick yours.
+01 Catalog A ready product
+We take it from the catalog and tune it to you.
+See the solutions
+02 From scratch Custom A solution for you
+When nothing in the catalog fits.
+Tell us about your business
+03 Websites A website for business
+Websites and web services, including SEO and GEO.
+Tell us about your business
+Questions Frequently asked questions
 What is ROBORAB? ROBORAB implements AI agents into companies' business processes. You can start with free diagnostics in chat, choose a ready-made solution from the catalog, or order a solution for your business.
 How do you implement artificial intelligence in business processes? You describe the task to the AI agent by text, voice or video call. The agent writes a summary of your request, a technical specialist customizes a ready-made solution for you, and the next day the tool is already in the app.
 How much does AI implementation cost? Diagnostics in chat is free. Implementation is priced individually: you can get a cost estimate in the chat within 10 minutes.
@@ -106,10 +103,18 @@ Can AI replace an employee or a whole function? Yes. ROBORAB is built into your 
 Where do I start if I do not know what I need? Start with the diagnosis: tell the AI agent about your business in the chat. It will help find where processes get stuck. A specialist will review the summary and suggest what to implement.
 Can I order something that is not in the catalog? Yes. We will tailor a ready-made product to you, combine several products (the Hybrid solution) or build a solution entirely around you. We also build websites.
 Which languages is the site available in? The site is available in Russian, English, Chinese and Arabic. You change the language with the globe button in the top-right corner of the first screen.
-Tell us about your task
+Contact Tell us about your task.
+We open a chat
 Leave your name and contact details and choose a product. We will open a chat with ROBORAB AI: the agent will ask a few questions and find out exactly what you need.
 Name
 Phone or e-mail
 The product you are interested in
-Not sure yet Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO Hybrid Free plan Subscription with a business mentor
+Not sure yet Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO
 Send to the ROBORAB AI chat →
+How we work
+Ready solutions
+Process
+Questions
+Contact
+Available on all devices Tap to sign in
+ROBORAB
