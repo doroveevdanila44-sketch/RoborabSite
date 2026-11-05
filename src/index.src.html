@@ -449,8 +449,8 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 .sheet{overflow-x:clip}
 h1.big{max-width:100%}
 @media(max-width:600px){
-  h1.big{font-size:clamp(30px,10.2vw,44px);line-height:1}
-  h1.big .ln{white-space:normal}
+  h1.big{font-size:clamp(24px,9vw,40px);line-height:1}
+  h1.big .ln{white-space:nowrap}
   h1.big .ln:nth-child(3){padding-left:0}
 }
 .pa-1::after{right:-5%;top:-16%;width:36%;background:var(--lime);opacity:1}
@@ -458,6 +458,16 @@ h1.big{max-width:100%}
 .cta .box::after{display:none}
 .way .gn{font-size:clamp(100px,10.5vw,160px);right:.08em;top:-.06em}
 .wm{background:linear-gradient(100deg,#25104f 0%,#6a2cf0 35%,#9a6bff 55%,#6a2cf0 75%,#25104f 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text}
+
+/* форма: ничего не выезжает вправо */
+.cta .box{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+@media(max-width:860px){.cta .box{grid-template-columns:minmax(0,1fr)}}
+.cta .box>*{min-width:0}
+#lead{grid-template-columns:minmax(0,1fr);width:100%}
+#lead label{min-width:0}
+#lead input,#lead select{min-width:0;max-width:100%;width:100%;box-sizing:border-box;-webkit-appearance:none;appearance:none}
+#lead select{background-image:linear-gradient(45deg,transparent 50%,#fff 50%),linear-gradient(135deg,#fff 50%,transparent 50%);background-position:calc(100% - 22px) 52%,calc(100% - 16px) 52%;background-size:6px 6px;background-repeat:no-repeat;padding-right:40px}
+#lead .btn{max-width:100%}
 
 </style>
 <body>
