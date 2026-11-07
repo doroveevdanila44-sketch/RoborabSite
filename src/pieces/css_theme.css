@@ -55,10 +55,31 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 .mq-t span{background:var(--ink);color:#fff;border:0;font-weight:800;padding:13px 22px;font-size:14px}
 .mq-t span:nth-child(3n+2){background:var(--violet)}.mq-t span:nth-child(3n){background:#fff;color:var(--ink)}
 
-/* панели */
-.panel-art{border-radius:clamp(28px,3.4vw,48px)}
-.pa-1{background:linear-gradient(135deg,#6a2cf0,#9a6bff 60%,#c7a8ff)}
-.pa-1::after{background:radial-gradient(circle,rgba(205,242,0,.95),rgba(205,242,0,0) 65%)}
+/* баннер диагностики */
+.panel-art{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) clamp(152px,19vw,258px);
+  align-items:center;
+  gap:clamp(24px,5vw,76px);
+  margin-top:clamp(32px,4vw,64px);
+  padding:clamp(24px,3vw,44px) clamp(28px,5.5vw,84px);
+  border-radius:clamp(28px,3.4vw,48px);
+  background:var(--lime);
+  color:var(--violet);
+}
+.diagnostic-copy{
+  margin:0;
+  max-width:21ch;
+  font:italic 900 clamp(28px,4vw,58px)/1.08 var(--fd);
+  letter-spacing:-.035em;
+  text-wrap:balance;
+}
+.diagnostic-phone{display:block;width:100%;height:auto;aspect-ratio:681/1435}
+@media(max-width:540px){
+  .panel-art{grid-template-columns:minmax(0,1fr);padding:clamp(22px,6vw,36px)}
+  .diagnostic-copy{max-width:none;font-size:clamp(22px,6.6vw,34px)}
+  .diagnostic-phone{width:clamp(142px,40vw,180px);justify-self:center}
+}
 
 /* тёмные блоки: глубокий индиго */
 .dk{background:var(--deep);color:#fff;border-radius:clamp(32px,4.4vw,60px)}
@@ -143,7 +164,6 @@ h1.big{max-width:100%}
   h1.big .ln{white-space:nowrap}
   h1.big .ln:nth-child(3){padding-left:0}
 }
-.pa-1::after{right:-5%;top:-16%;width:36%;background:var(--lime);opacity:1}
 .cta .box::after{display:none}
 .way .gn{font-size:clamp(100px,10.5vw,160px);right:.08em;top:-.06em}
 .wm{background:linear-gradient(100deg,#25104f 0%,#6a2cf0 35%,#9a6bff 55%,#6a2cf0 75%,#25104f 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text}

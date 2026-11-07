@@ -201,6 +201,14 @@ def write_text_exports(out, products, faq):
 
 
 def build(out):
+    source_assets = ROOT / 'assets'
+    assets = out / 'assets'
+    assets.mkdir()
+    diagnostic_phone = 'diagnostic-phone.webp'
+    phone_data = (source_assets / diagnostic_phone).read_bytes()
+    (assets / diagnostic_phone).write_bytes(phone_data)
+    phone_version = hashlib.sha256(phone_data).hexdigest()[:8]
+
     products_markup = read_piece('products.html')
     products = read_products(products_markup)
     faq_markup = read_piece('faq.html')
@@ -213,23 +221,23 @@ def build(out):
         'PRODUCTS': products_markup, 'FAQ': faq_markup, 'FORM': read_piece('form.html'),
         'LB': read_piece('lb.html'), 'STORES': read_piece('stores.html'),
         'ABOUT': html.escape(ABOUT), 'SOLUTION_LINKS': solution_links(products),
+        'DIAGNOSTIC_PHONE': f'/assets/{diagnostic_phone}?v={phone_version}',
     }
     for name, piece in pieces.items():
         body = body.replace('{{' + name + '}}', piece)
 
     css = '\n'.join(read_piece(name) for name in ('new.css', 'css_dialogs.css', 'css_dl.css', 'css_theme.css'))
     js = '\n'.join(read_piece(name) for name in ('js_dialogs.js', 'new.js'))
-    assets = out / 'assets'
-    assets.mkdir()
     image_vars = []
     for name in sorted(set(re.findall(r'var\(--img-([a-z0-9-]+)\b', css + body))):
         filename = name + '.webp'
-        data = (ROOT / 'assets' / filename).read_bytes()
+        data = (source_assets / filename).read_bytes()
         (assets / filename).write_bytes(data)
         version = hashlib.sha256(data).hexdigest()[:8]
         image_vars.append(f'  --img-{name}:url(/assets/{filename}?v={version});')
     css = css.replace('{{ASSET_VARS}}', '\n'.join(image_vars))
 
+    shutil.copyfile(source_assets / 'gor.webp', assets / 'gor.webp')
     og = Image.new('RGB', (1200, 630), '#6a2cf0')
     with Image.open(assets / 'appicon.webp') as icon, Image.open(assets / 'gor.webp') as mascot:
         icon = icon.resize((320, 320), Image.Resampling.LANCZOS)

@@ -78,14 +78,6 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .mq-t span{white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:12px 20px;font:500 15px/1 var(--f)}
 @keyframes marquee-x{to{transform:translateX(-100%)}}
 
-/* подход */
-.panel-art{position:relative;overflow:hidden;border-radius:clamp(24px,3vw,40px);aspect-ratio:16/8;margin-top:clamp(32px,4vw,64px);background:linear-gradient(135deg,#d9c9b0,#f1e6d3)}
-.panel-art .a1,.panel-art .a2{position:absolute;background:center/contain no-repeat}
-.pa-1 .a1{inset:6% auto 0 8%;width:34%;background-image:var(--img-gor)}
-.pa-1{background:linear-gradient(135deg,#0957e8,#5aa9ff)}
-.pa-1::after{content:'';position:absolute;right:-6%;top:-30%;width:60%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(215,255,67,.9),rgba(215,255,67,0) 65%)}
-@media(max-width:700px){.panel-art{aspect-ratio:4/3}.pa-1 .a1{width:50%}}
-
 /* тёмные блоки */
 .dk{background:var(--ink);color:var(--bg);border-radius:clamp(28px,4vw,56px);margin:0 clamp(8px,1vw,16px);padding:clamp(40px,6vw,96px) 0;position:relative;overflow:hidden}
 .dk::before{content:'';position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(243,240,232,.05) 1px,transparent 1px);background-size:calc(100% / 12) 100%;pointer-events:none}
