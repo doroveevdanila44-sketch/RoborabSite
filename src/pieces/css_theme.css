@@ -96,7 +96,7 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 .tile.t1{background:#cbb6ff}.tile.t2{background:var(--violet)}.tile.t3{background:var(--lime)}
 .tile i{border-color:var(--ink)}
 
-/* вкладки: круглые плашки, прогресс лаймовой заливкой */
+/* вкладки отраслей */
 .tabs{gap:10px;margin-top:clamp(28px,3.4vw,48px)}
 .tabs .tl{display:none}
 .tabs button{isolation:isolate;overflow:hidden;background:#fff;color:var(--ink);border:0;border-radius:999px;padding:18px 22px;box-shadow:0 8px 20px -14px rgba(106,44,240,.55);transition:transform .35s var(--ease)}
@@ -106,12 +106,28 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 .tabs button::after{inset:0;height:100%;top:0;z-index:-1;background:var(--lime);border-radius:inherit}
 .tabs button[aria-selected=true]{color:var(--ink);box-shadow:0 0 0 3px var(--ink)}
 .tabs i{color:var(--violet);font-family:var(--fd);font-style:italic;font-weight:900}
-@media(max-width:820px){.tabs{grid-template-columns:repeat(5,minmax(160px,1fr))}}
+@media(max-width:820px){
+  .tabs{display:flex;padding:4px;scroll-padding-inline:4px}
+  .tabs button{flex:none;padding:14px 16px;gap:8px}
+  .tabs button:first-of-type{padding-left:16px}
+}
 
 /* витрина продукта */
 .cgrid .product.on{background:#fff;border-radius:clamp(28px,3.6vw,52px);padding:clamp(18px,2.6vw,40px);box-shadow:0 24px 50px -30px rgba(106,44,240,.55)}
 .product .mascot{background-color:#fff}
 .product>.tag{color:var(--mute);font-weight:500}
+.cgrid .product-preview.on{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;align-items:start;gap:clamp(14px,2vw,24px)}
+.product-preview .btn{justify-self:start}
+.product-heading .tag{margin-top:8px}
+.product-pitch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,24px)}
+.product-pitch>div{padding:clamp(16px,2.5vw,32px);border-radius:24px;background:var(--bg)}
+.product-pitch>div:last-child{background:var(--deep);color:#fff}
+.product-pitch h4{margin:0;color:inherit;font:italic 900 clamp(20px,2.4vw,32px)/1.1 var(--fd)}
+.product-pitch ul{display:grid;grid-template-columns:1fr;gap:12px;margin:14px 0 0;padding:0 0 0 1.2em;list-style:disc}
+.product-pitch li{font-size:clamp(14px,1.4vw,16px);line-height:1.45}
+.product-pitch li::marker{color:var(--violet)}
+.product-pitch .feats li::marker{color:var(--lime)}
+@media(max-width:620px){.product-pitch{grid-template-columns:1fr}}
 
 /* шаги: цветные карточки */
 .steps{gap:clamp(12px,1.4vw,20px)}

@@ -111,8 +111,7 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .tabs button::before{content:'';position:absolute;left:0;right:0;top:0;height:2px;background:var(--line)}
 .tabs button::after{content:'';position:absolute;left:0;top:0;height:2px;width:0;background:var(--blue)}
 .tabs button[aria-selected=true]{color:var(--ink)}
-.tabs button[aria-selected=true]::after{width:100%;transition:width var(--tdur,8s) linear}
-.tabs button.manual[aria-selected=true]::after{transition:width .5s var(--ease2)}
+.tabs button[aria-selected=true]::after{width:100%}
 .tabs i{font:500 11px/1 var(--f);font-style:normal;color:var(--blue);letter-spacing:.06em;flex:none}
 @media(max-width:820px){.tabs{grid-template-columns:repeat(5,minmax(150px,1fr));overflow-x:auto;scrollbar-width:none}}
 .cgrid{margin-top:clamp(20px,2.4vw,36px)}

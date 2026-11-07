@@ -10,7 +10,12 @@ b.addEventListener('click',function(){if(d.showModal)d.showModal();else d.setAtt
 d.addEventListener('click',function(e){if(e.target.closest('.dl-x')||e.target===d)d.close()})})})();
 
 (function(){var d=document.getElementById('lb');if(!d)return;var st=document.getElementById('lbst'),cn=document.getElementById('lbcn'),list=[],i=0;
-function show(){st.style.backgroundImage=getComputedStyle(list[i]).backgroundImage;cn.textContent=(i+1)+' / '+list.length}
+function show(){
+  var shot=list[i];
+  st.style.backgroundImage=getComputedStyle(shot).backgroundImage;
+  if(shot.dataset.clock)st.dataset.clock=shot.dataset.clock;else delete st.dataset.clock;
+  cn.textContent=(i+1)+' / '+list.length;
+}
 function go(n){i=(i+n+list.length)%list.length;show()}
 document.querySelectorAll('.shots').forEach(function(g){g.querySelectorAll('.shot').forEach(function(b,n){b.addEventListener('click',function(){list=[].slice.call(g.querySelectorAll('.shot'));i=n;show();if(d.showModal)d.showModal();else d.setAttribute('open','')})})});
 d.querySelector('.x').addEventListener('click',function(){d.close()});
@@ -35,29 +40,26 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 
   /* вкладки каталога */
   var tabs = [].slice.call(document.querySelectorAll('#tabs [role=tab]')), prods = [].slice.call(document.querySelectorAll('#cgrid .product'));
-  var cur = 0, timer = null, manual = false, DUR = 8000;
-  function pick(i, user){
-    if (i < 0 || i >= prods.length) return;
-    cur = i;
-    prods.forEach(function(p, k){ p.classList.toggle('on', k === i); });
-    tabs.forEach(function(t, k){ t.setAttribute('aria-selected', k === i ? 'true' : 'false'); t.tabIndex = k === i ? 0 : -1; t.classList.toggle('manual', !!manual); });
-    clearTimeout(timer);
-    if (!manual && !reduce && !bot) timer = setTimeout(function(){ pick((cur + 1) % prods.length); }, DUR);
+  function pick(i){
+    var id = tabs[i].dataset.t;
+    prods.forEach(function(p){ p.classList.toggle('on', p.id === id); });
+    tabs.forEach(function(t, k){ t.setAttribute('aria-selected', k === i ? 'true' : 'false'); t.tabIndex = k === i ? 0 : -1; });
   }
-  function byId(id){ for (var k = 0; k < prods.length; k++) if (prods[k].id === id) return k; return -1; }
   if (tabs.length && tabs.length === prods.length) {
     tabs.forEach(function(t, i){
-      t.style.setProperty('--tdur', DUR + 'ms');
-      t.addEventListener('click', function(){ manual = true; pick(i); });
+      t.addEventListener('click', function(){ pick(i); });
       t.addEventListener('keydown', function(e){
         var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return;
-        e.preventDefault(); manual = true; var n = (i + d + tabs.length) % tabs.length; pick(n); tabs[n].focus();
+        e.preventDefault(); var n = (i + d + tabs.length) % tabs.length; pick(n); tabs[n].focus();
       });
     });
-    var g = $('#tabs'); if (g) { ['mouseenter','touchstart','focusin'].forEach(function(ev){ g.addEventListener(ev, function(){ if (!manual) { manual = true; pick(cur); } }, {passive: true}); }); }
-    var gg = $('#cgrid'); if (gg) gg.addEventListener('mouseenter', function(){ if (!manual) { manual = true; pick(cur); } });
     pick(0);
-    var fromHash = function(){ var k = byId(decodeURIComponent(location.hash.slice(1))); if (k >= 0) { manual = true; pick(k); } };
+    var fromHash = function(){
+      var id = location.hash.slice(1);
+      try { id = decodeURIComponent(id); } catch(e) { return; }
+      var k = tabs.findIndex(function(t){ return t.dataset.t === id; });
+      if (k >= 0) pick(k);
+    };
     window.addEventListener('hashchange', fromHash); fromHash();
   }
 

@@ -10,7 +10,12 @@ b.addEventListener('click',function(){if(d.showModal)d.showModal();else d.setAtt
 d.addEventListener('click',function(e){if(e.target.closest('.dl-x')||e.target===d)d.close()})})})();
 
 (function(){var d=document.getElementById('lb');if(!d)return;var st=document.getElementById('lbst'),cn=document.getElementById('lbcn'),list=[],i=0;
-function show(){st.style.backgroundImage=getComputedStyle(list[i]).backgroundImage;cn.textContent=(i+1)+' / '+list.length}
+function show(){
+  var shot=list[i];
+  st.style.backgroundImage=getComputedStyle(shot).backgroundImage;
+  if(shot.dataset.clock)st.dataset.clock=shot.dataset.clock;else delete st.dataset.clock;
+  cn.textContent=(i+1)+' / '+list.length;
+}
 function go(n){i=(i+n+list.length)%list.length;show()}
 document.querySelectorAll('.shots').forEach(function(g){g.querySelectorAll('.shot').forEach(function(b,n){b.addEventListener('click',function(){list=[].slice.call(g.querySelectorAll('.shot'));i=n;show();if(d.showModal)d.showModal();else d.setAttribute('open','')})})});
 d.querySelector('.x').addEventListener('click',function(){d.close()});
