@@ -121,8 +121,8 @@ def document(title, description, url, structured_data, body, stylesheet, script=
         })
     head += ''.join(f'<meta name="{name}" content="{html.escape(value)}">\n' for name, value in names.items() if value)
     head += f'<link rel="canonical" href="{html.escape(url)}">\n'
-    head += '<link rel="icon" type="image/webp" href="/assets/appicon.webp">\n'
-    head += '<link rel="apple-touch-icon" href="/assets/appicon.webp">\n'
+    head += '<link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">\n'
+    head += '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">\n'
     head += f'<link rel="stylesheet" href="{stylesheet}">\n'
     head += f'<script type="application/ld+json">{structured_data}</script>\n'
     if script:
@@ -240,9 +240,11 @@ def build(out):
     shutil.copyfile(source_assets / 'gor.webp', assets / 'gor.webp')
     og = Image.new('RGB', (1200, 630), '#6a2cf0')
     with Image.open(assets / 'appicon.webp') as icon, Image.open(assets / 'gor.webp') as mascot:
-        icon = icon.resize((320, 320), Image.Resampling.LANCZOS)
+        icon.resize((96, 96), Image.Resampling.LANCZOS).save(out / 'favicon.png', optimize=True)
+        icon.resize((180, 180), Image.Resampling.LANCZOS).save(out / 'apple-touch-icon.png', optimize=True)
+        icon.save(out / 'favicon.ico', sizes=[(16, 16), (32, 32), (48, 48)])
         mascot.thumbnail((510, 520))
-        og.paste(icon, (150, 155))
+        og.paste(icon.resize((320, 320), Image.Resampling.LANCZOS), (150, 155))
         og.paste(mascot, (680, 630 - mascot.height), mascot)
     og.save(assets / 'og.jpg', quality=88)
 
