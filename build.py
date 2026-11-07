@@ -227,7 +227,6 @@ def build(out):
         'LB': read_piece('lb.html'), 'STORES': read_piece('stores.html'),
         'SOLUTION_LINKS': solution_links(products),
         'DIAGNOSTIC_PHONE': webp_url('diagnostic-phone'),
-        'INDUSTRY_INFRASTRUCTURE': webp_url('industry-infrastructure'),
     }
     for name, piece in pieces.items():
         body = body.replace('{{' + name + '}}', piece)
