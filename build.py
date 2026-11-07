@@ -220,7 +220,7 @@ def build(out):
     pieces = {
         'PRODUCTS': products_markup, 'FAQ': faq_markup, 'FORM': read_piece('form.html'),
         'LB': read_piece('lb.html'), 'STORES': read_piece('stores.html'),
-        'ABOUT': html.escape(ABOUT), 'SOLUTION_LINKS': solution_links(products),
+        'SOLUTION_LINKS': solution_links(products),
         'DIAGNOSTIC_PHONE': f'/assets/{diagnostic_phone}?v={phone_version}',
     }
     for name, piece in pieces.items():

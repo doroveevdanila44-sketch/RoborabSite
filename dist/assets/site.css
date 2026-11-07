@@ -53,7 +53,7 @@ button{font-family:inherit}
 .htext{position:relative;z-index:2;height:100%;padding:clamp(24px,6vh,64px) clamp(16px,3.4vw,40px) clamp(18px,3vh,36px);display:flex;flex-direction:column;will-change:transform,opacity}
 h1.big{margin:0;font:500 clamp(30px,8.6vw,158px)/.9 var(--f);letter-spacing:-.07em;max-width:15ch}
 h1.big .ln{display:block;white-space:nowrap}
-h1.big .ln:nth-child(3){padding-left:clamp(0px,11.5vw,210px)}
+h1.big .ln:last-child{padding-left:clamp(0px,11.5vw,210px)}
 .pill{display:inline-block;vertical-align:-.04em;width:1.9em;height:.78em;margin-left:.16em;border-radius:999px;background:transparent}
 .hsub{margin:clamp(16px,2.6vh,34px) 0 0;max-width:34ch;font:400 clamp(16px,1.5vw,22px)/1.4 var(--f);color:var(--mute);letter-spacing:-.01em}
 .hcta{display:flex;align-items:center;gap:clamp(16px,2vw,30px);margin-top:clamp(16px,2.6vh,32px);flex-wrap:wrap}
@@ -62,7 +62,7 @@ h1.big .ln:nth-child(3){padding-left:clamp(0px,11.5vw,210px)}
 .hcols small{display:block;font:500 13px/1.2 var(--f);color:var(--mute)}
 .hcols b{display:block;margin-top:12px;font:600 clamp(15px,1.3vw,19px)/1.2 var(--f);letter-spacing:-.02em}
 .hcols span{display:block;margin-top:8px;font:400 14px/1.35 var(--f);color:var(--mute)}
-@media(max-width:900px){.hcols{grid-template-columns:repeat(2,1fr)}h1.big .ln:nth-child(3){padding-left:0}}
+@media(max-width:900px){.hcols{grid-template-columns:repeat(2,1fr)}h1.big .ln:last-child{padding-left:0}}
 @media(max-height:700px){.hcols{display:none}}
 @media(max-width:600px){.hcols{gap:12px}.hcols span{display:none}.hcols b{font-size:15px}}
 .himg{position:absolute;inset:0;z-index:3;overflow:hidden;clip-path:inset(50% 50% 50% 50% round 999px);pointer-events:none;background:#0b3fb5}
@@ -70,7 +70,7 @@ h1.big .ln:nth-child(3){padding-left:clamp(0px,11.5vw,210px)}
   radial-gradient(60% 50% at 78% 18%,rgba(215,255,67,.9),rgba(215,255,67,0) 60%),
   radial-gradient(90% 70% at 20% 90%,#0957e8,rgba(9,87,232,0) 70%),
   linear-gradient(180deg,#0b2f8f 0%,#0957e8 45%,#5aa9ff 100%);transform:scale(var(--sc,1.18));will-change:transform}
-.art::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(180deg,#000,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%)}
+.art::before,.panel-art::before{content:'';position:absolute;inset:0;background-size:72px 72px;mask-image:linear-gradient(180deg,#000,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%)}
 .hword{position:absolute;left:0;right:0;top:44%;text-align:center;font:400 clamp(60px,17vw,300px)/1 var(--f);letter-spacing:-.06em;color:rgba(255,255,255,.9);opacity:var(--wo,0);transform:translateY(var(--wy,0px));pointer-events:none;white-space:nowrap}
 
 /* лист, наезжающий на hero */
@@ -293,7 +293,7 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 html,body{background:var(--bg)}
 /* заголовки: тяжёлый курсив */
 h1.big,h2.t,.product h3,.ditem h3,.cols3 b,.steps h3,.way h3,.cta .box h3,.way .gn,.wm,.hword,.pc-more,.btn,.lnk,.lab,.tabs button,.mq-t span,.way .bd{font-family:var(--fd);font-style:italic}
-h1.big{font-weight:900;font-size:clamp(26px,7.2vw,124px);line-height:.98;letter-spacing:-.04em}
+h1.big{font-weight:900;font-size:clamp(24px,min(7.2vw,9.4svh),108px);line-height:.98;letter-spacing:-.04em}
 h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spacing:-.035em}
 .dgrid h2.t{font-size:clamp(28px,3.6vw,56px)}
 .product h3{font-weight:900;font-size:clamp(30px,4vw,60px);line-height:1;letter-spacing:-.035em}
@@ -328,7 +328,7 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 .himg{background:var(--lime)}
 .art{background:
   linear-gradient(180deg,#d8f800 0%,#cdf200 55%,#b5e000 100%)}
-.art::before{background-image:linear-gradient(rgba(60,20,160,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(60,20,160,.10) 1px,transparent 1px)}
+.art::before,.panel-art::before{background-image:linear-gradient(rgba(60,20,160,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(60,20,160,.10) 1px,transparent 1px)}
 
 /* лист */
 .sheet{border-radius:var(--r) var(--r) 0 0}
@@ -341,27 +341,32 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 
 /* баннер диагностики */
 .panel-art{
+  position:relative;
+  isolation:isolate;
   display:grid;
   grid-template-columns:minmax(0,1fr) clamp(152px,19vw,258px);
   align-items:center;
   gap:clamp(24px,5vw,76px);
-  margin-top:clamp(32px,4vw,64px);
+  margin-top:clamp(24px,3vw,48px);
   padding:clamp(24px,3vw,44px) clamp(28px,5.5vw,84px);
   border-radius:clamp(28px,3.4vw,48px);
   background:var(--lime);
-  color:var(--violet);
 }
+.panel-art::before{z-index:-1;border-radius:inherit}
 .diagnostic-copy{
   margin:0;
-  max-width:21ch;
-  font:italic 900 clamp(28px,4vw,58px)/1.08 var(--fd);
+  padding:clamp(16px,2.8vw,40px);
+  border-radius:clamp(22px,3vw,38px);
+  background:var(--violet);
+  color:#fff;
+  font:italic 900 clamp(25px,3.6vw,54px)/1.08 var(--fd);
   letter-spacing:-.035em;
   text-wrap:balance;
 }
 .diagnostic-phone{display:block;width:100%;height:auto;aspect-ratio:681/1435}
 @media(max-width:540px){
   .panel-art{grid-template-columns:minmax(0,1fr);padding:clamp(22px,6vw,36px)}
-  .diagnostic-copy{max-width:none;font-size:clamp(22px,6.6vw,34px)}
+  .diagnostic-copy{font-size:clamp(22px,6.2vw,34px)}
   .diagnostic-phone{width:clamp(142px,40vw,180px);justify-self:center}
 }
 
@@ -444,9 +449,7 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 .sheet{overflow-x:clip}
 h1.big{max-width:100%}
 @media(max-width:600px){
-  h1.big{font-size:clamp(24px,9vw,40px);line-height:1}
-  h1.big .ln{white-space:nowrap}
-  h1.big .ln:nth-child(3){padding-left:0}
+  h1.big{font-size:clamp(23px,min(8.4vw,9svh),38px);line-height:1}
 }
 .cta .box::after{display:none}
 .way .gn{font-size:clamp(100px,10.5vw,160px);right:.08em;top:-.06em}
@@ -473,4 +476,8 @@ h1.big{max-width:100%}
   .hsub{margin-top:12px;font-size:15px}
   .hcta{margin-top:14px;gap:14px}
   .hcta .btn{padding:16px 24px}
+}
+@media(max-height:540px){
+  .hsub{max-width:60ch}
+  .hcols{display:none}
 }
