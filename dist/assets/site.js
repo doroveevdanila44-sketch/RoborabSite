@@ -11,9 +11,11 @@ d.addEventListener('click',function(e){if(e.target.closest('.dl-x')||e.target===
 
 (function(){var d=document.getElementById('lb');if(!d)return;var st=document.getElementById('lbst'),cn=document.getElementById('lbcn'),list=[],i=0;
 function show(){
-  var shot=list[i];
+  var shot=list[i], brand=shot.querySelector('.shot-brand');
   st.style.backgroundImage=getComputedStyle(shot).backgroundImage;
   if(shot.dataset.clock)st.dataset.clock=shot.dataset.clock;else delete st.dataset.clock;
+  st.textContent='';
+  if(brand)st.appendChild(brand.cloneNode(true));
   cn.textContent=(i+1)+' / '+list.length;
 }
 function go(n){i=(i+n+list.length)%list.length;show()}

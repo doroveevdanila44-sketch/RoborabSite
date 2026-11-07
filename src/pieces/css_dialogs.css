@@ -51,6 +51,18 @@
 [data-clock=sources]{--clock-bg:linear-gradient(#fefcff,#faf9fd)}
 .product-gallery .shot[data-clock],.lb .st[data-clock]{container-type:inline-size;aspect-ratio:640/1388;overflow:hidden}
 .product-gallery .shot[data-clock]{position:relative}
+[data-clock]::before{
+  content:'';
+  position:absolute;
+  top:1.3%;
+  left:50%;
+  transform:translateX(-50%);
+  width:32%;
+  height:4.15%;
+  border-radius:999px;
+  background:#08080a;
+  pointer-events:none;
+}
 [data-clock]::after{
   content:'9:41';
   position:absolute;
@@ -63,6 +75,21 @@
   background:var(--clock-bg);
   color:var(--clock-fg);
   font:750 4.3cqw/1 -apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  pointer-events:none;
+}
+.shot-brand{
+  position:absolute;
+  top:42.35%;
+  left:30.5%;
+  min-width:7.4%;
+  height:1.83%;
+  display:flex;
+  align-items:center;
+  padding-inline:.4cqw;
+  background:#fff;
+  color:var(--violet);
+  font:800 3.55cqw/1 var(--f);
+  white-space:nowrap;
   pointer-events:none;
 }
 .lb{border:0;padding:0;background:transparent;width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;margin:0;overflow:hidden;color:#fff}
