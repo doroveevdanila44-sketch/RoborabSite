@@ -95,9 +95,8 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .dlist{display:grid;gap:clamp(24px,3vw,44px)}
 .ditem{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:clamp(16px,2.4vw,32px);align-items:center}
 .tile{aspect-ratio:1;border-radius:0 0 clamp(18px,2vw,28px) clamp(18px,2vw,28px);display:grid;place-items:center;position:relative}
-.tile i{display:block;width:34%;aspect-ratio:1;border:4px solid #111514;border-radius:50%;position:relative}
-.tile i::after{content:'';position:absolute;right:-26%;bottom:-26%;width:44%;aspect-ratio:1;border-radius:50%;background:var(--lime);border:3px solid #111514}
-.tile.t1{background:#d9c9b0}.tile.t2{background:var(--blue)}.tile.t2 i{border-color:#fff;border-radius:50%}.tile.t2 i::after{background:#fff;border-color:#fff}.tile.t3{background:var(--lime)}.tile.t3 i{border-radius:14px}.tile.t3 i::after{background:#111514;border-radius:6px}
+.tile.t1{background:#d9c9b0}.tile.t2{background:var(--blue)}.tile.t3{background:var(--lime)}
+.tile .industry-art{display:block;width:90%;height:88%;background:var(--art,none) center/contain no-repeat}
 .ditem h3{margin:0;font:500 clamp(24px,2.6vw,40px)/1 var(--f);letter-spacing:-.05em}
 .ditem p{margin:14px 0 0;color:rgba(243,240,232,.62);font:400 15px/1.5 var(--f);padding-bottom:14px;border-bottom:1px solid rgba(243,240,232,.2)}
 @media(max-width:1000px){.dgrid{grid-template-columns:1fr}.dgrid>div:nth-child(2){position:static}.ditem{grid-template-columns:1fr 2fr}}

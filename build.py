@@ -206,10 +206,13 @@ def build(out):
     source_assets = ROOT / 'assets'
     assets = out / 'assets'
     assets.mkdir()
-    diagnostic_phone = 'diagnostic-phone.webp'
-    phone_data = (source_assets / diagnostic_phone).read_bytes()
-    (assets / diagnostic_phone).write_bytes(phone_data)
-    phone_version = hashlib.sha256(phone_data).hexdigest()[:8]
+
+    def webp_url(name):
+        filename = name + '.webp'
+        data = (source_assets / filename).read_bytes()
+        (assets / filename).write_bytes(data)
+        version = hashlib.sha256(data).hexdigest()[:8]
+        return f'/assets/{filename}?v={version}'
 
     products_markup = read_piece('products.html')
     products = read_products(products_markup)
@@ -223,7 +226,8 @@ def build(out):
         'PRODUCTS': products_markup, 'FAQ': faq_markup, 'FORM': read_piece('form.html'),
         'LB': read_piece('lb.html'), 'STORES': read_piece('stores.html'),
         'SOLUTION_LINKS': solution_links(products),
-        'DIAGNOSTIC_PHONE': f'/assets/{diagnostic_phone}?v={phone_version}',
+        'DIAGNOSTIC_PHONE': webp_url('diagnostic-phone'),
+        'INDUSTRY_INFRASTRUCTURE': webp_url('industry-infrastructure'),
     }
     for name, piece in pieces.items():
         body = body.replace('{{' + name + '}}', piece)
@@ -232,11 +236,7 @@ def build(out):
     js = '\n'.join(read_piece(name) for name in ('js_dialogs.js', 'new.js'))
     image_vars = []
     for name in sorted(set(re.findall(r'var\(--img-([a-z0-9-]+)\b', css + body))):
-        filename = name + '.webp'
-        data = (source_assets / filename).read_bytes()
-        (assets / filename).write_bytes(data)
-        version = hashlib.sha256(data).hexdigest()[:8]
-        image_vars.append(f'  --img-{name}:url(/assets/{filename}?v={version});')
+        image_vars.append(f'  --img-{name}:url({webp_url(name)});')
     css = css.replace('{{ASSET_VARS}}', '\n'.join(image_vars))
 
     shutil.copyfile(source_assets / 'gor.webp', assets / 'gor.webp')
