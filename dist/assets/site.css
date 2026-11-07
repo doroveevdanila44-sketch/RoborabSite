@@ -8,13 +8,15 @@
   --img-appicon:url(/assets/appicon.webp?v=f7c18612);
   --img-c-booking:url(/assets/c-booking.webp?v=1d2d6b84);
   --img-c-build:url(/assets/c-build.webp?v=f4c40eb5);
-  --img-c-fit:url(/assets/c-fit.webp?v=af3a3490);
   --img-c-tax:url(/assets/c-tax.webp?v=98ca0b81);
+  --img-fitness-client:url(/assets/fitness-client.webp?v=8e9edbb8);
+  --img-fitness-dashboard:url(/assets/fitness-dashboard.webp?v=d6da71d1);
+  --img-fitness-export:url(/assets/fitness-export.webp?v=d59eb0c1);
+  --img-fitness-group:url(/assets/fitness-group.webp?v=8543d4e1);
+  --img-fitness-renewals:url(/assets/fitness-renewals.webp?v=dcfa66fd);
+  --img-fitness-schedule:url(/assets/fitness-schedule.webp?v=a3ea7ebb);
   --img-industry-agents:url(/assets/industry-agents.webp?v=6ec83d90);
   --img-industry-integration:url(/assets/industry-integration.webp?v=959407f9);
-  --img-s1:url(/assets/s1.webp?v=4a602229);
-  --img-s2:url(/assets/s2.webp?v=2a8c9a8f);
-  --img-s3:url(/assets/s3.webp?v=0945e8db);
   --img-seo-ai-traffic:url(/assets/seo-ai-traffic.webp?v=ecaba6e8);
   --img-seo-category:url(/assets/seo-category.webp?v=e1896981);
   --img-seo-editor:url(/assets/seo-editor.webp?v=6506225f);
@@ -266,6 +268,7 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 [data-clock]{--clock-bg:#f5f2fc;--clock-fg:#000}
 [data-clock=violet]{--clock-bg:var(--violet);--clock-fg:#fff}
 [data-clock=lime]{--clock-bg:linear-gradient(#daf15a,#e3f962)}
+[data-clock=fitness]{--clock-fg:#fff}
 [data-clock=funnel]{--clock-bg:linear-gradient(#f7f5fa,#fdfcff)}
 [data-clock=sources]{--clock-bg:linear-gradient(#fefcff,#faf9fd)}
 .product-gallery .shot[data-clock],.lb .st[data-clock]{container-type:inline-size;aspect-ratio:640/1388;overflow:hidden}
@@ -296,6 +299,7 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
   font:750 4.3cqw/1 -apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
   pointer-events:none;
 }
+[data-clock^=fitness]::after{left:9%;background:none}
 .shot-brand{
   position:absolute;
   top:42.35%;
@@ -341,7 +345,7 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .panel .btn,.pc-more{background:var(--fg);color:#fff}
 @container (max-width:620px){.panel .row{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.panel .btn{width:100%}}
 
-#catalog{--btxt:#101417;--acc:#a2eb41;--accfg:#fff;--mimg:var(--img-c-fit)}
+#catalog{--acc:var(--violet)}
 #tax{--btxt:#101417;--acc:#38d0e0;--accfg:#fff;--mimg:var(--img-c-tax)}
 #build{--btxt:#101417;--acc:#fcc118;--accfg:#fff;--mimg:var(--img-c-build)}
 #booking{--btxt:#fff;--acc:#393939;--accfg:#fff;--mimg:var(--img-c-booking)}
