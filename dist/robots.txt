@@ -54,4 +54,4 @@ User-agent: YandexAdditional
 Allow: /
 Disallow: /chat.html
 
-Sitemap: https://roborab.vercel.app/sitemap.xml
+Sitemap: https://www.roborab.com/sitemap.xml

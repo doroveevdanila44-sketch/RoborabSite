@@ -1,120 +1,141 @@
-# ROBORAB: full page text (English)
+# РОБОРАБ
 
-We bring AI into business processes and beyond.
-Tell the AI agent about your business in a chat, any time. A specialist reads the summary and offers a ready product or a solution built from scratch.
-Tell us about your business
-See the solutions
-Ready solutions A product from the catalog Tuned to your business
-Custom A solution from scratch When nothing in the catalog fits
-Websites A website for business Websites and web services, including SEO and GEO.
-Chat with the agent Tell us about your business Any time
-ROBORAB
-AI process automation SaaS platforms Web services and websites Corporate chatbots Specialized projects AI process automation SaaS platforms Web services and websites Corporate chatbots Specialized projects
-AI process automation SaaS platforms Web services and websites Corporate chatbots Specialized projects AI process automation SaaS platforms Web services and websites Corporate chatbots Specialized projects
-How we work First we understand. Then we build.
-Chat The chat is open when it suits you.
-The agent asks about your business. A specialist reads the summary and proposes a solution.
-01 Who are you? What does your company do?
-02 What gets in the way? Which task or process do you want to automate?
-03 What next? A ready product or a solution from scratch.
-Ready solutions Ready solutions for industries.
-If none fits, we will build one for you.
-Type of solution
-01 Fitness CRM
-02 Tax agent
-03 Construction accounting
-04 Booking CRM
+Внедряем ИИ в бизнес-процессы и не только.
+Расскажите ИИ-агенту в чате о своём бизнесе в любое время. Специалист прочитает итог и предложит готовый продукт или решение с нуля.
+Рассказать о бизнесе
+Смотреть решения
+Готовые решения Продукт из каталога Настроим под вас
+Под клиента Решение с нуля Если из каталога ничего не подходит
+Сайты Сайт для бизнеса Сайты и веб-сервисы, включая SEO и GEO.
+Чат с агентом Расскажите о бизнесе В любое время
+РОБОРАБ
+Автоматизация процессов с ИИ SaaS-платформы Веб-сервисы и сайты Корпоративные чат-боты Специализированные проекты Автоматизация процессов с ИИ SaaS-платформы Веб-сервисы и сайты Корпоративные чат-боты Специализированные проекты
+Автоматизация процессов с ИИ SaaS-платформы Веб-сервисы и сайты Корпоративные чат-боты Специализированные проекты Автоматизация процессов с ИИ SaaS-платформы Веб-сервисы и сайты Корпоративные чат-боты Специализированные проекты
+Как мы работаем Сначала разберёмся. Потом соберём.
+Чат Чат работает, когда удобно вам.
+Агент задаёт вопросы о вашем бизнесе. Специалист читает итог и предлагает решение.
+01 Кто вы? Чем занимается ваша компания?
+02 Что мешает? Какую задачу или процесс вы хотите автоматизировать?
+03 Что дальше? Готовый продукт или решение с нуля.
+Готовые решения Готовые решения для отраслей.
+Если ни одно не подходит, соберём решение под вас.
+Тип решения
+01 Фитнес-CRM
+02 Налоговый агент
+03 Строй-учёт
+04 Букинг-CRM
 05 SEO / GEO
-Fitness CRM
-Clients, memberships, schedules and trainer payouts
-Fitness CRM
-Clients, memberships, schedules and trainer payouts
-The whole club at a glance: unlimited, trial and single-visit passes on one screen
-Find any client in a second: a last name or phone number is enough
-See trainers' free slots right away, no calls or spreadsheets
-Trainer payouts are calculated automatically, and the AI agent answers clients for you
-Tax agent
-Taxes for a group of companies: actuals from 1C, forecast and scenarios
-Tax agent
-Taxes for a group of companies: actuals from 1C, forecast and scenarios
-The whole group of companies on one screen
-See urgent payments in advance: no deadline slips by
-Compare the load across all legal entities in one tap
-The agent is on call 24/7: ask “what if” and get a calculation
-Construction accounting
-Sites, materials and costs
-Construction accounting
-Sites, materials and costs
-Sites, materials and works in one database
-Cost tracking for every site
-A manager's summary across all sites
-Booking CRM
-All hotel requests in one window
-Booking CRM
-All hotel requests in one window
-All booking requests in one list
-Status and history for every request
-The hotel owner tracks requests personally
+Фитнес-CRM
+Клиенты, абонементы, расписание и выплаты тренерам
+Узнать детали
+Фитнес-CRM
+Клиенты, абонементы, расписание и выплаты тренерам
+Узнать детали
+Весь клуб как на ладони: безлимит, пробные и разовые на одном экране
+Любого клиента найдёшь за секунду: хватит фамилии или телефона
+Свободные окна тренеров видишь сразу, без звонков и таблиц
+Выплаты тренерам считаются сами, а ИИ-агент отвечает клиентам за тебя
+Налоговый агент
+Налоги группы компаний: факт из 1С, прогноз и сценарии
+Узнать детали
+Налоговый агент
+Налоги группы компаний: факт из 1С, прогноз и сценарии
+Узнать детали
+Вся группа компаний на одном экране
+Срочные платежи видишь заранее: ни один срок не пройдёт мимо
+Нагрузку по всем юрлицам сравнишь в одно касание
+Агент на связи 24/7: спроси «что если» и получи расчёт
+Строй-учёт
+Объекты, материалы и затраты
+Узнать детали
+Строй-учёт
+Объекты, материалы и затраты
+Узнать детали
+Объекты, материалы и работы в одной базе
+Учёт затрат по каждому объекту
+Сводка для руководителя по всем объектам
+Букинг-CRM
+Все заявки отеля в одном окне
+Узнать детали
+Букинг-CRM
+Все заявки отеля в одном окне
+Узнать детали
+Все заявки на бронирование в одном списке
+Статус и история по каждой заявке
+Владелец отеля следит за заявками сам
 SEO / GEO
-Setup, analytics, admin panels
+Настройка, аналитика, админ-панели
+Узнать детали
 SEO / GEO
-Setup, analytics, admin panels
-SEO and GEO setup: site visibility in search and in AI answers
-Storefront admin panel: banner, slogan and categories are edited right in the interface
-Visitor analytics for 7, 30 or 90 days: who came, who left at once and how many carts were sent to Telegram
-See how many buyers were brought by AI assistants (ChatGPT, Alice, Perplexity, Gemini), and visitors by day
-For your industry
-Consulting and implementation for your industry.
-We work with businesses from idea to operation. We keep the infrastructure in our app or deploy it on your server.
-Multi-agent systems for your profession
-Are you a lawyer? We will build a system of agents: some track changes in the law, others review your cases.
-We build into your ecosystem
-We connect agents to spreadsheets, databases and 1C and tune them to your processes.
-Your infrastructure
-We keep everything in our app, managed through chat, or host it on your server.
-Process How it works in four steps.
-Step 1 You describe the task
-To the AI agent: by text, voice or video call.
-Step 2 The agent captures the essence
-Writes a summary of your request.
-Step 3 A specialist configures it
-A technical specialist customizes the ready-made solution for you.
-The next day The tool is yours
-Only the setup remains.
-Where to start Three ways to start. Pick yours.
-01 Catalog A ready product
-We take it from the catalog and tune it to you.
-See the solutions
-02 From scratch Custom A solution for you
-When nothing in the catalog fits.
-Tell us about your business
-03 Websites A website for business
-Websites and web services, including SEO and GEO.
-Tell us about your business
-Questions Frequently asked questions
-What is ROBORAB? ROBORAB implements AI agents into companies' business processes. You can start with free diagnostics in chat, choose a ready-made solution from the catalog, or order a solution for your business.
-How do you implement artificial intelligence in business processes? You describe the task to the AI agent by text, voice or video call. The agent writes a summary of your request, a technical specialist customizes a ready-made solution for you, and the next day the tool is already in the app.
-How much does AI implementation cost? Diagnostics in chat is free. Implementation is priced individually: you can get a cost estimate in the chat within 10 minutes.
-Which systems do you work with? With spreadsheets, databases and 1C. Agents can stay in our app or be deployed on your server. For lawyers we build multi-agent systems that track changes in the law and review cases.
-What will I get after the diagnosis? A list of where you lose money and time, and a specialist proposal: a ready-made product or a solution from scratch.
-What if I do not need AI? We will say so directly. The diagnosis is free, so you risk nothing.
-Which ready-made solutions are in the catalog? Fitness CRM, a tax agent for a group of companies, construction accounting, a booking CRM for hotel requests, and SEO and GEO setup.
-Can AI replace an employee or a whole function? Yes. ROBORAB is built into your company's internal processes and takes over the work of a specific person or area. You save money and time.
-Where do I start if I do not know what I need? Start with the diagnosis: tell the AI agent about your business in the chat. It will help find where processes get stuck. A specialist will review the summary and suggest what to implement.
-Can I order something that is not in the catalog? Yes. We will tailor a ready-made product to you, combine several products (the Hybrid solution) or build a solution entirely around you. We also build websites.
-Which languages is the site available in? The site is available in Russian, English, Chinese and Arabic. You change the language with the globe button in the top-right corner of the first screen.
-Contact Tell us about your task.
-We open a chat
-Leave your name and contact details and choose a product. We will open a chat with ROBORAB AI: the agent will ask a few questions and find out exactly what you need.
-Name
-Phone or e-mail
-The product you are interested in
-Not sure yet Fitness CRM Tax agent Construction accounting Booking CRM SEO / GEO
-Send to the ROBORAB AI chat →
-How we work
-Ready solutions
-Process
-Questions
-Contact
-Available on all devices Tap to sign in
-ROBORAB
+Настройка, аналитика, админ-панели
+Узнать детали
+Настройка SEO и GEO: видимость сайта в поиске и в ответах ИИ
+Админ-панель витрины: баннер, слоган и категории меняются прямо в интерфейсе
+Аналитика посетителей за 7, 30 или 90 дней: кто пришёл, кто ушёл сразу и сколько корзин отправлено в Telegram
+Видно, сколько покупателей привели нейросети (ChatGPT, Алиса, Perplexity, Gemini), и посетителей по дням
+Под вашу отрасль
+Консалтинг и внедрение под вашу отрасль.
+Работаем с бизнесом от идеи до эксплуатации. Инфраструктуру оставляем в нашем приложении или разворачиваем на вашем сервере.
+Мультиагентные системы под профессию
+Вы юрист? Соберём систему агентов: одни следят за изменениями в законах, другие просматривают ваши дела.
+Встраиваем в вашу экосистему
+Подключаем агентов к таблицам, базам данных и 1С и настраиваем под ваши процессы.
+Ваша инфраструктура
+Оставляем всё в нашем приложении, управление через чат, или поселяем на ваш сервер.
+Процесс Как это работает в четыре шага.
+Шаг 1 Вы описываете задачу
+ИИ-агенту: текстом, голосом или в видеозвонке.
+Шаг 2 Агент собирает суть
+Формирует резюме вашего запроса.
+Шаг 3 Специалист настраивает
+Технический специалист кастомизирует готовое решение под вас.
+На следующий день Инструмент у вас
+Остаётся только настройка.
+С чего начать Три способа начать. Выберите свой.
+01 Каталог Готовый продукт
+Берём из каталога и настраиваем под вас.
+Смотреть решения
+02 С нуля Под клиента Решение под вас
+Если из каталога ничего не подходит.
+Рассказать о бизнесе
+03 Сайты Сайт для бизнеса
+Сайты и веб-сервисы, включая SEO и GEO.
+Рассказать о бизнесе
+Вопросы Частые вопросы
+Что такое РОБОРАБ?
+РОБОРАБ внедряет ИИ-агентов в бизнес-процессы компаний. Можно начать с бесплатной диагностики в чате, выбрать готовое решение из каталога или заказать решение под ваш бизнес.
+Как внедрить искусственный интеллект в бизнес-процессы?
+Вы описываете задачу ИИ-агенту: текстом, голосом или в видеозвонке. Агент формирует резюме запроса, технический специалист настраивает готовое решение под вас, а на следующий день инструмент уже в приложении.
+Сколько стоит внедрение ИИ?
+Диагностика в чате бесплатна. Цена внедрения индивидуальная: расчёт стоимости можно получить за 10 минут в чате.
+С какими системами вы работаете?
+С таблицами, базами данных и 1С. Агентов можно оставить в нашем приложении или развернуть на вашем сервере. Для юристов собираем мультиагентные системы, которые следят за изменениями в законах и просматривают дела.
+Что я получу после диагностики?
+Список мест, где вы теряете деньги и время, и предложение специалиста: готовый продукт или решение с нуля.
+А если ИИ мне не нужен?
+Скажем об этом прямо. Диагностика бесплатна, вы ничем не рискуете.
+Какие готовые решения есть в каталоге?
+Фитнес-CRM, налоговый агент для группы компаний, строй-учёт, букинг-CRM для приёма заявок отеля, а также настройка SEO и GEO.
+Может ли ИИ заменить сотрудника или целую функцию?
+Да. РОБОРАБ встраивается во внутренние процессы компании и берёт на себя работу конкретного человека или направления. Вы экономите деньги и время.
+С чего начать, если я не знаю, что мне нужно?
+Начните с диагностики: расскажите ИИ-агенту в чате о своём бизнесе. Он поможет найти, где процессы буксуют. Специалист изучит резюме и предложит, что внедрять.
+Можно ли заказать то, чего нет в каталоге?
+Да. Мы настроим готовый продукт под вас, объединим несколько продуктов (решение «Гибрид») или соберём решение полностью под вас. Делаем и сайты.
+На каких языках работает сайт?
+Сайт доступен на русском, английском, китайском и арабском. Язык меняется кнопкой с глобусом в правом верхнем углу первого экрана.
+Контакты Расскажите о задаче.
+Откроем чат
+Оставьте имя и контакт, выберите продукт. Мы откроем чат с РОБОРАБ AI: агент задаст несколько вопросов и выяснит, что именно вам нужно.
+Имя
+Телефон или e-mail
+Продукт, который вас заинтересовал
+Пока не знаю Фитнес-CRM Налоговый агент Строй-учёт Букинг-CRM SEO / GEO
+Отправить в чат РОБОРАБ AI →
+Как мы работаем
+Готовые решения
+Процесс
+Вопросы
+Контакты
+Доступно на всех устройствах Нажми, чтобы войти
+РОБОРАБ

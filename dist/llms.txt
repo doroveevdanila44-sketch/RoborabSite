@@ -1,21 +1,15 @@
-# ROBORAB
+# РОБОРАБ
 
-> ROBORAB deploys AI agents in business processes: fitness CRM, tax agent, construction accounting, booking CRM, SEO and GEO. The diagnosis in the chat is free.
+> РОБОРАБ внедряет ИИ-агентов в бизнес-процессы: фитнес-CRM, налоговый агент, строй-учёт, букинг-CRM, SEO и GEO. Диагностика в чате бесплатна.
 
-ROBORAB deploys AI agents into B2B business processes. The diagnosis in the chat is free; implementation is priced individually.
+## Готовые решения
 
-## Products
-- Fitness CRM: clients, memberships, schedules, trainer payouts
-- Tax agent: group-of-companies taxes, actuals from 1C, forecasts and scenarios
-- Construction accounting: sites, materials and costs
-- Booking CRM: hotel booking requests in one window
-- SEO and GEO: setup, analytics, admin panels
+- Фитнес-CRM — Клиенты, абонементы, расписание и выплаты тренерам
+- Налоговый агент — Налоги группы компаний: факт из 1С, прогноз и сценарии
+- Строй-учёт — Объекты, материалы и затраты
+- Букинг-CRM — Все заявки отеля в одном окне
+- SEO / GEO — Настройка, аналитика, админ-панели
 
-## Languages
-- [English (US)](https://roborab.vercel.app/)
-- [中文](https://roborab.vercel.app/zh/)
-- [العربية](https://roborab.vercel.app/ar/)
-- [Русский](https://roborab.vercel.app/ru/)
+## Подробнее
 
-## Full text
-- [llms-full.txt](https://roborab.vercel.app/llms-full.txt)
+- [Полный текст сайта](https://www.roborab.com/llms-full.txt)

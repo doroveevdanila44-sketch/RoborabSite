@@ -2,11 +2,9 @@
 (function(){
   var root = document.documentElement, body = document.body;
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var bot = !!navigator.webdriver;   /* при пререндере (headless) движение не включаем */
+  var bot = !!navigator.webdriver;
   function $(s){ return document.querySelector(s); }
   function clamp(v){ return v < 0 ? 0 : v > 1 ? 1 : v; }
-
-  /* меню */
 
   /* вкладки каталога */
   var tabs = [].slice.call(document.querySelectorAll('#tabs [role=tab]')), prods = [].slice.call(document.querySelectorAll('#cgrid .product'));
