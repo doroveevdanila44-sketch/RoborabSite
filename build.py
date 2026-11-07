@@ -14,15 +14,15 @@ ROOT = Path(__file__).resolve().parent
 SITE = os.environ.get('SITE_URL', 'https://www.roborab.com').rstrip('/')
 HOME = SITE + '/'
 BRAND = 'РОБОРАБ'
-TITLE = 'РОБОРАБ — внедрение ИИ-агентов для бизнеса'
+TITLE = 'РОБОРАБ (RoboRab) | Внедрение ИИ в бизнес-процессы и профессии'
 DESCRIPTION = (
-    'РОБОРАБ внедряет ИИ-агентов для бизнеса и настраивает отраслевые CRM. '
-    'В каталоге есть решения для фитнеса, налогового учёта, стройки и отелей, а также SEO и GEO.'
+    'РОБОРАБ (RoboRab) внедряет ИИ в бизнес-процессы и профессии. '
+    'Готовые решения, разработка под задачу и бесплатная диагностика в чате.'
 )
 ABOUT = (
-    'РОБОРАБ внедряет ИИ-агентов и автоматизирует рабочие процессы компаний. '
-    'Мы настраиваем готовые отраслевые решения и разрабатываем инструменты под задачи бизнеса. '
-    'Подключаем таблицы, базы данных и 1С. Начать можно с бесплатной диагностики в чате.'
+    'РОБОРАБ (RoboRab) внедряет искусственный интеллект в бизнес-процессы и профессии. '
+    'Наша команда настраивает готовые решения из каталога и разрабатывает инструменты с нуля под вашу задачу. '
+    'Подключаем таблицы, базы данных и 1С. Диагностика в чате бесплатна.'
 )
 CHAT = 'https://roborabaichat.vercel.app/?lang=ru'
 ORG = {'@id': HOME + '#organization'}
@@ -67,7 +67,7 @@ def schema(title, description, url, products, product=None, faq=()):
          'url': HOME, 'inLanguage': 'ru', 'publisher': ORG},
     ]
     main_service = service(product) if product else {
-        '@type': 'Service', '@id': HOME + '#service', 'name': 'Внедрение ИИ-агентов для бизнеса',
+        '@type': 'Service', '@id': HOME + '#service', 'name': 'Внедрение ИИ в бизнес-процессы и профессии',
         'serviceType': 'Внедрение ИИ-агентов',
         'url': HOME, 'description': ABOUT, 'provider': ORG,
         'hasOfferCatalog': {
@@ -78,6 +78,8 @@ def schema(title, description, url, products, product=None, faq=()):
     page = {'@type': 'WebPage', '@id': url + '#page', 'url': url, 'name': title,
             'description': description, 'inLanguage': 'ru', 'isPartOf': WEBSITE,
             'about': {'@id': main_service['@id']}}
+    if not product:
+        page['about'] = [ORG, page['about']]
     if product:
         page['mainEntity'] = {'@id': main_service['@id']}
         page['breadcrumb'] = {'@id': url + '#breadcrumbs'}
@@ -211,7 +213,7 @@ def build(out):
 
     products_markup = read_piece('products.html')
     products = read_products(products_markup)
-    faq_markup = read_piece('faq.html')
+    faq_markup = read_piece('faq.html').replace('{{ABOUT}}', html.escape(ABOUT))
     faq = [
         (html.unescape(question), html.unescape(answer))
         for question, answer in re.findall(r'<details><summary>(.*?)</summary><p>(.*?)</p></details>', faq_markup, re.S)
