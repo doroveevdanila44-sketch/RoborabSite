@@ -15,7 +15,7 @@
   --img-s3:url(/assets/s3.webp?v=0945e8db);
   --img-seo-ai-traffic:url(/assets/seo-ai-traffic.webp?v=ecaba6e8);
   --img-seo-category:url(/assets/seo-category.webp?v=e1896981);
-  --img-seo-editor:url(/assets/seo-editor.webp?v=e7fb1303);
+  --img-seo-editor:url(/assets/seo-editor.webp?v=6506225f);
   --img-seo-funnel:url(/assets/seo-funnel.webp?v=68fb2dcd);
   --img-seo-overview:url(/assets/seo-overview.webp?v=37633b55);
   --img-seo-sources:url(/assets/seo-sources.webp?v=4ce2ca46);
@@ -314,6 +314,18 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
   background:#fff;
   color:var(--violet);
   font:800 3.55cqw/1 var(--f);
+  white-space:nowrap;
+  pointer-events:none;
+}
+.shot-url{
+  position:absolute;
+  top:21.05%;
+  left:4.08%;
+  height:2.45%;
+  display:flex;
+  align-items:center;
+  color:#695d82;
+  font:400 3.72cqw/1.18 var(--f);
   white-space:nowrap;
   pointer-events:none;
 }

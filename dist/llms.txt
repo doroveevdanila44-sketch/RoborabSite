@@ -17,7 +17,7 @@
 ## Готовые решения
 
 - [CRM для фитнес-клубов](https://www.roborab.com/solutions/fitness-crm): Клиенты, абонементы, расписание и выплаты тренерам
-- [SeoGeo](https://www.roborab.com/solutions/seo-geo): Аналитика и управление сайтом в одной панели
+- [SEO / GEO](https://www.roborab.com/solutions/seo-geo): Аналитика и управление сайтом в одной панели
 - [Налоговый агент для группы компаний](https://www.roborab.com/solutions/nalogovy-agent): Налоги группы компаний: факт из 1С, прогноз и сценарии
 - [Учёт для строительных компаний](https://www.roborab.com/solutions/stroi-uchet): Объекты, материалы и затраты
 - [CRM для заявок на бронирование отеля](https://www.roborab.com/solutions/booking-crm): Все заявки отеля в одном окне

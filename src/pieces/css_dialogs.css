@@ -92,6 +92,18 @@
   white-space:nowrap;
   pointer-events:none;
 }
+.shot-url{
+  position:absolute;
+  top:21.05%;
+  left:4.08%;
+  height:2.45%;
+  display:flex;
+  align-items:center;
+  color:#695d82;
+  font:400 3.72cqw/1.18 var(--f);
+  white-space:nowrap;
+  pointer-events:none;
+}
 .lb{border:0;padding:0;background:transparent;width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;margin:0;overflow:hidden;color:#fff}
 .lb::backdrop{background:rgba(10,12,14,.82);backdrop-filter:blur(6px)}
 .lb .st{position:absolute;left:50%;top:50%;translate:-50% -50%;height:min(88dvh,1000px);aspect-ratio:760/1476;max-width:92vw;border-radius:18px;background:center/contain no-repeat #fff;box-shadow:0 30px 80px -20px rgba(0,0,0,.6);touch-action:pan-y}
