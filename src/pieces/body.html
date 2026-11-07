@@ -3,7 +3,11 @@
   <section class="hero" aria-labelledby="h1">
     <div class="stage" id="stage">
       <div class="htext" id="htext">
-        <h1 class="big" id="h1"><span class="ln">Внедряем ИИ<span class="pill" id="pill"></span></span><span class="ln">в бизнес-процессы</span><span class="ln">и не только.</span></h1>
+        <h1 class="big" id="h1">
+          <span class="ln">Внедряем ИИ<span class="pill" id="pill"></span></span>
+          <span class="ln">в бизнес-процессы</span>
+          <span class="ln">и не только.</span>
+        </h1>
         <p class="hsub">Расскажите ИИ-агенту в чате о своём бизнесе в любое время. Специалист прочитает итог и предложит готовый продукт или решение с нуля.</p>
         <div class="hcta">
           <a class="btn" href="https://roborabaichat.vercel.app/?lang=ru">Рассказать о бизнесе <svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 11 11 3M5 3h6v6"/></svg></a>
@@ -29,6 +33,7 @@
     <section class="sec" id="approach" aria-labelledby="ap-h">
       <div class="c">
         <div class="sh"><span class="lab">Как мы работаем</span><h2 class="t" id="ap-h">Сначала разберёмся.<br><span class="blue">Потом соберём.</span></h2></div>
+        <p class="intro-copy">{{ABOUT}}</p>
         <div class="panel-art pa-1" role="img" aria-label="Маскот РОБОРАБ"><span class="a1"></span></div>
       </div>
     </section>
@@ -59,6 +64,11 @@
         <div class="cgrid" id="cgrid">
 {{PRODUCTS}}
         </div>
+        <nav class="solution-links" aria-label="Страницы решений">
+          <ul>
+{{SOLUTION_LINKS}}
+          </ul>
+        </nav>
       </div>
     </section>
 
@@ -80,10 +90,10 @@
       <div class="c">
         <div class="sh"><span class="lab">Процесс</span><h2 class="t" id="pr-h">Как это работает<br><span class="blue">в четыре шага.</span></h2></div>
         <ol class="steps">
-          <li><span class="ic"></span><div><span class="sn">Шаг 1</span><h3>Вы описываете задачу</h3><p>ИИ-агенту: текстом, голосом или в видеозвонке.</p></div></li>
+          <li><span class="ic"></span><div><span class="sn">Шаг 1</span><h3>Вы описываете задачу</h3><p>Расскажите в чате, какой процесс хотите автоматизировать.</p></div></li>
           <li><span class="ic"></span><div><span class="sn">Шаг 2</span><h3>Агент собирает суть</h3><p>Формирует резюме вашего запроса.</p></div></li>
           <li><span class="ic"></span><div><span class="sn">Шаг 3</span><h3>Специалист настраивает</h3><p>Технический специалист кастомизирует готовое решение под вас.</p></div></li>
-          <li class="last"><span class="ic"></span><div><span class="sn">На следующий день</span><h3>Инструмент у вас</h3><p>Остаётся только настройка.</p></div></li>
+          <li class="last"><span class="ic"></span><div><span class="sn">Шаг 4</span><h3>Запускаем инструмент</h3><p>Срок зависит от задачи и нужных интеграций.</p></div></li>
         </ol>
       </div>
     </section>

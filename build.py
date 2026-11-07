@@ -13,60 +13,209 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent
 SITE = os.environ.get('SITE_URL', 'https://www.roborab.com').rstrip('/')
 HOME = SITE + '/'
-ROBOTS = (
-    '*', 'GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-User',
-    'Claude-SearchBot', 'PerplexityBot', 'Google-Extended', 'Applebot-Extended',
-    'CCBot', 'Yandex', 'YandexBot', 'YandexAdditional',
+BRAND = 'РОБОРАБ'
+TITLE = 'РОБОРАБ — внедрение ИИ-агентов для бизнеса'
+DESCRIPTION = (
+    'РОБОРАБ внедряет ИИ-агентов для бизнеса и настраивает отраслевые CRM. '
+    'В каталоге есть решения для фитнеса, налогового учёта, стройки и отелей, а также SEO и GEO.'
 )
+ABOUT = (
+    'РОБОРАБ внедряет ИИ-агентов и автоматизирует рабочие процессы компаний. '
+    'Мы настраиваем готовые отраслевые решения и разрабатываем инструменты под задачи бизнеса. '
+    'Подключаем таблицы, базы данных и 1С. Начать можно с бесплатной диагностики в чате.'
+)
+CHAT = 'https://roborabaichat.vercel.app/?lang=ru'
+ORG = {'@id': HOME + '#organization'}
+WEBSITE = {'@id': HOME + '#website'}
 
 
 def read_piece(name):
     return (ROOT / 'src' / 'pieces' / name).read_text(encoding='utf-8')
 
 
-def structured_data(title, description, products, faq):
-    org = {'@id': HOME + '#org'}
-    site = {'@id': HOME + '#site'}
+def read_products(markup):
+    details = json.loads(read_piece('solutions.json'))
+    products = {}
+    for key, section in re.findall(r'<section class="product[^"]*" id="([^"]+)">(.*?)</section>', markup, re.S):
+        name, tag = re.search(r'<h3>(.*?)</h3><p class="tag">(.*?)</p>', section, re.S).groups()
+        features = re.search(r'<ul class="feats[^"]*">(.*?)</ul>', section, re.S)[1]
+        product = details[key]
+        path = '/solutions/' + product['slug']
+        products[key] = {
+            **product, 'path': path, 'url': SITE + path, 'name': html.unescape(name),
+            'tag': html.unescape(tag), 'chat': html.unescape(re.search(r'<a class="btn" href="([^"]+)"', section)[1]),
+            'features': [html.unescape(item) for item in re.findall(r'<li>(.*?)</li>', features, re.S)],
+        }
+    if products.keys() != details.keys():
+        raise ValueError('Карточки каталога и данные страниц решений должны совпадать')
+    return list(products.values())
+
+
+def service(product):
+    return {'@type': 'Service', '@id': product['url'] + '#service', 'name': product['title'],
+            'alternateName': product['name'], 'url': product['url'],
+            'description': product['description'], 'provider': ORG}
+
+
+def schema(title, description, url, products, product=None, faq=()):
     graph = [
-        {'@type': 'Organization', **org, 'name': 'РОБОРАБ', 'url': HOME,
-         'logo': HOME + 'assets/appicon.webp', 'description': description,
-         'availableLanguage': 'ru'},
-        {'@type': 'WebSite', **site, 'name': 'РОБОРАБ', 'url': HOME,
-         'inLanguage': 'ru', 'publisher': org},
-        {'@type': 'WebPage', '@id': HOME + '#page', 'url': HOME,
-         'name': title, 'description': description, 'inLanguage': 'ru',
-         'isPartOf': site, 'about': org},
-        {'@type': 'Service', 'name': title, 'provider': org, 'inLanguage': 'ru',
-         'serviceType': 'Внедрение ИИ-агентов в бизнес-процессы',
-         'hasOfferCatalog': {'@type': 'OfferCatalog', 'name': 'Готовые решения',
-                             'itemListElement': [
-             {'@type': 'Offer', 'itemOffered': {'@type': 'Service', 'name': name,
-              'description': tag, 'provider': org}} for name, tag in products
-         ]}},
-        {'@type': 'FAQPage', 'inLanguage': 'ru', 'mainEntity': [
+        {'@type': 'Organization', **ORG, 'name': BRAND, 'alternateName': 'RoboRab',
+         'url': HOME, 'logo': HOME + 'assets/appicon.webp', 'description': ABOUT,
+         'contactPoint': {'@type': 'ContactPoint', 'url': CHAT,
+                          'contactType': 'Консультация по внедрению', 'availableLanguage': 'ru'}},
+        {'@type': 'WebSite', **WEBSITE, 'name': BRAND, 'alternateName': 'RoboRab',
+         'url': HOME, 'inLanguage': 'ru', 'publisher': ORG},
+    ]
+    main_service = service(product) if product else {
+        '@type': 'Service', '@id': HOME + '#service', 'name': 'Внедрение ИИ-агентов для бизнеса',
+        'serviceType': 'Внедрение ИИ-агентов',
+        'url': HOME, 'description': ABOUT, 'provider': ORG,
+        'hasOfferCatalog': {
+            '@type': 'OfferCatalog', 'name': 'Готовые решения РОБОРАБ',
+            'itemListElement': [{'@type': 'Offer', 'itemOffered': service(item)} for item in products],
+        },
+    }
+    page = {'@type': 'WebPage', '@id': url + '#page', 'url': url, 'name': title,
+            'description': description, 'inLanguage': 'ru', 'isPartOf': WEBSITE,
+            'about': {'@id': main_service['@id']}}
+    if product:
+        page['mainEntity'] = {'@id': main_service['@id']}
+        page['breadcrumb'] = {'@id': url + '#breadcrumbs'}
+        graph.append({
+            '@type': 'BreadcrumbList', **page['breadcrumb'],
+            'itemListElement': [
+                {'@type': 'ListItem', 'position': 1, 'name': BRAND, 'item': HOME},
+                {'@type': 'ListItem', 'position': 2, 'name': product['title'], 'item': url},
+            ],
+        })
+    elif faq:
+        page['@type'] = ['WebPage', 'FAQPage']
+        page['mainEntity'] = [
             {'@type': 'Question', 'name': question,
              'acceptedAnswer': {'@type': 'Answer', 'text': answer}}
             for question, answer in faq
-        ]},
-    ]
-    return json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False)
+        ]
+    graph.extend([page, main_service])
+    return json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False).replace('<', '\\u003c')
+
+
+def document(title, description, url, structured_data, body, stylesheet, script=None):
+    head = read_piece('head.html').replace('{{TITLE}}', html.escape(title)).replace(
+        '{{DESCRIPTION}}', html.escape(description))
+    og_image = HOME + 'assets/og.jpg'
+    properties = {
+        'og:type': 'website', 'og:site_name': BRAND, 'og:title': title, 'og:description': description,
+        'og:url': url, 'og:image': og_image, 'og:image:width': '1200', 'og:image:height': '630',
+        'og:locale': 'ru_RU',
+    }
+    head += ''.join(f'<meta property="{name}" content="{html.escape(value)}">\n' for name, value in properties.items())
+    names = {
+        'twitter:card': 'summary_large_image', 'twitter:title': title, 'twitter:description': description,
+        'twitter:image': og_image, 'robots': 'index,follow,max-image-preview:large',
+    }
+    if url == HOME:
+        names.update({
+            'yandex-verification': os.environ.get('YANDEX_VERIFICATION'),
+            'google-site-verification': os.environ.get('GOOGLE_SITE_VERIFICATION'),
+            'msvalidate.01': os.environ.get('MSVALIDATE_01'),
+        })
+    head += ''.join(f'<meta name="{name}" content="{html.escape(value)}">\n' for name, value in names.items() if value)
+    head += f'<link rel="canonical" href="{html.escape(url)}">\n'
+    head += '<link rel="icon" type="image/webp" href="/assets/appicon.webp">\n'
+    head += '<link rel="apple-touch-icon" href="/assets/appicon.webp">\n'
+    head += f'<link rel="stylesheet" href="{stylesheet}">\n'
+    head += f'<script type="application/ld+json">{structured_data}</script>\n'
+    if script:
+        head += f'<script src="{script}" defer></script>\n'
+    return (
+        '<!doctype html>\n<html lang="ru"><head><meta charset="utf-8">\n'
+        '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
+        f'{head}</head>\n{body}</body></html>\n'
+    )
+
+
+def product_page(product, links):
+    p = {key: html.escape(value) for key, value in product.items() if isinstance(value, str)}
+    features = '\n'.join(f'        <li>{html.escape(item)}</li>' for item in product['features'])
+    return f"""<body>
+<main class="c solution-page">
+  <nav aria-label="Навигация"><a class="lnk" href="/">РОБОРАБ</a> <a class="lnk" href="/#solutions">Все решения</a></nav>
+  <article>
+    <h1>{p['title']}</h1>
+    <p class="intro-copy">{p['description']}</p>
+    <section>
+      <h2>Кому подходит</h2>
+      <p>{p['audience']}</p>
+    </section>
+    <section>
+      <h2>Возможности</h2>
+      <ul>
+{features}
+      </ul>
+    </section>
+    <section>
+      <h2>Как это выглядит в работе</h2>
+      <p>{p['example']}</p>
+    </section>
+    <a class="btn" href="{p['chat']}">Обсудить задачу в чате</a>
+  </article>
+  <nav class="solution-links" aria-label="Другие решения РОБОРАБ">
+    <ul>
+{links}
+    </ul>
+  </nav>
+</main>
+"""
+
+
+def solution_links(products):
+    return '\n'.join(
+        f'            <li><a class="lnk" href="{item["path"]}">{html.escape(item["title"])}</a></li>'
+        for item in products
+    )
+
+
+def write_text_exports(out, products, faq):
+    catalog = '\n'.join(f'- [{item["title"]}]({item["url"]}): {item["tag"]}' for item in products)
+    (out / 'llms.txt').write_text(
+        f'# {BRAND}\n\n> {ABOUT}\n\n## Основное\n\n'
+        f'- [Сайт РОБОРАБ]({HOME}): каталог, описание работы и ответы на вопросы.\n'
+        f'- [Обзор решений и FAQ]({HOME}llms-full.txt): текстовая версия.\n'
+        f'- [Чат для диагностики]({CHAT}): отправить описание задачи.\n'
+        '\n## Когда подходит РОБОРАБ\n\n'
+        '- Если фитнес-клубу нужно вести клиентов, абонементы и расписание в одной CRM.\n'
+        '- Если финансовая команда сравнивает налоговые прогнозы по нескольким юрлицам.\n'
+        '- Если компания хочет автоматизировать рабочий процесс или подключить агента к таблицам, базам данных и 1С.\n'
+        f'\n## Готовые решения\n\n{catalog}\n', encoding='utf-8')
+    lines = [f'# {BRAND}', f'> {ABOUT}', f'[Официальный сайт]({HOME})', '## Готовые решения']
+    for item in products:
+        features = '\n'.join(f'- {feature}' for feature in item['features'])
+        lines.extend([
+            f'### [{item["title"]}]({item["url"]})', item['description'], item['audience'], features, item['example'],
+        ])
+    lines.append('## Частые вопросы')
+    for question, answer in faq:
+        lines.extend([f'### {question}', answer])
+    lines.append(f'[Обсудить задачу в чате]({CHAT})')
+    (out / 'llms-full.txt').write_text('\n\n'.join(lines) + '\n', encoding='utf-8')
 
 
 def build(out):
-    head = read_piece('head.html')
-    title = html.unescape(re.search(r'<title>(.*?)</title>', head)[1])
-    description = html.unescape(re.search(r'<meta name="description" content="([^"]+)"', head)[1])
-    body = read_piece('body.html')
-    for piece in ('products', 'faq', 'form', 'lb', 'stores'):
-        body = body.replace('{{' + piece.upper() + '}}', read_piece(piece + '.html'))
-    products = [
-        (html.unescape(name), html.unescape(tag))
-        for name, tag in re.findall(r'<h3>(.*?)</h3><p class="tag">(.*?)</p>', body, re.S)
-    ]
+    products_markup = read_piece('products.html')
+    products = read_products(products_markup)
+    faq_markup = read_piece('faq.html')
     faq = [
         (html.unescape(question), html.unescape(answer))
-        for question, answer in re.findall(r'<details><summary>(.*?)</summary><p>(.*?)</p></details>', body, re.S)
+        for question, answer in re.findall(r'<details><summary>(.*?)</summary><p>(.*?)</p></details>', faq_markup, re.S)
     ]
+    body = read_piece('body.html')
+    pieces = {
+        'PRODUCTS': products_markup, 'FAQ': faq_markup, 'FORM': read_piece('form.html'),
+        'LB': read_piece('lb.html'), 'STORES': read_piece('stores.html'),
+        'ABOUT': html.escape(ABOUT), 'SOLUTION_LINKS': solution_links(products),
+    }
+    for name, piece in pieces.items():
+        body = body.replace('{{' + name + '}}', piece)
 
     css = '\n'.join(read_piece(name) for name in ('new.css', 'css_dialogs.css', 'css_dl.css', 'css_theme.css'))
     js = '\n'.join(read_piece(name) for name in ('js_dialogs.js', 'new.js'))
@@ -89,52 +238,32 @@ def build(out):
         og.paste(mascot, (680, 630 - mascot.height), mascot)
     og.save(assets / 'og.jpg', quality=88)
 
-    meta = {
-        'og:type': 'website', 'og:site_name': 'РОБОРАБ', 'og:title': title,
-        'og:description': description, 'og:url': HOME, 'og:image': HOME + 'assets/og.jpg',
-        'og:image:width': '1200', 'og:image:height': '630', 'og:locale': 'ru_RU',
-    }
-    head += ''.join(f'<meta property="{name}" content="{html.escape(value)}">\n' for name, value in meta.items())
-    meta = {
-        'twitter:card': 'summary_large_image', 'twitter:title': title,
-        'twitter:description': description, 'twitter:image': HOME + 'assets/og.jpg',
-        'robots': 'index,follow,max-image-preview:large',
-        'yandex-verification': os.environ.get('YANDEX_VERIFICATION'),
-        'google-site-verification': os.environ.get('GOOGLE_SITE_VERIFICATION'),
-        'msvalidate.01': os.environ.get('MSVALIDATE_01'),
-    }
-    head += ''.join(f'<meta name="{name}" content="{html.escape(value)}">\n' for name, value in meta.items() if value)
-    head += f'<link rel="canonical" href="{html.escape(HOME)}">\n'
-    head += '<link rel="icon" type="image/webp" href="/assets/appicon.webp">\n'
-    head += '<link rel="apple-touch-icon" href="/assets/appicon.webp">\n'
-    schema = structured_data(title, description, products, faq)
-    head += f'<script type="application/ld+json">{schema}</script>\n'
-    document = (
-        '<!doctype html>\n<html lang="ru"><head><meta charset="utf-8">\n'
-        '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n'
-        f"{head}<script>document.documentElement.classList.add('js')</script>\n"
-        f'<style>\n{css}</style>\n</head>\n{body}<script>\n{js}\n</script>\n</body></html>\n'
-    )
-    (out / 'index.html').write_text(document, encoding='utf-8')
+    (assets / 'site.css').write_text(css, encoding='utf-8')
+    (assets / 'site.js').write_text(js, encoding='utf-8')
+    css_url = '/assets/site.css?v=' + hashlib.sha256(css.encode()).hexdigest()[:8]
+    js_url = '/assets/site.js?v=' + hashlib.sha256(js.encode()).hexdigest()[:8]
+    (out / 'index.html').write_text(
+        document(TITLE, DESCRIPTION, HOME, schema(TITLE, DESCRIPTION, HOME, products, faq=faq),
+                 body, css_url, js_url), encoding='utf-8')
+
+    (out / 'solutions').mkdir()
+    for item in products:
+        title = f'{item["title"]} — {BRAND}'
+        other_links = solution_links(other for other in products if other is not item)
+        (out / 'solutions' / (item['slug'] + '.html')).write_text(
+            document(title, item['description'], item['url'],
+                     schema(title, item['description'], item['url'], products, product=item),
+                     product_page(item, other_links), css_url), encoding='utf-8')
+
+    urls = [HOME, *(item['url'] for item in products)]
+    urls_xml = ''.join(f'  <url><loc>{html.escape(url)}</loc></url>\n' for url in urls)
     (out / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-        f'  <url><loc>{html.escape(HOME)}</loc></url>\n</urlset>\n', encoding='utf-8')
+        f'{urls_xml}</urlset>\n', encoding='utf-8')
     (out / 'robots.txt').write_text(
-        ''.join(f'User-agent: {bot}\nAllow: /\nDisallow: /chat.html\n\n' for bot in ROBOTS)
-        + f'Sitemap: {HOME}sitemap.xml\n', encoding='utf-8')
-
-    catalog = '\n'.join(f'- {name} — {tag}' for name, tag in products)
-    (out / 'llms.txt').write_text(
-        f'# РОБОРАБ\n\n> {description}\n\n## Готовые решения\n\n{catalog}\n\n'
-        f'## Подробнее\n\n- [Полный текст сайта]({HOME}llms-full.txt)\n', encoding='utf-8')
-    text = re.search(r'<main\b.*?</main>', body, re.S)[0]
-    text = re.sub(r'</(?:h[1-6]|p|li|div|section|a|button|summary)>', '\n', text)
-    text = html.unescape(re.sub(r'<[^>]+>', ' ', text))
-    lines = (' '.join(line.split()) for line in text.splitlines())
-    (out / 'llms-full.txt').write_text(
-        '# РОБОРАБ\n\n' + '\n'.join(line for line in lines if line and line != '×') + '\n',
-        encoding='utf-8')
+        f'User-agent: *\nAllow: /\n\nSitemap: {HOME}sitemap.xml\n', encoding='utf-8')
+    write_text_exports(out, products, faq)
 
 
 if __name__ == '__main__':

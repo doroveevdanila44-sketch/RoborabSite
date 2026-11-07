@@ -1,6 +1,7 @@
 /* ---------- движение (по мотивам join-way.com) ---------- */
 (function(){
   var root = document.documentElement, body = document.body;
+  root.classList.add('js');
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
   var bot = !!navigator.webdriver;
   function $(s){ return document.querySelector(s); }

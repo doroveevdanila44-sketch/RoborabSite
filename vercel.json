@@ -2,7 +2,14 @@
   "buildCommand": "",
   "outputDirectory": "dist",
   "framework": null,
+  "cleanUrls": true,
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "roborab.vercel.app" }],
+      "destination": "https://www.roborab.com/:path*",
+      "permanent": true
+    },
     {
       "source": "/:locale(af|ar|az|be|bg|bn|ca|cs|da|de|el|en|en-gb|es|et|fa|fi|fil|fr|he|hi|hr|hu|hy|id|it|ja|ka|kk|ko|lt|lv|mr|ms|nb|nl|pl|pt|ro|ru|sk|sl|sr|sv|sw|ta|te|th|tr|uk|ur|uz|vi|zh)",
       "destination": "/",
@@ -14,7 +21,7 @@
       "permanent": true
     },
     {
-      "source": "/chat.html",
+      "source": "/:legacyChat(chat|chat\\.html)",
       "destination": "https://roborabaichat.vercel.app/",
       "permanent": true
     }
