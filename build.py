@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent
 SITE = os.environ.get('SITE_URL', 'https://www.roborab.com').rstrip('/')
 HOME = SITE + '/'
 BRAND = 'РОБОРАБ'
-TITLE = 'РОБОРАБ (RoboRab) | Внедрение ИИ в бизнес-процессы и профессии'
+TITLE = 'РОБОРАБ (RoboRab) | Консалтинг и внедрение ИИ для бизнеса и профессий'
 DESCRIPTION = (
     'РОБОРАБ (RoboRab) внедряет ИИ в бизнес-процессы и профессии. '
     'Готовые решения, разработка под задачу и бесплатная диагностика в чате.'
@@ -234,7 +234,6 @@ def build(out):
     pieces = {
         'PRODUCTS': products_markup, 'FAQ': faq_markup, 'FORM': read_piece('form.html'),
         'LB': read_piece('lb.html'), 'STORES': read_piece('stores.html'),
-        'SOLUTION_LINKS': solution_links(products),
         'DIAGNOSTIC_PHONE': webp_url('diagnostic-phone'),
         'INDUSTRY_PAIR': f'/assets/industry-pair.svg?v={pair_version}',
     }

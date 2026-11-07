@@ -46,7 +46,7 @@
 
   /* появление блоков снизу */
   if (!reduce && 'IntersectionObserver' in window) {
-    var sel = ['.sh','.note','.panel-art','.cols3>div','.dsub','.ditem','.tabs','.cgrid','.steps li','.way','.faqlist details','.cta .box>div','#lead','.mq'].join(',');
+    var sel = ['.sh','.panel-art','.cols3>div','.dsub','.ditem','.tabs','.cgrid','.steps li','.way','.faqlist details','.cta .box>div','#lead'].join(',');
     var seenP = new Map(), targets = [].slice.call(document.querySelectorAll(sel));
     targets.forEach(function(el){
       var p = el.parentNode, n = seenP.get(p) || 0; seenP.set(p, n + 1);

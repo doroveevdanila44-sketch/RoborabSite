@@ -8,7 +8,7 @@
 :focus-visible{outline-color:var(--violet)}
 html,body{background:var(--bg)}
 /* заголовки: тяжёлый курсив */
-h1.big,h2.t,.product h3,.ditem h3,.cols3 b,.steps h3,.way h3,.cta .box h3,.way .gn,.wm,.hword,.pc-more,.btn,.lnk,.lab,.tabs button,.mq-t span,.way .bd{font-family:var(--fd);font-style:italic}
+h1.big,h2.t,.product h3,.ditem h3,.cols3 b,.steps h3,.way h3,.cta .box h3,.way .gn,.wm,.hword,.pc-more,.btn,.lnk,.lab,.tabs button,.way .bd{font-family:var(--fd);font-style:italic}
 h1.big{font-weight:900;font-size:clamp(24px,min(7.2vw,9.4svh),108px);line-height:.98;letter-spacing:-.04em}
 h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spacing:-.035em}
 .dgrid h2.t{font-size:clamp(28px,3.6vw,56px)}
@@ -49,11 +49,6 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 /* лист */
 .sheet{border-radius:var(--r) var(--r) 0 0}
 .sheet::before{background:rgba(106,44,240,.35);width:54px;height:5px;margin-left:-27px}
-
-/* лента: наклонная лаймовая полоса */
-.mq{background:var(--lime);padding:15px 0;margin:0 -3vw clamp(48px,6vw,88px);transform:rotate(-1.4deg);border-block:3px solid var(--ink)}
-.mq-t span{background:var(--ink);color:#fff;border:0;font-weight:800;padding:13px 22px;font-size:14px}
-.mq-t span:nth-child(3n+2){background:var(--violet)}.mq-t span:nth-child(3n){background:#fff;color:var(--ink)}
 
 /* баннер диагностики */
 .panel-art{
