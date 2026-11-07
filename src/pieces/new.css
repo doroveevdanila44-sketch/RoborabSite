@@ -97,14 +97,11 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .tile{aspect-ratio:1;border-radius:0 0 clamp(18px,2vw,28px) clamp(18px,2vw,28px);display:grid;place-items:center;position:relative}
 .tile.t1{background:#d9c9b0}.tile.t2{background:var(--blue)}.tile.t3{background:var(--lime)}
 .tile .industry-art{display:block;width:90%;height:88%;background:var(--art,none) center/contain no-repeat}
-.industry-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8%;width:70%}
-.industry-pair span{aspect-ratio:1;background:var(--art) center/contain no-repeat}
-.industry-server{--art:var(--img-industry-server)}
-.industry-app{--art:var(--img-appicon);border-radius:24%}
+.industry-pair{display:block;width:84%;height:auto}
 .ditem h3{margin:0;font:500 clamp(24px,2.6vw,40px)/1 var(--f);letter-spacing:-.05em}
 .ditem p{margin:14px 0 0;color:rgba(243,240,232,.62);font:400 15px/1.5 var(--f);padding-bottom:14px;border-bottom:1px solid rgba(243,240,232,.2)}
 @media(max-width:1000px){.dgrid{grid-template-columns:1fr}.dgrid>div:nth-child(2){position:static}.ditem{grid-template-columns:1fr 2fr}}
-@media(max-width:560px){.ditem{grid-template-columns:1fr}.tile{aspect-ratio:2/1;border-radius:18px}.industry-pair{width:48%}}
+@media(max-width:560px){.ditem{grid-template-columns:1fr}.tile{aspect-ratio:2/1;border-radius:18px}.industry-pair{width:57.6%}}
 
 /* каталог: вкладки 01-05 */
 .tabs{display:grid;grid-template-columns:repeat(5,1fr);margin-top:clamp(32px,4vw,56px);border-top:0}

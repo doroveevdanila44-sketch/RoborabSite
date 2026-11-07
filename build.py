@@ -1,4 +1,5 @@
 """Собирает русскоязычную витрину из src/pieces в dist."""
+from base64 import b64encode
 import hashlib
 import html
 import json
@@ -214,6 +215,14 @@ def build(out):
         version = hashlib.sha256(data).hexdigest()[:8]
         return f'/assets/{filename}?v={version}'
 
+    pair_svg = read_piece('industry-pair.svg')
+    for key, filename in (('SERVER', 'industry-server.webp'), ('APP_ICON', 'appicon.webp')):
+        encoded = b64encode((source_assets / filename).read_bytes()).decode('ascii')
+        pair_svg = pair_svg.replace('{{' + key + '}}', 'data:image/webp;base64,' + encoded)
+    pair_data = pair_svg.encode('utf-8')
+    (assets / 'industry-pair.svg').write_bytes(pair_data)
+    pair_version = hashlib.sha256(pair_data).hexdigest()[:8]
+
     products_markup = read_piece('products.html')
     products = read_products(products_markup)
     faq_markup = read_piece('faq.html').replace('{{ABOUT}}', html.escape(ABOUT))
@@ -227,6 +236,7 @@ def build(out):
         'LB': read_piece('lb.html'), 'STORES': read_piece('stores.html'),
         'SOLUTION_LINKS': solution_links(products),
         'DIAGNOSTIC_PHONE': webp_url('diagnostic-phone'),
+        'INDUSTRY_PAIR': f'/assets/industry-pair.svg?v={pair_version}',
     }
     for name, piece in pieces.items():
         body = body.replace('{{' + name + '}}', piece)

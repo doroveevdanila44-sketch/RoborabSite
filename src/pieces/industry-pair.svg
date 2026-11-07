@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 92">
+  <defs>
+    <clipPath id="app-corners"><rect x="108" width="92" height="92" rx="22"/></clipPath>
+  </defs>
+  <image href="{{SERVER}}" width="92" height="92"/>
+  <image href="{{APP_ICON}}" x="108" width="92" height="92" clip-path="url(#app-corners)"/>
+</svg>
