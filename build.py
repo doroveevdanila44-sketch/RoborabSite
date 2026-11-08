@@ -40,12 +40,15 @@ def read_products(markup):
     for key, section in re.findall(r'<section class="product[^"]*" id="([^"]+)">(.*?)</section>', markup, re.S):
         name, tag = re.search(r'<h3>(.*?)</h3><p class="tag">(.*?)</p>', section, re.S).groups()
         features = re.search(r'<ul class="feats[^"]*">(.*?)</ul>', section, re.S)[1]
+        status = re.search(r'<span class="product-status">(.*?)</span>', section)
         product = details[key]
         path = '/solutions/' + product['slug']
         products[key] = {
             **product, 'path': path, 'url': SITE + path, 'name': html.unescape(name),
             'tag': html.unescape(tag), 'chat': html.unescape(re.search(r'<a class="btn" href="([^"]+)"', section)[1]),
-            'features': [html.unescape(item) for item in re.findall(r'<li>(.*?)</li>', features, re.S)],
+            'status': html.unescape(status[1]) if status else '',
+            'features': [html.unescape(re.sub(r'</?strong>', '', item))
+                         for item in re.findall(r'<li>(.*?)</li>', features, re.S)],
         }
     if products.keys() != details.keys():
         raise ValueError('Карточки каталога и данные страниц решений должны совпадать')
@@ -73,7 +76,8 @@ def schema(title, description, url, products, product=None, faq=()):
         'url': HOME, 'description': ABOUT, 'provider': ORG,
         'hasOfferCatalog': {
             '@type': 'OfferCatalog', 'name': 'Готовые решения РОБОРАБ',
-            'itemListElement': [{'@type': 'Offer', 'itemOffered': service(item)} for item in products],
+            'itemListElement': [{'@type': 'Offer', 'itemOffered': service(item)}
+                                for item in products if not item['status']],
         },
     }
     page = {'@type': 'WebPage', '@id': url + '#page', 'url': url, 'name': title,
@@ -140,24 +144,27 @@ def document(title, description, url, structured_data, body, stylesheet, script=
 def product_page(product, links):
     p = {key: html.escape(value) for key, value in product.items() if isinstance(value, str)}
     features = '\n'.join(f'        <li>{html.escape(item)}</li>' for item in product['features'])
+    badge = f'    <span class="product-status">{p["status"]}</span>\n' if p['status'] else ''
+    feature_heading = 'Что планируем' if p['status'] else 'Возможности'
+    example_heading = 'Пример работы после запуска' if p['status'] else 'Как это выглядит в работе'
     return f"""<body>
 <main class="c solution-page">
   <nav aria-label="Навигация"><a class="lnk" href="/">РОБОРАБ</a> <a class="lnk" href="/#solutions">Все решения</a></nav>
   <article>
-    <h1>{p['title']}</h1>
+{badge}    <h1>{p['title']}</h1>
     <p class="intro-copy">{p['description']}</p>
     <section>
       <h2>Кому подходит</h2>
       <p>{p['audience']}</p>
     </section>
     <section>
-      <h2>Возможности</h2>
+      <h2>{feature_heading}</h2>
       <ul>
 {features}
       </ul>
     </section>
     <section>
-      <h2>Как это выглядит в работе</h2>
+      <h2>{example_heading}</h2>
       <p>{p['example']}</p>
     </section>
     <a class="btn" href="{p['chat']}">Обсудить задачу в чате</a>
@@ -179,7 +186,17 @@ def solution_links(products):
 
 
 def write_text_exports(out, products, faq):
-    catalog = '\n'.join(f'- [{item["title"]}]({item["url"]}): {item["tag"]}' for item in products)
+    catalog = []
+    lines = [f'# {BRAND}', f'> {ABOUT}', f'[Официальный сайт]({HOME})', '## Каталог решений']
+    for item in products:
+        link = f'[{item["title"]}]({item["url"]})'
+        if item['status']:
+            link += f' ({item["status"]})'
+        catalog.append(f'- {link}: {item["tag"]}')
+        features = '\n'.join(f'- {feature}' for feature in item['features'])
+        lines.extend([
+            f'### {link}', item['description'], item['audience'], features, item['example'],
+        ])
     (out / 'llms.txt').write_text(
         f'# {BRAND}\n\n> {ABOUT}\n\n## Основное\n\n'
         f'- [Сайт РОБОРАБ]({HOME}): каталог, описание работы и ответы на вопросы.\n'
@@ -189,13 +206,7 @@ def write_text_exports(out, products, faq):
         '- Если фитнес-клубу нужно вести клиентов, абонементы и расписание в одной CRM.\n'
         '- Если финансовая команда сравнивает налоговые прогнозы по нескольким юрлицам.\n'
         '- Если компания хочет автоматизировать рабочий процесс или подключить агента к таблицам, базам данных и 1С.\n'
-        f'\n## Готовые решения\n\n{catalog}\n', encoding='utf-8')
-    lines = [f'# {BRAND}', f'> {ABOUT}', f'[Официальный сайт]({HOME})', '## Готовые решения']
-    for item in products:
-        features = '\n'.join(f'- {feature}' for feature in item['features'])
-        lines.extend([
-            f'### [{item["title"]}]({item["url"]})', item['description'], item['audience'], features, item['example'],
-        ])
+        '\n## Каталог решений\n\n' + '\n'.join(catalog) + '\n', encoding='utf-8')
     lines.append('## Частые вопросы')
     for question, answer in faq:
         lines.extend([f'### {question}', answer])
@@ -247,15 +258,12 @@ def build(out):
         image_vars.append(f'  --img-{name}:url({webp_url(name)});')
     css = css.replace('{{ASSET_VARS}}', '\n'.join(image_vars))
 
-    shutil.copyfile(source_assets / 'gor.webp', assets / 'gor.webp')
     og = Image.new('RGB', (1200, 630), '#6a2cf0')
-    with Image.open(assets / 'appicon.webp') as icon, Image.open(assets / 'gor.webp') as mascot:
+    with Image.open(assets / 'appicon.webp') as icon:
         icon.resize((96, 96), Image.Resampling.LANCZOS).save(out / 'favicon.png', optimize=True)
         icon.resize((180, 180), Image.Resampling.LANCZOS).save(out / 'apple-touch-icon.png', optimize=True)
         icon.save(out / 'favicon.ico', sizes=[(16, 16), (32, 32), (48, 48)])
-        mascot.thumbnail((510, 520))
-        og.paste(icon.resize((320, 320), Image.Resampling.LANCZOS), (150, 155))
-        og.paste(mascot, (680, 630 - mascot.height), mascot)
+        og.paste(icon.resize((400, 400), Image.Resampling.LANCZOS), (400, 115))
     og.save(assets / 'og.jpg', quality=88)
 
     (assets / 'site.css').write_text(css, encoding='utf-8')

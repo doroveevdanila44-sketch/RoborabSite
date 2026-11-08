@@ -1,9 +1,3 @@
-.pd{border:0;padding:clamp(20px,3vw,40px);border-radius:28px;background:#fff;color:var(--fg);width:min(94vw,840px);max-height:92dvh;margin:auto;overflow:auto;box-shadow:0 30px 80px -20px rgba(0,0,0,.45)}
-.pd::backdrop{background:rgba(10,12,14,.5);backdrop-filter:blur(4px)}
-.pd[open]{animation:dlin .22s ease-out}
-.pd .dl-x{position:sticky;float:right;top:0;margin:-8px -8px 0 0;z-index:3}
-.pd:focus{outline:none}
-.pd .panel{padding:0}
 .mexp{max-width:640px;margin:clamp(16px,2vw,28px) auto 0;text-align:left}
 .mexp[hidden]{display:none}
 .mexp:not([hidden]){animation:dlin .25s ease-out}
@@ -11,12 +5,7 @@
 .mlink[aria-expanded=true]::after{transform:rotate(180deg)}
 .mnote{text-align:center}
 .md .wcard:hover{box-shadow:none}
-.pd .row{padding-right:44px}
-.panel{position:relative;z-index:2;container-type:inline-size;background:#fff;padding:clamp(8px,2vw,32px) 0}
-.panel .in{width:100%}
-.panel .row{display:grid;grid-template-columns:1fr auto;gap:12px 24px;align-items:end}
 .meta{font:600 12px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-.panel h3,.panel h4{margin:0;font:800 clamp(26px,4.4cqw,60px)/1 var(--f-display);letter-spacing:-.04em}
 .tag{margin:8px 0 0;color:var(--mute);font-weight:500;font-size:clamp(15px,1.8cqw,20px)}
 .feats{list-style:none;margin:clamp(14px,2vw,26px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,2.4cqw,32px)}
 .feats li{font-size:clamp(13.5px,1.5cqw,17px);line-height:1.38;font-weight:500;min-width:0}
@@ -120,10 +109,4 @@
 @media(max-width:760px){.lb .pv,.lb .nx{top:auto;bottom:max(14px,env(safe-area-inset-bottom));translate:none;width:44px;height:44px}.lb .pv{left:calc(50% - 60px)}.lb .nx{right:calc(50% - 60px)}.lb .cn{display:none}.lb .st{height:min(78dvh,900px);top:calc(50% - 30px)}}
 @media(max-width:760px){.lb .st[data-clock]{width:min(92vw,calc(min(78dvh,900px) * 640 / 1388))}}
 
-.feats.f4{grid-template-columns:repeat(2,1fr)}
-.panel .btn,.pc-more{background:var(--fg);color:#fff}
-@container (max-width:620px){.panel .row{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.panel .btn{width:100%}}
-
-#build{--btxt:#101417;--acc:#fcc118;--accfg:#fff;--mimg:var(--img-c-build)}
-#booking{--btxt:#fff;--acc:#393939;--accfg:#fff;--mimg:var(--img-c-booking)}
 #catalog,#seo,#tax{--acc:var(--violet)}

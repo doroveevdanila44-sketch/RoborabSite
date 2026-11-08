@@ -8,7 +8,7 @@
 :focus-visible{outline-color:var(--violet)}
 html,body{background:var(--bg)}
 /* заголовки: тяжёлый курсив */
-h1.big,h2.t,.product h3,.ditem h3,.cols3 b,.steps h3,.way h3,.cta .box h3,.way .gn,.wm,.hword,.pc-more,.btn,.lnk,.lab,.tabs button,.way .bd{font-family:var(--fd);font-style:italic}
+h1.big,h2.t,.product h3,.ditem h3,.cols3 b,.steps h3,.way h3,.cta .box h3,.way .gn,.wm,.hword,.btn,.lnk,.lab,.tabs button,.way .bd{font-family:var(--fd);font-style:italic}
 h1.big{font-weight:900;font-size:clamp(24px,min(7.2vw,9.4svh),108px);line-height:.98;letter-spacing:-.04em}
 h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spacing:-.035em}
 .dgrid h2.t{font-size:clamp(28px,3.6vw,56px)}
@@ -22,8 +22,8 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 .hcols b,.tabs button{font-weight:800}
 
 /* кнопки: круглые, пухлые */
-.btn,.pc-more{background:var(--violet);color:#fff;font-weight:800;font-size:15px;padding:20px 32px;box-shadow:0 10px 24px -10px rgba(106,44,240,.7);transition:transform .4s var(--ease),background .3s,color .3s,box-shadow .4s}
-.btn:hover,.pc-more:hover{background:var(--lime);color:var(--ink);transform:translateY(-3px) rotate(-1.5deg) scale(1.04);box-shadow:0 16px 28px -12px rgba(106,44,240,.6)}
+.btn{background:var(--violet);color:#fff;font-weight:800;font-size:15px;padding:20px 32px;box-shadow:0 10px 24px -10px rgba(106,44,240,.7);transition:transform .4s var(--ease),background .3s,color .3s,box-shadow .4s}
+.btn:hover{background:var(--lime);color:var(--ink);transform:translateY(-3px) rotate(-1.5deg) scale(1.04);box-shadow:0 16px 28px -12px rgba(106,44,240,.6)}
 .lnk{font-weight:800}
 
 /* метки секций: цветные таблетки */
@@ -108,11 +108,10 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 
 /* витрина продукта */
 .cgrid .product.on{background:#fff;border-radius:clamp(28px,3.6vw,52px);padding:clamp(18px,2.6vw,40px);box-shadow:0 24px 50px -30px rgba(106,44,240,.55)}
-.product .mascot{background-color:#fff}
-.product>.tag{color:var(--mute);font-weight:500}
 .cgrid .product-preview.on{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;align-items:start;gap:clamp(14px,2vw,24px)}
 .product-preview .btn{justify-self:start}
 .product-heading .tag{margin-top:8px}
+.product-status{display:table;margin-bottom:12px;padding:7px 14px;border-radius:999px;background:var(--lime);color:var(--ink);font:800 13px/1.2 var(--fd)}
 .product-pitch{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,24px)}
 .product-pitch>div{padding:clamp(16px,2.5vw,32px);border-radius:24px;background:var(--bg)}
 .product-pitch>div:last-child{background:var(--deep);color:#fff}
@@ -168,7 +167,7 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 .gx.tile{clip-path:circle(calc(var(--gp,1)*74%) at 50% 50%)}
 .gx.gd{clip-path:none}.gx.gd>*{opacity:1}
 
-@media (prefers-reduced-motion:reduce){.btn:hover,.pc-more:hover,.steps li:hover,.way:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.btn:hover,.steps li:hover,.way:hover{transform:none}}
 
 .dk{overflow:clip}
 /* техфиксы */
