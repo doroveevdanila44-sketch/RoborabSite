@@ -47,7 +47,7 @@
 [data-clock]{--clock-bg:#f5f2fc;--clock-fg:#000}
 [data-clock=violet]{--clock-bg:var(--violet);--clock-fg:#fff}
 [data-clock=lime]{--clock-bg:linear-gradient(#daf15a,#e3f962)}
-[data-clock=fitness]{--clock-fg:#fff}
+[data-clock=bare-white]{--clock-fg:#fff}
 [data-clock=funnel]{--clock-bg:linear-gradient(#f7f5fa,#fdfcff)}
 [data-clock=sources]{--clock-bg:linear-gradient(#fefcff,#faf9fd)}
 .product-gallery .shot[data-clock],.lb .st[data-clock]{container-type:inline-size;aspect-ratio:640/1388;overflow:hidden}
@@ -78,7 +78,7 @@
   font:750 4.3cqw/1 -apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
   pointer-events:none;
 }
-[data-clock^=fitness]::after{left:9%;background:none}
+[data-clock^=bare-]::after{left:9%;background:none}
 .shot-brand{
   position:absolute;
   top:42.35%;
@@ -124,8 +124,6 @@
 .panel .btn,.pc-more{background:var(--fg);color:#fff}
 @container (max-width:620px){.panel .row{grid-template-columns:1fr}.feats{grid-template-columns:1fr}.panel .btn{width:100%}}
 
-#catalog{--acc:var(--violet)}
-#tax{--btxt:#101417;--acc:#38d0e0;--accfg:#fff;--mimg:var(--img-c-tax)}
 #build{--btxt:#101417;--acc:#fcc118;--accfg:#fff;--mimg:var(--img-c-build)}
 #booking{--btxt:#fff;--acc:#393939;--accfg:#fff;--mimg:var(--img-c-booking)}
-#seo{--acc:var(--violet)}
+#catalog,#seo,#tax{--acc:var(--violet)}
