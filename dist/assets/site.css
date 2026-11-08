@@ -204,9 +204,21 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .js .rv{opacity:0;transform:translateY(var(--ry,22px));transition:opacity .6s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
 .js .rv.in{opacity:1;transform:none}
 .js .rv.in.done{transition-delay:0s}
-.js h2.rv{--ry:.3em}
+
+/* раскрытие текста */
+.text-mask{display:inline-block;clip-path:inset(-.32em -.42em -.20em)}
+.text-motion{display:inline-block}
+.text-intro .text-motion{animation:text-rise 1.15s var(--ease) var(--text-delay) both}
+@keyframes text-rise{from{transform:translateY(145%)}to{transform:none}}
+.text-words .text-motion{
+  transform:translateY(145%) rotate(4deg);
+  transform-origin:left bottom;
+  transition:transform 1s var(--ease) var(--text-delay);
+}
+.text-words.in .text-motion{transform:none}
 
 @media (prefers-reduced-motion:reduce){
+  .text-intro .text-motion,.text-words .text-motion{animation:none;transition:none;transform:none}
   .js .rv{opacity:1;transform:none;transition:none}.wm{animation:none}.splash{display:none}html{scroll-behavior:auto}
   .cgrid .product.on{animation:none}.faqlist details::details-content{transition:none}
 }
