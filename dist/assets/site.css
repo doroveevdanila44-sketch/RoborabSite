@@ -20,8 +20,6 @@
   --img-fitness-renewals:url(/assets/fitness-renewals.webp?v=fd530d9c);
   --img-fitness-schedule:url(/assets/fitness-schedule.webp?v=261563e0);
   --img-fitness-trainers:url(/assets/fitness-trainers.webp?v=49b03e7e);
-  --img-industry-agents:url(/assets/industry-agents.webp?v=6ec83d90);
-  --img-industry-integration:url(/assets/industry-integration.webp?v=959407f9);
   --img-seo-ai-traffic:url(/assets/seo-ai-traffic.webp?v=8f54fe20);
   --img-seo-category:url(/assets/seo-category.webp?v=70eefe4c);
   --img-seo-editor:url(/assets/seo-editor.webp?v=c556aa9e);
@@ -583,3 +581,30 @@ h1.big{max-width:100%}
 .js .hart-bars rect{animation-play-state:paused}.js .hart.go .hart-bars rect{animation-play-state:running}
 @keyframes hart-grow{to{transform:scaleY(1)}}
 @media (prefers-reduced-motion:reduce){.hart-bars rect{animation:none;transform:none}}
+
+/* Иллюстрации «Под вашу отрасль»: линии на тёмной панели, фиолетовые импульсы данных */
+.tile.ind{background:#1c1c1c;border:1px solid rgba(255,255,255,.1);overflow:hidden}
+.ind-svg{display:block;width:100%;height:100%}
+.ind-svg text{font:600 14px/1 var(--f-body,'Manrope'),system-ui,sans-serif;fill:#fff}
+.ind-orbit{fill:none;stroke:rgba(255,255,255,.18);stroke-width:1;stroke-dasharray:3 9}
+.ind-wire{fill:none;stroke:rgba(255,255,255,.22);stroke-width:1.5}
+.ind-pulse{fill:#b79bff;filter:drop-shadow(0 0 6px #7b4dff)}
+.ind-node rect{fill:#262626;stroke:rgba(255,255,255,.16);stroke-width:1}
+.ind-dot{fill:#7b4dff}
+.ind-core{fill:#7b4dff}
+.ind-ring{fill:none;stroke:#b79bff;stroke-width:1.5}
+.ind-svg .ind-core-t{font:italic 900 24px/1 var(--fd);text-anchor:middle;fill:#fff}
+.ind-gear{fill:#fff}.ind-gear circle{fill:#7b4dff}
+.ind-node .ind-bar{fill:rgba(255,255,255,.45);stroke:none}
+.ind-node .ind-bar--hi{fill:#7b4dff}
+.ind-node .ind-line{fill:rgba(255,255,255,.22);stroke:none}
+.ind-node .ind-led{fill:#7b4dff}
+.ind-node .ind-island{fill:#000;stroke:none}
+.ind-node .ind-msg{fill:#3a3a3a;stroke:none}
+.ind-node .ind-msg--me{fill:#7b4dff}
+.ind-node .ind-input{fill:none;stroke:rgba(255,255,255,.22)}
+.ind-svg .ind-cap{font-size:13px;fill:rgba(255,255,255,.6);text-anchor:middle}
+.ind-blink{animation:ind-blink 1.8s ease-in-out infinite}
+@keyframes ind-blink{50%{opacity:.2}}
+@media(max-width:560px){.tile.ind{aspect-ratio:1}}
+@media(prefers-reduced-motion:reduce){.ind-blink{animation:none}}

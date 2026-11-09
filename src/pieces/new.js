@@ -32,6 +32,9 @@
     window.addEventListener('hashchange', fromHash); fromHash();
   }
 
+  /* иллюстрации отраслей: без движения при «уменьшить движение» */
+  if (reduce) document.querySelectorAll('.ind-svg').forEach(function(s){ if (s.pauseAnimations) s.pauseAnimations(); });
+
   if (bot) { var hb = document.querySelector('.hart'); if (hb) hb.classList.add('go'); return; }
 
   function textPart(text, delay){
