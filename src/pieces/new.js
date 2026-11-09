@@ -99,7 +99,7 @@
 
   /* первый экран: окно-пилюля раскрывается на весь экран, дальше проступает надпись, потом наезжает лист */
   var heroTop = 'violet', heroBottom = 'violet';
-  var COLORS = {violet: '#6a2cf0', lime: '#d7f700', limeLow: '#b8e200', bg: '#f5f2fc', deep: '#25104f'};
+  var COLORS = {violet: '#6a2cf0', lime: '#cdf200', limeLow: '#cdf200', bg: '#f5f2fc', deep: '#25104f'};
   var meta = document.querySelector('meta[name="theme-color"]');
   if (!meta) { meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
   var sheetEl = document.getElementById('sheet'), darks = [].slice.call(document.querySelectorAll('.dk'));
@@ -150,6 +150,8 @@
       heroOpen = open;
       himg.style.pointerEvents = open ? 'auto' : 'none';
       if (heroEl) heroEl.style.backgroundColor = open ? COLORS.lime : '';
+      // липкий экран сам стоит у верхнего края: у него тоже должен быть нужный цвет
+      if (stage) stage.style.backgroundColor = open ? COLORS.lime : COLORS.violet;
     }
     heroTop = R.t * (1 - e) < 2 ? 'lime' : 'violet';
     heroBottom = R.b * (1 - e) < 2 ? 'limeLow' : 'violet';

@@ -33,7 +33,7 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 
 /* первый экран: фиолетовое поле, белый курсив, лаймовое окно */
 .hero{background:var(--violet)}
-.stage{background:transparent}
+.stage{background:var(--violet)}
 .htext{color:#fff}
 .hsub{color:rgba(255,255,255,.86);font-weight:500}
 .hcols>div{border-top:2px solid rgba(255,255,255,.28)}
@@ -43,7 +43,7 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 .hcta .lnk{color:#fff}
 .himg{background:var(--lime)}
 .art{background:
-  linear-gradient(180deg,#d8f800 0%,#cdf200 55%,#b5e000 100%)}
+  radial-gradient(120% 60% at 50% 50%,#daf90e 0%,rgba(218,249,14,0) 70%),#cdf200}
 .art::before,.panel-art::before{background-image:linear-gradient(rgba(60,20,160,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(60,20,160,.10) 1px,transparent 1px)}
 
 /* лист */
