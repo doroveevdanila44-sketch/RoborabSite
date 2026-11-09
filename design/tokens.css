@@ -1,8 +1,8 @@
 /* РОБОРАБ: токены визуального языка v3. Описание: design/DESIGN.md */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=Montserrat:ital,wght@1,800;1,900&display=swap');
 :root{
-  --violet:#6a2cf0;--deep:#25104f;--blue:#6a2cf0;--bblue:#0957e8;--sky:#5aa9ff;--white:#fff;--lime:#cdf200;
-  --bg:#f5f2fc;--ink:#1b0b42;--mute:rgba(27,11,66,.64);--line:rgba(27,11,66,.12);--soft:rgba(106,44,240,.07);
+  --violet:#141414;--deep:#232323;--blue:#141414;--bblue:#0957e8;--sky:#5aa9ff;--white:#fff;--lime:#7b4dff;
+  --bg:#f4f4f2;--ink:#141414;--mute:rgba(20,20,20,.64);--line:rgba(20,20,20,.12);--soft:rgba(123,77,255,.07);
   --fd:'Montserrat','Manrope',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
   --r:48px;--f:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;--ease:cubic-bezier(.16,1,.3,1);
 }
