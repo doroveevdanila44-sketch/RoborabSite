@@ -132,7 +132,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 
   /* первый экран: окно-пилюля раскрывается на весь экран, дальше проступает надпись, потом наезжает лист */
   var heroTop = 'violet', heroBottom = 'violet';
-  var COLORS = {violet: '#141414', lime: '#7b4dff', limeLow: '#7b4dff', bg: '#f4f4f2', deep: '#141414'};
+  var COLORS = {violet: '#141414', lime: '#4a24c9', limeLow: '#4a24c9', bg: '#f4f4f2', deep: '#141414'};
   // Цветная подложка первого экрана: фиксированная и шире окна, заходит под панели Safari сверху и снизу
   // Две фиксированные подложки, тёмная и фиолетовая. Safari пересчитывает цвет панелей,
   // когда слой у края скрывается или появляется, поэтому переключаем видимость, а не цвет.
@@ -141,12 +141,12 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     d.className = 'hero-backdrop'; d.setAttribute('aria-hidden', 'true'); d.style.backgroundColor = color;
     body.insertBefore(d, body.firstChild); return d;
   }
-  var backdropLime = makeBackdrop('#7b4dff'), backdrop = makeBackdrop('#141414');
-  backdropLime.style.visibility = 'hidden';
+  // Пока открыто окно с градиентом, фиксированных слоёв нет вовсе: панели берут цвет страницы,
+  // а он совпадает с краями градиента, поэтому градиент как будто продолжается под панелями.
+  var backdrop = makeBackdrop('#141414');
   root.classList.add('has-backdrop');
   function showBackdrops(){
     backdrop.style.visibility = stageHidden || heroOpen ? 'hidden' : 'visible';
-    backdropLime.style.visibility = !stageHidden && heroOpen ? 'visible' : 'hidden';
   }
   var meta = document.querySelector('meta[name="theme-color"]');
   if (!meta) { meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
@@ -199,8 +199,8 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
       himg.style.pointerEvents = open ? 'auto' : 'none';
       showBackdrops();
     }
-    heroTop = R.t * (1 - e) < 2 ? 'lime' : 'violet';
-    heroBottom = R.b * (1 - e) < 2 ? 'limeLow' : 'violet';
+    heroTop = open ? 'lime' : 'violet';
+    heroBottom = open ? 'limeLow' : 'violet';
     paintEdges();
   }
   function step(now){
@@ -306,7 +306,8 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
       ['bot', 'Подойдёт Букинг-CRM: даты закроются на обеих площадках сами.']
     ];
     function wait(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
-    function add(who, text){ var d = document.createElement('div'); d.className = 'dmsg' + (who === 'me' ? ' me' : ''); d.textContent = text; box.appendChild(d); while (box.children.length > 5) box.firstChild.remove(); return d; }
+    function add(who, text){ var d = document.createElement('div'); d.className = 'dmsg' + (who === 'me' ? ' me' : ''); d.textContent = text; box.appendChild(d); fit(); return d; }
+    function fit(){ while (box.children.length > 1 && box.scrollHeight > box.clientHeight + 1) box.firstChild.remove(); }
     if (reduce) { SCRIPT.forEach(function(m){ add(m[0], m[1]); }); return; }
     var started = false, live = false;
     async function play(){
@@ -320,7 +321,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
             var t = document.createElement('div'); t.className = 'dmsg typing'; t.innerHTML = '<i></i><i></i><i></i>'; box.appendChild(t);
             await wait(1000); t.remove();
             var d = add(who, '');
-            for (var k = 1; k <= text.length; k++) { d.textContent = text.slice(0, k); await wait(16); }
+            for (var k = 1; k <= text.length; k++) { d.textContent = text.slice(0, k); fit(); await wait(16); }
           } else { await wait(600); add(who, text); }
           await wait(900);
         }

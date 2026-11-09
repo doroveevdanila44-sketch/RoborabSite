@@ -68,8 +68,8 @@ button{font-family:inherit}
 .lnk:hover{border-color:currentColor}
 
 /* первый экран: окно-пилюля раскрывается на весь экран */
-.hero{position:relative;height:300svh}
-.stage{position:sticky;top:0;height:100svh;overflow:hidden}
+.hero{position:relative;height:300svh;height:300lvh}
+.stage{position:sticky;top:0;height:100svh;height:100lvh;overflow:hidden}
 .htext{position:relative;z-index:2;height:100%;padding:clamp(24px,6vh,64px) clamp(16px,3.4vw,40px) clamp(18px,3vh,36px);display:flex;flex-direction:column}
 h1.big{margin:0;font:500 clamp(30px,8.6vw,158px)/.9 var(--f);letter-spacing:-.07em;max-width:15ch}
 h1.big .ln{display:block;white-space:nowrap}
@@ -94,7 +94,7 @@ h1.big .ln:last-child{padding-left:clamp(0px,11.5vw,210px)}
 .hword{position:absolute;left:0;right:0;top:44%;text-align:center;font:400 clamp(60px,17vw,300px)/1 var(--f);letter-spacing:-.06em;color:rgba(255,255,255,.9);opacity:var(--wo,0);transform:translateY(var(--wy,0px));pointer-events:none;white-space:nowrap}
 
 /* лист, наезжающий на hero */
-.sheet{position:relative;z-index:10;margin-top:-100svh;background:var(--bg);border-radius:var(--r) var(--r) 0 0;padding-top:clamp(56px,7vw,104px)}
+.sheet{position:relative;z-index:10;margin-top:-100svh;margin-top:-100lvh;background:var(--bg);border-radius:var(--r) var(--r) 0 0;padding-top:clamp(56px,7vw,104px)}
 .sheet::before{content:'';position:absolute;top:14px;left:50%;width:44px;height:4px;margin-left:-22px;border-radius:4px;background:rgba(17,21,20,.22)}
 section{scroll-margin-top:90px}
 .sec{padding-bottom:clamp(72px,9vw,140px)}
@@ -414,7 +414,7 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
   position:relative;
   isolation:isolate;
   display:grid;
-  grid-template-columns:minmax(0,1fr) clamp(152px,19vw,258px);
+  grid-template-columns:minmax(0,1fr) clamp(240px,29vw,430px);
   align-items:center;
   gap:clamp(24px,5vw,76px);
   margin-top:clamp(24px,3vw,48px);
@@ -434,7 +434,7 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
   text-wrap:balance;
 }
 .diagnostic-phone{display:block;width:100%;height:auto;aspect-ratio:681/1435}
-@media(max-width:540px){
+@media(max-width:760px){
   .panel-art{grid-template-columns:minmax(0,1fr);padding:clamp(22px,6vw,36px)}
   .diagnostic-copy{font-size:clamp(22px,6.2vw,34px)}
 
@@ -616,10 +616,12 @@ h1.big{max-width:100%}
 .art .liquid{position:absolute;inset:0;width:100%;height:100%;display:block}
 .art .grain{position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:var(--grain);background-size:160px 160px}
 .art .hword{z-index:1}
+/* Края окна уходят в цвет панелей Safari, чтобы градиент продолжался под ними без шва */
+.himg::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,#4a24c9 0,rgba(74,36,201,0) 15%,rgba(74,36,201,0) 85%,#4a24c9 100%)}
 /* 3. Свет за курсором: круг 760 px двигается трансформом */
 .hspot{position:absolute;left:0;top:0;width:760px;height:760px;pointer-events:none;background:radial-gradient(closest-side,rgba(123,77,255,.32),transparent);will-change:transform;transform:translate3d(-9999px,0,0)}
 /* 5. Телефон с чатом РОБОРАБ: пропорции iPhone Pro Max, всё в долях ширины телефона */
-.dphone{position:relative;width:min(100%,380px);justify-self:center;aspect-ratio:887/1774;background:var(--img-iphone-frame) center/100% 100% no-repeat}
+.dphone{position:relative;width:min(100%,450px);justify-self:center;aspect-ratio:887/1774;background:var(--img-iphone-frame) center/100% 100% no-repeat}
 .dp-screen{position:absolute;left:9.92%;top:5.13%;width:80.16%;height:89.85%;border-radius:13% / 5.8%;container-type:inline-size;overflow:hidden;display:flex;flex-direction:column;background:radial-gradient(90% 60% at 100% 0%,rgba(183,155,255,.55),transparent 60%),radial-gradient(80% 55% at 0% 100%,rgba(123,77,255,.32),transparent 65%),linear-gradient(180deg,#f6f4fb,#efeaff)}
 .dp-status{position:absolute;inset:0 0 auto;height:13cqw;display:flex;align-items:center;justify-content:space-between;padding:0 8.5cqw 0 10cqw;color:#fff;font:600 4cqw/1 -apple-system,'SF Pro Text',system-ui,sans-serif;z-index:3}
 .dp-island{position:absolute;left:50%;top:2.6cqw;width:28cqw;height:8.2cqw;margin-left:-14cqw;border-radius:99px;background:#000}
@@ -630,7 +632,7 @@ h1.big{max-width:100%}
 .dp-head{flex:none;height:26cqw;padding:13cqw 5.5cqw 0;border-radius:0 0 7cqw 7cqw;background:#141414;color:#fff;display:flex;align-items:center}
 .dp-head b{font:italic 900 5.2cqw/1 var(--fd);letter-spacing:-.02em}
 .dchat{flex:1;min-height:0;padding:5cqw 4cqw 2cqw;display:flex;flex-direction:column;justify-content:flex-start;gap:2.4cqw;overflow:hidden}
-.dmsg{align-self:flex-start;max-width:84%;padding:3cqw 4cqw;border-radius:7cqw 7cqw 7cqw 2.4cqw;background:rgba(255,255,255,.76);border:1px solid rgba(255,255,255,.75);backdrop-filter:blur(20px) saturate(1.7);-webkit-backdrop-filter:blur(20px) saturate(1.7);box-shadow:0 2.4cqw 6cqw -3.6cqw rgba(0,0,0,.3);color:#141414;font:500 3.7cqw/1.4 var(--f-body,'Manrope'),system-ui,sans-serif;animation:dmsg-in .4s cubic-bezier(.22,1,.36,1)}
+.dmsg{align-self:flex-start;max-width:88%;padding:3cqw 4cqw;border-radius:7cqw 7cqw 7cqw 2.4cqw;background:rgba(255,255,255,.76);border:1px solid rgba(255,255,255,.75);backdrop-filter:blur(20px) saturate(1.7);-webkit-backdrop-filter:blur(20px) saturate(1.7);box-shadow:0 2.4cqw 6cqw -3.6cqw rgba(0,0,0,.3);color:#141414;font:500 4.4cqw/1.38 var(--f-body,'Manrope'),system-ui,sans-serif;animation:dmsg-in .4s cubic-bezier(.22,1,.36,1)}
 .dmsg.me{align-self:flex-end;background:rgba(20,20,20,.86);border-color:rgba(255,255,255,.2);color:#fff;border-radius:7cqw 7cqw 2.4cqw 7cqw}
 .dmsg.typing{display:inline-flex;gap:1.3cqw;padding:3.6cqw 4.2cqw}
 .dmsg.typing i{width:1.7cqw;height:1.7cqw;border-radius:50%;background:rgba(20,20,20,.45);animation:dot 1s infinite}
@@ -648,7 +650,7 @@ h1.big{max-width:100%}
 .dp-tab svg{width:6.6cqw;height:6.6cqw}
 .dp-tab.on{background:rgba(255,255,255,.94);color:#7b4dff}
 .dp-home{position:absolute;left:50%;bottom:2cqw;width:34cqw;height:1.3cqw;margin-left:-17cqw;border-radius:99px;background:#141414}
-@media(max-width:760px){.dphone{width:clamp(200px,62vw,280px)}}
+@media(max-width:760px){.dphone{width:min(90vw,400px)}}
 /* 8. Объёмные экраны */
 .product-gallery{perspective:900px}
 .tilting.shot{transition:transform .12s ease-out!important;background-image:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.32),transparent 60%),var(--s)!important}

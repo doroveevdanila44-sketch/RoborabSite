@@ -34,8 +34,8 @@ button{font-family:inherit}
 .lnk:hover{border-color:currentColor}
 
 /* первый экран: окно-пилюля раскрывается на весь экран */
-.hero{position:relative;height:300svh}
-.stage{position:sticky;top:0;height:100svh;overflow:hidden}
+.hero{position:relative;height:300svh;height:300lvh}
+.stage{position:sticky;top:0;height:100svh;height:100lvh;overflow:hidden}
 .htext{position:relative;z-index:2;height:100%;padding:clamp(24px,6vh,64px) clamp(16px,3.4vw,40px) clamp(18px,3vh,36px);display:flex;flex-direction:column}
 h1.big{margin:0;font:500 clamp(30px,8.6vw,158px)/.9 var(--f);letter-spacing:-.07em;max-width:15ch}
 h1.big .ln{display:block;white-space:nowrap}
@@ -60,7 +60,7 @@ h1.big .ln:last-child{padding-left:clamp(0px,11.5vw,210px)}
 .hword{position:absolute;left:0;right:0;top:44%;text-align:center;font:400 clamp(60px,17vw,300px)/1 var(--f);letter-spacing:-.06em;color:rgba(255,255,255,.9);opacity:var(--wo,0);transform:translateY(var(--wy,0px));pointer-events:none;white-space:nowrap}
 
 /* лист, наезжающий на hero */
-.sheet{position:relative;z-index:10;margin-top:-100svh;background:var(--bg);border-radius:var(--r) var(--r) 0 0;padding-top:clamp(56px,7vw,104px)}
+.sheet{position:relative;z-index:10;margin-top:-100svh;margin-top:-100lvh;background:var(--bg);border-radius:var(--r) var(--r) 0 0;padding-top:clamp(56px,7vw,104px)}
 .sheet::before{content:'';position:absolute;top:14px;left:50%;width:44px;height:4px;margin-left:-22px;border-radius:4px;background:rgba(17,21,20,.22)}
 section{scroll-margin-top:90px}
 .sec{padding-bottom:clamp(72px,9vw,140px)}
