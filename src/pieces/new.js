@@ -105,9 +105,20 @@
   var heroTop = 'violet', heroBottom = 'violet';
   var COLORS = {violet: '#141414', lime: '#7b4dff', limeLow: '#7b4dff', bg: '#f4f4f2', deep: '#141414'};
   // Цветная подложка первого экрана: фиксированная и шире окна, заходит под панели Safari сверху и снизу
-  var backdrop = document.createElement('div');
-  backdrop.className = 'hero-backdrop'; backdrop.setAttribute('aria-hidden', 'true');
-  body.insertBefore(backdrop, body.firstChild); root.classList.add('has-backdrop');
+  // Две фиксированные подложки, тёмная и фиолетовая. Safari пересчитывает цвет панелей,
+  // когда слой у края скрывается или появляется, поэтому переключаем видимость, а не цвет.
+  function makeBackdrop(color){
+    var d = document.createElement('div');
+    d.className = 'hero-backdrop'; d.setAttribute('aria-hidden', 'true'); d.style.backgroundColor = color;
+    body.insertBefore(d, body.firstChild); return d;
+  }
+  var backdropLime = makeBackdrop('#7b4dff'), backdrop = makeBackdrop('#141414');
+  backdropLime.style.visibility = 'hidden';
+  root.classList.add('has-backdrop');
+  function showBackdrops(){
+    backdrop.style.visibility = stageHidden || heroOpen ? 'hidden' : 'visible';
+    backdropLime.style.visibility = !stageHidden && heroOpen ? 'visible' : 'hidden';
+  }
   var meta = document.querySelector('meta[name="theme-color"]');
   if (!meta) { meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
   var sheetEl = document.getElementById('sheet'), darks = [].slice.call(document.querySelectorAll('.dk'));
@@ -126,7 +137,7 @@
     }
     if (stage && sheetEl) {
       var covered = sheetEl.getBoundingClientRect().top <= 0;
-      if (covered !== stageHidden) { stageHidden = covered; stage.style.visibility = backdrop.style.visibility = covered ? 'hidden' : ''; }
+      if (covered !== stageHidden) { stageHidden = covered; stage.style.visibility = covered ? 'hidden' : ''; showBackdrops(); }
     }
     if (b !== lastBottom) { lastBottom = b; }
   }
@@ -157,11 +168,7 @@
     if (open !== heroOpen) {
       heroOpen = open;
       himg.style.pointerEvents = open ? 'auto' : 'none';
-      // Safari перечитывает цвет нижней панели, когда у края появляется новый фиксированный слой,
-      // поэтому подложку не перекрашиваем, а меняем на новую
-      var next = backdrop.cloneNode(false);
-      next.style.backgroundColor = open ? COLORS.lime : COLORS.violet;
-      backdrop.replaceWith(next); backdrop = next;
+      showBackdrops();
     }
     heroTop = R.t * (1 - e) < 2 ? 'lime' : 'violet';
     heroBottom = R.b * (1 - e) < 2 ? 'limeLow' : 'violet';
