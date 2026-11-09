@@ -162,10 +162,6 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 .splash{background:var(--violet)}
 
 /* раскрытие блоков */
-.gx:not(.tile){clip-path:inset(calc((1 - var(--gp,1))*16%) calc((1 - var(--gp,1))*28%) calc((1 - var(--gp,1))*16%) calc((1 - var(--gp,1))*28%) round calc(48px + (1 - var(--gp,1))*180px))}
-.gx:not(.tile)>*{opacity:calc(var(--gp,1)*1.6 - .6)}
-.gx.tile{clip-path:circle(calc(var(--gp,1)*74%) at 50% 50%)}
-.gx.gd{clip-path:none}.gx.gd>*{opacity:1}
 
 @media (prefers-reduced-motion:reduce){.btn:hover,.steps li:hover,.way:hover{transform:none}}
 
@@ -206,3 +202,14 @@ h1.big{max-width:100%}
   .hsub{max-width:60ch}
   .hcols{display:none}
 }
+
+/* слоган под словом РОБОРАБ на лаймовом экране */
+.hslogan{display:block;margin-top:.5em;font:italic 800 clamp(20px,3.6vw,52px)/1.1 var(--fd);letter-spacing:-.02em;color:var(--ink);white-space:normal;padding:0 16px}
+
+/* окно первого экрана двигается на композиторе */
+.himg{will-change:clip-path}.htext,.hword{will-change:transform,opacity}
+
+/* полосы-образцы для Safari: браузер красит свои панели в цвет того, что у края экрана */
+.edge{position:fixed;left:0;right:0;z-index:5;pointer-events:none;background:var(--edge,var(--violet));transition:background-color .25s linear}
+.edge-top{top:0;height:max(env(safe-area-inset-top,0px),1px)}
+.edge-bottom{bottom:0;height:max(env(safe-area-inset-bottom,0px),1px)}

@@ -93,6 +93,27 @@
   }
 
   /* первый экран: окно-пилюля раскрывается на весь экран, дальше проступает надпись, потом наезжает лист */
+  var heroTop = 'violet', heroBottom = 'violet';
+  var COLORS = {violet: '#6a2cf0', lime: '#cdf200', bg: '#f5f2fc', deep: '#25104f'};
+  var edgeTop = document.createElement('div'), edgeBottom = document.createElement('div');
+  edgeTop.className = 'edge edge-top'; edgeBottom.className = 'edge edge-bottom';
+  edgeTop.setAttribute('aria-hidden', 'true'); edgeBottom.setAttribute('aria-hidden', 'true');
+  body.appendChild(edgeTop); body.appendChild(edgeBottom);
+  var meta = document.querySelector('meta[name="theme-color"]');
+  if (!meta) { meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
+  var sheetEl = document.getElementById('sheet'), darks = [].slice.call(document.querySelectorAll('.dk'));
+  function colorAt(y, hero){
+    if (sheetEl && sheetEl.getBoundingClientRect().top > y) return hero;
+    for (var i = 0; i < darks.length; i++) { var r = darks[i].getBoundingClientRect(); if (r.top <= y && r.bottom >= y) return 'deep'; }
+    return 'bg';
+  }
+  var lastTop, lastBottom;
+  function paintEdges(){
+    var vh = window.innerHeight || 800;
+    var t = colorAt(1, heroTop), b = colorAt(vh - 1, heroBottom);
+    if (t !== lastTop) { lastTop = t; edgeTop.style.setProperty('--edge', COLORS[t]); meta.content = COLORS[t]; }
+    if (b !== lastBottom) { lastBottom = b; edgeBottom.style.setProperty('--edge', COLORS[b]); }
+  }
   var stage = $('#stage'), htext = $('#htext'), himg = $('#himg'), hword = $('#hword'), pill = $('#pill');
   var R = null;
   function measure(){
@@ -101,9 +122,10 @@
     R = {l: pr.left - sr.left, t: pr.top - sr.top, r: sr.right - pr.right, b: sr.bottom - pr.bottom, h: pr.height};
     htext.style.transform = keep; frame();
   }
+  var sy = window.scrollY || 0, last = 0, raf = 0;
   function frame(){
-    var y = window.scrollY || root.scrollTop, vh = window.innerHeight || 800;
-    if (reduce || !R) return;
+    var y = sy, vh = window.innerHeight || 800;
+    if (reduce || !R) { paintEdges(); return; }
     var t = clamp(y / (vh * 0.6)), e = 1 - Math.pow(1 - t, 3);
     var rad = Math.max(0, R.h / 2 * (1 - e));
     himg.style.clipPath = 'inset(' + (R.t * (1 - e)) + 'px ' + (R.r * (1 - e)) + 'px ' + (R.b * (1 - e)) + 'px ' + (R.l * (1 - e)) + 'px round ' + rad + 'px)';
@@ -114,30 +136,22 @@
     var wi = clamp((y - vh * 0.3) / (vh * 0.45)), wout = 1 - clamp((y - vh * 1.25) / (vh * 0.6));
     hword.style.setProperty('--wo', (wi * wout).toFixed(3));
     hword.style.setProperty('--wy', ((1 - wi) * 40 - clamp((y - vh) / vh) * 60).toFixed(1) + 'px');
+    heroTop = R.t * (1 - e) < 2 ? 'lime' : 'violet';
+    heroBottom = R.b * (1 - e) < 2 ? 'lime' : 'violet';
+    paintEdges();
   }
-  var tick = false;
-  window.addEventListener('scroll', function(){ if (!tick) { tick = true; requestAnimationFrame(function(){ tick = false; frame(); }); } }, {passive: true});
-  window.addEventListener('resize', function(){ measure(); });
+  function step(now){
+    var target = window.scrollY || root.scrollTop || 0;
+    var dt = last ? Math.min(32, now - last) : 16; last = now;
+    sy += (target - sy) * (1 - Math.exp(-dt / 70));
+    if (Math.abs(target - sy) < .5) sy = target;
+    frame();
+    if (sy !== target) raf = requestAnimationFrame(step); else { raf = 0; last = 0; }
+  }
+  window.addEventListener('scroll', function(){ if (!raf) raf = requestAnimationFrame(step); }, {passive: true});
+  window.addEventListener('resize', function(){ sy = window.scrollY || 0; measure(); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
   window.addEventListener('load', measure);
   measure();
 
-  /* раскрытие блоков из «объекта»: окно растёт из малой формы по мере прокрутки (как первый экран) */
-  if (!reduce && !bot) {
-    var gx = [].slice.call(document.querySelectorAll('.dk,.panel-art,.cgrid,.cta .box,.tile'));
-    gx.forEach(function(el){ el.classList.add('gx'); el.style.setProperty('--gp', 0); });
-    var gtick = false;
-    function grow(){
-      var vh = window.innerHeight || 800;
-      gx.forEach(function(el){
-        var top = el.getBoundingClientRect().top;
-        var p = clamp((vh * 0.96 - top) / (vh * (el.classList.contains('tile') ? 0.4 : 0.6)));
-        var e = 1 - Math.pow(1 - p, 3);
-        el.style.setProperty('--gp', e.toFixed(3));
-        el.classList.toggle('gd', e >= 0.999);
-      });
-    }
-    window.addEventListener('scroll', function(){ if (!gtick) { gtick = true; requestAnimationFrame(function(){ gtick = false; grow(); }); } }, {passive: true});
-    window.addEventListener('resize', grow); window.addEventListener('load', grow); grow();
-  }
 })();

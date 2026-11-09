@@ -180,19 +180,18 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 @keyframes spl{from{opacity:0;transform:scale(.8)}}
 
 /* движение: появление блоков */
-.js .rv{opacity:0;transform:translateY(var(--ry,22px));transition:opacity .6s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.js .rv{opacity:0;transform:translate3d(0,var(--ry,14px),0);transition:opacity .8s cubic-bezier(.25,.1,.25,1),transform .9s cubic-bezier(.22,1,.36,1);transition-delay:var(--d,0s);backface-visibility:hidden}
 .js .rv.in{opacity:1;transform:none}
 .js .rv.in.done{transition-delay:0s}
 
 /* раскрытие текста */
-.text-mask{display:inline-block;clip-path:inset(-.32em -.42em -.20em)}
+.text-mask{display:inline-block;clip-path:inset(-.4em -.6em -.5em -.6em)}
 .text-motion{display:inline-block}
-.text-intro .text-motion{animation:text-rise 1.15s var(--ease) var(--text-delay) both}
-@keyframes text-rise{from{transform:translateY(145%)}to{transform:none}}
+.text-intro .text-motion{animation:text-rise 1s cubic-bezier(.22,1,.36,1) var(--text-delay) both;will-change:transform}
+@keyframes text-rise{from{transform:translate3d(0,110%,0)}to{transform:none}}
 .text-words .text-motion{
-  transform:translateY(145%) rotate(4deg);
-  transform-origin:left bottom;
-  transition:transform 1s var(--ease) var(--text-delay);
+  transform:translate3d(0,110%,0);
+  transition:transform .9s cubic-bezier(.22,1,.36,1) var(--text-delay);
 }
 .text-words.in .text-motion{transform:none}
 
