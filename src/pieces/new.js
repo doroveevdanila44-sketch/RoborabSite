@@ -114,11 +114,10 @@
   }
   // Пока открыто окно с градиентом, фиксированных слоёв нет вовсе: панели берут цвет страницы,
   // а он совпадает с краями градиента, поэтому градиент как будто продолжается под панелями.
-  var backdrop = makeBackdrop('#141414');
+  // Фиксированных слоёв у краёв нет совсем: с ними Safari заливает панели сплошным цветом,
+  // а без них показывает под стеклом панелей саму страницу до края экрана.
   root.classList.add('has-backdrop');
-  function showBackdrops(){
-    backdrop.style.visibility = stageHidden || heroOpen ? 'hidden' : 'visible';
-  }
+  function showBackdrops(){}
   var meta = document.querySelector('meta[name="theme-color"]');
   if (!meta) { meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
   var sheetEl = document.getElementById('sheet'), darks = [].slice.call(document.querySelectorAll('.dk'));
