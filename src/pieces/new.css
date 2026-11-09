@@ -197,3 +197,20 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
   .cgrid .product.on{animation:none}.faqlist details::details-content{transition:none}
 }
 
+
+/* Первый экран без position:sticky. Safari на iPhone из-за закреплённых блоков заливает шапку и нижнюю
+   панель сплошным цветом. Здесь блок обычный, а на месте его держит анимация, привязанная к прокрутке:
+   тогда под стеклом панелей видна сама страница, как на остальном сайте. */
+@keyframes stage-pin{from{transform:translateY(0)}to{transform:translateY(200lvh)}}
+@supports (animation-timeline:scroll()){
+  .hero{--over:0px;--under:0px}
+  .stage{position:absolute;left:0;right:0;top:calc(-1 * var(--over));height:calc(100lvh + var(--over) + var(--under));
+    animation:stage-pin linear both;animation-timeline:scroll(root block);animation-range:0px 200lvh}
+  /* на телефонах блок выступает вверх под шапку и вниз под панель браузера */
+  @media (pointer:coarse){
+    .hero{--over:90px;--under:120px}
+    .htext{top:var(--over);height:calc(100% - var(--over) - var(--under))}
+    .hart svg{top:calc(var(--over) + var(--under));height:calc(100% - var(--over) - var(--under))}
+    .hword{top:calc(var(--over) + (100% - var(--over) - var(--under)) * .44)}
+  }
+}
