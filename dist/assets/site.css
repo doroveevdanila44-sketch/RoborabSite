@@ -247,7 +247,8 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
     .hero{--over:90px;--under:120px}
     .htext{top:var(--over);height:calc(100% - var(--over) - var(--under))}
     .hart svg{top:calc(var(--over) + var(--under));height:calc(100% - var(--over) - var(--under))}
-    .hword{top:calc(var(--over) + (100% - var(--over) - var(--under)) * .44)}
+    /* слово рисуется в слое градиента, без своего: отдельный слой Safari переставал показывать раньше времени */
+    .himg .art .hword{top:calc(var(--over) + (100% - var(--over) - var(--under)) * .44 + var(--wy,0px));transform:none;opacity:1;color:rgb(255 255 255 / var(--wo,0))}
     /* вверху страницы над блоком пусто, Safari показывает там цвет фона: верх первого экрана уходит в него же */
     .hart-veil::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#141414 0,#141414 var(--over),rgba(20,20,20,0) calc(var(--over) + 150px))}
   }

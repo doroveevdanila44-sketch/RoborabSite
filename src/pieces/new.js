@@ -159,7 +159,7 @@
     var to = clamp(y / (vh * 0.3));
     htext.style.opacity = (1 - to).toFixed(3);
     htext.style.transform = 'translateY(' + (-to * 50).toFixed(1) + 'px)';
-    var wi = clamp((y - vh * 0.3) / (vh * 0.45)), wout = 1 - clamp((y - vh * 1.25) / (vh * 0.6));
+    var wi = clamp((y - vh * 0.3) / (vh * 0.45)), wout = 1 - clamp((y - vh * 1.5) / (vh * 0.5));
     hword.style.setProperty('--wo', (wi * wout).toFixed(3));
     hword.style.setProperty('--wy', ((1 - wi) * 40 - clamp((y - vh) / vh) * 60).toFixed(1) + 'px');
     // Safari берёт цвет панелей у элемента под краем экрана: когда лаймовое окно раскрылось, им должно быть оно
