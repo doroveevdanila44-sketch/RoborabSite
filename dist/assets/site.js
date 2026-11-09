@@ -292,13 +292,14 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
   (function(){
     var box = $('#dchat'); if (!box) return;
     var SCRIPT = [
+      ['bot', 'Здравствуйте! Расскажите о своём деле: я на связи в любое время, а специалист изучит итог и предложит решение.'],
       ['me', 'Сдаю 4 квартиры посуточно, путаюсь в бронях'],
       ['bot', 'Понял. На скольких площадках объявления?'],
       ['me', 'Авито и Суточно'],
       ['bot', 'Подойдёт Букинг-CRM: даты закроются на обеих площадках сами.']
     ];
     function wait(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
-    function add(who, text){ var d = document.createElement('div'); d.className = 'dmsg' + (who === 'me' ? ' me' : ''); d.textContent = text; box.appendChild(d); while (box.children.length > 4) box.firstChild.remove(); return d; }
+    function add(who, text){ var d = document.createElement('div'); d.className = 'dmsg' + (who === 'me' ? ' me' : ''); d.textContent = text; box.appendChild(d); while (box.children.length > 5) box.firstChild.remove(); return d; }
     if (reduce) { SCRIPT.forEach(function(m){ add(m[0], m[1]); }); return; }
     var started = false, live = false;
     async function play(){
@@ -312,7 +313,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
             var t = document.createElement('div'); t.className = 'dmsg typing'; t.innerHTML = '<i></i><i></i><i></i>'; box.appendChild(t);
             await wait(1000); t.remove();
             var d = add(who, '');
-            for (var k = 1; k <= text.length; k++) { d.textContent = text.slice(0, k); await wait(22); }
+            for (var k = 1; k <= text.length; k++) { d.textContent = text.slice(0, k); await wait(16); }
           } else { await wait(600); add(who, text); }
           await wait(900);
         }
