@@ -196,3 +196,13 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
   .js .rv{opacity:1;transform:none;transition:none}.wm{animation:none}.splash{display:none}html{scroll-behavior:auto}
   .cgrid .product.on{animation:none}.faqlist details::details-content{transition:none}
 }
+
+/* Safari на iPhone: высота страницы кончается над нижней панелью, а контент уходит под её стекло.
+   Закреплённый первый экран продлеваем вниз за край, чтобы столбцы и градиент шли под панелью */
+@media (pointer:coarse){
+  :root{--under:200px}
+  .stage{height:calc(100lvh + var(--under))}
+  .htext{height:calc(100% - var(--under))}
+  .sheet{margin-top:calc(-100lvh)}
+  .hword{top:calc(44% - var(--under) * .44)}
+}
