@@ -137,7 +137,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     for (var i = 0; i < darks.length; i++) { var r = darks[i].getBoundingClientRect(); if (r.top <= y && r.bottom >= y) return 'deep'; }
     return 'bg';
   }
-  var lastTop, lastBottom, stageHidden = false;
+  var lastTop, lastBottom, stageHidden = false, heroOpen = false, heroEl = document.querySelector('.hero');
   function paintEdges(){
     var vh = window.innerHeight || 800;
     var t = colorAt(1, heroTop), b = colorAt(vh - 1, heroBottom);
@@ -173,6 +173,13 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     var wi = clamp((y - vh * 0.3) / (vh * 0.45)), wout = 1 - clamp((y - vh * 1.25) / (vh * 0.6));
     hword.style.setProperty('--wo', (wi * wout).toFixed(3));
     hword.style.setProperty('--wy', ((1 - wi) * 40 - clamp((y - vh) / vh) * 60).toFixed(1) + 'px');
+    // Safari берёт цвет панелей у элемента под краем экрана: когда лаймовое окно раскрылось, им должно быть оно
+    var open = e > 0.985;
+    if (open !== heroOpen) {
+      heroOpen = open;
+      himg.style.pointerEvents = open ? 'auto' : 'none';
+      if (heroEl) heroEl.style.backgroundColor = open ? COLORS.lime : '';
+    }
     heroTop = R.t * (1 - e) < 2 ? 'lime' : 'violet';
     heroBottom = R.b * (1 - e) < 2 ? 'limeLow' : 'violet';
     paintEdges();
