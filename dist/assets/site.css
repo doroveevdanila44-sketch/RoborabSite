@@ -20,6 +20,7 @@
   --img-fitness-renewals:url(/assets/fitness-renewals.webp?v=fd530d9c);
   --img-fitness-schedule:url(/assets/fitness-schedule.webp?v=261563e0);
   --img-fitness-trainers:url(/assets/fitness-trainers.webp?v=49b03e7e);
+  --img-iphone-frame:url(/assets/iphone-frame.webp?v=28137df6);
   --img-seo-ai-traffic:url(/assets/seo-ai-traffic.webp?v=8f54fe20);
   --img-seo-category:url(/assets/seo-category.webp?v=70eefe4c);
   --img-seo-editor:url(/assets/seo-editor.webp?v=c556aa9e);
@@ -618,9 +619,8 @@ h1.big{max-width:100%}
 /* 3. Свет за курсором: круг 760 px двигается трансформом */
 .hspot{position:absolute;left:0;top:0;width:760px;height:760px;pointer-events:none;background:radial-gradient(closest-side,rgba(123,77,255,.32),transparent);will-change:transform;transform:translate3d(-9999px,0,0)}
 /* 5. Телефон с чатом РОБОРАБ: пропорции iPhone Pro Max, всё в долях ширины телефона */
-.dphone{position:relative;width:min(100%,340px);justify-self:center;container-type:inline-size}
-.dp-frame{aspect-ratio:440/956;border-radius:15cqw;padding:2.6cqw;background:linear-gradient(145deg,#4a4a4f,#1d1d20 40%,#3a3a3e 70%,#151517);box-shadow:0 0 0 .6cqw #0b0b0c inset,0 8cqw 16cqw -8cqw rgba(0,0,0,.55)}
-.dp-screen{position:relative;height:100%;border-radius:12.6cqw;overflow:hidden;display:flex;flex-direction:column;background:radial-gradient(90% 60% at 100% 0%,rgba(183,155,255,.55),transparent 60%),radial-gradient(80% 55% at 0% 100%,rgba(123,77,255,.32),transparent 65%),linear-gradient(180deg,#f6f4fb,#efeaff)}
+.dphone{position:relative;width:min(100%,380px);justify-self:center;aspect-ratio:887/1774;background:var(--img-iphone-frame) center/100% 100% no-repeat}
+.dp-screen{position:absolute;left:9.92%;top:5.13%;width:80.16%;height:89.85%;border-radius:13% / 5.8%;container-type:inline-size;overflow:hidden;display:flex;flex-direction:column;background:radial-gradient(90% 60% at 100% 0%,rgba(183,155,255,.55),transparent 60%),radial-gradient(80% 55% at 0% 100%,rgba(123,77,255,.32),transparent 65%),linear-gradient(180deg,#f6f4fb,#efeaff)}
 .dp-status{position:absolute;inset:0 0 auto;height:13cqw;display:flex;align-items:center;justify-content:space-between;padding:0 8.5cqw 0 10cqw;color:#fff;font:600 4cqw/1 -apple-system,'SF Pro Text',system-ui,sans-serif;z-index:3}
 .dp-island{position:absolute;left:50%;top:2.6cqw;width:28cqw;height:8.2cqw;margin-left:-14cqw;border-radius:99px;background:#000}
 .dp-ind{display:flex;align-items:center;gap:1.4cqw}
