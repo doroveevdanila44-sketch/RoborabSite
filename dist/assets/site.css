@@ -436,7 +436,7 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 @media(max-width:540px){
   .panel-art{grid-template-columns:minmax(0,1fr);padding:clamp(22px,6vw,36px)}
   .diagnostic-copy{font-size:clamp(22px,6.2vw,34px)}
-  .diagnostic-phone{width:clamp(142px,40vw,180px);justify-self:center}
+
 }
 
 /* тёмные блоки: глубокий индиго */
@@ -608,3 +608,41 @@ h1.big{max-width:100%}
 @keyframes ind-blink{50%{opacity:.2}}
 @media(max-width:560px){.tile.ind{aspect-ratio:1}}
 @media(prefers-reduced-motion:reduce){.ind-blink{animation:none}}
+
+/* ===== Живые эффекты ===== */
+/* 2. Жидкий градиент в окне «РОБОРАБ» */
+.art .liquid{position:absolute;inset:0;width:100%;height:100%;display:block;filter:blur(34px) saturate(1.1);transform:scale(1.2)}
+.art .grain{position:absolute;inset:0;pointer-events:none;opacity:.32;mix-blend-mode:overlay}
+.art .hword{z-index:1}
+/* 3. Свет за курсором на первом экране */
+.hspot{position:absolute;inset:0;pointer-events:none}
+.hspot{background:radial-gradient(380px circle at var(--mx,72%) var(--my,45%),rgba(123,77,255,.30),transparent 60%)}
+/* 5. Чат печатает поверх телефона */
+.dphone{position:relative;width:100%;container-type:inline-size}
+.dphone .diagnostic-phone{width:100%}
+.dchat{position:absolute;left:7.4%;right:7.4%;top:30.5%;bottom:21.5%;display:flex;flex-direction:column;justify-content:flex-end;gap:2.2cqw;overflow:hidden;pointer-events:none}
+.dmsg{max-width:84%;padding:2.6cqw 3.4cqw;border-radius:4.6cqw 4.6cqw 4.6cqw 1.6cqw;background:#fff;color:#141414;font:500 3.6cqw/1.35 var(--f-body,'Manrope'),system-ui,sans-serif;box-shadow:0 1.4cqw 3cqw -1.6cqw rgba(0,0,0,.25);animation:dmsg-in .35s cubic-bezier(.22,1,.36,1)}
+.dmsg.me{align-self:flex-end;background:#141414;color:#fff;border-radius:4.6cqw 4.6cqw 1.6cqw 4.6cqw}
+.dmsg.typing{display:inline-flex;gap:1.2cqw;padding:3.2cqw 3.6cqw}
+.dmsg.typing i{width:1.6cqw;height:1.6cqw;border-radius:50%;background:rgba(20,20,20,.45);animation:dot 1s infinite}
+.dmsg.typing i:nth-child(2){animation-delay:.15s}.dmsg.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{50%{transform:translateY(-1cqw);opacity:.4}}
+@keyframes dmsg-in{from{opacity:0;transform:translateY(2cqw)}}
+@media(max-width:760px){.dphone{width:clamp(142px,40vw,180px);justify-self:center}}
+/* 4. Расшифровка меток */
+.lab.scr{font-variant-numeric:tabular-nums}
+/* 7. Линия через шаги */
+.steps{position:relative}
+.steps-line{position:absolute;left:0;right:0;top:-18px;height:2px;border-radius:2px;background:var(--line);pointer-events:none}
+.steps-line span{display:block;height:100%;width:var(--sp,0%);border-radius:inherit;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+.js .steps li{transition:transform .5s var(--ease),filter .6s ease,opacity .6s ease}
+.js .steps.has-line li:not(.lit){filter:saturate(.2);opacity:.55}
+@media(max-width:900px){.steps-line{left:-12px;right:auto;top:0;bottom:0;width:2px;height:auto}.steps-line span{width:100%;height:var(--sp,0%)}.steps.has-line{padding-left:10px}}
+/* 8. Объёмные экраны */
+.product-gallery{perspective:900px}
+.tilting.shot{transition:transform .12s ease-out!important;background-image:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.32),transparent 60%),var(--s)!important}
+/* 1. Частицы в подвале */
+.wm-wrap{position:relative}
+.wm-dots{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+.has-dots .wm{visibility:hidden}
+@media(prefers-reduced-motion:reduce){.dmsg,.dmsg.typing i{animation:none}}
