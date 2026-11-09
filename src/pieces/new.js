@@ -134,7 +134,7 @@
       lastTop = t; meta.content = COLORS[t];
       root.style.backgroundColor = COLORS[t]; body.style.backgroundColor = COLORS[t];
     }
-    if (stage && sheetEl) {
+    if (stage && sheetEl && !flow) {
       var covered = sheetEl.getBoundingClientRect().top <= 0;
       if (covered !== stageHidden) { stageHidden = covered; stage.style.visibility = covered ? 'hidden' : ''; showBackdrops(); }
     }
@@ -142,7 +142,34 @@
   }
   var stage = $('#stage'), htext = $('#htext'), himg = $('#himg'), hword = $('#hword'), pill = $('#pill');
   var R = null;
+  // На сенсорных экранах первый экран не закреплён: окно лежит во всю высоту блока, см. стили
+  var flow = matchMedia('(pointer:coarse)').matches, P = null;
+  if (flow && heroEl && himg.parentNode !== heroEl) heroEl.appendChild(himg);
+  function measureFlow(){
+    var pr = pill.getBoundingClientRect(), hr = heroEl.getBoundingClientRect();
+    P = {t: pr.top - hr.top, b: pr.bottom - hr.top, l: pr.left - hr.left, r: hr.right - pr.right, h: pr.height, H: hr.height};
+    frameFlow();
+  }
+  function frameFlow(){
+    if (reduce || !P) { paintEdges(); return; }
+    var y = window.scrollY || root.scrollTop || 0, vh = window.innerHeight || 800;
+    var t = clamp(y / (vh * 0.6)), e = 1 - Math.pow(1 - t, 3);
+    if (t >= 1) himg.style.clipPath = 'inset(0)';
+    else {
+      var top = Math.max(0, P.t + (y - 240 - P.t) * e), bot = Math.max(0, P.H - (P.b + (y + vh + 320 - P.b) * e));
+      himg.style.clipPath = 'inset(' + top.toFixed(1) + 'px ' + (P.r * (1 - e)).toFixed(1) + 'px ' + bot.toFixed(1) + 'px ' + (P.l * (1 - e)).toFixed(1) + 'px round ' + (P.h / 2 * (1 - e)).toFixed(1) + 'px)';
+    }
+    htext.style.opacity = (1 - clamp(y / (vh * 0.3))).toFixed(3);
+    var wi = clamp((y - vh * 0.3) / (vh * 0.45));
+    hword.style.setProperty('--wo', wi.toFixed(3));
+    hword.style.setProperty('--wy', ((1 - wi) * 40).toFixed(1) + 'px');
+    var open = e > 0.985;
+    if (open !== heroOpen) { heroOpen = open; himg.style.pointerEvents = open ? 'auto' : 'none'; }
+    heroTop = open ? 'lime' : 'violet'; heroBottom = open ? 'limeLow' : 'violet';
+    paintEdges();
+  }
   function measure(){
+    if (flow) { measureFlow(); return; }
     var keep = htext.style.transform; htext.style.transform = 'none';
     var pr = pill.getBoundingClientRect(), sr = stage.getBoundingClientRect();
     R = {l: pr.left - sr.left, t: pr.top - sr.top, r: sr.right - pr.right, b: sr.bottom - pr.bottom, h: pr.height};
@@ -150,6 +177,7 @@
   }
   var sy = window.scrollY || 0, last = 0, raf = 0;
   function frame(){
+    if (flow) { frameFlow(); return; }
     var y = sy, vh = window.innerHeight || 800;
     if (reduce || !R) { paintEdges(); return; }
     var t = clamp(y / (vh * 0.6)), e = 1 - Math.pow(1 - t, 3);
@@ -235,16 +263,17 @@
     size(); window.addEventListener('resize', size);
     onScreen($('#himg'), function(v){ live = v; if (v) kick(); });
     function draw(t){
-      var w = c.width, h = c.height, m = Math.max(w, h);
+      // высокий холст (первый экран в потоке) делим на участки высотой примерно в экран, пятна повторяются в каждом
+      var w = c.width, h = c.height, n = Math.max(1, Math.round(h / (w * 2.1))), sh = h / n, m = Math.max(w, sh);
       ctx.fillStyle = '#4a24c9'; ctx.fillRect(0, 0, w, h);
-      for (var i = 0; i < blobs.length; i++) {
-        var b = blobs[i];
-        var x = (b.x + Math.sin(t * b.sx + b.p) * b.ax + Math.sin(t * b.sy * .6 + b.p * 2) * .08) * w;
-        var y = (b.y + Math.cos(t * b.sy + b.p) * b.ay) * h;
-        var r = b.r * m * (1 + Math.sin(t * .5 + b.p) * .2);
+      for (var k = 0; k < n; k++) for (var i = 0; i < blobs.length; i++) {
+        var b = blobs[i], ph = b.p + k * 1.3;
+        var x = (b.x + Math.sin(t * b.sx + ph) * b.ax + Math.sin(t * b.sy * .6 + ph * 2) * .08) * w;
+        var y = (k + b.y + Math.cos(t * b.sy + ph) * b.ay) * sh;
+        var r = b.r * m * (1 + Math.sin(t * .5 + ph) * .2);
         var g = ctx.createRadialGradient(x, y, 0, x, y, r), col = b.c.join(',');
         g.addColorStop(0, 'rgba(' + col + ',' + b.a + ')'); g.addColorStop(1, 'rgba(' + col + ',0)');
-        ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+        ctx.fillStyle = g; ctx.fillRect(0, Math.max(0, y - r), w, Math.min(h, r * 2));
       }
     }
     var raf = 0;
