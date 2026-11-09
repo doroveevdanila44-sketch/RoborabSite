@@ -610,13 +610,12 @@ h1.big{max-width:100%}
 @media(prefers-reduced-motion:reduce){.ind-blink{animation:none}}
 
 /* ===== Живые эффекты ===== */
-/* 2. Жидкий градиент в окне «РОБОРАБ» */
-.art .liquid{position:absolute;inset:0;width:100%;height:100%;display:block;filter:blur(34px) saturate(1.1);transform:scale(1.2)}
-.art .grain{position:absolute;inset:0;pointer-events:none;opacity:.32;mix-blend-mode:overlay}
+/* 2. Жидкий градиент в окне «РОБОРАБ»: холст 128 px растягивается браузером, сам по себе мягкий */
+.art .liquid{position:absolute;inset:0;width:100%;height:100%;display:block}
+.art .grain{position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:var(--grain);background-size:160px 160px}
 .art .hword{z-index:1}
-/* 3. Свет за курсором на первом экране */
-.hspot{position:absolute;inset:0;pointer-events:none}
-.hspot{background:radial-gradient(380px circle at var(--mx,72%) var(--my,45%),rgba(123,77,255,.30),transparent 60%)}
+/* 3. Свет за курсором: круг 760 px двигается трансформом */
+.hspot{position:absolute;left:0;top:0;width:760px;height:760px;pointer-events:none;background:radial-gradient(closest-side,rgba(123,77,255,.32),transparent);will-change:transform;transform:translate3d(-9999px,0,0)}
 /* 5. Чат печатает поверх телефона */
 .dphone{position:relative;width:100%;container-type:inline-size}
 .dphone .diagnostic-phone{width:100%}
@@ -629,20 +628,7 @@ h1.big{max-width:100%}
 @keyframes dot{50%{transform:translateY(-1cqw);opacity:.4}}
 @keyframes dmsg-in{from{opacity:0;transform:translateY(2cqw)}}
 @media(max-width:760px){.dphone{width:clamp(142px,40vw,180px);justify-self:center}}
-/* 4. Расшифровка меток */
-.lab.scr{font-variant-numeric:tabular-nums}
-/* 7. Линия через шаги */
-.steps{position:relative}
-.steps-line{position:absolute;left:0;right:0;top:-18px;height:2px;border-radius:2px;background:var(--line);pointer-events:none}
-.steps-line span{display:block;height:100%;width:var(--sp,0%);border-radius:inherit;background:var(--lime);box-shadow:0 0 12px var(--lime)}
-.js .steps li{transition:transform .5s var(--ease),filter .6s ease,opacity .6s ease}
-.js .steps.has-line li:not(.lit){filter:saturate(.2);opacity:.55}
-@media(max-width:900px){.steps-line{left:-12px;right:auto;top:0;bottom:0;width:2px;height:auto}.steps-line span{width:100%;height:var(--sp,0%)}.steps.has-line{padding-left:10px}}
 /* 8. Объёмные экраны */
 .product-gallery{perspective:900px}
 .tilting.shot{transition:transform .12s ease-out!important;background-image:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.32),transparent 60%),var(--s)!important}
-/* 1. Частицы в подвале */
-.wm-wrap{position:relative}
-.wm-dots{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
-.has-dots .wm{visibility:hidden}
 @media(prefers-reduced-motion:reduce){.dmsg,.dmsg.typing i{animation:none}}
