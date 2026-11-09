@@ -33,9 +33,9 @@
 .gallery-note{margin-top:-8px}
 @media(max-width:760px){.product-gallery.shots{grid-auto-columns:clamp(148px,52vw,220px)}}
 
-[data-clock]{--clock-bg:#f5f2fc;--clock-fg:#000}
-[data-clock=violet]{--clock-bg:var(--violet);--clock-fg:#fff}
-[data-clock=lime]{--clock-bg:linear-gradient(#daf15a,#e3f962)}
+[data-clock]{--clock-bg:#f4f4f2;--clock-fg:#000}
+[data-clock=violet]{--clock-bg:#141414;--clock-fg:#fff}
+[data-clock=lime]{--clock-bg:linear-gradient(#b99eff,#bfa6ff)}
 [data-clock=bare-white]{--clock-fg:#fff}
 [data-clock=funnel]{--clock-bg:linear-gradient(#f7f5fa,#fdfcff)}
 [data-clock=sources]{--clock-bg:linear-gradient(#fefcff,#faf9fd)}

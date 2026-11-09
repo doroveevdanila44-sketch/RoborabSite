@@ -6,41 +6,41 @@
   --fit:#5f7d1f;--tax:#0f7f8d;--build:#d4540a;--booking:#141414;--seo:#d62f60;
   --fg:#111514;--f-body:var(--f);--f-display:var(--f);--f-mono:var(--f);--c:min(100% - 32px,1280px);interpolate-size:allow-keywords;color-scheme:light;
   --img-appicon:url(/assets/appicon.webp?v=f7c18612);
-  --img-booking-calendar:url(/assets/booking-calendar.webp?v=9173cff4);
-  --img-booking-home:url(/assets/booking-home.webp?v=6ac0ec21);
-  --img-booking-money:url(/assets/booking-money.webp?v=48531031);
-  --img-booking-new:url(/assets/booking-new.webp?v=b2e7b515);
-  --img-booking-object:url(/assets/booking-object.webp?v=7a10ba81);
-  --img-booking-objects:url(/assets/booking-objects.webp?v=0cbe0bb2);
-  --img-booking-platforms:url(/assets/booking-platforms.webp?v=c3a7c340);
-  --img-fitness-client:url(/assets/fitness-client.webp?v=caec3c4b);
-  --img-fitness-dashboard:url(/assets/fitness-dashboard.webp?v=9a57928a);
-  --img-fitness-export:url(/assets/fitness-export.webp?v=14afc9c4);
-  --img-fitness-group:url(/assets/fitness-group.webp?v=fb8ef62f);
-  --img-fitness-renewals:url(/assets/fitness-renewals.webp?v=632e66fe);
-  --img-fitness-schedule:url(/assets/fitness-schedule.webp?v=ec8b977d);
-  --img-fitness-trainers:url(/assets/fitness-trainers.webp?v=758acf79);
+  --img-booking-calendar:url(/assets/booking-calendar.webp?v=f736b9e9);
+  --img-booking-home:url(/assets/booking-home.webp?v=fe532d66);
+  --img-booking-money:url(/assets/booking-money.webp?v=fbfbee94);
+  --img-booking-new:url(/assets/booking-new.webp?v=2e8372a1);
+  --img-booking-object:url(/assets/booking-object.webp?v=ab4c0fc5);
+  --img-booking-objects:url(/assets/booking-objects.webp?v=d405e817);
+  --img-booking-platforms:url(/assets/booking-platforms.webp?v=ab4c0fc5);
+  --img-fitness-client:url(/assets/fitness-client.webp?v=a1888cc9);
+  --img-fitness-dashboard:url(/assets/fitness-dashboard.webp?v=fb2687a1);
+  --img-fitness-export:url(/assets/fitness-export.webp?v=e0641489);
+  --img-fitness-group:url(/assets/fitness-group.webp?v=587748d6);
+  --img-fitness-renewals:url(/assets/fitness-renewals.webp?v=fd530d9c);
+  --img-fitness-schedule:url(/assets/fitness-schedule.webp?v=261563e0);
+  --img-fitness-trainers:url(/assets/fitness-trainers.webp?v=49b03e7e);
   --img-industry-agents:url(/assets/industry-agents.webp?v=6ec83d90);
   --img-industry-integration:url(/assets/industry-integration.webp?v=959407f9);
-  --img-seo-ai-traffic:url(/assets/seo-ai-traffic.webp?v=4979bdfc);
-  --img-seo-category:url(/assets/seo-category.webp?v=22a95981);
-  --img-seo-editor:url(/assets/seo-editor.webp?v=acae6d05);
-  --img-seo-funnel:url(/assets/seo-funnel.webp?v=f514ebaa);
-  --img-seo-overview:url(/assets/seo-overview.webp?v=9733718d);
-  --img-seo-sources:url(/assets/seo-sources.webp?v=42039af9);
-  --img-stroy-brigades:url(/assets/stroy-brigades.webp?v=2961cf2c);
-  --img-stroy-budget:url(/assets/stroy-budget.webp?v=2a11a151);
-  --img-stroy-cameras:url(/assets/stroy-cameras.webp?v=1d196fe8);
-  --img-stroy-estimate:url(/assets/stroy-estimate.webp?v=d07cc351);
-  --img-stroy-home:url(/assets/stroy-home.webp?v=31ccfa8e);
-  --img-stroy-objects:url(/assets/stroy-objects.webp?v=aec7b351);
-  --img-stroy-reports:url(/assets/stroy-reports.webp?v=93974d4e);
-  --img-tax-alerts:url(/assets/tax-alerts.webp?v=c6987458);
-  --img-tax-draft:url(/assets/tax-draft.webp?v=c5fecfa2);
-  --img-tax-forecast:url(/assets/tax-forecast.webp?v=352defd4);
-  --img-tax-overview:url(/assets/tax-overview.webp?v=3887b295);
-  --img-tax-revenue:url(/assets/tax-revenue.webp?v=c38997fa);
-  --img-tax-templates:url(/assets/tax-templates.webp?v=7c9760fd);
+  --img-seo-ai-traffic:url(/assets/seo-ai-traffic.webp?v=8f54fe20);
+  --img-seo-category:url(/assets/seo-category.webp?v=70eefe4c);
+  --img-seo-editor:url(/assets/seo-editor.webp?v=c556aa9e);
+  --img-seo-funnel:url(/assets/seo-funnel.webp?v=22ab8163);
+  --img-seo-overview:url(/assets/seo-overview.webp?v=7fb64799);
+  --img-seo-sources:url(/assets/seo-sources.webp?v=a80da787);
+  --img-stroy-brigades:url(/assets/stroy-brigades.webp?v=83e05e8b);
+  --img-stroy-budget:url(/assets/stroy-budget.webp?v=0cfa3f97);
+  --img-stroy-cameras:url(/assets/stroy-cameras.webp?v=4f53ed7e);
+  --img-stroy-estimate:url(/assets/stroy-estimate.webp?v=13e0a895);
+  --img-stroy-home:url(/assets/stroy-home.webp?v=681442a7);
+  --img-stroy-objects:url(/assets/stroy-objects.webp?v=f3d0b6ce);
+  --img-stroy-reports:url(/assets/stroy-reports.webp?v=fdbecfae);
+  --img-tax-alerts:url(/assets/tax-alerts.webp?v=4d89d8a0);
+  --img-tax-draft:url(/assets/tax-draft.webp?v=6b89806f);
+  --img-tax-forecast:url(/assets/tax-forecast.webp?v=44df760a);
+  --img-tax-overview:url(/assets/tax-overview.webp?v=4ab5c119);
+  --img-tax-revenue:url(/assets/tax-revenue.webp?v=c3215ef6);
+  --img-tax-templates:url(/assets/tax-templates.webp?v=17225553);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--bg)}
@@ -267,9 +267,9 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .gallery-note{margin-top:-8px}
 @media(max-width:760px){.product-gallery.shots{grid-auto-columns:clamp(148px,52vw,220px)}}
 
-[data-clock]{--clock-bg:#f5f2fc;--clock-fg:#000}
-[data-clock=violet]{--clock-bg:var(--violet);--clock-fg:#fff}
-[data-clock=lime]{--clock-bg:linear-gradient(#daf15a,#e3f962)}
+[data-clock]{--clock-bg:#f4f4f2;--clock-fg:#000}
+[data-clock=violet]{--clock-bg:#141414;--clock-fg:#fff}
+[data-clock=lime]{--clock-bg:linear-gradient(#b99eff,#bfa6ff)}
 [data-clock=bare-white]{--clock-fg:#fff}
 [data-clock=funnel]{--clock-bg:linear-gradient(#f7f5fa,#fdfcff)}
 [data-clock=sources]{--clock-bg:linear-gradient(#fefcff,#faf9fd)}
