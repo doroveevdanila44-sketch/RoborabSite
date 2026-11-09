@@ -258,7 +258,7 @@ def build(out):
         image_vars.append(f'  --img-{name}:url({webp_url(name)});')
     css = css.replace('{{ASSET_VARS}}', '\n'.join(image_vars))
 
-    og = Image.new('RGB', (1200, 630), '#6a2cf0')
+    og = Image.new('RGB', (1200, 630), '#141414')
     with Image.open(assets / 'appicon.webp') as icon:
         icon.resize((96, 96), Image.Resampling.LANCZOS).save(out / 'favicon.png', optimize=True)
         icon.resize((180, 180), Image.Resampling.LANCZOS).save(out / 'apple-touch-icon.png', optimize=True)

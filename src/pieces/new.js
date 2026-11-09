@@ -99,7 +99,7 @@
 
   /* первый экран: окно-пилюля раскрывается на весь экран, дальше проступает надпись, потом наезжает лист */
   var heroTop = 'violet', heroBottom = 'violet';
-  var COLORS = {violet: '#6a2cf0', lime: '#cdf200', limeLow: '#cdf200', bg: '#f5f2fc', deep: '#25104f'};
+  var COLORS = {violet: '#141414', lime: '#7b4dff', limeLow: '#7b4dff', bg: '#f4f4f2', deep: '#141414'};
   // Цветная подложка первого экрана: фиксированная и шире окна, заходит под панели Safari сверху и снизу
   var backdrop = document.createElement('div');
   backdrop.className = 'hero-backdrop'; backdrop.setAttribute('aria-hidden', 'true');
