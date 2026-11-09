@@ -287,6 +287,28 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     if (reduce) live = false;
   })();
 
+  /* Слово «РОБОРАБ» на холсте: только там, где первый экран держится анимацией по прокрутке (телефоны) */
+  (function(){
+    var hw = $('#hword'); if (!hw || !window.CSS || !CSS.supports) return;
+    if (!matchMedia('(pointer:coarse)').matches || !CSS.supports('animation-timeline', 'scroll()')) return;
+    var text = hw.textContent, c = document.createElement('canvas'); c.setAttribute('aria-hidden', 'true');
+    function build(){
+      var cs = getComputedStyle(hw), fs = parseFloat(cs.fontSize) || 80, W = hw.clientWidth; if (!W) return;
+      var H = Math.ceil(fs * 1.4), dpr = Math.min(2, window.devicePixelRatio || 1);
+      c.width = Math.round(W * dpr); c.height = Math.round(H * dpr);
+      c.style.height = H + 'px'; c.style.top = ((fs - H) / 2) + 'px';
+      var x = c.getContext('2d'); x.setTransform(dpr, 0, 0, dpr, 0, 0); x.clearRect(0, 0, W, H);
+      x.font = cs.fontStyle + ' ' + cs.fontWeight + ' ' + fs + 'px ' + cs.fontFamily;
+      try { x.letterSpacing = cs.letterSpacing; } catch (e) {}
+      x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillStyle = '#fff';
+      x.fillText(text, W / 2, H / 2 + fs * .04);
+    }
+    hw.appendChild(c); hw.classList.add('is-canvas'); build();
+    window.addEventListener('resize', build);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(build);
+    window.addEventListener('load', build);
+  })();
+
   /* Иллюстрации отраслей двигаются, только когда видны */
   document.querySelectorAll('.ind-svg').forEach(function(svg){
     if (!svg.pauseAnimations) return;
