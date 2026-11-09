@@ -217,8 +217,8 @@ h1.big{max-width:100%}
 /* Фон первого экрана: столбцы роста на тонкой сетке, последние фиолетовые */
 .hart{position:absolute;inset:0;z-index:1;pointer-events:none}
 .hart svg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hart-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,20,.92) 0%,rgba(20,20,20,.55) 38%,rgba(20,20,20,0) 70%),linear-gradient(0deg,rgba(20,20,20,.97) 0%,rgba(20,20,20,.9) 24%,rgba(20,20,20,0) 46%)}
-@media (max-width:760px){.hart-veil{background:linear-gradient(180deg,rgba(20,20,20,.78) 0%,rgba(20,20,20,.35) 38%,rgba(20,20,20,.15) 52%,rgba(20,20,20,.9) 62%,rgba(20,20,20,.97) 100%)}}
+.hart-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,20,.92) 0%,rgba(20,20,20,.55) 38%,rgba(20,20,20,0) 70%),linear-gradient(0deg,rgba(20,20,20,.35) 0%,rgba(20,20,20,0) 25%)}
+@media (max-width:760px){.hart-veil{background:linear-gradient(180deg,rgba(20,20,20,.85) 0%,rgba(20,20,20,.5) 40%,rgba(20,20,20,.08) 62%,rgba(20,20,20,0) 100%)}}
 .hart-bars rect{transform-box:fill-box;transform-origin:bottom;transform:scaleY(0);animation:hart-grow 1.2s cubic-bezier(.22,1,.36,1) forwards}
 .js .hart-bars rect{animation-play-state:paused}.js .hart.go .hart-bars rect{animation-play-state:running}
 @keyframes hart-grow{to{transform:scaleY(1)}}
