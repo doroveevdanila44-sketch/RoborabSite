@@ -36,7 +36,7 @@ button{font-family:inherit}
 /* первый экран: окно-пилюля раскрывается на весь экран */
 .hero{position:relative;height:300svh}
 .stage{position:sticky;top:0;height:100svh;overflow:hidden}
-.htext{position:relative;z-index:2;height:100%;padding:clamp(24px,6vh,64px) clamp(16px,3.4vw,40px) clamp(18px,3vh,36px);display:flex;flex-direction:column;will-change:transform,opacity}
+.htext{position:relative;z-index:2;height:100%;padding:clamp(24px,6vh,64px) clamp(16px,3.4vw,40px) clamp(18px,3vh,36px);display:flex;flex-direction:column}
 h1.big{margin:0;font:500 clamp(30px,8.6vw,158px)/.9 var(--f);letter-spacing:-.07em;max-width:15ch}
 h1.big .ln{display:block;white-space:nowrap}
 h1.big .ln:last-child{padding-left:clamp(0px,11.5vw,210px)}
@@ -185,18 +185,14 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .js .rv.in.done{transition-delay:0s}
 
 /* раскрытие текста */
-.text-mask{display:inline-block;clip-path:inset(-.4em -.6em -.5em -.6em)}
 .text-motion{display:inline-block}
-.text-intro .text-motion{animation:text-rise 1s cubic-bezier(.22,1,.36,1) var(--text-delay) both}
-@keyframes text-rise{from{transform:translate3d(0,110%,0)}to{transform:none}}
-.text-words .text-motion{
-  transform:translate3d(0,110%,0);
-  transition:transform .9s cubic-bezier(.22,1,.36,1) var(--text-delay);
-}
-.text-words.in .text-motion{transform:none}
+.text-intro .text-motion{animation:text-rise .9s cubic-bezier(.22,1,.36,1) var(--text-delay) both}
+@keyframes text-rise{from{opacity:0;transform:translate3d(0,.35em,0)}to{opacity:1;transform:none}}
+.text-words .text-motion{opacity:0;transform:translate3d(0,.35em,0);transition:opacity .7s ease var(--text-delay),transform .9s cubic-bezier(.22,1,.36,1) var(--text-delay)}
+.text-words.in .text-motion{opacity:1;transform:none}
 
 @media (prefers-reduced-motion:reduce){
-  .text-intro .text-motion,.text-words .text-motion{animation:none;transition:none;transform:none}
+  .text-intro .text-motion,.text-words .text-motion{animation:none;transition:none;transform:none;opacity:1}
   .js .rv{opacity:1;transform:none;transition:none}.wm{animation:none}.splash{display:none}html{scroll-behavior:auto}
   .cgrid .product.on{animation:none}.faqlist details::details-content{transition:none}
 }

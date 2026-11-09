@@ -33,7 +33,7 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 
 /* первый экран: фиолетовое поле, белый курсив, лаймовое окно */
 .hero{background:var(--violet)}
-.stage{background:var(--violet)}
+.stage{background:transparent}
 .htext{color:#fff}
 .hsub{color:rgba(255,255,255,.86);font-weight:500}
 .hcols>div{border-top:2px solid rgba(255,255,255,.28)}
@@ -98,7 +98,7 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 .tabs button:hover{transform:translateY(-2px)}
 .tabs button::before{display:none}
 .tabs button::after{inset:0;height:100%;top:0;z-index:-1;background:var(--lime);border-radius:inherit}
-.tabs button[aria-selected=true]{color:var(--ink);box-shadow:0 0 0 3px var(--ink)}
+.tabs button[aria-selected=true]{color:var(--ink)}
 .tabs i{color:var(--violet);font-family:var(--fd);font-style:italic;font-weight:900}
 @media(max-width:820px){
   .tabs{display:flex;padding:4px;scroll-padding-inline:4px}
@@ -205,9 +205,6 @@ h1.big{max-width:100%}
 
 
 /* окно первого экрана двигается на композиторе */
-.himg{will-change:clip-path}.htext,.hword{will-change:transform,opacity}
+.himg{will-change:clip-path}
 
-/* полосы-образцы для Safari: браузер красит свои панели в цвет того, что у края экрана */
-.edge{position:fixed;left:0;right:0;z-index:5;pointer-events:none;background:var(--edge,var(--violet));transition:background-color .25s linear}
-.edge-top{top:0;height:max(env(safe-area-inset-top,0px),6px)}
-.edge-bottom{bottom:0;height:max(env(safe-area-inset-bottom,0px),6px)}
+@media(max-width:820px){.tabs{padding:6px 2px 18px;margin-bottom:-12px}}

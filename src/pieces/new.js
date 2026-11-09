@@ -35,20 +35,18 @@
   if (bot) return;
 
   function textPart(text, delay){
-    var mask = document.createElement('span'), motion = document.createElement('span');
-    mask.className = 'text-mask';
+    var motion = document.createElement('span');
     motion.className = 'text-motion';
     motion.style.setProperty('--text-delay', delay + 'ms');
     motion.textContent = text;
-    mask.appendChild(motion);
-    // Когда буквы доехали, обёртки убираем совсем: в Safari слой анимации режет хвосты курсива (д, р, у)
-    var free = function(){
-      if (!mask.parentNode) return;
-      mask.parentNode.replaceChild(document.createTextNode(motion.textContent), mask);
+    // Когда слово доехало, возвращаем обычный текст: Safari не держит лишних слоёв
+    var done = function(e){
+      if (e.target !== motion || !motion.parentNode || (e.propertyName && e.propertyName !== 'transform')) return;
+      motion.parentNode.replaceChild(document.createTextNode(motion.textContent), motion);
     };
-    motion.addEventListener('animationend', free);
-    motion.addEventListener('transitionend', free);
-    return mask;
+    motion.addEventListener('animationend', done);
+    motion.addEventListener('transitionend', done);
+    return motion;
   }
 
   /* заставка: один раз за сессию */
@@ -102,10 +100,6 @@
   /* первый экран: окно-пилюля раскрывается на весь экран, дальше проступает надпись, потом наезжает лист */
   var heroTop = 'violet', heroBottom = 'violet';
   var COLORS = {violet: '#6a2cf0', lime: '#d7f700', limeLow: '#b8e200', bg: '#f5f2fc', deep: '#25104f'};
-  var edgeTop = document.createElement('div'), edgeBottom = document.createElement('div');
-  edgeTop.className = 'edge edge-top'; edgeBottom.className = 'edge edge-bottom';
-  edgeTop.setAttribute('aria-hidden', 'true'); edgeBottom.setAttribute('aria-hidden', 'true');
-  body.appendChild(edgeTop); body.appendChild(edgeBottom);
   var meta = document.querySelector('meta[name="theme-color"]');
   if (!meta) { meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
   var sheetEl = document.getElementById('sheet'), darks = [].slice.call(document.querySelectorAll('.dk'));
@@ -119,14 +113,14 @@
     var vh = window.innerHeight || 800;
     var t = colorAt(1, heroTop), b = colorAt(vh - 1, heroBottom);
     if (t !== lastTop) {
-      lastTop = t; edgeTop.style.setProperty('--edge', COLORS[t]); meta.content = COLORS[t];
+      lastTop = t; meta.content = COLORS[t];
       root.style.backgroundColor = COLORS[t]; body.style.backgroundColor = COLORS[t];
     }
     if (stage && sheetEl) {
       var covered = sheetEl.getBoundingClientRect().top <= 0;
       if (covered !== stageHidden) { stageHidden = covered; stage.style.visibility = covered ? 'hidden' : ''; }
     }
-    if (b !== lastBottom) { lastBottom = b; edgeBottom.style.setProperty('--edge', COLORS[b]); }
+    if (b !== lastBottom) { lastBottom = b; }
   }
   var stage = $('#stage'), htext = $('#htext'), himg = $('#himg'), hword = $('#hword'), pill = $('#pill');
   var R = null;
