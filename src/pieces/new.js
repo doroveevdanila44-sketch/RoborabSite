@@ -32,7 +32,7 @@
     window.addEventListener('hashchange', fromHash); fromHash();
   }
 
-  if (bot) return;
+  if (bot) { var hb = document.querySelector('.hart'); if (hb) hb.classList.add('go'); return; }
 
   function textPart(text, delay){
     var motion = document.createElement('span');
@@ -49,14 +49,18 @@
     return motion;
   }
 
+  /* столбцы на первом экране растут после заставки */
+  var hart = $('.hart');
+  function hartGo(){ if (hart) hart.classList.add('go'); }
   /* заставка: один раз за сессию */
   if (!reduce) {
     var seen = false; try { seen = sessionStorage.getItem('rr_splash'); } catch(e) {}
     if (!seen) {
       var sp = document.createElement('div'); sp.className = 'splash'; sp.innerHTML = '<i></i>'; body.appendChild(sp);
       try { sessionStorage.setItem('rr_splash', '1'); } catch(e) {}
-      setTimeout(function(){ sp.classList.add('out'); setTimeout(function(){ sp.remove(); }, 800); }, 1000);
+      setTimeout(function(){ sp.classList.add('out'); setTimeout(function(){ sp.remove(); }, 800); hartGo(); }, 1000);
     }
+    if (seen) setTimeout(hartGo, 200);
     var title = $('#h1');
     title.classList.add('text-intro');
     title.querySelectorAll('.ln').forEach(function(line, i){
