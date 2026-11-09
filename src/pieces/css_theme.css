@@ -203,8 +203,6 @@ h1.big{max-width:100%}
   .hcols{display:none}
 }
 
-/* слоган под словом РОБОРАБ на лаймовом экране */
-.hslogan{display:block;margin-top:.5em;font:italic 800 clamp(20px,3.6vw,52px)/1.1 var(--fd);letter-spacing:-.02em;color:var(--ink);white-space:normal;padding:0 16px}
 
 /* окно первого экрана двигается на композиторе */
 .himg{will-change:clip-path}.htext,.hword{will-change:transform,opacity}
@@ -213,4 +211,3 @@ h1.big{max-width:100%}
 .edge{position:fixed;left:0;right:0;z-index:5;pointer-events:none;background:var(--edge,var(--violet));transition:background-color .25s linear}
 .edge-top{top:0;height:max(env(safe-area-inset-top,0px),6px)}
 .edge-bottom{bottom:0;height:max(env(safe-area-inset-bottom,0px),6px)}
-.text-mask.free{clip-path:none}

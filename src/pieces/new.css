@@ -187,7 +187,7 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 /* раскрытие текста */
 .text-mask{display:inline-block;clip-path:inset(-.4em -.6em -.5em -.6em)}
 .text-motion{display:inline-block}
-.text-intro .text-motion{animation:text-rise 1s cubic-bezier(.22,1,.36,1) var(--text-delay) both;will-change:transform}
+.text-intro .text-motion{animation:text-rise 1s cubic-bezier(.22,1,.36,1) var(--text-delay) both}
 @keyframes text-rise{from{transform:translate3d(0,110%,0)}to{transform:none}}
 .text-words .text-motion{
   transform:translate3d(0,110%,0);

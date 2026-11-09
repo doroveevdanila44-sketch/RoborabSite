@@ -70,7 +70,11 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     motion.style.setProperty('--text-delay', delay + 'ms');
     motion.textContent = text;
     mask.appendChild(motion);
-    var free = function(){ mask.classList.add('free'); };
+    // Когда буквы доехали, обёртки убираем совсем: в Safari слой анимации режет хвосты курсива (д, р, у)
+    var free = function(){
+      if (!mask.parentNode) return;
+      mask.parentNode.replaceChild(document.createTextNode(motion.textContent), mask);
+    };
     motion.addEventListener('animationend', free);
     motion.addEventListener('transitionend', free);
     return mask;
@@ -126,7 +130,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 
   /* первый экран: окно-пилюля раскрывается на весь экран, дальше проступает надпись, потом наезжает лист */
   var heroTop = 'violet', heroBottom = 'violet';
-  var COLORS = {violet: '#6a2cf0', lime: '#cdf200', bg: '#f5f2fc', deep: '#25104f'};
+  var COLORS = {violet: '#6a2cf0', lime: '#d7f700', limeLow: '#b8e200', bg: '#f5f2fc', deep: '#25104f'};
   var edgeTop = document.createElement('div'), edgeBottom = document.createElement('div');
   edgeTop.className = 'edge edge-top'; edgeBottom.className = 'edge edge-bottom';
   edgeTop.setAttribute('aria-hidden', 'true'); edgeBottom.setAttribute('aria-hidden', 'true');
@@ -176,7 +180,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     hword.style.setProperty('--wo', (wi * wout).toFixed(3));
     hword.style.setProperty('--wy', ((1 - wi) * 40 - clamp((y - vh) / vh) * 60).toFixed(1) + 'px');
     heroTop = R.t * (1 - e) < 2 ? 'lime' : 'violet';
-    heroBottom = R.b * (1 - e) < 2 ? 'lime' : 'violet';
+    heroBottom = R.b * (1 - e) < 2 ? 'limeLow' : 'violet';
     paintEdges();
   }
   function step(now){
