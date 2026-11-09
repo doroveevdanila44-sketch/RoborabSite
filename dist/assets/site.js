@@ -129,6 +129,10 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
   /* первый экран: окно-пилюля раскрывается на весь экран, дальше проступает надпись, потом наезжает лист */
   var heroTop = 'violet', heroBottom = 'violet';
   var COLORS = {violet: '#6a2cf0', lime: '#cdf200', limeLow: '#cdf200', bg: '#f5f2fc', deep: '#25104f'};
+  // Цветная подложка первого экрана: фиксированная и шире окна, заходит под панели Safari сверху и снизу
+  var backdrop = document.createElement('div');
+  backdrop.className = 'hero-backdrop'; backdrop.setAttribute('aria-hidden', 'true');
+  body.insertBefore(backdrop, body.firstChild); root.classList.add('has-backdrop');
   var meta = document.querySelector('meta[name="theme-color"]');
   if (!meta) { meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
   var sheetEl = document.getElementById('sheet'), darks = [].slice.call(document.querySelectorAll('.dk'));
@@ -147,7 +151,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     }
     if (stage && sheetEl) {
       var covered = sheetEl.getBoundingClientRect().top <= 0;
-      if (covered !== stageHidden) { stageHidden = covered; stage.style.visibility = covered ? 'hidden' : ''; }
+      if (covered !== stageHidden) { stageHidden = covered; stage.style.visibility = backdrop.style.visibility = covered ? 'hidden' : ''; }
     }
     if (b !== lastBottom) { lastBottom = b; }
   }
@@ -178,9 +182,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     if (open !== heroOpen) {
       heroOpen = open;
       himg.style.pointerEvents = open ? 'auto' : 'none';
-      if (heroEl) heroEl.style.backgroundColor = open ? COLORS.lime : '';
-      // липкий экран сам стоит у верхнего края: у него тоже должен быть нужный цвет
-      if (stage) stage.style.backgroundColor = open ? COLORS.lime : COLORS.violet;
+      backdrop.style.backgroundColor = open ? COLORS.lime : COLORS.violet;
     }
     heroTop = R.t * (1 - e) < 2 ? 'lime' : 'violet';
     heroBottom = R.b * (1 - e) < 2 ? 'limeLow' : 'violet';
