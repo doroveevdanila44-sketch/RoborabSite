@@ -232,20 +232,25 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 }
 
 
-/* Телефоны и планшеты: первый экран без закрепления. Safari на iPhone из-за position:sticky заливает шапку
-   и нижнюю панель сплошным цветом, а анимация по прокрутке в нём дёргается. Поэтому здесь всё лежит в обычном
-   потоке страницы: текст и столбцы уезжают вверх сами, окно с градиентом растёт из пилюли и занимает весь блок,
-   слово «РОБОРАБ» стоит на своём месте в странице. После раскрытия от скрипта ничего не зависит. */
-@media (pointer:coarse){
-  .hero{--under:120px}
-  .stage{position:relative;top:auto;height:calc(100lvh + var(--under))}
-  .htext{height:calc(100% - var(--under))}
-  .hart svg{top:var(--under);height:calc(100% - var(--under))}
-  .hart-veil::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#141414 0,rgba(20,20,20,0) 150px)}
-  .hero>.himg{inset:0}
-  .hero>.himg::after{display:none}
-  .hero>.himg .art{inset:0;transform:none;will-change:auto}
-  .hero>.himg .hword{top:calc(133lvh - .5em)}
+/* Первый экран без position:sticky. Safari на iPhone из-за закреплённых блоков заливает шапку и нижнюю
+   панель сплошным цветом. Здесь блок обычный, а на месте его держит анимация, привязанная к прокрутке:
+   тогда под стеклом панелей видна сама страница, как на остальном сайте. */
+@keyframes stage-pin{from{transform:translateY(0)}to{transform:translateY(200lvh)}}
+@supports (animation-timeline:scroll()){
+  .hero{--over:0px;--under:0px;z-index:0;isolation:isolate}
+  /* лист в собственном слое: иначе Safari рисует движущийся первый экран поверх его фона */
+  .sheet{transform:translateZ(0)}
+  .stage{position:absolute;left:0;right:0;top:calc(-1 * var(--over));height:calc(100lvh + var(--over) + var(--under));
+    animation:stage-pin linear both;animation-timeline:scroll(root block);animation-range:0px 200lvh}
+  /* на телефонах блок выступает вверх под шапку и вниз под панель браузера */
+  @media (pointer:coarse){
+    .hero{--over:90px;--under:120px}
+    .htext{top:var(--over);height:calc(100% - var(--over) - var(--under))}
+    .hart svg{top:calc(var(--over) + var(--under));height:calc(100% - var(--over) - var(--under))}
+    .hword{top:calc(var(--over) + (100% - var(--over) - var(--under)) * .44)}
+    /* вверху страницы над блоком пусто, Safari показывает там цвет фона: верх первого экрана уходит в него же */
+    .hart-veil::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#141414 0,#141414 var(--over),rgba(20,20,20,0) calc(var(--over) + 150px))}
+  }
 }
 
 .mexp{max-width:640px;margin:clamp(16px,2vw,28px) auto 0;text-align:left}
