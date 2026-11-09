@@ -70,6 +70,9 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     motion.style.setProperty('--text-delay', delay + 'ms');
     motion.textContent = text;
     mask.appendChild(motion);
+    var free = function(){ mask.classList.add('free'); };
+    motion.addEventListener('animationend', free);
+    motion.addEventListener('transitionend', free);
     return mask;
   }
 
@@ -136,11 +139,18 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     for (var i = 0; i < darks.length; i++) { var r = darks[i].getBoundingClientRect(); if (r.top <= y && r.bottom >= y) return 'deep'; }
     return 'bg';
   }
-  var lastTop, lastBottom;
+  var lastTop, lastBottom, stageHidden = false;
   function paintEdges(){
     var vh = window.innerHeight || 800;
     var t = colorAt(1, heroTop), b = colorAt(vh - 1, heroBottom);
-    if (t !== lastTop) { lastTop = t; edgeTop.style.setProperty('--edge', COLORS[t]); meta.content = COLORS[t]; }
+    if (t !== lastTop) {
+      lastTop = t; edgeTop.style.setProperty('--edge', COLORS[t]); meta.content = COLORS[t];
+      root.style.backgroundColor = COLORS[t]; body.style.backgroundColor = COLORS[t];
+    }
+    if (stage && sheetEl) {
+      var covered = sheetEl.getBoundingClientRect().top <= 0;
+      if (covered !== stageHidden) { stageHidden = covered; stage.style.visibility = covered ? 'hidden' : ''; }
+    }
     if (b !== lastBottom) { lastBottom = b; edgeBottom.style.setProperty('--edge', COLORS[b]); }
   }
   var stage = $('#stage'), htext = $('#htext'), himg = $('#himg'), hword = $('#hword'), pill = $('#pill');

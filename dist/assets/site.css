@@ -575,5 +575,6 @@ h1.big{max-width:100%}
 
 /* полосы-образцы для Safari: браузер красит свои панели в цвет того, что у края экрана */
 .edge{position:fixed;left:0;right:0;z-index:5;pointer-events:none;background:var(--edge,var(--violet));transition:background-color .25s linear}
-.edge-top{top:0;height:max(env(safe-area-inset-top,0px),1px)}
-.edge-bottom{bottom:0;height:max(env(safe-area-inset-bottom,0px),1px)}
+.edge-top{top:0;height:max(env(safe-area-inset-top,0px),6px)}
+.edge-bottom{bottom:0;height:max(env(safe-area-inset-bottom,0px),6px)}
+.text-mask.free{clip-path:none}
