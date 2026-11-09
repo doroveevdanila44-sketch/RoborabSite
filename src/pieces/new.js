@@ -153,7 +153,11 @@
     if (open !== heroOpen) {
       heroOpen = open;
       himg.style.pointerEvents = open ? 'auto' : 'none';
-      backdrop.style.backgroundColor = open ? COLORS.lime : COLORS.violet;
+      // Safari перечитывает цвет нижней панели, когда у края появляется новый фиксированный слой,
+      // поэтому подложку не перекрашиваем, а меняем на новую
+      var next = backdrop.cloneNode(false);
+      next.style.backgroundColor = open ? COLORS.lime : COLORS.violet;
+      backdrop.replaceWith(next); backdrop = next;
     }
     heroTop = R.t * (1 - e) < 2 ? 'lime' : 'violet';
     heroBottom = R.b * (1 - e) < 2 ? 'limeLow' : 'violet';
