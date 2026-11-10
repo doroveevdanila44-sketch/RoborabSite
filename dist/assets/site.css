@@ -680,31 +680,38 @@ h1.big{max-width:100%}
 .tilting.shot{transition:transform .12s ease-out!important;background-image:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.32),transparent 60%),var(--s)!important}
 @media(prefers-reduced-motion:reduce){.dmsg,.dmsg.typing i{animation:none}}
 
-/* «Как это работает»: на телефоне и планшете шаги ложатся стопкой при прокрутке */
+/* «Как это работает»: на телефоне и планшете шаги ложатся стопкой при прокрутке.
+   Без position:sticky: Safari красит свои панели в цвет прилипшего элемента. Карты держит
+   анимация по прокрутке (свойство translate), как сцену героя. Высота карты фиксирована:
+   из неё считается, сколько держать каждую карту. */
 @media (max-width:900px){
-  .steps{display:block}
-  .steps li{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px + var(--k,0) * 14px);min-height:min(56svh,330px);margin-bottom:clamp(14px,4vw,24px);box-shadow:0 -16px 36px -24px rgb(0 0 0 / .5)}
-  .steps li:nth-child(2){--k:1}.steps li:nth-child(3){--k:2}.steps li:nth-child(4){--k:3}
+  .steps{display:block;--h:clamp(250px,52svh,320px);--g:20px;--s:calc(env(safe-area-inset-top,0px) + 16px)}
+  .steps li{height:var(--h);min-height:0;margin-bottom:var(--g);box-shadow:0 -16px 36px -24px rgb(0 0 0 / .5);position:relative;transform-origin:50% 0;backface-visibility:hidden}
+  .steps li:nth-child(1){--k:0}.steps li:nth-child(2){--k:1}.steps li:nth-child(3){--k:2}.steps li:nth-child(4){--k:3}
   .steps li:nth-child(3){border:1px solid var(--line)}
   .steps li.last{margin-bottom:0}
   .steps li:hover{transform:none}
-  /* общая анимация появления здесь мешает прилипанию: её заменяет движение по прокрутке */
+  /* общая анимация появления здесь мешает стопке */
   .js .steps li.rv{opacity:1;transform:none;transition:none}
-  .steps li{will-change:transform;transform-origin:50% 0;backface-visibility:hidden}
 }
 @media (max-width:900px) and (prefers-reduced-motion:no-preference){
   @supports (animation-timeline:view()) and (timeline-scope:--a){
     .steps{timeline-scope:--st2,--st3,--st4}
+    .steps li{will-change:translate,transform;--pin:calc((3 - var(--k)) * (var(--h) + var(--g) - 14px))}
     .steps li:nth-child(2){view-timeline:--st2 block}
     .steps li:nth-child(3){view-timeline:--st3 block}
     .steps li:nth-child(4){view-timeline:--st4 block}
-    /* карта въезжает: чуть меньше и с наклоном, к моменту прилипания встаёт ровно */
-    .steps li:not(:first-child){animation:step-in linear both;animation-timeline:view(block);animation-range:entry 0% entry 100%}
-    /* накрытая карта плавно уходит вглубь, пока следующая поднимается на неё */
-    .steps li:nth-child(1){animation:step-under linear both;animation-timeline:--st2;animation-range:entry 0% entry 100%}
-    .steps li:nth-child(2){animation:step-in linear both,step-under linear both;animation-timeline:view(block),--st3;animation-range:entry 0% entry 100%,entry 0% entry 100%}
-    .steps li:nth-child(3){animation:step-in linear both,step-under linear both;animation-timeline:view(block),--st4;animation-range:entry 0% entry 100%,entry 0% entry 100%}
+    /* удержание: карта едет вниз ровно настолько, насколько прокрутили, пока не прилетит последняя */
+    .steps li:nth-child(-n+3){
+      animation:step-pin linear both,step-in linear both,step-under linear both;
+      animation-timeline:view(block calc(var(--s) + var(--k) * 14px) auto),view(block),--st2;
+      animation-range:exit 0% exit var(--pin),entry 0% entry 100%,entry 0% entry 100%}
+    .steps li:nth-child(1){animation-name:step-pin,none,step-under}
+    .steps li:nth-child(3){animation-timeline:view(block calc(var(--s) + var(--k) * 14px) auto),view(block),--st4}
+    .steps li:nth-child(2){animation-timeline:view(block calc(var(--s) + var(--k) * 14px) auto),view(block),--st3}
+    .steps li:nth-child(4){animation:step-in linear both;animation-timeline:view(block);animation-range:entry 0% entry 100%}
   }
 }
+@keyframes step-pin{from{translate:0 0}to{translate:0 var(--pin)}}
 @keyframes step-in{from{transform:translate3d(0,40px,0) scale(.94) rotate(-1.2deg)}to{transform:none}}
 @keyframes step-under{from{scale:1;filter:brightness(1)}to{scale:.93;filter:brightness(.82)}}
