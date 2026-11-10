@@ -220,29 +220,6 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
   /* ===== Живые эффекты ===== */
   function onScreen(el, cb, opts){ if (!el || !('IntersectionObserver' in window)) return; new IntersectionObserver(function(es){ cb(es[0].isIntersecting); }, opts || {}).observe(el); }
 
-  /* 3. Свет за курсором на первом экране: слой двигается трансформом, без перерисовки */
-  (function(){
-    var stage = $('#stage'), spot = document.querySelector('.hspot'); if (!stage || !spot || reduce) return;
-    var touch = !matchMedia('(hover:hover) and (pointer:fine)').matches;
-    var tx = .72, ty = .45, x = tx, y = ty, live = true, raf = 0, t0 = performance.now(), W = 1, H = 1;
-    function size(){ W = stage.clientWidth; H = stage.clientHeight; }
-    size(); window.addEventListener('resize', size);
-    function step(now){
-      raf = 0;
-      if (touch) { var k = (now - t0) / 1000; tx = .64 + Math.sin(k * .35) * .22; ty = .48 + Math.cos(k * .27) * .22; }
-      x += (tx - x) * .1; y += (ty - y) * .1;
-      spot.style.transform = 'translate3d(' + (x * W - 380).toFixed(1) + 'px,' + (y * H - 380).toFixed(1) + 'px,0)';
-      if (live && (touch || Math.abs(tx - x) + Math.abs(ty - y) > .001)) raf = requestAnimationFrame(step);
-    }
-    function kick(){ if (!raf && live) raf = requestAnimationFrame(step); }
-    stage.addEventListener('pointermove', function(e){
-      if (e.pointerType !== 'mouse') return;
-      var r = stage.getBoundingClientRect(); tx = (e.clientX - r.left) / r.width; ty = (e.clientY - r.top) / r.height; kick();
-    });
-    onScreen(stage, function(v){ live = v; kick(); });
-    kick();
-  })();
-
   /* 2. Жидкий градиент в окне «РОБОРАБ»: маленький холст, браузер сам растягивает, 30 кадров в секунду */
   (function(){
     var c = $('#liquid'); if (!c) return;
