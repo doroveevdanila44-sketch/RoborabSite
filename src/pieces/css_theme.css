@@ -331,3 +331,6 @@ h1.big{max-width:100%}
 @keyframes step-pin{from{translate:0 0}to{translate:0 var(--pin)}}
 @keyframes step-in{from{transform:translate3d(0,40px,0) scale(.94) rotate(-1.2deg)}to{transform:none}}
 @keyframes step-under{from{scale:1;filter:brightness(1)}to{scale:.93;filter:brightness(.82)}}
+
+/* два способа начать вместо трёх */
+@media (min-width:901px){.ways{grid-template-columns:repeat(2,1fr)}}
