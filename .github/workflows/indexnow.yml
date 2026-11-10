@@ -1,0 +1,20 @@
+# После каждого обновления сайта сообщает Яндексу и Bing (через него ChatGPT и Copilot) адреса из sitemap.xml
+name: IndexNow
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Подождать деплой Vercel
+        run: sleep 120
+      - name: Отправить адреса
+        run: |
+          KEY=665af2143ba99fe7f99397c1db3a14ed
+          URLS=$(curl -fsSL https://www.roborab.com/sitemap.xml | grep -o '<loc>[^<]*' | sed 's/<loc>//' | python3 -c 'import sys,json;print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))')
+          BODY="{\"host\":\"www.roborab.com\",\"key\":\"$KEY\",\"keyLocation\":\"https://www.roborab.com/$KEY.txt\",\"urlList\":$URLS}"
+          for EP in https://yandex.com/indexnow https://api.indexnow.org/indexnow; do
+            echo "$EP"; curl -sS -o /dev/null -w '%{http_code}\n' -X POST "$EP" -H 'Content-Type: application/json; charset=utf-8' -d "$BODY"
+          done

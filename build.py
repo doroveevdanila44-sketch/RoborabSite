@@ -284,13 +284,16 @@ def build(out):
                      product_page(item, other_links), css_url), encoding='utf-8')
 
     urls = [HOME, *(item['url'] for item in products)]
-    urls_xml = ''.join(f'  <url><loc>{html.escape(url)}</loc></url>\n' for url in urls)
+    today = __import__('datetime').date.today().isoformat()
+    urls_xml = ''.join(f'  <url><loc>{html.escape(url)}</loc><lastmod>{today}</lastmod></url>\n' for url in urls)
     (out / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
         f'{urls_xml}</urlset>\n', encoding='utf-8')
     (out / 'robots.txt').write_text(
         f'User-agent: *\nAllow: /\n\nSitemap: {HOME}sitemap.xml\n', encoding='utf-8')
+    # Ключ IndexNow: по нему Яндекс и Bing принимают уведомления о новых страницах (.github/workflows/indexnow.yml)
+    (out / '665af2143ba99fe7f99397c1db3a14ed.txt').write_text('665af2143ba99fe7f99397c1db3a14ed', encoding='utf-8')
     write_text_exports(out, products, faq)
 
 

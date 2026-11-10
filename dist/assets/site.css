@@ -688,4 +688,23 @@ h1.big{max-width:100%}
   .steps li:nth-child(3){border:1px solid var(--line)}
   .steps li.last{margin-bottom:0}
   .steps li:hover{transform:none}
+  /* общая анимация появления здесь мешает прилипанию: её заменяет движение по прокрутке */
+  .js .steps li.rv{opacity:1;transform:none;transition:none}
+  .steps li{will-change:transform;transform-origin:50% 0;backface-visibility:hidden}
 }
+@media (max-width:900px) and (prefers-reduced-motion:no-preference){
+  @supports (animation-timeline:view()) and (timeline-scope:--a){
+    .steps{timeline-scope:--st2,--st3,--st4}
+    .steps li:nth-child(2){view-timeline:--st2 block}
+    .steps li:nth-child(3){view-timeline:--st3 block}
+    .steps li:nth-child(4){view-timeline:--st4 block}
+    /* карта въезжает: чуть меньше и с наклоном, к моменту прилипания встаёт ровно */
+    .steps li:not(:first-child){animation:step-in linear both;animation-timeline:view(block);animation-range:entry 0% entry 100%}
+    /* накрытая карта плавно уходит вглубь, пока следующая поднимается на неё */
+    .steps li:nth-child(1){animation:step-under linear both;animation-timeline:--st2;animation-range:entry 0% entry 100%}
+    .steps li:nth-child(2){animation:step-in linear both,step-under linear both;animation-timeline:view(block),--st3;animation-range:entry 0% entry 100%,entry 0% entry 100%}
+    .steps li:nth-child(3){animation:step-in linear both,step-under linear both;animation-timeline:view(block),--st4;animation-range:entry 0% entry 100%,entry 0% entry 100%}
+  }
+}
+@keyframes step-in{from{transform:translate3d(0,40px,0) scale(.94) rotate(-1.2deg)}to{transform:none}}
+@keyframes step-under{from{scale:1;filter:brightness(1)}to{scale:.93;filter:brightness(.82)}}
