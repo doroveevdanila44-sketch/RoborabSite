@@ -132,7 +132,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 
   /* первый экран: окно-пилюля раскрывается на весь экран, дальше проступает надпись, потом наезжает лист */
   var heroTop = 'violet', heroBottom = 'violet';
-  var COLORS = {violet: '#141414', lime: '#4a24c9', limeLow: '#4a24c9', bg: '#f4f4f2', deep: '#141414'};
+  var COLORS = {violet: '#141414', lime: '#0656a6', limeLow: '#0656a6', bg: '#f4f4f2', deep: '#141414'};
   // Цветная подложка первого экрана: фиксированная и шире окна, заходит под панели Safari сверху и снизу
   // Две фиксированные подложки, тёмная и фиолетовая. Safari пересчитывает цвет панелей,
   // когда слой у края скрывается или появляется, поэтому переключаем видимость, а не цвет.
@@ -248,11 +248,11 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     var c = $('#liquid'); if (!c) return;
     var ctx = c.getContext('2d', {alpha: false}), live = false, last = 0;
     var blobs = [
-      {c:[123,77,255], a:.95, r:.62, x:.25, y:.35, ax:.34, ay:.3, sx:.42, sy:.37, p:0},
-      {c:[18,14,32], a:.9, r:.55, x:.78, y:.68, ax:.3, ay:.28, sx:.33, sy:.46, p:1.7},
-      {c:[205,185,255], a:.95, r:.5, x:.62, y:.22, ax:.36, ay:.32, sx:.51, sy:.39, p:3.1},
-      {c:[44,20,130], a:.9, r:.55, x:.18, y:.82, ax:.3, ay:.34, sx:.29, sy:.44, p:4.4},
-      {c:[160,110,255], a:.95, r:.46, x:.5, y:.5, ax:.4, ay:.36, sx:.57, sy:.31, p:2.2},
+      {c:[10,132,255], a:.95, r:.62, x:.25, y:.35, ax:.34, ay:.3, sx:.42, sy:.37, p:0},
+      {c:[4,16,40], a:.9, r:.55, x:.78, y:.68, ax:.3, ay:.28, sx:.33, sy:.46, p:1.7},
+      {c:[166,208,255], a:.95, r:.5, x:.62, y:.22, ax:.36, ay:.32, sx:.51, sy:.39, p:3.1},
+      {c:[5,50,130], a:.9, r:.55, x:.18, y:.82, ax:.3, ay:.34, sx:.29, sy:.44, p:4.4},
+      {c:[60,160,255], a:.95, r:.46, x:.5, y:.5, ax:.4, ay:.36, sx:.57, sy:.31, p:2.2},
       {c:[20,20,20], a:.7, r:.45, x:.85, y:.15, ax:.3, ay:.3, sx:.36, sy:.52, p:5.3}
     ];
     try {
@@ -265,7 +265,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     onScreen($('#himg'), function(v){ live = v; if (v) kick(); });
     function draw(t){
       var w = c.width, h = c.height, m = Math.max(w, h);
-      ctx.fillStyle = '#4a24c9'; ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = '#0656a6'; ctx.fillRect(0, 0, w, h);
       for (var i = 0; i < blobs.length; i++) {
         var b = blobs[i];
         var x = (b.x + Math.sin(t * b.sx + b.p) * b.ax + Math.sin(t * b.sy * .6 + b.p * 2) * .08) * w;

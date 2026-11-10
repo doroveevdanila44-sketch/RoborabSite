@@ -1,7 +1,7 @@
-/* Общая оболочка приложений РОБОРАБ. Монохром: --rr-violet теперь основной чёрный, --rr-lime — фиолетовый акцент #7B4DFF. Стандарт: ROBORAB-UI-STANDARD.md. Источник: RoborabSite/design/app-shell.css. */
+/* Общая оболочка приложений РОБОРАБ. Монохром: --rr-violet теперь основной чёрный, --rr-lime — фиолетовый акцент #0a84ff. Стандарт: ROBORAB-UI-STANDARD.md. Источник: RoborabSite/design/app-shell.css. */
 :root {
   --rr-violet: #141414;
-  --rr-lime: #7b4dff;
+  --rr-lime: #0a84ff;
   --rr-ink: #141414;
   --rr-bg: #f4f4f2;
   --rr-line: rgb(20 20 20 / 0.12);

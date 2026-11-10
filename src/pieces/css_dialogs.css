@@ -35,7 +35,7 @@
 
 [data-clock]{--clock-bg:#f4f4f2;--clock-fg:#000}
 [data-clock=violet]{--clock-bg:#141414;--clock-fg:#fff}
-[data-clock=lime]{--clock-bg:linear-gradient(#b99eff,#bfa6ff)}
+[data-clock=lime]{--clock-bg:linear-gradient(#7ab8ff,#8ec5ff)}
 [data-clock=bare-white]{--clock-fg:#fff}
 [data-clock=funnel]{--clock-bg:linear-gradient(#f7f5fa,#fdfcff)}
 [data-clock=sources]{--clock-bg:linear-gradient(#fefcff,#faf9fd)}
