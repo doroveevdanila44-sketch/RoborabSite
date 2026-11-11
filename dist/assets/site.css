@@ -203,7 +203,7 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .ft nav a{text-decoration:none}.ft nav a:hover{color:var(--ink)}
 .app{display:flex;align-items:center;gap:12px;cursor:pointer}
 .appicon{flex:none;width:44px;aspect-ratio:1;border:0;padding:0;cursor:pointer;border-radius:24%;background:var(--img-appicon) center/cover no-repeat;box-shadow:0 0 0 1px rgba(0,0,0,.09)}
-.appnote{font:600 14px/1.25 var(--f);color:var(--ink)}.appnote small{display:block;font-weight:500;color:var(--mute)}
+
 .wm{margin:clamp(24px,4vw,56px) 0 0;text-align:center;font:600 clamp(60px,15.5vw,290px)/.84 var(--f);letter-spacing:-.07em;background:linear-gradient(100deg,#111514 0%,#0957e8 40%,#d7ff43 60%,#111514 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:wm 7.5s ease-in-out infinite;user-select:none;white-space:nowrap}
 @keyframes wm{0%,100%{background-position:0 0}50%{background-position:100% 0}}
 
