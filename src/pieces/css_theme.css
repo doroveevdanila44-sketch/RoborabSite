@@ -212,6 +212,7 @@ h1.big{max-width:100%}
 
 /* окно первого экрана двигается на композиторе */
 .himg{will-change:clip-path}
+.htext{will-change:transform,opacity}.hword{will-change:transform,opacity}
 
 @media(max-width:820px){.tabs{padding:6px 2px 18px;margin-bottom:-12px}}
 .hero-backdrop{position:fixed;left:0;right:0;top:-50vh;bottom:-50vh;z-index:0;background:var(--bg);pointer-events:none}

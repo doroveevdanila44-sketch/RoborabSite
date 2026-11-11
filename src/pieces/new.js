@@ -128,9 +128,18 @@
   var meta = document.querySelector('meta[name="theme-color"]');
   if (!meta) { meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
   var sheetEl = document.getElementById('sheet'), darks = [].slice.call(document.querySelectorAll('.dk'));
+  // Геометрию листа и тёмных блоков считаем один раз (в координатах документа), а не на каждом кадре:
+  // чтения getBoundingClientRect после записи стилей заставляли браузер пересчитывать раскладку при каждом шаге прокрутки.
+  var sheetTop = 0, darkR = [];
+  function cacheGeo(){
+    var sc = window.scrollY || 0;
+    if (sheetEl) sheetTop = sheetEl.getBoundingClientRect().top + sc;
+    darkR = darks.map(function(d){ var r = d.getBoundingClientRect(); return [r.top + sc, r.bottom + sc]; });
+  }
   function colorAt(y, hero){
-    if (sheetEl && sheetEl.getBoundingClientRect().top > y) return hero;
-    for (var i = 0; i < darks.length; i++) { var r = darks[i].getBoundingClientRect(); if (r.top <= y && r.bottom >= y) return 'deep'; }
+    var sc = window.scrollY || 0;
+    if (sheetEl && sheetTop - sc > y) return hero;
+    for (var i = 0; i < darkR.length; i++) if (darkR[i][0] - sc <= y && darkR[i][1] - sc >= y) return 'deep';
     return 'bg';
   }
   var lastTop, lastBottom, stageHidden = false, heroOpen = false, heroEl = document.querySelector('.hero');
@@ -142,7 +151,7 @@
       root.style.backgroundColor = COLORS[t]; body.style.backgroundColor = COLORS[t];
     }
     if (stage && sheetEl) {
-      var covered = sheetEl.getBoundingClientRect().top <= 0;
+      var covered = sheetTop - (window.scrollY || 0) <= 0;
       if (covered !== stageHidden) { stageHidden = covered; stage.style.visibility = covered ? 'hidden' : ''; showBackdrops(); }
     }
     if (b !== lastBottom) { lastBottom = b; }
@@ -162,9 +171,10 @@
       ha.style.setProperty('--crx', (br.width / 2 + 90).toFixed(1) + 'px');
       ha.style.setProperty('--cry', (br.height / 2 + 80).toFixed(1) + 'px');
     }
-    htext.style.transform = keep; frame();
+    htext.style.transform = keep; cacheGeo(); frame();
   }
   var sy = window.scrollY || 0, last = 0, raf = 0;
+  var touchScroll = matchMedia('(pointer:coarse)').matches;
   function frame(){
     var y = sy, vh = window.innerHeight || 800;
     if (reduce || !R) { paintEdges(); return; }
@@ -192,7 +202,9 @@
   function step(now){
     var target = window.scrollY || root.scrollTop || 0;
     var dt = last ? Math.min(32, now - last) : 16; last = now;
-    sy += (target - sy) * (1 - Math.exp(-dt / 70));
+    // На телефонах блок держит CSS-анимация по прокрутке (в потоке композитора): сглаживание в JS
+    // отставало бы от неё и давало рывки, поэтому там берём прокрутку как есть.
+    if (touchScroll) sy = target; else sy += (target - sy) * (1 - Math.exp(-dt / 70));
     if (Math.abs(target - sy) < .5) sy = target;
     frame();
     if (sy !== target) raf = requestAnimationFrame(step); else { raf = 0; last = 0; }
@@ -202,6 +214,7 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
   window.addEventListener('load', measure);
   measure();
+  if ('ResizeObserver' in window) { var roT = 0; new ResizeObserver(function(){ clearTimeout(roT); roT = setTimeout(cacheGeo, 120); }).observe(body); }
 
 
   /* ===== Живые эффекты ===== */
