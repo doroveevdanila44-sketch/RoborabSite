@@ -153,8 +153,8 @@
     var keep = htext.style.transform; htext.style.transform = 'none';
     var pr = pill.getBoundingClientRect(), sr = stage.getBoundingClientRect();
     R = {l: pr.left - sr.left, t: pr.top - sr.top, r: sr.right - pr.right, b: sr.bottom - pr.bottom, h: pr.height};
-    // чистая зона без зерна вокруг кнопки «Рассказать о деле»
-    var cb = document.querySelector('.hcta .btn'), ha = document.querySelector('.hart');
+    // чистая зона без зерна вокруг обеих кнопок
+    var cb = document.querySelector('.hcta'), ha = document.querySelector('.hart');
     if (cb && ha) {
       var br = cb.getBoundingClientRect(), hr = ha.getBoundingClientRect();
       ha.style.setProperty('--cx', (br.left - hr.left + br.width / 2).toFixed(1) + 'px');
