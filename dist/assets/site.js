@@ -445,8 +445,9 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
         var mid = 'translate(' + (o.dx * .7).toFixed(1) + 'px,' + (o.dy * .7).toFixed(1) + 'px) scale(' + ((1 + sc) / 2).toFixed(3) + ')';
         var fin = 'translate(' + o.dx.toFixed(1) + 'px,' + o.dy.toFixed(1) + 'px) scale(' + (sc * .8).toFixed(3) + ')';
         A(o.el, [{offset:0, opacity:1, transform:'none', filter:'blur(0px)'},
-                 {offset:.7, opacity:1, transform:mid, filter:'blur(.5px)'},
-                 {offset:1, opacity:0, transform:fin, filter:'blur(3px)'}],
+                 {offset:.72, opacity:1, transform:mid, filter:'blur(0px)'},
+                 {offset:.9, opacity:1, transform:fin, filter:'blur(1px)'},
+                 {offset:1, opacity:0, transform:fin, filter:'blur(2px)'}],
           {duration:1700, delay:250 + i * 190, easing:'cubic-bezier(.45,.05,.25,1)'}); });
       var last = 250 + (away.length - 1) * 190 + 1700;
       A(card, [{transform:'scale(1)'}, {transform:'scale(1.025)', offset:.5}, {transform:'scale(1)'}], {duration:1400, delay:last - 1100, easing:'ease-in-out', fill:'none'});
@@ -467,7 +468,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
         {left:c.x + 'px', top:c.y + 'px', width:c.w + 'px', height:c.h + 'px', borderRadius:'22px', backgroundColor:'#e9edf3'},
         {backgroundColor:'#e9edf3', offset:.4},
         {backgroundColor:'#2a2c31', offset:.8},
-        {left:'0px', top:'0px', width:'300px', height:'118px', borderRadius:'0px 0px 30px 30px', backgroundColor:'#141414'}
+        {left:'0px', top:'0px', width:'300px', height:'118px', borderRadius:'30px', backgroundColor:'#141414'}
       ], {duration:1500, delay:150, easing:IO});
       later(function(){ scr.classList.remove('light'); }, 950);
       return wait(1700).then(function(){ app.classList.remove('pre'); app.querySelectorAll('[data-rr-from]').forEach(function(e){ e.style.opacity = 0; }); btns.forEach(function(b){ b.style.opacity = 0; }); app.querySelectorAll('[data-slide],.pc-cb').forEach(function(e){ e.style.opacity = 0; }); m.remove(); });
