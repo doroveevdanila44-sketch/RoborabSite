@@ -33,6 +33,52 @@ ORG = {'@id': HOME + '#organization'}
 WEBSITE = {'@id': HOME + '#website'}
 
 
+def wave_path(w=1440, h=900, gap=26, lam=170, step=14):
+    """Диагональные волны: размах растёт вправо, как столбцы. Один path на всё поле."""
+    import math
+    ang = -0.52
+    cs, sn = math.cos(ang), math.sin(ang)
+    diag = math.hypot(w, h)
+
+    def smooth(v):
+        v = max(0.0, min(1.0, v))
+        return v * v * (3 - 2 * v)
+
+    parts = []
+    k = 0
+    y = -diag / 2
+    while y <= diag / 2:
+        pts = []
+        px = -diag / 2
+        while px <= diag / 2:
+            sx = w / 2 + px * cs - y * sn
+            sy = h / 2 + px * sn + y * cs
+            if -60 <= sx <= w + 60 and -60 <= sy <= h + 60:
+                amp = 4 + 28 * smooth(sx / w * 1.1) ** 1.4
+                yy = y + amp * math.sin(px / lam * 2 * math.pi + k * 0.35)
+                pts.append((w / 2 + px * cs - yy * sn, h / 2 + px * sn + yy * cs))
+            elif pts:
+                break
+            px += step
+        if len(pts) > 2:
+            d = f'M{pts[0][0]:.0f} {pts[0][1]:.0f}'
+            for i in range(1, len(pts) - 1):
+                mx = (pts[i][0] + pts[i + 1][0]) / 2
+                my = (pts[i][1] + pts[i + 1][1]) / 2
+                d += f'Q{pts[i][0]:.0f} {pts[i][1]:.0f} {mx:.0f} {my:.0f}'
+            parts.append(d)
+        y += gap
+        k += 1
+    return ''.join(parts)
+
+
+def wave_uri(color):
+    from urllib.parse import quote
+    svg = ("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 900' preserveAspectRatio='xMaxYMax slice'>"
+           f"<path d='{wave_path()}' fill='none' stroke='{color}' stroke-width='1'/></svg>")
+    return 'url("data:image/svg+xml,' + quote(svg, safe="/:=") + '")'
+
+
 def read_piece(name):
     return (ROOT / 'src' / 'pieces' / name).read_text(encoding='utf-8')
 
@@ -286,6 +332,7 @@ def build(out):
         'PRODUCTS': products_markup, 'FAQ': faq_markup, 'FORM': read_piece('form.html'),
         'LB': read_piece('lb.html'), 'STORES': read_piece('stores.html'),
         'DIAGNOSTIC_PHONE': webp_url('diagnostic-phone'),
+        'HERO_WAVES': f'<path d="{wave_path()}"/>',
         'INDUSTRY_PAIR': f'/assets/industry-pair.svg?v={pair_version}',
     }
     for name, piece in pieces.items():
@@ -297,6 +344,7 @@ def build(out):
     for name in sorted(set(re.findall(r'var\(--img-([a-z0-9-]+)\b', css + body))):
         image_vars.append(f'  --img-{name}:url({webp_url(name)});')
     css = css.replace('{{ASSET_VARS}}', '\n'.join(image_vars))
+    css = css.replace('{{WAVES_ON_BLUE}}', wave_uri('rgba(255,255,255,.12)')).replace('{{WAVES_ON_DARK}}', wave_uri('rgba(255,255,255,.07)'))
 
     og = Image.new('RGB', (1200, 630), '#141414')
     with Image.open(assets / 'appicon.webp') as icon:

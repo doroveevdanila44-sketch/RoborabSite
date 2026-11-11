@@ -44,7 +44,7 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 .himg{background:var(--lime)}
 .art{background:
   radial-gradient(120% 60% at 50% 50%,#4aa3ff 0%,rgba(74,163,255,0) 70%),#0a84ff}
-.art::before,.panel-art::before{background-image:linear-gradient(rgba(255,255,255,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.10) 1px,transparent 1px)}
+.art::before,.panel-art::before{background-image:{{WAVES_ON_BLUE}};background-size:cover;background-position:right bottom}
 
 /* лист */
 .sheet{border-radius:var(--r) var(--r) 0 0}
@@ -89,7 +89,7 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 
 /* тёмные блоки: глубокий индиго */
 .dk{background:var(--deep);color:#fff;border-radius:clamp(32px,4.4vw,60px)}
-.dk::before{background-image:linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px)}
+.dk::before{background-image:{{WAVES_ON_DARK}};background-size:cover;background-position:right bottom}
 .dsub,.cols3 span,.ditem p{color:rgba(255,255,255,.72)}
 .cols3>div{border-top:2px solid rgba(255,255,255,.2)}
 .ditem p{border-bottom-color:rgba(255,255,255,.2)}
