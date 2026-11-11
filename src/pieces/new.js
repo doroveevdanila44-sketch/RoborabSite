@@ -300,85 +300,108 @@
     onScreen(box, function(v){ live = v; if (v && !started) { started = true; play(); } }, {threshold: .3});
   })();
 
-  /* 5б. Блок «Что дальше»: чат становится приложением (эталон «Цепочка рождения», появление из roborab-reveal.js) */
+  /* 5б. Блок «Что дальше»: чат становится приложением */
   (function(){
-    var pc = $('#pc'), box = $('#pchat'), chat = $('#pchatl'), app = $('#papp'), help = $('#phelp'), fx = $('#pfx');
+    var pc = $('#pc'), box = $('#pchat'), chat = $('#pchatl'), app = $('#papp'), fx = $('#pfx'), dock = $('#pdock');
     if (!pc || !box || !chat || !app) return;
-    var scr = pc.parentNode, hdr = app.querySelector('.pc-hdr'), wm = app.querySelector('.pc-wm'), gear = app.querySelector('.pc-gear'), cover = chat.querySelector('.pc-cover');
+    var scr = pc.parentNode, sky = chat.querySelector('.pc-sky'), hdr = app.querySelector('.pc-hdr'), wm = app.querySelector('.pc-wm'), gear = app.querySelector('.pc-gear');
+    var btns = [].slice.call(dock.children);
     function scale(){ pc.style.setProperty('--k', (scr.clientWidth / 300) || 1); }
     scale(); if ('ResizeObserver' in window) new ResizeObserver(scale).observe(scr); else addEventListener('resize', scale);
     var SCRIPT = [
-      ['bot', 'Мы подготовили для вас решение. Посмотрите, подходит ли оно вам.'],
+      ['bot', 'Собрали для вас Фитнес-CRM и подтянули вашу базу клиентов.'],
       ['card'],
-      ['bot', 'Вы готовы к запуску бесплатного пилота?'],
+      ['bot', 'Готовы к запуску бесплатного пилота?'],
       ['me', 'Да, можете запускать'],
-      ['bot', 'Отлично. Приготовьтесь, начинаем!']
+      ['bot', 'Запускаем.']
     ];
-    var SOFT = 'cubic-bezier(.45,.05,.25,1)', MORPH = 'cubic-bezier(.65,0,.35,1)', SPRING = 'cubic-bezier(.32,.72,0,1)';
-    var anims = [], rev = null, H = 672;
+    var IO = 'cubic-bezier(.65,0,.35,1)', OUT = 'cubic-bezier(.22,1,.36,1)', APPLE = 'cubic-bezier(.32,.72,0,1)';
+    var anims = [], timers = [], rev = null;
     function wait(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
-    function A(el, kf, o){ var a = el.animate(kf, Object.assign({fill:'both', easing:SOFT}, o)); anims.push(a); return a; }
+    function later(f, ms){ timers.push(setTimeout(f, ms)); }
+    function A(el, kf, o){ var a = el.animate(kf, Object.assign({fill:'both', easing:IO}, o)); anims.push(a); return a; }
     function fit(){ while (box.children.length > 1 && box.scrollHeight > box.clientHeight + 1) box.firstChild.remove(); }
     function add(who, text){
       var d = document.createElement('div');
-      if (who === 'card') { d.className = 'pm card'; d.innerHTML = '<span class="k">Решение</span><b>Фитнес-CRM</b><small>Абонементы, продления и расписание</small>'; }
+      if (who === 'card') { d.className = 'pm card'; d.innerHTML = '<span class="k">Решение</span><b>Фитнес-CRM</b><small>Ваша база клиентов уже внутри</small>'; }
       else { d.className = 'pm' + (who === 'me' ? ' u' : ''); d.textContent = text; }
       box.appendChild(d); fit(); return d;
     }
-    function box300(el){ var k = parseFloat(pc.style.getPropertyValue('--k')) || 1, r = el.getBoundingClientRect(), p = pc.getBoundingClientRect();
+    function rect(el){ var k = parseFloat(pc.style.getPropertyValue('--k')) || 1, r = el.getBoundingClientRect(), p = pc.getBoundingClientRect();
       return {x:(r.left - p.left) / k, y:(r.top - p.top) / k, w:r.width / k, h:r.height / k}; }
-    function finalState(){ app.classList.remove('pre'); chat.style.visibility = 'hidden'; help.style.opacity = 1; }
     function reset(){
       if (rev) { rev.cancel(); rev = null; }
+      timers.forEach(clearTimeout); timers = [];
       anims.forEach(function(a){ a.cancel(); }); anims = []; fx.innerHTML = '';
-      app.classList.add('pre'); chat.style.visibility = ''; help.style.opacity = ''; box.innerHTML = '';
+      pc.querySelectorAll('.pc-morph').forEach(function(e){ e.remove(); });
+      scr.classList.remove('light'); app.classList.add('pre'); chat.style.visibility = ''; box.innerHTML = '';
     }
-    if (reduce || !window.RoborabReveal || !pc.animate) { SCRIPT.forEach(function(m){ add(m[0], m[1]); }); finalState(); return; }
+    if (reduce || !window.RoborabReveal || !pc.animate) { SCRIPT.forEach(function(m){ add(m[0], m[1]); }); app.classList.remove('pre'); chat.style.visibility = 'hidden'; return; }
 
-    function morph(){
-      var card = box.querySelector('.pm.card'), c = box300(card), cx = c.x + c.w / 2, cy = c.y + c.h / 2;
+    // 1. Сообщения, переключатель и строка ввода складываются в карточку, небо мягко уходит
+    function fold(){
+      var card = box.querySelector('.pm.card'), c = rect(card), cx = c.x + c.w / 2, cy = c.y + c.h / 2;
       var away = [].slice.call(chat.querySelectorAll('.pm:not(.card),.pc-tabs,.pc-comp'));
-      // 1. сообщения втягиваются в карточку «Решение»
-      away.forEach(function(el, i){ var b = box300(el), dx = (cx - b.x - b.w / 2) * .8, dy = (cy - b.y - b.h / 2) * .8;
-        A(el, [{opacity:1, transform:'none', filter:'blur(0)'}, {opacity:0, transform:'translate(' + dx + 'px,' + dy + 'px) scale(.5)', filter:'blur(4px)'}], {duration:1050, delay:i * 70, easing:MORPH}); });
-      A(card, [{transform:'scale(1)'}, {transform:'scale(1.035)', offset:.5}, {transform:'scale(1)'}], {duration:1000, delay:650, easing:'ease-in-out', fill:'none'});
-      // 2. небо стягивается до карточки, 3. карточка растёт в шапку
-      var r = function(t, rt, b, l, rad){ return 'inset(' + t + 'px ' + rt + 'px ' + b + 'px ' + l + 'px round ' + rad + ')'; };
-      var atCard = r(c.y, 300 - c.x - c.w, H - c.y - c.h, c.x, '22px');
-      A(chat, [{clipPath:r(0,0,0,0,'44px')}, {clipPath:atCard}], {duration:1150, delay:750, easing:MORPH});
-      A(card, [{opacity:1}, {opacity:0}], {duration:380, delay:1750, easing:'linear'});
-      A(chat, [{clipPath:atCard}, {clipPath:r(0,0,H - 118,0,'0 0 30px 30px')}], {duration:1150, delay:1850, easing:MORPH});
-      A(cover, [{opacity:0}, {opacity:1}], {duration:850, delay:1900, easing:'cubic-bezier(.4,0,.2,1)'});
-      // пока небо стягивается, верх экрана светлый: часы темнеют, потом снова белые над шапкой
-      setTimeout(function(){ scr.classList.add('light'); }, 1100);
-      setTimeout(function(){ scr.classList.remove('light'); }, 2350);
-      return wait(3020);
+      away.forEach(function(el, i){ var b = rect(el), dx = (cx - b.x - b.w / 2) * .9, dy = (cy - b.y - b.h / 2) * .9;
+        A(el, [{opacity:1, transform:'none'}, {opacity:.85, offset:.45}, {opacity:0, transform:'translate(' + dx + 'px,' + dy + 'px) scale(.42)'}], {duration:1000, delay:i * 70, easing:IO}); });
+      A(card, [{transform:'scale(1)'}, {transform:'scale(1.035)', offset:.55}, {transform:'scale(1)'}], {duration:900, delay:750, easing:'ease-in-out', fill:'none'});
+      A(sky, [{opacity:1}, {opacity:0}], {duration:1500, delay:350, easing:IO});
+      later(function(){ scr.classList.add('light'); }, 900);
+      return wait(1700).then(function(){ return c; });
     }
-    function build(){
-      // чёрная форма уже точно совпадает с шапкой: подмена в один кадр, без мигания
-      app.classList.remove('pre');
-      app.querySelectorAll('[data-rr-from]').forEach(function(el){ el.style.opacity = 0; });
+    // 2. Карточка превращается в шапку: одна сплошная форма, без обрезки и обводки
+    function grow(c){
+      var card = box.querySelector('.pm.card'), m = document.createElement('div');
+      m.className = 'pc-morph';
+      m.style.cssText = 'left:' + c.x + 'px;top:' + c.y + 'px;width:' + c.w + 'px;height:' + c.h + 'px;border-radius:22px;background:#e9edf3';
+      var inner = card.cloneNode(true); inner.style.cssText = 'position:absolute;left:0;top:0;width:' + c.w + 'px;margin:0;background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;animation:none';
+      m.appendChild(inner); pc.appendChild(m);
       chat.style.visibility = 'hidden';
-      A(wm, [{clipPath:'inset(0 100% 0 0)', transform:'translateX(-8px)'}, {clipPath:'inset(0 0 0 0)', transform:'none'}], {duration:950});
-      A(gear, [{opacity:0, transform:'rotate(-60deg) scale(.8)'}, {opacity:1, transform:'none'}], {duration:900, delay:120, easing:SPRING});
-      return wait(260).then(function(){
-        app.querySelectorAll('[data-rr-from]').forEach(function(el){ el.style.opacity = ''; });
-        rev = RoborabReveal.run(app, {delay:-RoborabReveal.STEP + 1, speed:1});
-        return rev.finished;
-      });
+      A(inner, [{opacity:1, transform:'none'}, {opacity:0, transform:'translateY(-6px)'}], {duration:420, easing:'ease-out'});
+      A(m, [
+        {left:c.x + 'px', top:c.y + 'px', width:c.w + 'px', height:c.h + 'px', borderRadius:'22px', backgroundColor:'#e9edf3'},
+        {backgroundColor:'#e9edf3', offset:.4},
+        {backgroundColor:'#2a2c31', offset:.8},
+        {left:'0px', top:'0px', width:'300px', height:'118px', borderRadius:'0px 0px 30px 30px', backgroundColor:'#141414'}
+      ], {duration:1250, delay:120, easing:IO});
+      later(function(){ scr.classList.remove('light'); }, 800);
+      return wait(1400).then(function(){ app.classList.remove('pre'); app.querySelectorAll('[data-rr-from]').forEach(function(e){ e.style.opacity = 0; }); btns.forEach(function(b){ b.style.opacity = 0; }); m.remove(); });
     }
+    // 3. Экран выезжает по порядку; кнопки выходят веером одна из-под другой
+    function build(){
+      A(wm, [{clipPath:'inset(0 100% 0 0)', transform:'translateX(-8px)'}, {clipPath:'inset(0 0 0 0)', transform:'none'}], {duration:900, easing:OUT});
+      A(gear, [{opacity:0, transform:'rotate(-90deg) scale(.7)'}, {opacity:1, transform:'none'}], {duration:1000, delay:100, easing:APPLE});
+      app.querySelectorAll('[data-rr-from]').forEach(function(e){ e.style.opacity = ''; });
+      rev = RoborabReveal.run(app, {delay:-RoborabReveal.STEP + 140, speed:1});
+      var t0 = 1100, step = 54;
+      btns.forEach(function(b){ b.style.opacity = ''; });
+      A(btns[0], [{opacity:0, transform:'translateY(26px) scale(.7)'}, {opacity:1, offset:.4}, {opacity:1, transform:'none'}], {duration:900, delay:t0, easing:APPLE});
+      btns.slice(1).forEach(function(b, i){
+        var k = i + 1, hold = t0 + 650 + i * 150, dur = 1000;
+        A(b, [
+          {offset:0, opacity:0, transform:'translateX(' + (-k * step) + 'px)'},
+          {offset:hold / (hold + dur) - .001, opacity:0, transform:'translateX(' + (-k * step) + 'px)'},
+          {offset:hold / (hold + dur), opacity:1, transform:'translateX(' + (-k * step) + 'px)', easing:APPLE},
+          {offset:1, opacity:1, transform:'none'}
+        ], {duration:hold + dur, easing:'linear'});
+      });
+      return Promise.all([rev.finished, wait(t0 + 650 + 3 * 150 + 1000)]);
+    }
+    // 4. Чат остаётся рядом: мягкая волна вокруг его кнопки
     function ring(){
-      [0, 380].forEach(function(d){ var p = document.createElement('i'); p.className = 'pc-ring'; fx.appendChild(p);
-        A(p, [{opacity:.95, transform:'scale(1)'}, {opacity:0, transform:'scale(2.1)'}], {duration:1500, delay:d, easing:'cubic-bezier(.2,.6,.3,1)'}); });
-      A(help, [{opacity:0, transform:'translateY(-6px) scale(.86)', filter:'blur(6px)'}, {opacity:1, transform:'none', filter:'blur(0)'}], {duration:900, delay:700, easing:SPRING});
-      return wait(1600);
+      var b = rect(btns[3]);
+      [0, 420].forEach(function(d){ var p = document.createElement('i'); p.className = 'pc-ring'; p.style.left = b.x + 'px'; p.style.top = b.y + 'px'; fx.appendChild(p);
+        A(p, [{opacity:.9, transform:'scale(1)'}, {opacity:0, transform:'scale(1.75)'}], {duration:1600, delay:d, easing:'cubic-bezier(.2,.6,.3,1)'}); });
+      return wait(2000);
     }
     var started = false, live = false;
     async function play(){
-      for (;;) {
+      for (var first = true;; first = false) {
+        if (!first) { chat.style.visibility = ''; chat.style.opacity = 0; }
         reset();
-        A(chat, [{opacity:0}, {opacity:1}], {duration:700, easing:'ease-out'});
-        await wait(900);
+        if (!first) { var f = chat.animate([{opacity:0}, {opacity:1}], {duration:800, easing:'ease-out'}); await f.finished; }
+        chat.style.opacity = '';
+        await wait(700);
         for (var i = 0; i < SCRIPT.length; i++) {
           while (!live) await wait(400);
           var who = SCRIPT[i][0], text = SCRIPT[i][1];
@@ -391,13 +414,10 @@
           else { await wait(1000); add(who, text); }
           await wait(who === 'card' ? 1500 : 900);
         }
-        await wait(900);
+        await wait(700);
         while (!live) await wait(400);
-        await morph(); await build(); await ring();
-        await wait(6500);
-        // мягко возвращаемся к чату
-        chat.style.visibility = ''; anims.forEach(function(a){ a.cancel(); }); anims = []; box.innerHTML = '';
-        await wait(20);
+        var c = await fold(); await grow(c); await build(); await ring();
+        await wait(6000);
       }
     }
     onScreen(pc, function(v){ live = v; if (v && !started) { started = true; play(); } }, {threshold: .3});

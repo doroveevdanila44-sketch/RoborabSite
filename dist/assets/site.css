@@ -20,7 +20,7 @@
   --img-fitness-renewals:url(/assets/fitness-renewals.webp?v=3892c4fa);
   --img-fitness-schedule:url(/assets/fitness-schedule.webp?v=14454935);
   --img-fitness-trainers:url(/assets/fitness-trainers.webp?v=8c8a92d8);
-  --img-iphone-frame:url(/assets/iphone-frame.webp?v=28137df6);
+  --img-iphone-bezel:url(/assets/iphone-bezel.webp?v=9bd3bcbd);
   --img-seo-ai-traffic:url(/assets/seo-ai-traffic.webp?v=cf489b1e);
   --img-seo-category:url(/assets/seo-category.webp?v=8a5375b0);
   --img-seo-editor:url(/assets/seo-editor.webp?v=bebfe941);
@@ -645,8 +645,9 @@ h1.big{max-width:100%}
 .himg::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,#0656a6 0,rgba(6,86,166,0) 14%,rgba(6,86,166,0) 80%,#0656a6 100%)}
 /* 3. Свет за курсором: круг 760 px двигается трансформом */
 /* 5. Телефон с чатом РОБОРАБ: пропорции iPhone Pro Max, всё в долях ширины телефона */
-.dphone{position:relative;width:min(100%,450px);justify-self:center;aspect-ratio:887/1774;background:var(--img-iphone-frame) center/100% 100% no-repeat}
-.dp-screen{position:absolute;left:9.92%;top:5.13%;width:80.16%;height:89.85%;border-radius:13% / 5.8%;container-type:inline-size;overflow:hidden;display:flex;flex-direction:column;background:radial-gradient(90% 60% at 100% 0%,rgba(10,132,255,.55),transparent 60%),radial-gradient(80% 55% at 0% 100%,rgba(10,132,255,.32),transparent 65%),linear-gradient(180deg,#f3f8ff,#e6f1ff)}
+.dphone{position:relative;width:min(100%,450px);justify-self:center;aspect-ratio:680/1360}
+.dphone::after{content:'';position:absolute;inset:0;z-index:60;pointer-events:none;background:var(--img-iphone-bezel) center/100% 100% no-repeat}
+.dp-screen{position:absolute;left:9.41%;top:4.85%;width:81.18%;height:90.37%;border-radius:16.3% / 7.32%;container-type:inline-size;overflow:hidden;display:flex;flex-direction:column;background:radial-gradient(90% 60% at 100% 0%,rgba(10,132,255,.55),transparent 60%),radial-gradient(80% 55% at 0% 100%,rgba(10,132,255,.32),transparent 65%),linear-gradient(180deg,#f3f8ff,#e6f1ff)}
 .dp-status{position:absolute;inset:0 0 auto;height:13cqw;display:flex;align-items:center;justify-content:space-between;padding:0 8.5cqw 0 10cqw;color:#fff;font:600 4cqw/1 -apple-system,'SF Pro Text',system-ui,sans-serif;z-index:3}
 .dp-island{position:absolute;left:50%;top:2.6cqw;width:28cqw;height:8.2cqw;margin-left:-14cqw;border-radius:99px;background:#000}
 .dp-ind{display:flex;align-items:center;gap:1.4cqw}
@@ -685,31 +686,40 @@ h1.big{max-width:100%}
 @media(prefers-reduced-motion:reduce){.dp-sky,.pc-sky{animation:none}}
 @media(max-width:760px){.dphone{width:min(90vw,400px)}}
 /* Блок «Что дальше»: чат становится приложением. Холст 300x672, масштабируется под экран телефона */
+@media(min-width:761px){#pilot .panel-art{grid-template-columns:clamp(240px,29vw,430px) minmax(0,1fr)}#pilot .dphone{order:-1}}
 .pc{position:absolute;left:0;top:0;width:300px;height:672px;transform-origin:0 0;transform:scale(var(--k,1));font-family:var(--f-body,'Manrope'),system-ui,sans-serif;color:#141414}
-.pc svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pc svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 .pc-gl{background:rgba(244,246,249,.78);border:1px solid rgba(255,255,255,.38);backdrop-filter:blur(30px) saturate(.9);-webkit-backdrop-filter:blur(30px) saturate(.9);box-shadow:0 6px 22px -10px rgba(10,30,70,.28)}
-.pc-app{position:absolute;inset:0;background:#f4f5f7}
-.pc-app.pre .pc-hdr,.pc-app.pre [data-rr-from]{opacity:0}
+.pc-app{position:absolute;inset:0;background:#f4f5f7;overflow:hidden}
+.pc-app.pre .pc-hdr,.pc-app.pre [data-rr-from],.pc-app.pre .pc-dock i{opacity:0}
 .pc-hdr{position:absolute;left:0;right:0;top:0;height:118px;background:#141414;border-radius:0 0 30px 30px;color:#fff;z-index:5}
 .pc-wm{position:absolute;left:18px;bottom:20px;font:italic 900 22px/1 var(--fd);letter-spacing:-.03em}
-.pc-ic{position:absolute;bottom:14px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff}
-.pc-gear{right:14px}
-.pc-cb{right:58px}
-.pc-cb::after{content:'';position:absolute;top:6px;right:6px;width:8px;height:8px;border-radius:50%;background:#0a84ff;box-shadow:0 0 0 2px #141414}
-.pc-srch{position:absolute;left:14px;right:14px;top:134px;height:44px;border-radius:999px;border:1px solid rgba(20,20,20,.08);background:#fff;display:flex;align-items:center;gap:8px;padding:0 14px;color:rgba(20,20,20,.42);font:600 14px/1 var(--f-body,'Manrope'),system-ui,sans-serif;z-index:4}
+.pc-gear{position:absolute;right:16px;bottom:16px;width:36px;height:36px;display:grid;place-items:center;color:#fff}
+.pc-body{position:absolute;inset:0}
+.pc-srch{position:absolute;left:14px;right:14px;top:134px;height:44px;border-radius:999px;border:1px solid rgba(20,20,20,.08);background:#fff;display:flex;align-items:center;gap:9px;padding:0 15px;color:rgba(20,20,20,.42);font:600 14px/1 var(--f-body,'Manrope'),system-ui,sans-serif}
 .pc-srch svg{width:18px;height:18px;color:#141414}
 .pc-tiles{position:absolute;left:14px;right:14px;top:192px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.pc-t{height:94px;padding:12px 14px;border-radius:22px;display:flex;flex-direction:column;justify-content:space-between;font:700 14px/1.1 var(--f-body,'Manrope'),system-ui,sans-serif}
+.pc-t{height:92px;padding:12px 14px;border-radius:22px;display:flex;flex-direction:column;justify-content:space-between;font:700 14px/1.1 var(--f-body,'Manrope'),system-ui,sans-serif}
 .pc-t b{font:italic 900 30px/1 var(--fd)}.pc-t small{font:500 13px/1 var(--f-body,'Manrope'),system-ui,sans-serif;opacity:.8}
-.pc-t.k{background:#141414;color:#fff}.pc-t.k b,.pc-t.k2 b{color:#5aa9ff}
-.pc-t.bl{background:#0a84ff;color:#fff}
+.pc-t.k{background:#141414;color:#fff}.pc-t.k b{color:#8ec5ff}
+.pc-t.bl{background:#b8d8ff;color:#141414}
 .pc-t.w{background:#fff;box-shadow:inset 0 0 0 1px rgba(20,20,20,.06)}
-.pc-t.k2{background:#222;color:#fff}
-.pc-sec{position:absolute;left:18px;top:410px;font:italic 900 12px/1 var(--fd);letter-spacing:.06em;text-transform:uppercase;color:rgba(20,20,20,.55)}
-.pc-note{position:absolute;left:14px;right:14px;top:432px;padding:14px 16px;border-radius:20px;background:#fff;box-shadow:inset 0 0 0 1px rgba(20,20,20,.06);font:500 14px/1.45 var(--f-body,'Manrope'),system-ui,sans-serif}
-.pc-dock{position:absolute;left:16px;right:16px;bottom:24px;display:flex;justify-content:space-between}
-.pc-dock i{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:#141414;background:rgba(255,255,255,.92);box-shadow:inset 0 0 0 1px rgba(20,20,20,.05),0 10px 26px -18px rgba(10,30,70,.35)}
-.pc-dock i.on{color:#0a84ff}
+.pc-sec{position:absolute;left:18px;font:italic 900 11.5px/1 var(--fd);letter-spacing:.05em;text-transform:uppercase;color:#141414}
+.pc-sec:nth-of-type(3){top:408px}
+.pc-emp{position:absolute;left:0;right:0;top:432px;text-align:center;font:500 14px/1 var(--f-body,'Manrope'),system-ui,sans-serif;color:rgba(20,20,20,.75)}
+.pc-sec:nth-of-type(5){top:470px}
+.pc-card{position:absolute;left:14px;right:14px;height:60px;padding:0 14px;border-radius:20px;background:#fff;box-shadow:inset 0 0 0 1px rgba(20,20,20,.06);display:flex;align-items:center}
+.pc-card:nth-of-type(6){top:490px}.pc-card:nth-of-type(7){top:558px}
+.pc-p{display:flex;align-items:center;gap:11px}
+.pc-av{flex:none;width:36px;height:36px;border-radius:50%;background:#cfe6ff;display:grid;place-items:center;color:#24476e}
+.pc-av svg{width:18px;height:18px}
+.pc-p b{display:block;font:600 14px/1.25 var(--f-body,'Manrope'),system-ui,sans-serif}
+.pc-p small{display:block;font:500 12px/1.3 var(--f-body,'Manrope'),system-ui,sans-serif;color:rgba(20,20,20,.7)}
+.pc-p em{font-style:normal;color:#c79a2b}
+.pc-dock{position:absolute;left:12px;right:12px;bottom:22px;height:52px;z-index:6}
+.pc-dock i{position:absolute;top:0;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#141414;background:linear-gradient(160deg,rgba(255,255,255,.96),rgba(232,234,238,.9));box-shadow:inset 0 0 0 1px rgba(20,20,20,.06),inset 0 1px 0 rgba(255,255,255,.9)}
+.pc-dock i:nth-child(1){left:0;z-index:5;background:#fff}.pc-dock i:nth-child(2){left:54px;z-index:4}.pc-dock i:nth-child(3){left:108px;z-index:3}.pc-dock i:nth-child(4){left:162px;z-index:2}.pc-dock i:nth-child(5){left:216px;z-index:1}
+.pc-dock::before{content:'';position:absolute;left:-12px;right:-12px;top:-30px;bottom:-22px;background:linear-gradient(180deg,rgba(244,245,247,0),#f4f5f7 55%);z-index:0}
 .pc-chat{position:absolute;inset:0;z-index:20;overflow:hidden}
 .pc-sky{position:absolute;inset:-18%;background:radial-gradient(60% 40% at 25% 18%,#7fc0ff 0,transparent 70%),radial-gradient(55% 45% at 80% 35%,#2b8cff 0,transparent 70%),radial-gradient(70% 55% at 30% 85%,#0656a6 0,transparent 72%),linear-gradient(180deg,#6fb4ff,#0a5fc2);animation:skydrift 48s ease-in-out infinite alternate}
 @keyframes skydrift{0%{transform:translate3d(-4%,-3%,0) scale(1.02)}50%{transform:translate3d(2%,3%,0) scale(1.1) rotate(2deg)}100%{transform:translate3d(4%,-2%,0) scale(1.04) rotate(-1.5deg)}}
@@ -731,12 +741,9 @@ h1.big{max-width:100%}
 .pc-b{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.55);color:#1b2a40;font:500 22px/1 var(--f-body,'Manrope'),system-ui,sans-serif}
 .pc-b svg{width:18px;height:18px}
 .pc-f{flex:1}
-.pc-cover{position:absolute;inset:0;background:#141414;opacity:0;pointer-events:none}
-.pc-help{position:absolute;z-index:30;right:12px;top:126px;width:206px;padding:12px 14px;border-radius:20px;font:500 14px/1.4 var(--f-body,'Manrope'),system-ui,sans-serif;color:#141414;opacity:0;transform-origin:88% 0}
-.pc-help::before{content:'';position:absolute;top:-5px;right:66px;width:12px;height:12px;border-radius:3px 0 0 0;background:rgba(244,246,249,.96);transform:rotate(45deg)}
-.pc-help small{display:block;margin-bottom:3px;font:800 10px/1.2 var(--f-body,'Manrope'),system-ui,sans-serif;letter-spacing:.1em;color:#0a84ff}
+.pc-morph{position:absolute;z-index:25;overflow:hidden;will-change:left,top,width,height}
 .pc-fx{position:absolute;inset:0;z-index:40;pointer-events:none}
-.pc-ring{position:absolute;left:202px;top:64px;width:40px;height:40px;border-radius:50%;box-shadow:0 0 0 1.5px rgba(10,132,255,.9),0 0 18px rgba(10,132,255,.35);opacity:0}
+.pc-ring{position:absolute;width:52px;height:52px;border-radius:50%;box-shadow:0 0 0 1.5px rgba(10,132,255,.85),0 0 16px rgba(10,132,255,.3);opacity:0}
 /* 8. Объёмные экраны */
 .product-gallery{perspective:900px}
 .tilting.shot{transition:transform .12s ease-out!important;background-image:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.32),transparent 60%),var(--s)!important}
