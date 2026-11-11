@@ -162,14 +162,20 @@
     var keep = htext.style.transform; htext.style.transform = 'none';
     var pr = pill.getBoundingClientRect(), sr = stage.getBoundingClientRect();
     R = {l: pr.left - sr.left, t: pr.top - sr.top, r: sr.right - pr.right, b: sr.bottom - pr.bottom, h: pr.height};
-    // чистая зона без зерна вокруг обеих кнопок
-    var cb = document.querySelector('.hcta'), ha = document.querySelector('.hart');
-    if (cb && ha) {
-      var br = cb.getBoundingClientRect(), hr = ha.getBoundingClientRect();
-      ha.style.setProperty('--cx', (br.left - hr.left + br.width / 2).toFixed(1) + 'px');
-      ha.style.setProperty('--cy', (br.top - hr.top + br.height / 2).toFixed(1) + 'px');
-      ha.style.setProperty('--crx', (br.width / 2 + 90).toFixed(1) + 'px');
-      ha.style.setProperty('--cry', (br.height / 2 + 80).toFixed(1) + 'px');
+    // зерно только на иллюстрации: под текстом, плашкой и кнопками мягкие чистые зоны (маска строится по реальным размерам)
+    var ha = document.querySelector('.hart');
+    if (ha) {
+      var hr = ha.getBoundingClientRect(), W = Math.round(hr.width), H = Math.round(hr.height), rects = [];
+      function addRect(r){ if (r && r.width > 1 && r.height > 1) rects.push([r.left - hr.left, r.top - hr.top, r.width, r.height]); }
+      function textRect(el){ var g = document.createRange(); g.selectNodeContents(el); return g.getBoundingClientRect(); }
+      [].forEach.call(document.querySelectorAll('#h1 .ln'), function(el){ addRect(textRect(el)); });
+      addRect(textRect(document.querySelector('.hsub')));
+      [].forEach.call(document.querySelectorAll('.hcta .btn, .hcta .lnk'), function(el){ addRect(el.getBoundingClientRect()); });
+      var px = 44, py = 30, holes = rects.map(function(r){
+        return '<rect x="' + (r[0] - px).toFixed(0) + '" y="' + (r[1] - py).toFixed(0) + '" width="' + (r[2] + px * 2).toFixed(0) + '" height="' + (r[3] + py * 2).toFixed(0) + '" rx="34" fill="#000" filter="url(#b)"/>';
+      }).join('');
+      var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none"><defs><filter id="b" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="26"/></filter><mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="' + W + '" height="' + H + '"><rect width="' + W + '" height="' + H + '" fill="#fff"/>' + holes + '</mask></defs><rect width="' + W + '" height="' + H + '" fill="#000" mask="url(#m)"/></svg>';
+      ha.style.setProperty('--tm', 'url("data:image/svg+xml,' + encodeURIComponent(svg).replace(/'/g, '%27').replace(/"/g, '%22') + '")');
     }
     htext.style.transform = keep; cacheGeo(); frame();
   }
