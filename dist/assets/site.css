@@ -458,10 +458,10 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
   letter-spacing:-.035em;
   text-wrap:balance;
 }
-.pilot-copy{padding:clamp(24px,3.2vw,48px);font:inherit;letter-spacing:0;align-self:center}
+.pilot-copy{padding:clamp(24px,3.2vw,48px);font:inherit;letter-spacing:0;align-self:center;background:#fff;color:var(--ink);box-shadow:0 18px 40px -24px rgba(20,20,20,.35)}
 .pilot-copy h3{margin:0 0 clamp(16px,2vw,28px);font:italic 900 clamp(26px,3vw,44px)/1.1 var(--fd);letter-spacing:-.03em;text-wrap:balance}
 .pilot-copy ul{margin:0;padding:0;list-style:none;display:grid;gap:clamp(10px,1.2vw,16px)}
-.pilot-copy li{display:flex;gap:12px;align-items:baseline;font:600 clamp(18px,1.8vw,24px)/1.3 var(--f);color:rgb(255 255 255 / .92)}
+.pilot-copy li{display:flex;gap:12px;align-items:baseline;font:600 clamp(18px,1.8vw,24px)/1.3 var(--f);color:rgb(20 20 20 / .88)}
 .pilot-copy li::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:var(--lime);transform:translateY(-1px)}
 .diagnostic-phone{display:block;width:100%;height:auto;aspect-ratio:681/1435}
 @media(max-width:760px){
@@ -646,7 +646,7 @@ h1.big{max-width:100%}
 /* ===== Живые эффекты ===== */
 /* 2. Жидкий градиент в окне «РОБОРАБ»: холст 128 px растягивается браузером, сам по себе мягкий */
 .art .liquid{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hart::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.2;background-image:var(--grain);background-size:160px 160px}
+.hart::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.6;background-image:var(--grain);background-size:160px 160px}
 .art .grain{position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:var(--grain);background-size:160px 160px}
 .art .hword{z-index:1}
 /* Края окна уходят в цвет панелей Safari, чтобы градиент продолжался под ними без шва */
