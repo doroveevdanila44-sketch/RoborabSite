@@ -248,6 +248,15 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     var keep = htext.style.transform; htext.style.transform = 'none';
     var pr = pill.getBoundingClientRect(), sr = stage.getBoundingClientRect();
     R = {l: pr.left - sr.left, t: pr.top - sr.top, r: sr.right - pr.right, b: sr.bottom - pr.bottom, h: pr.height};
+    // чистая зона без зерна вокруг кнопки «Рассказать о деле»
+    var cb = document.querySelector('.hcta .btn'), ha = document.querySelector('.hart');
+    if (cb && ha) {
+      var br = cb.getBoundingClientRect(), hr = ha.getBoundingClientRect();
+      ha.style.setProperty('--cx', (br.left - hr.left + br.width / 2).toFixed(1) + 'px');
+      ha.style.setProperty('--cy', (br.top - hr.top + br.height / 2).toFixed(1) + 'px');
+      ha.style.setProperty('--crx', (br.width / 2 + 90).toFixed(1) + 'px');
+      ha.style.setProperty('--cry', (br.height / 2 + 80).toFixed(1) + 'px');
+    }
     htext.style.transform = keep; frame();
   }
   var sy = window.scrollY || 0, last = 0, raf = 0;
