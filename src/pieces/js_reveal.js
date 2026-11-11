@@ -23,7 +23,8 @@
       return el.animate([from, to], { duration: dur, delay: delay, easing: EASE, fill: 'both' });
     }
     var vert = dir === 'top' || dir === 'bottom';
-    s = (vert ? r.height : r.width) + gap;
+    var w = el.offsetWidth || r.width, h = el.offsetHeight || r.height;
+    s = (vert ? h : w) + gap;
     var sign = (dir === 'top' || dir === 'left') ? -1 : 1;
     var ax = vert ? 'Y' : 'X';
     origin = { top: '50% 0', bottom: '50% 100%', left: '0 50%', right: '100% 50%' }[dir];
@@ -40,7 +41,7 @@
   // Сосед чуть вздрагивает, когда из него что-то выезжает
   function nudge(el, delay, speed) {
     return el.animate([{ transform: 'scale(1)' }, { transform: 'scale(.985)', offset: .35 }, { transform: 'scale(1)' }],
-      { duration: 800 * speed, delay: delay + 120 * speed, easing: 'ease-in-out' });
+      { duration: 800 * speed, delay: delay + 120 * speed, easing: 'ease-in-out', composite: 'add' });
   }
 
   function run(root, opts) {

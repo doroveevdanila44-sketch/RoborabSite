@@ -655,59 +655,88 @@ h1.big{max-width:100%}
 .dp-bat{width:6.2cqw;height:3cqw;border-radius:.9cqw;background:#fff;position:relative}.dp-bat::after{content:'';position:absolute;right:-.9cqw;top:1cqw;width:.6cqw;height:1cqw;border-radius:0 .3cqw .3cqw 0;background:rgba(255,255,255,.5)}
 .dp-head{flex:none;height:26cqw;padding:13cqw 5.5cqw 0;border-radius:0 0 7cqw 7cqw;background:#141414;color:#fff;display:flex;align-items:center}
 .dp-head b{font:italic 900 5.2cqw/1 var(--fd);letter-spacing:-.02em}
-.dchat{flex:1;min-height:0;padding:5cqw 4cqw 2cqw;display:flex;flex-direction:column;justify-content:flex-start;gap:2.4cqw;overflow:hidden}
+.dchat{position:relative;flex:1;min-height:0;padding:33cqw 4.6cqw 3cqw;display:flex;flex-direction:column;justify-content:flex-start;gap:2.4cqw;overflow:hidden}
 .dmsg{align-self:flex-start;max-width:88%;padding:3cqw 4cqw;border-radius:7.2cqw 7.2cqw 7.2cqw 2.6cqw;background:rgba(244,246,249,.78);border:1px solid rgba(255,255,255,.38);backdrop-filter:blur(30px) saturate(.9);-webkit-backdrop-filter:blur(30px) saturate(.9);box-shadow:0 1.6cqw 5.6cqw -2.6cqw rgba(10,30,70,.28);color:#141414;font:500 4.4cqw/1.38 var(--f-body,'Manrope'),system-ui,sans-serif;animation:dmsg-in .4s cubic-bezier(.22,1,.36,1)}
-.dmsg.me{align-self:flex-end;background:rgba(20,20,20,.78);border-color:rgba(255,255,255,.35);color:#fff;border-radius:7.2cqw 7.2cqw 2.6cqw 7.2cqw}
+.dmsg.me{align-self:flex-end;background:#0a84ff;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 2cqw 6cqw -2.6cqw rgba(0,60,160,.5);color:#fff;border-radius:7.2cqw 7.2cqw 2.6cqw 7.2cqw}
 .dmsg.typing{display:inline-flex;gap:1.3cqw;padding:3.6cqw 4.2cqw}
 .dmsg.typing i{width:1.7cqw;height:1.7cqw;border-radius:50%;background:rgba(20,20,20,.45);animation:dot 1s infinite}
 .dmsg.typing i:nth-child(2){animation-delay:.15s}.dmsg.typing i:nth-child(3){animation-delay:.3s}
 @keyframes dot{50%{transform:translateY(-1cqw);opacity:.4}}
 @keyframes dmsg-in{from{opacity:0;transform:translateY(3cqw) scale(.98)}}
-.dp-composer{flex:none;margin:0 3.4cqw 3cqw;min-height:14cqw;padding:1.6cqw;border-radius:7.5cqw;display:flex;align-items:center;gap:1.6cqw;border:1px solid rgba(255,255,255,.38);background:linear-gradient(135deg,rgba(20,20,20,.14),transparent 65%),rgba(255,255,255,.5);backdrop-filter:blur(30px) saturate(.9);-webkit-backdrop-filter:blur(30px) saturate(.9);box-shadow:0 1.6cqw 5.6cqw -2.6cqw rgba(10,30,70,.28)}
-.dp-field{flex:1;font:500 3.8cqw/1 var(--f-body,'Manrope'),system-ui,sans-serif;color:rgba(20,20,20,.55)}
-.dp-btn{flex:none;display:grid;place-items:center;width:10.6cqw;height:10.6cqw;border-radius:50%;border:1px solid rgba(255,255,255,.75)}
+.dp-composer{position:relative;flex:none;margin:0 4.6cqw 8cqw;min-height:18cqw;padding:0 2cqw;border-radius:99px;display:flex;align-items:center;gap:2.6cqw;background:rgba(244,246,249,.78);border:1px solid rgba(255,255,255,.38);backdrop-filter:blur(30px) saturate(.9);-webkit-backdrop-filter:blur(30px) saturate(.9);box-shadow:0 2cqw 7cqw -3.4cqw rgba(10,30,70,.28)}
+.dp-field{flex:1;font:600 4.6cqw/1 var(--f-body,'Manrope'),system-ui,sans-serif;color:rgba(27,42,64,.55)}
+.dp-btn{flex:none;display:grid;place-items:center;width:14cqw;height:14cqw;border-radius:50%;background:rgba(255,255,255,.55);color:#1b2a40}
 .dp-btn svg,.dp-tab svg{width:5.2cqw;height:5.2cqw;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.dp-plus{background:linear-gradient(145deg,rgba(255,255,255,.72),transparent 75%),rgba(10,132,255,.14);color:#141414}
-.dp-send{background:linear-gradient(145deg,rgba(255,255,255,.2),transparent 65%),rgba(20,20,20,.88);color:#fff}
+
+
 .dp-dock{flex:none;display:flex;justify-content:center;gap:2.4cqw;padding:0 0 7cqw}
 .dp-tab{display:grid;place-items:center;width:16cqw;height:16cqw;border-radius:6.2cqw;border:1px solid rgba(255,255,255,.75);background:linear-gradient(160deg,rgba(10,132,255,.23),transparent 72%),rgba(255,255,255,.5);backdrop-filter:blur(20px) saturate(1.7);-webkit-backdrop-filter:blur(20px) saturate(1.7);box-shadow:0 2.4cqw 5.6cqw -3.4cqw rgba(0,0,0,.3);color:#141414}
 .dp-tab svg{width:6.6cqw;height:6.6cqw}
 .dp-tab.on{background:rgba(255,255,255,.94);color:#0a84ff}
-.dp-home{position:absolute;left:50%;bottom:2cqw;width:34cqw;height:1.3cqw;margin-left:-17cqw;border-radius:99px;background:#141414}
+.dp-home{position:absolute;z-index:50;left:50%;bottom:2cqw;width:34cqw;height:1.3cqw;margin-left:-17cqw;border-radius:99px;background:rgba(20,20,20,.85)}
+.dp-sky{position:absolute;inset:-18%;background:radial-gradient(60% 40% at 25% 18%,#7fc0ff 0,transparent 70%),radial-gradient(55% 45% at 80% 35%,#2b8cff 0,transparent 70%),radial-gradient(70% 55% at 30% 85%,#0656a6 0,transparent 72%),linear-gradient(180deg,#6fb4ff,#0a5fc2);animation:skydrift 48s ease-in-out infinite alternate}
+.dp-tabs{position:absolute;z-index:2;top:16.5cqw;left:50%;transform:translateX(-50%);display:flex;padding:1.3cqw;border-radius:99px;background:rgba(244,246,249,.78);border:1px solid rgba(255,255,255,.38);backdrop-filter:blur(30px) saturate(.9);-webkit-backdrop-filter:blur(30px) saturate(.9);box-shadow:0 2cqw 7cqw -3.4cqw rgba(10,30,70,.28)}
+.dp-tabs span{padding:2.7cqw 5cqw;border-radius:99px;font:700 4.3cqw/1 var(--f-body,'Manrope'),system-ui,sans-serif;color:rgba(27,42,64,.62)}
+.dp-tabs .on{background:#141414;color:#fff}
+.dp-status{z-index:50!important;transition:color .6s ease}
+.dp-sig i,.dp-bat,.dp-bat::after{transition:background .6s ease}
+.dp-screen.light .dp-status{color:#141414}
+.dp-screen.light .dp-sig i,.dp-screen.light .dp-bat,.dp-screen.light .dp-bat::after{background:#141414}
+@media(prefers-reduced-motion:reduce){.dp-sky,.pc-sky{animation:none}}
 @media(max-width:760px){.dphone{width:min(90vw,400px)}}
-/* Блок «Что дальше»: чат превращается в приложение */
-.pview{position:absolute;inset:0;display:flex;flex-direction:column;transition:opacity 1.3s cubic-bezier(.45,.05,.25,1)}
-.pview.out{opacity:0}
-.dmsg.card{display:grid;gap:1.2cqw;width:76%;padding:3.6cqw 4cqw;background:rgba(244,246,249,.78)}
-.dmsg.card small{font:800 3cqw/1 var(--f-body,'Manrope'),system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#0a84ff}
-.dmsg.card b{font:italic 900 6cqw/1.1 var(--fd);letter-spacing:-.02em}
-.dmsg.card span{font-size:3.8cqw;color:rgba(20,20,20,.62)}
-.dapp{position:absolute;inset:0;z-index:2;visibility:hidden;display:flex;flex-direction:column;pointer-events:none;transition:opacity .8s ease}
-.dapp.on{visibility:visible}
-.dapp [data-rr-from]{opacity:0}
-.dapp.done [data-rr-from]{opacity:1}
-.da-bg{position:absolute;inset:0;background:#f6f8fb;opacity:0;transition:opacity 1.4s cubic-bezier(.45,.05,.25,1)}
-.dapp.on .da-bg,.dapp.done .da-bg{opacity:1}
-.dapp>*{position:relative}.dapp>.da-bg{position:absolute}
-.da-head{flex:none;height:26cqw;padding:13cqw 5.5cqw 0;border-radius:0 0 7cqw 7cqw;background:#141414;color:#fff;display:flex;align-items:center;justify-content:space-between}
-.da-head b{font:italic 900 5.2cqw/1 var(--fd);letter-spacing:-.02em}
-.da-head svg{width:5.4cqw;height:5.4cqw;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.da-search{flex:none;margin:4cqw 4cqw 0;height:11cqw;padding:0 4cqw;border-radius:5.5cqw;border:1px solid rgba(20,20,20,.12);background:#fff;display:flex;align-items:center;gap:2cqw;color:rgba(20,20,20,.45);font:500 3.6cqw/1 var(--f-body,'Manrope'),system-ui,sans-serif}
-.da-search svg{width:4.6cqw;height:4.6cqw;fill:none;stroke:#141414;stroke-width:1.9;stroke-linecap:round}
-.da-grid{flex:none;display:grid;grid-template-columns:1fr 1fr;gap:3cqw;margin:4cqw 4cqw 0}
-.da-t{display:grid;gap:.6cqw;padding:3.4cqw 4cqw;border-radius:6cqw;font-family:var(--f-body,'Manrope'),system-ui,sans-serif}
-.da-t small{font-weight:800;font-size:3.6cqw}.da-t b{font:italic 900 9cqw/1.05 var(--fd)}.da-t span{font-size:3.6cqw;opacity:.75}
-.da-t.k{background:#141414;color:#fff}.da-t.k b{color:#b8d8ff}
-.da-t.l{background:#b8d8ff;color:#141414}
-.da-t.w{background:#fff;color:#141414;border:1px solid rgba(20,20,20,.1)}
-.da-cap{flex:none;margin:5cqw 4cqw 0;font:italic 900 3.6cqw/1 var(--fd);letter-spacing:.04em;text-transform:uppercase;color:#141414}
-.da-note{flex:none;margin:2.4cqw 4cqw 0;padding:3.6cqw 4cqw;border-radius:5.5cqw;border:1px solid rgba(20,20,20,.1);background:#fff;font:500 3.8cqw/1.4 var(--f-body,'Manrope'),system-ui,sans-serif;color:#141414}
-.da-dock{position:absolute!important;left:0;right:0;bottom:0;display:flex;justify-content:center;gap:2cqw;padding:0 0 7cqw}
-.da-tab{display:grid;place-items:center;width:15cqw;height:15cqw;border-radius:5.8cqw;border:1px solid rgba(255,255,255,.75);background:linear-gradient(160deg,rgba(20,20,20,.16),transparent 72%),rgba(255,255,255,.55);backdrop-filter:blur(30px) saturate(.9);-webkit-backdrop-filter:blur(30px) saturate(.9);box-shadow:0 1.6cqw 5.6cqw -2.6cqw rgba(10,30,70,.28);color:#141414}
-.da-tab svg{width:6.2cqw;height:6.2cqw;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.da-tab.on{background:rgba(255,255,255,.94);color:#0a84ff}
-.da-chat{position:absolute!important;right:3.4cqw;bottom:27cqw;width:62cqw;padding:3cqw 4cqw;border-radius:7.2cqw 7.2cqw 2.6cqw 7.2cqw;background:rgba(244,246,249,.78);border:1px solid rgba(255,255,255,.38);backdrop-filter:blur(30px) saturate(.9);-webkit-backdrop-filter:blur(30px) saturate(.9);box-shadow:0 1.6cqw 5.6cqw -2.6cqw rgba(10,30,70,.28);color:#141414;font:500 3.8cqw/1.38 var(--f-body,'Manrope'),system-ui,sans-serif}
-.da-chat small{display:block;margin-bottom:1cqw;font:800 2.8cqw/1 var(--f-body,'Manrope'),system-ui,sans-serif;letter-spacing:.08em;color:#0a84ff}
+/* Блок «Что дальше»: чат становится приложением. Холст 300x672, масштабируется под экран телефона */
+.pc{position:absolute;left:0;top:0;width:300px;height:672px;transform-origin:0 0;transform:scale(var(--k,1));font-family:var(--f-body,'Manrope'),system-ui,sans-serif;color:#141414}
+.pc svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pc-gl{background:rgba(244,246,249,.78);border:1px solid rgba(255,255,255,.38);backdrop-filter:blur(30px) saturate(.9);-webkit-backdrop-filter:blur(30px) saturate(.9);box-shadow:0 6px 22px -10px rgba(10,30,70,.28)}
+.pc-app{position:absolute;inset:0;background:#f4f5f7}
+.pc-app.pre .pc-hdr,.pc-app.pre [data-rr-from]{opacity:0}
+.pc-hdr{position:absolute;left:0;right:0;top:0;height:118px;background:#141414;border-radius:0 0 30px 30px;color:#fff;z-index:5}
+.pc-wm{position:absolute;left:18px;bottom:20px;font:italic 900 22px/1 var(--fd);letter-spacing:-.03em}
+.pc-ic{position:absolute;bottom:14px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff}
+.pc-gear{right:14px}
+.pc-cb{right:58px}
+.pc-cb::after{content:'';position:absolute;top:6px;right:6px;width:8px;height:8px;border-radius:50%;background:#0a84ff;box-shadow:0 0 0 2px #141414}
+.pc-srch{position:absolute;left:14px;right:14px;top:134px;height:44px;border-radius:999px;border:1px solid rgba(20,20,20,.08);background:#fff;display:flex;align-items:center;gap:8px;padding:0 14px;color:rgba(20,20,20,.42);font:600 14px/1 var(--f-body,'Manrope'),system-ui,sans-serif;z-index:4}
+.pc-srch svg{width:18px;height:18px;color:#141414}
+.pc-tiles{position:absolute;left:14px;right:14px;top:192px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pc-t{height:94px;padding:12px 14px;border-radius:22px;display:flex;flex-direction:column;justify-content:space-between;font:700 14px/1.1 var(--f-body,'Manrope'),system-ui,sans-serif}
+.pc-t b{font:italic 900 30px/1 var(--fd)}.pc-t small{font:500 13px/1 var(--f-body,'Manrope'),system-ui,sans-serif;opacity:.8}
+.pc-t.k{background:#141414;color:#fff}.pc-t.k b,.pc-t.k2 b{color:#5aa9ff}
+.pc-t.bl{background:#0a84ff;color:#fff}
+.pc-t.w{background:#fff;box-shadow:inset 0 0 0 1px rgba(20,20,20,.06)}
+.pc-t.k2{background:#222;color:#fff}
+.pc-sec{position:absolute;left:18px;top:410px;font:italic 900 12px/1 var(--fd);letter-spacing:.06em;text-transform:uppercase;color:rgba(20,20,20,.55)}
+.pc-note{position:absolute;left:14px;right:14px;top:432px;padding:14px 16px;border-radius:20px;background:#fff;box-shadow:inset 0 0 0 1px rgba(20,20,20,.06);font:500 14px/1.45 var(--f-body,'Manrope'),system-ui,sans-serif}
+.pc-dock{position:absolute;left:16px;right:16px;bottom:24px;display:flex;justify-content:space-between}
+.pc-dock i{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;color:#141414;background:rgba(255,255,255,.92);box-shadow:inset 0 0 0 1px rgba(20,20,20,.05),0 10px 26px -18px rgba(10,30,70,.35)}
+.pc-dock i.on{color:#0a84ff}
+.pc-chat{position:absolute;inset:0;z-index:20;overflow:hidden}
+.pc-sky{position:absolute;inset:-18%;background:radial-gradient(60% 40% at 25% 18%,#7fc0ff 0,transparent 70%),radial-gradient(55% 45% at 80% 35%,#2b8cff 0,transparent 70%),radial-gradient(70% 55% at 30% 85%,#0656a6 0,transparent 72%),linear-gradient(180deg,#6fb4ff,#0a5fc2);animation:skydrift 48s ease-in-out infinite alternate}
+@keyframes skydrift{0%{transform:translate3d(-4%,-3%,0) scale(1.02)}50%{transform:translate3d(2%,3%,0) scale(1.1) rotate(2deg)}100%{transform:translate3d(4%,-2%,0) scale(1.04) rotate(-1.5deg)}}
+.pc-tabs{position:absolute;z-index:2;top:50px;left:50%;transform:translateX(-50%);display:flex;padding:4px;border-radius:999px}
+.pc-tabs span{padding:8px 15px;border-radius:999px;font:700 13px/1 var(--f-body,'Manrope'),system-ui,sans-serif;color:rgba(27,42,64,.62)}
+.pc-tabs .on{background:#141414;color:#fff}
+.pc-col{position:absolute;left:14px;right:14px;top:106px;bottom:92px;display:flex;flex-direction:column;justify-content:flex-start;gap:9px;overflow:hidden}
+.pm{flex:none;align-self:flex-start;max-width:86%;padding:11px 15px;border-radius:22px 22px 22px 8px;font:500 15px/1.38 var(--f-body,'Manrope'),system-ui,sans-serif;color:#141414;background:rgba(244,246,249,.78);border:1px solid rgba(255,255,255,.38);backdrop-filter:blur(30px) saturate(.9);-webkit-backdrop-filter:blur(30px) saturate(.9);box-shadow:0 6px 22px -10px rgba(10,30,70,.28);animation:pm-in .55s cubic-bezier(.32,.72,0,1)}
+.pm.u{align-self:flex-end;background:#0a84ff;color:#fff;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:0 6px 18px -8px rgba(0,60,160,.5);border-radius:22px 22px 8px 22px}
+.pm.typing{display:inline-flex;gap:5px;padding:14px 16px}
+.pm.typing i{width:6px;height:6px;border-radius:50%;background:rgba(20,20,20,.45);animation:dot 1s infinite}
+.pm.typing i:nth-child(2){animation-delay:.15s}.pm.typing i:nth-child(3){animation-delay:.3s}
+.pm.card{align-self:stretch;max-width:none;display:flex;flex-direction:column;gap:4px;padding:14px 16px;border-radius:22px}
+.pm.card .k{align-self:flex-start;padding:4px 9px;border-radius:999px;background:#fff;color:#0a5fc2;font:800 11px/1.2 var(--f-body,'Manrope'),system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase}
+.pm.card b{margin-top:4px;font:800 20px/1.2 var(--f-body,'Manrope'),system-ui,sans-serif}
+.pm.card small{font:600 13px/1.3 var(--f-body,'Manrope'),system-ui,sans-serif;color:rgba(27,42,64,.65)}
+@keyframes pm-in{from{opacity:0;transform:translateY(10px) scale(.97)}}
+.pc-comp{position:absolute;left:14px;right:14px;bottom:24px;height:54px;padding:0 6px;border-radius:999px;display:flex;align-items:center;gap:8px;color:rgba(27,42,64,.55);font:600 14px/1 var(--f-body,'Manrope'),system-ui,sans-serif}
+.pc-b{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.55);color:#1b2a40;font:500 22px/1 var(--f-body,'Manrope'),system-ui,sans-serif}
+.pc-b svg{width:18px;height:18px}
+.pc-f{flex:1}
+.pc-cover{position:absolute;inset:0;background:#141414;opacity:0;pointer-events:none}
+.pc-help{position:absolute;z-index:30;right:12px;top:126px;width:206px;padding:12px 14px;border-radius:20px;font:500 14px/1.4 var(--f-body,'Manrope'),system-ui,sans-serif;color:#141414;opacity:0;transform-origin:88% 0}
+.pc-help::before{content:'';position:absolute;top:-5px;right:66px;width:12px;height:12px;border-radius:3px 0 0 0;background:rgba(244,246,249,.96);transform:rotate(45deg)}
+.pc-help small{display:block;margin-bottom:3px;font:800 10px/1.2 var(--f-body,'Manrope'),system-ui,sans-serif;letter-spacing:.1em;color:#0a84ff}
+.pc-fx{position:absolute;inset:0;z-index:40;pointer-events:none}
+.pc-ring{position:absolute;left:202px;top:64px;width:40px;height:40px;border-radius:50%;box-shadow:0 0 0 1.5px rgba(10,132,255,.9),0 0 18px rgba(10,132,255,.35);opacity:0}
 /* 8. Объёмные экраны */
 .product-gallery{perspective:900px}
 .tilting.shot{transition:transform .12s ease-out!important;background-image:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.32),transparent 60%),var(--s)!important}
