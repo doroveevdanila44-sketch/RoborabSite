@@ -334,20 +334,25 @@
       timers.forEach(clearTimeout); timers = [];
       anims.forEach(function(a){ a.cancel(); }); anims = []; fx.innerHTML = '';
       pc.querySelectorAll('.pc-morph').forEach(function(e){ e.remove(); });
-      scr.classList.remove('light'); app.classList.add('pre'); chat.style.visibility = ''; box.innerHTML = '';
+      scr.classList.remove('light'); box.style.overflow = ''; app.classList.add('pre'); chat.style.visibility = ''; box.innerHTML = '';
     }
     if (reduce || !window.RoborabReveal || !pc.animate) { SCRIPT.forEach(function(m){ add(m[0], m[1]); }); app.classList.remove('pre'); chat.style.visibility = 'hidden'; return; }
 
-    // 1. Сообщения, переключатель и строка ввода складываются в карточку, небо мягко уходит
+    // 1. Чат растворяется вокруг карточки «Решение»: мягко, по очереди, без обрезки
     function fold(){
       var card = box.querySelector('.pm.card'), c = rect(card), cx = c.x + c.w / 2, cy = c.y + c.h / 2;
-      var away = [].slice.call(chat.querySelectorAll('.pm:not(.card),.pc-tabs,.pc-comp'));
-      away.forEach(function(el, i){ var b = rect(el), dx = (cx - b.x - b.w / 2) * .9, dy = (cy - b.y - b.h / 2) * .9;
-        A(el, [{opacity:1, transform:'none'}, {opacity:.85, offset:.45}, {opacity:0, transform:'translate(' + dx + 'px,' + dy + 'px) scale(.42)'}], {duration:1350, delay:200 + i * 150, easing:IO}); });
-      A(card, [{transform:'scale(1)'}, {transform:'scale(1.035)', offset:.55}, {transform:'scale(1)'}], {duration:1100, delay:1300, easing:'ease-in-out', fill:'none'});
-      A(sky, [{opacity:1}, {opacity:0}], {duration:2300, delay:500, easing:IO});
-      later(function(){ scr.classList.add('light'); }, 1500);
-      return wait(2700).then(function(){ return c; });
+      box.style.overflow = 'visible';
+      var away = [].slice.call(chat.querySelectorAll('.pm:not(.card),.pc-tabs,.pc-comp')).map(function(el){
+        var b = rect(el), dx = cx - b.x - b.w / 2, dy = cy - b.y - b.h / 2; return {el:el, dx:dx, dy:dy, d:Math.hypot(dx, dy)}; });
+      away.sort(function(p, q){ return p.d - q.d; });
+      away.forEach(function(o, i){
+        A(o.el, [{opacity:1, transform:'none', filter:'blur(0px)'},
+                 {opacity:0, transform:'translate(' + (o.dx * .18).toFixed(1) + 'px,' + (o.dy * .18).toFixed(1) + 'px) scale(.94)', filter:'blur(6px)'}],
+          {duration:1600, delay:250 + i * 170, easing:'cubic-bezier(.4,0,.2,1)'}); });
+      A(card, [{transform:'scale(1)'}, {transform:'scale(1.02)', offset:.5}, {transform:'scale(1)'}], {duration:1800, delay:600, easing:'ease-in-out', fill:'none'});
+      A(sky, [{opacity:1}, {opacity:0}], {duration:2200, delay:600, easing:IO});
+      later(function(){ scr.classList.add('light'); }, 1900);
+      return wait(250 + away.length * 170 + 1600).then(function(){ return rect(card); });
     }
     // 2. Карточка превращается в шапку: одна сплошная форма, без обрезки и обводки
     function grow(c){
@@ -370,19 +375,19 @@
     // 3. Знак проявляется из размытия, экран собирается: плитки из-за края экрана, тачбар веером
     function build(){
       [].slice.call(wm.children).forEach(function(ch, i){
-        A(ch, [{opacity:0, filter:'blur(8px)', transform:'translateY(3px)'}, {opacity:1, filter:'blur(0)', transform:'none'}], {duration:900, delay:i * 90, easing:'cubic-bezier(.25,.1,.25,1)'}); });
-      A(gear, [{opacity:0, filter:'blur(6px)'}, {opacity:1, filter:'blur(0)'}], {duration:900, delay:350, easing:'ease-out'});
+        A(ch, [{opacity:0, filter:'blur(8px)', transform:'translateY(3px)'}, {opacity:1, filter:'blur(0)', transform:'none'}], {duration:1100, delay:i * 110, easing:'cubic-bezier(.25,.1,.25,1)'}); });
+      A(gear, [{opacity:0, filter:'blur(6px)'}, {opacity:1, filter:'blur(0)'}], {duration:1100, delay:450, easing:'ease-out'});
       app.querySelectorAll('[data-rr-from]').forEach(function(e){ e.style.opacity = ''; });
-      var S = RoborabReveal.STEP, base = 300 - S, EASE = 'cubic-bezier(.45,.05,.25,1)';
-      rev = RoborabReveal.run(app, {delay:base, speed:1});
+      var K = 1.3, S = RoborabReveal.STEP * K, base = 300 * K - S, EASE = 'cubic-bezier(.45,.05,.25,1)';
+      rev = RoborabReveal.run(app, {delay:base / K, speed:K});
       app.querySelectorAll('[data-slide]').forEach(function(t){
         var r = rect(t), dx = t.dataset.slide === 'left' ? -(r.x + r.w + 8) : (300 - r.x + 8);
-        A(t, [{opacity:1, transform:'translateX(' + dx + 'px)'}, {opacity:1, transform:'none'}], {duration:1500, delay:base + (+t.dataset.order) * S, easing:EASE}); });
-      A(app.querySelector('.pc-cb'), [{opacity:0, transform:'translateX(38px)'}, {opacity:1, offset:.12}, {opacity:1, transform:'none'}], {duration:1300, delay:base + 7 * S, easing:EASE});
+        A(t, [{opacity:1, transform:'translateX(' + dx + 'px)'}, {opacity:1, transform:'none'}], {duration:1500 * K, delay:base + (+t.dataset.order) * S, easing:EASE}); });
+      A(app.querySelector('.pc-cb'), [{opacity:0, transform:'translateX(38px)'}, {opacity:1, offset:.12}, {opacity:1, transform:'none'}], {duration:1300 * K, delay:base + 7 * S, easing:EASE});
       var t0 = base + 3 * S, step = 57;
-      A(btns[0], [{opacity:0, transform:'translateY(30px)'}, {opacity:1, offset:.35}, {opacity:1, transform:'none'}], {duration:1200, delay:t0, easing:EASE});
+      A(btns[0], [{opacity:0, transform:'translateY(30px)'}, {opacity:1, offset:.35}, {opacity:1, transform:'none'}], {duration:1200 * K, delay:t0, easing:EASE});
       btns.slice(1).forEach(function(b, i){
-        var k = i + 1, hold = t0 + 900 + i * 260, dur = 1300;
+        var k = i + 1, hold = t0 + (900 + i * 260) * K, dur = 1300 * K;
         A(b, [
           {offset:0, opacity:0, transform:'translateX(' + (-k * step) + 'px)'},
           {offset:hold / (hold + dur) - .001, opacity:0, transform:'translateX(' + (-k * step) + 'px)'},
@@ -390,7 +395,7 @@
           {offset:1, opacity:1, transform:'none'}
         ], {duration:hold + dur, easing:'linear'});
       });
-      return Promise.all([rev.finished, wait(base + 7 * S + 1300)]);
+      return Promise.all([rev.finished, wait(base + 7 * S + 1300 * K)]);
     }
     // 4. Чат остаётся рядом: мягкая волна вокруг его кнопки
     function ring(){
