@@ -101,6 +101,13 @@
     targets.concat(headings).forEach(function(el){ io.observe(el); });
   }
 
+  /* зерно первого экрана: то же, что в окне РОБОРАБ */
+  try {
+    var gn = document.createElement('canvas'); gn.width = gn.height = 160; var gx = gn.getContext('2d'), gi = gx.createImageData(160, 160);
+    for (var gq = 0; gq < gi.data.length; gq += 4) { var gv = Math.random() * 255 | 0; gi.data[gq] = gi.data[gq + 1] = gi.data[gq + 2] = gv; gi.data[gq + 3] = 22; }
+    gx.putImageData(gi, 0, 0); root.style.setProperty('--grain', 'url(' + gn.toDataURL() + ')');
+  } catch (e) {}
+
   /* первый экран: окно-пилюля раскрывается на весь экран, дальше проступает надпись, потом наезжает лист */
   var heroTop = 'violet', heroBottom = 'violet';
   var COLORS = {violet: '#f4f4f2', lime: '#0656a6', limeLow: '#0656a6', bg: '#f4f4f2', deep: '#141414'};

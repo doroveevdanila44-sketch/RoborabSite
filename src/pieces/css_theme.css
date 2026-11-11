@@ -262,6 +262,7 @@ h1.big{max-width:100%}
 /* ===== Живые эффекты ===== */
 /* 2. Жидкий градиент в окне «РОБОРАБ»: холст 128 px растягивается браузером, сам по себе мягкий */
 .art .liquid{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hart::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.2;background-image:var(--grain);background-size:160px 160px}
 .art .grain{position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:var(--grain);background-size:160px 160px}
 .art .hword{z-index:1}
 /* Края окна уходят в цвет панелей Safari, чтобы градиент продолжался под ними без шва */
