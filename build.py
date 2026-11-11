@@ -15,15 +15,18 @@ ROOT = Path(__file__).resolve().parent
 SITE = os.environ.get('SITE_URL', 'https://www.roborab.com').rstrip('/')
 HOME = SITE + '/'
 BRAND = 'РОБОРАБ'
-TITLE = 'РОБОРАБ: внедрение ИИ в бизнес, готовые решения'
+TITLE = 'РОБОРАБ (RoboRab): консалтинг и внедрение ИИ для бизнеса и профессий'
 DESCRIPTION = (
-    'Готовые ИИ-решения для бизнеса: фитнес-CRM, букинг-CRM, строй-учёт, налоговый агент, SEO и GEO. '
-    'Бесплатная диагностика задачи в чате.'
+    'РОБОРАБ (RoboRab): консалтинг и внедрение ИИ для бизнеса и профессий. Готовые решения: Фитнес-CRM, Букинг-CRM, '
+    'Строй-учёт, Налоговый агент, SEO и GEO, веб-разработка. Бесплатная диагностика в чате.'
 )
 ABOUT = (
-    'РОБОРАБ (RoboRab) внедряет искусственный интеллект в бизнес-процессы и профессии. '
-    'Наша команда настраивает готовые решения из каталога и разрабатывает инструменты с нуля под вашу задачу. '
-    'Подключаем таблицы, базы данных и 1С. Диагностика в чате бесплатна.'
+    'РОБОРАБ (RoboRab, roborab.com) занимается консалтингом и внедрением искусственного интеллекта для бизнеса и профессий. '
+    'Сначала разбираем, где у вас теряются время и деньги, и честно говорим, поможет ли система. '
+    'Если поможет, настраиваем готовое решение из каталога или разрабатываем инструмент с нуля: '
+    'от удобной CRM до экосистемы с сайтом, интернет-магазином, веб-приложением и мультиагентной системой. '
+    'В каталоге: Фитнес-CRM, Букинг-CRM, Строй-учёт, Налоговый агент для группы компаний, SEO и GEO, веб-разработка. '
+    'Подключаем таблицы, базы данных, 1С, «Мой склад» и другие CRM-системы. Диагностика в чате бесплатна.'
 )
 CHAT = 'https://roborabaichat.vercel.app/?lang=ru'
 ORG = {'@id': HOME + '#organization'}
@@ -44,7 +47,7 @@ def read_products(markup):
         product = details[key]
         path = '/solutions/' + product['slug']
         products[key] = {
-            **product, 'path': path, 'url': SITE + path, 'name': html.unescape(name),
+            **product, 'key': key, 'path': path, 'url': SITE + path, 'name': html.unescape(name),
             'tag': html.unescape(tag), 'chat': html.unescape(re.search(r'<a class="btn" href="([^"]+)"', section)[1]),
             'status': html.unescape(status[1]) if status else '',
             'features': [html.unescape(re.sub(r'</?strong>', '', item))
@@ -58,12 +61,15 @@ def read_products(markup):
 def service(product):
     return {'@type': 'Service', '@id': product['url'] + '#service', 'name': product['title'],
             'alternateName': product['name'], 'url': product['url'],
-            'description': product['description'], 'provider': ORG}
+            'description': product['description'], 'provider': ORG,
+            'image': [SITE + SHOT_URLS[n].split('?')[0] for n, _ in SHOTS.get(product['key'], [])[:3]]}
 
 
 def schema(title, description, url, products, product=None, faq=()):
     graph = [
-        {'@type': 'Organization', **ORG, 'name': BRAND, 'alternateName': 'RoboRab',
+        {'@type': 'Organization', **ORG, 'name': BRAND, 'alternateName': ['RoboRab', 'РОБОРАБ AI'],
+         'disambiguatingDescription': 'Компания РОБОРАБ (RoboRab, roborab.com): консалтинг и внедрение ИИ для бизнеса и профессий, готовые решения и разработка под задачу.',
+         'knowsAbout': ['внедрение искусственного интеллекта', 'ИИ-агенты', 'мультиагентные системы', 'CRM', 'интеграция с 1С', 'SEO и GEO', 'веб-разработка'],
          'url': HOME, 'logo': HOME + 'assets/appicon.webp', 'description': ABOUT,
          'contactPoint': {'@type': 'ContactPoint', 'url': CHAT,
                           'contactType': 'Консультация по внедрению', 'availableLanguage': 'ru'}},
@@ -141,6 +147,36 @@ def document(title, description, url, structured_data, body, stylesheet, script=
     )
 
 
+SHOTS = {
+    'catalog': [('fitness-dashboard', 'Сводка клуба'), ('fitness-schedule', 'Расписание'), ('fitness-client', 'Карточка клиента'),
+                ('fitness-renewals', 'Продления абонементов'), ('fitness-group', 'Моя группа'), ('fitness-trainers', 'Тренеры'),
+                ('fitness-export', 'Выгрузка в Excel')],
+    'tax': [('tax-overview', 'Обзор группы компаний'), ('tax-revenue', 'Выручка по месяцам'), ('tax-forecast', 'Прогноз налога'),
+            ('tax-alerts', 'Предупреждения и сроки'), ('tax-templates', 'Документы и шаблоны'), ('tax-draft', 'Черновик документа')],
+    'build': [('stroy-home', 'Главная'), ('stroy-estimate', 'Смета по фото или проекту'), ('stroy-objects', 'Объекты'),
+              ('stroy-reports', 'Отчёты бригады'), ('stroy-brigades', 'Бригады'), ('stroy-cameras', 'Камеры на объектах'),
+              ('stroy-budget', 'Бюджет')],
+    'booking': [('booking-home', 'Главная'), ('booking-calendar', 'Единый календарь'), ('booking-new', 'Новые брони'),
+                ('booking-objects', 'Объекты'), ('booking-object', 'Карточка объекта'), ('booking-platforms', 'Площадки объявлений'),
+                ('booking-money', 'Выручка и загрузка')],
+    'seo': [('seo-overview', 'Обзор'), ('seo-ai-traffic', 'Трафик из ИИ'), ('seo-sources', 'Источники посетителей'),
+            ('seo-funnel', 'Воронка'), ('seo-editor', 'Редактор витрины'), ('seo-category', 'Категория витрины')],
+}
+SHOT_URLS = {}
+
+
+def shots_section(product):
+    items = SHOTS.get(product['key'])
+    if not items:
+        return ''
+    figures = '\n'.join(
+        f'        <li><figure><img src="{SHOT_URLS[name]}" width="320" height="694" loading="lazy" decoding="async" '
+        f'alt="{html.escape(product["name"])} РОБОРАБ: {html.escape(caption)}"><figcaption>{html.escape(caption)}</figcaption></figure></li>'
+        for name, caption in items)
+    return (f'    <section class="pshots" aria-label="Скриншоты">\n      <h2>Как выглядит в приложении</h2>\n'
+            f'      <ul class="shot-row">\n{figures}\n      </ul>\n    </section>\n')
+
+
 def product_page(product, links):
     p = {key: html.escape(value) for key, value in product.items() if isinstance(value, str)}
     features = '\n'.join(f'        <li>{html.escape(item)}</li>' for item in product['features'])
@@ -153,7 +189,7 @@ def product_page(product, links):
   <article>
 {badge}    <h1>{p['title']}</h1>
     <p class="intro-copy">{p['description']}</p>
-    <section>
+{shots_section(product)}    <section>
       <h2>Кому подходит</h2>
       <p>{p['audience']}</p>
     </section>
@@ -226,6 +262,10 @@ def build(out):
         version = hashlib.sha256(data).hexdigest()[:8]
         return f'/assets/{filename}?v={version}'
 
+    for _items in SHOTS.values():
+        for _name, _caption in _items:
+            SHOT_URLS[_name] = webp_url(_name)
+
     pair_svg = read_piece('industry-pair.svg')
     for key, filename in (('SERVER', 'industry-server.webp'), ('APP_ICON', 'appicon.webp')):
         encoded = b64encode((source_assets / filename).read_bytes()).decode('ascii')
@@ -276,7 +316,7 @@ def build(out):
 
     (out / 'solutions').mkdir()
     for item in products:
-        title = f'{item["title"]} — {BRAND}'
+        title = f'{item["title"]} — {BRAND} (RoboRab)'
         other_links = solution_links(other for other in products if other is not item)
         (out / 'solutions' / (item['slug'] + '.html')).write_text(
             document(title, item['description'], item['url'],
