@@ -252,7 +252,7 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
     .hword.is-canvas{color:transparent}
     .hword.is-canvas canvas{position:absolute;left:0;width:100%;display:block}
     /* вверху страницы над блоком пусто, Safari показывает там цвет фона: верх первого экрана уходит в него же */
-    .hart-veil::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#141414 0,#141414 var(--over),rgba(20,20,20,0) calc(var(--over) + 150px))}
+    .hart-veil::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#f4f4f2 0,#f4f4f2 var(--over),rgba(244,244,242,0) calc(var(--over) + 150px))}
   }
 }
 
@@ -416,15 +416,15 @@ h2.t{font-weight:900;font-size:clamp(30px,4.8vw,78px);line-height:1;letter-spaci
 .dk .lab{background:rgba(10,132,255,.16);color:var(--lime-text)}
 
 /* первый экран: фиолетовое поле, белый курсив, лаймовое окно */
-.hero{background:var(--violet)}
-.stage{background:var(--violet)}
-.htext{color:#fff}
-.hsub{color:rgba(255,255,255,.86);font-weight:500}
+.hero{background:var(--bg)}
+.stage{background:var(--bg)}
+.htext{color:var(--ink)}
+.hsub{color:rgba(20,20,20,.8);font-weight:500}
 .hcols>div{border-top:2px solid rgba(255,255,255,.28)}
 .hcols small{color:rgba(255,255,255,.7)}.hcols span{color:rgba(255,255,255,.78)}
-.hcta .btn{background:var(--lime);color:var(--on-lime);box-shadow:0 12px 26px -10px rgba(0,0,0,.45)}
-.hcta .btn:hover{background:#fff}
-.hcta .lnk{color:#fff}
+.hcta .btn{background:var(--lime);color:var(--on-lime);box-shadow:0 12px 26px -10px rgba(10,132,255,.6)}
+.hcta .btn:hover{background:var(--violet);color:#fff}
+.hcta .lnk{color:var(--ink)}
 .himg{background:var(--lime)}
 .art{background:
   radial-gradient(120% 60% at 50% 50%,#4aa3ff 0%,rgba(74,163,255,0) 70%),#0a84ff}
@@ -598,7 +598,7 @@ h1.big{max-width:100%}
 .himg{will-change:clip-path}
 
 @media(max-width:820px){.tabs{padding:6px 2px 18px;margin-bottom:-12px}}
-.hero-backdrop{position:fixed;left:0;right:0;top:-50vh;bottom:-50vh;z-index:0;background:var(--violet);pointer-events:none}
+.hero-backdrop{position:fixed;left:0;right:0;top:-50vh;bottom:-50vh;z-index:0;background:var(--bg);pointer-events:none}
 .has-backdrop .hero,.has-backdrop .stage{background:transparent}
 
 /* монохром: акцентный текст на тёмном светлее, чтобы читался */
@@ -607,8 +607,9 @@ h1.big{max-width:100%}
 /* Фон первого экрана: столбцы роста на тонкой сетке, последние фиолетовые */
 .hart{position:absolute;inset:0;z-index:1;pointer-events:none}
 .hart svg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hart-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,20,.92) 0%,rgba(20,20,20,.55) 38%,rgba(20,20,20,0) 70%),linear-gradient(0deg,#141414 0%,rgba(20,20,20,.7) 7%,rgba(20,20,20,0) 24%)}
-@media (max-width:760px){.hart-veil{background:linear-gradient(180deg,rgba(20,20,20,.85) 0%,rgba(20,20,20,.5) 40%,rgba(20,20,20,.08) 62%,rgba(20,20,20,0) 100%),linear-gradient(0deg,#141414 0%,rgba(20,20,20,.7) 7%,rgba(20,20,20,0) 24%)}}
+.hart-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(244,244,242,.92) 0%,rgba(244,244,242,.55) 38%,rgba(244,244,242,0) 70%),linear-gradient(0deg,#f4f4f2 0%,rgba(244,244,242,.7) 7%,rgba(244,244,242,0) 24%)}
+@media (max-width:760px){.hart-veil{background:linear-gradient(180deg,rgba(244,244,242,.85) 0%,rgba(244,244,242,.5) 40%,rgba(244,244,242,.08) 62%,rgba(244,244,242,0) 100%),linear-gradient(0deg,#f4f4f2 0%,rgba(244,244,242,.7) 7%,rgba(244,244,242,0) 24%)}}
+.hart-bars rect:not([fill="#0a84ff"]){fill:rgba(20,20,20,.12)}
 .hart-bars rect{transform-box:fill-box;transform-origin:bottom;transform:scaleY(0);animation:hart-grow 1.2s cubic-bezier(.22,1,.36,1) forwards}
 .js .hart-bars rect{animation-play-state:paused}.js .hart.go .hart-bars rect{animation-play-state:running}
 @keyframes hart-grow{to{transform:scaleY(1)}}
