@@ -333,7 +333,7 @@
       if (rev) { rev.cancel(); rev = null; }
       timers.forEach(clearTimeout); timers = [];
       anims.forEach(function(a){ a.cancel(); }); anims = []; fx.innerHTML = '';
-      pc.querySelectorAll('.pc-morph').forEach(function(e){ e.remove(); });
+      pc.querySelectorAll('.pc-morph,.pc > .pm').forEach(function(e){ e.remove(); });
       scr.classList.remove('light'); box.style.overflow = ''; box.style.zIndex = ''; app.classList.add('pre'); chat.style.visibility = ''; box.innerHTML = '';
     }
     if (reduce || !window.RoborabReveal || !pc.animate) { SCRIPT.forEach(function(m){ add(m[0], m[1]); }); app.classList.remove('pre'); chat.style.visibility = 'hidden'; return; }
@@ -360,23 +360,27 @@
       later(function(){ scr.classList.add('light'); }, last * .65);
       return wait(last + 150).then(function(){ return rect(card); });
     }
-    // 2. Карточка превращается в шапку: одна сплошная форма, без обрезки и обводки
+    // 2. Карточка поднимается и становится шапкой: только трансформация, без пересчёта раскладки
     function grow(c){
-      var card = box.querySelector('.pm.card'), m = document.createElement('div');
-      m.className = 'pc-morph';
-      m.style.cssText = 'left:' + c.x + 'px;top:' + c.y + 'px;width:' + c.w + 'px;height:' + c.h + 'px;border-radius:22px;background:#e9edf3';
-      var inner = card.cloneNode(true); inner.style.cssText = 'position:absolute;left:0;top:0;width:' + c.w + 'px;margin:0;background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;animation:none';
-      m.appendChild(inner); pc.appendChild(m);
+      var card = box.querySelector('.pm.card');
+      var sx = c.w / 300, sy = c.h / 118, R = 22;
+      var m = document.createElement('div'); m.className = 'pc-morph';
+      m.style.cssText = 'left:0;top:0;width:300px;height:118px;transform-origin:0 0;will-change:transform,border-radius;';
+      var txt = card.cloneNode(true);
+      txt.style.cssText = 'position:absolute;z-index:26;left:' + c.x + 'px;top:' + c.y + 'px;width:' + c.w + 'px;height:' + c.h + 'px;margin:0;background:none;border-color:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;animation:none';
+      pc.appendChild(m); pc.appendChild(txt);
       chat.style.visibility = 'hidden';
-      A(inner, [{opacity:1, filter:'blur(0)'}, {opacity:0, filter:'blur(4px)'}], {duration:600, easing:'ease-out'});
+      var from = 'translate(' + c.x + 'px,' + c.y + 'px) scale(' + sx.toFixed(4) + ',' + sy.toFixed(4) + ')';
+      var r0 = (R / sx).toFixed(2) + 'px / ' + (R / sy).toFixed(2) + 'px';
+      A(txt, [{opacity:1, filter:'blur(0px)'}, {opacity:0, filter:'blur(5px)'}], {duration:700, easing:'ease-out'});
       A(m, [
-        {left:c.x + 'px', top:c.y + 'px', width:c.w + 'px', height:c.h + 'px', borderRadius:'22px', backgroundColor:'#e9edf3'},
-        {backgroundColor:'#e9edf3', offset:.4},
-        {backgroundColor:'#2a2c31', offset:.8},
-        {left:'0px', top:'0px', width:'300px', height:'118px', borderRadius:'30px', backgroundColor:'#141414'}
-      ], {duration:1500, delay:150, easing:IO});
-      later(function(){ scr.classList.remove('light'); }, 950);
-      return wait(1700).then(function(){ app.classList.remove('pre'); app.querySelectorAll('[data-rr-from]').forEach(function(e){ e.style.opacity = 0; }); btns.forEach(function(b){ b.style.opacity = 0; }); app.querySelectorAll('[data-slide],.pc-cb').forEach(function(e){ e.style.opacity = 0; }); m.remove(); });
+        {transform:from, borderRadius:r0, backgroundColor:'#eef0f4', boxShadow:'0 6px 22px -10px rgba(10,30,70,.28)'},
+        {backgroundColor:'#e6e9ee', offset:.35},
+        {backgroundColor:'#26282c', offset:.8},
+        {transform:'translate(0px,0px) scale(1,1)', borderRadius:'30px', backgroundColor:'#141414', boxShadow:'0 6px 22px -10px rgba(10,30,70,0)'}
+      ], {duration:1800, delay:100, easing:'cubic-bezier(.65,0,.35,1)'});
+      later(function(){ scr.classList.remove('light'); }, 1150);
+      return wait(1950).then(function(){ app.classList.remove('pre'); app.querySelectorAll('[data-rr-from]').forEach(function(e){ e.style.opacity = 0; }); btns.forEach(function(b){ b.style.opacity = 0; }); app.querySelectorAll('[data-slide],.pc-cb').forEach(function(e){ e.style.opacity = 0; }); m.remove(); txt.remove(); });
     }
     // 3. Знак проявляется из размытия, экран собирается: плитки из-за края экрана, тачбар веером
     function build(){

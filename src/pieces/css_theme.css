@@ -362,7 +362,7 @@ h1.big{max-width:100%}
 .pc-b{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.55);color:#1b2a40;font:500 22px/1 var(--f-body,'Manrope'),system-ui,sans-serif}
 .pc-b svg{width:18px;height:18px}
 .pc-f{flex:1}
-.pc-morph{position:absolute;z-index:25;overflow:hidden;will-change:left,top,width,height}
+.pc-morph{position:absolute;z-index:25}
 .pc-fx{position:absolute;inset:0;z-index:40;pointer-events:none}
 .pc-ring{position:absolute;width:34px;height:34px;border-radius:50%;box-shadow:0 0 0 1.5px rgba(10,132,255,.85),0 0 16px rgba(10,132,255,.3);opacity:0}
 /* 8. Объёмные экраны */
