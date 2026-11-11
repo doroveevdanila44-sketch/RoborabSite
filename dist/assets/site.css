@@ -802,3 +802,7 @@ h1.big{max-width:100%}
 
 /* два способа начать вместо трёх */
 @media (min-width:901px){.ways{grid-template-columns:repeat(2,1fr)}}
+
+.cols3.cols4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1300px){.cols3.cols4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1000px){.cols3.cols4{grid-template-columns:1fr}.dk .dsub[style*=margin-left]{margin-left:0!important}}
