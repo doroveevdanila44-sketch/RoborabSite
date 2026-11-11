@@ -334,25 +334,30 @@
       timers.forEach(clearTimeout); timers = [];
       anims.forEach(function(a){ a.cancel(); }); anims = []; fx.innerHTML = '';
       pc.querySelectorAll('.pc-morph').forEach(function(e){ e.remove(); });
-      scr.classList.remove('light'); box.style.overflow = ''; app.classList.add('pre'); chat.style.visibility = ''; box.innerHTML = '';
+      scr.classList.remove('light'); box.style.overflow = ''; box.style.zIndex = ''; app.classList.add('pre'); chat.style.visibility = ''; box.innerHTML = '';
     }
     if (reduce || !window.RoborabReveal || !pc.animate) { SCRIPT.forEach(function(m){ add(m[0], m[1]); }); app.classList.remove('pre'); chat.style.visibility = 'hidden'; return; }
 
-    // 1. Чат растворяется вокруг карточки «Решение»: мягко, по очереди, без обрезки
+    // 1. Чат затекает в карточку «Решение»: всё плавно уходит под неё и растворяется внутри
     function fold(){
       var card = box.querySelector('.pm.card'), c = rect(card), cx = c.x + c.w / 2, cy = c.y + c.h / 2;
-      box.style.overflow = 'visible';
+      box.style.overflow = 'visible'; box.style.zIndex = 3;
       var away = [].slice.call(chat.querySelectorAll('.pm:not(.card),.pc-tabs,.pc-comp')).map(function(el){
-        var b = rect(el), dx = cx - b.x - b.w / 2, dy = cy - b.y - b.h / 2; return {el:el, dx:dx, dy:dy, d:Math.hypot(dx, dy)}; });
+        var b = rect(el), dx = cx - b.x - b.w / 2, dy = cy - b.y - b.h / 2; return {el:el, b:b, dx:dx, dy:dy, d:Math.hypot(dx, dy)}; });
       away.sort(function(p, q){ return p.d - q.d; });
       away.forEach(function(o, i){
-        A(o.el, [{opacity:1, transform:'none', filter:'blur(0px)'},
-                 {opacity:0, transform:'translate(' + (o.dx * .18).toFixed(1) + 'px,' + (o.dy * .18).toFixed(1) + 'px) scale(.94)', filter:'blur(6px)'}],
-          {duration:1600, delay:250 + i * 170, easing:'cubic-bezier(.4,0,.2,1)'}); });
-      A(card, [{transform:'scale(1)'}, {transform:'scale(1.02)', offset:.5}, {transform:'scale(1)'}], {duration:1800, delay:600, easing:'ease-in-out', fill:'none'});
-      A(sky, [{opacity:1}, {opacity:0}], {duration:2200, delay:600, easing:IO});
-      later(function(){ scr.classList.add('light'); }, 1900);
-      return wait(250 + away.length * 170 + 1600).then(function(){ return rect(card); });
+        var sx = Math.min(1, (c.w * .7) / o.b.w), sy = Math.min(1, (c.h * .6) / o.b.h), sc = Math.min(sx, sy);
+        var mid = 'translate(' + (o.dx * .7).toFixed(1) + 'px,' + (o.dy * .7).toFixed(1) + 'px) scale(' + ((1 + sc) / 2).toFixed(3) + ')';
+        var fin = 'translate(' + o.dx.toFixed(1) + 'px,' + o.dy.toFixed(1) + 'px) scale(' + (sc * .8).toFixed(3) + ')';
+        A(o.el, [{offset:0, opacity:1, transform:'none', filter:'blur(0px)'},
+                 {offset:.7, opacity:1, transform:mid, filter:'blur(.5px)'},
+                 {offset:1, opacity:0, transform:fin, filter:'blur(3px)'}],
+          {duration:1700, delay:250 + i * 190, easing:'cubic-bezier(.45,.05,.25,1)'}); });
+      var last = 250 + (away.length - 1) * 190 + 1700;
+      A(card, [{transform:'scale(1)'}, {transform:'scale(1.025)', offset:.5}, {transform:'scale(1)'}], {duration:1400, delay:last - 1100, easing:'ease-in-out', fill:'none'});
+      A(sky, [{opacity:1}, {opacity:0}], {duration:last - 500, delay:500, easing:IO});
+      later(function(){ scr.classList.add('light'); }, last * .65);
+      return wait(last + 150).then(function(){ return rect(card); });
     }
     // 2. Карточка превращается в шапку: одна сплошная форма, без обрезки и обводки
     function grow(c){
