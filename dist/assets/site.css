@@ -656,14 +656,14 @@ h1.big{max-width:100%}
 .dp-head{flex:none;height:26cqw;padding:13cqw 5.5cqw 0;border-radius:0 0 7cqw 7cqw;background:#141414;color:#fff;display:flex;align-items:center}
 .dp-head b{font:italic 900 5.2cqw/1 var(--fd);letter-spacing:-.02em}
 .dchat{flex:1;min-height:0;padding:5cqw 4cqw 2cqw;display:flex;flex-direction:column;justify-content:flex-start;gap:2.4cqw;overflow:hidden}
-.dmsg{align-self:flex-start;max-width:88%;padding:3cqw 4cqw;border-radius:7cqw 7cqw 7cqw 2.4cqw;background:rgba(255,255,255,.76);border:1px solid rgba(255,255,255,.75);backdrop-filter:blur(20px) saturate(1.7);-webkit-backdrop-filter:blur(20px) saturate(1.7);box-shadow:0 2.4cqw 6cqw -3.6cqw rgba(0,0,0,.3);color:#141414;font:500 4.4cqw/1.38 var(--f-body,'Manrope'),system-ui,sans-serif;animation:dmsg-in .4s cubic-bezier(.22,1,.36,1)}
-.dmsg.me{align-self:flex-end;background:rgba(20,20,20,.86);border-color:rgba(255,255,255,.2);color:#fff;border-radius:7cqw 7cqw 2.4cqw 7cqw}
+.dmsg{align-self:flex-start;max-width:88%;padding:3cqw 4cqw;border-radius:7.2cqw 7.2cqw 7.2cqw 2.6cqw;background:rgba(244,246,249,.78);border:1px solid rgba(255,255,255,.38);backdrop-filter:blur(30px) saturate(.9);-webkit-backdrop-filter:blur(30px) saturate(.9);box-shadow:0 1.6cqw 5.6cqw -2.6cqw rgba(10,30,70,.28);color:#141414;font:500 4.4cqw/1.38 var(--f-body,'Manrope'),system-ui,sans-serif;animation:dmsg-in .4s cubic-bezier(.22,1,.36,1)}
+.dmsg.me{align-self:flex-end;background:rgba(20,20,20,.78);border-color:rgba(255,255,255,.35);color:#fff;border-radius:7.2cqw 7.2cqw 2.6cqw 7.2cqw}
 .dmsg.typing{display:inline-flex;gap:1.3cqw;padding:3.6cqw 4.2cqw}
 .dmsg.typing i{width:1.7cqw;height:1.7cqw;border-radius:50%;background:rgba(20,20,20,.45);animation:dot 1s infinite}
 .dmsg.typing i:nth-child(2){animation-delay:.15s}.dmsg.typing i:nth-child(3){animation-delay:.3s}
 @keyframes dot{50%{transform:translateY(-1cqw);opacity:.4}}
 @keyframes dmsg-in{from{opacity:0;transform:translateY(3cqw) scale(.98)}}
-.dp-composer{flex:none;margin:0 3.4cqw 3cqw;min-height:14cqw;padding:1.6cqw;border-radius:7.5cqw;display:flex;align-items:center;gap:1.6cqw;border:1px solid rgba(255,255,255,.75);background:linear-gradient(135deg,rgba(10,132,255,.14),transparent 65%),rgba(255,255,255,.5);backdrop-filter:blur(20px) saturate(1.7);-webkit-backdrop-filter:blur(20px) saturate(1.7);box-shadow:0 2.6cqw 6cqw -3.6cqw rgba(0,0,0,.3)}
+.dp-composer{flex:none;margin:0 3.4cqw 3cqw;min-height:14cqw;padding:1.6cqw;border-radius:7.5cqw;display:flex;align-items:center;gap:1.6cqw;border:1px solid rgba(255,255,255,.38);background:linear-gradient(135deg,rgba(20,20,20,.14),transparent 65%),rgba(255,255,255,.5);backdrop-filter:blur(30px) saturate(.9);-webkit-backdrop-filter:blur(30px) saturate(.9);box-shadow:0 1.6cqw 5.6cqw -2.6cqw rgba(10,30,70,.28)}
 .dp-field{flex:1;font:500 3.8cqw/1 var(--f-body,'Manrope'),system-ui,sans-serif;color:rgba(20,20,20,.55)}
 .dp-btn{flex:none;display:grid;place-items:center;width:10.6cqw;height:10.6cqw;border-radius:50%;border:1px solid rgba(255,255,255,.75)}
 .dp-btn svg,.dp-tab svg{width:5.2cqw;height:5.2cqw;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
@@ -675,6 +675,39 @@ h1.big{max-width:100%}
 .dp-tab.on{background:rgba(255,255,255,.94);color:#0a84ff}
 .dp-home{position:absolute;left:50%;bottom:2cqw;width:34cqw;height:1.3cqw;margin-left:-17cqw;border-radius:99px;background:#141414}
 @media(max-width:760px){.dphone{width:min(90vw,400px)}}
+/* Блок «Что дальше»: чат превращается в приложение */
+.pview{position:absolute;inset:0;display:flex;flex-direction:column;transition:opacity 1.3s cubic-bezier(.45,.05,.25,1)}
+.pview.out{opacity:0}
+.dmsg.card{display:grid;gap:1.2cqw;width:76%;padding:3.6cqw 4cqw;background:rgba(244,246,249,.78)}
+.dmsg.card small{font:800 3cqw/1 var(--f-body,'Manrope'),system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#0a84ff}
+.dmsg.card b{font:italic 900 6cqw/1.1 var(--fd);letter-spacing:-.02em}
+.dmsg.card span{font-size:3.8cqw;color:rgba(20,20,20,.62)}
+.dapp{position:absolute;inset:0;z-index:2;visibility:hidden;display:flex;flex-direction:column;pointer-events:none;transition:opacity .8s ease}
+.dapp.on{visibility:visible}
+.dapp [data-rr-from]{opacity:0}
+.dapp.done [data-rr-from]{opacity:1}
+.da-bg{position:absolute;inset:0;background:#f6f8fb;opacity:0;transition:opacity 1.4s cubic-bezier(.45,.05,.25,1)}
+.dapp.on .da-bg,.dapp.done .da-bg{opacity:1}
+.dapp>*{position:relative}.dapp>.da-bg{position:absolute}
+.da-head{flex:none;height:26cqw;padding:13cqw 5.5cqw 0;border-radius:0 0 7cqw 7cqw;background:#141414;color:#fff;display:flex;align-items:center;justify-content:space-between}
+.da-head b{font:italic 900 5.2cqw/1 var(--fd);letter-spacing:-.02em}
+.da-head svg{width:5.4cqw;height:5.4cqw;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.da-search{flex:none;margin:4cqw 4cqw 0;height:11cqw;padding:0 4cqw;border-radius:5.5cqw;border:1px solid rgba(20,20,20,.12);background:#fff;display:flex;align-items:center;gap:2cqw;color:rgba(20,20,20,.45);font:500 3.6cqw/1 var(--f-body,'Manrope'),system-ui,sans-serif}
+.da-search svg{width:4.6cqw;height:4.6cqw;fill:none;stroke:#141414;stroke-width:1.9;stroke-linecap:round}
+.da-grid{flex:none;display:grid;grid-template-columns:1fr 1fr;gap:3cqw;margin:4cqw 4cqw 0}
+.da-t{display:grid;gap:.6cqw;padding:3.4cqw 4cqw;border-radius:6cqw;font-family:var(--f-body,'Manrope'),system-ui,sans-serif}
+.da-t small{font-weight:800;font-size:3.6cqw}.da-t b{font:italic 900 9cqw/1.05 var(--fd)}.da-t span{font-size:3.6cqw;opacity:.75}
+.da-t.k{background:#141414;color:#fff}.da-t.k b{color:#b8d8ff}
+.da-t.l{background:#b8d8ff;color:#141414}
+.da-t.w{background:#fff;color:#141414;border:1px solid rgba(20,20,20,.1)}
+.da-cap{flex:none;margin:5cqw 4cqw 0;font:italic 900 3.6cqw/1 var(--fd);letter-spacing:.04em;text-transform:uppercase;color:#141414}
+.da-note{flex:none;margin:2.4cqw 4cqw 0;padding:3.6cqw 4cqw;border-radius:5.5cqw;border:1px solid rgba(20,20,20,.1);background:#fff;font:500 3.8cqw/1.4 var(--f-body,'Manrope'),system-ui,sans-serif;color:#141414}
+.da-dock{position:absolute!important;left:0;right:0;bottom:0;display:flex;justify-content:center;gap:2cqw;padding:0 0 7cqw}
+.da-tab{display:grid;place-items:center;width:15cqw;height:15cqw;border-radius:5.8cqw;border:1px solid rgba(255,255,255,.75);background:linear-gradient(160deg,rgba(20,20,20,.16),transparent 72%),rgba(255,255,255,.55);backdrop-filter:blur(30px) saturate(.9);-webkit-backdrop-filter:blur(30px) saturate(.9);box-shadow:0 1.6cqw 5.6cqw -2.6cqw rgba(10,30,70,.28);color:#141414}
+.da-tab svg{width:6.2cqw;height:6.2cqw;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.da-tab.on{background:rgba(255,255,255,.94);color:#0a84ff}
+.da-chat{position:absolute!important;right:3.4cqw;bottom:27cqw;width:62cqw;padding:3cqw 4cqw;border-radius:7.2cqw 7.2cqw 2.6cqw 7.2cqw;background:rgba(244,246,249,.78);border:1px solid rgba(255,255,255,.38);backdrop-filter:blur(30px) saturate(.9);-webkit-backdrop-filter:blur(30px) saturate(.9);box-shadow:0 1.6cqw 5.6cqw -2.6cqw rgba(10,30,70,.28);color:#141414;font:500 3.8cqw/1.38 var(--f-body,'Manrope'),system-ui,sans-serif}
+.da-chat small{display:block;margin-bottom:1cqw;font:800 2.8cqw/1 var(--f-body,'Manrope'),system-ui,sans-serif;letter-spacing:.08em;color:#0a84ff}
 /* 8. Объёмные экраны */
 .product-gallery{perspective:900px}
 .tilting.shot{transition:transform .12s ease-out!important;background-image:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.32),transparent 60%),var(--s)!important}

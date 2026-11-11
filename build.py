@@ -252,7 +252,7 @@ def build(out):
         body = body.replace('{{' + name + '}}', piece)
 
     css = '\n'.join(read_piece(name) for name in ('new.css', 'css_dialogs.css', 'css_dl.css', 'css_theme.css'))
-    js = '\n'.join(read_piece(name) for name in ('js_dialogs.js', 'new.js'))
+    js = '\n'.join(read_piece(name) for name in ('js_dialogs.js', 'js_reveal.js', 'new.js'))
     image_vars = []
     for name in sorted(set(re.findall(r'var\(--img-([a-z0-9-]+)\b', css + body))):
         image_vars.append(f'  --img-{name}:url({webp_url(name)});')

@@ -300,6 +300,63 @@
     onScreen(box, function(v){ live = v; if (v && !started) { started = true; play(); } }, {threshold: .3});
   })();
 
+  /* 5б. Блок «Что дальше»: чат превращается в приложение (единое появление экрана из roborab-reveal.js) */
+  (function(){
+    var box = $('#pchat'), view = $('#pview'), app = $('#papp');
+    if (!box || !view || !app) return;
+    var SCRIPT = [
+      ['bot', 'Мы подготовили для вас решение. Посмотрите, подходит ли оно вам.'],
+      ['card'],
+      ['bot', 'Вы готовы к запуску бесплатного пилота?'],
+      ['me', 'Да, можете запускать'],
+      ['bot', 'Отлично. Приготовьтесь, начинаем!']
+    ];
+    function wait(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
+    function fit(){ while (box.children.length > 1 && box.scrollHeight > box.clientHeight + 1) box.firstChild.remove(); }
+    function add(who, text){
+      var d = document.createElement('div'); d.className = 'dmsg' + (who === 'me' ? ' me' : '');
+      if (who === 'card') { d.className = 'dmsg card'; d.innerHTML = '<small>Решение</small><b>Фитнес-CRM</b><span>Абонементы, продления, расписание</span>'; }
+      else d.textContent = text;
+      box.appendChild(d); fit(); return d;
+    }
+    if (reduce || !window.RoborabReveal) {
+      SCRIPT.forEach(function(m){ add(m[0], m[1]); });
+      view.classList.add('out'); app.classList.add('on', 'done');
+      return;
+    }
+    var started = false, live = false, run = null;
+    function reset(){
+      if (run) { run.cancel(); run = null; }
+      app.classList.remove('on'); app.style.opacity = ''; view.classList.remove('out'); box.innerHTML = '';
+    }
+    async function play(){
+      for (;;) {
+        reset();
+        await wait(800);
+        for (var i = 0; i < SCRIPT.length; i++) {
+          while (!live) await wait(400);
+          var who = SCRIPT[i][0], text = SCRIPT[i][1];
+          if (who === 'bot') {
+            var t = document.createElement('div'); t.className = 'dmsg typing'; t.innerHTML = '<i></i><i></i><i></i>'; box.appendChild(t);
+            await wait(1000); t.remove();
+            var d = add(who, '');
+            for (var k = 1; k <= text.length; k++) { d.textContent = text.slice(0, k); fit(); await wait(16); }
+          } else if (who === 'card') { await wait(500); add('card'); }
+          else { await wait(1100); add(who, text); }
+          await wait(who === 'card' ? 1500 : 900);
+        }
+        await wait(1100);
+        view.classList.add('out'); app.classList.add('on');
+        run = RoborabReveal.run(app, {speed: 1});
+        await run.finished;
+        await wait(7000);
+        app.style.opacity = '0';
+        await wait(900);
+      }
+    }
+    onScreen(box, function(v){ live = v; if (v && !started) { started = true; play(); } }, {threshold: .3});
+  })();
+
   /* 8. Объёмные экраны в каталоге */
   (function(){
     if (reduce || !matchMedia('(hover:hover) and (pointer:fine)').matches) return;
