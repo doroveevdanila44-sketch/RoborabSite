@@ -174,20 +174,23 @@
     htext.style.transform = keep; cacheGeo(); frame();
   }
   var sy = window.scrollY || 0, last = 0, raf = 0;
+  var lastCp = '', lastHo = '', lastWo = '', lastWy = '';
   var touchScroll = matchMedia('(pointer:coarse)').matches;
   function frame(){
     var y = sy, vh = window.innerHeight || 800;
     if (reduce || !R) { paintEdges(); return; }
     var t = clamp(y / (vh * 0.6)), e = 1 - Math.pow(1 - t, 3);
     var rad = Math.max(0, R.h / 2 * (1 - e));
-    himg.style.clipPath = 'inset(' + (R.t * (1 - e)) + 'px ' + (R.r * (1 - e)) + 'px ' + (R.b * (1 - e)) + 'px ' + (R.l * (1 - e)) + 'px round ' + rad + 'px)';
-    himg.style.setProperty('--sc', (1.18 - 0.18 * e).toFixed(3));
+    // пишем в стили только то, что изменилось: после раскрытия окна эти значения не меняются, и браузер не перерисовывает слой впустую
+    var cp = 'inset(' + (R.t * (1 - e)).toFixed(1) + 'px ' + (R.r * (1 - e)).toFixed(1) + 'px ' + (R.b * (1 - e)).toFixed(1) + 'px ' + (R.l * (1 - e)).toFixed(1) + 'px round ' + rad.toFixed(1) + 'px)';
+    if (cp !== lastCp) { lastCp = cp; himg.style.clipPath = cp; himg.style.setProperty('--sc', (1.18 - 0.18 * e).toFixed(3)); }
     var to = clamp(y / (vh * 0.3));
-    htext.style.opacity = (1 - to).toFixed(3);
-    htext.style.transform = 'translateY(' + (-to * 50).toFixed(1) + 'px)';
+    var ho = (1 - to).toFixed(3), hy = 'translateY(' + (-to * 50).toFixed(1) + 'px)';
+    if (ho !== lastHo) { lastHo = ho; htext.style.opacity = ho; htext.style.transform = hy; }
     var wi = clamp((y - vh * 0.3) / (vh * 0.45)), wout = 1 - clamp((y - vh * 1.5) / (vh * 0.5));
-    hword.style.setProperty('--wo', (wi * wout).toFixed(3));
-    hword.style.setProperty('--wy', ((1 - wi) * 40 - clamp((y - vh) / vh) * 60).toFixed(1) + 'px');
+    var wo = (wi * wout).toFixed(3), wy = ((1 - wi) * 40 - clamp((y - vh) / vh) * 60).toFixed(1) + 'px';
+    if (wo !== lastWo) { lastWo = wo; hword.style.setProperty('--wo', wo); }
+    if (wy !== lastWy) { lastWy = wy; hword.style.setProperty('--wy', wy); }
     // Safari берёт цвет панелей у элемента под краем экрана: когда лаймовое окно раскрылось, им должно быть оно
     var open = e > 0.985;
     if (open !== heroOpen) {
@@ -223,7 +226,9 @@
   /* 2. Жидкий градиент в окне «РОБОРАБ»: маленький холст, браузер сам растягивает, 30 кадров в секунду */
   (function(){
     var c = $('#liquid'); if (!c) return;
-    var ctx = c.getContext('2d', {alpha: false}), live = false, last = 0;
+    var ctx = c.getContext('2d', {alpha: false}), live = false, last = 0, scrolling = false, scT = 0;
+    // пока идёт прокрутка, градиент не перерисовываем: главный поток нужен для анимации героя
+    window.addEventListener('scroll', function(){ scrolling = true; clearTimeout(scT); scT = setTimeout(function(){ scrolling = false; }, 140); }, {passive: true});
     var blobs = [
       {c:[10,132,255], a:.95, r:.62, x:.25, y:.35, ax:.34, ay:.3, sx:.42, sy:.37, p:0},
       {c:[4,16,40], a:.9, r:.55, x:.78, y:.68, ax:.3, ay:.28, sx:.33, sy:.46, p:1.7},
@@ -256,6 +261,7 @@
     var raf = 0;
     function loop(now){
       raf = 0; if (!live) return;
+      if (scrolling) { raf = requestAnimationFrame(loop); return; }
       if (now - last > 33) { last = now; draw(now / 1000 * 1.7); }
       raf = requestAnimationFrame(loop);
     }
