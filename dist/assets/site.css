@@ -809,3 +809,11 @@ h1.big{max-width:100%}
 
 .cols3.cols2{grid-template-columns:repeat(2,1fr)}.cols3.cols2 span{font-size:clamp(16px,1.4vw,19px)}
 @media(max-width:1000px){.cols3.cols2{grid-template-columns:1fr}}
+
+.irows{position:relative;margin-top:clamp(32px,4vw,56px);margin-left:calc(200px + clamp(14px,3vw,48px));border-bottom:1px solid rgba(255,255,255,.2)}
+.irow{display:grid;grid-template-columns:minmax(120px,.7fr) minmax(0,1fr) minmax(0,1.3fr);gap:clamp(12px,2vw,32px);padding:clamp(16px,1.8vw,24px) 0;border-top:1px solid rgba(255,255,255,.2);align-items:start}
+.irow b{font:italic 800 clamp(20px,2vw,28px)/1.1 var(--fd);letter-spacing:-.03em}
+.irow span{color:rgba(255,255,255,.72);font:400 15px/1.45 var(--f)}.irow span i{display:block;margin-bottom:6px;font:500 11px/1 var(--f);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--lime-text)}
+.irow span:last-child{color:#fff}
+.dk .iwide{position:relative;margin-top:clamp(32px,4vw,56px);margin-left:calc(200px + clamp(14px,3vw,48px))}
+@media(max-width:1000px){.irows,.dk .iwide{margin-left:0}.irow{grid-template-columns:1fr;gap:8px}}
