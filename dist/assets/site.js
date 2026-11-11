@@ -438,11 +438,11 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
       var card = box.querySelector('.pm.card'), c = rect(card), cx = c.x + c.w / 2, cy = c.y + c.h / 2;
       var away = [].slice.call(chat.querySelectorAll('.pm:not(.card),.pc-tabs,.pc-comp'));
       away.forEach(function(el, i){ var b = rect(el), dx = (cx - b.x - b.w / 2) * .9, dy = (cy - b.y - b.h / 2) * .9;
-        A(el, [{opacity:1, transform:'none'}, {opacity:.85, offset:.45}, {opacity:0, transform:'translate(' + dx + 'px,' + dy + 'px) scale(.42)'}], {duration:1000, delay:i * 70, easing:IO}); });
-      A(card, [{transform:'scale(1)'}, {transform:'scale(1.035)', offset:.55}, {transform:'scale(1)'}], {duration:900, delay:750, easing:'ease-in-out', fill:'none'});
-      A(sky, [{opacity:1}, {opacity:0}], {duration:1500, delay:350, easing:IO});
-      later(function(){ scr.classList.add('light'); }, 900);
-      return wait(1700).then(function(){ return c; });
+        A(el, [{opacity:1, transform:'none'}, {opacity:.85, offset:.45}, {opacity:0, transform:'translate(' + dx + 'px,' + dy + 'px) scale(.42)'}], {duration:1350, delay:200 + i * 150, easing:IO}); });
+      A(card, [{transform:'scale(1)'}, {transform:'scale(1.035)', offset:.55}, {transform:'scale(1)'}], {duration:1100, delay:1300, easing:'ease-in-out', fill:'none'});
+      A(sky, [{opacity:1}, {opacity:0}], {duration:2300, delay:500, easing:IO});
+      later(function(){ scr.classList.add('light'); }, 1500);
+      return wait(2700).then(function(){ return c; });
     }
     // 2. Карточка превращается в шапку: одна сплошная форма, без обрезки и обводки
     function grow(c){
@@ -452,41 +452,46 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
       var inner = card.cloneNode(true); inner.style.cssText = 'position:absolute;left:0;top:0;width:' + c.w + 'px;margin:0;background:none;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;animation:none';
       m.appendChild(inner); pc.appendChild(m);
       chat.style.visibility = 'hidden';
-      A(inner, [{opacity:1, transform:'none'}, {opacity:0, transform:'translateY(-6px)'}], {duration:420, easing:'ease-out'});
+      A(inner, [{opacity:1, filter:'blur(0)'}, {opacity:0, filter:'blur(4px)'}], {duration:600, easing:'ease-out'});
       A(m, [
         {left:c.x + 'px', top:c.y + 'px', width:c.w + 'px', height:c.h + 'px', borderRadius:'22px', backgroundColor:'#e9edf3'},
         {backgroundColor:'#e9edf3', offset:.4},
         {backgroundColor:'#2a2c31', offset:.8},
         {left:'0px', top:'0px', width:'300px', height:'118px', borderRadius:'0px 0px 30px 30px', backgroundColor:'#141414'}
-      ], {duration:1250, delay:120, easing:IO});
-      later(function(){ scr.classList.remove('light'); }, 800);
-      return wait(1400).then(function(){ app.classList.remove('pre'); app.querySelectorAll('[data-rr-from]').forEach(function(e){ e.style.opacity = 0; }); btns.forEach(function(b){ b.style.opacity = 0; }); m.remove(); });
+      ], {duration:1500, delay:150, easing:IO});
+      later(function(){ scr.classList.remove('light'); }, 950);
+      return wait(1700).then(function(){ app.classList.remove('pre'); app.querySelectorAll('[data-rr-from]').forEach(function(e){ e.style.opacity = 0; }); btns.forEach(function(b){ b.style.opacity = 0; }); app.querySelectorAll('[data-slide],.pc-cb').forEach(function(e){ e.style.opacity = 0; }); m.remove(); });
     }
-    // 3. Экран выезжает по порядку; кнопки выходят веером одна из-под другой
+    // 3. Знак проявляется из размытия, экран собирается: плитки из-за края экрана, тачбар веером
     function build(){
-      A(wm, [{clipPath:'inset(0 100% 0 0)', transform:'translateX(-8px)'}, {clipPath:'inset(0 0 0 0)', transform:'none'}], {duration:900, easing:OUT});
-      A(gear, [{opacity:0, transform:'rotate(-90deg) scale(.7)'}, {opacity:1, transform:'none'}], {duration:1000, delay:100, easing:APPLE});
+      [].slice.call(wm.children).forEach(function(ch, i){
+        A(ch, [{opacity:0, filter:'blur(8px)', transform:'translateY(3px)'}, {opacity:1, filter:'blur(0)', transform:'none'}], {duration:900, delay:i * 90, easing:'cubic-bezier(.25,.1,.25,1)'}); });
+      A(gear, [{opacity:0, filter:'blur(6px)'}, {opacity:1, filter:'blur(0)'}], {duration:900, delay:350, easing:'ease-out'});
       app.querySelectorAll('[data-rr-from]').forEach(function(e){ e.style.opacity = ''; });
-      rev = RoborabReveal.run(app, {delay:-RoborabReveal.STEP + 140, speed:1});
-      var t0 = 1100, step = 54;
-      btns.forEach(function(b){ b.style.opacity = ''; });
-      A(btns[0], [{opacity:0, transform:'translateY(26px) scale(.7)'}, {opacity:1, offset:.4}, {opacity:1, transform:'none'}], {duration:900, delay:t0, easing:APPLE});
+      var S = RoborabReveal.STEP, base = 300 - S, EASE = 'cubic-bezier(.45,.05,.25,1)';
+      rev = RoborabReveal.run(app, {delay:base, speed:1});
+      app.querySelectorAll('[data-slide]').forEach(function(t){
+        var r = rect(t), dx = t.dataset.slide === 'left' ? -(r.x + r.w + 8) : (300 - r.x + 8);
+        A(t, [{opacity:1, transform:'translateX(' + dx + 'px)'}, {opacity:1, transform:'none'}], {duration:1500, delay:base + (+t.dataset.order) * S, easing:EASE}); });
+      A(app.querySelector('.pc-cb'), [{opacity:0, transform:'translateX(38px)'}, {opacity:1, offset:.12}, {opacity:1, transform:'none'}], {duration:1300, delay:base + 7 * S, easing:EASE});
+      var t0 = base + 3 * S, step = 57;
+      A(btns[0], [{opacity:0, transform:'translateY(30px)'}, {opacity:1, offset:.35}, {opacity:1, transform:'none'}], {duration:1200, delay:t0, easing:EASE});
       btns.slice(1).forEach(function(b, i){
-        var k = i + 1, hold = t0 + 650 + i * 150, dur = 1000;
+        var k = i + 1, hold = t0 + 900 + i * 260, dur = 1300;
         A(b, [
           {offset:0, opacity:0, transform:'translateX(' + (-k * step) + 'px)'},
           {offset:hold / (hold + dur) - .001, opacity:0, transform:'translateX(' + (-k * step) + 'px)'},
-          {offset:hold / (hold + dur), opacity:1, transform:'translateX(' + (-k * step) + 'px)', easing:APPLE},
+          {offset:hold / (hold + dur), opacity:1, transform:'translateX(' + (-k * step) + 'px)', easing:EASE},
           {offset:1, opacity:1, transform:'none'}
         ], {duration:hold + dur, easing:'linear'});
       });
-      return Promise.all([rev.finished, wait(t0 + 650 + 3 * 150 + 1000)]);
+      return Promise.all([rev.finished, wait(base + 7 * S + 1300)]);
     }
     // 4. Чат остаётся рядом: мягкая волна вокруг его кнопки
     function ring(){
-      var b = rect(btns[3]);
+      var b = rect(app.querySelector('.pc-cb'));
       [0, 420].forEach(function(d){ var p = document.createElement('i'); p.className = 'pc-ring'; p.style.left = b.x + 'px'; p.style.top = b.y + 'px'; fx.appendChild(p);
-        A(p, [{opacity:.9, transform:'scale(1)'}, {opacity:0, transform:'scale(1.75)'}], {duration:1600, delay:d, easing:'cubic-bezier(.2,.6,.3,1)'}); });
+        A(p, [{opacity:.9, transform:'scale(1)'}, {opacity:0, transform:'scale(2.2)'}], {duration:1700, delay:d, easing:'cubic-bezier(.2,.6,.3,1)'}); });
       return wait(2000);
     }
     var started = false, live = false;
