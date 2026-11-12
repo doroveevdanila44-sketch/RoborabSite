@@ -300,6 +300,8 @@ def build(out):
     source_assets = ROOT / 'assets'
     assets = out / 'assets'
     assets.mkdir()
+    for _f in ('miratrix.woff2', 'miratrix-OFL.txt'):
+        (assets / _f).write_bytes((source_assets / _f).read_bytes())
 
     def webp_url(name):
         filename = name + '.webp'

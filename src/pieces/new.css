@@ -16,8 +16,8 @@ a{color:inherit}
 .solution-page{width:min(100% - 32px,820px);padding-block:clamp(32px,7vw,88px)}
 .solution-page>nav:first-child{display:flex;flex-wrap:wrap;gap:8px 20px}
 .solution-page article{margin-top:32px;padding:clamp(18px,5vw,48px);border-radius:clamp(22px,4vw,42px);background:#fff}
-.solution-page h1{font:300 clamp(29px,5vw,58px)/1.06 var(--fd);letter-spacing:-.035em;margin:0;overflow-wrap:anywhere}
-.solution-page h2{font:300 clamp(20px,3vw,28px)/1.2 var(--fd);margin:28px 0 8px}
+.solution-page h1{font:400 clamp(22px,3.8vw,44px)/1.12 var(--fd);letter-spacing:.012em;margin:0;overflow-wrap:anywhere}
+.solution-page h2{font:400 clamp(17px,2.2vw,22px)/1.2 var(--fd);margin:28px 0 8px}
 .solution-page section p,.solution-page section ul{margin-block:0}
 .solution-page section li+li{margin-top:6px}
 .solution-page .btn{margin-top:28px;max-width:100%;white-space:normal;line-height:1.3}
