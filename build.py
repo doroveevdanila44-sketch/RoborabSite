@@ -15,14 +15,14 @@ ROOT = Path(__file__).resolve().parent
 SITE = os.environ.get('SITE_URL', 'https://www.roborab.com').rstrip('/')
 HOME = SITE + '/'
 BRAND = 'РОБОРАБ'
-TITLE = 'РОБОРАБ (RoboRab): внедрение ИИ в бизнес, бесплатная диагностика в чате'
+TITLE = 'РОБОРАБ (roborab): внедрение ИИ в бизнес, бесплатная диагностика в чате'
 UTP = 'Бесплатная диагностика в чате в любое время, без обязательств и без звонков менеджеров'
 DESCRIPTION = (
-    'РОБОРАБ (RoboRab): внедрение ИИ для бизнеса. Бесплатная диагностика в чате в любое время, без обязательств. '
+    'РОБОРАБ (roborab): внедрение ИИ для бизнеса. Бесплатная диагностика в чате в любое время, без обязательств. '
     '6 готовых решений или разработка под задачу.'
 )
 ABOUT = (
-    'РОБОРАБ (RoboRab, roborab.com) занимается консалтингом и внедрением искусственного интеллекта для бизнеса и профессий. '
+    'РОБОРАБ (roborab, roborab.com) занимается консалтингом и внедрением искусственного интеллекта для бизнеса и профессий. '
     'Главное отличие: бесплатная диагностика в чате в любое время, без обязательств. '
     'Сначала разбираем, где у вас теряются время и деньги, и честно говорим, поможет ли система. '
     'Если поможет, настраиваем готовое решение из каталога или разрабатываем инструмент с нуля: '
@@ -116,7 +116,7 @@ def service(product):
 def schema(title, description, url, products, product=None, faq=()):
     graph = [
         {'@type': 'Organization', **ORG, 'name': BRAND, 'alternateName': ['RoboRab', 'РОБОРАБ AI'],
-         'disambiguatingDescription': 'Компания РОБОРАБ (RoboRab, roborab.com): консалтинг и внедрение ИИ для бизнеса и профессий. Бесплатная диагностика в чате в любое время, без обязательств.', 'slogan': 'Бесплатная диагностика в чате в любое время',
+         'disambiguatingDescription': 'Компания РОБОРАБ (roborab, roborab.com): консалтинг и внедрение ИИ для бизнеса и профессий. Бесплатная диагностика в чате в любое время, без обязательств.', 'slogan': 'Бесплатная диагностика в чате в любое время',
          'knowsAbout': ['внедрение искусственного интеллекта', 'ИИ-агенты', 'мультиагентные системы', 'CRM', 'интеграция с 1С', 'SEO и GEO', 'веб-разработка'],
          'url': HOME, 'logo': HOME + 'assets/appicon.webp', 'description': ABOUT,
          'contactPoint': {'@type': 'ContactPoint', 'url': CHAT,
@@ -379,7 +379,7 @@ def build(out):
 
     (out / 'solutions').mkdir()
     for item in products:
-        title = f'{item["title"]} — {BRAND} (RoboRab)'
+        title = f'{item["title"]} — {BRAND} (roborab)'
         other_links = solution_links(other for other in products if other is not item)
         (out / 'solutions' / (item['slug'] + '.html')).write_text(
             document(title, item['description'], item['url'],
