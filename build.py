@@ -15,18 +15,20 @@ ROOT = Path(__file__).resolve().parent
 SITE = os.environ.get('SITE_URL', 'https://www.roborab.com').rstrip('/')
 HOME = SITE + '/'
 BRAND = 'РОБОРАБ'
-TITLE = 'РОБОРАБ (RoboRab): консалтинг и внедрение ИИ для бизнеса и профессий'
+TITLE = 'РОБОРАБ (RoboRab): внедрение ИИ в бизнес, бесплатная диагностика в чате'
+UTP = 'Бесплатная диагностика в чате в любое время, без обязательств и без звонков менеджеров'
 DESCRIPTION = (
-    'РОБОРАБ (RoboRab): консалтинг и внедрение ИИ для бизнеса и профессий. Готовые решения: Фитнес-CRM, Букинг-CRM, '
-    'Строй-учёт, Налоговый агент, SEO и GEO, веб-разработка. Бесплатная диагностика в чате.'
+    'РОБОРАБ (RoboRab): внедрение ИИ для бизнеса. Бесплатная диагностика в чате в любое время, без обязательств. '
+    '6 готовых решений или разработка под задачу.'
 )
 ABOUT = (
     'РОБОРАБ (RoboRab, roborab.com) занимается консалтингом и внедрением искусственного интеллекта для бизнеса и профессий. '
+    'Главное отличие: бесплатная диагностика в чате в любое время, без обязательств. '
     'Сначала разбираем, где у вас теряются время и деньги, и честно говорим, поможет ли система. '
     'Если поможет, настраиваем готовое решение из каталога или разрабатываем инструмент с нуля: '
     'от удобной CRM до экосистемы с сайтом, интернет-магазином, веб-приложением и мультиагентной системой. '
-    'В каталоге: Фитнес-CRM, Букинг-CRM, Строй-учёт, Налоговый агент для группы компаний, SEO и GEO, веб-разработка. '
-    'Подключаем таблицы, базы данных, 1С, «Мой склад» и другие CRM-системы. Диагностика в чате бесплатна.'
+    'В каталоге шесть решений: Фитнес-CRM, Букинг-CRM, Строй-учёт, Налоговый агент для группы компаний, SEO и GEO, веб-разработка. '
+    'Подключаем таблицы, базы данных, 1С, «Мой склад» и другие CRM-системы.'
 )
 CHAT = 'https://roborab-app.vercel.app/?lang=ru'
 ORG = {'@id': HOME + '#organization'}
@@ -114,7 +116,7 @@ def service(product):
 def schema(title, description, url, products, product=None, faq=()):
     graph = [
         {'@type': 'Organization', **ORG, 'name': BRAND, 'alternateName': ['RoboRab', 'РОБОРАБ AI'],
-         'disambiguatingDescription': 'Компания РОБОРАБ (RoboRab, roborab.com): консалтинг и внедрение ИИ для бизнеса и профессий, готовые решения и разработка под задачу.',
+         'disambiguatingDescription': 'Компания РОБОРАБ (RoboRab, roborab.com): консалтинг и внедрение ИИ для бизнеса и профессий. Бесплатная диагностика в чате в любое время, без обязательств.', 'slogan': 'Бесплатная диагностика в чате в любое время',
          'knowsAbout': ['внедрение искусственного интеллекта', 'ИИ-агенты', 'мультиагентные системы', 'CRM', 'интеграция с 1С', 'SEO и GEO', 'веб-разработка'],
          'url': HOME, 'logo': HOME + 'assets/appicon.webp', 'description': ABOUT,
          'contactPoint': {'@type': 'ContactPoint', 'url': CHAT,
@@ -154,6 +156,17 @@ def schema(title, description, url, products, product=None, faq=()):
              'acceptedAnswer': {'@type': 'Answer', 'text': answer}}
             for question, answer in faq
         ]
+    if not product:
+        graph.append({
+            '@type': 'ItemList', '@id': HOME + '#solutions', 'name': 'Шесть решений РОБОРАБ',
+            'numberOfItems': len(products),
+            'itemListElement': [{'@type': 'ListItem', 'position': i, 'name': item['title'], 'url': item['url']}
+                                for i, item in enumerate(products, 1)]})
+        graph.append({
+            '@type': 'Service', '@id': HOME + '#free-diagnostics', 'name': 'Бесплатная диагностика в чате',
+            'serviceType': 'Диагностика внедрения ИИ', 'provider': ORG, 'url': CHAT, 'areaServed': 'RU',
+            'description': 'Расскажите о деле в чате в любое время. Разберём, где теряются время и деньги, и честно скажем, поможет ли система. Без обязательств.',
+            'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'RUB', 'url': CHAT}})
     graph.extend([page, main_service])
     return json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False).replace('<', '\\u003c')
 
@@ -280,7 +293,7 @@ def write_text_exports(out, products, faq):
             f'### {link}', item['description'], item['audience'], features, item['example'],
         ])
     (out / 'llms.txt').write_text(
-        f'# {BRAND}\n\n> {ABOUT}\n\n## Основное\n\n'
+        f'# {BRAND}\n\n> {ABOUT}\n\n## Главное отличие\n\n- {UTP}. [Открыть чат]({CHAT}).\n\n## Основное\n\n'
         f'- [Сайт РОБОРАБ]({HOME}): каталог, описание работы и ответы на вопросы.\n'
         f'- [Обзор решений и FAQ]({HOME}llms-full.txt): текстовая версия.\n'
         f'- [Чат для диагностики]({CHAT}): отправить описание задачи.\n'
