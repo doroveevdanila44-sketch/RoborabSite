@@ -454,3 +454,4 @@ h1.big{max-width:100%}
 
 /* цифры на плашках: сплошной цвет + opacity на элементе, чтобы наслоение глифов не темнило */
 .way .gn{color:#141414;opacity:.07}.way.bl .gn{color:#fff;opacity:.14}.ways>.way:last-child .gn{color:#fff;opacity:.16}
+.ways>.way:first-child .gn{right:.2em}

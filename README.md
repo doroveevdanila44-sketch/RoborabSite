@@ -1,6 +1,6 @@
 # РОБОРАБ
 
-Русскоязычная витрина [roborab.com](https://roborab.com/). Форма и кнопки ведут в [РОБОРАБ AI](https://roborabaichat.vercel.app/).
+Русскоязычная витрина [roborab.com](https://roborab.com/). Форма и кнопки ведут в [РОБОРАБ AI](https://roborab-app.vercel.app/).
 
 - `src/pieces/` — разметка, стили и скрипты актуальной витрины.
 - `assets/` — исходные изображения, `design/` — дизайн-система.

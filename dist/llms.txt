@@ -6,7 +6,7 @@
 
 - [Сайт РОБОРАБ](https://www.roborab.com/): каталог, описание работы и ответы на вопросы.
 - [Обзор решений и FAQ](https://www.roborab.com/llms-full.txt): текстовая версия.
-- [Чат для диагностики](https://roborabaichat.vercel.app/?lang=ru): отправить описание задачи.
+- [Чат для диагностики](https://roborab-app.vercel.app/?lang=ru): отправить описание задачи.
 
 ## Когда подходит РОБОРАБ
 

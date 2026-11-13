@@ -22,7 +22,7 @@
     },
     {
       "source": "/:legacyChat(chat|chat\\.html)",
-      "destination": "https://roborabaichat.vercel.app/",
+      "destination": "https://roborab-app.vercel.app/",
       "permanent": true
     }
   ]

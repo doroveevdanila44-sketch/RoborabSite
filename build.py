@@ -28,7 +28,7 @@ ABOUT = (
     'В каталоге: Фитнес-CRM, Букинг-CRM, Строй-учёт, Налоговый агент для группы компаний, SEO и GEO, веб-разработка. '
     'Подключаем таблицы, базы данных, 1С, «Мой склад» и другие CRM-системы. Диагностика в чате бесплатна.'
 )
-CHAT = 'https://roborabaichat.vercel.app/?lang=ru'
+CHAT = 'https://roborab-app.vercel.app/?lang=ru'
 ORG = {'@id': HOME + '#organization'}
 WEBSITE = {'@id': HOME + '#website'}
 
