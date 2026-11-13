@@ -33,7 +33,7 @@ ORG = {'@id': HOME + '#organization'}
 WEBSITE = {'@id': HOME + '#website'}
 
 
-def wave_path(w=1440, h=900, gap=26, lam=170, step=14):
+def wave_path(w=1440, h=900, gap=26, lam=170, step=28):
     """Диагональные волны: размах растёт вправо, как столбцы. Один path на всё поле."""
     import math
     ang = -0.52
@@ -300,7 +300,7 @@ def build(out):
     source_assets = ROOT / 'assets'
     assets = out / 'assets'
     assets.mkdir()
-    for _f in ('miratrix.woff2', 'miratrix-OFL.txt'):
+    for _f in ('miratrix.woff2', 'miratrix-OFL.txt', 'inter-cyrillic.woff2', 'inter-latin.woff2', 'inter-OFL.txt'):
         (assets / _f).write_bytes((source_assets / _f).read_bytes())
 
     def webp_url(name):
