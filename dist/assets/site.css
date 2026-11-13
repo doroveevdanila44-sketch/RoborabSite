@@ -839,3 +839,6 @@ h1.big{max-width:100%}
 /* цифры на плашках: сплошной цвет + opacity на элементе, чтобы наслоение глифов не темнило */
 .way .gn{color:#141414;opacity:.07}.way.bl .gn{color:#fff;opacity:.14}.ways>.way:last-child .gn{color:#fff;opacity:.16}
 .ways>.way:first-child .gn{right:.2em}
+
+.cta-row{display:flex;align-items:center;gap:16px 24px;flex-wrap:wrap;margin-top:clamp(28px,3.4vw,48px)}.cta-note{color:var(--mute);font:400 14px/1.4 var(--f)}.dk .cta-note{color:rgba(255,255,255,.7)}.ft nav+nav{margin-top:14px}
+.dk .cta-row .btn{background:var(--lime);color:var(--on-lime);box-shadow:none}.dk .cta-row .btn:hover{background:#fff}
