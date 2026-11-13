@@ -835,3 +835,6 @@ h1.big{max-width:100%}
 /* цифры в макете приложения: единственное, что идёт с наклоном */
 .pc i.num,.pc em i.num{font-style:italic}
 .pc em{font-style:normal}
+
+/* цифры на плашках: сплошной цвет + opacity на элементе, чтобы наслоение глифов не темнило */
+.way .gn{color:#141414;opacity:.07}.way.bl .gn{color:#fff;opacity:.14}.ways>.way:last-child .gn{color:#fff;opacity:.16}
