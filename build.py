@@ -346,7 +346,7 @@ def build(out):
     for name in sorted(set(re.findall(r'var\(--img-([a-z0-9-]+)\b', css + body))):
         image_vars.append(f'  --img-{name}:url({webp_url(name)});')
     css = css.replace('{{ASSET_VARS}}', '\n'.join(image_vars))
-    css = css.replace('{{WAVES_ON_BLUE}}', wave_uri('rgba(255,255,255,.12)')).replace('{{WAVES_ON_DARK}}', wave_uri('rgba(255,255,255,.07)'))
+    css = css.replace('{{WAVES_ON_BLUE}}', wave_uri('rgba(255,255,255,.18)')).replace('{{WAVES_ON_DARK}}', wave_uri('rgba(255,255,255,.07)'))
 
     og = Image.new('RGB', (1200, 630), '#141414')
     with Image.open(assets / 'appicon.webp') as icon:
