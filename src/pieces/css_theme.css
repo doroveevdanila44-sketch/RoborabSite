@@ -48,8 +48,7 @@ h2.t{font-weight:400;font-size:clamp(24px,3.4vw,54px);line-height:1;letter-spaci
 .hcta .btn:hover{background:var(--violet);color:#fff}
 .hcta .lnk{color:var(--ink)}
 .himg{background:var(--lime)}
-.art{background:
-  radial-gradient(120% 60% at 50% 50%,#4aa3ff 0%,rgba(74,163,255,0) 70%),#0a84ff}
+.art{background:#0a84ff}
 .art::before,.panel-art::before{background-image:{{WAVES_ON_BLUE}};background-size:cover;background-position:right bottom;-webkit-mask-image:none;mask-image:none}
 
 /* лист */
