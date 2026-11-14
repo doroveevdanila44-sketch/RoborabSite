@@ -43,8 +43,7 @@
     banner.setAttribute('role', 'dialog');
     banner.setAttribute('aria-label', 'Согласие на cookie');
     banner.innerHTML =
-      '<p>Мы используем cookie Google Analytics, чтобы понимать, как люди пользуются сайтом. ' +
-      'Без вашего согласия они не включаются.</p>' +
+      '<p>Мы используем cookie</p>' +
       '<div class="cookie-actions"><button type="button" class="cookie-yes">Принять</button>' +
       '<button type="button" class="cookie-no">Отклонить</button></div>';
     banner.querySelector('.cookie-yes').addEventListener('click', function(){ save('granted'); hide(); load(); });
