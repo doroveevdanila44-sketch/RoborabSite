@@ -16,6 +16,8 @@ SITE = os.environ.get('SITE_URL', 'https://roborab.com').rstrip('/')
 HOME = SITE + '/'
 # Идентификатор потока Google Analytics 4 вида G-XXXXXXXXXX. Пусто: счётчик и баннер cookie не подключаются.
 GA_ID = 'G-52KR1HEXTD'
+# Номер счётчика Яндекс Метрики. Пусто: счётчик не подключается.
+METRIKA_ID = '114254549'
 BRAND = 'РОБОРАБ'
 TITLE = 'РОБОРАБ (roborab): внедрение ИИ в бизнес, бесплатная диагностика в ИИ-чате'
 UTP = 'Бесплатная диагностика в ИИ-чате РОБОРАБ: отвечает ИИ-агент, сразу и в любое время, без ожидания консультанта и без обязательств'
@@ -173,7 +175,7 @@ def schema(title, description, url, products, product=None, faq=()):
     return json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False).replace('<', '\\u003c')
 
 
-def document(title, description, url, structured_data, body, stylesheet, script=None, analytics=None):
+def document(title, description, url, structured_data, body, stylesheet, script=None, analytics=None, metrika=None):
     head = read_piece('head.html').replace('{{TITLE}}', html.escape(title)).replace(
         '{{DESCRIPTION}}', html.escape(description))
     og_image = HOME + 'assets/og.jpg'
@@ -201,6 +203,8 @@ def document(title, description, url, structured_data, body, stylesheet, script=
     head += f'<script type="application/ld+json">{structured_data}</script>\n'
     if script:
         head += f'<script src="{script}" defer></script>\n'
+    if metrika:
+        head += f'<script src="{metrika}" defer></script>\n'
     if analytics:
         head += f'<script src="{analytics}" defer></script>\n'
     return (
@@ -380,11 +384,16 @@ def build(out):
         analytics_js = read_piece('analytics.js').replace('{{GA_ID}}', GA_ID)
         (assets / 'analytics.js').write_text(analytics_js, encoding='utf-8')
         analytics_url = '/assets/analytics.js?v=' + hashlib.sha256(analytics_js.encode()).hexdigest()[:8]
+    metrika_url = None
+    if METRIKA_ID:
+        metrika_js = read_piece('metrika.js').replace('{{METRIKA_ID}}', METRIKA_ID)
+        (assets / 'metrika.js').write_text(metrika_js, encoding='utf-8')
+        metrika_url = '/assets/metrika.js?v=' + hashlib.sha256(metrika_js.encode()).hexdigest()[:8]
     css_url = '/assets/site.css?v=' + hashlib.sha256(css.encode()).hexdigest()[:8]
     js_url = '/assets/site.js?v=' + hashlib.sha256(js.encode()).hexdigest()[:8]
     (out / 'index.html').write_text(
         document(TITLE, DESCRIPTION, HOME, schema(TITLE, DESCRIPTION, HOME, products, faq=faq),
-                 body, css_url, js_url, analytics_url), encoding='utf-8')
+                 body, css_url, js_url, analytics_url, metrika_url), encoding='utf-8')
 
     (out / 'solutions').mkdir()
     for item in products:
@@ -393,7 +402,7 @@ def build(out):
         (out / 'solutions' / (item['slug'] + '.html')).write_text(
             document(title, item['description'], item['url'],
                      schema(title, item['description'], item['url'], products, product=item),
-                     product_page(item, other_links), css_url, analytics=analytics_url), encoding='utf-8')
+                     product_page(item, other_links), css_url, analytics=analytics_url, metrika=metrika_url), encoding='utf-8')
 
     urls = [HOME, *(item['url'] for item in products)]
     today = __import__('datetime').date.today().isoformat()
