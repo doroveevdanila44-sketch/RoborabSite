@@ -12,7 +12,7 @@ from tempfile import TemporaryDirectory
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent
-SITE = os.environ.get('SITE_URL', 'https://roborab.com').rstrip('/')
+SITE = os.environ.get('SITE_URL', 'https://www.roborab.com').rstrip('/')
 HOME = SITE + '/'
 BRAND = 'РОБОРАБ'
 TITLE = 'РОБОРАБ (roborab): внедрение ИИ в бизнес, бесплатная диагностика в ИИ-чате'

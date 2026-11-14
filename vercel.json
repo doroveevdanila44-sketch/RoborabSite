@@ -7,13 +7,7 @@
     {
       "source": "/:path(.*)",
       "has": [{ "type": "host", "value": "roborab.vercel.app" }],
-      "destination": "https://roborab.com/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "www.roborab.com" }],
-      "destination": "https://roborab.com/:path*",
+      "destination": "https://www.roborab.com/:path*",
       "permanent": true
     },
     {
