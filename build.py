@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent
 SITE = os.environ.get('SITE_URL', 'https://roborab.com').rstrip('/')
 HOME = SITE + '/'
 # Идентификатор потока Google Analytics 4 вида G-XXXXXXXXXX. Пусто: счётчик и баннер cookie не подключаются.
-GA_ID = ''
+GA_ID = 'G-52KR1HEXTD'
 BRAND = 'РОБОРАБ'
 TITLE = 'РОБОРАБ (roborab): внедрение ИИ в бизнес, бесплатная диагностика в ИИ-чате'
 UTP = 'Бесплатная диагностика в ИИ-чате РОБОРАБ: отвечает ИИ-агент, сразу и в любое время, без ожидания консультанта и без обязательств'
