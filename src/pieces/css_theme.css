@@ -457,3 +457,13 @@ h1.big{max-width:100%}
 
 .cta-row{display:flex;align-items:center;gap:16px 24px;flex-wrap:wrap;margin-top:clamp(28px,3.4vw,48px)}.cta-note{color:var(--mute);font:400 14px/1.4 var(--f)}.dk .cta-note{color:rgba(255,255,255,.7)}.ft nav+nav{margin-top:14px}
 .dk .cta-row .btn{background:var(--lime);color:var(--on-lime);box-shadow:none}.dk .cta-row .btn:hover{background:#fff}
+
+/* Баннер согласия на cookie */
+.cookie-bar{position:fixed;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:9999;max-width:560px;display:flex;align-items:center;gap:16px 20px;flex-wrap:wrap;padding:18px 22px;border-radius:28px;background:#141414;color:#fff;box-shadow:0 12px 40px rgba(0,0,0,.28);font:400 14px/1.45 var(--f)}
+.cookie-bar p{margin:0;flex:1 1 260px;min-width:0}
+.cookie-actions{display:flex;gap:10px;flex:none}
+.cookie-bar button{padding:12px 20px;border:0;border-radius:999px;font:600 14px/1 var(--f);cursor:pointer;transition:background .25s,color .25s}
+.cookie-yes{background:var(--blue);color:#fff}.cookie-yes:hover{background:#fff;color:#141414}
+.cookie-no{background:rgba(255,255,255,.14);color:#fff}.cookie-no:hover{background:rgba(255,255,255,.26)}
+.cookie-bar button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+@media (min-width:700px){.cookie-bar{left:auto;right:max(24px,env(safe-area-inset-right,0px));bottom:max(24px,env(safe-area-inset-bottom,0px))}}
