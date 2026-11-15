@@ -77,6 +77,12 @@ h1.big .ln:last-child{padding-left:clamp(0px,11.5vw,210px)}
 .pill{display:inline-block;vertical-align:-.04em;width:1.9em;height:.78em;margin-left:.16em;border-radius:999px;background:transparent}
 .hsub{margin:clamp(16px,2.6vh,34px) 0 0;max-width:34ch;font:400 clamp(16px,1.5vw,22px)/1.4 var(--f);color:var(--mute);letter-spacing:-.01em}
 .hcta{display:flex;align-items:center;gap:clamp(16px,2vw,30px);margin-top:clamp(16px,2.6vh,32px);flex-wrap:wrap}
+.hero-scroll-cue{display:grid;place-items:center;align-self:center;flex:none;width:48px;height:48px;margin-top:clamp(12px,4svh,42px);color:var(--ink);border-radius:50%}
+.hero-scroll-cue svg{width:24px;height:30px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@media (prefers-reduced-motion:no-preference){
+  .hero-scroll-cue svg{animation:hero-scroll-cue 1.8s ease-in-out 3}
+  @keyframes hero-scroll-cue{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+}
 .hcols{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,30px);padding-top:20px}
 .hcols>div{border-top:1px solid var(--line);padding-top:14px;min-width:0}
 .hcols small{display:block;font:500 13px/1.2 var(--f);color:var(--mute)}
