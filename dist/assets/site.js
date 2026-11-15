@@ -82,30 +82,39 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
       setTimeout(function(){ sp.classList.add('out'); setTimeout(function(){ sp.remove(); }, 800); }, 1000);
     }
     var title = $('#h1');
+    var introStart = seen ? 40 : 1080;
     title.classList.add('text-intro');
     title.querySelectorAll('.ln').forEach(function(line, i){
       var text = line.firstChild;
-      text.replaceWith(textPart(text.textContent, (seen ? 40 : 1080) + i * 90));
+      text.replaceWith(textPart(text.textContent, introStart + i * 90));
+    });
+    var introCopy = document.querySelectorAll('.hsub,.hcta>a,.hcols>div');
+    introCopy.forEach(function(el, i){
+      el.style.setProperty('--text-delay', (introStart + 440 + i * 80) + 'ms');
+      el.classList.add('hero-copy-in');
     });
   }
 
   /* появление блоков снизу */
   if (!reduce && 'IntersectionObserver' in window) {
-    var sel = ['.sh','.panel-art','.cols3>div','.dsub','.ditem','.tabs','.cgrid','.steps li','.way','.faqlist details','.cta .box>div','#lead'].join(',');
+    var sel = ['.sh','.panel-art','.cols3>div','.ditem','.tabs','.cgrid','.steps li','.way',
+               '.faqlist details','.cta .box>div','#lead',
+               '#sheet .lab','.dsub','.cols3>div>span','.ditem p','.steps p','.way p',
+               '.product-heading .tag','.cta .box p'].join(',');
     var seenP = new Map(), targets = [].slice.call(document.querySelectorAll(sel));
-    var headings = [].slice.call(document.querySelectorAll('#sheet h2.t'));
-    headings.forEach(function(heading){
-      var walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT), nodes = [], index = 0;
+    var textBlocks = [].slice.call(document.querySelectorAll('#sheet h2.t,#sheet h3,#sheet .product h4,#sheet .cols3 b,.diagnostic-copy'));
+    textBlocks.forEach(function(block){
+      var walker = document.createTreeWalker(block, NodeFilter.SHOW_TEXT), nodes = [], index = 0;
       while (walker.nextNode()) nodes.push(walker.currentNode);
       nodes.forEach(function(node){
         var parts = document.createDocumentFragment();
         node.textContent.split(/(\s+)/).forEach(function(word){
           if (!word) return;
-          parts.appendChild(/^\s+$/.test(word) ? document.createTextNode(word) : textPart(word, 80 + index++ * 55));
+          parts.appendChild(/^\s+$/.test(word) ? document.createTextNode(word) : textPart(word, 80 + Math.min(index++, 10) * 55));
         });
         node.replaceWith(parts);
       });
-      heading.classList.add('text-words');
+      block.classList.add('text-words');
     });
     targets.forEach(function(el){
       var p = el.parentNode, n = seenP.get(p) || 0; seenP.set(p, n + 1);
@@ -118,7 +127,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
         if (el.classList.contains('rv')) setTimeout(function(){ el.classList.add('done'); }, 1500);
       });
     }, {threshold: 0.1, rootMargin: '0px 0px -6% 0px'});
-    targets.concat(headings).forEach(function(el){ io.observe(el); });
+    targets.concat(textBlocks).forEach(function(el){ io.observe(el); });
   }
 
   /* первый экран: окно-пилюля раскрывается на весь экран, дальше проступает надпись, потом наезжает лист */
