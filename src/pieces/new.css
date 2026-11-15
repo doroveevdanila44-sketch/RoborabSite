@@ -80,7 +80,7 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .cols3>div{border-top:1px solid rgba(243,240,232,.2);padding-top:18px}
 .cols3 small{font:500 12px/1 var(--f);letter-spacing:.1em;color:var(--lime)}
 .cols3 b{display:block;margin-top:14px;font:500 clamp(22px,2.4vw,34px)/1.05 var(--f);letter-spacing:-.04em}
-.cols3 span{display:block;margin-top:10px;color:rgba(243,240,232,.62);font:400 15px/1.45 var(--f)}
+.cols3>div>span{display:block;margin-top:10px;color:rgba(243,240,232,.62);font:400 15px/1.45 var(--f)}
 @media(max-width:1000px){.cols3{margin-left:0;grid-template-columns:1fr}}
 .dgrid{position:relative;display:grid;grid-template-columns:minmax(120px,200px) minmax(0,.9fr) minmax(0,1.5fr);gap:clamp(14px,3vw,48px)}
 .dgrid>div:nth-child(2){position:sticky;top:110px;align-self:start}.dgrid h2.t{font-size:clamp(32px,4vw,62px)}
@@ -188,11 +188,14 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .text-motion{display:inline-block}
 .text-intro .text-motion{animation:text-rise .9s cubic-bezier(.22,1,.36,1) var(--text-delay) both}
 @keyframes text-rise{from{opacity:0;transform:translate3d(0,.35em,0)}to{opacity:1;transform:none}}
+.hero-copy-in{animation:hero-copy-in .8s var(--ease) var(--text-delay) backwards}
+.hero-copy-in:focus-visible{animation:none}
+@keyframes hero-copy-in{from{opacity:0;transform:translateY(.35em)}}
 .text-words .text-motion{opacity:0;transform:translate3d(0,.35em,0);transition:opacity .7s ease var(--text-delay),transform .9s cubic-bezier(.22,1,.36,1) var(--text-delay)}
 .text-words.in .text-motion{opacity:1;transform:none}
 
 @media (prefers-reduced-motion:reduce){
-  .text-intro .text-motion,.text-words .text-motion{animation:none;transition:none;transform:none;opacity:1}
+  .text-intro .text-motion,.text-words .text-motion,.hero-copy-in{animation:none;transition:none;transform:none;opacity:1}
   .js .rv{opacity:1;transform:none;transition:none}.wm{animation:none}.splash{display:none}html{scroll-behavior:auto}
   .cgrid .product.on{animation:none}.faqlist details::details-content{transition:none}
 }

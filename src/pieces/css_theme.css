@@ -95,7 +95,7 @@ h2.t{font-weight:400;font-size:clamp(24px,3.4vw,54px);line-height:1;letter-spaci
 /* тёмные блоки: глубокий индиго */
 .dk{background:var(--deep);color:#fff;border-radius:clamp(32px,4.4vw,60px)}
 .dk::before{background-image:{{WAVES_ON_DARK}};background-size:cover;background-position:right bottom}
-.dsub,.cols3 span,.ditem p{color:rgba(255,255,255,.72)}
+.dsub,.cols3>div>span,.ditem p{color:rgba(255,255,255,.72)}
 .cols3>div{border-top:2px solid rgba(255,255,255,.2)}
 .ditem p{border-bottom-color:rgba(255,255,255,.2)}
 .tile{border-radius:clamp(22px,2.4vw,34px)}
@@ -428,7 +428,7 @@ h1.big{max-width:100%}
 @media(max-width:1300px){.cols3.cols4{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:1000px){.cols3.cols4{grid-template-columns:1fr}.dk .dsub[style*=margin-left]{margin-left:0!important}}
 
-.cols3.cols2{grid-template-columns:repeat(2,1fr)}.cols3.cols2 span{font-size:clamp(16px,1.4vw,19px)}
+.cols3.cols2{grid-template-columns:repeat(2,1fr)}.cols3.cols2>div>span{font-size:clamp(16px,1.4vw,19px)}
 @media(max-width:1000px){.cols3.cols2{grid-template-columns:1fr}}
 
 

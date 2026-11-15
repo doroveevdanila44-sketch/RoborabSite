@@ -62,18 +62,25 @@
     }
     if (seen) setTimeout(hartGo, 200);
     var title = $('#h1');
+    var introStart = seen ? 40 : 1080;
     title.classList.add('text-intro');
     title.querySelectorAll('.ln').forEach(function(line, i){
       var text = line.firstChild;
-      text.replaceWith(textPart(text.textContent, (seen ? 40 : 1080) + i * 90));
+      text.replaceWith(textPart(text.textContent, introStart + i * 90));
+    });
+    document.querySelectorAll('.hsub,.hcta>a').forEach(function(el, i){
+      el.style.setProperty('--text-delay', (introStart + 440 + i * 80) + 'ms');
+      el.classList.add('hero-copy-in');
     });
   }
 
   /* появление блоков снизу */
   if (!reduce && 'IntersectionObserver' in window) {
-    var sel = ['.sh','.panel-art','.cols3>div','.dsub','.ditem','.tabs','.cgrid','.steps li','.way','.faqlist details','.cta .box>div','#lead'].join(',');
+    var sel = ['.sh','.panel-art','.cols3>div','.ditem','.tabs','.cgrid','.steps li','.way','.faqlist details',
+               '.cta .box>div','#lead','#sheet .lab','.dsub','.cols3>div>span','.ditem p','.steps p','.way p',
+               '.product-heading .tag','.pilot-copy li','.cta .box p'].join(',');
     var seenP = new Map(), targets = [].slice.call(document.querySelectorAll(sel));
-    var headings = [].slice.call(document.querySelectorAll('#sheet h2.t'));
+    var headings = [].slice.call(document.querySelectorAll('#sheet h2.t,#sheet h3,#sheet .product h4,#sheet .cols3 b'));
     headings.forEach(function(heading){
       var walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT), nodes = [], index = 0;
       while (walker.nextNode()) nodes.push(walker.currentNode);
@@ -81,7 +88,7 @@
         var parts = document.createDocumentFragment();
         node.textContent.split(/(\s+)/).forEach(function(word){
           if (!word) return;
-          parts.appendChild(/^\s+$/.test(word) ? document.createTextNode(word) : textPart(word, 80 + index++ * 55));
+          parts.appendChild(/^\s+$/.test(word) ? document.createTextNode(word) : textPart(word, 80 + Math.min(index++, 10) * 55));
         });
         node.replaceWith(parts);
       });
