@@ -87,9 +87,9 @@ h1.big .ln:last-child{padding-left:clamp(0px,11.5vw,210px)}
 @media(max-width:699px){body:has(.cookie-bar) .hero-scroll-cue{--hero-cookie-clearance:56px}}
 @media(max-width:339px){body:has(.cookie-bar) .hero-scroll-cue{--hero-cookie-clearance:84px}}
 @media (prefers-reduced-motion:no-preference){
-  .hero-scroll-cue path{animation:hero-scroll-cue 1.25s ease-in-out infinite}
-  .hero-scroll-cue path+path{animation-delay:.19s}
-  @keyframes hero-scroll-cue{0%,100%{transform:translateY(0);opacity:.5}48%{transform:translateY(13px);opacity:1}}
+  .hero-scroll-cue path{animation:hero-scroll-cue 4s ease-in-out infinite}
+  .hero-scroll-cue path+path{animation-delay:-2s}
+  @keyframes hero-scroll-cue{0%,100%{opacity:1}50%{opacity:.32}}
 }
 .hcols{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,30px);padding-top:20px}
 .hcols>div{border-top:1px solid var(--line);padding-top:14px;min-width:0}
@@ -99,7 +99,7 @@ h1.big .ln:last-child{padding-left:clamp(0px,11.5vw,210px)}
 @media(max-width:900px){.hcols{grid-template-columns:repeat(2,1fr)}h1.big .ln:last-child{padding-left:0}}
 @media(max-height:700px){.hcols{display:none}}
 @media(max-width:600px){.hcols{gap:12px}.hcols span{display:none}.hcols b{font-size:15px}}
-.himg{position:absolute;inset:0;z-index:3;overflow:hidden;clip-path:inset(50% 50% 50% 50% round 999px);pointer-events:none;background:#0b3fb5}
+.himg{position:absolute;inset:0;z-index:3;overflow:hidden;clip-path:var(--hero-pill-clip,inset(50% 50% 50% 50% round 999px));pointer-events:none;background:#0b3fb5}
 .art{position:absolute;inset:-4%;background:
   radial-gradient(60% 50% at 78% 18%,rgba(215,255,67,.9),rgba(215,255,67,0) 60%),
   radial-gradient(90% 70% at 20% 90%,#0957e8,rgba(9,87,232,0) 70%),
@@ -259,6 +259,26 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
   .sheet{transform:translateZ(0)}
   .stage{position:absolute;left:0;right:0;top:calc(-1 * var(--over));height:calc(100lvh + var(--over) + var(--under));
     animation:stage-pin linear both;animation-timeline:scroll(root block);animation-range:0px 200lvh}
+  .stage[data-scroll-hero] .himg{
+    animation:hero-window-open cubic-bezier(.333,1,.667,1) both;
+    animation-timeline:scroll(root block);animation-range:0px 60lvh
+  }
+  .stage[data-scroll-hero] .art{
+    animation:hero-art-scale cubic-bezier(.333,1,.667,1) both;
+    animation-timeline:scroll(root block);animation-range:0px 60lvh
+  }
+  .stage[data-scroll-hero] .htext{
+    animation:hero-copy-out linear both;
+    animation-timeline:scroll(root block);animation-range:0px 30lvh
+  }
+  .stage[data-scroll-hero] .hero-scroll-cue{
+    animation:hero-cue-out linear both;
+    animation-timeline:scroll(root block);animation-range:0px 30lvh
+  }
+  .stage[data-scroll-hero] .hword{
+    animation:hero-word linear both;
+    animation-timeline:scroll(root block);animation-range:30lvh 200lvh
+  }
   /* на телефонах блок выступает вверх под шапку и вниз под панель браузера */
   @media (pointer:coarse){
     .hero{--over:90px;--under:120px}
@@ -271,6 +291,16 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
     /* вверху страницы над блоком пусто, Safari показывает там цвет фона: верх первого экрана уходит в него же */
     .hart-veil::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#f4f4f2 0,#f4f4f2 var(--over),rgba(244,244,242,0) calc(var(--over) + 150px))}
   }
+}
+@keyframes hero-window-open{from{clip-path:var(--hero-pill-clip)}to{clip-path:inset(0 round 0px)}}
+@keyframes hero-art-scale{from{transform:scale(1.18)}to{transform:scale(1)}}
+@keyframes hero-copy-out{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-50px)}}
+@keyframes hero-cue-out{from{opacity:1}to{opacity:0}}
+@keyframes hero-word{
+  0%{opacity:0;transform:translateY(40px)}
+  26.4706%,41.1765%{opacity:1;transform:translateY(0)}
+  70.5882%{opacity:1;transform:translateY(-30px)}
+  100%{opacity:0;transform:translateY(-60px)}
 }
 
 .mexp{max-width:640px;margin:clamp(16px,2vw,28px) auto 0;text-align:left}

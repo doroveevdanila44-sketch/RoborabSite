@@ -116,22 +116,8 @@
   } catch (e) {}
 
   /* первый экран: окно-пилюля раскрывается на весь экран, дальше проступает надпись, потом наезжает лист */
-  var heroTop = 'violet', heroBottom = 'violet';
-  var COLORS = {violet: '#f4f4f2', lime: '#0656a6', limeLow: '#0656a6', bg: '#f4f4f2', deep: '#141414'};
-  // Цветная подложка первого экрана: фиксированная и шире окна, заходит под панели Safari сверху и снизу
-  // Две фиксированные подложки, тёмная и фиолетовая. Safari пересчитывает цвет панелей,
-  // когда слой у края скрывается или появляется, поэтому переключаем видимость, а не цвет.
-  function makeBackdrop(color){
-    var d = document.createElement('div');
-    d.className = 'hero-backdrop'; d.setAttribute('aria-hidden', 'true'); d.style.backgroundColor = color;
-    body.insertBefore(d, body.firstChild); return d;
-  }
-  // Пока открыто окно с градиентом, фиксированных слоёв нет вовсе: панели берут цвет страницы,
-  // а он совпадает с краями градиента, поэтому градиент как будто продолжается под панелями.
-  // Фиксированных слоёв у краёв нет совсем: с ними Safari заливает панели сплошным цветом,
-  // а без них показывает под стеклом панелей саму страницу до края экрана.
+  var COLORS = {hero: '#f4f4f2', open: '#0656a6', bg: '#f4f4f2', deep: '#141414'};
   root.classList.add('has-backdrop');
-  function showBackdrops(){}
   var meta = document.querySelector('meta[name="theme-color"]');
   if (!meta) { meta = document.createElement('meta'); meta.name = 'theme-color'; document.head.appendChild(meta); }
   var sheetEl = document.getElementById('sheet'), darks = [].slice.call(document.querySelectorAll('.dk'));
@@ -143,49 +129,60 @@
     if (sheetEl) sheetTop = sheetEl.getBoundingClientRect().top + sc;
     darkR = darks.map(function(d){ var r = d.getBoundingClientRect(); return [r.top + sc, r.bottom + sc]; });
   }
-  function colorAt(y, hero){
-    var sc = window.scrollY || 0;
-    if (sheetEl && sheetTop - sc > y) return hero;
-    for (var i = 0; i < darkR.length; i++) if (darkR[i][0] - sc <= y && darkR[i][1] - sc >= y) return 'deep';
+  function colorAtTop(y, open){
+    if (sheetEl && sheetTop > y) return open ? 'open' : 'hero';
+    for (var i = 0; i < darkR.length; i++) if (darkR[i][0] <= y && darkR[i][1] >= y) return 'deep';
     return 'bg';
   }
-  var lastTop, lastBottom, stageHidden = false, heroOpen = false, heroEl = document.querySelector('.hero');
-  function paintEdges(){
-    var vh = window.innerHeight || 800;
-    var t = colorAt(1, heroTop), b = colorAt(vh - 1, heroBottom);
-    if (t !== lastTop) {
-      lastTop = t; meta.content = COLORS[t];
-      root.style.backgroundColor = COLORS[t]; body.style.backgroundColor = COLORS[t];
+  var lastColor, stageHidden = false;
+  function paintEdges(y, open){
+    var color = COLORS[colorAtTop(y + 1, open)];
+    if (color !== lastColor) {
+      lastColor = color; meta.content = color;
+      root.style.backgroundColor = color; body.style.backgroundColor = color;
     }
     if (stage && sheetEl) {
-      var covered = sheetTop - (window.scrollY || 0) <= 0;
-      if (covered !== stageHidden) { stageHidden = covered; stage.style.visibility = covered ? 'hidden' : ''; showBackdrops(); }
+      var covered = sheetTop <= y;
+      if (covered !== stageHidden) { stageHidden = covered; stage.style.visibility = covered ? 'hidden' : ''; }
     }
-    if (b !== lastBottom) { lastBottom = b; }
   }
   var stage = $('#stage'), htext = $('#htext'), himg = $('#himg'), hword = $('#hword'), pill = $('#pill');
   var scrollCue = stage.querySelector('.hero-scroll-cue');
-  var visualViewport = window.visualViewport;
+  var visualViewport = window.visualViewport, cueHeight = 0, cueRaf = 0;
   function syncHeroViewport(){
+    cueRaf = 0;
     if (visualViewport.scale !== 1 || visualViewport.height <= 0) return;
-    stage.style.setProperty('--hero-visible-height', visualViewport.height + visualViewport.offsetTop + 'px');
+    var height = visualViewport.height + visualViewport.offsetTop;
+    if (height === cueHeight) return;
+    cueHeight = height;
+    scrollCue.style.setProperty('--hero-visible-height', height + 'px');
+  }
+  function queueHeroViewport(){
+    if (!cueRaf) cueRaf = requestAnimationFrame(syncHeroViewport);
   }
   if (visualViewport) {
     syncHeroViewport();
-    visualViewport.addEventListener('resize', syncHeroViewport);
-    visualViewport.addEventListener('scroll', syncHeroViewport, {passive:true});
-    window.addEventListener('pageshow', syncHeroViewport);
+    visualViewport.addEventListener('resize', queueHeroViewport);
+    visualViewport.addEventListener('scroll', queueHeroViewport, {passive:true});
+    window.addEventListener('pageshow', queueHeroViewport);
   }
-  var R = null;
+  var R = null, heroHeight = 0;
+  var nativeScroll = !reduce && window.CSS && CSS.supports('animation-timeline', 'scroll()');
+  function pillClip(scale){
+    return 'inset(' + [R.t, R.r, R.b, R.l].map(function(edge){ return (edge * scale).toFixed(2) + 'px'; }).join(' ') +
+      ' round ' + (R.h / 2 * scale).toFixed(2) + 'px)';
+  }
   function measure(){
-    var keep = htext.style.transform; htext.style.transform = 'none';
+    heroHeight = stage.parentElement.clientHeight / 3;
     var pr = pill.getBoundingClientRect(), sr = stage.getBoundingClientRect();
-    R = {l: pr.left - sr.left, t: pr.top - sr.top, r: sr.right - pr.right, b: sr.bottom - pr.bottom, h: pr.height};
+    // Вычитаем текущий сдвиг текста: координаты окна нужны в исходной позиции.
+    var ht = htext.getBoundingClientRect().top - sr.top - htext.offsetTop;
+    R = {l: pr.left - sr.left, t: pr.top - sr.top - ht, r: sr.right - pr.right, b: sr.bottom - pr.bottom + ht, h: pr.height};
     // зерно только на иллюстрации: под текстом, плашкой и кнопками мягкие чистые зоны (маска строится по реальным размерам)
     var ha = document.querySelector('.hart');
     if (ha) {
       var hr = ha.getBoundingClientRect(), W = Math.round(hr.width), H = Math.round(hr.height), rects = [];
-      function addRect(r){ if (r && r.width > 1 && r.height > 1) rects.push([r.left - hr.left, r.top - hr.top, r.width, r.height]); }
+      function addRect(r){ if (r && r.width > 1 && r.height > 1) rects.push([r.left - hr.left, r.top - hr.top - ht, r.width, r.height]); }
       function textRect(el){ var g = document.createRange(); g.selectNodeContents(el); return g.getBoundingClientRect(); }
       [].forEach.call(document.querySelectorAll('#h1 .ln'), function(el){ addRect(textRect(el)); });
       addRect(textRect(document.querySelector('.hsub')));
@@ -196,57 +193,56 @@
       var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="none"><defs><filter id="b" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="26"/></filter><mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="' + W + '" height="' + H + '"><rect width="' + W + '" height="' + H + '" fill="#fff"/>' + holes + '</mask></defs><rect width="' + W + '" height="' + H + '" fill="#000" mask="url(#m)"/></svg>';
       ha.style.setProperty('--tm', 'url("data:image/svg+xml,' + encodeURIComponent(svg).replace(/'/g, '%27').replace(/"/g, '%22') + '")');
     }
-    htext.style.transform = keep; cacheGeo(); frame();
+    if (nativeScroll) {
+      himg.style.setProperty('--hero-pill-clip', pillClip(1));
+      stage.setAttribute('data-scroll-hero', '');
+    }
+    cacheGeo();
+    frame();
   }
-  var sy = window.scrollY || 0, last = 0, raf = 0;
+  var raf = 0;
   var lastCp = '', lastHo = '', lastWo = '', lastWy = '';
-  var touchScroll = matchMedia('(pointer:coarse)').matches;
+  var copyHidden = false;
   function frame(){
-    var y = sy, vh = window.innerHeight || 800;
-    if (reduce || !R) { paintEdges(); return; }
+    var y = window.scrollY || 0, vh = heroHeight;
+    if (reduce || !R || !vh) { paintEdges(y, false); return; }
     var t = clamp(y / (vh * 0.6)), e = 1 - Math.pow(1 - t, 3);
-    var rad = Math.max(0, R.h / 2 * (1 - e));
-    // пишем в стили только то, что изменилось: после раскрытия окна эти значения не меняются, и браузер не перерисовывает слой впустую
-    var cp = 'inset(' + (R.t * (1 - e)).toFixed(1) + 'px ' + (R.r * (1 - e)).toFixed(1) + 'px ' + (R.b * (1 - e)).toFixed(1) + 'px ' + (R.l * (1 - e)).toFixed(1) + 'px round ' + rad.toFixed(1) + 'px)';
-    if (cp !== lastCp) { lastCp = cp; himg.style.clipPath = cp; himg.style.setProperty('--sc', (1.18 - 0.18 * e).toFixed(3)); }
     var to = clamp(y / (vh * 0.3));
+    if ((to === 1) !== copyHidden) {
+      copyHidden = to === 1;
+      htext.toggleAttribute('inert', copyHidden);
+      scrollCue.toggleAttribute('inert', copyHidden);
+    }
+    paintEdges(y, e > 0.985);
+    if (nativeScroll || stageHidden) return;
+    var cp = pillClip(1 - e);
+    if (cp !== lastCp) { lastCp = cp; himg.style.clipPath = cp; himg.style.setProperty('--sc', (1.18 - 0.18 * e).toFixed(3)); }
     var ho = (1 - to).toFixed(3), hy = 'translateY(' + (-to * 50).toFixed(1) + 'px)';
     if (ho !== lastHo) {
       lastHo = ho; htext.style.opacity = ho; htext.style.transform = hy;
       scrollCue.style.setProperty('--hero-copy-opacity', ho);
-      scrollCue.toggleAttribute('inert', to === 1);
     }
     var wi = clamp((y - vh * 0.3) / (vh * 0.45)), wout = 1 - clamp((y - vh * 1.5) / (vh * 0.5));
     var wo = (wi * wout).toFixed(3), wy = ((1 - wi) * 40 - clamp((y - vh) / vh) * 60).toFixed(1) + 'px';
     if (wo !== lastWo) { lastWo = wo; hword.style.setProperty('--wo', wo); }
     if (wy !== lastWy) { lastWy = wy; hword.style.setProperty('--wy', wy); }
-    // Safari берёт цвет панелей у элемента под краем экрана: когда лаймовое окно раскрылось, им должно быть оно
-    var open = e > 0.985;
-    if (open !== heroOpen) {
-      heroOpen = open;
-      himg.style.pointerEvents = open ? 'auto' : 'none';
-      showBackdrops();
-    }
-    heroTop = open ? 'lime' : 'violet';
-    heroBottom = open ? 'limeLow' : 'violet';
-    paintEdges();
   }
-  function step(now){
-    var target = window.scrollY || root.scrollTop || 0;
-    var dt = last ? Math.min(32, now - last) : 16; last = now;
-    // На телефонах блок держит CSS-анимация по прокрутке (в потоке композитора): сглаживание в JS
-    // отставало бы от неё и давало рывки, поэтому там берём прокрутку как есть.
-    if (touchScroll) sy = target; else sy += (target - sy) * (1 - Math.exp(-dt / 70));
-    if (Math.abs(target - sy) < .5) sy = target;
-    frame();
-    if (sy !== target) raf = requestAnimationFrame(step); else { raf = 0; last = 0; }
-  }
-  window.addEventListener('scroll', function(){ if (!raf) raf = requestAnimationFrame(step); }, {passive: true});
-  window.addEventListener('resize', function(){ sy = window.scrollY || 0; measure(); });
+  window.addEventListener('scroll', function(){
+    if (!raf) raf = requestAnimationFrame(function(){ raf = 0; frame(); });
+  }, {passive:true});
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
-  window.addEventListener('load', measure);
   measure();
-  if ('ResizeObserver' in window) { var roT = 0; new ResizeObserver(function(){ clearTimeout(roT); roT = setTimeout(cacheGeo, 120); }).observe(body); }
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(measure).observe(stage);
+    var roT = 0;
+    new ResizeObserver(function(){
+      clearTimeout(roT);
+      roT = setTimeout(function(){ cacheGeo(); frame(); }, 120);
+    }).observe(body);
+  } else {
+    window.addEventListener('resize', measure);
+    window.addEventListener('load', measure);
+  }
 
 
   /* ===== Живые эффекты ===== */
@@ -303,10 +299,14 @@
   (function(){
     var hw = $('#hword'); if (!hw || !window.CSS || !CSS.supports) return;
     if (!matchMedia('(pointer:coarse)').matches || !CSS.supports('animation-timeline', 'scroll()')) return;
-    var text = hw.textContent, c = document.createElement('canvas'); c.setAttribute('aria-hidden', 'true');
-    function build(){
+    var text = hw.textContent, c = document.createElement('canvas'), lastSize;
+    c.setAttribute('aria-hidden', 'true');
+    function build(force){
       var cs = getComputedStyle(hw), fs = parseFloat(cs.fontSize) || 80, W = hw.clientWidth; if (!W) return;
       var H = Math.ceil(fs * 1.4), dpr = Math.min(2, window.devicePixelRatio || 1);
+      var size = [W, H, fs, dpr].join(':');
+      if (force !== true && size === lastSize) return;
+      lastSize = size;
       c.width = Math.round(W * dpr); c.height = Math.round(H * dpr);
       c.style.height = H + 'px'; c.style.top = ((fs - H) / 2) + 'px';
       var x = c.getContext('2d'); x.setTransform(dpr, 0, 0, dpr, 0, 0); x.clearRect(0, 0, W, H);
@@ -317,8 +317,8 @@
     }
     hw.appendChild(c); hw.classList.add('is-canvas'); build();
     window.addEventListener('resize', build);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(build);
-    window.addEventListener('load', build);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ build(true); });
+    else window.addEventListener('load', function(){ build(true); });
   })();
 
   /* Иллюстрации отраслей двигаются, только когда видны */
