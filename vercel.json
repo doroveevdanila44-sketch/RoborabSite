@@ -1,5 +1,5 @@
 {
-  "buildCommand": "",
+  "buildCommand": "python3 -m pip install --quiet Pillow && python3 build.py",
   "outputDirectory": "dist",
   "framework": null,
   "cleanUrls": true,
