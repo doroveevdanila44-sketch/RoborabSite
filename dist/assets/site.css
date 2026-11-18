@@ -82,14 +82,14 @@ h1.big .ln:last-child{padding-left:clamp(0px,11.5vw,210px)}
   top:calc(var(--hero-visible-height,100dvh) + var(--over,0px) - 48px - max(8px,env(safe-area-inset-bottom,0px)) - var(--hero-cookie-clearance,0px));
   width:48px;height:48px;color:var(--ink);border-radius:50%;opacity:var(--hero-copy-opacity,1)}
 .hero-scroll-cue[inert]{visibility:hidden}
-.hero-scroll-cue svg{width:32px;height:38px;overflow:visible;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.hero-scroll-cue svg{width:32px;height:38px;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 @media(700px <= width <= 1040px){body:has(.cookie-bar) .hero-scroll-cue{--hero-cookie-clearance:80px}}
 @media(max-width:699px){body:has(.cookie-bar) .hero-scroll-cue{--hero-cookie-clearance:56px}}
 @media(max-width:339px){body:has(.cookie-bar) .hero-scroll-cue{--hero-cookie-clearance:84px}}
 @media (prefers-reduced-motion:no-preference){
-  .hero-scroll-cue path{animation:hero-scroll-cue 4s ease-in-out infinite}
-  .hero-scroll-cue path+path{animation-delay:-2s}
-  @keyframes hero-scroll-cue{0%,100%{opacity:1}50%{opacity:.32}}
+  .hero-scroll-cue path{animation:hero-scroll-cue 3.2s ease-in-out infinite}
+  .hero-scroll-cue path+path{animation-delay:-1.6s}
+  @keyframes hero-scroll-cue{0%,5%,95%,100%{opacity:1}45%,55%{opacity:0}}
 }
 .hcols{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,30px);padding-top:20px}
 .hcols>div{border-top:1px solid var(--line);padding-top:14px;min-width:0}
