@@ -53,10 +53,10 @@ h1.big .ln:last-child{padding-left:clamp(0px,11.5vw,210px)}
 @media(max-width:699px){body:has(.cookie-bar) .hero-scroll-cue{--hero-cookie-clearance:56px}}
 @media(max-width:339px){body:has(.cookie-bar) .hero-scroll-cue{--hero-cookie-clearance:84px}}
 @media (prefers-reduced-motion:no-preference){
-  /* Stationary chevrons: the upper one lights up, then the lower one. */
-  .hero-scroll-cue path{animation:hero-scroll-cue 2.4s ease-in-out infinite;transform:none}
-  .hero-scroll-cue path+path{animation-delay:.38s}
-  @keyframes hero-scroll-cue{0%,12%,72%,100%{opacity:.2}32%,48%{opacity:1}}
+  /* Gentle, overlapping opacity waves; both chevrons remain stationary. */
+  .hero-scroll-cue path{animation:hero-scroll-cue 4.8s cubic-bezier(.45,0,.55,1) infinite;transform:none}
+  .hero-scroll-cue path+path{animation-delay:.65s}
+  @keyframes hero-scroll-cue{0%,100%{opacity:.35}42%,62%{opacity:.9}}
 }
 .hcols{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,30px);padding-top:20px}
 .hcols>div{border-top:1px solid var(--line);padding-top:14px;min-width:0}
