@@ -257,7 +257,7 @@
   function drawProfile() {
     const profile = el('section', 'rr-support-profile');
     const fields = el('dl', 'rr-support-fields');
-    for (const [label, value] of [['Имя', 'Не указано'], ['Телефон', 'Не указан'], ['Почта', 'Не указана']]) {
+    for (const [label, value] of [['Телефон', 'не указан'], ['Почта', 'не указана']]) {
       const field = el('div', '');
       field.append(el('dt', '', label), el('dd', '', value));
       fields.append(field);
@@ -265,11 +265,6 @@
     const actions = el('div', 'rr-support-actions');
     const clear = button('rr-support-clear', 'Очистить чат');
     clear.disabled = !messages.length && !draft && !draftFile;
-    const remove = button('rr-support-delete', 'Удалить аккаунт');
-    remove.disabled = true;
-    const note = el('p', 'rr-support-profile-note', 'Вы вошли как гость. У гостя нет аккаунта для удаления.');
-    note.id = 'rr-guest-note';
-    remove.setAttribute('aria-describedby', note.id);
     const confirm = el('div', 'rr-support-confirm');
     confirm.hidden = true;
     confirm.setAttribute('role', 'group');
@@ -297,8 +292,10 @@
       dialog.querySelector('[data-tab="profile"]').focus();
     };
     confirm.append(el('p', '', 'Очистить переписку в демо этого приложения?'), cancel, yes);
-    actions.append(clear, confirm, remove);
-    profile.append(el('h3', '', 'Гость'), fields, actions, note, feedback);
+    const avatar = el('span', 'rr-guest-avatar', 'Г');
+    avatar.setAttribute('aria-hidden', 'true');
+    actions.append(clear);
+    profile.append(avatar, el('h3', '', 'Гость'), fields, actions, confirm, feedback);
     dialogList.replaceChildren(profile);
   }
 
