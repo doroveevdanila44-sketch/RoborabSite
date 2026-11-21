@@ -899,3 +899,39 @@ h1.big{max-width:100%}
   .cookie-bar{flex-wrap:wrap;border-radius:24px;padding:10px 10px 10px 14px}
 }
 
+#cases{padding-bottom:clamp(36px,4vw,60px)}
+#solutions{scroll-margin-top:90px}
+@media (max-width:620px){
+  #cases .tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;overflow:visible}
+  #cases .tabs button{min-width:0;padding:12px 14px;font-size:14px}
+}
+
+
+#solution-catalog {scroll-margin-top:40px; padding-block:clamp(36px,5vw,80px);color:var(--ink,#141414)}
+#solution-catalog .rr-price-inner {width:min(calc(100% - 32px),1280px);margin-inline:auto}
+#solution-catalog h2 {margin:0 0 clamp(18px,2.2vw,30px);font:400 clamp(30px,3.4vw,54px)/1.06 var(--fd,Inter,sans-serif);letter-spacing:.012em}
+#solution-catalog h2 span {color:var(--blue,#0957e8)}
+#solution-catalog .rr-price-filters {display:flex;flex-wrap:wrap;gap:8px;margin:0 0 clamp(16px,2vw,24px)}
+#solution-catalog .rr-price-filters[hidden],#solution-catalog .rr-price-panel[hidden] {display:none}
+#solution-catalog .rr-price-filters button {appearance:none;border:1px solid #14141422;border-radius:999px;min-height:44px;padding:9px 17px;background:#fff;color:#141414;font:600 14px/1.2 var(--f,Inter,sans-serif);cursor:pointer}
+#solution-catalog .rr-price-filters button[aria-selected=true]{background:#141414;color:#fff;border-color:#141414}
+#solution-catalog .rr-price-filters button:focus-visible{outline:3px solid #0a84ff;outline-offset:3px}
+#solution-catalog .rr-price-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,252px),1fr));gap:clamp(12px,1.6vw,22px)}
+#solution-catalog .rr-price-card{display:flex;flex-direction:column;background:#fff;border:1px solid #15151518;border-radius:clamp(20px,2vw,30px);padding:clamp(19px,2vw,29px);min-width:0}
+#solution-catalog .rr-price-card h3{margin:0;font:600 clamp(20px,1.8vw,26px)/1.14 var(--f,Inter,sans-serif);color:#151515;letter-spacing:-.035em}
+#solution-catalog .rr-price-amount{margin:12px 0 7px;color:#0957d4;font:600 clamp(26px,3.1vw,42px)/1.1 var(--f,Inter,sans-serif);letter-spacing:-.055em;white-space:nowrap;font-variant-numeric:tabular-nums}
+#solution-catalog .rr-price-amount small{font-size:.51em;letter-spacing:-.025em;font-weight:550}
+#solution-catalog .rr-price-copy{margin:0 0 22px;max-width:45ch;color:#434447;font:400 15px/1.48 var(--f,Inter,sans-serif)}
+#solution-catalog .rr-price-includes{border-top:1px solid #14141422;margin:auto 0 0;padding:14px 0 0 17px;list-style:disc;font:450 14px/1.45 var(--f,Inter,sans-serif)}
+#solution-catalog .rr-price-includes li + li{margin-top:7px}
+#solution-catalog .rr-price-includes li::marker{color:#0a84ff}
+#solution-catalog .rr-price-note{margin:13px 0 0;color:#55565b;font:400 13px/1.5 var(--f,Inter,sans-serif)}
+#solution-catalog .rr-price-panel + .rr-price-panel {margin-top:20px}
+#solution-catalog.rr-catalog-ready .rr-price-panel {margin-top:0}
+@media(max-width:600px){#solution-catalog .rr-price-filters {gap:6px}#solution-catalog .rr-price-filters button {padding:9px 13px;font-size:13px}#solution-catalog .rr-price-copy{margin-bottom:16px}}
+
+#solution-catalog .rr-price-intro{margin:-6px 0 18px;color:#434447;font:400 15px/1.5 var(--f,Inter,sans-serif)}
+#solution-catalog .rr-price-time{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;margin:0 0 16px;font:400 14px/1.5 var(--f,Inter,sans-serif);color:#505156}
+#solution-catalog .rr-price-time strong{color:#141414;font-weight:650}
+
+#solution-catalog .rr-price-currency{font-size:.62em;font-weight:550;letter-spacing:0}

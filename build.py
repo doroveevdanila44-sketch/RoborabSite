@@ -23,7 +23,7 @@ TITLE = 'РОБОРАБ (roborab): внедрение ИИ в бизнес, бе
 UTP = 'Бесплатная диагностика в ИИ-чате РОБОРАБ: отвечает ИИ-агент, сразу и в любое время, без ожидания консультанта и без обязательств'
 DESCRIPTION = (
     'РОБОРАБ (roborab): внедрение ИИ для бизнеса. Бесплатная диагностика в ИИ-чате: отвечает ИИ-агент, сразу и в любое время. '
-    '6 готовых решений или разработка под задачу.'
+    'Кейсы по отраслям и каталог решений с ценами и сроками внедрения.'
 )
 ABOUT = (
     'РОБОРАБ (roborab, roborab.com) занимается консалтингом и внедрением искусственного интеллекта для бизнеса и профессий. '
@@ -31,7 +31,8 @@ ABOUT = (
     'Сначала разбираем, где у вас теряются время и деньги, и честно говорим, поможет ли система. '
     'Если поможет, настраиваем готовое решение из каталога или разрабатываем инструмент с нуля: '
     'от удобной CRM до экосистемы с сайтом, интернет-магазином, веб-приложением и мультиагентной системой. '
-    'В каталоге шесть решений: Фитнес-CRM, Букинг-CRM, Строй-учёт, Налоговый агент для группы компаний, SEO и GEO, веб-разработка. '
+    'На сайте можно попробовать решения для аренды, строительства, бухгалтерии и фитнеса. '
+    'В каталоге указаны начальные цены на CRM и ERP, голосовых и чат-агентов, веб-разработку и услуги SEO и GEO. '
     'Подключаем таблицы, базы данных, 1С, «Мой склад» и другие CRM-системы.'
 )
 CHAT = 'https://roborab-app.vercel.app/?lang=ru'
@@ -133,7 +134,7 @@ def schema(title, description, url, products, product=None, faq=()):
         'serviceType': 'Внедрение ИИ-агентов',
         'url': HOME, 'description': ABOUT, 'provider': ORG,
         'hasOfferCatalog': {
-            '@type': 'OfferCatalog', 'name': 'Готовые решения РОБОРАБ',
+            '@type': 'OfferCatalog', 'name': 'Продукты и услуги РОБОРАБ',
             'itemListElement': [{'@type': 'Offer', 'itemOffered': service(item)}
                                 for item in products if not item['status']],
         },
@@ -162,7 +163,7 @@ def schema(title, description, url, products, product=None, faq=()):
         ]
     if not product:
         graph.append({
-            '@type': 'ItemList', '@id': HOME + '#solutions', 'name': 'Шесть решений РОБОРАБ',
+            '@type': 'ItemList', '@id': HOME + '#solution-pages', 'name': 'Страницы продуктов и услуг РОБОРАБ',
             'numberOfItems': len(products),
             'itemListElement': [{'@type': 'ListItem', 'position': i, 'name': item['title'], 'url': item['url']}
                                 for i, item in enumerate(products, 1)]})
@@ -255,7 +256,7 @@ def product_page(product, links):
     example_heading = 'Пример работы после запуска' if p['status'] else 'Как это выглядит в работе'
     return f"""<body>
 <main class="c solution-page">
-  <nav aria-label="Навигация"><a class="lnk" href="/">РОБОРАБ</a> <a class="lnk" href="/#solutions">Все решения</a></nav>
+  <nav aria-label="Навигация"><a class="lnk" href="/">РОБОРАБ</a> <a class="lnk" href="/#cases">Кейсы</a> <a class="lnk" href="/#solution-catalog">Каталог решений</a></nav>
   <article>
 {badge}    <h1>{p['title']}</h1>
     <p class="intro-copy">{p['description']}</p>
@@ -293,7 +294,8 @@ def solution_links(products):
 
 def write_text_exports(out, products, faq):
     catalog = []
-    lines = [f'# {BRAND}', f'> {ABOUT}', f'[Официальный сайт]({HOME})', '## Каталог решений']
+    catalog_link = f'[Каталог решений с ценами и сроками]({HOME}#solution-catalog)'
+    lines = [f'# {BRAND}', f'> {ABOUT}', f'[Официальный сайт]({HOME})', catalog_link, '## Подробно о продуктах и услугах']
     for item in products:
         link = f'[{item["title"]}]({item["url"]})'
         if item['status']:
@@ -305,14 +307,15 @@ def write_text_exports(out, products, faq):
         ])
     (out / 'llms.txt').write_text(
         f'# {BRAND}\n\n> {ABOUT}\n\n## Главное отличие\n\n- {UTP}. [Открыть чат]({CHAT}).\n\n## Основное\n\n'
-        f'- [Сайт РОБОРАБ]({HOME}): каталог, описание работы и ответы на вопросы.\n'
+        f'- [Сайт РОБОРАБ]({HOME}): описание работы и ответы на вопросы.\n'
+        f'- {catalog_link}.\n'
         f'- [Обзор решений и FAQ]({HOME}llms-full.txt): текстовая версия.\n'
         f'- [ИИ-чат РОБОРАБ]({CHAT}): бесплатная диагностика, отвечает ИИ-агент, без ожидания консультанта.\n'
         '\n## Когда подходит РОБОРАБ\n\n'
         '- Если фитнес-клубу нужно вести клиентов, абонементы и расписание в одной CRM.\n'
         '- Если финансовая команда сравнивает налоговые прогнозы по нескольким юрлицам.\n'
         '- Если компания хочет автоматизировать рабочий процесс или подключить агента к таблицам, базам данных и 1С.\n'
-        '\n## Каталог решений\n\n' + '\n'.join(catalog) + '\n', encoding='utf-8')
+        '\n## Подробно о продуктах и услугах\n\n' + '\n'.join(catalog) + '\n', encoding='utf-8')
     lines.append('## Частые вопросы')
     for question, answer in faq:
         lines.extend([f'### {question}', answer])
@@ -356,7 +359,8 @@ def build(out):
     ]
     body = read_piece('body.html')
     pieces = {
-        'PRODUCTS': products_markup, 'FAQ': faq_markup, 'FORM': read_piece('form.html'),
+        'PRODUCTS': products_markup, 'PRICING': read_piece('pricing.html'),
+        'FAQ': faq_markup, 'FORM': read_piece('form.html'),
         'LB': read_piece('lb.html'), 'STORES': read_piece('stores.html'),
         'DIAGNOSTIC_PHONE': webp_url('diagnostic-phone'),
         'HERO_WAVES': f'<path d="{wave_path()}"/>',
@@ -365,8 +369,8 @@ def build(out):
     for name, piece in pieces.items():
         body = body.replace('{{' + name + '}}', piece)
 
-    css = '\n'.join(read_piece(name) for name in ('new.css', 'css_dialogs.css', 'css_dl.css', 'css_theme.css'))
-    js = '\n'.join(read_piece(name) for name in ('js_dialogs.js', 'js_reveal.js', 'new.js'))
+    css = '\n'.join(read_piece(name) for name in ('new.css', 'css_dialogs.css', 'css_dl.css', 'css_theme.css', 'pricing.css'))
+    js = '\n'.join(read_piece(name) for name in ('js_dialogs.js', 'js_reveal.js', 'new.js', 'pricing.js'))
     image_vars = []
     for name in sorted(set(re.findall(r'var\(--img-([a-z0-9-]+)\b', css + body))):
         image_vars.append(f'  --img-{name}:url({webp_url(name)});')

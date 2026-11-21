@@ -501,3 +501,10 @@ h1.big{max-width:100%}
   .cookie-bar{flex-wrap:wrap;border-radius:24px;padding:10px 10px 10px 14px}
 }
 
+#cases{padding-bottom:clamp(36px,4vw,60px)}
+#solutions{scroll-margin-top:90px}
+@media (max-width:620px){
+  #cases .tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;overflow:visible}
+  #cases .tabs button{min-width:0;padding:12px 14px;font-size:14px}
+}
+
