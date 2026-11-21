@@ -256,7 +256,7 @@ def product_page(product, links):
     example_heading = 'Пример работы после запуска' if p['status'] else 'Как это выглядит в работе'
     return f"""<body>
 <main class="c solution-page">
-  <nav aria-label="Навигация"><a class="lnk" href="/">РОБОРАБ</a> <a class="lnk" href="/#cases">Кейсы</a> <a class="lnk" href="/#solution-catalog">Каталог решений</a></nav>
+  <nav aria-label="Навигация"><a class="lnk" href="/">РОБОРАБ</a> <a class="lnk" href="/#cases">Примеры</a> <a class="lnk" href="/#solution-catalog">Каталог решений</a></nav>
   <article>
 {badge}    <h1>{p['title']}</h1>
     <p class="intro-copy">{p['description']}</p>
