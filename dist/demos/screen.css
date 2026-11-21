@@ -21,29 +21,21 @@
   align-items: center;
   padding: 0 8%;
   overflow: hidden;
-  -webkit-backdrop-filter: blur(calc(5px * var(--demo-glass))) saturate(1.08);
-  backdrop-filter: blur(calc(5px * var(--demo-glass))) saturate(1.08);
   color: rgb(calc(255 - 237 * var(--demo-glass)) calc(255 - 237 * var(--demo-glass)) calc(255 - 235 * var(--demo-glass)));
   font: 680 14px/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   user-select: none;
   pointer-events: none;
 }
-.rr-demo-status::before, .rr-demo-status::after {
+.rr-demo-status::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-}
-.rr-demo-status::before {
   z-index: -1;
   opacity: calc(1 - var(--demo-glass));
   background: #141414;
 }
-.rr-demo-status::after {
-  z-index: -2;
-  background: linear-gradient(to bottom, rgb(248 250 252 / .34), rgb(248 250 252 / .09));
-  opacity: var(--demo-glass);
-}
+.rr-demo-level { display: inline-flex; align-items: center; gap: 4px; }
 .rr-demo-island {
   position: absolute;
   left: 50%;
@@ -70,11 +62,6 @@
 }
 :root[data-demo-screen="tax"] .app-shell { --header-clearance: max(var(--rr-safe-top), calc(var(--header-h) + var(--demo-chrome-shift))); }
 :root[data-demo-screen="fitness"] .people-switch-row { top: max(var(--rr-safe-top), calc(var(--topbar-total) + var(--demo-chrome-shift))); }
-@media (prefers-reduced-transparency: reduce) {
-  .rr-demo-status { -webkit-backdrop-filter: none; backdrop-filter: none; }
-  .rr-demo-status::after { background: #f4f4f2; }
-}
-
 @font-face {
   font-family: 'ROBORAB demo wordmark';
   font-weight: 900;
@@ -218,3 +205,28 @@
 }
 :root[data-demo-screen] :is(.btn,.button,.act,.qreply,.sug button):is(:hover,:active):not(:disabled),
 :root[data-demo-screen] .sum-item:has(>.sum-card:is(:hover,:active)) { transform: scale(1.025); }
+
+
+:root[data-demo-screen] :is(#sheet-back, .rr-inbox-close) {
+  -webkit-tap-highlight-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  transform: none;
+}
+:root[data-demo-screen] :is(#sheet-back, .rr-inbox-close):focus:not(:focus-visible) { outline: none; }
+
+.rr-support-example { margin: 0 0 16px; color: #575960; font-size: 13px; }
+.rr-support-thread { display: grid; gap: 12px; padding: 0; margin: 0 0 20px; list-style: none; }
+.rr-support-thread > li {
+  box-sizing: border-box; justify-self: start; max-width: 88%;
+  background: #fff; color: #141414; border-radius: 16px 16px 16px 4px; padding: 10px 14px;
+}
+.rr-support-thread > .rr-support-message--user {
+  justify-self: end; background: #dceeff; border-radius: 16px 16px 4px 16px;
+}
+.rr-support-author { display: block; margin: 0 0 3px; font-weight: 700; font-size: 13px; }
+.rr-support-text { margin: 0; }
+.rr-support-cta {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px;
+  color: #fff; background: #141414; border-radius: 999px; font-weight: 650; text-decoration: none;
+}

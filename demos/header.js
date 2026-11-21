@@ -8,6 +8,45 @@
   };
   const svg = name => '<svg viewBox="0 0 24 24" aria-hidden="true">' + icon[name] + '</svg>';
   const dataRoute = app === 'fitness' ? '#/' : '#dashboard';
+  const diagnosticsURL = 'https://roborab-app.vercel.app/?lang=ru';
+  const conversations = {
+    booking: {
+      product: 'Букинг-CRM',
+      lines: [
+        'Пришла бронь. Где проверить, с какой площадки она поступила?',
+        'Откройте «Брони» и выберите гостя. В карточке указаны площадка, объект и даты проживания.',
+        'Можно добавить в календарь имя сотрудника, который встречает гостя?',
+        'Да, добавим имя ответственного прямо в бронь. Тогда при передаче смены будет видно, кто встречает гостя.'
+      ]
+    },
+    construction: {
+      product: 'Строй-учёт',
+      lines: [
+        'Бригадир прислал фото кровли. Где посмотреть их вместе?',
+        'Откройте объект и вкладку «Отчёты». В отчёте по кровле фотографии можно листать прямо в карточке.',
+        'Можно добавить список обязательных ракурсов? На прошлых фото не было видно водостока.',
+        'Да, добавим к этапу список снимков. Бригадир увидит, что для приёмки кровли нужен ещё и кадр водостока.'
+      ]
+    },
+    tax: {
+      product: 'Агент по НДС',
+      lines: [
+        'На главной вижу предупреждение. Как понять, какой компании оно касается?',
+        'Откройте колокольчик и разверните предупреждение. Внутри есть пояснение.',
+        'Можно добавить выгрузку предупреждений для нашего бухгалтера?',
+        'Да, добавим таблицу с компанией, текстом предупреждения и датой. Её можно будет скачать одним файлом.'
+      ]
+    },
+    fitness: {
+      product: 'Глаза фитнеса',
+      lines: [
+        'Где посмотреть, у кого скоро заканчивается абонемент?',
+        'Откройте колокольчик. В списке видны клиенты, у которых подходит срок продления.',
+        'Можно добавить фильтр по тренеру, чтобы у каждого был свой список продлений?',
+        'Да, добавим выбор тренера. Вы сможете посмотреть и его клиентов, и весь клуб целиком.'
+      ]
+    }
+  };
   let lastCount = 0;
   let alertEntries = [];
   let listVersion = '';
@@ -16,7 +55,7 @@
   let dialogTitle;
   let mode = '';
   let returnRoute = null;
-  let chatOrigin = '#dashboard';
+  let opener = null;
 
   function el(tag, css, text) {
     const node = document.createElement(tag);
@@ -65,35 +104,44 @@
         link.href = item.href;
         link.addEventListener('click', () => {
           returnRoute = null;
+          opener = null;
           dialog.close();
         });
         card.append(link, el('p', 'rr-inbox-detail', item.detail));
         if (item.note) card.append(el('p', 'rr-inbox-note', item.note));
-        if (mode === 'messages') {
-          const reminder = el('button', 'rr-inbox-remind', 'Напомнить');
-          reminder.type = 'button';
-          reminder.setAttribute('aria-label', 'Напомнить о продлении: ' + item.title);
-          reminder.addEventListener('click', () => {
-            const row = Array.from(document.querySelectorAll('[data-tour="home-expiring"] li'))
-              .find(node => node.querySelector('.row-title a')?.getAttribute('href') === item.href);
-            const action = row?.querySelector('.row-actions button');
-            if (action && !action.disabled) action.click();
-          });
-          card.append(reminder);
-        }
         content.append(card);
       }
     }
     dialogList.replaceChildren(content);
   }
 
-  function inbox(nextMode) {
+  function drawConversation() {
+    const { product, lines } = conversations[app];
+    const example = el('p', 'rr-support-example', 'Пример переписки · ' + product);
+    const thread = el('ol', 'rr-support-thread');
+    thread.setAttribute('aria-label', 'Переписка с поддержкой');
+    lines.forEach((text, index) => {
+      const support = index % 2 === 1;
+      const item = el('li', 'rr-support-message rr-support-message--' + (support ? 'support' : 'user'));
+      item.append(el('span', 'rr-support-author', support ? 'Поддержка' : 'Пользователь'), el('p', 'rr-support-text', text));
+      thread.append(item);
+    });
+    const link = el('a', 'rr-support-cta', 'Перейти в чат бесплатной диагностики');
+    link.href = diagnosticsURL;
+    link.target = '_top';
+    dialogList.replaceChildren(example, thread, link);
+  }
+
+  function inbox(nextMode, trigger) {
+    if (dialog?.open) return;
     if (!dialog) {
       dialog = el('dialog', 'rr-demo-inbox');
       dialog.setAttribute('aria-labelledby', 'rr-demo-inbox-title');
       const head = el('header', 'rr-inbox-head');
       dialogTitle = el('h2', '');
       dialogTitle.id = 'rr-demo-inbox-title';
+      dialogTitle.tabIndex = -1;
+      dialogTitle.setAttribute('autofocus', '');
       const close = el('button', 'rr-inbox-close', '×');
       close.type = 'button';
       close.setAttribute('aria-label', 'Закрыть');
@@ -103,26 +151,28 @@
       dialog.append(head, dialogList);
       document.body.append(dialog);
       dialog.addEventListener('close', () => {
+        const focusControl = opener;
+        const selector = mode === 'messages' ? '[data-demo-messages]' : '[data-demo-bell]';
         if (returnRoute && activeRoute() === dataRoute) location.hash = returnRoute;
         returnRoute = null;
+        opener = null;
         mode = '';
+        if (focusControl) requestAnimationFrame(() => {
+          const button = focusControl.isConnected ? focusControl : document.querySelector(selector);
+          button?.focus({ preventScroll: true });
+        });
       });
     }
     mode = nextMode;
-    dialogTitle.textContent = mode === 'messages' ? 'Сообщения о продлении' : 'Уведомления';
-    returnRoute = activeRoute() !== dataRoute ? activeRoute() : null;
+    opener = trigger;
+    dialog.dataset.inboxMode = mode;
+    dialogTitle.textContent = mode === 'messages' ? 'Поддержка' : 'Уведомления';
+    returnRoute = mode === 'alerts' && activeRoute() !== dataRoute ? activeRoute() : null;
     if (returnRoute) location.hash = dataRoute;
-    drawList();
+    if (mode === 'messages') drawConversation();
+    else drawList();
+    dialogList.scrollTop = 0;
     dialog.showModal();
-  }
-
-  function chat() {
-    if (app === 'fitness') return inbox('messages');
-    if (activeRoute() === '#agent') location.hash = chatOrigin;
-    else {
-      chatOrigin = activeRoute();
-      location.hash = '#agent';
-    }
   }
 
   function mountRow(header) {
@@ -134,13 +184,14 @@
     bell.setAttribute('aria-haspopup', 'dialog');
     bell.dataset.demoBell = '';
     bell.innerHTML = svg('bell') + '<span class="rr-demo-count" hidden></span>';
-    bell.addEventListener('click', () => inbox('alerts'));
+    bell.addEventListener('click', () => inbox('alerts', bell));
     const message = el('button', 'rr-header-action');
     message.type = 'button';
     message.setAttribute('aria-label', 'Сообщения');
+    message.setAttribute('aria-haspopup', 'dialog');
     message.dataset.demoMessages = '';
     message.innerHTML = svg('chat');
-    message.addEventListener('click', chat);
+    message.addEventListener('click', () => inbox('messages', message));
     row.append(word, bell, message);
     header.append(row);
     return row;
@@ -170,7 +221,13 @@
     header.dataset.demoMainHeader = '';
     if (native) {
       header.querySelector('#btn-bell').dataset.demoBell = '';
-      header.querySelector('#btn-chat').dataset.demoMessages = '';
+      const message = header.querySelector('#btn-chat');
+      if (!message.hasAttribute('data-demo-messages')) {
+        message.dataset.demoMessages = '';
+        message.setAttribute('aria-label', 'Сообщения');
+        message.setAttribute('aria-haspopup', 'dialog');
+        message.onclick = () => inbox('messages', message);
+      }
       return;
     }
     const row = header.querySelector('.rr-demo-controls') || mountRow(header);
@@ -181,7 +238,7 @@
       if (version !== listVersion) {
         listVersion = version;
         alertEntries = entries;
-        if (dialog?.open) drawList();
+        if (dialog?.open && mode === 'alerts') drawList();
       }
     }
     const badge = row.querySelector('.rr-demo-count');
@@ -189,12 +246,6 @@
     if (badge.textContent !== number) badge.textContent = number;
     badge.hidden = lastCount === 0;
     if (app === 'fitness') keepFitnessLinks(header);
-    else {
-      const button = row.querySelector('[data-demo-messages]');
-      const open = activeRoute() === '#agent';
-      button.setAttribute('aria-label', open ? 'Закрыть чат' : 'Сообщения');
-      button.setAttribute('aria-pressed', String(open));
-    }
   }
 
   let raf = 0;
