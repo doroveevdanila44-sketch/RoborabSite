@@ -1,0 +1,1384 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Строй-учёт</title>
+<meta name="theme-color" content="#141414">
+<meta name="description" content="Строй-учёт РОБОРАБ: смета по фото, этапы и отчёты бригад, камеры на объектах.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Строй-учёт">
+<link rel="stylesheet" href="../booking/fonts/fonts.css">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="./roborab-ui.css">
+<style>
+/* Общая раскладка демо РОБОРАБ поверх roborab-ui.css. Монохром: чёрная основа, фиолетовый #0A84FF акцентом.
+   Раскладка: фиксированная шапка, нижний тачбар до 900 px, боковое меню от 900 px,
+   справа выезжает панель карточки. Светлая тема, как во всех приложениях РОБОРАБ. */
+:root {
+  --bg: #f4f4f2;
+  --surface: #ffffff;
+  --text: #141414;
+  --text-2: color-mix(in srgb, #141414 66%, #ffffff);
+  --text-3: color-mix(in srgb, #141414 56%, #ffffff);
+  --border: rgb(20 20 20 / 0.12);
+  --border-strong: rgb(20 20 20 / 0.22);
+  --soft: color-mix(in srgb, #141414 9%, #ffffff);
+  --soft-2: color-mix(in srgb, #141414 16%, #ffffff);
+  --pressed: color-mix(in srgb, #141414 82%, #000000);
+  --on-violet: rgb(255 255 255 / 0.74);
+  --warn: #c98617;
+  --warn-soft: color-mix(in srgb, #e0a33c 16%, #ffffff);
+  --danger: #d2483a;
+  --danger-soft: color-mix(in srgb, #df5c4e 14%, #ffffff);
+  --ok: #23845a;
+  --ok-soft: color-mix(in srgb, #2f9e6e 14%, #ffffff);
+  --shadow-raised: 0 12px 32px -16px rgb(0 0 0 / 0.28);
+  --panel-w: 560px;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--bg); -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 15px/1.45 var(--rr-font);
+  -webkit-font-smoothing: antialiased;
+}
+/* Под статус-баром отдельной подложки нет: шапка закрывает его сама, при прокрутке проявляется стекло .rr-scroll-status. Как в Beauty Box. */
+button, input, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--rr-violet); outline-offset: 2px; }
+.num { font-variant-numeric: tabular-nums; }
+.muted { color: var(--text-2); }
+.tertiary { color: var(--text-3); }
+.nowrap { white-space: nowrap; }
+
+/* Шапка и навигация */
+.app-header { position: fixed; inset: 0 0 auto; z-index: 41; }
+.app-header .rr-header-row { grid-template-columns: minmax(0, 1fr) auto auto; }
+.app-header .rr-header-action { position: relative; }
+.badge {
+  position: absolute;
+  top: 6px;
+  right: 4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--rr-lime);
+  color: #fff;
+  font: 800 11px/18px var(--rr-display);
+  text-align: center;
+}
+@media (max-width: 899px) { .rr-rail { display: none; } }
+.rail-foot {
+  margin-top: auto;
+  padding: 12px 16px 4px;
+  color: var(--text-3);
+  font: italic 900 15px/1 var(--rr-display);
+  letter-spacing: -.02em;
+}
+
+main {
+  padding-top: calc(var(--rr-header-height) + 24px);
+  padding-bottom: calc(var(--rr-dock-space) + 24px);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 900px) {
+  main {
+    margin-left: var(--rr-rail-width);
+    padding-top: calc(var(--rr-header-height) + 32px);
+    padding-bottom: 48px;
+    padding-left: max(32px, env(safe-area-inset-left, 0px));
+    padding-right: max(32px, env(safe-area-inset-right, 0px));
+  }
+}
+.page { max-width: 1120px; margin: 0 auto; display: grid; gap: 28px; }
+.page > * { min-width: 0; }
+.page-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.page-title {
+  margin: 0;
+  font: italic 900 30px/1.02 var(--rr-display);
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.page-sub { margin: 6px 0 0; color: var(--text-2); }
+.section { display: grid; gap: 12px; }
+.section-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+.section-title .link-btn { text-transform: none; letter-spacing: 0; }
+.grid-2 { display: grid; gap: 28px; }
+@media (min-width: 1100px) { .grid-2 { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: start; } }
+
+/* Плитки: фиолетовые, цифра лаймом */
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 640px) { .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.tile {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 116px;
+  padding: 16px;
+  border: 0;
+  border-radius: 28px;
+  background: var(--rr-violet);
+  color: #fff;
+  text-align: left;
+  transition: transform .3s var(--rr-ease), background .3s var(--rr-ease);
+}
+.tile-title { font: 700 14px/1.25 var(--rr-font); }
+.tile-count {
+  font: italic 900 clamp(34px, 30cqi, 56px)/1 var(--rr-display);
+  letter-spacing: -.04em;
+  color: var(--rr-lime);
+  font-variant-numeric: tabular-nums;
+}
+.tile-note { font-size: 13px; color: var(--on-violet); }
+.tile--ink { background: var(--rr-lime); }
+.tile--ink .tile-count { color: #fff; }
+.tile--light { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+.tile--light .tile-count { color: var(--rr-violet); }
+.tile--light .tile-note { color: var(--text-2); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .tile:hover { transform: translateY(-3px) rotate(-1deg); }
+}
+
+/* Карточки и списки */
+.card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: 16px;
+}
+.card--tap { cursor: pointer; transition: box-shadow .2s var(--rr-ease), transform .2s var(--rr-ease); }
+@media (hover: hover) { .card--tap:hover { box-shadow: var(--shadow-raised); transform: translateY(-1px); } }
+.card-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.card-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+.row { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.row > .grow { flex: 1; min-width: 0; }
+.between { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.stack { display: grid; gap: 4px; min-width: 0; }
+.stack-8 { display: grid; gap: 8px; min-width: 0; }
+.stack-12 { display: grid; gap: 12px; min-width: 0; }
+.name { font-weight: 700; font-size: 16px; line-height: 1.3; overflow-wrap: anywhere; }
+.meta { font-size: 13px; color: var(--text-2); }
+.sum { font: italic 900 20px/1.1 var(--rr-display); letter-spacing: -.03em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.card-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.divider { height: 1px; background: var(--border); border: 0; margin: 4px 0; }
+.empty { padding: 28px 16px; text-align: center; color: var(--text-3); }
+
+/* Денежная карточка */
+.money { background: var(--rr-violet); border-color: transparent; color: #fff; }
+.money .meta, .money .muted { color: var(--on-violet); }
+.money-value {
+  font: italic 900 clamp(34px, 8vw, 52px)/1.04 var(--rr-display);
+  letter-spacing: -.04em;
+  color: var(--rr-lime);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.money-rows { display: grid; gap: 8px; margin: 16px 0 0; }
+.money-row { display: flex; justify-content: space-between; gap: 12px; }
+.money-row dt { color: var(--on-violet); }
+.money-row dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+.money hr { border: 0; height: 1px; background: rgb(255 255 255 / .22); margin: 16px 0; }
+
+/* Полосы прогресса */
+.bar { height: 8px; border-radius: 999px; background: var(--soft-2); overflow: hidden; }
+.bar > span { display: block; height: 100%; border-radius: inherit; background: var(--rr-violet); }
+.money .bar { background: rgb(255 255 255 / .18); }
+.money .bar > span { background: var(--rr-lime); }
+.bar--warn > span { background: var(--warn); }
+.bar--danger > span { background: var(--danger); }
+.stackbar { display: flex; height: 12px; border-radius: 999px; overflow: hidden; gap: 2px; }
+.stackbar > span { display: block; height: 100%; }
+
+/* Кнопки, чипы, метки */
+.btn-sec {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--rr-violet);
+  font: normal 800 15px/1 var(--rr-display);
+  text-decoration: none;
+  transition: border-color .2s var(--rr-ease), background .2s var(--rr-ease);
+}
+@media (hover: hover) { .btn-sec:hover { border-color: var(--rr-violet); background: var(--soft); } }
+.btn-sec:disabled { opacity: .5; cursor: default; }
+.btn-sec svg, .btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.btn-sec--danger { color: var(--danger); }
+.btn-wide { width: 100%; }
+.link-btn { border: 0; background: none; padding: 0; color: var(--rr-violet); font-weight: 700; font-size: 14px; }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chips--wrap { flex-wrap: wrap; overflow: visible; }
+.chip {
+  flex: none;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: border-color .2s var(--rr-ease), background .2s var(--rr-ease), color .2s var(--rr-ease);
+}
+.chip[aria-pressed="true"] { background: var(--soft); border-color: var(--rr-violet); color: var(--rr-violet); }
+@media (hover: hover) { .chip:hover { border-color: var(--rr-violet); } }
+.chip .count { margin-left: 6px; color: var(--text-3); font-variant-numeric: tabular-nums; }
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 24px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--rr-violet);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.tag--ok { background: var(--ok-soft); color: var(--ok); }
+.tag--warn { background: var(--warn-soft); color: var(--warn); }
+.tag--danger { background: var(--danger-soft); color: var(--danger); }
+.tag--ink { background: var(--rr-ink); color: #fff; }
+.tag--lime { background: var(--rr-lime); color: #fff; }
+.dot { display: inline-block; flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--text-3); }
+.t-warn { color: var(--warn); font-weight: 700; }
+.t-danger { color: var(--danger); font-weight: 700; }
+.t-ok { color: var(--ok); font-weight: 700; }
+
+/* Аватарка: лаймовый круг, фиолетовые инициалы */
+.avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--rr-lime);
+  color: #fff;
+  font: 800 14px/1 var(--rr-display);
+}
+.avatar--lg { width: 56px; height: 56px; font-size: 18px; }
+
+/* Поиск и поля */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface);
+}
+.search:focus-within { border-color: var(--rr-violet); }
+.search svg { width: 20px; height: 20px; flex: none; fill: none; stroke: var(--text-3); stroke-width: 1.75; stroke-linecap: round; }
+.search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font-size: 16px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: 13px; font-weight: 700; color: var(--text-2); }
+.field input, .field textarea, .field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: 20px;
+  background: var(--surface);
+  font-size: 16px;
+  outline: 0;
+}
+.field textarea { min-height: 96px; resize: vertical; line-height: 1.45; }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--rr-violet); }
+.form-row { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+/* Панель справа (на телефоне во весь экран) */
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgb(20 20 20 / .34);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s var(--rr-ease);
+}
+.scrim.open { opacity: 1; pointer-events: auto; }
+.sheet {
+  position: fixed;
+  z-index: 51;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  transform: translateX(104%);
+  transition: transform .45s var(--rr-ease);
+  visibility: hidden;
+}
+.sheet.open { transform: none; visibility: visible; }
+.sheet .rr-header { flex: none; }
+.sheet .rr-header-row { grid-template-columns: auto minmax(0, 1fr) auto; }
+.sheet-body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-top: 24px;
+  padding-bottom: calc(32px + var(--rr-safe-bottom));
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.sheet-body > .stack-16 { display: grid; gap: 20px; }
+.sheet-title { margin: 0; font: italic 900 26px/1.05 var(--rr-display); letter-spacing: -.035em; text-wrap: balance; }
+@media (min-width: 900px) {
+  .sheet {
+    inset: 12px 12px 12px auto;
+    width: min(var(--panel-w), calc(100% - 24px));
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px -30px rgb(20 20 20 / .45);
+  }
+  .sheet .rr-header { border-radius: 0 0 28px 28px; }
+  .sheet-body { padding-left: 24px; padding-right: 24px; }
+}
+@media (prefers-reduced-motion: reduce) { .sheet, .scrim { transition: none; } }
+
+.kv { display: grid; gap: 10px; margin: 0; }
+.kv > div { display: flex; justify-content: space-between; gap: 16px; }
+.kv dt { color: var(--text-2); }
+.kv dd { margin: 0; font-weight: 700; text-align: right; overflow-wrap: anywhere; }
+
+/* Тост */
+.toast {
+  position: fixed;
+  z-index: 60;
+  left: 50%;
+  bottom: calc(var(--rr-dock-space) + 12px);
+  width: max-content;
+  max-width: min(440px, calc(100% - 32px));
+  padding: 14px 18px;
+  border-radius: 22px;
+  background: var(--rr-ink);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: var(--shadow-raised);
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s var(--rr-ease), transform .3s var(--rr-ease);
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+@media (min-width: 900px) { .toast { bottom: 24px; left: calc(50% + var(--rr-rail-width) / 2); } }
+
+/* Шаги работы агента */
+.steps { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.steps li { display: flex; align-items: center; gap: 10px; color: var(--text-3); transition: color .3s; }
+.steps li.done { color: var(--text); }
+.steps li.run { color: var(--rr-violet); font-weight: 700; }
+.step-mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+}
+.steps li.done .step-mark { background: var(--rr-violet); border-color: var(--rr-violet); color: #fff; }
+.step-mark svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.steps li.run .step-mark { border-top-color: transparent; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .steps li.run .step-mark { animation: none; } }
+
+/* Чат агента внутри приложения */
+.chat { display: flex; flex-direction: column; gap: 12px; }
+.msg { max-width: 86%; padding: 12px 16px; }
+.msg-wrap { display: flex; }
+.msg-wrap.user { justify-content: flex-end; }
+.chat-compose { flex: none; padding: 12px max(16px, env(safe-area-inset-left, 0px)) calc(12px + var(--rr-safe-bottom)); }
+@media (min-width: 900px) { .chat-compose { padding: 12px 24px 20px; } }
+.quick { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.chat-bg { background: radial-gradient(120% 70% at 100% 0%, var(--soft-2), transparent 60%), var(--bg); }
+
+.demo-note {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px dashed var(--border-strong);
+  color: var(--text-2);
+  font-size: 13px;
+}
+.ico { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.thumb { display: block; width: 100%; max-width: 100%; aspect-ratio: 4 / 3; border-radius: 18px; overflow: hidden; background: var(--soft); }
+.thumb svg, .thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+@keyframes rise { from { opacity: .4; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .4s var(--rr-ease) both; }
+@media (prefers-reduced-motion: reduce) { .rise { animation: none; } }
+
+/* Строй-учёт: фото отчётов, этапы, камеры, смета */
+.tile-of { font-size: .5em; color: var(--on-violet); letter-spacing: 0; }
+.shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.shots .thumb { border-radius: 14px; aspect-ratio: 4 / 3; }
+.money-obj { display: grid; gap: 6px; width: 100%; padding: 0; border: 0; background: none; color: #fff; text-align: left; }
+.money-obj .meta { font-size: 12px; }
+.money .bar--hot > span, .bar--hot > span { background: #ffb3a8; }
+.bar--hot { background: rgb(255 255 255 / .18); }
+.card .bar--hot { background: var(--danger-soft); }
+.card:not(.money) .bar--hot > span { background: var(--danger); }
+.obj-cover { position: relative; aspect-ratio: 16 / 9; }
+.obj-pct { position: absolute; right: 10px; bottom: 10px; padding: 6px 12px; border-radius: 999px; background: var(--rr-lime); color: #fff; font: italic 900 20px/1 var(--rr-display); letter-spacing: -.03em; }
+.line { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 20px; }
+
+.timeline { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.tl { position: relative; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; align-items: start; }
+.tl::before { content: ""; position: absolute; left: 13px; top: 30px; bottom: -12px; width: 2px; background: var(--border); }
+.tl:last-child::before { display: none; }
+.tl.done::before { background: var(--rr-violet); }
+.st { position: relative; z-index: 1; display: grid; place-items: center; width: 28px; height: 28px; margin-top: 14px; border-radius: 50%; border: 2px solid var(--border-strong); background: var(--surface); }
+.st svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.st--done { background: var(--rr-violet); border-color: var(--rr-violet); color: #fff; }
+.st--review { background: var(--rr-lime); border-color: var(--rr-ink); }
+.st--work { border-color: var(--rr-violet); box-shadow: inset 0 0 0 5px var(--soft-2); }
+.st--late { border-color: var(--danger); box-shadow: inset 0 0 0 5px var(--danger-soft); }
+.tl.todo .card { background: transparent; border-style: dashed; }
+
+.cam-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+.cam {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #07121f;
+  color: #fff;
+  text-align: left;
+}
+.cam > svg { position: absolute; inset: 0; width: 100%; height: 100%; filter: saturate(.85) contrast(1.05); }
+.cam-noise {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, rgb(255 255 255 / .05) 0 1px, transparent 1px 3px), linear-gradient(180deg, rgb(0 0 0 / .28), transparent 30%, transparent 70%, rgb(0 0 0 / .45));
+  animation: scan 6s linear infinite;
+}
+@keyframes scan { from { background-position: 0 0, 0 0; } to { background-position: 0 120px, 0 0; } }
+@media (prefers-reduced-motion: reduce) { .cam-noise { animation: none; } }
+.cam-top { position: absolute; inset: 12px 12px auto; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.cam-live { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: rgb(0 0 0 / .45); font-size: 12px; font-weight: 700; }
+.cam-live i { width: 8px; height: 8px; border-radius: 50%; background: #ff5a4a; animation: blink 1.4s steps(2, start) infinite; }
+@keyframes blink { to { visibility: hidden; } }
+@media (prefers-reduced-motion: reduce) { .cam-live i { animation: none; } }
+.cam-clock { padding: 4px 10px; border-radius: 999px; background: rgb(0 0 0 / .45); font-size: 12px; font-weight: 700; }
+.cam-name { position: absolute; left: 14px; bottom: 12px; right: 14px; display: grid; gap: 2px; text-shadow: 0 1px 6px rgb(0 0 0 / .5); }
+.cam-name b { font-size: 16px; }
+.cam-name span { font-size: 13px; opacity: .85; }
+.cam--off > svg { filter: grayscale(1) brightness(.35); }
+.cam-dead { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; gap: 4px; font-size: 13px; }
+.cam-dead b { font-size: 16px; }
+@media (hover: hover) { .cam:hover > svg { transform: scale(1.03); transition: transform .6s var(--rr-ease); } }
+
+.mode-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.mode { display: grid; gap: 6px; justify-items: start; text-align: left; transition: border-color .2s var(--rr-ease), background .2s var(--rr-ease); }
+.mode svg { width: 28px; height: 28px; fill: none; stroke: var(--rr-violet); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.mode b { font: normal 800 16px/1.2 var(--rr-display); }
+.mode[aria-pressed="true"] { border-color: var(--rr-violet); box-shadow: inset 0 0 0 1px var(--rr-violet); background: var(--soft); }
+.drop { position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 24px; overflow: hidden; border: 1.5px dashed var(--rr-violet); background: var(--surface); cursor: pointer; }
+.drop img, .drop .drop-sample, .drop .drop-sample svg { display: block; width: 100%; height: 100%; object-fit: cover; }
+.drop-file { display: grid; place-content: center; justify-items: center; gap: 8px; height: 100%; color: var(--rr-violet); }
+.drop-file svg { width: 40px; height: 40px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.drop-cap { position: absolute; right: 10px; bottom: 10px; display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; background: rgb(20 20 20 / .72); color: #fff; font: normal 800 12px/1 var(--rr-display); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.drop-cap svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+@media (hover: hover) { .drop:hover .drop-cap { background: var(--rr-lime); color: #fff; } }
+.drop:focus-within { outline: 2px solid var(--rr-violet); outline-offset: 2px; }
+
+.obj-note { position: absolute; left: 10px; top: 10px; }
+.cam > .cam-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.8) contrast(1.08) brightness(.95); }
+.cam--off > .cam-img { filter: grayscale(1) brightness(.35); }
+
+</style>
+</head>
+<body>
+<script>
+const PHOTOS = {"house-autumn": "img/house-autumn.jpg", "house-winter": "img/house-winter.jpg", "apartment-raw": "img/apartment-raw.jpg"};
+/* Общие помощники демо РОБОРАБ: иконки, даты, деньги, панель, тост, маршруты, чат. */
+const ICONS = {
+  home: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/>',
+  calendar: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+  list: '<rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/>',
+  bed: '<path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/>',
+  globe: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+  chat: '<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>',
+  bell: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>',
+  back: '<path d="m15 18-6-6 6-6"/>',
+  close: '<path d="M18 6 6 18M6 6l12 12"/>',
+  check: '<path d="M20 6 9 17l-5-5"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
+  video: '<path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 11"/><rect x="2" y="6" width="14" height="12" rx="2"/>',
+  users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+  file: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/>',
+  image: '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/>',
+  camera: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>',
+  upload: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>',
+  download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>',
+  refresh: '<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8M21 3v5h-5M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16M8 16H3v5"/>',
+  send: '<path d="m5 12 7-7 7 7M12 19V5"/>',
+  alert: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/>',
+  search: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+  phone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>',
+  lock: '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+  hammer: '<path d="m15 12-8.37 8.37a2.12 2.12 0 0 1-3-3L12 9"/><path d="M17.64 15 22 10.64M20.91 11.7l-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/>',
+  layers: '<path d="m12 2 10 5-10 5L2 7Z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/>',
+};
+function I(name, cls = 'ico') {
+  return `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name] || ''}</svg>`;
+}
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+const RUB = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 0 });
+const rub = (n) => `${RUB.format(Math.round(n))} ₽`;
+const mln = (n) => n >= 1e6 ? `${(n / 1e6).toLocaleString('ru-RU', { maximumFractionDigits: 1 })} млн ₽` : rub(n);
+const plural = (n, a, b, c) => { const m = Math.abs(n) % 100, d = m % 10; return m > 10 && m < 20 ? c : d === 1 ? a : d >= 2 && d <= 4 ? b : c; };
+
+const DAY = 86400000;
+const TODAY = (() => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; })();
+const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+const sameDay = (a, b) => a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+const diffDays = (a, b) => Math.round((a - b) / DAY);
+const MONTHS_GEN = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
+const MONTHS = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+const MONTHS_PREP = ['январе', 'феврале', 'марте', 'апреле', 'мае', 'июне', 'июле', 'августе', 'сентябре', 'октябре', 'ноябре', 'декабре'];
+const WD = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+const fd = (d) => `${d.getDate()} ${MONTHS_GEN[d.getMonth()]}`;
+const fdShort = (d) => `${d.getDate()}.${String(d.getMonth() + 1).padStart(2, '0')}`;
+const range = (a, b) => a.getMonth() === b.getMonth()
+  ? `${a.getDate()}–${b.getDate()} ${MONTHS_GEN[a.getMonth()]}`
+  : `${fd(a)} – ${fd(b)}`;
+const relDay = (d) => { const day = new Date(d); day.setHours(0, 0, 0, 0); const k = diffDays(day, TODAY); return k === 0 ? 'сегодня' : k === 1 ? 'завтра' : k === -1 ? 'вчера' : fd(d); };
+const hhmm = (d) => `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+const initials = (name) => { const p = name.replace(/[.]/g, ' ').trim().split(/\s+/); return (p[0][0] + (p.length > 1 ? p[p.length - 1][0] : '')).toUpperCase(); };
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/* Тост */
+let toastTimer;
+function toast(text) {
+  const el = $('#toast');
+  el.textContent = text;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 3200);
+}
+
+/* Панель справа. Одна на приложение, содержимое меняется. */
+const Sheet = {
+  stack: [],
+  open(render, opts = {}) {
+    this.stack.push({ render, opts });
+    this.paint();
+    $('#sheet').classList.add('open');
+    $('#scrim').classList.add('open');
+    document.documentElement.style.overflow = 'hidden';
+  },
+  replace(render, opts = {}) { this.stack[this.stack.length - 1] = { render, opts }; this.paint(); },
+  refresh() { if (this.stack.length) this.paint(true); },
+  back() {
+    this.stack.pop();
+    if (this.stack.length) this.paint(); else this.close();
+  },
+  close() {
+    this.stack = [];
+    $('#sheet').classList.remove('open');
+    $('#scrim').classList.remove('open');
+    document.documentElement.style.overflow = '';
+    if (typeof onSheetClosed === 'function') onSheetClosed();
+  },
+  paint(keepScroll) {
+    const top = this.stack[this.stack.length - 1];
+    const body = $('#sheet-body');
+    const y = body.scrollTop;
+    $('#sheet').classList.toggle('chat-bg', !!top.opts.chat);
+    $('#sheet-back').innerHTML = this.stack.length > 1 ? I('back') : I('close');
+    $('#sheet-back').setAttribute('aria-label', this.stack.length > 1 ? 'Назад' : 'Закрыть');
+    body.innerHTML = '';
+    const footer = $('#sheet-footer');
+    footer.innerHTML = '';
+    footer.hidden = true;
+    top.render(body, footer);
+    if (footer.innerHTML) footer.hidden = false;
+    body.scrollTop = keepScroll ? y : 0;
+  },
+};
+
+/* Маршруты по хешу: #home, #calendar и так далее */
+function setupRouter(views, start) {
+  const go = (keep) => {
+    const name = (location.hash || '').slice(1);
+    const view = views[name] ? name : start;
+    for (const a of $$('[data-view]')) {
+      if (a.dataset.view === view) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    }
+    const main = $('#main');
+    main.innerHTML = '';
+    const page = document.createElement('div');
+    page.className = 'page';
+    main.appendChild(page);
+    const y = window.scrollY;
+    views[view](page);
+    if (keep && App.view === view) window.scrollTo(0, y);
+    else { window.scrollTo(0, 0); document.dispatchEvent(new Event('rr:header-reset')); }
+    App.view = view;
+  };
+  window.addEventListener('hashchange', () => go(false));
+  go(false);
+  return () => go(true);
+}
+function navTo(view) {
+  if (location.hash === '#' + view) App.rerender(); else location.hash = view;
+}
+
+/* Навигация: одна разметка для тачбара и бокового меню */
+function buildNav(tabs, product) {
+  const html = tabs.map((t) => `<a class="rr-tab" href="#${t.id}" data-view="${t.id}">${I(t.icon)}<span class="rr-tab-label">${t.label}</span></a>`).join('');
+  $('#dock').innerHTML = html;
+  $('#rail').innerHTML = html + `<div class="rail-foot">${esc(product)}</div>`;
+}
+
+/* Чат агента РОБОРАБ внутри приложения */
+function openAgentChat(cfg) {
+  const log = cfg.log;
+  Sheet.open((body, footer) => {
+    body.innerHTML = `<div class="chat" id="chat-list" aria-live="polite"></div>`;
+    const list = $('#chat-list', body);
+    const draw = () => {
+      list.innerHTML = log.map((m) => `<div class="msg-wrap ${m.me ? 'user' : ''}"><div class="rr-message msg ${m.me ? 'rr-message--user' : ''}">${m.html || esc(m.text)}</div></div>`).join('');
+      body.scrollTop = body.scrollHeight;
+    };
+    draw();
+    footer.className = 'chat-compose';
+    footer.innerHTML = `
+      <div class="quick">${cfg.quick.map((q) => `<button class="chip" type="button" data-q="${esc(q)}">${esc(q)}</button>`).join('')}</div>
+      <form class="rr-composer" id="chat-form">
+        <textarea id="chat-input" rows="1" placeholder="Напишите агенту" aria-label="Сообщение агенту"></textarea>
+        <button class="rr-composer-control rr-composer-send" type="submit" aria-label="Отправить" disabled>${I('send')}</button>
+      </form>`;
+    const input = $('#chat-input', footer);
+    const sendBtn = $('.rr-composer-send', footer);
+    const grow = () => { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 148) + 'px'; sendBtn.disabled = !input.value.trim(); };
+    input.addEventListener('input', grow);
+    input.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); $('#chat-form', footer).requestSubmit(); } });
+    const ask = async (text) => {
+      if (!text.trim()) return;
+      log.push({ me: true, text });
+      draw();
+      log.push({ html: '<span class="tertiary">Агент печатает…</span>' });
+      draw();
+      await sleep(700);
+      log.pop();
+      log.push({ html: cfg.answer(text) });
+      draw();
+    };
+    $('#chat-form', footer).addEventListener('submit', (e) => { e.preventDefault(); const t = input.value; input.value = ''; grow(); ask(t); });
+    footer.addEventListener('click', (e) => { const q = e.target.closest('[data-q]'); if (q) ask(q.dataset.q); });
+  }, { chat: true });
+}
+
+/* Общая разметка оболочки */
+function mountShell(product) {
+  document.body.insertAdjacentHTML('afterbegin', `
+  <header class="app-header rr-header" data-rr-scroll-header>
+    <div class="rr-header-row">
+      <span class="rr-wordmark">РОБОРАБ</span>
+      <button class="rr-header-action" type="button" id="btn-bell" aria-label="Уведомления">${I('bell')}<span class="badge" id="bell-badge" hidden></span></button>
+      <button class="rr-header-action" type="button" id="btn-chat" aria-label="Чат с агентом">${I('chat')}</button>
+    </div>
+  </header>
+  <div class="rr-scroll-status" aria-hidden="true"></div>
+  <nav class="rr-dock rr-rail" id="rail" aria-label="Разделы"></nav>
+  <main id="main" tabindex="-1"></main>
+  <nav class="rr-dock" id="dock" aria-label="Разделы"></nav>
+  <div class="scrim" id="scrim"></div>
+  <aside class="sheet" id="sheet" aria-label="${esc(product)}">
+    <header class="rr-header">
+      <div class="rr-header-row">
+        <button class="rr-header-action" type="button" id="sheet-back" aria-label="Закрыть"></button>
+        <span class="rr-wordmark">РОБОРАБ</span>
+        <span></span>
+      </div>
+    </header>
+    <div class="sheet-body" id="sheet-body"></div>
+    <div id="sheet-footer" hidden></div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>`);
+  $('#scrim').addEventListener('click', () => Sheet.close());
+  $('#sheet-back').addEventListener('click', () => Sheet.back());
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && Sheet.stack.length) Sheet.back(); });
+}
+const App = { view: null, rerender() {} };
+
+/* Строй-учёт: демо на выдуманных данных. Даты считаются от сегодняшнего дня. */
+const PRODUCT = 'Строй-учёт';
+
+/* Картинка стройки, рисуется кодом. kind: site, frame, demo, electric, plumbing, screed, plaster, tile, finish */
+function siteScene(kind, seed = 0, opts = {}) {
+  const r = (n) => { const x = Math.sin((seed + 1) * 9301 + n * 49297) * 233280; return x - Math.floor(x); };
+  const id = `s${Math.random().toString(36).slice(2, 8)}`;
+  const tint = opts.night ? 'filter:brightness(.55) saturate(.7)' : '';
+  if (kind === 'site' || kind === 'frame') {
+    const wood = '#c9965f', wood2 = '#a8773f';
+    const studs = Array.from({ length: 9 }, (_, i) => `<rect x="${82 + i * 20}" y="96" width="6" height="86" fill="${i % 2 ? wood : wood2}"/>`).join('');
+    const house = kind === 'site'
+      ? `<rect x="70" y="92" width="190" height="92" fill="#d8d2c8"/><rect x="70" y="92" width="190" height="10" fill="#bdb5a8"/>
+         ${[0, 1, 2].map((i) => `<rect x="${92 + i * 58}" y="118" width="34" height="38" fill="#4a5466"/><rect x="${92 + i * 58}" y="118" width="34" height="4" fill="#ffffff" opacity=".4"/>`).join('')}
+         <polygon points="58,94 165,44 272,94" fill="#141414" opacity=".9"/><polygon points="58,94 165,44 168,50 66,96" fill="#141414" opacity=".25"/>
+         <rect x="214" y="58" width="16" height="30" fill="#8d8478"/>`
+      : `<rect x="76" y="176" width="180" height="8" fill="${wood2}"/>${studs}<rect x="76" y="92" width="180" height="8" fill="${wood}"/>
+         <polygon points="70,94 166,50 262,94" fill="none" stroke="${wood2}" stroke-width="7"/><line x1="166" y1="50" x2="166" y2="94" stroke="${wood}" stroke-width="6"/>`;
+    return `<svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" style="${tint}" role="img" aria-label="Снимок объекта">
+      <defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ec9f0"/><stop offset="1" stop-color="#e6f3fb"/></linearGradient></defs>
+      <rect width="320" height="240" fill="url(#${id})"/>
+      <ellipse cx="${60 + r(1) * 200}" cy="${30 + r(2) * 20}" rx="34" ry="9" fill="#ffffff" opacity=".8"/>
+      <path d="M0 170 Q80 158 160 166 T320 162 V240 H0Z" fill="#8a9a5b"/>
+      <rect x="0" y="182" width="320" height="58" fill="#9b8466"/>
+      <path d="M0 182 Q90 176 200 184 T320 180 V188 H0Z" fill="#7d6a52"/>
+      ${house}
+      <rect x="18" y="160" width="40" height="24" fill="#0a84ff"/><rect x="18" y="160" width="40" height="5" fill="#141414" opacity=".3"/>
+      ${[0, 1, 2, 3].map((i) => `<rect x="${268 + (i % 2) * 18}" y="${190 - Math.floor(i / 2) * 9}" width="16" height="8" fill="#b4533c"/>`).join('')}
+      <rect x="0" y="206" width="320" height="34" fill="#8b7558" opacity=".6"/>
+    </svg>`;
+  }
+  const wall = { demo: '#b9b2a6', electric: '#c8c2b6', plumbing: '#cfc9be', screed: '#cbc5ba', plaster: '#d9d4cb', tile: '#e4e0d8', finish: '#e6f1ff' }[kind] || '#cfc9be';
+  const floor = { screed: '#8f8b86', finish: '#c9a67e', tile: '#b9b5ad' }[kind] || '#9c968c';
+  let extra = '';
+  if (kind === 'demo') extra = `<path d="M30 200 l26 -28 l18 14 l22 -20 l30 34Z" fill="#8b8479"/><path d="M150 206 l20 -16 l16 8 l24 -18 l26 26Z" fill="#7d766c"/>
+    ${[0, 1, 2].map((i) => `<rect x="${226 + i * 22}" y="182" width="20" height="26" rx="4" fill="#e9e4da"/>`).join('')}<rect x="70" y="40" width="40" height="70" fill="${wall}" stroke="#8b8479" stroke-dasharray="4 4"/>`;
+  if (kind === 'electric') extra = `<path d="M40 60 H170 M90 60 V150 M170 60 V110 M210 140 H290" stroke="#8f887c" stroke-width="6" fill="none"/>
+    <path d="M40 60 H170 M90 60 V150 M170 60 V110 M210 140 H290" stroke="#f0702a" stroke-width="2" fill="none"/>
+    ${[[90, 150], [170, 110], [250, 140], [40, 60]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="9" fill="#5b5f66"/><circle cx="${x}" cy="${y}" r="4" fill="#2f3237"/>`).join('')}
+    <rect x="236" y="40" width="44" height="58" rx="3" fill="#e8e6e1"/><rect x="242" y="48" width="32" height="10" fill="#141414"/>${[0, 1, 2, 3].map((i) => `<rect x="${243 + i * 8}" y="64" width="5" height="16" fill="#141414"/>`).join('')}`;
+  if (kind === 'plumbing') extra = `<path d="M40 196 H210 V120 M120 196 V150" stroke="#f3f3f3" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M60 188 H230 V100" stroke="#e05a44" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M60 180 H240 V110" stroke="#3a7bd5" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <rect x="196" y="120" width="56" height="34" rx="4" fill="#e9e4da"/><circle cx="208" cy="137" r="5" fill="#e05a44"/><circle cx="240" cy="137" r="5" fill="#3a7bd5"/>`;
+  if (kind === 'screed') extra = `${[0, 1, 2, 3].map((i) => `<line x1="${20 + i * 90}" y1="240" x2="${120 + i * 40}" y2="186" stroke="#6f6b66" stroke-width="2"/>`).join('')}
+    <rect x="250" y="150" width="34" height="36" rx="3" fill="#0a84ff"/><rect x="246" y="146" width="42" height="7" rx="2" fill="#141414" opacity=".5"/>`;
+  if (kind === 'plaster') extra = `<rect x="0" y="0" width="${150 + r(3) * 60}" height="184" fill="#ece8e1"/>
+    ${[0, 1, 2, 3].map((i) => `<line x1="${30 + i * 50}" y1="10" x2="${30 + i * 50}" y2="184" stroke="#c8c2b6" stroke-width="2"/>`).join('')}
+    <path d="M220 184 L248 70 M262 184 L290 70" stroke="#141414" stroke-width="5"/>${[0, 1, 2, 3].map((i) => `<line x1="${226 + i * 7}" y1="${160 - i * 26}" x2="${268 + i * 7}" y2="${160 - i * 26}" stroke="#141414" stroke-width="4"/>`).join('')}
+    <rect x="160" y="172" width="30" height="24" rx="3" fill="#ffffff"/>`;
+  if (kind === 'tile') {
+    for (let y = 100; y < 184; y += 21) for (let x = 0; x < 320; x += 31) extra += `<rect x="${x + 1}" y="${y + 1}" width="29" height="19" fill="${(x / 31 + y / 21) % 2 ? '#f6f4ef' : '#eceae4'}"/>`;
+    extra += `<rect x="0" y="99" width="320" height="2" fill="#c9c4bb"/><rect x="110" y="120" width="70" height="50" rx="22" fill="#ffffff" stroke="#d6d1c8"/>`;
+  }
+  if (kind === 'finish') extra = `${[0, 1, 2, 3, 4, 5, 6].map((i) => `<line x1="${i * 50}" y1="240" x2="${80 + i * 34}" y2="184" stroke="#b28c62" stroke-width="1.5"/>`).join('')}
+    <rect x="40" y="70" width="70" height="46" fill="#ffffff"/><rect x="45" y="75" width="60" height="36" fill="#141414" opacity=".25"/>
+    <rect x="200" y="150" width="90" height="34" rx="8" fill="#141414"/><rect x="200" y="140" width="90" height="16" rx="6" fill="#0b3a75"/>
+    <circle cx="160" cy="18" r="10" fill="#fff6c9"/><rect x="159" y="0" width="2" height="10" fill="#555"/>`;
+  return `<svg viewBox="0 0 320 240" preserveAspectRatio="xMidYMid slice" style="${tint}" role="img" aria-label="Снимок объекта"><g transform="${seed % 2 ? 'translate(320 0) scale(-1 1)' : ''}">
+    <rect width="320" height="240" fill="${wall}"/>
+    <rect x="${120 + r(4) * 40}" y="40" width="70" height="90" fill="#bfe1f6"/><rect x="${120 + r(4) * 40}" y="40" width="70" height="90" fill="none" stroke="#a49d91" stroke-width="5"/>
+    <polygon points="0,184 320,184 320,240 0,240" fill="${floor}"/>
+    <rect x="0" y="182" width="320" height="4" fill="#00000018"/>
+    ${extra}
+  </g></svg>`;
+}
+
+const BRIGADES = [
+  { id: 'b1', boss: 'С.Н. Гусев', phone: '+7 916 204-18-77', members: ['С.Н. Гусев, бригадир', 'А.А. Петров, отделочник', 'Р.И. Минин, отделочник', 'Т.О. Салиев, разнорабочий', 'В.К. Зотов, плиточник'], ontime: 94 },
+  { id: 'b2', boss: 'И.П. Ткаченко', phone: '+7 925 610-44-02', members: ['И.П. Ткаченко, бригадир', 'Д.С. Лунин, электрик', 'М.А. Карпов, сантехник'], ontime: 81 },
+  { id: 'b3', boss: 'Р.А. Ахмедов', phone: '+7 903 377-95-16', members: ['Р.А. Ахмедов, бригадир', 'Э.Р. Каримов, плиточник', 'Н.В. Белых, маляр', 'Ф.Ш. Юсупов, отделочник'], ontime: 88 },
+];
+
+// [название, статус, начало от сегодня, конец от сегодня, стоимость работ]
+const OBJECTS = [
+  {
+    id: 's1', name: 'Дом в Малаховке', type: 'Газобетон и сруб, 164 м²', addr: 'Малаховка, ул. Сосновая, 12', client: 'А.В. Морозов', brigade: 'b1', cover: 'site', photo: PHOTOS['house-autumn'],
+    stages: [['Фундамент-плита', 'done', -98, -84, 860000], ['Стены из газобетона', 'done', -83, -60, 1240000], ['Сруб второго этажа', 'done', -59, -38, 1380000], ['Кровля', 'review', -37, -1, 720000], ['Окна и двери', 'work', -3, 8, 420000], ['Терраса', 'todo', 9, 20, 310000], ['Инженерные сети', 'todo', 21, 45, 640000], ['Внутренняя отделка', 'todo', 46, 90, 1290000]],
+    materials: [['Газобетон D500', 120, 'м³', 6200], ['Бревно для сруба 220 мм', 34, 'м³', 23500], ['Мягкая черепица', 210, 'м²', 950], ['Окна ПВХ двухкамерные', 9, 'шт.', 21000]],
+    cameras: [{ name: 'Участок', kind: 'site', photo: PHOTOS['house-autumn'] }],
+    spentWorks: 0.93, expenses: [[-1, 'Окна ПВХ, 9 штук, предоплата', 94500, 'Материалы'], [-3, 'Мягкая черепица и подкладочный ковёр', 142600, 'Материалы'], [-6, 'Аренда вышки-туры, 2 недели', 18400, 'Техника'], [-9, 'Аванс бригаде за кровлю', 150000, 'Работы']],
+  },
+  {
+    id: 's2', name: 'Квартира на Ленинском', type: 'Ремонт под ключ, 86 м²', addr: 'Москва, Ленинский пр-т, 87, кв. 112', client: 'Е.С. Захарова', brigade: 'b2', cover: 'electric', photo: PHOTOS['apartment-raw'],
+    stages: [['Демонтаж', 'done', -40, -33, 120000], ['Перегородки', 'done', -32, -21, 210000], ['Электрика', 'work', -20, -2, 290000], ['Сантехника', 'todo', 0, 8, 240000], ['Стяжка', 'todo', 9, 15, 160000], ['Штукатурка', 'todo', 16, 28, 260000], ['Плитка', 'todo', 29, 40, 330000], ['Чистовая отделка', 'todo', 41, 60, 420000]],
+    materials: [['Пазогребневые плиты', 140, 'шт.', 520], ['Кабель ВВГнг 3×2,5', 450, 'м', 95], ['Кабель ВВГнг 3×1,5', 380, 'м', 72], ['Щит и автоматы', 1, 'компл.', 38000]],
+    cameras: [{ name: 'Квартира', kind: 'electric', photo: PHOTOS['apartment-raw'] }],
+    spentWorks: 0.4, expenses: [[0, 'Кабель и коробки, Леруа Мерлен', 52800, 'Материалы'], [-4, 'Вывоз мусора, 2 контейнера', 24000, 'Работы'], [-8, 'Аванс электрику', 80000, 'Работы']],
+  },
+  {
+    id: 's3', name: 'Офис «Северный»', type: 'Отделка, 310 м²', addr: 'Москва, ул. Вилиса Лациса, 26', client: 'ООО «Северный ветер»', brigade: 'b3', cover: 'finish',
+    stages: [['Демонтаж', 'done', -70, -63, 210000], ['Перегородки', 'done', -62, -48, 940000], ['Электрика и слаботочка', 'done', -47, -30, 1180000], ['Вентиляция', 'done', -36, -22, 860000], ['Штукатурка', 'done', -29, -14, 1240000], ['Плитка в санузлах', 'done', -13, -3, 520000], ['Чистовая отделка', 'work', -10, -1, 1980000], ['Уборка и сдача', 'todo', 1, 4, 140000]],
+    materials: [['Гипсокартон Knauf', 420, 'лист', 610], ['Краска интерьерная, 9 л', 64, 'ведро', 4200], ['Керамогранит 60×60', 96, 'м²', 1650], ['Кварцвинил', 260, 'м²', 1890]],
+    cameras: [{ name: 'Опенспейс', kind: 'finish' }, { name: 'Санузлы', kind: 'tile', offline: true }],
+    spentWorks: 0.97, expenses: [[-1, 'Краска и расходники', 98400, 'Материалы'], [-2, 'Аванс маляру', 120000, 'Работы'], [-5, 'Керамогранит, догрузка 12 м²', 19800, 'Материалы']],
+  },
+  {
+    id: 's4', name: 'Дом в Истре', type: 'Газобетон и брус, 118 м²', addr: 'Истра, КП «Берёзовая роща», уч. 41', client: 'П.Д. Ильин', brigade: 'b3', cover: 'frame', photo: PHOTOS['house-winter'],
+    stages: [['Фундамент-плита', 'done', -80, -66, 640000], ['Стены из газобетона', 'done', -65, -45, 920000], ['Второй этаж из бруса', 'done', -44, -26, 860000], ['Кровля', 'done', -25, -8, 710000], ['Окна и двери', 'work', -7, 4, 380000], ['Утепление и фасад', 'todo', 1, 24, 520000], ['Инженерные сети', 'todo', 25, 48, 560000]],
+    materials: [['Газобетон D500', 64, 'м³', 6200], ['Брус 150×150 камерной сушки', 22, 'м³', 24500], ['Металлочерепица', 190, 'м²', 890], ['Окна ПВХ двухкамерные', 8, 'шт.', 21000]],
+    cameras: [{ name: 'Участок', kind: 'site', photo: PHOTOS['house-winter'] }],
+    spentWorks: 0.9, expenses: [[-1, 'Окна ПВХ, 8 штук, предоплата', 84000, 'Материалы'], [-5, 'Металлочерепица и доборные элементы', 186400, 'Материалы'], [-9, 'Аванс бригаде за кровлю', 200000, 'Работы']],
+  },
+];
+// Порядок показа: Малаховка, Ленинский, Истра, Офис
+OBJECTS.splice(0, OBJECTS.length, ...['s1', 's2', 's4', 's3'].map((id) => OBJECTS.find((o) => o.id === id)));
+for (const o of OBJECTS) {
+  o.stages = o.stages.map(([name, status, a, b, cost], i) => ({ i, name, status, start: addDays(TODAY, a), end: addDays(TODAY, b), cost }));
+  o.materials = o.materials.map(([name, qty, unit, price]) => ({ name, qty, unit, price }));
+  o.expenses = o.expenses.map(([d, name, sum, cat]) => ({ date: addDays(TODAY, d), name, sum, cat }));
+  const works = o.stages.reduce((a, s) => a + s.cost, 0);
+  const mats = o.materials.reduce((a, m) => a + m.qty * m.price, 0);
+  o.budget = works + mats;
+  const doneWorks = o.stages.filter((s) => s.status === 'done' || s.status === 'review').reduce((a, s) => a + s.cost, 0);
+  o.spentBase = Math.round(doneWorks * 0.97 + mats * o.spentWorks) - o.expenses.reduce((a, e) => a + e.sum, 0);
+}
+const spent = (o) => o.spentBase + o.expenses.reduce((a, e) => a + e.sum, 0);
+const progress = (o) => {
+  const total = o.stages.reduce((a, s) => a + s.cost, 0);
+  const done = o.stages.reduce((a, s) => a + (s.status === 'done' ? s.cost : s.status === 'review' ? s.cost * 0.9 : s.status === 'work' ? s.cost * 0.45 : 0), 0);
+  return Math.round(done / total * 100);
+};
+const current = (o) => o.stages.find((s) => s.status === 'work') || o.stages.find((s) => s.status === 'review') || o.stages.find((s) => s.status === 'todo');
+const overdue = (s) => s.status === 'work' && s.end < TODAY;
+const obj = (id) => OBJECTS.find((o) => o.id === id);
+const brig = (id) => BRIGADES.find((b) => b.id === id);
+
+const at = (dayOff, h, m) => { const d = addDays(TODAY, dayOff); d.setHours(h, m); return d; };
+const REPORTS = [
+  { id: 'r1', obj: 's1', stage: 3, at: at(0, 9, 42), photos: [{ url: PHOTOS['house-autumn'] }, { url: PHOTOS['house-autumn'], pos: '80% 25%' }, { url: PHOTOS['house-autumn'], pos: '15% 40%' }], text: 'Мягкая черепица уложена, свесы подшиты вагонкой. Над крыльцом смонтирован навес. Водосток поставим после окон.', status: 'review' },
+  { id: 'r2', obj: 's3', stage: 5, at: at(0, 8, 15), photos: ['tile', 'tile', 'finish'], text: 'Плитка в трёх санузлах уложена и затёрта. Остались плинтусы в коридоре.', status: 'accepted' },
+  { id: 'r3', obj: 's2', stage: 2, at: at(-1, 18, 30), photos: [{ url: PHOTOS['apartment-raw'] }, { url: PHOTOS['apartment-raw'], pos: '90% 70%' }, 'electric'], text: 'Старая отделка снята, стяжка под проверку. Кабель по кухне и спальне проложен, щит собран, ждём автоматы на ванную.', status: 'review' },
+  { id: 'r4', obj: 's1', stage: 2, at: at(-1, 17, 5), photos: [{ url: PHOTOS['house-autumn'], pos: '55% 35%' }, { url: PHOTOS['house-autumn'] }], text: 'Сруб второго этажа собран и законопачен, стойки террасы установлены.', status: 'accepted' },
+  { id: 'r5', obj: 's4', stage: 3, at: at(-2, 16, 40), photos: [{ url: PHOTOS['house-winter'] }, { url: PHOTOS['house-winter'], pos: '20% 40%' }], text: 'Кровля и водосток готовы, балкон второго этажа обшит. Проёмы под окна подготовлены.', status: 'accepted' },
+  { id: 'r6', obj: 's3', stage: 6, at: at(-2, 19, 10), photos: ['finish', 'finish', 'plaster'], text: 'Покраска опенспейса: первый слой.', status: 'accepted' },
+];
+let rseq = 10;
+
+/* ---------- Общие куски ---------- */
+function thumbs(kinds, seed = 0, cls = 'shots') {
+  return `<div class="${cls}">${kinds.map((k, i) => `<div class="thumb">${typeof k === 'string' ? siteScene(k, seed + i) : `<img src="${k.url}" alt="Фото из отчёта" style="${k.pos ? `transform:scale(1.9);transform-origin:${k.pos}` : ''}">`}</div>`).join('')}</div>`;
+}
+function stageDot(s) {
+  if (s.status === 'done') return `<span class="st st--done" title="Готово">${I('check')}</span>`;
+  if (s.status === 'review') return '<span class="st st--review" title="На проверке"></span>';
+  if (s.status === 'work') return `<span class="st ${overdue(s) ? 'st--late' : 'st--work'}" title="В работе"></span>`;
+  return '<span class="st" title="Не начат"></span>';
+}
+function stageTag(s) {
+  if (s.status === 'done') return '<span class="tag tag--ok">Готово</span>';
+  if (s.status === 'review') return '<span class="tag tag--lime">На проверке</span>';
+  if (overdue(s)) return `<span class="tag tag--danger">Просрочен на ${diffDays(TODAY, s.end)} ${plural(diffDays(TODAY, s.end), 'день', 'дня', 'дней')}</span>`;
+  if (s.status === 'work') return '<span class="tag">В работе</span>';
+  return `<span class="tag" style="background:var(--bg);color:var(--text-2)">С ${fd(s.start)}</span>`;
+}
+
+function reportCard(r, opts = {}) {
+  const o = obj(r.obj);
+  const s = o.stages[r.stage];
+  const b = brig(o.brigade);
+  return `<li class="card stack-12 rise" data-report="${r.id}">
+    <div class="row"><span class="avatar">${initials(b.boss)}</span>
+      <div class="grow stack"><span class="name">${esc(o.name)}</span><span class="meta">${esc(s.name)} · ${esc(b.boss)} · ${relDay(r.at)}, ${hhmm(r.at)}</span></div>
+      ${r.status === 'review' ? '<span class="tag tag--lime">Ждёт проверки</span>' : r.status === 'returned' ? '<span class="tag tag--danger">Возвращён</span>' : '<span class="tag tag--ok">Принят</span>'}
+    </div>
+    ${thumbs(r.photos, r.id.charCodeAt(1))}
+    <p style="margin:0">${esc(r.text)}</p>
+    ${r.note ? `<p class="meta" style="margin:0"><b>Замечание:</b> ${esc(r.note)}</p>` : ''}
+    ${opts.actions && r.status === 'review' ? `<div class="card-actions" style="margin:0" data-ract="${r.id}">
+      <button class="btn" type="button" data-accept="${r.id}">${I('check')}Принять</button>
+      <button class="btn-sec" type="button" data-return="${r.id}">Вернуть на доработку</button></div>` : ''}
+  </li>`;
+}
+function bindReports(root) {
+  root.addEventListener('click', (e) => {
+    const a = e.target.closest('[data-accept]');
+    if (a) { acceptReport(a.dataset.accept); return; }
+    const rt = e.target.closest('[data-return]');
+    if (rt) {
+      const box = rt.closest('[data-ract]');
+      box.outerHTML = `<form class="stack-8" data-retform="${rt.dataset.return}"><div class="field"><label for="ret-${rt.dataset.return}">Что переделать</label><textarea id="ret-${rt.dataset.return}" placeholder="Например: на фото не видно опрессовку, переснимите манометр"></textarea></div>
+        <div class="card-actions" style="margin:0"><button class="btn" type="submit">Отправить бригадиру</button><button class="btn-sec" type="button" data-retcancel>Отмена</button></div></form>`;
+      $(`#ret-${rt.dataset.return}`).focus();
+      return;
+    }
+    if (e.target.closest('[data-retcancel]')) { App.rerender(); Sheet.refresh(); }
+  });
+  root.addEventListener('submit', (e) => {
+    const f = e.target.closest('[data-retform]');
+    if (!f) return;
+    e.preventDefault();
+    const note = $('textarea', f).value.trim();
+    if (!note) { toast('Напишите, что нужно переделать'); return; }
+    const r = REPORTS.find((x) => x.id === f.dataset.retform);
+    r.status = 'returned';
+    r.note = note;
+    const o = obj(r.obj);
+    if (o.stages[r.stage].status === 'review') o.stages[r.stage].status = 'work';
+    toast(`Отчёт возвращён. ${brig(o.brigade).boss} получил замечание`);
+    App.rerender(); Sheet.refresh(); updateBadge();
+  });
+}
+function acceptReport(id) {
+  const r = REPORTS.find((x) => x.id === id);
+  r.status = 'accepted';
+  const o = obj(r.obj);
+  const s = o.stages[r.stage];
+  if (s.status === 'review') {
+    s.status = 'done';
+    const next = o.stages.find((x) => x.status === 'todo');
+    if (next && !o.stages.some((x) => x.status === 'work')) next.status = 'work';
+    toast(`Этап «${s.name}» принят. ${next ? `Бригада переходит к этапу «${next.name}»` : 'Все этапы закрыты'}`);
+  } else toast('Отчёт принят');
+  App.rerender(); Sheet.refresh(); updateBadge();
+}
+
+/* Камера: снимок с подписью и часами */
+function camTile(o, c, i, big) {
+  const live = !c.offline;
+  return `<button type="button" class="cam ${big ? 'cam--big' : ''} ${live ? '' : 'cam--off'}" data-cam="${o.id}:${i}" aria-label="Камера ${esc(c.name)}, ${esc(o.name)}${live ? '' : ', нет сигнала'}">
+    ${c.photo ? `<img class="cam-img" src="${c.photo}" alt="">` : siteScene(c.kind, i + o.id.charCodeAt(1), {})}
+    ${live ? '<span class="cam-noise"></span>' : '<span class="cam-dead"><b>Нет сигнала</b><span>с 07:40, проверьте питание</span></span>'}
+    <span class="cam-top"><span class="cam-live">${live ? '<i></i>В эфире' : 'Не в сети'}</span><span class="cam-clock num" ${live ? 'data-clock' : ''}>${live ? hhmm(new Date()) : '07:40'}</span></span>
+    <span class="cam-name"><b>${esc(c.name)}</b>${big ? '' : `<span>${esc(o.name)}</span>`}</span>
+  </button>`;
+}
+setInterval(() => {
+  const t = new Date();
+  const s = `${hhmm(t)}:${String(t.getSeconds()).padStart(2, '0')}`;
+  for (const el of $$('[data-clock]')) el.textContent = s;
+}, 1000);
+
+/* ---------- Экраны ---------- */
+function viewHome(page) {
+  const review = REPORTS.filter((r) => r.status === 'review');
+  const cams = OBJECTS.flatMap((o) => o.cameras);
+  const late = OBJECTS.flatMap((o) => o.stages.filter(overdue).map((s) => [o, s]));
+  const soon = OBJECTS.flatMap((o) => o.stages.filter((s) => s.status === 'work' && !overdue(s) && diffDays(s.end, TODAY) <= 7).map((s) => [o, s]));
+  const B = OBJECTS.reduce((a, o) => a + o.budget, 0), S = OBJECTS.reduce((a, o) => a + spent(o), 0);
+  page.innerHTML = `
+    <div class="page-head"><div><h1 class="page-title">Главная</h1><p class="page-sub">${WD[TODAY.getDay()]}, ${fd(TODAY)} · ${BRIGADES.length} бригады на ${OBJECTS.length} объектах</p></div></div>
+    <div class="tiles">
+      <button class="tile" type="button" data-go="objects"><span class="tile-title">Объектов в работе</span><span class="tile-count">${OBJECTS.length}</span></button>
+      <button class="tile tile--ink" type="button" data-scroll="h-rev"><span class="tile-title">Отчёты на проверке</span><span class="tile-count">${review.length}</span></button>
+      <button class="tile" type="button" data-go="cameras"><span class="tile-title">Камеры в сети</span><span class="tile-count">${cams.filter((c) => !c.offline).length}<small class="tile-of">/${cams.length}</small></span></button>
+      <button class="tile tile--light" type="button" data-scroll="h-dl"><span class="tile-title">Этапы с просрочкой</span><span class="tile-count" style="${late.length ? 'color:var(--danger)' : ''}">${late.length}</span><span class="tile-note">${late.length ? esc(late.map(([o]) => o.name).join(', ')) : 'всё в срок'}</span></button>
+    </div>
+    <div class="grid-2">
+      <section class="section" aria-labelledby="h-rev">
+        <h2 class="section-title" id="h-rev"><span>Фотоотчёты на проверке</span><span class="tertiary">${review.length}</span></h2>
+        <ul class="card-list">${review.map((r) => reportCard(r, { actions: true })).join('') || '<li class="card empty">Все отчёты проверены. Новые появятся здесь, как только бригадир отправит фото.</li>'}</ul>
+      </section>
+      <div class="stack-12" style="gap:28px">
+        <section class="section" aria-labelledby="h-money">
+          <h2 class="section-title" id="h-money">Бюджет и затраты</h2>
+          <div class="card money">
+            <div class="meta">Потрачено по всем объектам</div>
+            <div class="money-value">${mln(S)}</div>
+            <dl class="money-rows"><div class="money-row"><dt>Общий бюджет</dt><dd>${mln(B)}</dd></div><div class="money-row"><dt>Осталось</dt><dd>${mln(B - S)}</dd></div></dl>
+            <hr>
+            <div class="stack-12">${OBJECTS.map((o) => { const p = spent(o) / o.budget; return `<button type="button" class="money-obj" data-object="${o.id}">
+              <span class="between"><span>${esc(o.name)}</span><b class="num">${Math.round(p * 100)}%</b></span>
+              <span class="bar ${p > .92 ? 'bar--hot' : ''}"><span style="width:${Math.min(100, p * 100)}%"></span></span>
+              <span class="meta num">${mln(spent(o))} из ${mln(o.budget)}</span></button>`; }).join('')}</div>
+          </div>
+        </section>
+        <section class="section" aria-labelledby="h-dl">
+          <h2 class="section-title" id="h-dl">Сроки этапов</h2>
+          <ul class="card-list">${[...late, ...soon].map(([o, s]) => {
+            const d = diffDays(s.end, TODAY);
+            return `<li class="card card--tap" data-object="${o.id}"><div class="between"><span class="stack"><b>${esc(s.name)}</b><span class="meta">${esc(o.name)} · ${esc(brig(o.brigade).boss)}</span></span>
+              <span class="${d < 0 ? 't-danger' : d <= 2 ? 't-warn' : 'muted'} nowrap">${d < 0 ? `просрочен на ${-d} ${plural(-d, 'день', 'дня', 'дней')}` : d === 0 ? 'срок сегодня' : `осталось ${d} ${plural(d, 'день', 'дня', 'дней')}`}</span></div></li>`;
+          }).join('') || '<li class="card empty">Ближайшие этапы идут в срок</li>'}</ul>
+        </section>
+      </div>
+    </div>`;
+  bindReports(page);
+  page.addEventListener('click', (e) => {
+    const g = e.target.closest('[data-go]'); if (g) { navTo(g.dataset.go); return; }
+    const sc = e.target.closest('[data-scroll]'); if (sc) { $('#' + sc.dataset.scroll).scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    const ob = e.target.closest('[data-object]'); if (ob && !e.target.closest('button:not([data-object])')) openObject(ob.dataset.object);
+  });
+}
+
+function viewObjects(page) {
+  page.innerHTML = `
+    <div class="page-head"><div><h1 class="page-title">Объекты</h1><p class="page-sub">Смета, затраты, этапы и отчёты бригады в одной карточке</p></div></div>
+    <ul class="card-grid" style="list-style:none;margin:0;padding:0">${OBJECTS.map((o) => {
+      const pr = progress(o), cur = current(o), late = o.stages.some(overdue), p = spent(o) / o.budget;
+      return `<li class="card card--tap" data-object="${o.id}" style="padding:10px">
+        <div class="thumb obj-cover">${o.photo ? `<img src="${o.photo}" alt="${esc(o.name)}">` : siteScene(o.cover, o.id.charCodeAt(1))}${o.photoNote ? `<span class="tag tag--ink obj-note">${o.photoNote}</span>` : ''}<span class="obj-pct">${pr}%</span></div>
+        <div class="stack-8" style="padding:12px 6px 6px">
+          <div class="between"><span class="name">${esc(o.name)}</span>${late ? '<span class="tag tag--danger">Просрочка</span>' : ''}</div>
+          <span class="meta">${esc(o.type)} · ${esc(o.client)}</span>
+          <div class="bar"><span style="width:${pr}%"></span></div>
+          <div class="between meta"><span>Сейчас: <b style="color:var(--text)">${esc(cur ? cur.name : 'сдан')}</b></span><span>${esc(brig(o.brigade).boss)}</span></div>
+          <div class="between meta"><span>Затраты</span><span class="num ${p > .92 ? 't-warn' : ''}"><b style="color:inherit">${mln(spent(o))}</b> из ${mln(o.budget)}</span></div>
+        </div></li>`;
+    }).join('')}</ul>`;
+  page.addEventListener('click', (e) => { const c = e.target.closest('[data-object]'); if (c) openObject(c.dataset.object); });
+}
+
+let objTab = 'stages';
+function openObject(id, tab) {
+  if (tab) objTab = tab;
+  Sheet.open((body) => {
+    const o = obj(id), b = brig(o.brigade), pr = progress(o);
+    const tabs = [['stages', 'Этапы'], ['estimate', 'Смета'], ['costs', 'Затраты'], ['cameras', 'Камеры'], ['reports', 'Отчёты']];
+    body.innerHTML = `<div class="stack-16">
+      <div class="thumb obj-cover" style="aspect-ratio:16/9">${o.photo ? `<img src="${o.photo}" alt="${esc(o.name)}">` : siteScene(o.cover, o.id.charCodeAt(1) + 5)}${o.photoNote ? `<span class="tag tag--ink obj-note">${o.photoNote}</span>` : ''}</div>
+      <div><h2 class="sheet-title">${esc(o.name)}</h2><p class="meta" style="margin:6px 0 0">${esc(o.type)} · ${esc(o.addr)}</p></div>
+      <div class="card stack-8"><div class="between"><span class="meta">Готовность</span><b class="num">${pr}%</b></div><div class="bar"><span style="width:${pr}%"></span></div>
+        <dl class="kv" style="margin-top:8px"><div><dt>Заказчик</dt><dd>${esc(o.client)}</dd></div><div><dt>Бригада</dt><dd>${esc(b.boss)}, ${b.members.length} чел.</dd></div><div><dt>Сдача</dt><dd>${fd(o.stages[o.stages.length - 1].end)}</dd></div></dl></div>
+      <div class="chips" role="tablist">${tabs.map(([k, t]) => `<button class="chip" type="button" role="tab" data-otab="${k}" aria-pressed="${objTab === k}" aria-selected="${objTab === k}">${t}</button>`).join('')}</div>
+      <div id="otab"></div>
+    </div>`;
+    const pane = $('#otab', body);
+    const drawTab = () => {
+      if (objTab === 'stages') {
+        pane.innerHTML = `<ol class="timeline">${o.stages.map((s) => `<li class="tl ${s.status}">${stageDot(s)}<div class="card stack-8">
+          <div class="between"><b>${esc(s.name)}</b>${stageTag(s)}</div>
+          <span class="meta num">${fdShort(s.start)}–${fdShort(s.end)} · работы ${rub(s.cost)}</span>
+          ${s.status === 'review' ? `<button class="btn" type="button" data-stage-ok="${s.i}">${I('check')}Принять этап</button>` : ''}
+          ${s.status === 'work' ? `<button class="link-btn" type="button" data-stage-ask="${s.i}" style="justify-self:start">Запросить фотоотчёт</button>` : ''}
+        </div></li>`).join('')}</ol>`;
+      } else if (objTab === 'estimate') {
+        const works = o.stages.reduce((a, s) => a + s.cost, 0);
+        const mats = o.materials.reduce((a, m) => a + m.qty * m.price, 0);
+        pane.innerHTML = `<div class="stack-12">
+          <div class="card money"><div class="meta">Смета объекта</div><div class="money-value">${rub(works + mats)}</div>
+            <dl class="money-rows"><div class="money-row"><dt>Работы</dt><dd>${rub(works)}</dd></div><div class="money-row"><dt>Материалы</dt><dd>${rub(mats)}</dd></div></dl></div>
+          <h3 class="section-title">Работы</h3>
+          <ul class="card-list">${o.stages.map((s) => `<li class="card line"><span class="grow">${esc(s.name)}</span><b class="num nowrap">${rub(s.cost)}</b></li>`).join('')}</ul>
+          <h3 class="section-title">Материалы</h3>
+          <ul class="card-list">${o.materials.map((m) => `<li class="card line"><span class="grow stack"><span>${esc(m.name)}</span><span class="meta num">${String(m.qty).replace('.', ',')} ${m.unit} × ${rub(m.price)}</span></span><b class="num nowrap">${rub(m.qty * m.price)}</b></li>`).join('')}</ul>
+          <button class="btn-sec" type="button" data-go-estimate>${I('camera')}Досчитать смету по фото</button>
+        </div>`;
+      } else if (objTab === 'costs') {
+        const s = spent(o), p = s / o.budget;
+        pane.innerHTML = `<div class="stack-12">
+          <div class="card money"><div class="meta">Потрачено</div><div class="money-value">${rub(s)}</div>
+            <div class="bar ${p > .92 ? 'bar--hot' : ''}" style="margin-top:12px"><span style="width:${Math.min(100, p * 100)}%"></span></div>
+            <dl class="money-rows"><div class="money-row"><dt>Бюджет</dt><dd>${rub(o.budget)}</dd></div><div class="money-row"><dt>Осталось</dt><dd>${rub(o.budget - s)}</dd></div></dl></div>
+          <form class="card stack-12" id="exp-form" novalidate>
+            <b>Новая затрата</b>
+            <div class="field"><label for="exp-name">Что купили или оплатили</label><input id="exp-name" placeholder="Например: плиточный клей, 40 мешков"></div>
+            <div class="field"><label for="exp-sum">Сумма, ₽</label><input id="exp-sum" inputmode="numeric" placeholder="0"></div>
+            <div class="chips chips--wrap" id="exp-cat">${['Материалы', 'Работы', 'Техника', 'Прочее'].map((c, i) => `<button class="chip" type="button" data-cat="${c}" aria-pressed="${i === 0}">${c}</button>`).join('')}</div>
+            <button class="btn" type="submit">${I('plus')}Добавить</button>
+          </form>
+          <h3 class="section-title">Последние затраты</h3>
+          <ul class="card-list">${[...o.expenses].sort((a, b) => b.date - a.date).map((e) => `<li class="card line"><span class="grow stack"><span>${esc(e.name)}</span><span class="meta">${relDay(e.date)} · ${e.cat}</span></span><b class="num nowrap">${rub(e.sum)}</b></li>`).join('')}</ul>
+        </div>`;
+        $('#exp-form', pane).onsubmit = (ev) => {
+          ev.preventDefault();
+          const name = $('#exp-name', pane).value.trim();
+          const sum = parseInt($('#exp-sum', pane).value.replace(/\D/g, ''), 10);
+          if (!name) { toast('Напишите, за что затрата'); return; }
+          if (!sum) { toast('Укажите сумму'); return; }
+          o.expenses.push({ date: new Date(TODAY), name, sum, cat: $('#exp-cat [aria-pressed="true"]', pane).dataset.cat });
+          toast(`Затрата ${rub(sum)} добавлена в «${o.name}»`);
+          drawTab(); App.rerender();
+        };
+      } else if (objTab === 'cameras') {
+        pane.innerHTML = `<div class="stack-12">${o.cameras.map((c, i) => camTile(o, c, i, true)).join('')}
+          <div class="demo-note">${I('video')}Камеры подключаются по RTSP или через облако производителя. В демо показан снимок.</div></div>`;
+      } else {
+        const rs = REPORTS.filter((r) => r.obj === o.id).sort((a, b) => b.at - a.at);
+        pane.innerHTML = `<ul class="card-list">${rs.map((r) => reportCard(r, { actions: true })).join('') || '<li class="card empty">Отчётов пока нет</li>'}</ul>`;
+      }
+    };
+    drawTab();
+    bindReports(pane);
+    body.onclick = (e) => {
+      const t = e.target.closest('[data-otab]');
+      if (t) { objTab = t.dataset.otab; $$('[data-otab]', body).forEach((x) => { x.setAttribute('aria-pressed', x === t); x.setAttribute('aria-selected', x === t); }); drawTab(); return; }
+      const ok = e.target.closest('[data-stage-ok]');
+      if (ok) {
+        const s = o.stages[Number(ok.dataset.stageOk)];
+        const r = REPORTS.find((x) => x.obj === o.id && x.stage === s.i && x.status === 'review');
+        if (r) acceptReport(r.id); else { s.status = 'done'; toast(`Этап «${s.name}» принят`); App.rerender(); Sheet.refresh(); }
+        return;
+      }
+      const ask = e.target.closest('[data-stage-ask]');
+      if (ask) { toast(`${brig(o.brigade).boss} получил запрос на фотоотчёт по этапу «${o.stages[Number(ask.dataset.stageAsk)].name}»`); return; }
+      if (e.target.closest('[data-go-estimate]')) { est.obj = o.id; Sheet.close(); navTo('estimate'); return; }
+      const cat = e.target.closest('[data-cat]');
+      if (cat) { $$('[data-cat]', body).forEach((x) => x.setAttribute('aria-pressed', x === cat)); return; }
+      const cam = e.target.closest('[data-cam]');
+      if (cam) openCamera(cam.dataset.cam);
+    };
+  });
+}
+
+/* Смета по фото или проекту */
+const est = { mode: 'photo', obj: 's2', file: null, result: null, running: false };
+// Открываемся с готовым примером, чтобы было видно, что получится
+const PRICE = {
+  works: [['Грунтовка стен', 'walls', 'м²', 90], ['Штукатурка по маякам', 'walls', 'м²', 650], ['Шпаклёвка под покраску', 'walls', 'м²', 380], ['Покраска в два слоя', 'walls', 'м²', 320], ['Стяжка пола до 50 мм', 'floor', 'м²', 750], ['Укладка ламината с подложкой', 'floor', 'м²', 450], ['Натяжной потолок', 'floor', 'м²', 900], ['Электроточки: розетки и выключатели', 'points', 'шт.', 1500]],
+  mats: [['Штукатурка гипсовая, 30 кг', (a) => Math.ceil(a.walls * 0.3), 'меш.', 520], ['Грунт глубокого проникновения, 10 л', (a) => Math.ceil(a.walls / 60), 'кан.', 980], ['Шпаклёвка финишная, 20 кг', (a) => Math.ceil(a.walls / 14), 'меш.', 890], ['Краска интерьерная, 9 л', (a) => Math.ceil(a.walls / 22), 'ведро', 4200], ['Пескобетон М300, 40 кг', (a) => Math.ceil(a.floor * 1.25), 'меш.', 290], ['Ламинат 33 класс', (a) => Math.ceil(a.floor * 1.08), 'м²', 1350], ['Кабель ВВГнг 3×2,5', (a) => a.points * 6, 'м', 95]],
+};
+function buildEstimate(mode) {
+  const a = mode === 'photo'
+    ? { title: 'Комната по фото', walls: 47, floor: 18.6, points: 9, note: 'Высота потолка 2,7 м, одно окно 1,4×1,6 м, дверной проём 0,9 м' }
+    : { title: 'Квартира 64 м² по проекту', walls: 168, floor: 64, points: 34, note: 'Три помещения и коридор, санузел считается отдельно' };
+  const works = PRICE.works.map(([name, k, unit, price]) => ({ name, qty: a[k], unit, price }));
+  const mats = PRICE.mats.map(([name, f, unit, price]) => ({ name, qty: f(a), unit, price }));
+  return { ...a, works, mats, totalW: works.reduce((s, x) => s + x.qty * x.price, 0), totalM: mats.reduce((s, x) => s + x.qty * x.price, 0) };
+}
+est.result = buildEstimate('photo');
+const qty = (n) => String(Math.round(n * 10) / 10).replace('.', ',');
+
+function viewEstimate(page) {
+  const r = est.result;
+  page.innerHTML = `
+    <div class="page-head"><div><h1 class="page-title">Смета</h1><p class="page-sub">Сфотографируйте помещение или загрузите проект. Агент посчитает работы и материалы, специалист проверит</p></div></div>
+    <div class="grid-2">
+      <div class="stack-12" style="gap:20px">
+        <div class="mode-grid" role="group" aria-label="Источник">
+          <button type="button" class="mode card" data-mode="photo" aria-pressed="${est.mode === 'photo'}">${I('camera')}<b>По фото</b><span class="meta">Одно помещение, 2–4 снимка</span></button>
+          <button type="button" class="mode card" data-mode="project" aria-pressed="${est.mode === 'project'}">${I('file')}<b>По проекту</b><span class="meta">План квартиры или дома, PDF или картинка</span></button>
+        </div>
+        <label class="drop" for="est-file" id="drop">
+          ${est.file ? (est.file.url ? `<img src="${est.file.url}" alt="Загруженный файл">` : `<span class="drop-file">${I('file')}<b>${esc(est.file.name)}</b></span>`)
+            : est.mode === 'photo' ? `<span class="drop-sample"><img src="${PHOTOS['apartment-raw']}" alt="Пример: комната перед ремонтом"></span>` : `<span class="drop-sample plan">${planSVG()}</span>`}
+          <span class="drop-cap">${I('upload')}${est.file ? 'Заменить' : est.mode === 'photo' ? 'Своё фото' : 'Свой проект'}</span>
+        </label>
+        <input type="file" id="est-file" accept="image/*,.pdf" hidden>
+        <div class="field"><label>Объект</label><div class="chips chips--wrap">${OBJECTS.map((o) => `<button class="chip" type="button" data-eobj="${o.id}" aria-pressed="${est.obj === o.id}">${esc(o.name)}</button>`).join('')}</div></div>
+        <button class="btn" type="button" id="est-run" ${est.running ? 'disabled' : ''}>${I('layers')}Посчитать смету</button>
+        <div id="est-steps"></div>
+      </div>
+      <div id="est-result">${r ? estimateResult(r) : `<div class="card empty stack-8"><b style="color:var(--text)">Здесь будет смета</b><span>Работы и материалы с количеством и ценой. После проверки её можно добавить в объект.</span></div>`}</div>
+    </div>`;
+  $('#est-file', page).onchange = (e) => {
+    const f = e.target.files[0];
+    if (!f) return;
+    est.file = { name: f.name, url: f.type.startsWith('image/') ? URL.createObjectURL(f) : null };
+    est.result = null;
+    App.rerender();
+  };
+  page.addEventListener('click', async (e) => {
+    const m = e.target.closest('[data-mode]');
+    if (m) { est.mode = m.dataset.mode; est.file = null; est.result = null; App.rerender(); return; }
+    const ob = e.target.closest('[data-eobj]');
+    if (ob) { est.obj = ob.dataset.eobj; $$('[data-eobj]', page).forEach((x) => x.setAttribute('aria-pressed', x === ob)); return; }
+    if (e.target.closest('#est-run')) { runEstimate(page); return; }
+    if (e.target.closest('#est-add')) {
+      const o = obj(est.obj);
+      const r2 = est.result;
+      for (const w of r2.works) o.stages.push({ i: o.stages.length, name: w.name, status: 'todo', start: addDays(o.stages[o.stages.length - 1].end, 1), end: addDays(o.stages[o.stages.length - 1].end, 3), cost: Math.round(w.qty * w.price) });
+      for (const x of r2.mats) o.materials.push({ ...x });
+      o.budget += r2.totalW + r2.totalM;
+      toast(`Смета на ${rub(r2.totalW + r2.totalM)} добавлена в «${o.name}»`);
+      e.target.closest('#est-add').disabled = true;
+      return;
+    }
+    if (e.target.closest('#est-copy')) {
+      const r2 = est.result;
+      const lines = ['Наименование\tКол-во\tЕд.\tЦена\tСумма', ...[...r2.works, ...r2.mats].map((x) => `${x.name}\t${qty(x.qty)}\t${x.unit}\t${x.price}\t${Math.round(x.qty * x.price)}`), `Итого\t\t\t\t${r2.totalW + r2.totalM}`].join('\n');
+      try { await navigator.clipboard.writeText(lines); toast('Смета скопирована. Вставьте её в Excel или Google Таблицы'); } catch { toast('Не удалось скопировать. Выделите строки вручную'); }
+    }
+  });
+}
+async function runEstimate(page) {
+  est.running = true;
+  $('#est-run', page).disabled = true;
+  const steps = est.mode === 'photo'
+    ? ['Распознаём помещение на фото', 'Считаем площади: стены 47 м², пол 18,6 м²', 'Подбираем работы по виду отделки', 'Считаем материалы с запасом 8%', 'Ставим цены по Москве и области']
+    : ['Читаем план и экспликацию', 'Находим помещения: 3 комнаты и коридор', 'Считаем площади: стены 168 м², пол 64 м²', 'Подбираем работы и материалы', 'Ставим цены по Москве и области'];
+  const box = $('#est-steps', page);
+  box.innerHTML = `<div class="card"><ul class="steps">${steps.map((t) => `<li><span class="step-mark">${I('check')}</span>${esc(t)}</li>`).join('')}</ul></div>`;
+  for (const li of $$('li', box)) { li.classList.add('run'); await sleep(620); li.classList.remove('run'); li.classList.add('done'); }
+  est.result = buildEstimate(est.mode);
+  est.running = false;
+  $('#est-result', page).innerHTML = estimateResult(est.result);
+  $('#est-run', page).disabled = false;
+  if (matchMedia('(max-width: 1099px)').matches) $('#est-result', page).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function estimateResult(r) {
+  const row = (x) => `<li class="card line"><span class="grow stack"><span>${esc(x.name)}</span><span class="meta num">${qty(x.qty)} ${x.unit} × ${rub(x.price)}</span></span><b class="num nowrap">${rub(x.qty * x.price)}</b></li>`;
+  return `<div class="stack-12 rise">
+    <div class="card money"><div class="meta">${esc(r.title)}</div><div class="money-value">${rub(r.totalW + r.totalM)}</div>
+      <dl class="money-rows"><div class="money-row"><dt>Работы</dt><dd>${rub(r.totalW)}</dd></div><div class="money-row"><dt>Материалы</dt><dd>${rub(r.totalM)}</dd></div></dl>
+      <hr><div class="meta">${esc(r.note)}. Предварительный расчёт, специалист проверит его перед отправкой заказчику.</div></div>
+    <h3 class="section-title">Работы</h3><ul class="card-list">${r.works.map(row).join('')}</ul>
+    <h3 class="section-title">Материалы</h3><ul class="card-list">${r.mats.map(row).join('')}</ul>
+    <div class="card-actions" style="margin:0"><button class="btn" type="button" id="est-add">${I('plus')}Добавить в «${esc(obj(est.obj).name)}»</button><button class="btn-sec" type="button" id="est-copy">Скопировать для Excel</button></div>
+  </div>`;
+}
+function planSVG() {
+  return `<svg viewBox="0 0 320 240" role="img" aria-label="План квартиры"><rect width="320" height="240" fill="#f7f6f2"/>
+    <g fill="none" stroke="#141414" stroke-width="5"><rect x="24" y="24" width="272" height="192"/><path d="M140 24 V120 M24 120 H210 M210 24 V216 M140 150 V216"/></g>
+    <g fill="none" stroke="#f7f6f2" stroke-width="7"><path d="M120 120 h18 M210 64 v20 M160 120 h22 M140 170 v20"/></g>
+    <g font-family="Manrope, sans-serif" font-size="12" fill="#141414" font-weight="700"><text x="58" y="72">Спальня</text><text x="58" y="88" font-weight="400">16,4 м²</text>
+    <text x="152" y="72">Детская</text><text x="152" y="88" font-weight="400">12,1</text><text x="230" y="110">Гостиная</text><text x="230" y="126" font-weight="400">21,3 м²</text>
+    <text x="48" y="175">Кухня 9,8</text><text x="156" y="190">С/у</text></g>
+    <g stroke="#141414" stroke-width="1.5"><path d="M24 232 H296 M24 228 v8 M296 228 v8"/></g><text x="138" y="238" font-family="Manrope, sans-serif" font-size="10" fill="#141414">11 200</text></svg>`;
+}
+
+function viewCameras(page) {
+  page.innerHTML = `
+    <div class="page-head"><div><h1 class="page-title">Камеры</h1><p class="page-sub">Что происходит на площадках прямо сейчас</p></div></div>
+    <div class="cam-grid">${OBJECTS.flatMap((o) => o.cameras.map((c, i) => camTile(o, c, i))).join('')}</div>`;
+  page.addEventListener('click', (e) => {
+    const c = e.target.closest('[data-cam]'); if (c) { openCamera(c.dataset.cam); return; }
+    const ob = e.target.closest('[data-object]'); if (ob) openObject(ob.dataset.object, 'cameras');
+  });
+}
+function openCamera(key) {
+  const [oid, i] = key.split(':');
+  const o = obj(oid), c = o.cameras[Number(i)];
+  Sheet.open((body) => {
+    body.innerHTML = `<div class="stack-16">
+      ${camTile(o, c, Number(i), true)}
+      <div><h2 class="sheet-title">${esc(c.name)}</h2><p class="meta" style="margin:6px 0 0">${esc(o.name)} · ${esc(o.addr)}</p></div>
+      ${c.offline ? `<div class="card stack-8" style="border-color:var(--danger)"><b class="t-danger">Камера не в сети с 07:40</b><span class="meta">Скорее всего, на участке отключили электричество. Бригадир получил уведомление.</span></div>`
+        : `<section class="section"><h3 class="section-title">Архив за сегодня</h3><div class="chips">${['08:00', '10:00', '12:00', '14:00', '16:00'].map((t) => `<button class="chip" type="button" data-arch="${t}">${t}</button>`).join('')}</div></section>
+           <button class="btn" type="button" id="cam-snap">${I('camera')}Сохранить снимок в отчёты</button>`}
+    </div>`;
+    body.onclick = (e) => {
+      const a = e.target.closest('[data-arch]');
+      if (a) { $$('[data-arch]', body).forEach((x) => x.setAttribute('aria-pressed', x === a)); toast(`Запись с ${a.dataset.arch}. В демо показан один снимок`); return; }
+      if (e.target.closest('#cam-snap')) {
+        const s = current(o);
+        REPORTS.unshift({ id: 'r' + (++rseq), obj: o.id, stage: s.i, at: new Date(), photos: [c.kind], text: `Снимок с камеры «${c.name}».`, status: 'accepted' });
+        toast('Снимок сохранён в отчёты объекта');
+      }
+    };
+  });
+}
+
+function viewBrigades(page) {
+  page.innerHTML = `
+    <div class="page-head"><div><h1 class="page-title">Бригады</h1><p class="page-sub">Бригадир отмечает этапы и отправляет фото из своего телефона</p></div></div>
+    <ul class="card-grid" style="list-style:none;margin:0;padding:0">${BRIGADES.map((b) => {
+      const objs = OBJECTS.filter((o) => o.brigade === b.id);
+      const last = REPORTS.filter((r) => objs.some((o) => o.id === r.obj)).sort((a, c) => c.at - a.at)[0];
+      return `<li class="card card--tap stack-12" data-brig="${b.id}">
+        <div class="row"><span class="avatar avatar--lg">${initials(b.boss)}</span><div class="stack"><span class="name">${esc(b.boss)}</span><span class="meta">Бригадир · ${b.members.length} ${plural(b.members.length, 'человек', 'человека', 'человек')}</span></div></div>
+        <dl class="kv"><div><dt>Объекты</dt><dd>${esc(objs.map((o) => o.name).join(', '))}</dd></div>
+        <div><dt>Отчёты вовремя</dt><dd class="${b.ontime < 85 ? 't-warn' : ''}">${b.ontime}%</dd></div>
+        <div><dt>Последний отчёт</dt><dd>${last ? `${relDay(last.at)}, ${hhmm(last.at)}` : 'нет'}</dd></div></dl>
+      </li>`;
+    }).join('')}</ul>
+    <div class="demo-note">${I('phone')}Бригадиру не нужно ставить приложение: он отправляет фото и отметки через чат РОБОРАБ в мессенджере.</div>`;
+  page.addEventListener('click', (e) => { const c = e.target.closest('[data-brig]'); if (c) openBrigade(c.dataset.brig); });
+}
+function openBrigade(id) {
+  Sheet.open((body) => {
+    const b = brig(id), objs = OBJECTS.filter((o) => o.brigade === id);
+    const rs = REPORTS.filter((r) => objs.some((o) => o.id === r.obj)).sort((a, c) => c.at - a.at).slice(0, 4);
+    body.innerHTML = `<div class="stack-16">
+      <div class="row"><span class="avatar avatar--lg">${initials(b.boss)}</span><div class="stack"><h2 class="sheet-title">${esc(b.boss)}</h2><span class="meta num">${b.phone}</span></div></div>
+      <section class="section"><h3 class="section-title">Состав</h3><ul class="card-list">${b.members.map((m) => `<li class="card line"><span class="avatar" style="width:32px;height:32px;font-size:12px">${initials(m.split(',')[0])}</span><span class="grow">${esc(m)}</span></li>`).join('')}</ul></section>
+      <section class="section"><h3 class="section-title">Объекты</h3><ul class="card-list">${objs.map((o) => `<li class="card card--tap" data-object="${o.id}"><div class="between"><span class="stack"><b>${esc(o.name)}</b><span class="meta">Сейчас: ${esc(current(o)?.name || 'сдан')}</span></span><b class="num">${progress(o)}%</b></div></li>`).join('')}</ul></section>
+      <section class="section"><h3 class="section-title">Последние отчёты</h3><ul class="card-list">${rs.map((r) => reportCard(r, { actions: true })).join('')}</ul></section>
+      <button class="btn-sec" type="button" data-copy="${b.phone}">${I('phone')}Скопировать телефон</button>
+    </div>`;
+    bindReports(body);
+    body.onclick = async (e) => {
+      const o = e.target.closest('[data-object]'); if (o) { openObject(o.dataset.object); return; }
+      const cp = e.target.closest('[data-copy]');
+      if (cp) { try { await navigator.clipboard.writeText(cp.dataset.copy); toast('Телефон скопирован'); } catch { toast(cp.dataset.copy); } }
+    };
+  });
+}
+
+function updateBadge() {
+  const n = REPORTS.filter((r) => r.status === 'review').length;
+  const el = $('#bell-badge');
+  el.hidden = !n;
+  el.textContent = n;
+}
+function openNotifications() {
+  Sheet.open((body) => {
+    const late = OBJECTS.flatMap((o) => o.stages.filter(overdue).map((s) => [o, s]));
+    const off = OBJECTS.flatMap((o) => o.cameras.filter((c) => c.offline).map((c) => [o, c]));
+    body.innerHTML = `<div class="stack-16"><h2 class="sheet-title">Уведомления</h2>
+      <ul class="card-list">
+        ${late.map(([o, s]) => `<li class="card card--tap" data-object="${o.id}"><div class="row">${I('alert')}<span class="grow"><b>${esc(s.name)}</b> на объекте «${esc(o.name)}» просрочен на ${diffDays(TODAY, s.end)} ${plural(diffDays(TODAY, s.end), 'день', 'дня', 'дней')}</span></div></li>`).join('')}
+        ${off.map(([o, c]) => `<li class="card card--tap" data-object="${o.id}"><div class="row">${I('video')}<span class="grow">Камера «${esc(c.name)}» на объекте «${esc(o.name)}» не в сети с 07:40</span></div></li>`).join('')}
+      </ul>
+      <section class="section"><h3 class="section-title">Ждут проверки</h3><ul class="card-list">${REPORTS.filter((r) => r.status === 'review').map((r) => reportCard(r, { actions: true })).join('') || '<li class="card empty">Всё проверено</li>'}</ul></section></div>`;
+    bindReports(body);
+    body.onclick = (e) => { const o = e.target.closest('[data-object]'); if (o) openObject(o.dataset.object); };
+  });
+}
+
+const CHAT_LOG = [{ html: 'Я агент Строй-учёта. Спросите, что с объектом, сколько потрачено, или попросите напомнить бригадиру про отчёт.' }];
+function answer(text) {
+  const t = text.toLowerCase();
+  const o = OBJECTS.find((x) => t.includes(x.name.toLowerCase().split(' ')[0].slice(0, 5)) || t.includes((x.name.split(' ').pop() || '').toLowerCase().replace(/[«»]/g, '').slice(0, 5)));
+  if (/потрач|бюджет|затрат|деньг/.test(t)) {
+    if (o) return `«${esc(o.name)}»: потрачено ${rub(spent(o))} из ${rub(o.budget)}, это ${Math.round(spent(o) / o.budget * 100)}%. Последняя затрата: ${esc(o.expenses[o.expenses.length - 1].name)}.`;
+    return OBJECTS.map((x) => `${esc(x.name)}: ${mln(spent(x))} из ${mln(x.budget)}`).join('<br>');
+  }
+  if (/срок|просроч|опазд/.test(t)) {
+    const late = OBJECTS.flatMap((x) => x.stages.filter(overdue).map((s) => `${esc(x.name)}: ${esc(s.name)}, просрочка ${diffDays(TODAY, s.end)} дн.`));
+    return late.length ? `С просрочкой:<br>${late.join('<br>')}` : 'Все этапы идут в срок.';
+  }
+  if (/напомн|отч[её]т/.test(t)) {
+    const x = o || OBJECTS[1];
+    return `Написал ${esc(brig(x.brigade).boss)}: «Пришлите фотоотчёт по этапу ${esc(current(x).name)} на объекте ${esc(x.name)} до 18:00». Отчёт появится на главной.`;
+  }
+  if (o || /как дела|что с|статус/.test(t)) {
+    const x = o || OBJECTS[0];
+    return `«${esc(x.name)}»: готовность ${progress(x)}%, сейчас идёт этап «${esc(current(x).name)}», бригада ${esc(brig(x.brigade).boss)}. Потрачено ${mln(spent(x))} из ${mln(x.budget)}.`;
+  }
+  return 'Могу рассказать, что с объектом, сколько потрачено, какие этапы просрочены, и напомнить бригадиру про отчёт. В демо ответы собираются из данных этой страницы.';
+}
+function openChat() { openAgentChat({ log: CHAT_LOG, quick: ['Что с Малаховкой?', 'Где просрочка?', 'Напомни про отчёт на Ленинском'], answer }); }
+
+mountShell(PRODUCT);
+buildNav([
+  { id: 'home', label: 'Главная', icon: 'home' },
+  { id: 'objects', label: 'Объекты', icon: 'hammer' },
+  { id: 'estimate', label: 'Смета', icon: 'file' },
+  { id: 'cameras', label: 'Камеры', icon: 'video' },
+  { id: 'brigades', label: 'Бригады', icon: 'users' },
+], PRODUCT);
+$('#btn-chat').onclick = openChat;
+$('#btn-bell').onclick = openNotifications;
+updateBadge();
+App.rerender = setupRouter({ home: viewHome, objects: viewObjects, estimate: viewEstimate, cameras: viewCameras, brigades: viewBrigades }, 'home');
+
+</script>
+<script type="module">
+  import { attachRoborabHeader } from './roborab-header.js';
+  attachRoborabHeader(document.querySelector('.app-header'), document.querySelector('.rr-scroll-status'));
+</script>
+</body>
+</html>

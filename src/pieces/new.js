@@ -26,6 +26,11 @@
     var fromHash = function(){
       var id = location.hash.slice(1);
       try { id = decodeURIComponent(id); } catch(e) { return; }
+      var service = document.getElementById(id.toLowerCase());
+      if (service && service.matches('a[data-service-alias]')) {
+        location.replace(service.href);
+        return;
+      }
       var k = tabs.findIndex(function(t){ return t.dataset.t === id; });
       if (k >= 0) pick(k);
     };

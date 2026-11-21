@@ -1,0 +1,76 @@
+/* The iframe fills the entire phone. The clock is composited in the app's
+   document, so its glass can sample the actual scrolling text and images. */
+:root[data-demo-screen] {
+  --rr-safe-top: 46px;
+  --safe-top: var(--rr-safe-top);
+  --demo-chrome-shift: 0px;
+  --demo-glass: 0;
+}
+:root[data-demo-screen] * { scrollbar-width: none; }
+:root[data-demo-screen] *::-webkit-scrollbar { display: none; }
+:root[data-demo-screen] .rr-scroll-status { display: none !important; }
+
+.rr-demo-status {
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 2147483647;
+  inset: 0 0 auto;
+  height: var(--rr-safe-top);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8%;
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(calc(5px * var(--demo-glass))) saturate(1.08);
+  backdrop-filter: blur(calc(5px * var(--demo-glass))) saturate(1.08);
+  color: rgb(calc(255 - 237 * var(--demo-glass)) calc(255 - 237 * var(--demo-glass)) calc(255 - 235 * var(--demo-glass)));
+  font: 680 14px/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  user-select: none;
+  pointer-events: none;
+}
+.rr-demo-status::before, .rr-demo-status::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.rr-demo-status::before {
+  z-index: -1;
+  opacity: calc(1 - var(--demo-glass));
+  background: #141414;
+}
+.rr-demo-status::after {
+  z-index: -2;
+  background: linear-gradient(to bottom, rgb(248 250 252 / .34), rgb(248 250 252 / .09));
+  opacity: var(--demo-glass);
+}
+.rr-demo-island {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 31%;
+  height: 57%;
+  border-radius: 999px;
+  background: #050505;
+  transform: translate(-50%, -50%);
+}
+.rr-demo-icons { display: block; width: 42px; height: 13px; }
+:root[data-demo-screen] :is(.app-header, .topbar, .app-shell > .top).rr-header,
+:root[data-demo-screen] .sheet.open > .rr-header {
+  visibility: visible;
+  transform: translate3d(0, var(--demo-chrome-shift), 0);
+}
+:root[data-demo-screen] .sheet > .rr-header {
+  position: absolute;
+  z-index: 2;
+  inset: 0 0 auto;
+}
+:root[data-demo-screen] .sheet > .sheet-body {
+  padding-top: calc(var(--rr-header-height) + 24px);
+}
+:root[data-demo-screen="tax"] .app-shell { --header-clearance: max(var(--rr-safe-top), calc(var(--header-h) + var(--demo-chrome-shift))); }
+:root[data-demo-screen="fitness"] .people-switch-row { top: max(var(--rr-safe-top), calc(var(--topbar-total) + var(--demo-chrome-shift))); }
+@media (prefers-reduced-transparency: reduce) {
+  .rr-demo-status { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .rr-demo-status::after { background: #f4f4f2; }
+}

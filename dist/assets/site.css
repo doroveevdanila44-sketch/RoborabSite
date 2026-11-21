@@ -6,40 +6,7 @@
   --fit:#5f7d1f;--tax:#0f7f8d;--build:#d4540a;--booking:#141414;--seo:#d62f60;
   --fg:#111514;--f-body:var(--f);--f-display:var(--f);--f-mono:var(--f);--c:min(100% - 32px,1280px);interpolate-size:allow-keywords;color-scheme:light;
   --img-appicon:url(/assets/appicon.webp?v=b57b9d04);
-  --img-booking-calendar:url(/assets/booking-calendar.webp?v=38455a90);
-  --img-booking-home:url(/assets/booking-home.webp?v=b902ace6);
-  --img-booking-money:url(/assets/booking-money.webp?v=9e3e83dc);
-  --img-booking-new:url(/assets/booking-new.webp?v=a2bb2ebc);
-  --img-booking-object:url(/assets/booking-object.webp?v=7fb81246);
-  --img-booking-objects:url(/assets/booking-objects.webp?v=0e017885);
-  --img-booking-platforms:url(/assets/booking-platforms.webp?v=7fb81246);
-  --img-fitness-client:url(/assets/fitness-client.webp?v=bf1bfed0);
-  --img-fitness-dashboard:url(/assets/fitness-dashboard.webp?v=761ae5eb);
-  --img-fitness-export:url(/assets/fitness-export.webp?v=64a2cbe6);
-  --img-fitness-group:url(/assets/fitness-group.webp?v=843a241a);
-  --img-fitness-renewals:url(/assets/fitness-renewals.webp?v=3892c4fa);
-  --img-fitness-schedule:url(/assets/fitness-schedule.webp?v=14454935);
-  --img-fitness-trainers:url(/assets/fitness-trainers.webp?v=8c8a92d8);
   --img-iphone-bezel:url(/assets/iphone-bezel.webp?v=9bd3bcbd);
-  --img-seo-ai-traffic:url(/assets/seo-ai-traffic.webp?v=cf489b1e);
-  --img-seo-category:url(/assets/seo-category.webp?v=8a5375b0);
-  --img-seo-editor:url(/assets/seo-editor.webp?v=bebfe941);
-  --img-seo-funnel:url(/assets/seo-funnel.webp?v=c47ac52f);
-  --img-seo-overview:url(/assets/seo-overview.webp?v=03daa298);
-  --img-seo-sources:url(/assets/seo-sources.webp?v=12a6c785);
-  --img-stroy-brigades:url(/assets/stroy-brigades.webp?v=bd2c2f88);
-  --img-stroy-budget:url(/assets/stroy-budget.webp?v=485579bd);
-  --img-stroy-cameras:url(/assets/stroy-cameras.webp?v=f87e2b59);
-  --img-stroy-estimate:url(/assets/stroy-estimate.webp?v=d6444734);
-  --img-stroy-home:url(/assets/stroy-home.webp?v=d6d69fdb);
-  --img-stroy-objects:url(/assets/stroy-objects.webp?v=aa3413dd);
-  --img-stroy-reports:url(/assets/stroy-reports.webp?v=c4bfddc4);
-  --img-tax-alerts:url(/assets/tax-alerts.webp?v=55d026df);
-  --img-tax-draft:url(/assets/tax-draft.webp?v=ae60875c);
-  --img-tax-forecast:url(/assets/tax-forecast.webp?v=195f4fa7);
-  --img-tax-overview:url(/assets/tax-overview.webp?v=c1c3afb6);
-  --img-tax-revenue:url(/assets/tax-revenue.webp?v=1ba5413d);
-  --img-tax-templates:url(/assets/tax-templates.webp?v=a804b5c1);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--bg)}
@@ -87,9 +54,10 @@ h1.big .ln:last-child{padding-left:clamp(0px,11.5vw,210px)}
 @media(max-width:699px){body:has(.cookie-bar) .hero-scroll-cue{--hero-cookie-clearance:56px}}
 @media(max-width:339px){body:has(.cookie-bar) .hero-scroll-cue{--hero-cookie-clearance:84px}}
 @media (prefers-reduced-motion:no-preference){
-  .hero-scroll-cue path{animation:hero-scroll-cue 3.2s ease-in-out infinite}
-  .hero-scroll-cue path+path{animation-delay:-1.6s}
-  @keyframes hero-scroll-cue{0%,5%,95%,100%{opacity:1}45%,55%{opacity:0}}
+  /* Gentle, overlapping opacity waves; both chevrons remain stationary. */
+  .hero-scroll-cue path{animation:hero-scroll-cue 4.8s cubic-bezier(.45,0,.55,1) infinite;transform:none}
+  .hero-scroll-cue path+path{animation-delay:.65s}
+  @keyframes hero-scroll-cue{0%,100%{opacity:.35}42%,62%{opacity:.9}}
 }
 .hcols{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,30px);padding-top:20px}
 .hcols>div{border-top:1px solid var(--line);padding-top:14px;min-width:0}
@@ -143,8 +111,8 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 @media(max-width:1000px){.dgrid{grid-template-columns:1fr}.dgrid>div:nth-child(2){position:static}.ditem{grid-template-columns:1fr 2fr}}
 @media(max-width:560px){.ditem{grid-template-columns:1fr}.tile{aspect-ratio:2/1;border-radius:18px}.industry-pair{width:57.6%}}
 
-/* каталог: вкладки 01-05 */
-.tabs{display:grid;grid-template-columns:repeat(5,1fr);margin-top:clamp(32px,4vw,56px);border-top:0}
+/* Вкладки отраслевых примеров */
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(32px,4vw,56px);border-top:0}
 .tabs .tl{grid-column:1/-1;font:500 11px/1 var(--f);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
 .tabs button{position:relative;text-align:left;background:none;border:0;border-left:1px solid var(--line);padding:22px 16px 20px;cursor:pointer;color:var(--mute);font:500 clamp(14px,1.3vw,19px)/1.15 var(--f);letter-spacing:-.02em;display:flex;gap:14px;align-items:baseline;transition:color .35s var(--ease2)}
 .tabs button:first-of-type{border-left:0;padding-left:0}
@@ -153,7 +121,7 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 .tabs button[aria-selected=true]{color:var(--ink)}
 .tabs button[aria-selected=true]::after{width:100%}
 .tabs i{font:500 11px/1 var(--f);font-style:normal;color:var(--blue);letter-spacing:.06em;flex:none}
-@media(max-width:820px){.tabs{grid-template-columns:repeat(5,minmax(150px,1fr));overflow-x:auto;scrollbar-width:none}}
+@media(max-width:820px){.tabs{grid-template-columns:repeat(4,minmax(150px,1fr));overflow-x:auto;scrollbar-width:none}}
 .cgrid{margin-top:clamp(20px,2.4vw,36px)}
 .cgrid .product{display:none}
 .cgrid .product.on{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);align-items:center;animation:tabin .7s var(--ease)}
@@ -911,3 +879,4 @@ h1.big{max-width:100%}
 @media (max-width:339px){
   .cookie-bar{flex-wrap:wrap;border-radius:24px;padding:10px 10px 10px 14px}
 }
+

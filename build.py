@@ -201,6 +201,9 @@ def document(title, description, url, structured_data, body, stylesheet, script=
     head += '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">\n'
     head += f'<link rel="stylesheet" href="{stylesheet}">\n'
     head += f'<script type="application/ld+json">{structured_data}</script>\n'
+    if 'class="automation-demo"' in body:
+        head += '<link rel="stylesheet" href="/demos/phone.css">\n'
+        head += '<script src="/demos/phone.js" defer></script>\n'
     if script:
         head += f'<script src="{script}" defer></script>\n'
     if metrika:
@@ -321,6 +324,7 @@ def build(out):
     source_assets = ROOT / 'assets'
     assets = out / 'assets'
     assets.mkdir()
+    shutil.copytree(ROOT / 'demos', out / 'demos')
     for _f in ('miratrix.woff2', 'miratrix-OFL.txt', 'inter-cyrillic.woff2', 'inter-latin.woff2', 'inter-OFL.txt'):
         (assets / _f).write_bytes((source_assets / _f).read_bytes())
 
@@ -344,7 +348,7 @@ def build(out):
     pair_version = hashlib.sha256(pair_data).hexdigest()[:8]
 
     products_markup = read_piece('products.html')
-    products = read_products(products_markup)
+    products = read_products(products_markup + read_piece('services.html'))
     faq_markup = read_piece('faq.html').replace('{{ABOUT}}', html.escape(ABOUT))
     faq = [
         (html.unescape(question), html.unescape(answer))
