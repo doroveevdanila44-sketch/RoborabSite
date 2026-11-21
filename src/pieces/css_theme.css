@@ -132,6 +132,26 @@ h2.t{font-weight:400;font-size:clamp(24px,3.4vw,54px);line-height:1;letter-spaci
 .product-pitch li::marker{color:var(--violet)}
 .product-pitch .feats li::marker{color:var(--lime)}
 @media(max-width:620px){.product-pitch{grid-template-columns:1fr}}
+@media(min-width:960px){
+  .cgrid .product-preview.on{
+    grid-template:
+      "phone heading" auto
+      "phone pitch" auto
+      "phone action" 1fr
+      / clamp(272px,26vw,344px) minmax(0,1fr);
+    column-gap:clamp(20px,2.8vw,44px);
+  }
+  .product-preview>.automation-demo{grid-area:phone}
+  .product-preview>.product-heading{grid-area:heading}
+  .product-preview>.product-pitch{
+    grid-area:pitch;
+    grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+    gap:clamp(12px,1.3vw,20px);
+  }
+  .product-preview>.btn{grid-area:action}
+  .product-pitch>div{padding:clamp(16px,1.6vw,24px)}
+  .product-pitch h4{font-size:clamp(20px,1.75vw,28px)}
+}
 
 /* шаги: цветные карточки */
 .steps{gap:clamp(12px,1.4vw,20px)}

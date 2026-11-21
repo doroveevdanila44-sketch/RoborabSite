@@ -123,8 +123,7 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 @media(max-width:820px){.tabs{grid-template-columns:repeat(4,minmax(150px,1fr));overflow-x:auto;scrollbar-width:none}}
 .cgrid{margin-top:clamp(20px,2.4vw,36px)}
 .cgrid .product{display:none}
-.cgrid .product.on{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);align-items:center;animation:tabin .7s var(--ease)}
-@keyframes tabin{from{opacity:0;transform:translateY(16px)}}
+.cgrid .product.on{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);align-items:center}
 .product h3{margin:0;font:500 clamp(32px,4.4vw,68px)/.95 var(--f);letter-spacing:-.06em}
 
 /* процесс */
@@ -212,7 +211,7 @@ h2.t{margin:0;font:500 clamp(36px,5.6vw,92px)/.94 var(--f);letter-spacing:-.06em
 @media (prefers-reduced-motion:reduce){
   .text-intro .text-motion,.text-words .text-motion,.hero-copy-in{animation:none;transition:none;transform:none;opacity:1}
   .js .rv{opacity:1;transform:none;transition:none}.wm{animation:none}.splash{display:none}html{scroll-behavior:auto}
-  .cgrid .product.on{animation:none}.faqlist details::details-content{transition:none}
+  .faqlist details::details-content{transition:none}
 }
 
 

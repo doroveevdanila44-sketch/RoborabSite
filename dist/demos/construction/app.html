@@ -440,23 +440,30 @@ main {
   font-size: 13px;
 }
 .ico { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
-.thumb { display: block; width: 100%; max-width: 100%; aspect-ratio: 4 / 3; border-radius: 18px; overflow: hidden; background: var(--soft); }
-.thumb svg, .thumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
 @keyframes rise { from { opacity: .4; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 .rise { animation: rise .4s var(--rr-ease) both; }
 @media (prefers-reduced-motion: reduce) { .rise { animation: none; } }
 
 /* Строй-учёт: фото отчётов, этапы, камеры, смета */
 .tile-of { font-size: .5em; color: var(--on-violet); letter-spacing: 0; }
-.shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
-.shots .thumb { border-radius: 14px; aspect-ratio: 4 / 3; }
+.site-photos { display: block; position: relative; min-width: 0; overflow: hidden; border-radius: 16px; background: var(--soft); }
+.shot-track { display: flex; width: 100%; aspect-ratio: 16 / 10; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.shot-track::-webkit-scrollbar { display: none; }
+.shot-slide { flex: 0 0 100%; min-width: 0; scroll-snap-align: start; }
+.shot-slide img, .shot-slide svg { display: block; width: 100%; height: 100%; object-fit: cover; }
+.shot-nav { position: absolute; top: 50%; transform: translateY(-50%); display: grid; place-items: center; width: 44px; height: 44px; border: 0; background: transparent; color: #fff; }
+.shot-nav svg { box-sizing: content-box; width: 18px; height: 18px; padding: 6px; border-radius: 50%; background: rgba(20,20,20,.72); }
+.shot-prev { left: 0; }
+.shot-next { right: 0; }
+.shot-next svg { transform: rotate(180deg); }
+.shot-count { position: absolute; left: 10px; bottom: 10px; padding: 3px 8px; border-radius: 20px; background: rgba(20,20,20,.72); color: #fff; font-size: 12px; font-variant-numeric: tabular-nums; pointer-events: none; }
+.object-title { padding: 0; border: 0; background: transparent; color: inherit; text-align: left; }
 .money-obj { display: grid; gap: 6px; width: 100%; padding: 0; border: 0; background: none; color: #fff; text-align: left; }
 .money-obj .meta { font-size: 12px; }
 .money .bar--hot > span, .bar--hot > span { background: #ffb3a8; }
 .bar--hot { background: rgb(255 255 255 / .18); }
 .card .bar--hot { background: var(--danger-soft); }
 .card:not(.money) .bar--hot > span { background: var(--danger); }
-.obj-cover { position: relative; aspect-ratio: 16 / 9; }
 .obj-pct { position: absolute; right: 10px; bottom: 10px; padding: 6px 12px; border-radius: 999px; background: var(--rr-lime); color: #fff; font: italic 900 20px/1 var(--rr-display); letter-spacing: -.03em; }
 .line { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 20px; }
 
@@ -839,10 +846,10 @@ const OBJECTS = [
     spentWorks: 0.4, expenses: [[0, 'Кабель и коробки, Леруа Мерлен', 52800, 'Материалы'], [-4, 'Вывоз мусора, 2 контейнера', 24000, 'Работы'], [-8, 'Аванс электрику', 80000, 'Работы']],
   },
   {
-    id: 's3', name: 'Офис «Северный»', type: 'Отделка, 310 м²', addr: 'Москва, ул. Вилиса Лациса, 26', client: 'ООО «Северный ветер»', brigade: 'b3', cover: 'finish',
+    id: 's3', name: 'Офис «Северный»', type: 'Отделка, 310 м²', addr: 'Москва, ул. Вилиса Лациса, 26', client: 'ООО «Северный ветер»', brigade: 'b3', cover: 'finish', photo: 'img/office-paint-overview.webp',
     stages: [['Демонтаж', 'done', -70, -63, 210000], ['Перегородки', 'done', -62, -48, 940000], ['Электрика и слаботочка', 'done', -47, -30, 1180000], ['Вентиляция', 'done', -36, -22, 860000], ['Штукатурка', 'done', -29, -14, 1240000], ['Плитка в санузлах', 'done', -13, -3, 520000], ['Чистовая отделка', 'work', -10, -1, 1980000], ['Уборка и сдача', 'todo', 1, 4, 140000]],
     materials: [['Гипсокартон Knauf', 420, 'лист', 610], ['Краска интерьерная, 9 л', 64, 'ведро', 4200], ['Керамогранит 60×60', 96, 'м²', 1650], ['Кварцвинил', 260, 'м²', 1890]],
-    cameras: [{ name: 'Опенспейс', kind: 'finish' }, { name: 'Санузлы', kind: 'tile', offline: true }],
+    cameras: [{ name: 'Опенспейс', kind: 'finish', photo: 'img/office-paint-overview.webp' }, { name: 'Санузлы', kind: 'tile', photo: 'img/office-wc-room.webp', offline: true }],
     spentWorks: 0.97, expenses: [[-1, 'Краска и расходники', 98400, 'Материалы'], [-2, 'Аванс маляру', 120000, 'Работы'], [-5, 'Керамогранит, догрузка 12 м²', 19800, 'Материалы']],
   },
   {
@@ -878,18 +885,105 @@ const brig = (id) => BRIGADES.find((b) => b.id === id);
 
 const at = (dayOff, h, m) => { const d = addDays(TODAY, dayOff); d.setHours(h, m); return d; };
 const REPORTS = [
-  { id: 'r1', obj: 's1', stage: 3, at: at(0, 9, 42), photos: [{ url: PHOTOS['house-autumn'] }, { url: PHOTOS['house-autumn'], pos: '80% 25%' }, { url: PHOTOS['house-autumn'], pos: '15% 40%' }], text: 'Мягкая черепица уложена, свесы подшиты вагонкой. Над крыльцом смонтирован навес. Водосток поставим после окон.', status: 'review' },
-  { id: 'r2', obj: 's3', stage: 5, at: at(0, 8, 15), photos: ['tile', 'tile', 'finish'], text: 'Плитка в трёх санузлах уложена и затёрта. Остались плинтусы в коридоре.', status: 'accepted' },
-  { id: 'r3', obj: 's2', stage: 2, at: at(-1, 18, 30), photos: [{ url: PHOTOS['apartment-raw'] }, { url: PHOTOS['apartment-raw'], pos: '90% 70%' }, 'electric'], text: 'Старая отделка снята, стяжка под проверку. Кабель по кухне и спальне проложен, щит собран, ждём автоматы на ванную.', status: 'review' },
-  { id: 'r4', obj: 's1', stage: 2, at: at(-1, 17, 5), photos: [{ url: PHOTOS['house-autumn'], pos: '55% 35%' }, { url: PHOTOS['house-autumn'] }], text: 'Сруб второго этажа собран и законопачен, стойки террасы установлены.', status: 'accepted' },
-  { id: 'r5', obj: 's4', stage: 3, at: at(-2, 16, 40), photos: [{ url: PHOTOS['house-winter'] }, { url: PHOTOS['house-winter'], pos: '20% 40%' }], text: 'Кровля и водосток готовы, балкон второго этажа обшит. Проёмы под окна подготовлены.', status: 'accepted' },
-  { id: 'r6', obj: 's3', stage: 6, at: at(-2, 19, 10), photos: ['finish', 'finish', 'plaster'], text: 'Покраска опенспейса: первый слой.', status: 'accepted' },
+  { id: 'r1', obj: 's1', stage: 3, at: at(0, 9, 42), photos: [
+      { url: 'img/house-autumn.jpg', alt: 'Общий вид дома в Малаховке со стороны террасы' },
+      { url: 'img/malakhovka-roof-rear.webp', alt: 'Кровля над эркером и боковой фасад' },
+      { url: 'img/malakhovka-roof-porch.webp', alt: 'Подшивка свеса крыши с верхней террасы' },
+    ], text: 'Мягкая черепица уложена, свесы подшиты вагонкой. Над крыльцом смонтирован навес. Водосток поставим после окон.', status: 'review' },
+  { id: 'r2', obj: 's3', stage: 5, at: at(0, 8, 15), photos: [
+      { url: 'img/office-wc-room.webp', alt: 'Санузел офиса после укладки керамогранита' },
+      { url: 'img/office-wc-hatch.webp', alt: 'Облицованная стена санузла с проёмом ревизии' },
+      { url: 'img/office-wc-grout.webp', alt: 'Затёртый стык между настенной и напольной плиткой' },
+    ], text: 'Плитка в трёх санузлах уложена и затёрта. Остались плинтусы в коридоре.', status: 'accepted' },
+  { id: 'r3', obj: 's2', stage: 2, at: at(-1, 18, 30), photos: [
+      { url: 'img/apartment-raw.jpg', alt: 'Комната после демонтажа отделки, вид в сторону окна' },
+      { url: 'img/leninsky-reverse.webp', alt: 'Та же комната от балконной двери в сторону входа' },
+      { url: 'img/leninsky-wiring.webp', alt: 'Электрический щит и кабельные трассы в квартире' },
+    ], text: 'Старая отделка снята, стяжка под проверку. Кабель по кухне и спальне проложен, щит собран, ждём автоматы на ванную.', status: 'review' },
+  { id: 'r4', obj: 's1', stage: 2, at: at(-1, 17, 5), photos: [
+      { url: 'img/malakhovka-log-joint.webp', alt: 'Угол сруба второго этажа и оконный проём' },
+      { url: 'img/malakhovka-log-posts.webp', alt: 'Деревянные стойки вдоль террасы на первом этаже' },
+    ], text: 'Сруб второго этажа собран и законопачен, стойки террасы установлены.', status: 'accepted' },
+  { id: 'r5', obj: 's4', stage: 3, at: at(-2, 16, 40), photos: [
+      { url: 'img/house-winter.jpg', alt: 'Общий вид строящегося дома в Истре зимой' },
+      { url: 'img/istra-upper-floor.webp', alt: 'Деревянный верхний этаж и балкон под кровлей' },
+      { url: 'img/istra-gutter.webp', alt: 'Карниз и колено водостока со стороны фасада' },
+    ], text: 'Кровля и водосток готовы, балкон второго этажа обшит. Проёмы под окна подготовлены.', status: 'accepted' },
+  { id: 'r6', obj: 's3', stage: 6, at: at(-2, 19, 10), photos: [
+      { url: 'img/office-paint-overview.webp', alt: 'Опенспейс офиса во время покраски' },
+      { url: 'img/office-paint-walls.webp', alt: 'Первый слой краски на стене рядом с колонной' },
+      { url: 'img/office-paint-detail.webp', alt: 'Краска у розетки опенспейса и лоток с валиком' },
+    ], text: 'Покраска опенспейса: первый слой.', status: 'accepted' },
 ];
 let rseq = 10;
 
 /* ---------- Общие куски ---------- */
-function thumbs(kinds, seed = 0, cls = 'shots') {
-  return `<div class="${cls}">${kinds.map((k, i) => `<div class="thumb">${typeof k === 'string' ? siteScene(k, seed + i) : `<img src="${k.url}" alt="Фото из отчёта" style="${k.pos ? `transform:scale(1.9);transform-origin:${k.pos}` : ''}">`}</div>`).join('')}</div>`;
+function photoGallery(photos, label, badge = '') {
+  const distinct = new Map();
+  for (const photo of photos) {
+    const key = typeof photo === 'string' ? photo : photo.url;
+    if (key && !distinct.has(key)) distinct.set(key, photo);
+  }
+  const count = distinct.size;
+  if (!count) return '';
+  const slides = [...distinct.values()].map((photo, index) => {
+    const alt = typeof photo === 'object' && photo.alt || `${label}, фото ${index + 1} из ${count}`;
+    const image = typeof photo === 'string' ? siteScene(photo, index) :
+      `<img src="${esc(photo.url)}" alt="${esc(alt)}" draggable="false" loading="lazy" decoding="async">`;
+    return `<div class="shot-slide">${image}</div>`;
+  }).join('');
+  const controls = count > 1 ? `
+    <button type="button" class="shot-nav shot-prev" data-step="-1" aria-label="Предыдущее фото">${I('back')}</button>
+    <button type="button" class="shot-nav shot-next" data-step="1" aria-label="Следующее фото">${I('back')}</button>
+    <span class="shot-count" aria-live="polite" aria-atomic="true">1 / ${count}</span>` : '';
+  return `<site-gallery role="group" class="site-photos" aria-label="${esc(label)}"><div class="shot-track">${slides}</div>${controls}${badge}</site-gallery>`;
+}
+
+customElements.define('site-gallery', class extends HTMLElement {
+  connectedCallback() {
+    const track = this.querySelector('.shot-track');
+    const counter = this.querySelector('.shot-count');
+    if (!counter || this.ready) return;
+    this.ready = true;
+    const count = track.children.length;
+    let position = 0;
+    let requested = null;
+    const step = (delta) => {
+      requested = ((requested ?? position) + delta + count) % count;
+      track.scrollTo({ left: requested * track.clientWidth,
+        behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    };
+    track.addEventListener('scroll', () => {
+      const width = track.clientWidth;
+      if (!width) return;
+      const next = Math.max(0, Math.min(count - 1, Math.round(track.scrollLeft / width)));
+      if (next !== position) {
+        position = next;
+        counter.textContent = `${next + 1} / ${count}`;
+      }
+      if (requested !== null && Math.abs(track.scrollLeft - requested * width) < 1) requested = null;
+    }, { passive: true });
+    track.addEventListener('pointerdown', () => { requested = null; }, { passive: true });
+    track.addEventListener('wheel', () => { requested = null; }, { passive: true });
+    this.addEventListener('click', (event) => {
+      const control = event.target.closest('[data-step]');
+      if (control) step(Number(control.dataset.step));
+      else if (event.target.closest('.shot-track')) step(1);
+    });
+    this.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      step(event.key === 'ArrowLeft' ? -1 : 1);
+    });
+  }
+});
+
+function objectGallery(o, percentage) {
+  const reportPhotos = REPORTS.filter(report => report.obj === o.id).flatMap(report => report.photos);
+  const photos = [o.photo ? { url: o.photo, alt: o.name } : o.cover, ...reportPhotos];
+  const progressBadge = percentage == null ? '' : `<span class="obj-pct">${percentage}%</span>`;
+  const note = o.photoNote ? `<span class="tag tag--ink obj-note">${esc(o.photoNote)}</span>` : '';
+  return photoGallery(photos, o.name, progressBadge + note);
 }
 function stageDot(s) {
   if (s.status === 'done') return `<span class="st st--done" title="Готово">${I('check')}</span>`;
@@ -914,7 +1008,7 @@ function reportCard(r, opts = {}) {
       <div class="grow stack"><span class="name">${esc(o.name)}</span><span class="meta">${esc(s.name)} · ${esc(b.boss)} · ${relDay(r.at)}, ${hhmm(r.at)}</span></div>
       ${r.status === 'review' ? '<span class="tag tag--lime">Ждёт проверки</span>' : r.status === 'returned' ? '<span class="tag tag--danger">Возвращён</span>' : '<span class="tag tag--ok">Принят</span>'}
     </div>
-    ${thumbs(r.photos, r.id.charCodeAt(1))}
+    ${photoGallery(r.photos, o.name + ' · ' + s.name)}
     <p style="margin:0">${esc(r.text)}</p>
     ${r.note ? `<p class="meta" style="margin:0"><b>Замечание:</b> ${esc(r.note)}</p>` : ''}
     ${opts.actions && r.status === 'review' ? `<div class="card-actions" style="margin:0" data-ract="${r.id}">
@@ -1025,7 +1119,6 @@ function viewHome(page) {
         </section>
       </div>
     </div>`;
-  bindReports(page);
   page.addEventListener('click', (e) => {
     const g = e.target.closest('[data-go]'); if (g) { navTo(g.dataset.go); return; }
     const sc = e.target.closest('[data-scroll]'); if (sc) { $('#' + sc.dataset.scroll).scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
@@ -1039,16 +1132,20 @@ function viewObjects(page) {
     <ul class="card-grid" style="list-style:none;margin:0;padding:0">${OBJECTS.map((o) => {
       const pr = progress(o), cur = current(o), late = o.stages.some(overdue), p = spent(o) / o.budget;
       return `<li class="card card--tap" data-object="${o.id}" style="padding:10px">
-        <div class="thumb obj-cover">${o.photo ? `<img src="${o.photo}" alt="${esc(o.name)}">` : siteScene(o.cover, o.id.charCodeAt(1))}${o.photoNote ? `<span class="tag tag--ink obj-note">${o.photoNote}</span>` : ''}<span class="obj-pct">${pr}%</span></div>
+        ${objectGallery(o, pr)}
         <div class="stack-8" style="padding:12px 6px 6px">
-          <div class="between"><span class="name">${esc(o.name)}</span>${late ? '<span class="tag tag--danger">Просрочка</span>' : ''}</div>
+          <div class="between"><button type="button" class="name object-title" aria-label="Открыть объект ${esc(o.name)}">${esc(o.name)}</button>${late ? '<span class="tag tag--danger">Просрочка</span>' : ''}</div>
           <span class="meta">${esc(o.type)} · ${esc(o.client)}</span>
           <div class="bar"><span style="width:${pr}%"></span></div>
           <div class="between meta"><span>Сейчас: <b style="color:var(--text)">${esc(cur ? cur.name : 'сдан')}</b></span><span>${esc(brig(o.brigade).boss)}</span></div>
           <div class="between meta"><span>Затраты</span><span class="num ${p > .92 ? 't-warn' : ''}"><b style="color:inherit">${mln(spent(o))}</b> из ${mln(o.budget)}</span></div>
         </div></li>`;
     }).join('')}</ul>`;
-  page.addEventListener('click', (e) => { const c = e.target.closest('[data-object]'); if (c) openObject(c.dataset.object); });
+  page.addEventListener('click', (e) => {
+    if (e.target.closest('.site-photos')) return;
+    const card = e.target.closest('[data-object]');
+    if (card) openObject(card.dataset.object);
+  });
 }
 
 let objTab = 'stages';
@@ -1058,7 +1155,7 @@ function openObject(id, tab) {
     const o = obj(id), b = brig(o.brigade), pr = progress(o);
     const tabs = [['stages', 'Этапы'], ['estimate', 'Смета'], ['costs', 'Затраты'], ['cameras', 'Камеры'], ['reports', 'Отчёты']];
     body.innerHTML = `<div class="stack-16">
-      <div class="thumb obj-cover" style="aspect-ratio:16/9">${o.photo ? `<img src="${o.photo}" alt="${esc(o.name)}">` : siteScene(o.cover, o.id.charCodeAt(1) + 5)}${o.photoNote ? `<span class="tag tag--ink obj-note">${o.photoNote}</span>` : ''}</div>
+      ${objectGallery(o)}
       <div><h2 class="sheet-title">${esc(o.name)}</h2><p class="meta" style="margin:6px 0 0">${esc(o.type)} · ${esc(o.addr)}</p></div>
       <div class="card stack-8"><div class="between"><span class="meta">Готовность</span><b class="num">${pr}%</b></div><div class="bar"><span style="width:${pr}%"></span></div>
         <dl class="kv" style="margin-top:8px"><div><dt>Заказчик</dt><dd>${esc(o.client)}</dd></div><div><dt>Бригада</dt><dd>${esc(b.boss)}, ${b.members.length} чел.</dd></div><div><dt>Сдача</dt><dd>${fd(o.stages[o.stages.length - 1].end)}</dd></div></dl></div>
@@ -1121,7 +1218,6 @@ function openObject(id, tab) {
       }
     };
     drawTab();
-    bindReports(pane);
     body.onclick = (e) => {
       const t = e.target.closest('[data-otab]');
       if (t) { objTab = t.dataset.otab; $$('[data-otab]', body).forEach((x) => { x.setAttribute('aria-pressed', x === t); x.setAttribute('aria-selected', x === t); }); drawTab(); return; }
@@ -1274,7 +1370,7 @@ function openCamera(key) {
       if (a) { $$('[data-arch]', body).forEach((x) => x.setAttribute('aria-pressed', x === a)); toast(`Запись с ${a.dataset.arch}. В демо показан один снимок`); return; }
       if (e.target.closest('#cam-snap')) {
         const s = current(o);
-        REPORTS.unshift({ id: 'r' + (++rseq), obj: o.id, stage: s.i, at: new Date(), photos: [c.kind], text: `Снимок с камеры «${c.name}».`, status: 'accepted' });
+        REPORTS.unshift({ id: 'r' + (++rseq), obj: o.id, stage: s.i, at: new Date(), photos: [c.photo ? { url: c.photo, alt: c.name } : c.kind], text: `Снимок с камеры «${c.name}».`, status: 'accepted' });
         toast('Снимок сохранён в отчёты объекта');
       }
     };
@@ -1308,7 +1404,6 @@ function openBrigade(id) {
       <section class="section"><h3 class="section-title">Последние отчёты</h3><ul class="card-list">${rs.map((r) => reportCard(r, { actions: true })).join('')}</ul></section>
       <button class="btn-sec" type="button" data-copy="${b.phone}">${I('phone')}Скопировать телефон</button>
     </div>`;
-    bindReports(body);
     body.onclick = async (e) => {
       const o = e.target.closest('[data-object]'); if (o) { openObject(o.dataset.object); return; }
       const cp = e.target.closest('[data-copy]');
@@ -1333,7 +1428,6 @@ function openNotifications() {
         ${off.map(([o, c]) => `<li class="card card--tap" data-object="${o.id}"><div class="row">${I('video')}<span class="grow">Камера «${esc(c.name)}» на объекте «${esc(o.name)}» не в сети с 07:40</span></div></li>`).join('')}
       </ul>
       <section class="section"><h3 class="section-title">Ждут проверки</h3><ul class="card-list">${REPORTS.filter((r) => r.status === 'review').map((r) => reportCard(r, { actions: true })).join('') || '<li class="card empty">Всё проверено</li>'}</ul></section></div>`;
-    bindReports(body);
     body.onclick = (e) => { const o = e.target.closest('[data-object]'); if (o) openObject(o.dataset.object); };
   });
 }
@@ -1363,6 +1457,7 @@ function answer(text) {
 function openChat() { openAgentChat({ log: CHAT_LOG, quick: ['Что с Малаховкой?', 'Где просрочка?', 'Напомни про отчёт на Ленинском'], answer }); }
 
 mountShell(PRODUCT);
+bindReports(document);
 buildNav([
   { id: 'home', label: 'Главная', icon: 'home' },
   { id: 'objects', label: 'Объекты', icon: 'hammer' },

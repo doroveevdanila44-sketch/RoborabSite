@@ -83,6 +83,9 @@
     doc.addEventListener('rr:header-reset', update);
     style.addEventListener('load', update, { once: true });
     doc.head.append(style);
+    const controls = doc.createElement('script');
+    controls.src = new URL('header.js', base).href;
+    doc.head.append(controls);
     // Routes replace React roots and detail sheets can open without a scroll.
     const observer = new win.MutationObserver(update);
     observer.observe(doc.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['class'] });

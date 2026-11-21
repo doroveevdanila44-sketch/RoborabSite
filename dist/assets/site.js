@@ -176,7 +176,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
 
   /* появление блоков снизу */
   if (!reduce && 'IntersectionObserver' in window) {
-    var sel = ['.sh','.panel-art','.cols3>div','.ditem','.tabs','.cgrid','.steps li','.way','.faqlist details',
+    var sel = ['.sh','.panel-art','.cols3>div','.ditem','.tabs','.steps li','.way','.faqlist details',
                '.cta .box>div','#lead','#sheet .lab','.dsub','.cols3>div>span','.ditem p','.steps p','.way p',
                '.product-heading .tag','.pilot-copy li','.cta .box p'].join(',');
     var seenP = new Map(), targets = [].slice.call(document.querySelectorAll(sel));
