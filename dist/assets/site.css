@@ -554,7 +554,7 @@ h2.t{font-weight:400;font-size:clamp(24px,3.4vw,54px);line-height:1;letter-spaci
 /* шаги: цветные карточки */
 .steps{gap:clamp(12px,1.4vw,20px)}
 .steps li{border:0;border-radius:clamp(26px,2.6vw,38px);padding:clamp(22px,2.2vw,32px);min-height:clamp(230px,22vw,300px);display:flex;flex-direction:column;background:#fff;transition:transform .5s var(--ease)}
-.steps li:hover{transform:translateY(-6px) rotate(-.8deg)}
+.steps li:hover{transform:scale(1.025)}
 .steps li::before{font:300 clamp(40px,4.4vw,64px)/1 var(--fd);font-style:normal;letter-spacing:.012em;color:var(--violet);margin-bottom:auto}
 .steps li:nth-child(1){background:var(--lime);color:var(--on-lime)}.steps li:nth-child(1)::before{color:var(--on-lime)}.steps li:nth-child(1) p,.steps li:nth-child(1) .sn{color:rgba(255,255,255,.84)}
 .steps li:nth-child(2){background:var(--violet);color:#fff}.steps li:nth-child(2)::before{color:var(--lime-text)}.steps li:nth-child(2) p{color:rgba(255,255,255,.82)}
@@ -563,7 +563,7 @@ h2.t{font-weight:400;font-size:clamp(24px,3.4vw,54px);line-height:1;letter-spaci
 
 /* три способа */
 .way{border-radius:clamp(30px,3.4vw,48px);background:#fff;box-shadow:0 20px 44px -30px rgba(20,20,20,.5);transition:transform .5s var(--ease)}
-.way:hover{transform:translateY(-6px) rotate(-.6deg)}
+.way:hover{transform:scale(1.025)}
 .way .gn{color:rgba(20,20,20,.07)}
 .way small{font-weight:500;color:var(--violet)}
 .way.bl{background:var(--violet);color:#fff;box-shadow:0 24px 50px -26px rgba(20,20,20,.9)}.way.bl small{color:var(--lime-text)}.way.bl .gn{color:rgba(255,255,255,.14)}
@@ -799,8 +799,7 @@ h1.big{max-width:100%}
 .pc-fx{position:absolute;inset:0;z-index:40;pointer-events:none}
 .pc-ring{position:absolute;width:34px;height:34px;border-radius:50%;box-shadow:0 0 0 1.5px rgba(10,132,255,.85),0 0 16px rgba(10,132,255,.3);opacity:0}
 /* 8. Объёмные экраны */
-.product-gallery{perspective:900px}
-.tilting.shot{transition:transform .12s ease-out!important;background-image:radial-gradient(260px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.32),transparent 60%),var(--s)!important}
+.product-gallery .shot:is(:hover,:active){transform:scale(1.025)}
 @media(prefers-reduced-motion:reduce){.dmsg,.dmsg.typing i{animation:none}}
 
 /* «Как это работает»: на телефоне и планшете шаги ложатся стопкой при прокрутке.

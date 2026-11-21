@@ -206,3 +206,15 @@
 .rr-inbox-remind { margin-top: 10px; }
 .rr-demo-back { margin-bottom: 12px; }
 .rr-demo-settings { align-self: start; }
+
+:root[data-demo-screen], :root[data-demo-screen] body { overscroll-behavior-y: none; }
+:root[data-demo-screen]:not([data-demo-touched]) [data-demo-bell] { position: relative; }
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-demo-screen]:not([data-demo-touched]) [data-demo-bell]::after {
+    content: ''; position: absolute; inset: 2px; border: 2px solid #0a84ff;
+    border-radius: 50%; pointer-events: none; animation: demo-tap 1.8s ease-out 4;
+  }
+  @keyframes demo-tap { from { transform: scale(.72); opacity: 1; } to { transform: scale(1.3); opacity: 0; } }
+}
+:root[data-demo-screen] :is(.btn,.button,.act,.qreply,.sug button):is(:hover,:active):not(:disabled),
+:root[data-demo-screen] .sum-item:has(>.sum-card:is(:hover,:active)) { transform: scale(1.025); }

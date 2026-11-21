@@ -512,21 +512,4 @@
     onScreen(pc, function(v){ live = v; if (v && !started) { started = true; play(); } }, {threshold: .3});
   })();
 
-  /* 8. Объёмные экраны в каталоге */
-  (function(){
-    if (reduce || !matchMedia('(hover:hover) and (pointer:fine)').matches) return;
-    document.addEventListener('pointermove', function(e){
-      var shot = e.target.closest && e.target.closest('.product-gallery .shot');
-      if (!shot) return;
-      var r = shot.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-      shot.classList.add('tilting');
-      shot.style.transform = 'rotateY(' + ((x - .5) * 14).toFixed(2) + 'deg) rotateX(' + ((.5 - y) * 10).toFixed(2) + 'deg) translateZ(8px)';
-      shot.style.setProperty('--gx', (x * 100).toFixed(1) + '%'); shot.style.setProperty('--gy', (y * 100).toFixed(1) + '%');
-    });
-    document.addEventListener('pointerout', function(e){
-      var shot = e.target.closest && e.target.closest('.product-gallery .shot');
-      if (shot && !shot.contains(e.relatedTarget)) { shot.classList.remove('tilting'); shot.style.transform = ''; }
-    });
-  })();
-
 })();
