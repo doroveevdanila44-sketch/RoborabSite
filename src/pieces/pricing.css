@@ -26,3 +26,4 @@
 #solution-catalog .rr-price-time strong{color:#141414;font-weight:650}
 
 #solution-catalog .rr-price-currency{font-size:.62em;font-weight:550;letter-spacing:0}
+#solution-catalog .rr-price-card > .btn{align-self:flex-start;margin-top:20px}

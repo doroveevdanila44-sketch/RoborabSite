@@ -1,14 +1,14 @@
 (() => {
   const base = new URL('.', document.currentScript.src);
   const products = {
-    booking: { title: 'Букинг-CRM', route: '#calendar' },
-    construction: { title: 'Строй-учёт' },
-    tax: { title: 'Агент по НДС' },
-    fitness: { title: 'Глаза фитнеса' }
+    booking: { title: 'Букинг-CRM', route: '#calendar', poster: 'booking-calendar' },
+    construction: { title: 'Строй-учёт', poster: 'stroy-home' },
+    tax: { title: 'Агент по НДС', poster: 'tax-overview' },
+    fitness: { title: 'Глаза фитнеса', poster: 'fitness-dashboard' }
   };
   const signalIcons = '<svg class="rr-demo-icons" viewBox="0 0 42 13" fill="currentColor" aria-hidden="true"><path d="M0 9h3v3H0zm4-2h3v5H4zm4-3h3v8H8zm4-3h3v11h-3z"/><rect x="21" y="2" width="17" height="9" rx="2.5" fill="none" stroke="currentColor"/><rect x="23" y="4" width="13" height="5" rx="1"/><path d="M39.5 4.5q2.5 1.5 0 4z"/></svg>';
 
-  function installChrome(frame, key) {
+  function installChrome(frame, key, reveal) {
     const doc = frame.contentDocument;
     const win = frame.contentWindow;
     if (!doc?.body || !win || doc.documentElement.dataset.demoScreen) return;
@@ -84,13 +84,29 @@
     win.addEventListener('hashchange', update);
     doc.addEventListener('focusin', update);
     doc.addEventListener('rr:header-reset', update);
+    let pendingAssets = 2;
+    let revealed = false;
+    function revealWhenReady() {
+      if (!revealed && !pendingAssets && doc.querySelector('main h1, main h2, main h3')) {
+        revealed = true;
+        reveal();
+      }
+    }
+    function assetSettled() {
+      pendingAssets--;
+      revealWhenReady();
+    }
     style.addEventListener('load', update, { once: true });
+    style.addEventListener('load', assetSettled, { once: true });
+    style.addEventListener('error', assetSettled, { once: true });
     doc.head.append(style);
     const controls = doc.createElement('script');
     controls.src = new URL('header.js', base).href;
+    controls.addEventListener('load', assetSettled, { once: true });
+    controls.addEventListener('error', assetSettled, { once: true });
     doc.head.append(controls);
     // Routes replace React roots and detail sheets can open without a scroll.
-    const observer = new win.MutationObserver(update);
+    const observer = new win.MutationObserver(() => { update(); revealWhenReady(); });
     observer.observe(doc.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['class'] });
     update();
   }
@@ -99,19 +115,33 @@
     const key = host.dataset.app;
     if (!Object.hasOwn(products, key) || host.querySelector('iframe')) return;
     const product = products[key];
-    const device = document.createElement('div');
-    device.className = 'demo-device';
-    const screen = document.createElement('div');
-    screen.className = 'demo-display';
+    let screen = host.querySelector('.demo-display');
+    if (!screen) {
+      // Also support demo hosts inserted without server-rendered preview markup.
+      const device = document.createElement('div');
+      device.className = 'demo-device';
+      screen = document.createElement('div');
+      screen.className = 'demo-display';
+      const poster = new Image();
+      poster.className = 'demo-poster';
+      poster.alt = product.title;
+      poster.src = new URL('../assets/' + product.poster + '.webp', base).href;
+      screen.append(poster);
+      device.append(screen);
+      host.append(device);
+    }
     const caption = document.createElement('p');
     caption.className = 'demo-caption';
     caption.textContent = 'Попробуйте сами — нажмите на колокольчик или откройте раздел приложения.';
-    device.append(screen);
-    host.append(device, caption);
+    host.append(caption);
     const frame = document.createElement('iframe');
     frame.title = product.title + ' — демоприложение';
     frame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-modals allow-downloads allow-top-navigation-by-user-activation');
-    frame.addEventListener('load', () => installChrome(frame, key));
+    frame.inert = true;
+    frame.addEventListener('load', () => installChrome(frame, key, () => {
+      host.classList.add('demo-ready');
+      frame.inert = false;
+    }));
     function fit() {
       const scale = screen.clientWidth / 390;
       if (!scale) return;
@@ -124,18 +154,30 @@
     screen.append(frame);
   }
 
+  const selector = '.automation-demo[data-app]';
+  const warmGroups = new WeakSet();
+  function warm(group) {
+    warmGroups.add(group);
+    if (group.matches(selector)) mount(group);
+    else group.querySelectorAll(selector).forEach(mount);
+  }
   const observer = new IntersectionObserver(entries => {
     for (const entry of entries) {
-      if (entry.isIntersecting && entry.intersectionRect.width && entry.intersectionRect.height) {
+      if (entry.isIntersecting) {
         observer.unobserve(entry.target);
-        mount(entry.target);
+        warm(entry.target);
       }
     }
-  });
+  }, { rootMargin: '1200px 0px' });
+  function watch(host) {
+    const group = host.closest('#cases') || host;
+    if (warmGroups.has(group)) mount(host);
+    else observer.observe(group);
+  }
   function register(node) {
     if (!(node instanceof Element)) return;
-    if (node.matches('.automation-demo[data-app]')) observer.observe(node);
-    node.querySelectorAll('.automation-demo[data-app]').forEach(host => observer.observe(host));
+    if (node.matches(selector)) watch(node);
+    node.querySelectorAll(selector).forEach(watch);
   }
   register(document.documentElement);
   new MutationObserver(records => {

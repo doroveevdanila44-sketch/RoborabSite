@@ -83,9 +83,10 @@
   if (!reduce && 'IntersectionObserver' in window) {
     var sel = ['.sh','.panel-art','.cols3>div','.ditem','.tabs','.steps li','.way','.faqlist details',
                '.cta .box>div','#lead','#sheet .lab','.dsub','.cols3>div>span','.ditem p','.steps p','.way p',
-               '.product-heading .tag','.pilot-copy li','.cta .box p'].join(',');
+               '.pilot-copy li','.cta .box p'].join(',');
     var seenP = new Map(), targets = [].slice.call(document.querySelectorAll(sel));
-    var headings = [].slice.call(document.querySelectorAll('#sheet h2.t,#sheet h3,#sheet .product h4,#sheet .cols3 b'));
+    var headings = [].slice.call(document.querySelectorAll('#sheet h2.t,#sheet h3,#sheet .cols3 b'))
+      .filter(function(heading){ return !heading.closest('#cgrid'); });
     headings.forEach(function(heading){
       var walker = document.createTreeWalker(heading, NodeFilter.SHOW_TEXT), nodes = [], index = 0;
       while (walker.nextNode()) nodes.push(walker.currentNode);

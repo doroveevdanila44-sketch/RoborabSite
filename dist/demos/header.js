@@ -129,6 +129,10 @@
     const link = el('a', 'rr-support-cta', 'Перейти в чат бесплатной диагностики');
     link.href = diagnosticsURL;
     link.target = '_top';
+    const mark = el('span', 'rr-support-cta-icon');
+    mark.setAttribute('aria-hidden', 'true');
+    mark.innerHTML = svg('chat');
+    link.append(mark);
     dialogList.replaceChildren(example, thread, link);
   }
 
@@ -151,6 +155,8 @@
       dialog.append(head, dialogList);
       document.body.append(dialog);
       dialog.addEventListener('close', () => {
+        const status = dialog.querySelector(':scope > .rr-demo-status');
+        if (status) document.body.append(status);
         const focusControl = opener;
         const selector = mode === 'messages' ? '[data-demo-messages]' : '[data-demo-bell]';
         if (returnRoute && activeRoute() === dataRoute) location.hash = returnRoute;
@@ -169,7 +175,11 @@
     dialogTitle.textContent = mode === 'messages' ? 'Поддержка' : 'Уведомления';
     returnRoute = mode === 'alerts' && activeRoute() !== dataRoute ? activeRoute() : null;
     if (returnRoute) location.hash = dataRoute;
-    if (mode === 'messages') drawConversation();
+    if (mode === 'messages') {
+      const status = document.querySelector('body > .rr-demo-status');
+      if (status) dialog.prepend(status);
+      drawConversation();
+    }
     else drawList();
     dialogList.scrollTop = 0;
     dialog.showModal();

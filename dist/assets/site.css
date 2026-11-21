@@ -742,7 +742,14 @@ h1.big{max-width:100%}
 .pc-app{position:absolute;inset:0;background:#f4f5f7;overflow:hidden}
 .pc-app.pre .pc-hdr,.pc-app.pre [data-rr-from],.pc-app.pre [data-slide],.pc-app.pre .pc-dock i,.pc-app.pre .pc-cb{opacity:0}
 .pc-hdr{position:absolute;left:0;right:0;top:0;height:118px;background:#141414;border-radius:0 0 30px 30px;color:#fff;z-index:5}
-.pc-wm{position:absolute;left:18px;bottom:20px;font:900 22px/1 var(--f-body,'Inter'),system-ui,sans-serif;letter-spacing:-.02em}
+@font-face{
+  font-family:'ROBORAB wordmark';
+  src:url('/demos/booking/fonts/montserrat-italic.woff') format('woff');
+  font-style:italic;
+  font-weight:900;
+  font-display:swap;
+}
+.pc-wm{position:absolute;left:18px;bottom:20px;font:italic 900 22px/1 'ROBORAB wordmark',system-ui,sans-serif;letter-spacing:-.02em}
 .pc-gear,.pc-cb{position:absolute;bottom:16px;width:34px;height:34px;display:grid;place-items:center;color:#fff}.pc-gear{right:14px;z-index:2;background:#141414;border-radius:50%}.pc-cb{right:52px}
 .pc-hdr svg{width:20px;height:20px}
 .pc-cb::after{content:'';position:absolute;top:5px;right:5px;width:7px;height:7px;border-radius:50%;background:#0a84ff;box-shadow:0 0 0 2px #141414}
@@ -934,3 +941,4 @@ h1.big{max-width:100%}
 #solution-catalog .rr-price-time strong{color:#141414;font-weight:650}
 
 #solution-catalog .rr-price-currency{font-size:.62em;font-weight:550;letter-spacing:0}
+#solution-catalog .rr-price-card > .btn{align-self:flex-start;margin-top:20px}
