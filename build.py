@@ -35,7 +35,7 @@ ABOUT = (
     'В каталоге указаны начальные цены на CRM и ERP, голосовых и чат-агентов, веб-разработку и услуги SEO и GEO. '
     'Подключаем таблицы, базы данных, 1С, «Мой склад» и другие CRM-системы.'
 )
-CHAT = 'https://roborab-app.vercel.app/?lang=ru'
+CHAT = os.environ.get('CHAT_URL', 'https://chat.roborab.com').rstrip('/') + '/?lang=ru'
 ORG = {'@id': HOME + '#organization'}
 WEBSITE = {'@id': HOME + '#website'}
 
@@ -98,7 +98,7 @@ def read_products(markup):
         features = re.search(r'<ul class="feats[^"]*">(.*?)</ul>', section, re.S)[1]
         status = re.search(r'<span class="product-status">(.*?)</span>', section)
         product = details[key]
-        path = '/solutions/' + product['slug']
+        path = '/solutions/' + product['slug'] + '/'
         products[key] = {
             **product, 'key': key, 'path': path, 'url': SITE + path, 'name': html.unescape(name),
             'tag': html.unescape(tag), 'chat': html.unescape(re.search(r'<a class="btn" href="([^"]+)"', section)[1]),
@@ -407,7 +407,8 @@ def build(out):
     for item in products:
         title = f'{item["title"]} — {BRAND} (roborab)'
         other_links = solution_links(other for other in products if other is not item)
-        (out / 'solutions' / (item['slug'] + '.html')).write_text(
+        (out / 'solutions' / item['slug']).mkdir()
+        (out / 'solutions' / item['slug'] / 'index.html').write_text(
             document(title, item['description'], item['url'],
                      schema(title, item['description'], item['url'], products, product=item),
                      product_page(item, other_links), css_url, analytics=analytics_url, metrika=metrika_url), encoding='utf-8')
