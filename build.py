@@ -4,6 +4,7 @@ import hashlib
 import html
 import json
 import os
+from io import BytesIO
 from pathlib import Path
 import re
 import shutil
@@ -243,11 +244,11 @@ DEMO_APPS = {'booking': 'booking', 'build': 'construction', 'tax': 'tax', 'catal
 
 def demo_phone(product):
     app = DEMO_APPS[product['key']]
-    route = '#calendar' if app == 'booking' else ''
+    route = '#objects' if app == 'booking' else ''
     title = html.escape(product['name'])
     return f"""<div class="automation-demo" data-app="{app}">
       <div class="demo-device"><div class="demo-display">
-        <iframe src="/demos/{app}/app.html{route}" title="{title} — демоприложение" loading="lazy"
+        <iframe src="/demos/{app}/app.html{route}" title="{title} — демоприложение" loading="eager"
           sandbox="allow-scripts allow-same-origin allow-modals allow-downloads allow-top-navigation-by-user-activation"></iframe>
         <button class="demo-retry" type="button" hidden>Повторить загрузку</button>
       </div></div>
@@ -338,6 +339,17 @@ def build(out):
     assets = out / 'assets'
     assets.mkdir()
     shutil.copytree(ROOT / 'demos', out / 'demos')
+    # Ship listing photos with the demo so opening a card needs no image requests.
+    booking = out / 'demos/booking'
+    page = booking / 'app.html'
+    markup = page.read_text(encoding='utf-8')
+    for photo in sorted((booking / 'img').glob('*.jpg')):
+        with Image.open(photo) as image, BytesIO() as encoded:
+            image.thumbnail((700, 700))
+            image.save(encoded, 'WEBP', quality=80)
+            data = b64encode(encoded.getvalue()).decode('ascii')
+        markup = markup.replace(f'"img/{photo.name}"', f'"data:image/webp;base64,{data}"')
+    page.write_text(markup, encoding='utf-8')
     (out / 'design').mkdir()
     shutil.copyfile(ROOT / 'design/banner-colors.css', out / 'design/banner-colors.css')
     for _f in ('miratrix.woff2', 'miratrix-OFL.txt', 'inter-cyrillic.woff2', 'inter-latin.woff2', 'inter-OFL.txt'):
