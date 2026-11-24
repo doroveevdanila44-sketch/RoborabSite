@@ -942,3 +942,5 @@ h1.big{max-width:100%}
 
 #solution-catalog .rr-price-currency{font-size:.62em;font-weight:550;letter-spacing:0}
 #solution-catalog .rr-price-card > .btn{align-self:flex-start;margin-top:20px}
+
+#solution-catalog .rr-addon-condition{margin:auto 0 0;padding:12px 16px;border-left:4px solid var(--sky);border-radius:8px;background:#141414;color:#fff;font:550 14px/1.45 var(--f,Inter,sans-serif)}

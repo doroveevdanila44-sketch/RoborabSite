@@ -117,7 +117,9 @@
     function reload() {
       clearTimeout(checkTimer);
       retry.hidden = true;
-      frame.src = frame.src;
+      const next = new URL(frame.src);
+      next.searchParams.set('retry', String(Date.now()));
+      frame.src = next.href;
     }
 
     function check() {
