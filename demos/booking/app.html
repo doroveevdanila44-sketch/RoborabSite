@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-demo-app="booking">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -30,7 +30,7 @@
   --soft: color-mix(in srgb, #141414 9%, #ffffff);
   --soft-2: color-mix(in srgb, #141414 16%, #ffffff);
   --pressed: color-mix(in srgb, #141414 82%, #000000);
-  --on-violet: rgb(255 255 255 / 0.74);
+  --on-violet: var(--on-banner);
   --warn: #c98617;
   --warn-soft: color-mix(in srgb, #e0a33c 16%, #ffffff);
   --danger: #d2483a;
@@ -130,7 +130,7 @@ main {
 .grid-2 { display: grid; gap: 28px; }
 @media (min-width: 1100px) { .grid-2 { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: start; } }
 
-/* Плитки: фиолетовые, цифра лаймом */
+/* Показатели наследуют цвет текста своей плитки. */
 .tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 @media (min-width: 640px) { .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .tile {
@@ -144,7 +144,7 @@ main {
   border: 0;
   border-radius: 28px;
   background: var(--rr-violet);
-  color: #fff;
+  color: var(--on-banner);
   text-align: left;
   transition: transform .3s var(--rr-ease), background .3s var(--rr-ease);
 }
@@ -152,12 +152,11 @@ main {
 .tile-count {
   font: italic 900 clamp(34px, 30cqi, 56px)/1 var(--rr-display);
   letter-spacing: -.04em;
-  color: var(--rr-lime);
+  color: inherit;
   font-variant-numeric: tabular-nums;
 }
 .tile-note { font-size: 13px; color: var(--on-violet); }
-.tile--ink { background: var(--rr-lime); }
-.tile--ink .tile-count { color: #fff; }
+.tile--ink { background: var(--sky); }
 .tile--light { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
 .tile--light .tile-count { color: var(--rr-violet); }
 .tile--light .tile-note { color: var(--text-2); }
@@ -191,12 +190,12 @@ main {
 .empty { padding: 28px 16px; text-align: center; color: var(--text-3); }
 
 /* Денежная карточка */
-.money { background: var(--rr-violet); border-color: transparent; color: #fff; }
+.money { background: var(--rr-violet); border-color: transparent; color: var(--on-banner); }
 .money .meta, .money .muted { color: var(--on-violet); }
 .money-value {
   font: italic 900 clamp(34px, 8vw, 52px)/1.04 var(--rr-display);
   letter-spacing: -.04em;
-  color: var(--rr-lime);
+  color: inherit;
   font-variant-numeric: tabular-nums;
   overflow-wrap: anywhere;
 }
@@ -522,6 +521,7 @@ main {
 .plat-logo.has-img img { display: block; width: 100%; height: 100%; padding: 6px; object-fit: contain; }
 
 </style>
+<link rel="stylesheet" href="../../design/banner-colors.css">
 </head>
 <body>
 <script>
