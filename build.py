@@ -203,8 +203,10 @@ def document(title, description, url, structured_data, body, stylesheet, script=
     head += f'<link rel="stylesheet" href="{stylesheet}">\n'
     head += f'<script type="application/ld+json">{structured_data}</script>\n'
     if 'class="automation-demo"' in body:
-        head += '<link rel="stylesheet" href="/demos/phone.css">\n'
-        head += '<script src="/demos/phone.js" defer></script>\n'
+        phone_css = hashlib.sha256((ROOT / 'demos/phone.css').read_bytes()).hexdigest()[:8]
+        phone_js = hashlib.sha256((ROOT / 'demos/phone.js').read_bytes()).hexdigest()[:8]
+        head += f'<link rel="stylesheet" href="/demos/phone.css?v={phone_css}">\n'
+        head += f'<script src="/demos/phone.js?v={phone_js}" defer></script>\n'
     if script:
         head += f'<script src="{script}" defer></script>\n'
     if metrika:
@@ -236,16 +238,21 @@ SHOTS = {
 SHOT_URLS = {}
 
 
-def shots_section(product):
-    items = SHOTS.get(product['key'])
-    if not items:
-        return ''
-    figures = '\n'.join(
-        f'        <li><figure><img src="{SHOT_URLS[name]}" width="320" height="694" loading="lazy" decoding="async" '
-        f'alt="{html.escape(product["name"])} РОБОРАБ: {html.escape(caption)}"><figcaption>{html.escape(caption)}</figcaption></figure></li>'
-        for name, caption in items)
-    return (f'    <section class="pshots" aria-label="Скриншоты">\n      <h2>Как выглядит в приложении</h2>\n'
-            f'      <ul class="shot-row">\n{figures}\n      </ul>\n    </section>\n')
+DEMO_APPS = {'booking': 'booking', 'build': 'construction', 'tax': 'tax', 'catalog': 'fitness'}
+
+
+def demo_phone(product):
+    app = DEMO_APPS[product['key']]
+    route = '#calendar' if app == 'booking' else ''
+    title = html.escape(product['name'])
+    return f"""<div class="automation-demo" data-app="{app}">
+      <div class="demo-device"><div class="demo-display">
+        <iframe src="/demos/{app}/app.html{route}" title="{title} — демоприложение" loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-modals allow-downloads allow-top-navigation-by-user-activation"></iframe>
+        <button class="demo-retry" type="button" hidden>Повторить загрузку</button>
+      </div></div>
+      <p class="demo-caption">Попробуйте сами — нажмите на колокольчик или откройте раздел приложения.</p>
+    </div>"""
 
 
 def product_page(product, links):
@@ -253,6 +260,9 @@ def product_page(product, links):
     features = '\n'.join(f'        <li>{html.escape(item)}</li>' for item in product['features'])
     badge = f'    <span class="product-status">{p["status"]}</span>\n' if p['status'] else ''
     feature_heading = 'Что планируем' if p['status'] else 'Возможности'
+    demo = ''
+    if product['key'] in DEMO_APPS:
+        demo = f"    <section>\n      <h2>Попробуйте приложение</h2>\n      {demo_phone(product)}\n    </section>\n"
     example_heading = 'Пример работы после запуска' if p['status'] else 'Как это выглядит в работе'
     return f"""<body>
 <main class="c solution-page">
@@ -260,7 +270,7 @@ def product_page(product, links):
   <article>
 {badge}    <h1>{p['title']}</h1>
     <p class="intro-copy">{p['description']}</p>
-{shots_section(product)}    <section>
+{demo}    <section>
       <h2>Кому подходит</h2>
       <p>{p['audience']}</p>
     </section>
@@ -328,6 +338,8 @@ def build(out):
     assets = out / 'assets'
     assets.mkdir()
     shutil.copytree(ROOT / 'demos', out / 'demos')
+    (out / 'design').mkdir()
+    shutil.copyfile(ROOT / 'design/banner-colors.css', out / 'design/banner-colors.css')
     for _f in ('miratrix.woff2', 'miratrix-OFL.txt', 'inter-cyrillic.woff2', 'inter-latin.woff2', 'inter-OFL.txt'):
         (assets / _f).write_bytes((source_assets / _f).read_bytes())
 
@@ -352,6 +364,10 @@ def build(out):
 
     products_markup = read_piece('products.html')
     products = read_products(products_markup + read_piece('services.html'))
+    for item in products:
+        if item['key'] in DEMO_APPS:
+            placeholder = '{{DEMO_' + DEMO_APPS[item['key']] + '}}'
+            products_markup = products_markup.replace(placeholder, demo_phone(item))
     faq_markup = read_piece('faq.html').replace('{{ABOUT}}', html.escape(ABOUT))
     faq = [
         (html.unescape(question), html.unescape(answer))
@@ -371,6 +387,7 @@ def build(out):
 
     css = '\n'.join(read_piece(name) for name in ('new.css', 'css_dialogs.css', 'css_dl.css', 'css_theme.css', 'pricing.css'))
     js = '\n'.join(read_piece(name) for name in ('js_dialogs.js', 'js_reveal.js', 'new.js', 'pricing.js'))
+    css = (ROOT / 'design/banner-colors.css').read_text() + '\n' + css
     image_vars = []
     for name in sorted(set(re.findall(r'var\(--img-([a-z0-9-]+)\b', css + body))):
         image_vars.append(f'  --img-{name}:url({webp_url(name)});')

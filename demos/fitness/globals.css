@@ -1025,11 +1025,11 @@ html:has(.splash) body {
 
 .tile--tone-0 {
   background: var(--rr-violet);
-  color: #fff;
+  color: var(--on-banner);
 }
 .tile--tone-1 {
-  background: var(--rr-lime);
-  color: #ffffff;
+  background: var(--sky);
+  color: var(--on-banner);
 }
 .tile--tone-2 {
   background: #fff;
@@ -1038,11 +1038,10 @@ html:has(.splash) body {
 }
 .tile--tone-3 {
   background: var(--deep);
-  color: #fff;
+  color: var(--on-banner);
 }
 .tile .tertiary {
   color: inherit;
-  opacity: .76;
 }
 .tile-title {
   font-family: var(--f);
@@ -1060,35 +1059,23 @@ html:has(.splash) body {
   line-height: 1;
   font-variant-numeric: tabular-nums;
 }
-.tile--tone-0 .tile-count,
-.tile--tone-3 .tile-count { color: var(--rr-lime); }
-.tile--tone-2 .tile-count { color: var(--rr-violet); }
 
 /* Выбранный тариф остаётся заметным на любом фоне. */
 .card.tile[data-card-selected="true"] {
   outline: 3px solid var(--rr-ink);
   outline-offset: -3px;
 }
-/* Деньги: баклажановая карточка, сумма фисташковая. */
-
+/* Денежная сводка на чёрной плашке. */
 .money {
   background: var(--brand-plum);
   border-color: transparent;
-  color: #ffffff;
+  color: var(--on-banner);
 }
 
 .money .muted,
-.money .tertiary {
-  color: var(--on-plum);
-}
-
+.money .tertiary,
 .money .money-total-value {
-  color: var(--brand-pistachio);
-}
-
-/* «Выплата не задана» это не сумма, фисташкой её подсвечивать не за что. */
-.money .money-total-value--muted {
-  color: var(--on-plum);
+  color: inherit;
 }
 
 .money .money-conversion {

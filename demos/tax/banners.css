@@ -1,0 +1,12 @@
+.sum-card[data-card="profit"],
+.sum-detail[data-card="profit"] {
+  background: var(--sky);
+}
+.sum-card:not([data-card="vatForecast"]),
+.sum-detail:not([data-card="vatForecast"]) {
+  color: var(--on-banner);
+}
+.sum-card:not([data-card="vatForecast"]) :is(.sum-label, .sum-sub, .src-line),
+.sum-detail[data-card="profit"] :is(h3, h4, li, .sum-row-name small, .sum-note, .sum-more) {
+  color: inherit;
+}

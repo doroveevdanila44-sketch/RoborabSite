@@ -107,6 +107,8 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
   function pick(i){
     var id = tabs[i].dataset.t;
     prods.forEach(function(p){ p.classList.toggle('on', p.id === id); });
+    var frame = document.getElementById(id).querySelector('.demo-display iframe');
+    if (frame) frame.loading = 'eager';
     tabs.forEach(function(t, k){ t.setAttribute('aria-selected', k === i ? 'true' : 'false'); t.tabIndex = k === i ? 0 : -1; });
   }
   if (tabs.length && tabs.length === prods.length) {
@@ -485,7 +487,13 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
     function wait(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
     function later(f, ms){ timers.push(setTimeout(f, ms)); }
     function A(el, kf, o){ var a = el.animate(kf, Object.assign({fill:'both', easing:IO}, o)); anims.push(a); return a; }
-    function fit(){ while (box.children.length > 1 && box.scrollHeight > box.clientHeight + 1) box.firstChild.remove(); }
+    function fit(){
+      while (box.children.length > 1 && box.scrollHeight > box.clientHeight + 1) {
+        var oldest = box.querySelector('.pm:not(.card)');
+        if (!oldest || oldest === box.lastElementChild) break;
+        oldest.remove();
+      }
+    }
     function add(who, text){
       var d = document.createElement('div');
       if (who === 'card') { d.className = 'pm card'; d.innerHTML = '<span class="k">Решение</span><b>Фитнес-CRM</b><small>Ваша база клиентов уже внутри</small>'; }
