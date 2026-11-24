@@ -254,6 +254,7 @@ def product_page(product, links):
     badge = f'    <span class="product-status">{p["status"]}</span>\n' if p['status'] else ''
     feature_heading = 'Что планируем' if p['status'] else 'Возможности'
     example_heading = 'Пример работы после запуска' if p['status'] else 'Как это выглядит в работе'
+    channels = read_piece('booking-channels.html') if product['key'] == 'booking' else ''
     return f"""<body>
 <main class="c solution-page">
   <nav aria-label="Навигация"><a class="lnk" href="/">РОБОРАБ</a> <a class="lnk" href="/#cases">Примеры</a> <a class="lnk" href="/#solution-catalog">Каталог решений</a></nav>
@@ -274,7 +275,7 @@ def product_page(product, links):
       <h2>{example_heading}</h2>
       <p>{p['example']}</p>
     </section>
-    <a class="btn" href="{p['chat']}">Обсудить задачу в чате</a>
+{channels}    <a class="btn" href="{p['chat']}">Обсудить задачу в чате</a>
   </article>
   <nav class="solution-links" aria-label="Другие решения РОБОРАБ">
     <ul>
