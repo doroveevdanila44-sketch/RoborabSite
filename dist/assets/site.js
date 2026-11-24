@@ -437,7 +437,7 @@ st.addEventListener('click',function(e){var r=st.getBoundingClientRect();go(e.cl
       ['me', 'Сдаю 4 квартиры посуточно, путаюсь в бронях'],
       ['bot', 'Понял. На скольких площадках объявления?'],
       ['me', 'Авито и Суточно'],
-      ['bot', 'Подойдёт Букинг-CRM: даты закроются на обеих площадках сами.']
+      ['bot', 'Начнём с одной квартиры. Проверим, принимают ли обе площадки ссылку на её календарь.']
     ];
     function wait(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
     function add(who, text){ var d = document.createElement('div'); d.className = 'dmsg' + (who === 'me' ? ' me' : ''); d.textContent = text; box.appendChild(d); fit(); return d; }
